@@ -1,0 +1,98 @@
+{
+  "repo": "claude-skills",
+  "branch": "feat/full-gate-metrics",
+  "sha": "a14ad7a",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T16:17:14Z",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "performance",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:08:25Z",
+      "files_checked": 0,
+      "violations": 0
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:54:56Z",
+      "coverage_tool": "py",
+      "below_threshold": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:08:26Z",
+      "violations": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:55:17Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:08:24Z",
+      "files_checked": 3,
+      "violations": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:08:31Z",
+      "failures": 0
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-18T17:37:29Z",
+      "findings": 0,
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      }
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:55:16Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:08:31Z",
+      "scanned_files": 0,
+      "violations": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T15:54:55Z",
+      "fingerprint": "2182ea5d50c8b6d5897859cf8e7fa0bb",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0
+    }
+  }
+}
