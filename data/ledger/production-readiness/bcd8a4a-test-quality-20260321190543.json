@@ -1,0 +1,60 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "bcd8a4a",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:05:43Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:43Z",
+      "scanned_files": 24,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 17,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do"
+        },
+        {
+          "file": "test/integration/authentication_integration_test.rb",
+          "line": 29,
+          "pattern": ".stub() on own method",
+          "code": "    ENV.stub(:fetch, secret) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 37,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 54,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 70,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        }
+      ]
+    }
+  },
+  "gate_name": "test-quality"
+}
