@@ -1,0 +1,39 @@
+{
+  "repo": "claude-skills",
+  "branch": "feat/block-merge-without-ci-2",
+  "sha": "13e4839",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T17:51:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T17:51:00Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_require_critic_approval.sh:117:7: note: Expressions don't expand in single quotes, use double quotes for that. [SC2016]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_require_critic_approval.sh\n"
+        }
+      ]
+    }
+  },
+  "gate_name": "lint"
+}
