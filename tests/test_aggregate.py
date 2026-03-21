@@ -154,6 +154,12 @@ class TestBuildPayload:
         assert "per_gate_stats" in payload
         assert "per_gate_per_repo" in payload
         assert "violation_trends" in payload
+        assert "findings_summary" in payload
+        assert "timing_stats" in payload
+        assert "fix_cycles" in payload
+        assert "phase_breakdown" in payload
+        assert "top_violations" in payload
+        assert "recent_failures" in payload
         assert payload["total_records"] == 1
 
     def test_empty_metrics(self):

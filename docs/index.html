@@ -18,6 +18,7 @@
   .card .value.good { color: #3fb950; }
   .card .value.warn { color: #d29922; }
   .card .value.bad { color: #f85149; }
+  .card .card-sub { font-size: 0.75rem; color: #8b949e; margin-top: 0.25rem; }
   .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
   .chart-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1.25rem; margin-bottom: 1rem; }
   .chart-card h2 { font-size: 0.875rem; color: #8b949e; margin-bottom: 1rem; }
@@ -30,25 +31,73 @@
   .bad { color: #f85149; }
   .heat-cell { text-align: center; color: #fff; font-weight: 600; font-size: 0.8rem; }
   .empty { text-align: center; padding: 4rem; color: #8b949e; }
+  .failures-scroll { max-height: 400px; overflow-y: auto; }
   @media (max-width: 768px) { .charts { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <h1>rq Quality Metrics</h1>
-<p class="subtitle">Critic effectiveness across team builds &mdash; updated on every push</p>
+<p class="subtitle">Findings, failures, timing, and fix cycles &mdash; updated on every push</p>
 
+<h2 class="section-heading">Findings Overview</h2>
+<div class="grid" id="findings-cards"></div>
+
+<h2 class="section-heading">Critic Effectiveness</h2>
 <div class="grid" id="summary-cards"></div>
 
 <div class="charts">
   <div class="chart-card">
+    <h2>Findings by Gate</h2>
+    <canvas id="findings-gate-chart"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Top Violation Types</h2>
+    <canvas id="top-violations-chart"></canvas>
+  </div>
+</div>
+
+<div class="charts">
+  <div class="chart-card">
+    <h2>Fix Cycles (Runs to Green)</h2>
+    <canvas id="fix-cycles-chart"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Gate Execution Time (Avg)</h2>
+    <canvas id="gate-timing-chart"></canvas>
+  </div>
+</div>
+
+<div class="charts">
+  <div class="chart-card">
+    <h2>Phase Breakdown (Issues by Phase)</h2>
+    <canvas id="phase-breakdown-chart"></canvas>
+  </div>
+  <div class="chart-card">
     <h2>First-Pass Gate Rate (Daily Trend)</h2>
     <canvas id="trend-chart"></canvas>
   </div>
+</div>
+
+<div class="charts">
   <div class="chart-card">
     <h2>Critic Miss Rate by Gate</h2>
     <canvas id="gate-chart"></canvas>
   </div>
+  <div class="chart-card">
+    <h2>Violation Breakdown (Stacked)</h2>
+    <canvas id="violation-chart"></canvas>
+  </div>
+</div>
+
+<h2 class="section-heading">Recent Failures</h2>
+<div class="chart-card failures-scroll">
+  <table id="recent-failures-table">
+    <thead>
+      <tr><th>Timestamp</th><th>Repository</th><th>Gate</th><th>Violations</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 </div>
 
 <h2 class="section-heading">Gate Health Matrix</h2>
@@ -69,13 +118,9 @@
     <h2>Per-Gate Violation Trends (Daily)</h2>
     <canvas id="gate-trend-chart"></canvas>
   </div>
-  <div class="chart-card">
-    <h2>Violation Breakdown (Stacked)</h2>
-    <canvas id="violation-chart"></canvas>
-  </div>
 </div>
 
-<h2 class="section-heading">Top Offenders</h2>
+<h2 class="section-heading">Gate Statistics</h2>
 <div class="chart-card">
   <h2>Gates sorted by failure rate</h2>
   <table id="offenders-table">
@@ -97,5 +142,6 @@
 </div>
 
 <script src="dashboard.js"></script>
+<script src="dashboard_charts.js"></script>
 </body>
 </html>

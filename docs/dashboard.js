@@ -230,6 +230,9 @@ function initDashboard(data) {
   renderGateTrends(data.per_gate_stats || {}, data.violation_trends || []);
   renderViolationBars(data.violation_trends || []);
   renderTopOffenders(data.per_gate_stats || {});
+  if (typeof initNewCharts === 'function') {
+    initNewCharts(data);
+  }
 }
 
 if (typeof window !== 'undefined') {
@@ -243,5 +246,8 @@ if (typeof window !== 'undefined') {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { gradeColor: gradeColor, heatCellColor: heatCellColor, chartScaleDefaults: chartScaleDefaults, cardHtml: cardHtml };
+  module.exports = {
+    gradeColor: gradeColor, heatCellColor: heatCellColor, chartScaleDefaults: chartScaleDefaults, cardHtml: cardHtml,
+    CHART_COLORS: CHART_COLORS, GATE_PALETTE: GATE_PALETTE, DARK_GRID: DARK_GRID, LABEL_COLOR: LABEL_COLOR, TEXT_COLOR: TEXT_COLOR
+  };
 }

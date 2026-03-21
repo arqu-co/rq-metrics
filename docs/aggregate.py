@@ -11,10 +11,15 @@ import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 
-KNOWN_GATES = [
-    "filesize", "complexity", "dead-code",
-    "lint", "tests", "test-quality", "coverage",
-]
+from aggregate_findings import (
+    compute_findings_summary,
+    compute_fix_cycles,
+    compute_phase_breakdown,
+    compute_recent_failures,
+    compute_timing_stats,
+    compute_top_violations,
+)
+from aggregate_shared import KNOWN_GATES, count_gate_violations
 
 
 def load_metrics(data_dir="data"):
@@ -111,14 +116,8 @@ def compute_per_gate(metrics):
     return gates
 
 
-def _count_gate_violations(gate_data):
-    """Count violations from a single gate's data dict."""
-    for key in ("violations", "failures", "test_failures", "below_threshold"):
-        if key in gate_data:
-            return gate_data[key]
-    if gate_data.get("missing_tests", 0) > 0:
-        return gate_data["missing_tests"]
-    return 0
+# Re-export for backward compatibility with tests
+_count_gate_violations = count_gate_violations
 
 
 def compute_per_gate_stats(metrics):
@@ -204,6 +203,12 @@ def build_payload(metrics):
         "per_gate_stats": compute_per_gate_stats(metrics),
         "per_gate_per_repo": compute_per_gate_per_repo(metrics),
         "violation_trends": compute_violation_trends(metrics),
+        "findings_summary": compute_findings_summary(metrics),
+        "timing_stats": compute_timing_stats(metrics),
+        "fix_cycles": compute_fix_cycles(metrics),
+        "phase_breakdown": compute_phase_breakdown(metrics),
+        "top_violations": compute_top_violations(metrics),
+        "recent_failures": compute_recent_failures(metrics),
         "total_records": len(metrics),
     }
 
