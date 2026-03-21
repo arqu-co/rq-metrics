@@ -6,7 +6,7 @@ Tracks gate pass rates, critic effectiveness, violation trends, and per-reposito
 
 ## Dashboard
 
-Live dashboard: <https://refactored-waffle-y72l6ng.pages.github.io/>
+Live dashboard: <https://arqu-co.github.io/rq-metrics/>
 
 The dashboard displays:
 
