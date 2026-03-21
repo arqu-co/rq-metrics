@@ -1,0 +1,50 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "bcd8a4a",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:05:28Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:28Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/controllers/reports_controller_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 97,
+          "message": "Useless assignment to variable - `overdue_invoice`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/controllers/reports_controller_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 119,
+          "message": "Useless assignment to variable - `current_invoice`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 8,
+          "message": "Unused method argument - `arg2`. If it's necessary, use `_` or `_arg2` as an argument name to indicate that it won't be used. If it's unnecessary, remove it."
+        }
+      ]
+    }
+  },
+  "gate_name": "dead-code"
+}
