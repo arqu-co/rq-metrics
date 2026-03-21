@@ -1,0 +1,36 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "4bcbc84",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:30:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:30:00Z",
+      "scanned_files": 25,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "line": 264,
+          "pattern": ".stub() on own method",
+          "code": "    job.stub(:arguments, poisoned_args) do"
+        }
+      ]
+    }
+  },
+  "gate_name": "test-quality"
+}
