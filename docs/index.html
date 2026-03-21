@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rq Metrics Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; padding: 2rem; }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .subtitle { color: #8b949e; font-size: 0.875rem; margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1.25rem; }
+  .card .label { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card .value { font-size: 2rem; font-weight: 700; margin-top: 0.25rem; }
+  .card .value.good { color: #3fb950; }
+  .card .value.warn { color: #d29922; }
+  .card .value.bad { color: #f85149; }
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .chart-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1.25rem; }
+  .chart-card h2 { font-size: 0.875rem; color: #8b949e; margin-bottom: 1rem; }
+  canvas { max-height: 300px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #21262d; font-size: 0.875rem; }
+  th { color: #8b949e; font-weight: 500; }
+  .empty { text-align: center; padding: 4rem; color: #8b949e; }
+  @media (max-width: 768px) { .charts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>rq Quality Metrics</h1>
+<p class="subtitle">Critic effectiveness across team builds &mdash; updated on every push</p>
+
+<div class="grid" id="summary-cards"></div>
+
+<div class="charts">
+  <div class="chart-card">
+    <h2>First-Pass Gate Rate (Daily Trend)</h2>
+    <canvas id="trend-chart"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Critic Miss Rate by Gate</h2>
+    <canvas id="gate-chart"></canvas>
+  </div>
+</div>
+
+<div class="chart-card" style="margin-bottom: 2rem;">
+  <h2>Per-Repository Breakdown</h2>
+  <table id="repo-table">
+    <thead><tr><th>Repository</th><th>Builds</th><th>First-Pass Rate</th><th>Catch Rate</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+const CHART_COLORS = {
+  green: '#3fb950', yellow: '#d29922', red: '#f85149',
+  blue: '#58a6ff', purple: '#bc8cff', gray: '#8b949e'
+};
+
+function gradeColor(pct) {
+  if (pct >= 80) return 'good';
+  if (pct >= 60) return 'warn';
+  return 'bad';
+}
+
+function renderSummary(s) {
+  const el = document.getElementById('summary-cards');
+  el.innerHTML = `
+    <div class="card"><div class="label">Total Builds</div><div class="value">${s.total_builds}</div></div>
+    <div class="card"><div class="label">First-Pass Rate</div><div class="value ${gradeColor(s.first_pass_rate)}">${s.first_pass_rate}%</div></div>
+    <div class="card"><div class="label">Critic Catches</div><div class="value good">${s.critic_catches}</div></div>
+    <div class="card"><div class="label">Critic Misses</div><div class="value ${s.critic_misses > 0 ? 'warn' : 'good'}">${s.critic_misses}</div></div>
+    <div class="card"><div class="label">Catch Rate</div><div class="value ${gradeColor(s.catch_rate)}">${s.catch_rate}%</div></div>
+  `;
+}
+
+function renderTrend(trends) {
+  const ctx = document.getElementById('trend-chart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: trends.map(t => t.date),
+      datasets: [{
+        label: 'First-Pass Rate %',
+        data: trends.map(t => t.first_pass_rate),
+        borderColor: CHART_COLORS.green,
+        backgroundColor: CHART_COLORS.green + '20',
+        fill: true, tension: 0.3, pointRadius: 3
+      }, {
+        label: 'Catch Rate %',
+        data: trends.map(t => t.catch_rate),
+        borderColor: CHART_COLORS.blue,
+        backgroundColor: CHART_COLORS.blue + '20',
+        fill: true, tension: 0.3, pointRadius: 3
+      }]
+    },
+    options: {
+      scales: {
+        y: { min: 0, max: 100, grid: { color: '#21262d' }, ticks: { color: '#8b949e' } },
+        x: { grid: { color: '#21262d' }, ticks: { color: '#8b949e' } }
+      },
+      plugins: { legend: { labels: { color: '#c9d1d9' } } }
+    }
+  });
+}
+
+function renderGates(gates) {
+  const ctx = document.getElementById('gate-chart').getContext('2d');
+  const names = Object.keys(gates).sort((a, b) => gates[b].miss_rate - gates[a].miss_rate);
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: names.map(n => n.replace('gate-', '').replace('.sh', '')),
+      datasets: [{
+        label: 'Miss Rate %',
+        data: names.map(n => gates[n].miss_rate),
+        backgroundColor: names.map(n => gates[n].miss_rate > 20 ? CHART_COLORS.red : CHART_COLORS.yellow),
+        borderRadius: 3
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      scales: {
+        x: { min: 0, max: 100, grid: { color: '#21262d' }, ticks: { color: '#8b949e' } },
+        y: { grid: { display: false }, ticks: { color: '#c9d1d9' } }
+      },
+      plugins: { legend: { display: false } }
+    }
+  });
+}
+
+function renderRepos(repos) {
+  const tbody = document.querySelector('#repo-table tbody');
+  const sorted = Object.entries(repos).sort((a, b) => b[1].total_builds - a[1].total_builds);
+  tbody.innerHTML = sorted.map(([name, s]) => `
+    <tr>
+      <td>${name}</td>
+      <td>${s.total_builds}</td>
+      <td class="${gradeColor(s.first_pass_rate)}">${s.first_pass_rate}%</td>
+      <td class="${gradeColor(s.catch_rate)}">${s.catch_rate}%</td>
+    </tr>
+  `).join('');
+}
+
+fetch('data.json')
+  .then(r => r.json())
+  .then(data => {
+    renderSummary(data.summary);
+    renderTrend(data.trends);
+    renderGates(data.per_gate);
+    renderRepos(data.per_repo);
+  })
+  .catch(() => {
+    document.getElementById('summary-cards').innerHTML = '<div class="empty">No data yet. Metrics will appear after the first pair-build run.</div>';
+  });
+</script>
+</body>
+</html>
