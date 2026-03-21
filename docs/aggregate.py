@@ -9,13 +9,19 @@ import json
 import os
 import sys
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
+
+KNOWN_GATES = [
+    "filesize", "complexity", "dead-code",
+    "lint", "tests", "test-quality", "coverage",
+]
 
 
 def load_metrics(data_dir="data"):
     """Load all metric files from data directory."""
     metrics = []
-    for filepath in glob.glob(os.path.join(data_dir, "**/*.json"), recursive=True):
+    pattern = os.path.join(data_dir, "**/*.json")
+    for filepath in glob.glob(pattern, recursive=True):
         try:
             with open(filepath) as f:
                 data = json.load(f)
@@ -51,18 +57,22 @@ def compute_summary(metrics):
     }
 
 
-def compute_trends(metrics):
-    """Compute daily trend data."""
+def _group_by_date(metrics):
+    """Group metrics by date string (YYYY-MM-DD)."""
     by_date = defaultdict(list)
     for m in metrics:
         ts = m.get("timestamp", "")
         date = ts[:10] if len(ts) >= 10 else "unknown"
         by_date[date].append(m)
+    return by_date
 
+
+def compute_trends(metrics):
+    """Compute daily trend data."""
+    by_date = _group_by_date(metrics)
     trends = []
     for date in sorted(by_date.keys()):
-        day_metrics = by_date[date]
-        summary = compute_summary(day_metrics)
+        summary = compute_summary(by_date[date])
         summary["date"] = date
         trends.append(summary)
     return trends
@@ -75,10 +85,8 @@ def compute_per_repo(metrics):
         repo = m.get("repo", "unknown")
         by_repo[repo].append(m)
 
-    repos = {}
-    for repo, repo_metrics in by_repo.items():
-        repos[repo] = compute_summary(repo_metrics)
-    return repos
+    return {repo: compute_summary(repo_metrics)
+            for repo, repo_metrics in by_repo.items()}
 
 
 def compute_per_gate(metrics):
@@ -103,20 +111,109 @@ def compute_per_gate(metrics):
     return gates
 
 
+def _count_gate_violations(gate_data):
+    """Count violations from a single gate's data dict."""
+    for key in ("violations", "failures", "test_failures", "below_threshold"):
+        if key in gate_data:
+            return gate_data[key]
+    if gate_data.get("missing_tests", 0) > 0:
+        return gate_data["missing_tests"]
+    return 0
+
+
+def compute_per_gate_stats(metrics):
+    """Per-gate stats: pass rate, avg violations, total runs."""
+    stats = {}
+    for gate in KNOWN_GATES:
+        runs = 0
+        passes = 0
+        total_violations = 0
+        for m in metrics:
+            gates = m.get("gates", {})
+            if gate not in gates:
+                continue
+            runs += 1
+            gate_data = gates[gate]
+            if gate_data.get("status") == "pass":
+                passes += 1
+            total_violations += _count_gate_violations(gate_data)
+
+        stats[gate] = {
+            "runs": runs,
+            "passes": passes,
+            "pass_rate": round(passes / runs * 100, 1) if runs else 0,
+            "total_violations": total_violations,
+            "avg_violations": round(total_violations / runs, 2) if runs else 0,
+        }
+    return stats
+
+
+def compute_per_gate_per_repo(metrics):
+    """Matrix of repo x gate with pass rates."""
+    by_repo = defaultdict(lambda: defaultdict(lambda: {"runs": 0, "passes": 0}))
+    for m in metrics:
+        repo = m.get("repo", "unknown")
+        gates = m.get("gates", {})
+        for gate in KNOWN_GATES:
+            if gate not in gates:
+                continue
+            bucket = by_repo[repo][gate]
+            bucket["runs"] += 1
+            if gates[gate].get("status") == "pass":
+                bucket["passes"] += 1
+
+    matrix = {}
+    for repo, gate_map in by_repo.items():
+        matrix[repo] = {}
+        for gate, counts in gate_map.items():
+            runs = counts["runs"]
+            matrix[repo][gate] = {
+                "runs": runs,
+                "passes": counts["passes"],
+                "pass_rate": (
+                    round(counts["passes"] / runs * 100, 1) if runs else 0
+                ),
+            }
+    return matrix
+
+
+def compute_violation_trends(metrics):
+    """Daily violation counts per gate."""
+    by_date = _group_by_date(metrics)
+    trends = []
+    for date in sorted(by_date.keys()):
+        day_gates = defaultdict(int)
+        for m in by_date[date]:
+            gates = m.get("gates", {})
+            for gate in KNOWN_GATES:
+                if gate in gates:
+                    day_gates[gate] += _count_gate_violations(gates[gate])
+        trends.append({"date": date, "violations": dict(day_gates)})
+    return trends
+
+
+def build_payload(metrics):
+    """Assemble the full dashboard payload from metrics."""
+    return {
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "known_gates": list(KNOWN_GATES),
+        "summary": compute_summary(metrics),
+        "trends": compute_trends(metrics),
+        "per_repo": compute_per_repo(metrics),
+        "per_gate": compute_per_gate(metrics),
+        "per_gate_stats": compute_per_gate_stats(metrics),
+        "per_gate_per_repo": compute_per_gate_per_repo(metrics),
+        "violation_trends": compute_violation_trends(metrics),
+        "total_records": len(metrics),
+    }
+
+
 def main():
     data_dir = sys.argv[1] if len(sys.argv) > 1 else "data"
     output_file = sys.argv[2] if len(sys.argv) > 2 else "docs/data.json"
 
     metrics = load_metrics(data_dir)
-
-    payload = {
-        "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "summary": compute_summary(metrics),
-        "trends": compute_trends(metrics),
-        "per_repo": compute_per_repo(metrics),
-        "per_gate": compute_per_gate(metrics),
-        "total_records": len(metrics),
-    }
+    payload = build_payload(metrics)
 
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, "w") as f:
