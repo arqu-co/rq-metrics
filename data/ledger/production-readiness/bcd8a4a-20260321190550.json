@@ -1,0 +1,170 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "bcd8a4a",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:05:50Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:22Z",
+      "files_checked": 62,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "db/migrate/20260321224955_add_searchable_to_deal.rb",
+          "function": "change",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T17:39:01Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:28Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/controllers/reports_controller_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 97,
+          "message": "Useless assignment to variable - `overdue_invoice`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/controllers/reports_controller_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 119,
+          "message": "Useless assignment to variable - `current_invoice`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 8,
+          "message": "Unused method argument - `arg2`. If it's necessary, use `_` or `_arg2` as an argument name to indicate that it won't be used. If it's unnecessary, remove it."
+        }
+      ]
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:19Z",
+      "files_checked": 62,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "test/services/reconciliation/engine_test.rb",
+          "lines": 344,
+          "max": 300
+        }
+      ]
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:05:33Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:05:43Z",
+      "scanned_files": 24,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 17,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do"
+        },
+        {
+          "file": "test/integration/authentication_integration_test.rb",
+          "line": 29,
+          "pattern": ".stub() on own method",
+          "code": "    ENV.stub(:fetch, secret) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 37,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 54,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 70,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do"
+        }
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:38:50Z",
+      "test_runner": "minitest",
+      "fingerprint": "b30ee6b815b8fa8afa0992df4c1d1d02",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 76767.0
+}
