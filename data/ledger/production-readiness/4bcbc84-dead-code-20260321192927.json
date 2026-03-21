@@ -1,0 +1,43 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "4bcbc84",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:29:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:29:27Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/reconciliation/engine_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 207,
+          "message": "Useless assignment to variable - `bt`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/reconciliation/engine_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 338,
+          "message": "Useless assignment to variable - `bt`."
+        }
+      ]
+    }
+  },
+  "gate_name": "dead-code"
+}
