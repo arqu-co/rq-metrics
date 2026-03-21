@@ -1,0 +1,39 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "1151d74",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:11:13Z",
+  "phase": "build",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:11:12Z",
+      "fingerprint": "3fe3ac85113723da95b150bab3f123b9",
+      "test_runner": "minitest",
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "app/channels/application_cable/connection.rb",
+        "app/mailers/passwords_mailer.rb",
+        "app/models/current.rb",
+        "test/mailers/previews/passwords_mailer_preview.rb"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "gate_name": "tests"
+}
