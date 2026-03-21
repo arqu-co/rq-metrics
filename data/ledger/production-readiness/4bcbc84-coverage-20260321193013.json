@@ -1,0 +1,29 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "4bcbc84",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:30:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:30:12Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    }
+  },
+  "gate_name": "coverage"
+}
