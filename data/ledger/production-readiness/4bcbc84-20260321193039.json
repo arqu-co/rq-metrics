@@ -1,0 +1,131 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "4bcbc84",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:30:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:29:22Z",
+      "files_checked": 63,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:30:12Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:29:27Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/reconciliation/engine_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 207,
+          "message": "Useless assignment to variable - `bt`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/reconciliation/engine_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 338,
+          "message": "Useless assignment to variable - `bt`."
+        }
+      ]
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:29:19Z",
+      "files_checked": 63,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "test/services/reconciliation/engine_test.rb",
+          "lines": 406,
+          "max": 300
+        }
+      ]
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:29:32Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:30:00Z",
+      "scanned_files": 25,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "line": 264,
+          "pattern": ".stub() on own method",
+          "code": "    job.stub(:arguments, poisoned_args) do"
+        }
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:29:50Z",
+      "fingerprint": "d1be39e6362210ac2c042ae505cef237",
+      "test_runner": "minitest",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 78236.0
+}
