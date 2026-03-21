@@ -1,0 +1,108 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "1151d74",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T23:11:24Z",
+  "phase": "build",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:10:47Z",
+      "files_checked": 63,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T17:39:01Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:10:50Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:10:44Z",
+      "files_checked": 63,
+      "violations": 0,
+      "violations_details": []
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:10:55Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T23:11:23Z",
+      "scanned_files": 25,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T23:11:12Z",
+      "fingerprint": "3fe3ac85113723da95b150bab3f123b9",
+      "test_runner": "minitest",
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "app/channels/application_cable/connection.rb",
+        "app/mailers/passwords_mailer.rb",
+        "app/models/current.rb",
+        "test/mailers/previews/passwords_mailer_preview.rb"
+      ],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 77107.0
+}
