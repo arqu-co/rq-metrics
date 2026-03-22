@@ -1,0 +1,36 @@
+{
+  "repo": "claude-skills",
+  "branch": "feat/metrics-schema-contract",
+  "sha": "0992613",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:58:12Z",
+  "phase": "build",
+  "run_number": 1,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:58:11Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_build_payload_contract.py",
+          "name": "collect_metrics_payload",
+          "line": 6
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "gate_name": "dead-code"
+}
