@@ -1,0 +1,72 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "8fe6976",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:05:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:05:23Z",
+      "files_checked": 72,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "function": "obj",
+          "lines": 248,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/services/reconciliation/engine_ap_test.rb",
+          "function": "error_bundle_matcher",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    }
+  },
+  "gate_name": "complexity"
+}
