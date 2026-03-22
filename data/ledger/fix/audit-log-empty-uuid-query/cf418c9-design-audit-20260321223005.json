@@ -1,0 +1,31 @@
+{
+  "repo": "ledger",
+  "branch": "fix/audit-log-empty-uuid-query",
+  "sha": "cf418c9",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T02:30:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    }
+  },
+  "gate_name": "design-audit"
+}
