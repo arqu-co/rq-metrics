@@ -1,14 +1,16 @@
 /* rq Metrics Dashboard — New chart renderers for findings data */
 
 /* In Node.js, pull shared constants from dashboard.js.
-   In the browser, dashboard.js loads first and these are already global. */
-if (typeof require !== 'undefined') {
+   In the browser, dashboard.js loads first and these are already global.
+   IIFE prevents var hoisting from conflicting with const in dashboard.js. */
+(function() {
+  if (typeof require === 'undefined') return;
   var _dash = require('./dashboard.js');
-  if (typeof CHART_COLORS === 'undefined') var CHART_COLORS = _dash.CHART_COLORS;
-  if (typeof DARK_GRID === 'undefined') var DARK_GRID = _dash.DARK_GRID;
-  if (typeof LABEL_COLOR === 'undefined') var LABEL_COLOR = _dash.LABEL_COLOR;
-  if (typeof TEXT_COLOR === 'undefined') var TEXT_COLOR = _dash.TEXT_COLOR;
-}
+  if (typeof CHART_COLORS === 'undefined') { CHART_COLORS = _dash.CHART_COLORS; }
+  if (typeof DARK_GRID === 'undefined') { DARK_GRID = _dash.DARK_GRID; }
+  if (typeof LABEL_COLOR === 'undefined') { LABEL_COLOR = _dash.LABEL_COLOR; }
+  if (typeof TEXT_COLOR === 'undefined') { TEXT_COLOR = _dash.TEXT_COLOR; }
+})();
 
 function findingsCardHtml(label, value, subtitle) {
   return '<div class="card"><div class="label">' + label +
