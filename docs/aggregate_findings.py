@@ -8,12 +8,62 @@ from collections import defaultdict
 from aggregate_shared import count_gate_violations
 
 
-def _extract_violation_details(gate_data):
-    """Extract violation detail list from a gate's data dict."""
-    details = gate_data.get("violation_details", [])
-    if isinstance(details, list):
-        return details
-    return []
+DETAIL_KEYS = (
+    "violations_details",
+    "failures_details",
+    "missing_tests_details",
+    "below_threshold_details",
+    "test_failures_details",
+    "issues_details",
+    "findings_details",
+)
+
+# Map gate names to a human-readable violation type when the detail
+# item doesn't carry its own ``type`` or ``rule`` field.
+GATE_TYPE_MAP = {
+    "filesize": "file_too_large",
+    "complexity": "function_too_complex",
+    "coverage": "coverage_below_threshold",
+    "dead-code": "dead_code",
+}
+
+
+def _extract_violation_details(gate_data, gate_name=""):
+    """Extract violation detail list from a gate's data dict.
+
+    Searches multiple ``*_details`` keys (the payload stores each list-type
+    proof field as ``<key>_details``).  When an individual detail item lacks
+    a ``type`` or ``rule`` field, a synthetic type is derived from the gate
+    name so that downstream grouping always has a label.
+    """
+    details = []
+    for key in DETAIL_KEYS:
+        val = gate_data.get(key)
+        if isinstance(val, list):
+            details.extend(val)
+
+    # Legacy field name (singular) used by older payloads
+    legacy = gate_data.get("violation_details")
+    if isinstance(legacy, list) and not details:
+        details = legacy
+
+    # Normalize: ensure every item is a dict with a usable type/rule label
+    fallback = GATE_TYPE_MAP.get(gate_name, f"{gate_name}_violation") if gate_name else "unknown"
+    normalized = []
+    for item in details:
+        if isinstance(item, str):
+            normalized.append({"type": fallback, "message": item})
+            continue
+        if not isinstance(item, dict):
+            continue
+        if not item.get("type") and not item.get("rule"):
+            if "pattern" in item:
+                item["type"] = item["pattern"]
+            else:
+                item["type"] = fallback
+        normalized.append(item)
+
+    return normalized
 
 
 def compute_findings_summary(metrics):
@@ -27,7 +77,7 @@ def compute_findings_summary(metrics):
             count = count_gate_violations(gate_data)
             if count > 0:
                 by_gate[gate_name] += count
-            for detail in _extract_violation_details(gate_data):
+            for detail in _extract_violation_details(gate_data, gate_name):
                 rule = detail.get("rule") or detail.get("type", "unknown")
                 by_rule[rule] += 1
 
@@ -133,7 +183,7 @@ def compute_top_violations(metrics):
     for m in metrics:
         gates = m.get("gates", {})
         for gate_name, gate_data in gates.items():
-            for detail in _extract_violation_details(gate_data):
+            for detail in _extract_violation_details(gate_data, gate_name):
                 vtype = detail.get("type") or detail.get("rule", "unknown")
                 counts[vtype]["count"] += 1
                 counts[vtype]["gate"] = gate_name
@@ -155,7 +205,7 @@ def compute_recent_failures(metrics):
         for gate_name, gate_data in gates.items():
             if gate_data.get("status") != "fail":
                 continue
-            violations = _extract_violation_details(gate_data)
+            violations = _extract_violation_details(gate_data, gate_name)
             failures.append({
                 "timestamp": m.get("timestamp", ""),
                 "repo": m.get("repo", "unknown"),
