@@ -253,8 +253,61 @@ function renderMeta(data) {
   el.textContent = data.total_records + ' records · updated ' + ts;
 }
 
+/* ── Chart instance tracking (for destroy on re-render) ── */
+var _chartInstances = {};
+
+function destroyCharts() {
+  Object.keys(_chartInstances).forEach(function(id) {
+    if (_chartInstances[id]) { _chartInstances[id].destroy(); }
+  });
+  _chartInstances = {};
+}
+
+/* Patch Chart constructor to track instances by canvas id */
+var _origChart = typeof Chart !== 'undefined' ? Chart : null;
+function TrackedChart(ctx, config) {
+  var canvas = ctx instanceof HTMLCanvasElement ? ctx : ctx.canvas || ctx;
+  var id = canvas.id || canvas.getAttribute('id');
+  if (id && _chartInstances[id]) { _chartInstances[id].destroy(); }
+  var inst = new _origChart(ctx, config);
+  if (id) { _chartInstances[id] = inst; }
+  return inst;
+}
+if (_origChart) {
+  TrackedChart.defaults = _origChart.defaults;
+  TrackedChart.register = _origChart.register;
+}
+
+/* ── Repo filter ─────────────────────────────────── */
+var _fullData = null;
+
+function populateRepoFilter(repos) {
+  var select = document.getElementById('repo-filter');
+  if (!select) return;
+  var current = select.value;
+  select.innerHTML = '<option value="">All repos</option>';
+  (repos || []).forEach(function(repo) {
+    var opt = document.createElement('option');
+    opt.value = repo;
+    opt.textContent = repo;
+    if (repo === current) opt.selected = true;
+    select.appendChild(opt);
+  });
+}
+
+function getFilteredData(data, repo) {
+  if (!repo) return data;
+  var detail = (data.by_repo_detail || {})[repo];
+  if (!detail) return data;
+  var filtered = {};
+  Object.keys(data).forEach(function(k) { filtered[k] = data[k]; });
+  Object.keys(detail).forEach(function(k) { filtered[k] = detail[k]; });
+  return filtered;
+}
+
 /* ── Init ────────────────────────────────────────── */
-function initDashboard(data) {
+function renderDashboard(data) {
+  destroyCharts();
   var gates = data.known_gates || [];
   renderMeta(data);
   renderHero(data.summary);
@@ -270,7 +323,24 @@ function initDashboard(data) {
   }
 }
 
+function initDashboard(data) {
+  _fullData = data;
+  populateRepoFilter(data.repos || Object.keys(data.per_repo || {}));
+  renderDashboard(data);
+
+  var select = document.getElementById('repo-filter');
+  if (select) {
+    select.addEventListener('change', function() {
+      var filtered = getFilteredData(_fullData, this.value);
+      renderDashboard(filtered);
+    });
+  }
+}
+
 if (typeof window !== 'undefined') {
+  /* Replace Chart with tracked version for re-render support */
+  if (_origChart) { Chart = TrackedChart; }
+
   fetch('data.json')
     .then(function(r) { return r.json(); })
     .then(initDashboard)

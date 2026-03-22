@@ -191,11 +191,9 @@ def compute_violation_trends(metrics):
     return trends
 
 
-def build_payload(metrics):
-    """Assemble the full dashboard payload from metrics."""
+def _aggregate_slice(metrics):
+    """Aggregate a single slice of metrics (all repos or one repo)."""
     return {
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "known_gates": list(KNOWN_GATES),
         "summary": compute_summary(metrics),
         "trends": compute_trends(metrics),
         "per_repo": compute_per_repo(metrics),
@@ -211,6 +209,26 @@ def build_payload(metrics):
         "recent_failures": compute_recent_failures(metrics),
         "total_records": len(metrics),
     }
+
+
+def build_payload(metrics):
+    """Assemble the full dashboard payload from metrics."""
+    payload = _aggregate_slice(metrics)
+    payload["generated_at"] = datetime.now(
+        timezone.utc
+    ).strftime("%Y-%m-%dT%H:%M:%SZ")
+    payload["known_gates"] = list(KNOWN_GATES)
+
+    # Per-repo slices for client-side filtering
+    by_repo = defaultdict(list)
+    for m in metrics:
+        by_repo[m.get("repo", "unknown")].append(m)
+    payload["repos"] = sorted(by_repo.keys())
+    payload["by_repo_detail"] = {
+        repo: _aggregate_slice(repo_metrics)
+        for repo, repo_metrics in by_repo.items()
+    }
+    return payload
 
 
 def main():

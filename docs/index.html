@@ -66,6 +66,24 @@
     font-size: 0.7rem;
     color: var(--text-muted);
   }
+  .topbar-right { display: flex; align-items: center; gap: 1rem; }
+  .repo-filter {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    background: var(--bg-raised);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234a5568'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 1.5rem;
+  }
+  .repo-filter:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
 
   /* ── Layout ──────────────────────────────────── */
   .dashboard { padding: 1.5rem 2rem 3rem; }
@@ -236,7 +254,12 @@
 
 <div class="topbar">
   <h1><span>rq</span> quality metrics</h1>
-  <div class="meta" id="meta-info"></div>
+  <div class="topbar-right">
+    <select class="repo-filter" id="repo-filter">
+      <option value="">All repos</option>
+    </select>
+    <div class="meta" id="meta-info"></div>
+  </div>
 </div>
 
 <div class="dashboard">
