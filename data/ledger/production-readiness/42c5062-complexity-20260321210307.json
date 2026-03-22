@@ -1,0 +1,44 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "42c5062",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:03:07Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:03:06Z",
+      "files_checked": 72,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ]
+    }
+  },
+  "gate_name": "complexity"
+}
