@@ -1,0 +1,64 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "8fe6976",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:05:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:05:34Z",
+      "violations": 5,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    }
+  },
+  "gate_name": "dead-code"
+}
