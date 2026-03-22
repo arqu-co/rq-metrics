@@ -1,0 +1,43 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "b83b191",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:24:34Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:24:34Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 241,
+          "message": "Useless assignment to variable - `tv_vt`. Did you mean `tv_tx`?"
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 3585,
+          "message": "Unused block argument - `name`. If it's necessary, use `_` or `_name` as an argument name to indicate that it won't be used."
+        }
+      ]
+    }
+  },
+  "gate_name": "dead-code"
+}
