@@ -1,0 +1,118 @@
+{
+  "repo": "ledger",
+  "branch": "fix/audit-log-empty-uuid-query",
+  "sha": "b55bcb2",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T02:25:12Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T02:24:53Z",
+      "files_checked": 12,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "app/controllers/audit_logs_controller.rb",
+          "function": "index",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/helpers/application_helper.rb",
+          "function": "audit_log_entity_link",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:06:21Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:24:57Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:24:50Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": []
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:25:02Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:25:05Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:03:56Z",
+      "fingerprint": "06f7fa989db5fa21d847c087de6f8365",
+      "test_runner": "minitest",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 88729.0
+}
