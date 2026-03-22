@@ -12,6 +12,41 @@ const GATE_PALETTE = [
   CHART_COLORS.red
 ];
 
+/* ── Stable color map: same label → same color everywhere ── */
+const LABEL_COLORS_MAP = {
+  'filesize': '#34d399',
+  'complexity': '#60a5fa',
+  'dead-code': '#a78bfa',
+  'lint': '#fbbf24',
+  'tests': '#22d3ee',
+  'test-quality': '#fb923c',
+  'coverage': '#f87171',
+  'qa': '#818cf8',
+  'design-audit': '#2dd4bf',
+  'performance': '#c084fc',
+  'all': '#60a5fa',
+  'build': '#34d399',
+  'review': '#fbbf24',
+  'ship': '#22d3ee',
+};
+var _labelColorIdx = 0;
+function colorForLabel(label) {
+  if (LABEL_COLORS_MAP[label]) return LABEL_COLORS_MAP[label];
+  var fallback = GATE_PALETTE[_labelColorIdx % GATE_PALETTE.length];
+  _labelColorIdx++;
+  LABEL_COLORS_MAP[label] = fallback;
+  return fallback;
+}
+function colorsForLabels(labels) {
+  return labels.map(function(l) { return colorForLabel(l); });
+}
+function bordersForLabels(labels) {
+  return labels.map(function(l) { return colorForLabel(l); });
+}
+function fillsForLabels(labels) {
+  return labels.map(function(l) { return colorForLabel(l) + '99'; });
+}
+
 const DARK_GRID = 'rgba(255,255,255,0.04)';
 const LABEL_COLOR = '#4a5568';
 const TEXT_COLOR = '#7a8ba4';
@@ -131,12 +166,8 @@ function renderGates(gates) {
       datasets: [{
         label: 'Miss Rate %',
         data: names.map(function(n) { return gates[n].miss_rate; }),
-        backgroundColor: names.map(function(n) {
-          return gates[n].miss_rate > 20 ? CHART_COLORS.red + '99' : CHART_COLORS.yellow + '99';
-        }),
-        borderColor: names.map(function(n) {
-          return gates[n].miss_rate > 20 ? CHART_COLORS.red : CHART_COLORS.yellow;
-        }),
+        backgroundColor: fillsForLabels(names),
+        borderColor: bordersForLabels(names),
         borderWidth: 1, borderRadius: 3
       }]
     },
@@ -206,12 +237,12 @@ function renderViolationBars(violationTrends) {
   var gates = Object.keys(allGates).sort();
   if (gates.length === 0) return;
   var labels = violationTrends.map(function(t) { return t.date; });
-  var datasets = gates.map(function(gate, i) {
+  var datasets = gates.map(function(gate) {
     return {
       label: gate,
       data: violationTrends.map(function(t) { return (t.violations || {})[gate] || 0; }),
-      backgroundColor: GATE_PALETTE[i % GATE_PALETTE.length] + '99',
-      borderColor: GATE_PALETTE[i % GATE_PALETTE.length],
+      backgroundColor: colorForLabel(gate) + '99',
+      borderColor: colorForLabel(gate),
       borderWidth: 1, borderRadius: 2
     };
   });

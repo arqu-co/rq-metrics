@@ -60,8 +60,8 @@ function renderFindingsByGate(findings) {
       datasets: [{
         label: 'Findings',
         data: names.map(function(n) { return byGate[n]; }),
-        backgroundColor: CHART_COLORS.blue + '99',
-        borderColor: CHART_COLORS.blue,
+        backgroundColor: fillsForLabels(names),
+        borderColor: bordersForLabels(names),
         borderWidth: 1, borderRadius: 3
       }]
     },
@@ -87,8 +87,8 @@ function renderTopViolationTypes(topViolations) {
       datasets: [{
         label: 'Count',
         data: top10.map(function(v) { return v.count; }),
-        backgroundColor: CHART_COLORS.orange + '99',
-        borderColor: CHART_COLORS.orange,
+        backgroundColor: fillsForLabels(top10.map(function(v) { return v.type; })),
+        borderColor: bordersForLabels(top10.map(function(v) { return v.type; })),
         borderWidth: 1, borderRadius: 3
       }]
     },
@@ -158,8 +158,8 @@ function renderGateTimingChart(timingStats) {
       datasets: [{
         label: 'Avg (ms)',
         data: names.map(function(n) { return Math.round(byGate[n].avg_ms || 0); }),
-        backgroundColor: CHART_COLORS.cyan + '99',
-        borderColor: CHART_COLORS.cyan,
+        backgroundColor: fillsForLabels(names),
+        borderColor: bordersForLabels(names),
         borderWidth: 1, borderRadius: 3
       }]
     },
@@ -187,16 +187,16 @@ function renderPhaseBreakdownChart(phaseBreakdown) {
         {
           label: 'Runs',
           data: phases.map(function(p) { return phaseBreakdown[p].runs; }),
-          backgroundColor: CHART_COLORS.blue + '99',
-          borderColor: CHART_COLORS.blue,
+          backgroundColor: fillsForLabels(phases),
+          borderColor: bordersForLabels(phases),
           borderWidth: 1, borderRadius: 3
         },
         {
           label: 'Failures',
           data: phases.map(function(p) { return phaseBreakdown[p].failures; }),
-          backgroundColor: CHART_COLORS.red + '99',
-          borderColor: CHART_COLORS.red,
-          borderWidth: 1, borderRadius: 3
+          backgroundColor: phases.map(function(p) { return colorForLabel(p) + '44'; }),
+          borderColor: bordersForLabels(phases),
+          borderWidth: 1, borderRadius: 3, borderDash: [3, 3]
         }
       ]
     },
