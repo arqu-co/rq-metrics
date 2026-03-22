@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "fix/document-upload-content-type",
+  "sha": "76aa22e",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T20:55:19Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T20:55:19Z",
+      "scanned_files": 10,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/tasks/test_extraction_task.py",
+          "line": 338,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_storage = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/tasks/test_extraction_task.py",
+          "line": 380,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        config = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/tasks/test_extraction_task.py",
+          "line": 471,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_celery_app = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_extraction_service.py",
+          "line": 212,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_extraction_service.py",
+          "line": 219,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    result.validation = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

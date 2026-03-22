@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "fix/document-upload-content-type",
+  "sha": "949c12a",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T20:43:02Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T20:43:01Z",
+      "files_checked": 14,
+      "violations": 28,
+      "violations_details": [
+        {
+          "file": "tests/unit/schematic/test_preflight.py",
+          "function": "TestPreflightEdgeCases",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "test_attachment_propagation_single_cell_sibling",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "test_attachment_propagation_multi_row_ranges",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestExtractFromWorksheetSiblingRangeAttachment",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestExtractFromWorksheetSiblingRangeAttachment",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "test_one_beacon_single_region",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestMediumBSchematicRegression",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestSuperHardSchematicRegression",
+          "lines": 115,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "colored_workbook",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestExtractFromWorksheetComprehensive",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestIsLabelRegion",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestIsBoundaryBetween",
+          "lines": 98,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestDetectUncoloredCarrierBlocksComprehensive",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestGetStyleFingerprint",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/schematic/test_visual.py",
+          "function": "TestDetectUncoloredCarrierBlocksEdgeCases",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/sov/test_building_details_extraction.py",
+          "function": "TestBuildingDetailsExtraction",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/sov/test_integration_patterns.py",
+          "function": "test_multiple_files_processing",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/sov/test_multi_assets_sov_extraction.py",
+          "function": "test_all_expected_fields_present",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/sov/test_multi_assets_sov_extraction.py",
+          "function": "TestMultiAssetsSovExtraction",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/sov/test_quality_fixes.py",
+          "function": "test_specific_address_extraction",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/sov/test_quality_fixes.py",
+          "function": "test_dominion_office_data_extraction",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/sov/test_quality_fixes.py",
+          "function": "TestHighPriorityQualityFixes",
+          "lines": 147,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/sov/test_quality_fixes.py",
+          "function": "TestHighPriorityQualityFixes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/sov/test_quality_fixes.py",
+          "function": "test_field_population_consistency",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/workbench/api/tasks/test_bulk_fact_extraction_task.py",
+          "function": "TestRunBulkFactExtractionInSession",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/tasks/test_extraction_task.py",
+          "function": "TestRunExtractionForExtractionRecord",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/tasks/test_extraction_task.py",
+          "function": "TestRunExtractionSync",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_extraction_service.py",
+          "function": "TestExtractionServiceRealDocuments",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
