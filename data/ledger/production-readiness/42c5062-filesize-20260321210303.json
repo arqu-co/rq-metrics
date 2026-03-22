@@ -1,0 +1,35 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "42c5062",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:03:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:03:02Z",
+      "files_checked": 73,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "lines": 1343,
+          "max": 300
+        }
+      ]
+    }
+  },
+  "gate_name": "filesize"
+}
