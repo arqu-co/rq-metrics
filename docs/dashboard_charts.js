@@ -231,12 +231,12 @@ function renderRecentFailuresTable(failures) {
 
 function initNewCharts(data) {
   renderFindingsCards(data);
-  renderFindingsByGate(data.findings_summary || { by_gate: {} });
-  renderTopViolationTypes(data.top_violations || []);
-  renderFixCyclesChart(data.fix_cycles || { distribution: {} });
-  renderGateTimingChart(data.timing_stats || { by_gate: {} });
-  renderPhaseBreakdownChart(data.phase_breakdown || {});
-  renderRecentFailuresTable(data.recent_failures || []);
+  try { renderFindingsByGate(data.findings_summary || { by_gate: {} }); } catch(e) { console.error('findings-gate:', e); }
+  try { renderTopViolationTypes(data.top_violations || []); } catch(e) { console.error('top-violations:', e); }
+  try { renderFixCyclesChart(data.fix_cycles || { distribution: {} }); } catch(e) { console.error('fix-cycles:', e); }
+  try { renderGateTimingChart(data.timing_stats || { by_gate: {} }); } catch(e) { console.error('gate-timing:', e); }
+  try { renderPhaseBreakdownChart(data.phase_breakdown || {}); } catch(e) { console.error('phase-breakdown:', e); }
+  try { renderRecentFailuresTable(data.recent_failures || []); } catch(e) { console.error('recent-failures:', e); }
 }
 
 if (typeof module !== 'undefined' && module.exports) {

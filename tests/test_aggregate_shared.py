@@ -8,6 +8,7 @@ class TestKnownGates:
         expected = [
             "filesize", "complexity", "dead-code",
             "lint", "tests", "test-quality", "coverage",
+            "qa", "design-audit", "performance",
         ]
         assert KNOWN_GATES == expected
 
@@ -36,6 +37,12 @@ class TestCountGateViolations:
 
     def test_empty_data(self):
         assert count_gate_violations({}) == 0
+
+    def test_findings_key(self):
+        assert count_gate_violations({"findings": 2}) == 2
+
+    def test_issues_key(self):
+        assert count_gate_violations({"issues": 1}) == 1
 
     def test_priority_order(self):
         assert count_gate_violations({"violations": 7, "failures": 3}) == 7

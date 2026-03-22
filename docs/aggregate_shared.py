@@ -3,12 +3,14 @@
 KNOWN_GATES = [
     "filesize", "complexity", "dead-code",
     "lint", "tests", "test-quality", "coverage",
+    "qa", "design-audit", "performance",
 ]
 
 
 def count_gate_violations(gate_data):
     """Count violations from a single gate's data dict."""
-    for key in ("violations", "failures", "test_failures", "below_threshold"):
+    for key in ("violations", "failures", "test_failures",
+                "below_threshold", "findings", "issues"):
         if key in gate_data:
             return gate_data[key]
     if gate_data.get("missing_tests", 0) > 0:
