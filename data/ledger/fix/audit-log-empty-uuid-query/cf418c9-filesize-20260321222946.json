@@ -1,0 +1,29 @@
+{
+  "repo": "ledger",
+  "branch": "fix/audit-log-empty-uuid-query",
+  "sha": "cf418c9",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T02:29:46Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:29:46Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "gate_name": "filesize"
+}
