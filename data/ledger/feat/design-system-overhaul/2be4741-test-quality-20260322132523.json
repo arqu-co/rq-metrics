@@ -1,0 +1,30 @@
+{
+  "repo": "ledger",
+  "branch": "feat/design-system-overhaul",
+  "sha": "2be4741",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T17:25:22Z",
+  "phase": "build",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T17:25:22Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "gate_name": "test-quality"
+}
