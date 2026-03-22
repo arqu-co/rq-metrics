@@ -1,0 +1,34 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "8fe6976",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:06:24Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    }
+  },
+  "gate_name": "qa"
+}
