@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "feat/metrics-schema-contract",
+  "sha": "a090e81",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T17:45:18Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T17:45:18Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
