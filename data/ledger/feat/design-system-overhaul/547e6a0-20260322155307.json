@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "repo": "ledger",
+  "branch": "feat/design-system-overhaul",
+  "sha": "547e6a0",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T19:53:06Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "performance",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:09Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:33Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:12Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:06Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 406000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:16Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:42:20Z",
+      "findings": 0,
+      "findings_details": [],
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      },
+      "duration_ms": 0
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:28Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:25Z",
+      "test_runner": "minitest",
+      "fingerprint": "25803bc14743610e6fb245b4ac5479eb",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 9000
+    }
+  },
+  "duration_seconds": 151397.0
+}
