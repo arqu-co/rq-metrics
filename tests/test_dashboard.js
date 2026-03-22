@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 /**
  * Tests for pure functions exported from docs/dashboard.js.
- *
- * This is a lightweight GitHub Pages dashboard — no build tooling or test
- * framework installed. Tests use Node's built-in assert module.
  */
 
 'use strict';
@@ -15,7 +12,6 @@ var fns = require(path.join(__dirname, '..', 'docs', 'dashboard.js'));
 var gradeColor = fns.gradeColor;
 var heatCellColor = fns.heatCellColor;
 var chartScaleDefaults = fns.chartScaleDefaults;
-var cardHtml = fns.cardHtml;
 
 var passed = 0;
 var failed = 0;
@@ -31,51 +27,51 @@ function test(name, fn) {
   }
 }
 
-// --- gradeColor ---
+// --- gradeColor (returns v-good/v-warn/v-bad for hero metrics) ---
 
-test('gradeColor returns good for >= 80', function() {
-  assert.strictEqual(gradeColor(80), 'good');
-  assert.strictEqual(gradeColor(100), 'good');
-  assert.strictEqual(gradeColor(95), 'good');
+test('gradeColor returns v-good for >= 80', function() {
+  assert.strictEqual(gradeColor(80), 'v-good');
+  assert.strictEqual(gradeColor(100), 'v-good');
+  assert.strictEqual(gradeColor(95), 'v-good');
 });
 
-test('gradeColor returns warn for 60-79', function() {
-  assert.strictEqual(gradeColor(60), 'warn');
-  assert.strictEqual(gradeColor(79), 'warn');
-  assert.strictEqual(gradeColor(70), 'warn');
+test('gradeColor returns v-warn for 60-79', function() {
+  assert.strictEqual(gradeColor(60), 'v-warn');
+  assert.strictEqual(gradeColor(79), 'v-warn');
+  assert.strictEqual(gradeColor(70), 'v-warn');
 });
 
-test('gradeColor returns bad for < 60', function() {
-  assert.strictEqual(gradeColor(59), 'bad');
-  assert.strictEqual(gradeColor(0), 'bad');
-  assert.strictEqual(gradeColor(30), 'bad');
+test('gradeColor returns v-bad for < 60', function() {
+  assert.strictEqual(gradeColor(59), 'v-bad');
+  assert.strictEqual(gradeColor(0), 'v-bad');
+  assert.strictEqual(gradeColor(30), 'v-bad');
 });
 
-// --- heatCellColor ---
+// --- heatCellColor (updated palette) ---
 
 test('heatCellColor returns darkest green for >= 95', function() {
-  assert.strictEqual(heatCellColor(95), '#238636');
-  assert.strictEqual(heatCellColor(100), '#238636');
+  assert.strictEqual(heatCellColor(95), '#166534');
+  assert.strictEqual(heatCellColor(100), '#166534');
 });
 
 test('heatCellColor returns green for 80-94', function() {
-  assert.strictEqual(heatCellColor(80), '#2ea043');
-  assert.strictEqual(heatCellColor(94), '#2ea043');
+  assert.strictEqual(heatCellColor(80), '#15803d');
+  assert.strictEqual(heatCellColor(94), '#15803d');
 });
 
-test('heatCellColor returns yellow for 60-79', function() {
-  assert.strictEqual(heatCellColor(60), '#9e6a03');
-  assert.strictEqual(heatCellColor(79), '#9e6a03');
+test('heatCellColor returns amber for 60-79', function() {
+  assert.strictEqual(heatCellColor(60), '#854d0e');
+  assert.strictEqual(heatCellColor(79), '#854d0e');
 });
 
 test('heatCellColor returns orange for 40-59', function() {
-  assert.strictEqual(heatCellColor(40), '#bd561d');
-  assert.strictEqual(heatCellColor(59), '#bd561d');
+  assert.strictEqual(heatCellColor(40), '#9a3412');
+  assert.strictEqual(heatCellColor(59), '#9a3412');
 });
 
 test('heatCellColor returns red for < 40', function() {
-  assert.strictEqual(heatCellColor(39), '#da3633');
-  assert.strictEqual(heatCellColor(0), '#da3633');
+  assert.strictEqual(heatCellColor(39), '#991b1b');
+  assert.strictEqual(heatCellColor(0), '#991b1b');
 });
 
 // --- chartScaleDefaults ---
@@ -100,22 +96,6 @@ test('chartScaleDefaults handles undefined max', function() {
   var result = chartScaleDefaults(0, undefined);
   assert.strictEqual(result.y.min, 0);
   assert.strictEqual(result.y.max, undefined);
-});
-
-// --- cardHtml ---
-
-test('cardHtml generates correct markup', function() {
-  var html = cardHtml('Total', 42, 'good');
-  assert.ok(html.indexOf('Total') !== -1);
-  assert.ok(html.indexOf('42') !== -1);
-  assert.ok(html.indexOf('good') !== -1);
-  assert.ok(html.indexOf('<div class="card">') !== -1);
-});
-
-test('cardHtml handles empty class', function() {
-  var html = cardHtml('Count', 0, '');
-  assert.ok(html.indexOf('Count') !== -1);
-  assert.ok(html.indexOf('value ') !== -1);
 });
 
 // --- Summary ---

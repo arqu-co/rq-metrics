@@ -3,142 +3,345 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>rq Metrics Dashboard</title>
+<title>rq Quality Metrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
+  :root {
+    --bg-base: #080b10;
+    --bg-surface: #0f1319;
+    --bg-raised: #161c26;
+    --bg-hover: #1c2433;
+    --border: #1e2736;
+    --border-subtle: #151c28;
+    --text-primary: #e1e7ef;
+    --text-secondary: #7a8ba4;
+    --text-muted: #4a5568;
+    --accent: #22d3ee;
+    --accent-dim: rgba(34, 211, 238, 0.12);
+    --green: #34d399;
+    --green-dim: rgba(52, 211, 153, 0.12);
+    --amber: #fbbf24;
+    --amber-dim: rgba(251, 191, 36, 0.12);
+    --red: #f87171;
+    --red-dim: rgba(248, 113, 113, 0.12);
+    --purple: #a78bfa;
+    --blue: #60a5fa;
+    --orange: #fb923c;
+    --mono: 'DM Mono', 'SF Mono', monospace;
+    --sans: 'Outfit', -apple-system, sans-serif;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; padding: 2rem; }
-  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .subtitle { color: #8b949e; font-size: 0.875rem; margin-bottom: 2rem; }
-  .section-heading { font-size: 1.125rem; font-weight: 600; margin: 2rem 0 1rem; color: #c9d1d9; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-  .card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1.25rem; }
-  .card .label { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; }
-  .card .value { font-size: 2rem; font-weight: 700; margin-top: 0.25rem; }
-  .card .value.good { color: #3fb950; }
-  .card .value.warn { color: #d29922; }
-  .card .value.bad { color: #f85149; }
-  .card .card-sub { font-size: 0.75rem; color: #8b949e; margin-top: 0.25rem; }
-  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
-  .chart-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1.25rem; margin-bottom: 1rem; }
-  .chart-card h2 { font-size: 0.875rem; color: #8b949e; margin-bottom: 1rem; }
-  canvas { max-height: 300px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top bar ─────────────────────────────────── */
+  .topbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.5rem 2rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+  }
+  .topbar h1 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .topbar h1 span { color: var(--accent); font-weight: 600; }
+  .topbar .meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Layout ──────────────────────────────────── */
+  .dashboard { padding: 1.5rem 2rem 3rem; }
+
+  /* ── Hero metrics ────────────────────────────── */
+  .hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .hero-metric {
+    background: var(--bg-surface);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-metric.primary {
+    background: linear-gradient(135deg, var(--bg-surface) 0%, #0f1a20 100%);
+  }
+  .hero-metric .label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  .hero-metric .value {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-metric.primary .value { font-size: 3.5rem; }
+  .hero-metric .sub {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+  }
+  .v-good { color: var(--green); }
+  .v-warn { color: var(--amber); }
+  .v-bad { color: var(--red); }
+  .v-neutral { color: var(--text-primary); }
+
+  /* ── Grid layout ─────────────────────────────── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .span-2 { grid-column: span 2; }
+  .span-full { grid-column: 1 / -1; }
+
+  /* ── Panel ───────────────────────────────────── */
+  .panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .panel-head h2 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+  }
+  .panel-head .badge {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    background: var(--bg-raised);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+  }
+  .panel-body { padding: 1rem; }
+  .panel-body.flush { padding: 0; }
+
+  canvas { max-height: 260px; }
+
+  /* ── Tables ──────────────────────────────────── */
   table { width: 100%; border-collapse: collapse; }
-  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #21262d; font-size: 0.875rem; }
-  th { color: #8b949e; font-weight: 500; }
-  .good { color: #3fb950; }
-  .warn { color: #d29922; }
-  .bad { color: #f85149; }
-  .heat-cell { text-align: center; color: #fff; font-weight: 600; font-size: 0.8rem; }
-  .empty { text-align: center; padding: 4rem; color: #8b949e; }
-  .failures-scroll { max-height: 400px; overflow-y: auto; }
-  @media (max-width: 768px) { .charts { grid-template-columns: 1fr; } }
+  th {
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-hover); }
+
+  /* ── Heatmap ─────────────────────────────────── */
+  .heat-cell {
+    text-align: center;
+    font-family: var(--mono) !important;
+    font-weight: 500;
+    font-size: 0.7rem !important;
+    color: #fff !important;
+    padding: 0.4rem 0.5rem !important;
+  }
+
+  /* ── Status colors ───────────────────────────── */
+  .good { color: var(--green); }
+  .warn { color: var(--amber); }
+  .bad { color: var(--red); }
+
+  /* ── Failures scroll ─────────────────────────── */
+  .scroll-body { max-height: 320px; overflow-y: auto; }
+  .scroll-body::-webkit-scrollbar { width: 4px; }
+  .scroll-body::-webkit-scrollbar-track { background: var(--bg-surface); }
+  .scroll-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── Section divider ─────────────────────────── */
+  .section-gap { margin-top: 0.5rem; }
+
+  /* ── Empty state ─────────────────────────────── */
+  .empty { text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.8rem; }
+
+  /* ── Responsive ──────────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr 1fr 1fr; }
+    .hero-metric.primary { grid-column: span 3; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .span-2 { grid-column: span 1; }
+  }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr 1fr; }
+    .hero-metric.primary { grid-column: span 2; }
+    .topbar { flex-direction: column; gap: 0.25rem; }
+    .dashboard { padding: 1rem; }
+  }
 </style>
 </head>
 <body>
 
-<h1>rq Quality Metrics</h1>
-<p class="subtitle">Findings, failures, timing, and fix cycles &mdash; updated on every push</p>
-
-<h2 class="section-heading">Findings Overview</h2>
-<div class="grid" id="findings-cards"></div>
-
-<h2 class="section-heading">Critic Effectiveness</h2>
-<div class="grid" id="summary-cards"></div>
-
-<div class="charts">
-  <div class="chart-card">
-    <h2>Findings by Gate</h2>
-    <canvas id="findings-gate-chart"></canvas>
-  </div>
-  <div class="chart-card">
-    <h2>Top Violation Types</h2>
-    <canvas id="top-violations-chart"></canvas>
-  </div>
+<div class="topbar">
+  <h1><span>rq</span> quality metrics</h1>
+  <div class="meta" id="meta-info"></div>
 </div>
 
-<div class="charts">
-  <div class="chart-card">
-    <h2>Fix Cycles (Runs to Green)</h2>
-    <canvas id="fix-cycles-chart"></canvas>
-  </div>
-  <div class="chart-card">
-    <h2>Gate Execution Time (Avg)</h2>
-    <canvas id="gate-timing-chart"></canvas>
-  </div>
-</div>
+<div class="dashboard">
 
-<div class="charts">
-  <div class="chart-card">
-    <h2>Phase Breakdown (Issues by Phase)</h2>
-    <canvas id="phase-breakdown-chart"></canvas>
+  <!-- Hero KPIs -->
+  <div class="hero" id="hero-strip"></div>
+
+  <!-- Row 1: Trend + Fix Cycles + Gate Timing -->
+  <div class="grid-3">
+    <div class="panel span-2">
+      <div class="panel-head">
+        <h2>First-Pass Rate Trend</h2>
+        <span class="badge" id="trend-period"></span>
+      </div>
+      <div class="panel-body"><canvas id="trend-chart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Fix Cycles</h2></div>
+      <div class="panel-body"><canvas id="fix-cycles-chart"></canvas></div>
+    </div>
   </div>
-  <div class="chart-card">
-    <h2>First-Pass Gate Rate (Daily Trend)</h2>
-    <canvas id="trend-chart"></canvas>
+
+  <!-- Row 2: Findings + Top Violations -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-head"><h2>Findings by Gate</h2></div>
+      <div class="panel-body"><canvas id="findings-gate-chart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Top Violation Types</h2></div>
+      <div class="panel-body"><canvas id="top-violations-chart"></canvas></div>
+    </div>
   </div>
-</div>
 
-<div class="charts">
-  <div class="chart-card">
-    <h2>Critic Miss Rate by Gate</h2>
-    <canvas id="gate-chart"></canvas>
+  <!-- Row 3: Gate Timing + Phase Breakdown -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-head"><h2>Gate Execution Time</h2></div>
+      <div class="panel-body"><canvas id="gate-timing-chart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Phase Breakdown</h2></div>
+      <div class="panel-body"><canvas id="phase-breakdown-chart"></canvas></div>
+    </div>
   </div>
-  <div class="chart-card">
-    <h2>Violation Breakdown (Stacked)</h2>
-    <canvas id="violation-chart"></canvas>
+
+  <!-- Row 4: Violations stacked + Gate health heatmap -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-head"><h2>Violation Breakdown</h2></div>
+      <div class="panel-body"><canvas id="violation-chart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Gate Health Matrix</h2></div>
+      <div class="panel-body flush">
+        <table id="heatmap-table">
+          <thead><tr><th>Repo</th></tr></thead>
+          <tbody id="heatmap-body"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
 
-<h2 class="section-heading">Recent Failures</h2>
-<div class="chart-card failures-scroll">
-  <table id="recent-failures-table">
-    <thead>
-      <tr><th>Timestamp</th><th>Repository</th><th>Gate</th><th>Violations</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
-
-<h2 class="section-heading">Gate Health Matrix</h2>
-<div class="chart-card">
-  <h2>Pass rate per repo per gate (green = 95%+, red = below 40%)</h2>
-  <table id="heatmap-table">
-    <thead>
-      <tr>
-        <th>Repository</th>
-      </tr>
-    </thead>
-    <tbody id="heatmap-body"></tbody>
-  </table>
-</div>
-
-<div class="charts">
-  <div class="chart-card">
-    <h2>Per-Gate Violation Trends (Daily)</h2>
-    <canvas id="gate-trend-chart"></canvas>
+  <!-- Row 5: Gate stats + Critic miss rate -->
+  <div class="grid-2 section-gap">
+    <div class="panel">
+      <div class="panel-head"><h2>Gate Statistics</h2></div>
+      <div class="panel-body flush">
+        <table id="offenders-table">
+          <thead><tr><th>Gate</th><th>Runs</th><th>Pass Rate</th><th>Fail Rate</th><th>Avg Violations</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Critic Miss Rate</h2></div>
+      <div class="panel-body"><canvas id="gate-chart"></canvas></div>
+    </div>
   </div>
-</div>
 
-<h2 class="section-heading">Gate Statistics</h2>
-<div class="chart-card">
-  <h2>Gates sorted by failure rate</h2>
-  <table id="offenders-table">
-    <thead>
-      <tr><th>Gate</th><th>Runs</th><th>Pass Rate</th><th>Fail Rate</th><th>Avg Violations</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+  <!-- Row 6: Recent failures + Per-repo -->
+  <div class="grid-2 section-gap">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Recent Failures</h2>
+        <span class="badge" id="failure-count"></span>
+      </div>
+      <div class="panel-body flush scroll-body">
+        <table id="recent-failures-table">
+          <thead><tr><th>Time</th><th>Repo</th><th>Gate</th><th>Details</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Per-Repository</h2></div>
+      <div class="panel-body flush">
+        <table id="repo-table">
+          <thead><tr><th>Repository</th><th>Builds</th><th>First-Pass</th><th>Catch Rate</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-<h2 class="section-heading">Per-Repository Breakdown</h2>
-<div class="chart-card">
-  <table id="repo-table">
-    <thead>
-      <tr><th>Repository</th><th>Builds</th><th>First-Pass Rate</th><th>Catch Rate</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
 </div>
 
 <script src="dashboard.js"></script>

@@ -1,101 +1,143 @@
-/* rq Metrics Dashboard — Chart.js rendering logic */
+/* rq Metrics Dashboard — Chart.js rendering */
 
 const CHART_COLORS = {
-  green: '#3fb950', yellow: '#d29922', red: '#f85149',
-  blue: '#58a6ff', purple: '#bc8cff', gray: '#8b949e',
-  cyan: '#39d2c0', orange: '#f0883e'
+  green: '#34d399', yellow: '#fbbf24', red: '#f87171',
+  blue: '#60a5fa', purple: '#a78bfa', gray: '#4a5568',
+  cyan: '#22d3ee', orange: '#fb923c'
 };
 
 const GATE_PALETTE = [
-  CHART_COLORS.green, CHART_COLORS.blue, CHART_COLORS.purple,
-  CHART_COLORS.yellow, CHART_COLORS.cyan, CHART_COLORS.orange,
+  CHART_COLORS.cyan, CHART_COLORS.blue, CHART_COLORS.purple,
+  CHART_COLORS.green, CHART_COLORS.orange, CHART_COLORS.yellow,
   CHART_COLORS.red
 ];
 
-const DARK_GRID = '#21262d';
-const LABEL_COLOR = '#8b949e';
-const TEXT_COLOR = '#c9d1d9';
+const DARK_GRID = 'rgba(255,255,255,0.04)';
+const LABEL_COLOR = '#4a5568';
+const TEXT_COLOR = '#7a8ba4';
+
+/* ── Chart.js defaults ──────────────────────────── */
+if (typeof Chart !== 'undefined') {
+  Chart.defaults.font.family = "'DM Mono', 'SF Mono', monospace";
+  Chart.defaults.font.size = 10;
+  Chart.defaults.color = LABEL_COLOR;
+}
 
 function gradeColor(pct) {
-  if (pct >= 80) return 'good';
-  if (pct >= 60) return 'warn';
-  return 'bad';
+  if (pct >= 80) return 'v-good';
+  if (pct >= 60) return 'v-warn';
+  return 'v-bad';
 }
 
 function heatCellColor(passRate) {
-  if (passRate >= 95) return '#238636';
-  if (passRate >= 80) return '#2ea043';
-  if (passRate >= 60) return '#9e6a03';
-  if (passRate >= 40) return '#bd561d';
-  return '#da3633';
+  if (passRate >= 95) return '#166534';
+  if (passRate >= 80) return '#15803d';
+  if (passRate >= 60) return '#854d0e';
+  if (passRate >= 40) return '#9a3412';
+  return '#991b1b';
 }
 
 function chartScaleDefaults(yMin, yMax) {
   return {
-    y: { min: yMin, max: yMax, grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } },
-    x: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } }
+    y: { min: yMin, max: yMax, grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR, font: { size: 9 } } },
+    x: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR, font: { size: 9 } } }
   };
 }
 
-function renderSummary(s) {
-  const el = document.getElementById('summary-cards');
-  el.innerHTML = [
-    cardHtml('Total Builds', s.total_builds, ''),
-    cardHtml('First-Pass Rate', s.first_pass_rate + '%', gradeColor(s.first_pass_rate)),
-    cardHtml('Critic Catches', s.critic_catches, 'good'),
-    cardHtml('Critic Misses', s.critic_misses, s.critic_misses > 0 ? 'warn' : 'good'),
-    cardHtml('Catch Rate', s.catch_rate + '%', gradeColor(s.catch_rate))
-  ].join('');
+/* ── Hero strip ──────────────────────────────────── */
+function renderHero(s) {
+  var el = document.getElementById('hero-strip');
+  var fpClass = gradeColor(s.first_pass_rate);
+  var crClass = gradeColor(s.catch_rate);
+
+  el.innerHTML =
+    '<div class="hero-metric primary">' +
+      '<div class="label">First-Pass Rate</div>' +
+      '<div class="value ' + fpClass + '">' + s.first_pass_rate + '%</div>' +
+      '<div class="sub">' + s.first_pass_count + ' of ' + s.total_builds + ' builds passed first try</div>' +
+    '</div>' +
+    '<div class="hero-metric">' +
+      '<div class="label">Total Builds</div>' +
+      '<div class="value v-neutral">' + s.total_builds + '</div>' +
+    '</div>' +
+    '<div class="hero-metric">' +
+      '<div class="label">Critic Catches</div>' +
+      '<div class="value v-neutral">' + s.critic_catches + '</div>' +
+    '</div>' +
+    '<div class="hero-metric">' +
+      '<div class="label">Critic Misses</div>' +
+      '<div class="value ' + (s.critic_misses > 0 ? 'v-warn' : 'v-good') + '">' + s.critic_misses + '</div>' +
+    '</div>' +
+    '<div class="hero-metric">' +
+      '<div class="label">Catch Rate</div>' +
+      '<div class="value ' + crClass + '">' + s.catch_rate + '%</div>' +
+    '</div>';
 }
 
-function cardHtml(label, value, cls) {
-  return '<div class="card"><div class="label">' + label +
-    '</div><div class="value ' + cls + '">' + value + '</div></div>';
-}
-
+/* ── Trend chart ─────────────────────────────────── */
 function renderTrend(trends) {
-  var ctx = document.getElementById('trend-chart').getContext('2d');
-  new Chart(ctx, {
+  var ctx = document.getElementById('trend-chart');
+  if (!ctx) return;
+
+  var badge = document.getElementById('trend-period');
+  if (badge && trends.length > 0) {
+    badge.textContent = trends[0].date + ' → ' + trends[trends.length - 1].date;
+  }
+
+  new Chart(ctx.getContext('2d'), {
     type: 'line',
     data: {
       labels: trends.map(function(t) { return t.date; }),
       datasets: [{
-        label: 'First-Pass Rate %',
+        label: 'First-Pass %',
         data: trends.map(function(t) { return t.first_pass_rate; }),
         borderColor: CHART_COLORS.green,
-        backgroundColor: CHART_COLORS.green + '20',
-        fill: true, tension: 0.3, pointRadius: 3
+        backgroundColor: 'rgba(52, 211, 153, 0.08)',
+        fill: true, tension: 0.35, pointRadius: 4,
+        pointBackgroundColor: CHART_COLORS.green,
+        pointBorderColor: '#0f1319',
+        pointBorderWidth: 2, borderWidth: 2
       }, {
         label: 'Catch Rate %',
         data: trends.map(function(t) { return t.catch_rate; }),
-        borderColor: CHART_COLORS.blue,
-        backgroundColor: CHART_COLORS.blue + '20',
-        fill: true, tension: 0.3, pointRadius: 3
+        borderColor: CHART_COLORS.cyan,
+        backgroundColor: 'rgba(34, 211, 238, 0.05)',
+        fill: true, tension: 0.35, pointRadius: 4,
+        pointBackgroundColor: CHART_COLORS.cyan,
+        pointBorderColor: '#0f1319',
+        pointBorderWidth: 2, borderWidth: 2
       }]
     },
     options: {
       scales: chartScaleDefaults(0, 100),
-      plugins: { legend: { labels: { color: TEXT_COLOR } } }
+      plugins: {
+        legend: { labels: { color: TEXT_COLOR, boxWidth: 8, padding: 16, font: { size: 10 } } }
+      }
     }
   });
 }
 
+/* ── Critic miss rate by gate ────────────────────── */
 function renderGates(gates) {
-  var ctx = document.getElementById('gate-chart').getContext('2d');
+  var ctx = document.getElementById('gate-chart');
+  if (!ctx) return;
   var names = Object.keys(gates).sort(function(a, b) {
     return gates[b].miss_rate - gates[a].miss_rate;
   });
-  new Chart(ctx, {
+  new Chart(ctx.getContext('2d'), {
     type: 'bar',
     data: {
-      labels: names.map(function(n) { return n.replace('gate-', '').replace('.sh', ''); }),
+      labels: names,
       datasets: [{
         label: 'Miss Rate %',
         data: names.map(function(n) { return gates[n].miss_rate; }),
         backgroundColor: names.map(function(n) {
+          return gates[n].miss_rate > 20 ? CHART_COLORS.red + '99' : CHART_COLORS.yellow + '99';
+        }),
+        borderColor: names.map(function(n) {
           return gates[n].miss_rate > 20 ? CHART_COLORS.red : CHART_COLORS.yellow;
         }),
-        borderRadius: 3
+        borderWidth: 1, borderRadius: 3
       }]
     },
     options: {
@@ -109,6 +151,7 @@ function renderGates(gates) {
   });
 }
 
+/* ── Per-repo table ──────────────────────────────── */
 function renderRepos(repos) {
   var tbody = document.querySelector('#repo-table tbody');
   var sorted = Object.entries(repos).sort(function(a, b) {
@@ -118,15 +161,16 @@ function renderRepos(repos) {
     var name = entry[0];
     var s = entry[1];
     return '<tr><td>' + name + '</td><td>' + s.total_builds +
-      '</td><td class="' + gradeColor(s.first_pass_rate) + '">' + s.first_pass_rate +
-      '%</td><td class="' + gradeColor(s.catch_rate) + '">' + s.catch_rate + '%</td></tr>';
+      '</td><td class="' + gradeColor(s.first_pass_rate).replace('v-', '') + '">' + s.first_pass_rate +
+      '%</td><td class="' + gradeColor(s.catch_rate).replace('v-', '') + '">' + s.catch_rate + '%</td></tr>';
   }).join('');
 }
 
+/* ── Heatmap ─────────────────────────────────────── */
 function renderHeatmapHeaders(gates) {
   var thead = document.querySelector('#heatmap-table thead tr');
-  thead.innerHTML = '<th>Repository</th>' + gates.map(function(g) {
-    return '<th>' + g + '</th>';
+  thead.innerHTML = '<th>Repo</th>' + gates.map(function(g) {
+    return '<th style="font-size:0.55rem;writing-mode:vertical-lr;text-align:center;padding:0.5rem 0.25rem;">' + g + '</th>';
   }).join('');
 }
 
@@ -134,14 +178,13 @@ function renderHeatmap(matrix, gates) {
   var container = document.getElementById('heatmap-body');
   var repos = Object.keys(matrix).sort();
   if (repos.length === 0) {
-    var colspan = gates.length + 1;
-    container.innerHTML = '<tr><td colspan="' + colspan + '" class="empty">No gate data yet.</td></tr>';
+    container.innerHTML = '<tr><td colspan="' + (gates.length + 1) + '" class="empty">No data.</td></tr>';
     return;
   }
   container.innerHTML = repos.map(function(repo) {
     var cells = gates.map(function(g) {
       var d = (matrix[repo] || {})[g];
-      if (!d || d.runs === 0) return '<td class="heat-cell" style="background:#161b22">--</td>';
+      if (!d || d.runs === 0) return '<td class="heat-cell" style="background:var(--bg-raised)">—</td>';
       var bg = heatCellColor(d.pass_rate);
       return '<td class="heat-cell" style="background:' + bg + '">' + d.pass_rate + '%</td>';
     }).join('');
@@ -149,48 +192,30 @@ function renderHeatmap(matrix, gates) {
   }).join('');
 }
 
-function renderGateTrends(perGateStats, violationTrends) {
-  if (!violationTrends || violationTrends.length === 0) return;
-  var ctx = document.getElementById('gate-trend-chart').getContext('2d');
-  var gates = Object.keys(perGateStats);
-  var labels = violationTrends.map(function(t) { return t.date; });
-  var datasets = gates.map(function(gate, i) {
-    return {
-      label: gate,
-      data: violationTrends.map(function(t) { return (t.violations || {})[gate] || 0; }),
-      borderColor: GATE_PALETTE[i % GATE_PALETTE.length],
-      backgroundColor: GATE_PALETTE[i % GATE_PALETTE.length] + '20',
-      fill: false, tension: 0.3, pointRadius: 2
-    };
-  });
-  new Chart(ctx, {
-    type: 'line',
-    data: { labels: labels, datasets: datasets },
-    options: {
-      scales: chartScaleDefaults(0, undefined),
-      plugins: { legend: { labels: { color: TEXT_COLOR } } }
-    }
-  });
-}
-
+/* ── Violation trends (stacked bar, not spaghetti lines) ── */
 function renderViolationBars(violationTrends) {
   if (!violationTrends || violationTrends.length === 0) return;
-  var ctx = document.getElementById('violation-chart').getContext('2d');
+  var ctx = document.getElementById('violation-chart');
+  if (!ctx) return;
   var allGates = {};
   violationTrends.forEach(function(t) {
-    Object.keys(t.violations || {}).forEach(function(g) { allGates[g] = true; });
+    Object.keys(t.violations || {}).forEach(function(g) {
+      if ((t.violations[g] || 0) > 0) allGates[g] = true;
+    });
   });
   var gates = Object.keys(allGates).sort();
+  if (gates.length === 0) return;
   var labels = violationTrends.map(function(t) { return t.date; });
   var datasets = gates.map(function(gate, i) {
     return {
       label: gate,
       data: violationTrends.map(function(t) { return (t.violations || {})[gate] || 0; }),
-      backgroundColor: GATE_PALETTE[i % GATE_PALETTE.length],
-      borderRadius: 2
+      backgroundColor: GATE_PALETTE[i % GATE_PALETTE.length] + '99',
+      borderColor: GATE_PALETTE[i % GATE_PALETTE.length],
+      borderWidth: 1, borderRadius: 2
     };
   });
-  new Chart(ctx, {
+  new Chart(ctx.getContext('2d'), {
     type: 'bar',
     data: { labels: labels, datasets: datasets },
     options: {
@@ -198,11 +223,12 @@ function renderViolationBars(violationTrends) {
         x: { stacked: true, grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } },
         y: { stacked: true, grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } }
       },
-      plugins: { legend: { labels: { color: TEXT_COLOR } } }
+      plugins: { legend: { labels: { color: TEXT_COLOR, boxWidth: 8, padding: 12, font: { size: 9 } } } }
     }
   });
 }
 
+/* ── Gate stats table ────────────────────────────── */
 function renderTopOffenders(perGateStats) {
   var tbody = document.querySelector('#offenders-table tbody');
   var sorted = Object.entries(perGateStats).sort(function(a, b) {
@@ -213,21 +239,30 @@ function renderTopOffenders(perGateStats) {
     var s = entry[1];
     var failRate = s.runs > 0 ? (100 - s.pass_rate).toFixed(1) : '0.0';
     return '<tr><td>' + gate + '</td><td>' + s.runs +
-      '</td><td class="' + gradeColor(s.pass_rate) + '">' + s.pass_rate +
-      '%</td><td class="' + gradeColor(100 - parseFloat(failRate)) + '">' + failRate +
+      '</td><td class="' + gradeColor(s.pass_rate).replace('v-', '') + '">' + s.pass_rate +
+      '%</td><td class="' + gradeColor(100 - parseFloat(failRate)).replace('v-', '') + '">' + failRate +
       '%</td><td>' + s.avg_violations + '</td></tr>';
   }).join('');
 }
 
+/* ── Meta info ───────────────────────────────────── */
+function renderMeta(data) {
+  var el = document.getElementById('meta-info');
+  if (!el) return;
+  var ts = (data.generated_at || '').replace('T', ' ').replace('Z', ' UTC');
+  el.textContent = data.total_records + ' records · updated ' + ts;
+}
+
+/* ── Init ────────────────────────────────────────── */
 function initDashboard(data) {
   var gates = data.known_gates || [];
-  renderSummary(data.summary);
+  renderMeta(data);
+  renderHero(data.summary);
   renderTrend(data.trends);
   renderGates(data.per_gate);
   renderRepos(data.per_repo);
   renderHeatmapHeaders(gates);
   renderHeatmap(data.per_gate_per_repo || {}, gates);
-  renderGateTrends(data.per_gate_stats || {}, data.violation_trends || []);
   renderViolationBars(data.violation_trends || []);
   renderTopOffenders(data.per_gate_stats || {});
   if (typeof initNewCharts === 'function') {
@@ -239,15 +274,16 @@ if (typeof window !== 'undefined') {
   fetch('data.json')
     .then(function(r) { return r.json(); })
     .then(initDashboard)
-    .catch(function() {
-      document.getElementById('summary-cards').innerHTML =
-        '<div class="empty">No data yet. Metrics will appear after the first pair-build run.</div>';
+    .catch(function(e) {
+      console.error('Dashboard load failed:', e);
+      document.getElementById('hero-strip').innerHTML =
+        '<div class="hero-metric primary"><div class="label">Status</div><div class="value v-warn">No data</div><div class="sub">Metrics will appear after the first build run.</div></div>';
     });
 }
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
-    gradeColor: gradeColor, heatCellColor: heatCellColor, chartScaleDefaults: chartScaleDefaults, cardHtml: cardHtml,
+    gradeColor: gradeColor, heatCellColor: heatCellColor, chartScaleDefaults: chartScaleDefaults,
     CHART_COLORS: CHART_COLORS, GATE_PALETTE: GATE_PALETTE, DARK_GRID: DARK_GRID, LABEL_COLOR: LABEL_COLOR, TEXT_COLOR: TEXT_COLOR
   };
 }

@@ -1,4 +1,4 @@
-/* rq Metrics Dashboard — New chart renderers for findings data */
+/* rq Metrics Dashboard — Findings chart renderers */
 
 /* In Node.js, pull shared constants from dashboard.js.
    In the browser, dashboard.js loads first and these are already global.
@@ -13,28 +13,13 @@
 })();
 
 function findingsCardHtml(label, value, subtitle) {
-  return '<div class="card"><div class="label">' + label +
-    '</div><div class="value">' + value +
-    '</div><div class="card-sub">' + (subtitle || '') + '</div></div>';
+  return '<div class="hero-metric"><div class="label">' + label +
+    '</div><div class="value v-neutral">' + value +
+    '</div><div class="sub">' + (subtitle || '') + '</div></div>';
 }
 
 function renderFindingsCards(data) {
-  var el = document.getElementById('findings-cards');
-  if (!el) return;
-  var findings = data.findings_summary || { by_gate: {}, by_rule: {} };
-  var cycles = data.fix_cycles || { distribution: {}, avg: 0 };
-  var timing = data.timing_stats || { by_gate: {}, by_phase: {} };
-
-  var totalFindings = sumValues(findings.by_gate);
-  var totalCycles = sumValues(cycles.distribution);
-  var slowestGate = findSlowestGate(timing.by_gate);
-
-  el.innerHTML = [
-    findingsCardHtml('Total Findings', totalFindings, 'across all gates'),
-    findingsCardHtml('Fix Cycles', totalCycles, 'avg ' + cycles.avg + ' runs'),
-    findingsCardHtml('Avg Runs to Green', cycles.avg || '0', ''),
-    findingsCardHtml('Slowest Gate', slowestGate.name, slowestGate.time)
-  ].join('');
+  /* Findings cards removed — data now shown in hero strip and charts */
 }
 
 function sumValues(obj) {
@@ -73,10 +58,11 @@ function renderFindingsByGate(findings) {
     data: {
       labels: names,
       datasets: [{
-        label: 'Violations',
+        label: 'Findings',
         data: names.map(function(n) { return byGate[n]; }),
-        backgroundColor: CHART_COLORS.blue,
-        borderRadius: 3
+        backgroundColor: CHART_COLORS.blue + '99',
+        borderColor: CHART_COLORS.blue,
+        borderWidth: 1, borderRadius: 3
       }]
     },
     options: {
@@ -101,14 +87,16 @@ function renderTopViolationTypes(topViolations) {
       datasets: [{
         label: 'Count',
         data: top10.map(function(v) { return v.count; }),
-        backgroundColor: CHART_COLORS.orange,
-        borderRadius: 3
+        backgroundColor: CHART_COLORS.orange + '99',
+        borderColor: CHART_COLORS.orange,
+        borderWidth: 1, borderRadius: 3
       }]
     },
     options: {
+      indexAxis: 'y',
       scales: {
         x: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } },
-        y: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } }
+        y: { grid: { display: false }, ticks: { color: TEXT_COLOR, font: { size: 9 } } }
       },
       plugins: { legend: { display: false } }
     }
@@ -123,6 +111,12 @@ function renderFixCyclesChart(fixCycles) {
   if (keys.length === 0) return;
   var colors = keys.map(function(k) {
     var n = parseInt(k, 10);
+    if (n === 1) return CHART_COLORS.green + '99';
+    if (n === 2) return CHART_COLORS.yellow + '99';
+    return CHART_COLORS.red + '99';
+  });
+  var borders = keys.map(function(k) {
+    var n = parseInt(k, 10);
     if (n === 1) return CHART_COLORS.green;
     if (n === 2) return CHART_COLORS.yellow;
     return CHART_COLORS.red;
@@ -130,11 +124,12 @@ function renderFixCyclesChart(fixCycles) {
   new Chart(ctx.getContext('2d'), {
     type: 'bar',
     data: {
-      labels: keys.map(function(k) { return k + ' run' + (k === '1' ? '' : 's'); }),
+      labels: keys.map(function(k) { return k + (k === '1' ? ' run' : ' runs'); }),
       datasets: [{
         data: keys.map(function(k) { return dist[k]; }),
         backgroundColor: colors,
-        borderRadius: 3
+        borderColor: borders,
+        borderWidth: 1, borderRadius: 3
       }]
     },
     options: {
@@ -151,7 +146,10 @@ function renderGateTimingChart(timingStats) {
   var ctx = document.getElementById('gate-timing-chart');
   if (!ctx) return;
   var byGate = timingStats.by_gate || {};
-  var names = Object.keys(byGate).sort();
+  var names = Object.keys(byGate).sort(function(a, b) {
+    return (byGate[b].avg_ms || 0) - (byGate[a].avg_ms || 0);
+  });
+  names = names.filter(function(n) { return (byGate[n].avg_ms || 0) > 0; });
   if (names.length === 0) return;
   new Chart(ctx.getContext('2d'), {
     type: 'bar',
@@ -159,9 +157,10 @@ function renderGateTimingChart(timingStats) {
       labels: names,
       datasets: [{
         label: 'Avg (ms)',
-        data: names.map(function(n) { return byGate[n].avg_ms || 0; }),
-        backgroundColor: CHART_COLORS.cyan,
-        borderRadius: 3
+        data: names.map(function(n) { return Math.round(byGate[n].avg_ms || 0); }),
+        backgroundColor: CHART_COLORS.cyan + '99',
+        borderColor: CHART_COLORS.cyan,
+        borderWidth: 1, borderRadius: 3
       }]
     },
     options: {
@@ -188,14 +187,16 @@ function renderPhaseBreakdownChart(phaseBreakdown) {
         {
           label: 'Runs',
           data: phases.map(function(p) { return phaseBreakdown[p].runs; }),
-          backgroundColor: CHART_COLORS.blue,
-          borderRadius: 3
+          backgroundColor: CHART_COLORS.blue + '99',
+          borderColor: CHART_COLORS.blue,
+          borderWidth: 1, borderRadius: 3
         },
         {
           label: 'Failures',
           data: phases.map(function(p) { return phaseBreakdown[p].failures; }),
-          backgroundColor: CHART_COLORS.red,
-          borderRadius: 3
+          backgroundColor: CHART_COLORS.red + '99',
+          borderColor: CHART_COLORS.red,
+          borderWidth: 1, borderRadius: 3
         }
       ]
     },
@@ -204,7 +205,7 @@ function renderPhaseBreakdownChart(phaseBreakdown) {
         x: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } },
         y: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } }
       },
-      plugins: { legend: { labels: { color: TEXT_COLOR } } }
+      plugins: { legend: { labels: { color: TEXT_COLOR, boxWidth: 8, padding: 12, font: { size: 9 } } } }
     }
   });
 }
@@ -214,17 +215,22 @@ function formatViolationText(v) {
 }
 
 function formatTimestamp(ts) {
-  return ts ? ts.replace('T', ' ').replace('Z', '') : '--';
+  if (!ts) return '--';
+  var d = ts.replace('T', ' ').replace('Z', '');
+  return d.substring(5, 16);
 }
 
 function renderRecentFailuresTable(failures) {
   var tbody = document.querySelector('#recent-failures-table tbody');
+  var badge = document.getElementById('failure-count');
+  if (badge) badge.textContent = (failures || []).length + ' recent';
   if (!tbody || !failures || failures.length === 0) {
     if (tbody) tbody.innerHTML = '<tr><td colspan="4" class="empty">No recent failures.</td></tr>';
     return;
   }
   tbody.innerHTML = failures.map(function(f) {
-    var violationText = (f.violations || []).map(formatViolationText).join(', ') || '--';
+    var violationText = (f.violations || []).slice(0, 2).map(formatViolationText).join(', ') || '--';
+    if ((f.violations || []).length > 2) violationText += ' +' + (f.violations.length - 2);
     var ts = formatTimestamp(f.timestamp);
     return '<tr><td>' + ts + '</td><td>' + f.repo +
       '</td><td>' + f.gate + '</td><td>' + violationText + '</td></tr>';
@@ -232,7 +238,6 @@ function renderRecentFailuresTable(failures) {
 }
 
 function initNewCharts(data) {
-  renderFindingsCards(data);
   try { renderFindingsByGate(data.findings_summary || { by_gate: {} }); } catch(e) { console.error('findings-gate:', e); }
   try { renderTopViolationTypes(data.top_violations || []); } catch(e) { console.error('top-violations:', e); }
   try { renderFixCyclesChart(data.fix_cycles || { distribution: {} }); } catch(e) { console.error('fix-cycles:', e); }

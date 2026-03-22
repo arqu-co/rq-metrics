@@ -36,13 +36,13 @@ test('findingsCardHtml generates correct markup', function() {
   assert.ok(html.indexOf('Total') !== -1);
   assert.ok(html.indexOf('42') !== -1);
   assert.ok(html.indexOf('sub text') !== -1);
-  assert.ok(html.indexOf('<div class="card">') !== -1);
+  assert.ok(html.indexOf('<div class="hero-metric">') !== -1);
 });
 
 test('findingsCardHtml handles empty subtitle', function() {
   var html = findingsCardHtml('Count', 0, '');
   assert.ok(html.indexOf('Count') !== -1);
-  assert.ok(html.indexOf('card-sub') !== -1);
+  assert.ok(html.indexOf('sub') !== -1);
 });
 
 test('findingsCardHtml handles undefined subtitle', function() {
@@ -127,7 +127,7 @@ test('formatViolationText with empty object', function() {
 // --- formatTimestamp ---
 
 test('formatTimestamp formats ISO timestamp', function() {
-  assert.strictEqual(formatTimestamp('2026-01-15T14:30:00Z'), '2026-01-15 14:30:00');
+  assert.strictEqual(formatTimestamp('2026-01-15T14:30:00Z'), '01-15 14:30');
 });
 
 test('formatTimestamp handles null', function() {
