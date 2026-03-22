@@ -1,0 +1,160 @@
+{
+  "repo": "ledger",
+  "branch": "production-readiness",
+  "sha": "42c5062",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T01:04:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:03:06Z",
+      "files_checked": 72,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:04:33Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:03:17Z",
+      "violations": 5,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-22T01:03:02Z",
+      "files_checked": 73,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "lines": 1343,
+          "max": 300
+        }
+      ]
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:03:25Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:04:13Z",
+      "scanned_files": 29,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T01:03:56Z",
+      "fingerprint": "06f7fa989db5fa21d847c087de6f8365",
+      "test_runner": "minitest",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 83897.0
+}
