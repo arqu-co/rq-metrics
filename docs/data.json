@@ -1,0 +1,1022 @@
+{
+  "generated_at": "2026-03-22T02:11:06Z",
+  "known_gates": [
+    "filesize",
+    "complexity",
+    "dead-code",
+    "lint",
+    "tests",
+    "test-quality",
+    "coverage",
+    "qa",
+    "design-audit",
+    "performance"
+  ],
+  "summary": {
+    "total_builds": 179,
+    "first_pass_count": 144,
+    "first_pass_rate": 80.4,
+    "critic_catches": 4,
+    "critic_misses": 7,
+    "catch_rate": 36.4
+  },
+  "trends": [
+    {
+      "total_builds": 92,
+      "first_pass_count": 75,
+      "first_pass_rate": 81.5,
+      "critic_catches": 4,
+      "critic_misses": 2,
+      "catch_rate": 66.7,
+      "date": "2026-03-21"
+    },
+    {
+      "total_builds": 87,
+      "first_pass_count": 69,
+      "first_pass_rate": 79.3,
+      "critic_catches": 0,
+      "critic_misses": 5,
+      "catch_rate": 0.0,
+      "date": "2026-03-22"
+    }
+  ],
+  "per_repo": {
+    "ledger": {
+      "total_builds": 84,
+      "first_pass_count": 61,
+      "first_pass_rate": 72.6,
+      "critic_catches": 0,
+      "critic_misses": 0,
+      "catch_rate": 100
+    },
+    "claude-skills": {
+      "total_builds": 95,
+      "first_pass_count": 83,
+      "first_pass_rate": 87.4,
+      "critic_catches": 4,
+      "critic_misses": 7,
+      "catch_rate": 36.4
+    }
+  },
+  "per_gate": {
+    "test-quality": {
+      "total": 48,
+      "misses": 0,
+      "miss_rate": 0.0
+    },
+    "complexity": {
+      "total": 48,
+      "misses": 3,
+      "miss_rate": 6.2
+    },
+    "qa": {
+      "total": 49,
+      "misses": 0,
+      "miss_rate": 0.0
+    },
+    "tests": {
+      "total": 42,
+      "misses": 0,
+      "miss_rate": 0.0
+    },
+    "dead-code": {
+      "total": 48,
+      "misses": 2,
+      "miss_rate": 4.2
+    },
+    "filesize": {
+      "total": 48,
+      "misses": 1,
+      "miss_rate": 2.1
+    },
+    "coverage": {
+      "total": 39,
+      "misses": 0,
+      "miss_rate": 0.0
+    },
+    "lint": {
+      "total": 48,
+      "misses": 1,
+      "miss_rate": 2.1
+    },
+    "design-audit": {
+      "total": 49,
+      "misses": 0,
+      "miss_rate": 0.0
+    },
+    "performance": {
+      "total": 20,
+      "misses": 0,
+      "miss_rate": 0.0
+    }
+  },
+  "per_gate_stats": {
+    "filesize": {
+      "runs": 48,
+      "passes": 40,
+      "pass_rate": 83.3,
+      "total_violations": 8,
+      "avg_violations": 0.17
+    },
+    "complexity": {
+      "runs": 48,
+      "passes": 36,
+      "pass_rate": 75.0,
+      "total_violations": 26,
+      "avg_violations": 0.54
+    },
+    "dead-code": {
+      "runs": 48,
+      "passes": 34,
+      "pass_rate": 70.8,
+      "total_violations": 38,
+      "avg_violations": 0.79
+    },
+    "lint": {
+      "runs": 48,
+      "passes": 45,
+      "pass_rate": 93.8,
+      "total_violations": 5,
+      "avg_violations": 0.1
+    },
+    "tests": {
+      "runs": 42,
+      "passes": 40,
+      "pass_rate": 95.2,
+      "total_violations": 0,
+      "avg_violations": 0.0
+    },
+    "test-quality": {
+      "runs": 48,
+      "passes": 42,
+      "pass_rate": 87.5,
+      "total_violations": 22,
+      "avg_violations": 0.46
+    },
+    "coverage": {
+      "runs": 39,
+      "passes": 35,
+      "pass_rate": 89.7,
+      "total_violations": 0,
+      "avg_violations": 0.0
+    },
+    "qa": {
+      "runs": 49,
+      "passes": 49,
+      "pass_rate": 100.0,
+      "total_violations": 0,
+      "avg_violations": 0.0
+    },
+    "design-audit": {
+      "runs": 49,
+      "passes": 49,
+      "pass_rate": 100.0,
+      "total_violations": 0,
+      "avg_violations": 0.0
+    },
+    "performance": {
+      "runs": 20,
+      "passes": 20,
+      "pass_rate": 100.0,
+      "total_violations": 0,
+      "avg_violations": 0.0
+    }
+  },
+  "per_gate_per_repo": {
+    "ledger": {
+      "test-quality": {
+        "runs": 19,
+        "passes": 13,
+        "pass_rate": 68.4
+      },
+      "complexity": {
+        "runs": 19,
+        "passes": 13,
+        "pass_rate": 68.4
+      },
+      "qa": {
+        "runs": 19,
+        "passes": 19,
+        "pass_rate": 100.0
+      },
+      "tests": {
+        "runs": 16,
+        "passes": 14,
+        "pass_rate": 87.5
+      },
+      "dead-code": {
+        "runs": 19,
+        "passes": 9,
+        "pass_rate": 47.4
+      },
+      "filesize": {
+        "runs": 19,
+        "passes": 13,
+        "pass_rate": 68.4
+      },
+      "coverage": {
+        "runs": 15,
+        "passes": 11,
+        "pass_rate": 73.3
+      },
+      "lint": {
+        "runs": 19,
+        "passes": 19,
+        "pass_rate": 100.0
+      },
+      "design-audit": {
+        "runs": 19,
+        "passes": 19,
+        "pass_rate": 100.0
+      }
+    },
+    "claude-skills": {
+      "qa": {
+        "runs": 30,
+        "passes": 30,
+        "pass_rate": 100.0
+      },
+      "lint": {
+        "runs": 29,
+        "passes": 26,
+        "pass_rate": 89.7
+      },
+      "filesize": {
+        "runs": 29,
+        "passes": 27,
+        "pass_rate": 93.1
+      },
+      "complexity": {
+        "runs": 29,
+        "passes": 23,
+        "pass_rate": 79.3
+      },
+      "dead-code": {
+        "runs": 29,
+        "passes": 25,
+        "pass_rate": 86.2
+      },
+      "tests": {
+        "runs": 26,
+        "passes": 26,
+        "pass_rate": 100.0
+      },
+      "test-quality": {
+        "runs": 29,
+        "passes": 29,
+        "pass_rate": 100.0
+      },
+      "coverage": {
+        "runs": 24,
+        "passes": 24,
+        "pass_rate": 100.0
+      },
+      "design-audit": {
+        "runs": 30,
+        "passes": 30,
+        "pass_rate": 100.0
+      },
+      "performance": {
+        "runs": 20,
+        "passes": 20,
+        "pass_rate": 100.0
+      }
+    }
+  },
+  "violation_trends": [
+    {
+      "date": "2026-03-21",
+      "violations": {
+        "complexity": 4,
+        "tests": 0,
+        "dead-code": 10,
+        "filesize": 4,
+        "qa": 0,
+        "coverage": 0,
+        "lint": 5,
+        "design-audit": 0,
+        "test-quality": 12,
+        "performance": 0
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "violations": {
+        "test-quality": 10,
+        "qa": 0,
+        "complexity": 22,
+        "dead-code": 28,
+        "design-audit": 0,
+        "filesize": 4,
+        "lint": 0,
+        "tests": 0,
+        "coverage": 0,
+        "performance": 0
+      }
+    }
+  ],
+  "findings_summary": {
+    "by_gate": {
+      "complexity": 26,
+      "dead-code": 38,
+      "test-quality": 22,
+      "filesize": 8,
+      "lint": 5
+    },
+    "by_rule": {
+      "function_length": 16,
+      "cyclomatic_complexity": 10,
+      "rubocop_dead_code": 34,
+      ".stub() on own method": 22,
+      "file_too_large": 8,
+      "tests_violation": 8,
+      "lint_violation": 4,
+      "unused_import": 4
+    }
+  },
+  "timing_stats": {
+    "by_gate": {
+      "complexity": {
+        "avg_ms": 1909.1,
+        "p50_ms": 2000.0,
+        "p95_ms": 5000.0
+      },
+      "tests": {
+        "avg_ms": 6678.6,
+        "p50_ms": 0.0,
+        "p95_ms": 37500.0
+      },
+      "dead-code": {
+        "avg_ms": 2121.2,
+        "p50_ms": 1000.0,
+        "p95_ms": 6800.0
+      },
+      "filesize": {
+        "avg_ms": 14393.9,
+        "p50_ms": 0.0,
+        "p95_ms": 20000.0
+      },
+      "qa": {
+        "avg_ms": 13300.0,
+        "p50_ms": 0.0,
+        "p95_ms": 87100.0
+      },
+      "coverage": {
+        "avg_ms": 2952.4,
+        "p50_ms": 1000.0,
+        "p95_ms": 11000.0
+      },
+      "lint": {
+        "avg_ms": 4121.2,
+        "p50_ms": 5000.0,
+        "p95_ms": 11600.0
+      },
+      "design-audit": {
+        "avg_ms": 1066.7,
+        "p50_ms": 500.0,
+        "p95_ms": 3000.0
+      },
+      "test-quality": {
+        "avg_ms": 17058.8,
+        "p50_ms": 2000.0,
+        "p95_ms": 95350.0
+      }
+    },
+    "by_phase": {
+      "review": {
+        "avg_seconds": 219868.7,
+        "p50_seconds": 284723.5,
+        "p95_seconds": 289724.0
+      },
+      "all": {
+        "avg_seconds": 152420.7,
+        "p50_seconds": 84005.0,
+        "p95_seconds": 268824.5
+      },
+      "build": {
+        "avg_seconds": 289172.0,
+        "p50_seconds": 289172.0,
+        "p95_seconds": 289251.2
+      }
+    }
+  },
+  "fix_cycles": {
+    "distribution": {
+      "1": 159,
+      "2": 9,
+      "3": 3
+    },
+    "avg": 1.1
+  },
+  "phase_breakdown": {
+    "review": {
+      "runs": 51,
+      "failures": 9
+    },
+    "all": {
+      "runs": 91,
+      "failures": 17
+    },
+    "build": {
+      "runs": 34,
+      "failures": 9
+    },
+    "ship": {
+      "runs": 3,
+      "failures": 0
+    }
+  },
+  "top_violations": [
+    {
+      "type": "rubocop_dead_code",
+      "count": 34,
+      "gate": "dead-code"
+    },
+    {
+      "type": ".stub() on own method",
+      "count": 22,
+      "gate": "test-quality"
+    },
+    {
+      "type": "function_length",
+      "count": 16,
+      "gate": "complexity"
+    },
+    {
+      "type": "cyclomatic_complexity",
+      "count": 10,
+      "gate": "complexity"
+    },
+    {
+      "type": "file_too_large",
+      "count": 8,
+      "gate": "filesize"
+    },
+    {
+      "type": "tests_violation",
+      "count": 8,
+      "gate": "tests"
+    },
+    {
+      "type": "lint_violation",
+      "count": 4,
+      "gate": "lint"
+    },
+    {
+      "type": "unused_import",
+      "count": 4,
+      "gate": "dead-code"
+    }
+  ],
+  "recent_failures": [
+    {
+      "timestamp": "2026-03-22T01:58:32Z",
+      "repo": "claude-skills",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestProofBasicGates",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:58:32Z",
+      "repo": "claude-skills",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_build_payload_contract.py",
+          "name": "collect_metrics_payload",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:58:12Z",
+      "repo": "claude-skills",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_build_payload_contract.py",
+          "name": "collect_metrics_payload",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:58:07Z",
+      "repo": "claude-skills",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestProofBasicGates",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:55:36Z",
+      "repo": "claude-skills",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestValidateGateProof",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestValidateMetricsEvent",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:55:36Z",
+      "repo": "claude-skills",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_build_payload_contract.py",
+          "name": "collect_metrics_payload",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:55:15Z",
+      "repo": "claude-skills",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_build_payload_contract.py",
+          "name": "collect_metrics_payload",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:55:09Z",
+      "repo": "claude-skills",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestValidateGateProof",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/test_validate_proof.py",
+          "function": "TestValidateMetricsEvent",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:25:06Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 241,
+          "message": "Useless assignment to variable - `tv_vt`. Did you mean `tv_tx`?"
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 3585,
+          "message": "Unused block argument - `name`. If it's necessary, use `_` or `_name` as an argument name to indicate that it won't be used."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:24:34Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 241,
+          "message": "Useless assignment to variable - `tv_vt`. Did you mean `tv_tx`?"
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 3585,
+          "message": "Unused block argument - `name`. If it's necessary, use `_` or `_name` as an argument name to indicate that it won't be used."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:06:31Z",
+      "repo": "ledger",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "function": "obj",
+          "lines": 248,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/services/reconciliation/engine_ap_test.rb",
+          "function": "error_bundle_matcher",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:06:31Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:06:31Z",
+      "repo": "ledger",
+      "gate": "test-quality",
+      "violations": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 17,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/integration/authentication_integration_test.rb",
+          "line": 29,
+          "pattern": ".stub() on own method",
+          "code": "    ENV.stub(:fetch, secret) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 37,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 54,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 70,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:06:02Z",
+      "repo": "ledger",
+      "gate": "test-quality",
+      "violations": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 17,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/integration/authentication_integration_test.rb",
+          "line": 29,
+          "pattern": ".stub() on own method",
+          "code": "    ENV.stub(:fetch, secret) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 37,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 54,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        },
+        {
+          "file": "test/jobs/overdue_invoice_alert_job_test.rb",
+          "line": 70,
+          "pattern": ".stub() on own method",
+          "code": "    SlackNotifier.stub(:new, mock_notifier) do",
+          "type": ".stub() on own method"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:05:34Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:05:23Z",
+      "repo": "ledger",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/helpers/authorization_helper_test.rb",
+          "function": "set_current_user",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "test/jobs/concerns/slack_on_failure_test.rb",
+          "function": "obj",
+          "lines": 248,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "test/services/reconciliation/engine_ap_test.rb",
+          "function": "error_bundle_matcher",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:04:43Z",
+      "repo": "ledger",
+      "gate": "complexity",
+      "violations": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 1183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:04:43Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:04:43Z",
+      "repo": "ledger",
+      "gate": "filesize",
+      "violations": [
+        {
+          "file": "db/seeds.rb",
+          "lines": 1343,
+          "max": 300,
+          "type": "file_too_large"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-22T01:03:18Z",
+      "repo": "ledger",
+      "gate": "dead-code",
+      "violations": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 98,
+          "message": "Useless assignment to variable - `lloyds`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 147,
+          "message": "Useless assignment to variable - `tv_fl`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 343,
+          "message": "Useless assignment to variable - `ar_txn_yosemite`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 397,
+          "message": "Useless assignment to variable - `doc1`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "db/seeds.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 901,
+          "message": "Useless assignment to variable - `aria`."
+        }
+      ]
+    }
+  ],
+  "total_records": 179
+}
