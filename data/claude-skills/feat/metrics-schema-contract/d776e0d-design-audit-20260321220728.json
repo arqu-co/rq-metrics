@@ -1,0 +1,32 @@
+{
+  "repo": "claude-skills",
+  "branch": "feat/metrics-schema-contract",
+  "sha": "d776e0d",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-22T02:07:28Z",
+  "phase": "review",
+  "run_number": 1,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T02:07:28Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "gate_name": "design-audit"
+}
