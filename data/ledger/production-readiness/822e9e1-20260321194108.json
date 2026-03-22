@@ -30,20 +30,23 @@
       "gate_timestamp": "2026-03-21T23:34:26Z",
       "files_checked": 64,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 5000
     },
     "coverage": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:40:02Z",
       "coverage_tool": "py",
       "below_threshold": 0,
-      "below_threshold_details": []
+      "below_threshold_details": [],
+      "duration_ms": 11000
     },
     "dead-code": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:34:34Z",
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 8000
     },
     "design-audit": {
       "status": "pass",
@@ -59,13 +62,15 @@
       "gate_timestamp": "2026-03-21T23:34:21Z",
       "files_checked": 64,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:34:51Z",
       "failures": 0,
-      "failures_details": []
+      "failures_details": [],
+      "duration_ms": 17000
     },
     "qa": {
       "status": "pass",
@@ -84,7 +89,8 @@
       "gate_timestamp": "2026-03-21T23:39:51Z",
       "scanned_files": 26,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 252000
     },
     "tests": {
       "status": "pass",
@@ -96,8 +102,9 @@
       "failed_subprojects": 0,
       "missing_tests_details": [],
       "test_failures_details": [],
-      "failed_subprojects_details": []
+      "failed_subprojects_details": [],
+      "duration_ms": 48000
     }
   },
-  "duration_seconds": 78826.0
+  "duration_seconds": null
 }

@@ -53,7 +53,8 @@
           "pattern": ".stub() on own method",
           "code": "    SlackNotifier.stub(:new, mock_notifier) do"
         }
-      ]
+      ],
+      "duration_ms": 0
     }
   },
   "gate_name": "test-quality"

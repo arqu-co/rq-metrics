@@ -31,20 +31,23 @@
       "gate_timestamp": "2026-03-21T22:30:57Z",
       "files_checked": 0,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 2000
     },
     "coverage": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T22:31:19Z",
       "coverage_tool": "py",
       "below_threshold": 0,
-      "below_threshold_details": []
+      "below_threshold_details": [],
+      "duration_ms": 2000
     },
     "dead-code": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T22:30:59Z",
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 2000
     },
     "design-audit": {
       "status": "pass",
@@ -53,20 +56,23 @@
       "message": "No dev server detected \u2014 gate not applicable",
       "screenshots": 0,
       "screenshots_details": [],
-      "categories": {}
+      "categories": {},
+      "duration_ms": 2000
     },
     "filesize": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T22:30:55Z",
       "files_checked": 13,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T22:31:04Z",
       "failures": 0,
-      "failures_details": []
+      "failures_details": [],
+      "duration_ms": 5000
     },
     "performance": {
       "status": "pass",
@@ -90,14 +96,16 @@
       "issues": 0,
       "recordings": 0,
       "issues_details": [],
-      "recordings_details": []
+      "recordings_details": [],
+      "duration_ms": 3000
     },
     "test-quality": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T22:31:17Z",
       "scanned_files": 0,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 2000
     },
     "tests": {
       "status": "pass",
@@ -109,8 +117,9 @@
       "missing_tests": 0,
       "failed_subprojects_details": [],
       "test_failures_details": [],
-      "missing_tests_details": []
+      "missing_tests_details": [],
+      "duration_ms": 11000
     }
   },
-  "duration_seconds": 276835.0
+  "duration_seconds": null
 }

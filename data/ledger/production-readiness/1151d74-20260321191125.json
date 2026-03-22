@@ -30,7 +30,8 @@
       "gate_timestamp": "2026-03-21T23:10:47Z",
       "files_checked": 63,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 3000
     },
     "coverage": {
       "status": "fail",
@@ -43,7 +44,8 @@
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:10:50Z",
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 3000
     },
     "design-audit": {
       "status": "pass",
@@ -59,13 +61,15 @@
       "gate_timestamp": "2026-03-21T23:10:44Z",
       "files_checked": 63,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:10:55Z",
       "failures": 0,
-      "failures_details": []
+      "failures_details": [],
+      "duration_ms": 5000
     },
     "qa": {
       "status": "pass",
@@ -84,7 +88,8 @@
       "gate_timestamp": "2026-03-21T23:11:23Z",
       "scanned_files": 25,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 11000
     },
     "tests": {
       "status": "fail",
@@ -101,8 +106,9 @@
         "app/models/current.rb",
         "test/mailers/previews/passwords_mailer_preview.rb"
       ],
-      "test_failures_details": []
+      "test_failures_details": [],
+      "duration_ms": 17000
     }
   },
-  "duration_seconds": 77107.0
+  "duration_seconds": null
 }

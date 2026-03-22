@@ -26,7 +26,8 @@
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:02:02Z",
       "files_checked": 0,
-      "violations": 0
+      "violations": 0,
+      "duration_ms": 1000
     },
     "coverage": {
       "status": "pass",
@@ -37,7 +38,8 @@
     "dead-code": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:02:02Z",
-      "violations": 0
+      "violations": 0,
+      "duration_ms": 0
     },
     "design-audit": {
       "status": "pass",
@@ -51,12 +53,14 @@
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:02:01Z",
       "files_checked": 1,
-      "violations": 0
+      "violations": 0,
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:02:07Z",
-      "failures": 0
+      "failures": 0,
+      "duration_ms": 5000
     },
     "performance": {
       "status": "pass",
@@ -83,7 +87,8 @@
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:02:09Z",
       "scanned_files": 0,
-      "violations": 0
+      "violations": 0,
+      "duration_ms": 2000
     },
     "tests": {
       "status": "pass",

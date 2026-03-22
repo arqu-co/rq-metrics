@@ -38,7 +38,8 @@
           "max": 8,
           "type": "cyclomatic_complexity"
         }
-      ]
+      ],
+      "duration_ms": 3000
     },
     "coverage": {
       "status": "fail",
@@ -73,7 +74,8 @@
           "line": 8,
           "message": "Unused method argument - `arg2`. If it's necessary, use `_` or `_arg2` as an argument name to indicate that it won't be used. If it's unnecessary, remove it."
         }
-      ]
+      ],
+      "duration_ms": 6000
     },
     "design-audit": {
       "status": "pass",
@@ -95,13 +97,15 @@
           "lines": 344,
           "max": 300
         }
-      ]
+      ],
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:05:33Z",
       "failures": 0,
-      "failures_details": []
+      "failures_details": [],
+      "duration_ms": 5000
     },
     "qa": {
       "status": "pass",
@@ -151,7 +155,8 @@
           "pattern": ".stub() on own method",
           "code": "    SlackNotifier.stub(:new, mock_notifier) do"
         }
-      ]
+      ],
+      "duration_ms": 10000
     },
     "tests": {
       "status": "pass",
@@ -166,5 +171,5 @@
       "missing_tests_details": []
     }
   },
-  "duration_seconds": 76767.0
+  "duration_seconds": null
 }

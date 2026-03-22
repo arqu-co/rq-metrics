@@ -42,20 +42,23 @@
           "max": 8,
           "type": "cyclomatic_complexity"
         }
-      ]
+      ],
+      "duration_ms": 5000
     },
     "coverage": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:51:12Z",
       "coverage_tool": "py",
       "below_threshold": 0,
-      "below_threshold_details": []
+      "below_threshold_details": [],
+      "duration_ms": 3000
     },
     "dead-code": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:50:52Z",
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 3000
     },
     "design-audit": {
       "status": "pass",
@@ -64,14 +67,16 @@
       "message": "No dev server detected \u2014 gate not applicable",
       "screenshots": 0,
       "screenshots_details": [],
-      "categories": {}
+      "categories": {},
+      "duration_ms": 3000
     },
     "filesize": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:50:44Z",
       "files_checked": 7,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 0
     },
     "lint": {
       "status": "fail",
@@ -88,7 +93,8 @@
           "exit_code": 1,
           "output": "./plugins/rq/hooks/test_require_critic_approval.sh\n"
         }
-      ]
+      ],
+      "duration_ms": 8000
     },
     "performance": {
       "status": "pass",
@@ -112,14 +118,16 @@
       "recordings": 0,
       "issues": 0,
       "recordings_details": [],
-      "issues_details": []
+      "issues_details": [],
+      "duration_ms": 3000
     },
     "test-quality": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T17:51:09Z",
       "scanned_files": 2,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 3000
     },
     "tests": {
       "status": "pass",
@@ -131,8 +139,9 @@
       "failed_subprojects": 0,
       "test_failures_details": [],
       "missing_tests_details": [],
-      "failed_subprojects_details": []
+      "failed_subprojects_details": [],
+      "duration_ms": 6000
     }
   },
-  "duration_seconds": 260029.0
+  "duration_seconds": null
 }

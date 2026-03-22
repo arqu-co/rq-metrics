@@ -29,7 +29,8 @@
           "pattern": ".stub() on own method",
           "code": "    job.stub(:arguments, poisoned_args) do"
         }
-      ]
+      ],
+      "duration_ms": 0
     }
   },
   "gate_name": "test-quality"

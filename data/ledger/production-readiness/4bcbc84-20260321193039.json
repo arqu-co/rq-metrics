@@ -30,14 +30,16 @@
       "gate_timestamp": "2026-03-21T23:29:22Z",
       "files_checked": 63,
       "violations": 0,
-      "violations_details": []
+      "violations_details": [],
+      "duration_ms": 3000
     },
     "coverage": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:30:12Z",
       "coverage_tool": "py",
       "below_threshold": 0,
-      "below_threshold_details": []
+      "below_threshold_details": [],
+      "duration_ms": 12000
     },
     "dead-code": {
       "status": "fail",
@@ -58,7 +60,8 @@
           "line": 338,
           "message": "Useless assignment to variable - `bt`."
         }
-      ]
+      ],
+      "duration_ms": 5000
     },
     "design-audit": {
       "status": "pass",
@@ -80,13 +83,15 @@
           "lines": 406,
           "max": 300
         }
-      ]
+      ],
+      "duration_ms": 0
     },
     "lint": {
       "status": "pass",
       "gate_timestamp": "2026-03-21T23:29:32Z",
       "failures": 0,
-      "failures_details": []
+      "failures_details": [],
+      "duration_ms": 5000
     },
     "qa": {
       "status": "pass",
@@ -112,7 +117,8 @@
           "pattern": ".stub() on own method",
           "code": "    job.stub(:arguments, poisoned_args) do"
         }
-      ]
+      ],
+      "duration_ms": 10000
     },
     "tests": {
       "status": "pass",
@@ -124,8 +130,9 @@
       "test_failures": 0,
       "missing_tests_details": [],
       "failed_subprojects_details": [],
-      "test_failures_details": []
+      "test_failures_details": [],
+      "duration_ms": 18000
     }
   },
-  "duration_seconds": 78236.0
+  "duration_seconds": null
 }
