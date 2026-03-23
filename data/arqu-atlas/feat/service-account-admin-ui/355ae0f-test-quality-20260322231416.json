@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "355ae0f",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T03:14:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T03:14:15Z",
+      "scanned_files": 20,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 34,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing = MagicMock(spec=Client)"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 38,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 84,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 96,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                return_value=MagicMock(database_url=\"sqlite:///:memory:\"),"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

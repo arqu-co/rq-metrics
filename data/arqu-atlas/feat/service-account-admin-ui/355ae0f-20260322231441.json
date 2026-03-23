@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "355ae0f",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T03:14:41Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T03:04:58Z",
+      "files_checked": 41,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/routes/test_extractions_v2_helpers.py",
+          "function": "TestApplyExtractionFilters",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T03:14:31Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 16000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T03:05:21Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 23000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:20Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T03:04:53Z",
+      "files_checked": 39,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T03:05:25Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:19Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T03:14:15Z",
+      "scanned_files": 20,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 34,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing = MagicMock(spec=Client)"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 38,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 84,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_cli.py",
+          "line": 96,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                return_value=MagicMock(database_url=\"sqlite:///:memory:\"),"
+        }
+      ],
+      "duration_ms": 20000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T03:13:55Z",
+      "fingerprint": "791e57b7b83832b633f1f3f5e711b2aa",
+      "test_runner": "bin-test",
+      "missing_tests": 2,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/arqu_atlas/workbench/api/migrations/versions/4ef31dd53cf1_add_key_suffix_and_client_name_unique.py",
+        "ui/src/types/api.generated.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": ">>> Running affected Python tests...\n============================= test session starts ==============================\nplatform darwin -- Python 3.14.0, pytest-9.0.2, pluggy-1.6.0 -- /Users/jerrod/Sites/arqu-atlas/.venv/bin/python3\ncachedir: .pytest_cache\ntestmon: new DB, environment: default\nWe'd like to hear from testmon users! Please go to https://testmon.org/survey to leave feedback.\nrootdir: /Users/jerrod/Sites/arqu-atlas\nconfigfile: pyproject.toml\nplugins: anyio-4.12.1, xdist-3.8.0, timeout-2.4.0, asyncio-1.3.0, testmon-2.2.0, cov-7.0.0\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... ERROR: not found: /Users/jerrod/Sites/arqu-atlas/.quality/proof/pytest-admin.xml\n(no match in any of [<Dir proof>])\n\ncollected 0 items\n\n=============================== warnings summary ===============================\n.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:852\n  /Users/jerrod/Sites/arqu-atlas/.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:852: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; tests.fixtures.pdf_fixtures\n    self.import_plugin(import_spec)\n\n.venv/lib/python3.14/site-packages/google/genai/types.py:43\n  /Users/jerrod/Sites/arqu-atlas/.venv/lib/python3.14/site-packages/google/genai/types.py:43: DeprecationWarning: '_UnionGenericAlias' is deprecated and slated for removal in Python 3.17\n    VersionedUnionType = Union[builtin_types.UnionType, _UnionGenericAlias]\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n============================= 2 warnings in 0.02s =============================="
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 510000
+    }
+  },
+  "duration_seconds": 132072.0
+}
