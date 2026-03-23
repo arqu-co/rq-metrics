@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "573cefc",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T04:43:33Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T04:43:32Z",
+      "scanned_files": 41,
+      "violations": 28,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/tasks/test_bulk_fact_extraction_task.py",
+          "line": 59,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_db = MagicMock(spec=Database)"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_backfill_document_md5.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    storage = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 172,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 182,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 190,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 196,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 206,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 218,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 224,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 232,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 250,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 256,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 268,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 278,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 284,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 293,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 302,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_document_workflow_tools_db.py",
+          "line": 308,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 169,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 180,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 191,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 205,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 216,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 229,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 237,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_copilot_retrieval_tools_db.py",
+          "line": 246,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        ctx = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
