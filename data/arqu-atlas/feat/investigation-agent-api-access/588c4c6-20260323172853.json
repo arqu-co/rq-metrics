@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/investigation-agent-api-access",
+  "sha": "588c4c6",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T21:28:53Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "coverage"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T21:25:31Z",
+      "files_checked": 2,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "_dedup_entities_for_unique_index",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "downgrade",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "downgrade",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/scripts/backfill_document_md5.py",
+          "function": "run_backfill",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 64000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T21:28:43Z",
+      "coverage_tool": "py",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/scripts/backfill_document_md5.py",
+          "coverage": 62,
+          "min": 95
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T21:25:35Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:20Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T21:24:27Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T21:25:40Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:19Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T21:28:38Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T21:28:36Z",
+      "fingerprint": "4121adb919b5551a0c604dbd45a2f277",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 176000
+    }
+  },
+  "duration_seconds": 197724.0
+}

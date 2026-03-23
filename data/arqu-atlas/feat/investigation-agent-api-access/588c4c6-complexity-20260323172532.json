@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/investigation-agent-api-access",
+  "sha": "588c4c6",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T21:25:32Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T21:25:31Z",
+      "files_checked": 2,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "_dedup_entities_for_unique_index",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "downgrade",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "downgrade",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/scripts/backfill_document_md5.py",
+          "function": "run_backfill",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
