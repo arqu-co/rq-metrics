@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "fix/client-max-concurrent-jobs-not-null",
+  "sha": "15d86be",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T17:45:52Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T17:45:52Z",
+      "files_checked": 15,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "upgrade",
+          "lines": 106,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "upgrade",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/evaluation.py",
+          "function": "EvaluationRecord",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/training_job.py",
+          "function": "TrainingJobRecord",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_schema_sync.py",
+          "function": "TestSchemaMigrationSync",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "TestTrainingPollerLifecycle",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "test_poll_loop_calls_service",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "test_poll_loop_survives_errors",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_svc_poll.py",
+          "function": "TestPollActiveJobs",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

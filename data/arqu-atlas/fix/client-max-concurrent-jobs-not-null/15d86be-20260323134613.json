@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "fix/client-max-concurrent-jobs-not-null",
+  "sha": "15d86be",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T17:46:12Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T17:45:52Z",
+      "files_checked": 15,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "upgrade",
+          "lines": 106,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/fb118ca7d2c3_reconcile_production_schema_drift.py",
+          "function": "upgrade",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/evaluation.py",
+          "function": "EvaluationRecord",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/training_job.py",
+          "function": "TrainingJobRecord",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_schema_sync.py",
+          "function": "TestSchemaMigrationSync",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "TestTrainingPollerLifecycle",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "test_poll_loop_calls_service",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_poller.py",
+          "function": "test_poll_loop_survives_errors",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_training_svc_poll.py",
+          "function": "TestPollActiveJobs",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T06:52:12Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T17:45:58Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "tests/unit/workbench/api/test_schema_sync.py",
+          "name": "AsyncSession",
+          "line": 16
+        },
+        {
+          "type": "unused_import",
+          "file": "tests/unit/workbench/api/test_schema_sync.py",
+          "name": "(  # noqa",
+          "line": 19
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:20Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T17:45:48Z",
+      "files_checked": 13,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/test_documents.py",
+          "lines": 303,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T17:46:02Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+from arqu_atlas.workbench.api.models import (  # noqa: F401 \u2014 ensure all models loaded\n\n"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:19Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T17:46:07Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T06:51:07Z",
+      "fingerprint": "b097c4cba74ae0495b10457e8f574d50",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": ">>> Running specified tests...\n============================= test session starts ==============================\nplatform darwin -- Python 3.14.0, pytest-9.0.2, pluggy-1.6.0 -- /Users/jerrod/Sites/arqu-atlas/.venv/bin/python3\ncachedir: .pytest_cache\nrootdir: /Users/jerrod/Sites/arqu-atlas\nconfigfile: pyproject.toml\nplugins: anyio-4.12.1, xdist-3.8.0, timeout-2.4.0, asyncio-1.3.0, testmon-2.2.0, cov-7.0.0\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncreated: 16/16 workers\n16 workers [0 items]\n\nscheduling tests via LoadScheduling\n\n=============================== warnings summary ===============================\n.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:852: 17 warnings\n  /Users/jerrod/Sites/arqu-atlas/.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:852: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; tests.fixtures.pdf_fixtures\n    self.import_plugin(import_spec)\n\n.venv/lib/python3.14/site-packages/google/genai/types.py:43: 17 warnings\n  /Users/jerrod/Sites/arqu-atlas/.venv/lib/python3.14/site-packages/google/genai/types.py:43: DeprecationWarning: '_UnionGenericAlias' is deprecated and slated for removal in Python 3.17\n    VersionedUnionType = Union[builtin_types.UnionType, _UnionGenericAlias]\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n============================ 34 warnings in 13.87s ============================="
+        }
+      ],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 184368.0
+}
