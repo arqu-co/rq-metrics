@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "d86cee5",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T02:16:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T01:57:12Z",
+      "files_checked": 33,
+      "violations": 15,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/cli.py",
+          "function": "create_key",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/api_key.py",
+          "function": "APIKey",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/routes/test_admin.py",
+          "function": "test_key_list_item_fields",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/workbench/api/routes/test_admin.py",
+          "function": "TestCreateKey",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_admin_schemas.py",
+          "function": "TestCreateKeyRequest",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/App.tsx",
+          "function": "App",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/KeysTable.tsx",
+          "function": "KeysTable",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/CreateKeyModal.tsx",
+          "function": "KeyFormStep",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "ui/src/components/CreateKeyModal.tsx",
+          "function": "CreateKeyModal",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/CreateKeyModal.tsx",
+          "function": "KeyFormStep",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/CreateKeyModal.tsx",
+          "function": "KeyRevealStep",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/LayoutSidebar.tsx",
+          "function": "LayoutSidebar",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/pages/ServiceAccountsPage.tsx",
+          "function": "ServiceAccountsPage",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "ui/src/pages/ServiceAccountsPage.tsx",
+          "function": "ServiceAccountsPage",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "ui/src/components/LayoutMobileMenu.tsx",
+          "function": "LayoutMobileMenu",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T02:16:45Z",
+      "coverage_tool": "py",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/cli.py",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/models/api_key.py",
+          "coverage": 65,
+          "min": 95
+        }
+      ],
+      "duration_ms": 17000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T01:57:33Z",
+      "violations": 8,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/4ef31dd53cf1_add_key_suffix_and_client_name_unique.py",
+          "name": "sqlalchemy",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 16
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 26
+        },
+        {
+          "type": "unused_import",
+          "file": "tests/unit/workbench/api/routes/test_admin.py",
+          "name": "select",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "ui/src/components/KeysTable.test.tsx",
+          "name": "fireEvent",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "ui/src/components/layout-nav-items.test.ts",
+          "name": "NavLink",
+          "line": 3
+        }
+      ]
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:20Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T01:57:07Z",
+      "files_checked": 33,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "ui/src/types/api.generated.ts",
+          "lines": 9446,
+          "max": 300
+        }
+      ]
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-23T01:57:37Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T14:33:19Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T02:16:28Z",
+      "scanned_files": 13,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "ui/src/components/Layout.test.tsx",
+          "line": 8,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock(\"./ChatPanel\", () => ({"
+        }
+      ],
+      "duration_ms": 10000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T02:16:18Z",
+      "test_runner": "bin-test",
+      "fingerprint": "228409c1e564b9f7c93e611e398c70fa",
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/arqu_atlas/workbench/api/migrations/versions/4ef31dd53cf1_add_key_suffix_and_client_name_unique.py",
+        "ui/src/types/api.generated.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 128606.0
+}

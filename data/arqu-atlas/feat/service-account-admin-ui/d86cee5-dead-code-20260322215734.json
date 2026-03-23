@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "d86cee5",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T01:57:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T01:57:33Z",
+      "violations": 8,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/migrations/versions/4ef31dd53cf1_add_key_suffix_and_client_name_unique.py",
+          "name": "sqlalchemy",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 16
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/workbench/api/routes/__init__.py",
+          "name": "(",
+          "line": 26
+        },
+        {
+          "type": "unused_import",
+          "file": "tests/unit/workbench/api/routes/test_admin.py",
+          "name": "select",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "ui/src/components/KeysTable.test.tsx",
+          "name": "fireEvent",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "ui/src/components/layout-nav-items.test.ts",
+          "name": "NavLink",
+          "line": 3
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

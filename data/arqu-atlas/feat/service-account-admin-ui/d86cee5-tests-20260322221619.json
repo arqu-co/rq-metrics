@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "feat/service-account-admin-ui",
+  "sha": "d86cee5",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-23T02:16:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 2
+  },
+  "critic_findings": [
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 326 lines, exceeds 300-line max. Split helper unit tests (TestBuildTitle, TestBuildBody, TestExtractIssueNumber, TestRedactEmail, TestRequestModel, TestResponseModel) into test_report_issue_helpers.py."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for multiple @ signs (e.g., 'user@bad@domain.com' should return 'user')."
+    },
+    {
+      "file": "tests/unit/workbench/api/test_report_issue.py",
+      "line": 295,
+      "rule": "MISSING_TEST",
+      "message": "_redact_email missing edge case test for empty string input (should return '')."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-23T02:16:18Z",
+      "test_runner": "bin-test",
+      "fingerprint": "228409c1e564b9f7c93e611e398c70fa",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/arqu_atlas/workbench/api/migrations/versions/4ef31dd53cf1_add_key_suffix_and_client_name_unique.py",
+        "ui/src/types/api.generated.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
