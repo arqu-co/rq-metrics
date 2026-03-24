@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "51d7a7891",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T20:36:26Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:36:25Z",
+      "scanned_files": 12,
+      "violations": 24,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 18,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 28,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db.execute = AsyncMock(return_value=_db_result(scalar_one=MagicMock()))"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 29,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        file = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 37,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                comparison=MagicMock(id=1),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 38,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                local_storage=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 46,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db.execute = AsyncMock(return_value=_db_result(scalar_one=MagicMock()))"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db.add = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 48,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        file = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 51,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_storage = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 75,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                    comparison=MagicMock(id=1),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 92,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 101,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 107,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 116,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 121,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_user = MagicMock(core_api_token=None)"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 122,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison_data = MagicMock(user=mock_user)"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 127,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 142,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "line": 152,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison_service = Mock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 100,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_storage = Mock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 210,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison_service = Mock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 219,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_storage = Mock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "51d7a7891",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T20:31:28Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:31:28Z",
+      "files_checked": 31,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "function": "TestUploadQuoteToComparisonUnit",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_mutation_unit.py",
+          "function": "TestConfirmComparisonUnit",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "function": "TestChildQuoteDeletion",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_carrier_resolution.py",
+          "function": "TestResolveCarrierName",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
