@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "6599b345b",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T20:54:19Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:54:18Z",
+      "scanned_files": 13,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    storage = Mock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 90,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_svc = Mock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_multi_option_quotes_deletion.py",
+          "line": 150,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_svc = Mock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
