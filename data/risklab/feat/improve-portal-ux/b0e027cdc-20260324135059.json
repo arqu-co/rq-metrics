@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "b0e027cdc",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T17:50:59Z",
+  "phase": "review",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T17:50:42Z",
+      "files_checked": 20,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/settings/PortalSettingsSection.tsx",
+          "function": "PortalSettingsSection",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "PortalForm",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "CreatePortalDialog",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 61000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T00:22:25Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T17:50:51Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/20260324_1132_add_display_name_to_upload_portals.py",
+          "name": "sqlalchemy",
+          "line": 10
+        }
+      ],
+      "duration_ms": 9000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T17:49:11Z",
+      "files_checked": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T17:49:37Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 26000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T17:49:41Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-21T00:21:48Z",
+      "test_runner": "bin-test",
+      "fingerprint": "7f48a4f18a97b0134b7fcd4701f085e2",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 11,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mis enabled when token is present\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes source map configuration\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mhas five categories in correct order\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Form to Form & Terms\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mmissing status\u001b[2m > \u001b[22mreturns destructive semantic classes for missing values\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22moutlier status\u001b[2m > \u001b[22mreturns warning semantic classes for outlier values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mnormal status\u001b[2m > \u001b[22mreturns empty strings for normal values (no color coding)\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mreturn structure\u001b[2m > \u001b[22mreturns object with background and border properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mdefines hidden state with zero opacity and vertical offset\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mcomputes visible state with staggered delay\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mincreases delay proportional to index\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines SATELLITE_ZOOM as a number\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines STREET_VIEW_POINT_OF_VIEW with heading and pitch\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines MAP_PANEL_HEIGHT as a CSS string\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions left edge tooltip offset to the left\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions right edge tooltip offset to the right\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions top edge tooltip above\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions bottom edge tooltip below\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcn is a function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateLayerValues is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mgetLayerValue is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateCleanPercentagesForDrag is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcreateSampleTowers is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns empty color for t <= 0\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns an rgb string for mid-range values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22minterpolates across all color stops\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns a color close to peak for t near 1\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports BAR_RADIUS as a number\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports THEMED_TOOLTIP_STYLES with expected properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports CROSSHAIR_STYLE with stroke properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports DATUM_GLYPH_STYLE with fill and radius\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports brandChartTheme with colors array\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m726 passed\u001b[39m\u001b[22m\u001b[90m (726)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6574 passed\u001b[39m\u001b[22m\u001b[90m (6574)\u001b[39m\n\u001b[2m   Start at \u001b[22m 20:21:12\n\u001b[2m   Duration \u001b[22m 35.42s\u001b[2m (transform 10.83s, setup 121.25s, import 66.12s, tests 65.52s, environment 112.81s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ],
+      "missing_tests_details": [
+        "backend/alembic/versions/20260320_1200_add_upload_portal_tables.py",
+        "backend/app/api/external/atlas_quote_schemas.py",
+        "backend/app/api/external/comparison_schemas/deal_comparison_detail.py",
+        "backend/app/api/external/comparison_schemas/external_comparison_create.py",
+        "backend/app/api/external/external_comparison_webhook_builder.py",
+        "backend/app/api/quotes/comparison_mutation_endpoints.py",
+        "backend/app/models/pydantic/field_response.py",
+        "backend/app/services/atlas_quote_processor.py",
+        "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+        "frontend/src/components/quoteComparison/PDFViewerContent.tsx",
+        "frontend/src/routes/lazyPages.ts"
+      ]
+    }
+  },
+  "duration_seconds": 339759.0
+}
