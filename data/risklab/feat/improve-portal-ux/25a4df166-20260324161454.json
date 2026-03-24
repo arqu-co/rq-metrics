@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "25a4df166",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T20:14:54Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:09:40Z",
+      "files_checked": 26,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_mutation_endpoints.py",
+          "function": "confirm_comparison",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_mutation_endpoints.py",
+          "function": "confirm_comparison",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_mutation_endpoints.py",
+          "function": "upload_quote_to_comparison",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_mutation_endpoints.py",
+          "function": "upload_quote_to_comparison",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/carrier_resolution.py",
+          "function": "match_carrier_name",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/carrier_resolution.py",
+          "function": "resolve_carrier_name",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_confirm_endpoint_success.py",
+          "function": "TestConfirmEndpointSuccess",
+          "lines": 183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ConfirmToArquButton.tsx",
+          "function": "ConfirmToArquButton",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T20:14:47Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 8000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T20:09:51Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 11000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:09:37Z",
+      "files_checked": 26,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_mutation_endpoints.py",
+          "lines": 363,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T20:10:23Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 32000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T20:14:39Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T20:14:34Z",
+      "test_runner": "bin-test",
+      "fingerprint": "64a8dbd43503dd1a55316595af58bfad",
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mdefines hidden state with zero opacity and vertical offset\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mcomputes visible state with staggered delay\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mincreases delay proportional to index\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mACCEPTED_DOCUMENT_EXTENSIONS includes common formats\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_DOCUMENT_SIZE_BYTES is 50MB\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_UPLOADS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_EXTRACTIONS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mis a callable function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns base classes when called with no arguments\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each variant\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each size\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines SATELLITE_ZOOM as a number\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines STREET_VIEW_POINT_OF_VIEW with heading and pitch\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines MAP_PANEL_HEIGHT as a CSS string\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions left edge tooltip offset to the left\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions right edge tooltip offset to the right\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions top edge tooltip above\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions bottom edge tooltip below\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mhas five categories in correct order\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Form to Form & Terms\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcn is a function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateLayerValues is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mgetLayerValue is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateCleanPercentagesForDrag is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcreateSampleTowers is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the access token from config\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the environment from config\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mcaptures uncaught errors and unhandled rejections\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mis enabled when token is present\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes source map configuration\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mreturns a string of class names\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mincludes base layout classes\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m726 passed\u001b[39m\u001b[22m\u001b[90m (726)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6577 passed\u001b[39m\u001b[22m\u001b[90m (6577)\u001b[39m\n\u001b[2m   Start at \u001b[22m 16:13:35\n\u001b[2m   Duration \u001b[22m 58.52s\u001b[2m (transform 17.60s, setup 203.60s, import 111.63s, tests 103.97s, environment 183.11s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ],
+      "missing_tests_details": [
+        "backend/app/api/quotes/comparison_mutation_endpoints.py",
+        "backend/app/services/carrier_resolution.py"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 251000
+    }
+  },
+  "duration_seconds": 348395.0
+}
