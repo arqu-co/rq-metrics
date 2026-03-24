@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "repo": "auto-claude",
+  "branch": "feat/automated-build-and-versioning",
+  "sha": "547df36",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T18:51:29Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": "design-audit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T18:51:29Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
