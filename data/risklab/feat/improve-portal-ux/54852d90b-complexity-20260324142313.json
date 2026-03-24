@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "54852d90b",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T18:23:12Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T18:23:12Z",
+      "files_checked": 20,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "PortalForm",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "CreatePortalDialog",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
