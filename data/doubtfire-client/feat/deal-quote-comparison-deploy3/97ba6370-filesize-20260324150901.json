@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "feat/deal-quote-comparison-deploy3",
+  "sha": "97ba6370",
+  "user": "Jonathan Thom",
+  "timestamp": "2026-03-24T22:08:59Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T22:08:59Z",
+      "files_checked": 35,
+      "violations": 10,
+      "violations_details": [
+        {
+          "file": "src/components/compose/compose-utils.test.ts",
+          "lines": 549,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/email-box/body/EmailBoxBody.test.ts",
+          "lines": 311,
+          "max": 300
+        },
+        {
+          "file": "src/components/ui/combobox/ComboboxValue.test.ts",
+          "lines": 437,
+          "max": 300
+        },
+        {
+          "file": "src/components/ui/input/Input.test.ts",
+          "lines": 500,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useChatPanel.test.ts",
+          "lines": 312,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "lines": 343,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "lines": 443,
+          "max": 300
+        },
+        {
+          "file": "src/index.css",
+          "lines": 419,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.test.ts",
+          "lines": 858,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "lines": 802,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
