@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "b0e027cdc",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T17:49:17Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T17:49:17Z",
+      "files_checked": 20,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/settings/PortalSettingsSection.tsx",
+          "function": "PortalSettingsSection",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "PortalForm",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "CreatePortalDialog",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
