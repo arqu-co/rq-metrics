@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/improve-portal-ux",
+  "sha": "68c5eda4e",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-24T15:40:41Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T15:40:41Z",
+      "files_checked": 13,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "frontend/src/pages/PortalUploadPage.tsx",
+          "function": "DropzoneArea",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/settings/PortalSettingsSection.tsx",
+          "function": "PortalSettingsSection",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/settings/PortalSettingsSection.tsx",
+          "function": "PortalRow",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "CreatePortalDialog",
+          "lines": 178,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+          "function": "usePortalUploadQueue",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
