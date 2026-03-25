@@ -417,16 +417,6 @@ function getFilteredByUser(data, user) {
   return filtered;
 }
 
-var _activeRepo = '';
-var _activeUser = '';
-
-function applyFilters() {
-  var data = _fullData;
-  if (_activeRepo) data = getFilteredData(data, _activeRepo);
-  if (_activeUser) data = getFilteredByUser(data, _activeUser);
-  renderDashboard(data);
-}
-
 function initDashboard(data) {
   _fullData = data;
   populateRepoFilter(data.repos || Object.keys(data.per_repo || {}));
@@ -434,18 +424,21 @@ function initDashboard(data) {
   renderDashboard(data);
 
   var repoSelect = document.getElementById('repo-filter');
+  var userSelect = document.getElementById('user-filter');
+
   if (repoSelect) {
     repoSelect.addEventListener('change', function() {
-      _activeRepo = this.value;
-      applyFilters();
+      if (this.value && userSelect) userSelect.value = '';
+      var filtered = getFilteredData(_fullData, this.value);
+      renderDashboard(filtered);
     });
   }
 
-  var userSelect = document.getElementById('user-filter');
   if (userSelect) {
     userSelect.addEventListener('change', function() {
-      _activeUser = this.value;
-      applyFilters();
+      if (this.value && repoSelect) repoSelect.value = '';
+      var filtered = getFilteredByUser(_fullData, this.value);
+      renderDashboard(filtered);
     });
   }
 }

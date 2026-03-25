@@ -7,7 +7,7 @@ avg fix cycles, and a ranked leaderboard.
 from collections import defaultdict
 
 
-def _resolve_user_key(metric):
+def resolve_user_key(metric):
     """Return a stable user identifier from a metrics record.
 
     Prefers user_email (schema v2+), falls back to user name.
@@ -27,7 +27,7 @@ def compute_per_user(metrics):
     user_names = {}
 
     for m in metrics:
-        key = _resolve_user_key(m)
+        key = resolve_user_key(m)
         if key is None:
             continue
         by_user[key].append(m)

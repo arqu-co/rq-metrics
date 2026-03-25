@@ -6,26 +6,26 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "docs"))
 
 from aggregate_users import (
-    _resolve_user_key,
+    resolve_user_key,
     compute_leaderboard,
     compute_per_user,
 )
 from helpers import make_metric
 
 
-def test_resolve_user_key_prefers_email():
+def testresolve_user_key_prefers_email():
     m = make_metric(user="Alice", user_email="alice@co.com")
-    assert _resolve_user_key(m) == "alice@co.com"
+    assert resolve_user_key(m) == "alice@co.com"
 
 
-def test_resolve_user_key_falls_back_to_name():
+def testresolve_user_key_falls_back_to_name():
     m = make_metric(user="Bob")
-    assert _resolve_user_key(m) == "Bob"
+    assert resolve_user_key(m) == "Bob"
 
 
-def test_resolve_user_key_skips_unknown():
+def testresolve_user_key_skips_unknown():
     m = make_metric(user="unknown")
-    assert _resolve_user_key(m) is None
+    assert resolve_user_key(m) is None
 
 
 def test_per_user_groups_by_name():
