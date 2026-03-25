@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-plan",
+  "branch": "claude/plan-document-features-vAFYa",
+  "sha": "81e3f262",
+  "user": "unknown",
+  "timestamp": "2026-03-25T13:18:40Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:30Z",
+      "files_checked": 81,
+      "violations": 32,
+      "violations_details": [
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "function": "simulateSSEChunkParsing",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/api/http-client.ts",
+          "function": "setupTokenRefreshInterceptor",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/account-switch.ts",
+          "function": "switchToAccount",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/account-switch.ts",
+          "function": "switchToAccount",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "executeAutonomousGoal",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "resolveAutonomousApproval",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "executeAutonomousGoal",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "resolveAutonomousApproval",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "eslint-local-rules/require-data-event.ts",
+          "function": "getStaticAttributeValue",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "eslint-local-rules/require-data-event.ts",
+          "function": "VElement",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useDocumentDropZone.ts",
+          "function": "useDocumentDropZone",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "function": "useDealHub",
+          "lines": 377,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useContactSearch.ts",
+          "function": "useContactSearch",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "function": "walkTokens",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useDocumentDragToFolder.ts",
+          "function": "useDocumentDragToFolder",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "generateFieldValue",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep1",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/utils/formatting.ts",
+          "function": "sanitizeForDisplay",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/formatting.ts",
+          "function": "sanitizeForDisplay",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useMarketCarousel.ts",
+          "function": "useMarketCarousel",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "complexity": 40,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "hasDraftForConversation",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "complexity": 69,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:33Z",
+      "violations": 21,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/App.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/ThinkingIndicator.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/EmailBoxRecipients.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/DealTodo.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/tabs/RiskNarrativeTab.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type DealRecipient",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/api-error.test.ts",
+          "name": "type ServiceError",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.test.ts",
+          "name": "type ExtractedActions",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "name": "type Token",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "name": "type Tokens",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/index.ts",
+          "name": "type ClassValue",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/contact/index.ts",
+          "name": "type HubspotContactDto",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/geo-risk/risk-type-mapping.test.ts",
+          "name": "type Vertical",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealConversationContext",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabDefinition",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabId",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabRouteName",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/draft.ts",
+          "name": "type DraftSaveStatusValue",
+          "line": 6
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T13:18:39Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:29Z",
+      "files_checked": 82,
+      "violations": 20,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "lines": 710,
+          "max": 300
+        },
+        {
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "lines": 707,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/compose-utils.test.ts",
+          "lines": 441,
+          "max": 300
+        },
+        {
+          "file": "src/components/deal/tabs/ClearingsTab.test.ts",
+          "lines": 412,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "lines": 444,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useEmailActions.spec.ts",
+          "lines": 310,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "lines": 443,
+          "max": 300
+        },
+        {
+          "file": "src/index.css",
+          "lines": 418,
+          "max": 300
+        },
+        {
+          "file": "src/lib/api/http-client.ts",
+          "lines": 301,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.test.ts",
+          "lines": 588,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.ts",
+          "lines": 326,
+          "max": 300
+        },
+        {
+          "file": "src/router/index.ts",
+          "lines": 323,
+          "max": 300
+        },
+        {
+          "file": "src/services/compose/index.ts",
+          "lines": 330,
+          "max": 300
+        },
+        {
+          "file": "src/services/document/index.ts",
+          "lines": 714,
+          "max": 300
+        },
+        {
+          "file": "src/stores/account-switch.test.ts",
+          "lines": 437,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.test.ts",
+          "lines": 839,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "lines": 712,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-tabs.ts",
+          "lines": 405,
+          "max": 300
+        },
+        {
+          "file": "src/stores/draft.ts",
+          "lines": 514,
+          "max": 300
+        },
+        {
+          "file": "src/stores/inbox.ts",
+          "lines": 810,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:38Z",
+      "failures": 4,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 127,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\nsh: eslint: command not found\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[error] Cannot find package 'prettier-plugin-tailwindcss' imported from /Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-plan/noop.js\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "npm warn exec The following package was not found and will be installed: tsc@2.0.4\n\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+/* eslint-disable @typescript-eslint/no-explicit-any */\n+                  <!-- eslint-disable vue/no-restricted-syntax -->\n\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T13:18:39Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:39Z",
+      "scanned_files": 27,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "line": 531,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useDealCreatedHandler.test.ts",
+          "line": 112,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/account-switch.test.ts",
+          "line": 193,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(console, 'error').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 10.0
+}

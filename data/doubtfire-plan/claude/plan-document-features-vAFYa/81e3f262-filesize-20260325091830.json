@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-plan",
+  "branch": "claude/plan-document-features-vAFYa",
+  "sha": "81e3f262",
+  "user": "unknown",
+  "timestamp": "2026-03-25T13:18:30Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:18:29Z",
+      "files_checked": 82,
+      "violations": 20,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "lines": 710,
+          "max": 300
+        },
+        {
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "lines": 707,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/compose-utils.test.ts",
+          "lines": 441,
+          "max": 300
+        },
+        {
+          "file": "src/components/deal/tabs/ClearingsTab.test.ts",
+          "lines": 412,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "lines": 444,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useEmailActions.spec.ts",
+          "lines": 310,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "lines": 443,
+          "max": 300
+        },
+        {
+          "file": "src/index.css",
+          "lines": 418,
+          "max": 300
+        },
+        {
+          "file": "src/lib/api/http-client.ts",
+          "lines": 301,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.test.ts",
+          "lines": 588,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.ts",
+          "lines": 326,
+          "max": 300
+        },
+        {
+          "file": "src/router/index.ts",
+          "lines": 323,
+          "max": 300
+        },
+        {
+          "file": "src/services/compose/index.ts",
+          "lines": 330,
+          "max": 300
+        },
+        {
+          "file": "src/services/document/index.ts",
+          "lines": 714,
+          "max": 300
+        },
+        {
+          "file": "src/stores/account-switch.test.ts",
+          "lines": 437,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.test.ts",
+          "lines": 839,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "lines": 712,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-tabs.ts",
+          "lines": 405,
+          "max": 300
+        },
+        {
+          "file": "src/stores/draft.ts",
+          "lines": 514,
+          "max": 300
+        },
+        {
+          "file": "src/stores/inbox.ts",
+          "lines": 810,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
