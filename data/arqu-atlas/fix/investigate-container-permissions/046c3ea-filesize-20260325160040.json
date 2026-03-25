@@ -1,14 +1,14 @@
 {
   "schema_version": 2,
-  "repo": "arqu-atlas-fix",
+  "repo": "arqu-atlas",
   "branch": "fix/investigate-container-permissions",
   "sha": "046c3ea",
   "user": "Jerrod Blavos",
   "user_email": "jblavos@arqu.co",
-  "timestamp": "2026-03-25T20:00:56Z",
+  "timestamp": "2026-03-25T20:00:39Z",
   "phase": "review",
   "run_number": 1,
-  "gate_name": "qa",
+  "gate_name": "filesize",
   "critic_verdict": "unknown",
   "critic_findings_count": 0,
   "critic_findings_by_rule": {},
@@ -17,20 +17,15 @@
   "gate_failures_after_critic": 0,
   "missed_gates": [],
   "gates_run": [
-    "qa"
+    "filesize"
   ],
   "gates": {
-    "qa": {
+    "filesize": {
       "status": "pass",
-      "gate_timestamp": "2026-03-25T20:00:55Z",
-      "flows_tested": 0,
-      "flows_passed": 0,
-      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
-      "flows_failed": 0,
-      "issues": 0,
-      "recordings": 0,
-      "issues_details": [],
-      "recordings_details": [],
+      "gate_timestamp": "2026-03-25T20:00:39Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
       "duration_ms": 0
     }
   },

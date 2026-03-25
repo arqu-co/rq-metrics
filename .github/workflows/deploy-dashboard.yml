@@ -45,34 +45,22 @@ jobs:
         if: steps.detect.outputs.found == 'true'
         run: |
           NAMES="${{ steps.detect.outputs.bogus }}"
-
           echo "::warning::Worktree-named repos need manual repair: $NAMES"
-
-          BODY="## Worktree-named metrics need repair
-The following repo directories use Docker-style random names from worktrees:
-
-$(for name in $NAMES; do echo "- \`$name\`"; done)
-
-### How to fix
-
-1. Identify the real repo for each name (check SHAs, branch names, file paths in gate violations)
-2. Run the repair script:
-\`\`\`bash
-python3 docs/normalize_repo_names.py data --repair $(for name in $NAMES; do echo "--map $name=REAL_REPO_NAME "; done)
-\`\`\`
-3. Commit and push the repaired data
-
-### Prevention
-Update the rq plugin: \`claude plugins update rq\` (v1.28.10+ fixes this)"
-
+          BODY="## Worktree-named metrics need repair"
+          BODY="$BODY"$'\n\n'"The following repo directories use Docker-style random names from worktrees:"$'\n'
+          for name in $NAMES; do
+            BODY="$BODY"$'\n'"- \`$name\`"
+          done
+          BODY="$BODY"$'\n\n'"### How to fix"$'\n'
+          BODY="$BODY"$'\n'"1. Identify the real repo (check SHAs, branch names, gate violation file paths)"
+          BODY="$BODY"$'\n'"2. Run: \`python3 docs/normalize_repo_names.py data --repair --map NAME=REAL_REPO\`"
+          BODY="$BODY"$'\n'"3. Commit and push"
+          BODY="$BODY"$'\n\n'"### Prevention"$'\n'"Update the rq plugin: \`claude plugins update rq\` (v1.28.10+)"
           EXISTING=$(gh issue list --label "stale-plugin" --state open --json number -q '.[0].number' 2>/dev/null || echo "")
           if [ -n "$EXISTING" ]; then
             gh issue comment "$EXISTING" --body "$BODY"
           else
-            gh issue create \
-              --title "Worktree-named metrics data needs repair" \
-              --label "stale-plugin" \
-              --body "$BODY"
+            gh issue create --title "Worktree-named metrics data needs repair" --label "stale-plugin" --body "$BODY"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
