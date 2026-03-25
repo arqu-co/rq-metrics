@@ -258,6 +258,9 @@
     <select class="repo-filter" id="repo-filter">
       <option value="">All repos</option>
     </select>
+    <select class="repo-filter" id="user-filter">
+      <option value="">All users</option>
+    </select>
     <div class="meta" id="meta-info"></div>
   </div>
 </div>
@@ -266,6 +269,25 @@
 
   <!-- Hero KPIs -->
   <div class="hero" id="hero-strip"></div>
+
+  <!-- Leaderboard -->
+  <div class="grid-2 section-gap">
+    <div class="panel span-2">
+      <div class="panel-head">
+        <h2>Leaderboard</h2>
+        <span class="badge" id="leaderboard-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="leaderboard-table">
+          <thead><tr>
+            <th>#</th><th>User</th><th>Builds</th>
+            <th>First-Pass Rate</th><th>Avg Violations</th><th>Avg Fix Cycles</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
   <!-- Row 1: Trend + Fix Cycles + Gate Timing -->
   <div class="grid-3">

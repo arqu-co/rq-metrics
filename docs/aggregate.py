@@ -20,6 +20,7 @@ from aggregate_findings import (
     compute_top_violations,
 )
 from aggregate_shared import KNOWN_GATES, count_gate_violations
+from aggregate_users import compute_leaderboard, compute_per_user
 
 
 def load_metrics(data_dir="data"):
@@ -193,10 +194,13 @@ def compute_violation_trends(metrics):
 
 def _aggregate_slice(metrics):
     """Aggregate a single slice of metrics (all repos or one repo)."""
+    per_user = compute_per_user(metrics)
     return {
         "summary": compute_summary(metrics),
         "trends": compute_trends(metrics),
         "per_repo": compute_per_repo(metrics),
+        "per_user": per_user,
+        "leaderboard": compute_leaderboard(per_user),
         "per_gate": compute_per_gate(metrics),
         "per_gate_stats": compute_per_gate_stats(metrics),
         "per_gate_per_repo": compute_per_gate_per_repo(metrics),
@@ -227,6 +231,19 @@ def build_payload(metrics):
     payload["by_repo_detail"] = {
         repo: _aggregate_slice(repo_metrics)
         for repo, repo_metrics in by_repo.items()
+    }
+
+    # Per-user slices for client-side filtering
+    from aggregate_users import _resolve_user_key
+    by_user = defaultdict(list)
+    for m in metrics:
+        key = _resolve_user_key(m)
+        if key is not None:
+            by_user[key].append(m)
+    payload["users"] = sorted(by_user.keys())
+    payload["by_user_detail"] = {
+        user: _aggregate_slice(user_metrics)
+        for user, user_metrics in by_user.items()
     }
     return payload
 
