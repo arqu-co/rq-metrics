@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/portal-upload-persistent-history",
+  "sha": "134acffa6",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:40:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:35:23Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:40:21Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:35:29Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:35:20Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:35:38Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:40:18Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:40:14Z",
+      "fingerprint": "a3493271bd4856682da5d46cee847c3a",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/admin/adminConstants.test.ts\u001b[2m > \u001b[22mROLE_COLORS\u001b[2m > \u001b[22mmaps anonymous to destructive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/admin/adminConstants.test.ts\u001b[2m > \u001b[22mROLE_ORDER\u001b[2m > \u001b[22mhas full first and anonymous last\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/admin/adminConstants.test.ts\u001b[2m > \u001b[22mformatNumber\u001b[2m > \u001b[22mformats number with locale separators\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mdefines hidden state with zero opacity and vertical offset\u001b[32m 4\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mcomputes visible state with staggered delay\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mincreases delay proportional to index\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mpixelToDollars\u001b[2m > \u001b[22mconverts top of grid to program limit\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mpixelToDollars\u001b[2m > \u001b[22mconverts bottom of grid to zero\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mpixelToDollars\u001b[2m > \u001b[22mconverts midpoint to half the limit\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mdollarsToPixel\u001b[2m > \u001b[22mconverts program limit to top of grid\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mdollarsToPixel\u001b[2m > \u001b[22mconverts zero to bottom of grid\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22mdollarsToPixel\u001b[2m > \u001b[22mis inverse of pixelToDollars\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22msnapToGrid\u001b[2m > \u001b[22msnaps to nearest grid cell boundary\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22msnapToGrid\u001b[2m > \u001b[22mdoes not go below MARGIN_LEFT\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/constants.test.ts\u001b[2m > \u001b[22msnapToGrid\u001b[2m > \u001b[22mdoes not exceed right boundary\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines SATELLITE_ZOOM as a number\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines STREET_VIEW_POINT_OF_VIEW with heading and pitch\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines MAP_PANEL_HEIGHT as a CSS string\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mACCEPTED_DOCUMENT_EXTENSIONS includes common formats\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_DOCUMENT_SIZE_BYTES is 50MB\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_UPLOADS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_EXTRACTIONS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mcontains all expected categories in order\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns empty color for t <= 0\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns an rgb string for mid-range values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22minterpolates across all color stops\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns a color close to peak for t near 1\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports BAR_RADIUS as a number\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports THEMED_TOOLTIP_STYLES with expected properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports CROSSHAIR_STYLE with stroke properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports DATUM_GLYPH_STYLE with fill and radius\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports brandChartTheme with colors array\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m726 passed\u001b[39m\u001b[22m\u001b[90m (726)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6585 passed\u001b[39m\u001b[22m\u001b[90m (6585)\u001b[39m\n\u001b[2m   Start at \u001b[22m 07:39:13\n\u001b[2m   Duration \u001b[22m 60.78s\u001b[2m (transform 15.98s, setup 220.68s, import 118.06s, tests 108.88s, environment 182.33s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 276000
+    }
+  },
+  "duration_seconds": 403929.0
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/portal-upload-persistent-history",
+  "sha": "134acffa6",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:40:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:40:21Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
