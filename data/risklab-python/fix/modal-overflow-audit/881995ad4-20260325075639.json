@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "repo": "risklab-python",
+  "branch": "fix/modal-overflow-audit",
+  "sha": "881995ad4",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:56:38Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:51:11Z",
+      "files_checked": 6,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/quoteComparison/ExistingSharesList.tsx",
+          "function": "ExistingSharesList",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/ShareManagementDialog.tsx",
+          "function": "ExistingSharesSection",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-13T20:10:25Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:51:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:51:07Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:51:52Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 37000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:56:37Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:56:35Z",
+      "fingerprint": "d7cd722d30e74f0fbdb79693a50e7c5a",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/admin/adminConstants.test.ts\u001b[2m > \u001b[22mformatNumber\u001b[2m > \u001b[22mformats number with locale separators\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns empty color for t <= 0\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns an rgb string for mid-range values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22minterpolates across all color stops\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns a color close to peak for t near 1\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports BAR_RADIUS as a number\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports THEMED_TOOLTIP_STYLES with expected properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports CROSSHAIR_STYLE with stroke properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports DATUM_GLYPH_STYLE with fill and radius\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports brandChartTheme with colors array\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcn is a function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateLayerValues is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mgetLayerValue is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateCleanPercentagesForDrag is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcreateSampleTowers is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/services/errorHandling.test.ts\u001b[2m > \u001b[22merrorHandling re-exports\u001b[2m > \u001b[22mexports error types\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/services/errorHandling.test.ts\u001b[2m > \u001b[22merrorHandling re-exports\u001b[2m > \u001b[22mexports type guard functions\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/services/errorHandling.test.ts\u001b[2m > \u001b[22merrorHandling re-exports\u001b[2m > \u001b[22mexports error notification functions\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/services/errorHandling.test.ts\u001b[2m > \u001b[22merrorHandling re-exports\u001b[2m > \u001b[22mexports error recovery utilities\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the access token from config\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the environment from config\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mcaptures uncaught errors and unhandled rejections\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mis enabled when token is present\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes source map configuration\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mis a callable function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns base classes when called with no arguments\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each variant\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each size\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mACCEPTED_DOCUMENT_EXTENSIONS includes common formats\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_DOCUMENT_SIZE_BYTES is 50MB\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_UPLOADS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/constants/upload.test.ts\u001b[2m > \u001b[22mupload constants\u001b[2m > \u001b[22mMAX_CONCURRENT_EXTRACTIONS is positive\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mreturns a string of class names\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mincludes base layout classes\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m726 passed\u001b[39m\u001b[22m\u001b[90m (726)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6577 passed\u001b[39m\u001b[22m\u001b[90m (6577)\u001b[39m\n\u001b[2m   Start at \u001b[22m 07:55:26\n\u001b[2m   Duration \u001b[22m 68.42s\u001b[2m (transform 18.88s, setup 268.44s, import 130.42s, tests 115.05s, environment 200.26s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ],
+      "missing_tests_details": [
+        "frontend/src/components/quoteComparison/ExistingSharesList.tsx",
+        "frontend/src/hooks/useShareManagement.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 283000
+    }
+  },
+  "duration_seconds": 1007172.0
+}
