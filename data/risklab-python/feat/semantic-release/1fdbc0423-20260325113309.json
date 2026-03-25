@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "repo": "risklab-python",
+  "branch": "feat/semantic-release",
+  "sha": "1fdbc0423",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T15:33:08Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:21:32Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:17:56Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:21:34Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:18:00Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:21:31Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:22:00Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 26000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:17:58Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:22:02Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T12:26:10Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6f69134dd155632fa83371f65803958a",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mmissing status\u001b[2m > \u001b[22mreturns destructive semantic classes for missing values\u001b[32m 12\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22moutlier status\u001b[2m > \u001b[22mreturns warning semantic classes for outlier values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mnormal status\u001b[2m > \u001b[22mreturns empty strings for normal values (no color coding)\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/getCellColorClasses.test.ts\u001b[2m > \u001b[22mgetCellColorClasses\u001b[2m > \u001b[22mreturn structure\u001b[2m > \u001b[22mreturns object with background and border properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mhas five categories in correct order\u001b[32m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Form to Form & Terms\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mis a callable function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns base classes when called with no arguments\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each variant\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/button-variants.test.ts\u001b[2m > \u001b[22mbuttonVariants\u001b[2m > \u001b[22mreturns a string for each size\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mcontains all expected categories in order\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldDisplayNames.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines SATELLITE_ZOOM as a number\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines STREET_VIEW_POINT_OF_VIEW with heading and pitch\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines MAP_PANEL_HEIGHT as a CSS string\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcn is a function\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateLayerValues is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mgetLayerValue is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcalculateCleanPercentagesForDrag is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/tests/lib/index.test.ts\u001b[2m > \u001b[22mlib module exports\u001b[2m > \u001b[22mcreateSampleTowers is a function\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the access token from config\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the environment from config\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mcaptures uncaught errors and unhandled rejections\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mis enabled when token is present\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes source map configuration\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions left edge tooltip offset to the left\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions right edge tooltip offset to the right\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions top edge tooltip above\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/gridBuilder/gridCanvasTypes.test.ts\u001b[2m > \u001b[22mgetHandleTooltipPosition\u001b[2m > \u001b[22mpositions bottom edge tooltip below\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mreturns a string of class names\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mincludes base layout classes\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m728 passed\u001b[39m\u001b[22m\u001b[90m (728)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6583 passed\u001b[39m\u001b[22m\u001b[90m (6583)\u001b[39m\n\u001b[2m   Start at \u001b[22m 08:24:59\n\u001b[2m   Duration \u001b[22m 69.75s\u001b[2m (transform 18.41s, setup 273.59s, import 132.61s, tests 115.83s, environment 206.87s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ]
+    }
+  },
+  "duration_seconds": 11046.0
+}
