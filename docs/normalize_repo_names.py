@@ -2,12 +2,19 @@
 """Normalize worktree-named repo directories before aggregation.
 
 Detects Docker-style random names (adjective-surname) that were recorded
-by old rq plugin versions when running in git worktrees. Moves affected
-data to a _quarantine/ directory and rewrites the repo field if possible.
+by old rq plugin versions when running in git worktrees.
 
-Usage: python3 normalize_repo_names.py <data_dir>
+Modes:
+  detect:  List bogus repo directories (default, used by GHA).
+  repair:  Rewrite repo field in JSON files and move to correct directory.
+           Requires a mapping file or --map flags.
+
+Usage:
+  python3 normalize_repo_names.py <data_dir>
+  python3 normalize_repo_names.py <data_dir> --repair --map gifted-brahmagupta=doubtfire-client
 """
 
+import glob
 import json
 import os
 import re
@@ -49,18 +56,6 @@ def is_worktree_name(name):
     return adjective in DOCKER_ADJECTIVES
 
 
-def quarantine_dir(data_dir, repo_name):
-    """Move a worktree-named directory to _quarantine/."""
-    src = os.path.join(data_dir, repo_name)
-    dst_root = os.path.join(data_dir, "_quarantine")
-    dst = os.path.join(dst_root, repo_name)
-    os.makedirs(dst_root, exist_ok=True)
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
-    shutil.move(src, dst)
-    return dst
-
-
 def find_bogus_repos(data_dir):
     """Return list of directory names that look like worktree names."""
     bogus = []
@@ -71,28 +66,73 @@ def find_bogus_repos(data_dir):
     return bogus
 
 
+def repair_repo(data_dir, worktree_name, real_repo):
+    """Rewrite repo field in all JSON files and move to correct directory.
+
+    Returns the number of files repaired.
+    """
+    src_dir = os.path.join(data_dir, worktree_name)
+    if not os.path.isdir(src_dir):
+        return 0
+
+    fixed = 0
+    for fp in glob.glob(os.path.join(src_dir, "**/*.json"), recursive=True):
+        with open(fp) as f:
+            data = json.load(f)
+
+        data["repo"] = real_repo
+        branch = data.get("branch", "unknown")
+        filename = os.path.basename(fp)
+        dest_dir = os.path.join(data_dir, real_repo, branch)
+        os.makedirs(dest_dir, exist_ok=True)
+
+        with open(os.path.join(dest_dir, filename), "w") as f:
+            json.dump(data, f, indent=2)
+            f.write("\n")
+
+        os.remove(fp)
+        fixed += 1
+
+    shutil.rmtree(src_dir, ignore_errors=True)
+    return fixed
+
+
 def main():
     data_dir = sys.argv[1] if len(sys.argv) > 1 else "data"
+    args = sys.argv[2:]
+
+    is_repair = "--repair" in args
+    repo_map = {}
+    for arg in args:
+        if arg.startswith("--map"):
+            continue
+        if "=" in arg:
+            worktree, real = arg.split("=", 1)
+            repo_map[worktree] = real
 
     bogus = find_bogus_repos(data_dir)
     if not bogus:
         print("No worktree-named repos detected.")
         return
 
-    print(f"Found {len(bogus)} worktree-named repo(s):")
-    for name in bogus:
-        file_count = sum(
-            len(files)
-            for _, _, files in os.walk(os.path.join(data_dir, name))
-        )
-        dst = quarantine_dir(data_dir, name)
-        print(f"  {name} ({file_count} files) -> {dst}")
-
-    # Write a manifest for CI visibility
-    manifest = os.path.join(data_dir, "_quarantine", "manifest.json")
-    with open(manifest, "w") as f:
-        json.dump({"quarantined": bogus}, f, indent=2)
-        f.write("\n")
+    if is_repair and repo_map:
+        total = 0
+        for name in bogus:
+            if name in repo_map:
+                count = repair_repo(data_dir, name, repo_map[name])
+                print(f"  Repaired {name} -> {repo_map[name]} ({count} files)")
+                total += count
+            else:
+                print(f"  SKIP {name}: no mapping provided")
+        print(f"\nRepaired {total} files total")
+    else:
+        print(f"Found {len(bogus)} worktree-named repo(s):")
+        for name in bogus:
+            file_count = sum(
+                len(files)
+                for _, _, files in os.walk(os.path.join(data_dir, name))
+            )
+            print(f"  {name} ({file_count} files)")
 
 
 if __name__ == "__main__":

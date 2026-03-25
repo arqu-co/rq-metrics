@@ -37,72 +37,40 @@ jobs:
           echo "bogus=$BOGUS" >> "$GITHUB_OUTPUT"
           if [ -n "$BOGUS" ]; then
             echo "found=true" >> "$GITHUB_OUTPUT"
-            # Collect committer info BEFORE moving directories
-            COMMITTERS=""
-            for name in $BOGUS; do
-              COMMITTERS="$COMMITTERS$(git log --all --format='%an <%ae>' -- "data/$name/" | sort -u)\n"
-            done
-            COMMITTERS=$(echo -e "$COMMITTERS" | sort -u | grep -v '^$' || echo "unknown")
-            # Store for notification step (multiline-safe)
-            EOF_MARKER=$(dd if=/dev/urandom bs=15 count=1 2>/dev/null | base64)
-            echo "committers<<$EOF_MARKER" >> "$GITHUB_OUTPUT"
-            echo -e "$COMMITTERS" >> "$GITHUB_OUTPUT"
-            echo "$EOF_MARKER" >> "$GITHUB_OUTPUT"
           else
             echo "found=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Quarantine worktree-named data
-        if: steps.detect.outputs.found == 'true'
-        run: |
-          python3 docs/normalize_repo_names.py data
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
-          git commit -m "chore: quarantine worktree-named metrics data" || true
-          git push || true
-
-      - name: Notify about outdated plugins
+      - name: Open issue for worktree-named data
         if: steps.detect.outputs.found == 'true'
         run: |
           NAMES="${{ steps.detect.outputs.bogus }}"
-          COMMITTERS="${{ steps.detect.outputs.committers }}"
 
-          echo "::warning::Quarantined worktree-named repos: $NAMES"
-          echo "::warning::Affected committers: $COMMITTERS"
-          echo "::warning::Fix: run 'claude plugins update rq' to get v1.28.10+"
+          echo "::warning::Worktree-named repos need manual repair: $NAMES"
 
-          BODY=$(cat <<'ISSUE_EOF'
-          ## Worktree-named metrics detected
+          BODY="## Worktree-named metrics need repair
+The following repo directories use Docker-style random names from worktrees:
 
-          The following repo names are Docker-style random names from worktrees,
-          caused by rq plugin versions before v1.28.10:
+$(for name in $NAMES; do echo "- \`$name\`"; done)
 
-          ISSUE_EOF
-          )
-          for name in $NAMES; do
-            BODY="$BODY
-          - \`$name\`"
-          done
-          BODY="$BODY
+### How to fix
 
-          ### Affected committers
-          \`\`\`
-          $COMMITTERS
-          \`\`\`
+1. Identify the real repo for each name (check SHAs, branch names, file paths in gate violations)
+2. Run the repair script:
+\`\`\`bash
+python3 docs/normalize_repo_names.py data --repair $(for name in $NAMES; do echo "--map $name=REAL_REPO_NAME "; done)
+\`\`\`
+3. Commit and push the repaired data
 
-          ### Fix
-          Run \`claude plugins update rq\` to update to v1.28.10+ which resolves
-          the real repository name even inside worktrees.
-
-          Data has been moved to \`data/_quarantine/\` and excluded from the dashboard."
+### Prevention
+Update the rq plugin: \`claude plugins update rq\` (v1.28.10+ fixes this)"
 
           EXISTING=$(gh issue list --label "stale-plugin" --state open --json number -q '.[0].number' 2>/dev/null || echo "")
           if [ -n "$EXISTING" ]; then
             gh issue comment "$EXISTING" --body "$BODY"
           else
             gh issue create \
-              --title "Outdated rq plugin producing worktree-named metrics" \
+              --title "Worktree-named metrics data needs repair" \
               --label "stale-plugin" \
               --body "$BODY"
           fi

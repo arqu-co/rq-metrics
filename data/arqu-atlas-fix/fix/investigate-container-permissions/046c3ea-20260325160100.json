@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas-fix",
+  "branch": "fix/investigate-container-permissions",
+  "sha": "046c3ea",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-25T20:01:00Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:43Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:58Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:39Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T20:00:51Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "src/arqu_atlas/workbench/api/routes/entities.py:85: error: Untyped decorator makes function \"list_entities\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:110: error: Untyped decorator makes function \"list_review_queue\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:135: error: Untyped decorator makes function \"get_full_entity_graph\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:148: error: Untyped decorator makes function \"get_entity_graph\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:159: error: Untyped decorator makes function \"get_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:179: error: Untyped decorator makes function \"update_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:204: error: Untyped decorator makes function \"delete_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:216: error: Untyped decorator makes function \"merge_entities\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:253: error: Untyped decorator makes function \"confirm_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:267: error: Untyped decorator makes function \"invalidate_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/entities.py:281: error: Untyped decorator makes function \"associate_entity\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:6: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:7: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:36: error: Untyped decorator makes function \"bulk_extract_facts\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:107: error: Untyped decorator makes function \"get_bulk_extraction_job\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:134: error: Untyped decorator makes function \"extract_facts_from_extraction\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/fact_extraction.py:212: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extraction_shared.py:8: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extraction_shared.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2_helpers.py:8: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2_helpers.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2_helpers.py:10: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2_helpers.py:11: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2_helpers.py:33: error: Returning Any from function declared to return \"DocumentRecord\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:6: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:10: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:46: error: Untyped decorator makes function \"create_extraction\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:134: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:137: error: Untyped decorator makes function \"list_extractions\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:177: error: Untyped decorator makes function \"get_extraction\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions.py:212: error: Untyped decorator makes function \"delete_extraction\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:6: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:7: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:153: error: Untyped decorator makes function \"create_extraction_v2\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:200: error: Untyped decorator makes function \"list_extractions_v2\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/routes/extractions_v2.py:250: error: Untyped decorator makes function \"get_extraction_v2\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/app.py:8: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/app.py:9: error: Cannot find implementation or library stub for module named \"fastapi.middleware.cors\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/app.py:63: error: Unused \"type: ignore[assignment, misc]\" comment  [unused-ignore]\nsrc/arqu_atlas/workbench/api/app.py:212: error: Cannot find implementation or library stub for module named \"starlette.requests\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/app.py:213: error: Cannot find implementation or library stub for module named \"starlette.responses\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/app.py:214: error: Cannot find implementation or library stub for module named \"starlette.staticfiles\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/app.py:216: error: Class cannot subclass \"StaticFiles\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/app.py:228: error: Untyped decorator makes function \"root\" untyped  [untyped-decorator]\nFound 1015 errors in 302 files (checked 818 source files)\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:55Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T20:00:53Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    }
+  },
+  "duration_seconds": 19.0
+}

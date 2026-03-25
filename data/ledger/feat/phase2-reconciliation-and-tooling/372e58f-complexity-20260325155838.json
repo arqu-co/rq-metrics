@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase2-reconciliation-and-tooling",
+  "sha": "372e58f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-25T19:58:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T19:58:37Z",
+      "files_checked": 29,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "bin/preflights/postscanmail.ts",
+          "function": "run",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

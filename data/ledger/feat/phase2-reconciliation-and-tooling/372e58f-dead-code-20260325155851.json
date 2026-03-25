@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase2-reconciliation-and-tooling",
+  "sha": "372e58f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-25T19:58:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T19:58:51Z",
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "lib/preflight/brex_check.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 26,
+          "message": "Useless assignment to variable - `response`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/jobs/gmail_poller_job_test.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 159,
+          "message": "Unused method argument - `q`. You can also write as `list_user_messages(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/jobs/gmail_poller_job_test.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 159,
+          "message": "Unused method argument - `max_results`. You can also write as `list_user_messages(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/jobs/gmail_poller_job_test.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 164,
+          "message": "Unused method argument - `format`."
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

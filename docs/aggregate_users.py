@@ -10,30 +10,58 @@ from collections import defaultdict
 def resolve_user_key(metric):
     """Return a stable user identifier from a metrics record.
 
-    Prefers user_email (schema v2+), falls back to user name.
-    Skips 'unknown' users entirely.
+    Always uses the user name as the canonical key. Skips 'unknown' users
+    unless they have an email.
     """
-    email = metric.get("user_email") or ""
     name = metric.get("user", "unknown")
-    if name == "unknown" and not email:
-        return None
-    return email if email else name
+    if name != "unknown":
+        return name
+    email = metric.get("user_email") or ""
+    if email:
+        return email.split("@")[0]
+    return None
+
+
+def _build_email_to_name_map(metrics):
+    """Build a mapping from email to name for dedup.
+
+    When a record has both user and user_email, we learn that email
+    belongs to that user name. Later, email-only records can be merged.
+    """
+    email_to_name = {}
+    for m in metrics:
+        name = m.get("user", "unknown")
+        email = m.get("user_email") or ""
+        if name != "unknown" and email:
+            email_to_name[email] = name
+    return email_to_name
+
+
+def group_by_user(metrics):
+    """Group metrics by canonical user key with email-to-name dedup."""
+    email_to_name = _build_email_to_name_map(metrics)
+    by_user = defaultdict(list)
+
+    for m in metrics:
+        name = m.get("user", "unknown")
+        email = m.get("user_email") or ""
+
+        if name != "unknown":
+            key = name
+        elif email and email in email_to_name:
+            key = email_to_name[email]
+        elif email:
+            key = email.split("@")[0]
+        else:
+            continue
+
+        by_user[key].append(m)
+    return by_user
 
 
 def compute_per_user(metrics):
     """Compute per-user statistics."""
-    by_user = defaultdict(list)
-    # Track name<->email mapping for display
-    user_names = {}
-
-    for m in metrics:
-        key = resolve_user_key(m)
-        if key is None:
-            continue
-        by_user[key].append(m)
-        name = m.get("user", "unknown")
-        if name != "unknown":
-            user_names[key] = name
+    by_user = group_by_user(metrics)
 
     result = {}
     for user_key, user_metrics in by_user.items():
@@ -53,13 +81,17 @@ def compute_per_user(metrics):
             round(sum(run_numbers) / len(run_numbers), 1)
             if run_numbers else 1.0
         )
-        raw_display = user_names.get(user_key, user_key)
-        # If display name is still an email, use the local part
-        if "@" in raw_display:
-            raw_display = raw_display.split("@")[0]
+        # Collect email from any record that has one
+        email = None
+        for m in user_metrics:
+            e = m.get("user_email") or ""
+            if e:
+                email = e
+                break
+
         result[user_key] = {
-            "display_name": raw_display,
-            "email": user_key if "@" in user_key else None,
+            "display_name": user_key,
+            "email": email,
             "total_builds": total,
             "first_pass_count": first_pass,
             "first_pass_rate": (

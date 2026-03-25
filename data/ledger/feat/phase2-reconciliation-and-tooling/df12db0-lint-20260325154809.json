@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase2-reconciliation-and-tooling",
+  "sha": "df12db0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-25T19:48:09Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T19:48:09Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "rubocop",
+          "exit_code": 1,
+          "output": "rbenv: version `3.4.4' is not installed (set by /Users/jerrod/Sites/ledger/.ruby-version)\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

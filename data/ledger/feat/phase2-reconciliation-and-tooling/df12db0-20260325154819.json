@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase2-reconciliation-and-tooling",
+  "sha": "df12db0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-25T19:48:18Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "performance",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T19:47:56Z",
+      "files_checked": 28,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "bin/process-doc.ts",
+          "function": "normalizeFields",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/simulate-noc.ts",
+          "function": "buildNotice",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:33Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T19:48:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T19:47:52Z",
+      "files_checked": 28,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T19:48:09Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "rubocop",
+          "exit_code": 1,
+          "output": "rbenv: version `3.4.4' is not installed (set by /Users/jerrod/Sites/ledger/.ruby-version)\n"
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:42:20Z",
+      "findings": 0,
+      "findings_details": [],
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      }
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T19:48:11Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:49:25Z",
+      "fingerprint": "25803bc14743610e6fb245b4ac5479eb",
+      "test_runner": "minitest",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 410515.0
+}
