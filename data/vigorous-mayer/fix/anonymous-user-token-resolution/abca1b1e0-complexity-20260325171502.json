@@ -1,0 +1,2646 @@
+{
+  "schema_version": 1,
+  "repo": "vigorous-mayer",
+  "branch": "fix/anonymous-user-token-resolution",
+  "sha": "abca1b1e0",
+  "user": "unknown",
+  "timestamp": "2026-03-25T21:15:01Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1,
+    "SRP": 1
+  },
+  "critic_findings": [
+    {
+      "file": "backend/app/core/core_api_deps.py",
+      "line": 31,
+      "rule": "FUNC_SIZE",
+      "message": "get_core_api_user is 52 lines (lines 31-82), exceeding the 50-line max by 2. Trim the docstring (16 lines) or extract the try/except error-handling into a _validate_token() helper."
+    },
+    {
+      "file": "backend/app/core/core_api_deps.py",
+      "line": 53,
+      "rule": "SRP",
+      "message": "API contract change: error details collapsed from two distinct messages ('Missing Authorization header' / 'Invalid Authorization header format') into one generic 'Missing or invalid Authorization header'. Core-api callers parsing error details will lose the ability to distinguish missing vs. malformed headers. Confirm this is acceptable with the core-api team, or restore distinct messages by checking whether _extract_bearer_token returned None due to missing input vs. bad format."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T21:15:01Z",
+      "files_checked": 607,
+      "violations": 371,
+      "violations_details": [
+        {
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "function": "upgrade",
+          "lines": 813,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/chat/routes_adk.py",
+          "function": "confirm_action",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/chat/routes_adk.py",
+          "function": "send_chat_message",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoint_helpers.py",
+          "function": "log_bulk_audit_events",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoints.py",
+          "function": "upload_documents",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoints.py",
+          "function": "upload_documents",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/documents/extraction_endpoints.py",
+          "function": "submit_document_extraction",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/extraction_endpoints.py",
+          "function": "reprocess_document_extraction",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "get_comparisons_by_deal",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "upload_quote",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "upload_quote",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_handle_eml_upload",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_handle_eml_upload",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "create_quotes_from_atlas",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_try_create_body_quote",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_create_quote_from_atlas_ref",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_endpoints.py",
+          "function": "get_loss_run_insights",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_endpoints.py",
+          "function": "get_loss_run_insights",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/projects/project_data_handlers.py",
+          "function": "execute_clear_project_data",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/core/database.py",
+          "function": "_get_database_url",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/main.py",
+          "function": "create_web_app",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/analytics_loss_grouping_service.py",
+          "function": "AnalyticsLossGroupingService",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/field_name_normalizer.py",
+          "function": "FieldNameNormalizer",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 252,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/acord_quality.py",
+          "function": "_extract_fields",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/acord_quality.py",
+          "function": "AcordQualityCalculator",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "_check_gate",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "_score_fields",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "LossRunQualityCalculator",
+          "lines": 189,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/quality_orchestrator.py",
+          "function": "_persist_result",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/quote_quality.py",
+          "function": "QuoteQualityCalculator",
+          "lines": 127,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "_check_gate",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "_score_fields_across_properties",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "ScheduleOfValuesQualityCalculator",
+          "lines": 215,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "_check_gate",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "_structural_validation",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "SchematicQualityCalculator",
+          "lines": 224,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "SchematicQualityCalculator",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "compute",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/auth/oauth_service.py",
+          "function": "OAuthService",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/utilities/error_handling/graceful_degradation.py",
+          "function": "GracefulDegradationService",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/utilities/error_handling/graceful_degradation.py",
+          "function": "with_graceful_degradation",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_submit_batch_async",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_correction_feedback.py",
+          "function": "_process_correction",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_correction_feedback.py",
+          "function": "_process_correction",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_document_extraction.py",
+          "function": "_submit_to_atlas",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_extraction.py",
+          "function": "_extract_quote_async",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_extraction.py",
+          "function": "_extract_quote_async",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_process_comparison_async",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/deal_export.py",
+          "function": "_export_deal_async",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/deal_export.py",
+          "function": "_export_deal_async",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/risk_assessment.py",
+          "function": "_assess_project_async",
+          "lines": 159,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/risk_assessment.py",
+          "function": "_assess_project_async",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/utils/email_to_pdf.py",
+          "function": "_build_email_html",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/check_alembic_heads.py",
+          "function": "extract_revision_info",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/scripts/check_alembic_heads.py",
+          "function": "find_heads",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/agents/chat/quote_comparison/test_tools_move_field.py",
+          "function": "TestMoveField",
+          "lines": 116,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/conftest.py",
+          "function": "chat_comparison_with_quotes",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming.py",
+          "function": "TestStreamChatResponseBranches",
+          "lines": 130,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_streaming_text_with_buffering_and_completion",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_streaming_text_with_buffering_and_completion",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "TestStreamChatAgentResponses",
+          "lines": 189,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "TestStreamChatAgentResponses",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_action_proposed_event_from_agent",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "function": "TestEditCellSingleQuote",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_audit_stream.py",
+          "function": "TestStreamAuditEvents",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_delete.py",
+          "function": "TestDocumentDeleteEndpoint",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_download.py",
+          "function": "TestDocumentDownloadEndpoint",
+          "lines": 176,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_extraction.py",
+          "function": "TestDocumentExtractionEndpoint",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_get.py",
+          "function": "TestDocumentGetEndpoint",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_upload_and_list.py",
+          "function": "TestDocumentListEndpoint",
+          "lines": 226,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "function": "TestBuildExportZip",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "function": "TestExportDocumentsZipEndpoint",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_detect_submit.py",
+          "function": "TestDetectExtractionType",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_detect_submit.py",
+          "function": "TestSubmitExtraction",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_reprocess_results.py",
+          "function": "TestReprocessExtraction",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "function": "TestGetComparisonsByDeal",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_email_body.py",
+          "function": "TestEmailBodyClassification",
+          "lines": 241,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "test_quote_fields_populated_from_atlas",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasCompleted",
+          "lines": 174,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasCompleted",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasExtracting",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasValidation",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_upload.py",
+          "function": "TestExternalQuoteUpload",
+          "lines": 146,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_validation.py",
+          "function": "TestExternalQuoteUploadEdgeCases",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_limit.py",
+          "function": "TestComparisonCreation",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "function": "test_list_audit_logs_response_includes_filename_and_email",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "function": "TestAuditLogEndpoints",
+          "lines": 151,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "function": "TestRefreshDirectSuccessPath",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "function": "TestUpgradeUserRoleErrorPaths",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "function": "TestAuthEndpointsLogin",
+          "lines": 264,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_me.py",
+          "function": "TestAuthEndpointsMe",
+          "lines": 211,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_permissions.py",
+          "function": "TestPermissionsEndpoint",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_health_endpoints.py",
+          "function": "TestRedisHealth",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints.py",
+          "function": "seed_sov_properties",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "test_returns_matched_litigation_risk",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "TestLitigationRiskScoring",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "seed_sov_properties",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_state_normalization.py",
+          "function": "TestLitigationRiskStateNormalization",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "function": "TestLossRunCorrectionEndpoints",
+          "lines": 258,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_endpoints.py",
+          "function": "TestLossRunDashboardEndpoint",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_nuclear_verdicts_endpoints.py",
+          "function": "TestNuclearVerdictsEndpoint",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints.py",
+          "function": "TestListProjectMembers",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints.py",
+          "function": "TestAddProjectMember",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints_mutations.py",
+          "function": "TestTransferOwnership",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_owner_only.py",
+          "function": "TestUpdateProjectOwnerOnly",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_owner_only.py",
+          "function": "TestClearProjectDataOwnerOnly",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_projects_clear_data.py",
+          "function": "TestClearProjectDataSafeguards",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_projects_clear_data.py",
+          "function": "TestClearProjectDataErrorHandling",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_quote_pdf_endpoint.py",
+          "function": "TestQuotePDFEndpoint403",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_quote_pdf_streaming.py",
+          "function": "TestPDFStreaming",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_endpoints_navigation.py",
+          "function": "TestScheduleOfValuesCorrectionNavigation",
+          "lines": 142,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_mutation_endpoints.py",
+          "function": "TestScheduleOfValuesCorrectionMutationEndpoints",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_read_endpoints.py",
+          "function": "TestScheduleOfValuesCorrectionReadEndpoints",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/cli/test_tasks.py",
+          "function": "TestBackfillDocumentProcessing",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/conftest_quote.py",
+          "function": "quote_comparison",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "function": "TestLifespan",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_auth_dependencies.py",
+          "function": "TestGetUserQuoteComparison",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_auth_dependencies.py",
+          "function": "TestGetUserQuoteUpload",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps.py",
+          "function": "TestGetCoreApiUser",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps.py",
+          "function": "TestGetOptionalCoreApiUser",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "function": "TestResolveFromAccessToken",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps_refresh_token.py",
+          "function": "TestResolveFromRefreshToken",
+          "lines": 111,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_resource_ownership_verification.py",
+          "function": "TestVerifyProjectOwnership",
+          "lines": 116,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/e2e/test_chat_agent_tool_selection_e2e.py",
+          "function": "TestChatAgentToolSelection",
+          "lines": 215,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/fixtures/database.py",
+          "function": "get_or_create_test_user",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/fixtures/database.py",
+          "function": "get_or_create_test_project",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_project_sharing_integration_access.py",
+          "function": "TestResourceAccessWithSharing",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_all_fields_populated",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "TestDocumentListResponseConstruction",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_default_values_for_optional_fields",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_from_attributes_with_object",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "test_all_fields_populated",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "TestDocumentQualityResponseConstruction",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "test_default_values",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/sqlalchemy/test_document_quality_score.py",
+          "function": "test_all_fields_populated",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/sqlalchemy/test_document_quality_score.py",
+          "function": "TestDocumentQualityScoreInstantiation",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_loss_run_claim.py",
+          "function": "TestLossRunClaim",
+          "lines": 180,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_loss_run_upload.py",
+          "function": "TestLossRunUpload",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project.py",
+          "function": "test_project_user_relationship_fails_without_factory",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_project.py",
+          "function": "TestProjectModel",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project_member.py",
+          "function": "TestProjectMemberCreation",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project_member_constraints.py",
+          "function": "TestProjectMemberConstraints",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_comparison_fields.py",
+          "function": "TestQuoteComparisonFields",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_comparison_share.py",
+          "function": "TestQuoteComparisonShareModel",
+          "lines": 185,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_upload.py",
+          "function": "test_quote_upload_with_user_and_project",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_quote_upload.py",
+          "function": "TestQuoteUploadModel",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_sqlalchemy_models.py",
+          "function": "test_tower_hierarchy_creation",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_sqlalchemy_models.py",
+          "function": "TestTowerSchemaIntegration",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_user.py",
+          "function": "TestUserModel",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/perf_plugin.py",
+          "function": "pytest_terminal_summary",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_cli_baseline.py",
+          "function": "TestCmdBaseline",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_hooks.py",
+          "function": "TestPytestTerminalSummary",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_report.py",
+          "function": "TestGenerateHtmlReport",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_confirm_endpoint_validation.py",
+          "function": "TestConfirmEndpointValidation",
+          "lines": 140,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/scripts/test_backfill_document_processing.py",
+          "function": "TestFindUnprocessedDocuments",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/scripts/test_backfill_document_processing.py",
+          "function": "TestMain",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/conftest.py",
+          "function": "mixed_quality_properties",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_acord_quality.py",
+          "function": "TestExtractFields",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_acord_quality.py",
+          "function": "TestCheckGate",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_loss_run_quality.py",
+          "function": "TestCheckGate",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_loss_run_quality_integration.py",
+          "function": "TestComputeIntegration",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_orchestrator.py",
+          "function": "TestComputeAndStoreQuality",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_result.py",
+          "function": "test_defaults_for_failed_gate",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_result.py",
+          "function": "TestQualityResult",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_tier_weights.py",
+          "function": "TestTierWeights",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schedule_of_values_quality_integration.py",
+          "function": "TestComputeIntegration",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schematic_quality.py",
+          "function": "TestCheckGate",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schematic_quality.py",
+          "function": "TestStructuralValidation",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/shared/test_database_logger_alerts_audit.py",
+          "function": "TestDatabaseAuditLogger",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_accumulation_risk_service.py",
+          "function": "TestRadiusExposure",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_accumulation_risk_service.py",
+          "function": "geocoded_properties",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_admin_feature_flag_service.py",
+          "function": "test_merges_database_flags_with_code_defaults",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_deal_policy.py",
+          "function": "TestDealPolicyFieldMapping",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_loss_run_claim.py",
+          "function": "test_missing_casualty_fields_default_to_none",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_loss_run_claim.py",
+          "function": "TestLossRunClaimFieldMapping",
+          "lines": 137,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_schedule_of_values.py",
+          "function": "TestScheduleOfValuesFieldMapping",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_losses.py",
+          "function": "TestArchivedDocumentExclusion",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_losses.py",
+          "function": "archived_and_active_claims",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_schedule_of_values.py",
+          "function": "TestArchivedDocumentExclusion",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_schedule_of_values.py",
+          "function": "archived_and_active_uploads",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_sov_heatmap.py",
+          "function": "TestInsuredNamePropertyNameFallback",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_sov_heatmap.py",
+          "function": "TestConstructionOccupancyProtectionExposureHeatmapWhitelist",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "function": "TestProcessAcordExtractionResult",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_quote_add_field_path.py",
+          "function": "TestBuildAtlasQuoteAddFieldPath",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "function": "TestGeocodeCascade",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "function": "TestGoogleMapsGeocoding",
+          "lines": 128,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_confidence_score_seeder.py",
+          "function": "TestSeedScheduleOfValuesConfidenceScores",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_confidence_score_seeder.py",
+          "function": "TestSeedLossRunConfidenceScores",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_audit_service.py",
+          "function": "TestDocumentAuditService",
+          "lines": 250,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_delete.py",
+          "function": "TestDocumentServiceDelete",
+          "lines": 199,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_extraction.py",
+          "function": "TestHasLinkedExtraction",
+          "lines": 127,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_list.py",
+          "function": "TestDocumentServiceList",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "test_upload_persists_document",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "test_upload_multiple_captures_per_file_errors",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "TestDocumentServiceUpload",
+          "lines": 184,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_location_triangles.py",
+          "function": "TestGetLossTriangles",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_location_triangles.py",
+          "function": "seeded_claims",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_service.py",
+          "function": "TestGetLossSummary",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_service.py",
+          "function": "seeded_claims",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_correlation_service.py",
+          "function": "test_state_aggregation_values",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_correlation_service.py",
+          "function": "properties_with_claims",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_claim_detail_service.py",
+          "function": "TestLossRunClaimDetailService",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "function": "TestApplyCorrection",
+          "lines": 174,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "function": "TestRollbackAndBatchCorrections",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_review_service.py",
+          "function": "TestLossRunReviewService",
+          "lines": 131,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_dashboard.py",
+          "function": "TestLossRunServiceDashboard",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_flatten.py",
+          "function": "TestFlattenClaims",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "test_casualty_kpis_with_claims",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "TestPropertyKeyPerformanceIndicators",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "TestCasualtyKeyPerformanceIndicators",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_premium_analytics_service.py",
+          "function": "TestAnalyticsServicePremiumMethods",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_service.py",
+          "function": "TestProgramCrud",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_submission_service.py",
+          "function": "TestSubmissionCrud",
+          "lines": 187,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "function": "TestUploadDocumentToSubmission",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "function": "TestAttachDocumentToSubmission",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_project_quality_summary_service.py",
+          "function": "test_returns_tiers_with_correct_counts",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_project_quality_summary_service.py",
+          "function": "TestProjectQualitySummaryService",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "test_snapshot_contains_full_structure",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "TestCreateShare",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "TestListSharesByComparison",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "function": "TestAssessUpload",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "function": "TestAssessProperty",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "function": "TestCalculateOverallScore",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_portfolio_breakdowns.py",
+          "function": "seeded_properties",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_upload_extended_flatten.py",
+          "function": "TestFlattenProperties",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_upload_service.py",
+          "function": "TestScheduleOfValuesUploadService",
+          "lines": 208,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_sov_backfill_migration.py",
+          "function": "TestStringColumnBackfill",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_value_completeness_backfill.py",
+          "function": "TestBuildingValueBackfill",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_value_completeness_num_units.py",
+          "function": "TestNumUnitsArrayBackfill",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/shared/bulk_operations/test_bulk_error_handler_branches.py",
+          "function": "TestHandleBulkOperationErrorBranches",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/shared/bulk_operations/test_bulk_error_handler_execution.py",
+          "function": "TestBulkErrorHandlerSafeBulkExecute",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback.py",
+          "function": "TestSubmitAtlasCorrection",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback.py",
+          "function": "TestProcessCorrectionSkips",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback_helpers.py",
+          "function": "sov_correction",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_comparison_processing_failures.py",
+          "function": "TestProcessComparisonValidation",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/test_authorization_service_integration.py",
+          "function": "TestIntegrationScenarios",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/test_database_utils.py",
+          "function": "TestDatabaseTestHelper",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/utils/test_email_to_pdf.py",
+          "function": "TestBuildEmailHtml",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/utils/test_indication_detection.py",
+          "function": "TestIsEmailIndication",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/SortableFieldRow.tsx",
+          "function": "SortableFieldRow",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/SortableFieldRow.tsx",
+          "function": "SortableFieldRow",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerDetailsDialog.tsx",
+          "function": "LayerDetailsDialog",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerDetailsDialog.tsx",
+          "function": "LayerDetailsDialog",
+          "lines": 203,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectSelectorDropdown.tsx",
+          "function": "ProjectSelectorDropdown",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbarActions.tsx",
+          "function": "HeaderToolbarActions",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCard.tsx",
+          "function": "WidgetCard",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCard.tsx",
+          "function": "WidgetCard",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ArchiveConfirmationDialog.tsx",
+          "function": "ArchiveConfirmationDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigMutations.ts",
+          "function": "useFieldConfigMutations",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/gridTowerBuilder/GridTowerHeader.tsx",
+          "function": "GridTowerHeader",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCreationModal.tsx",
+          "function": "LayerCreationModal",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCreationModal.tsx",
+          "function": "LayerCreationModal",
+          "lines": 148,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/DocumentViewer.tsx",
+          "function": "DocumentViewer",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/DocumentViewer.tsx",
+          "function": "DocumentViewer",
+          "lines": 226,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectSchematicsPanel.tsx",
+          "function": "ProjectSchematicsPanel",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCatalog.tsx",
+          "function": "WidgetCatalog",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DangerZoneSection.tsx",
+          "function": "DangerZoneSection",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/MemberInviteForm.tsx",
+          "function": "MemberInviteForm",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/DealExportDropdown.tsx",
+          "function": "DealExportDropdown",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "extractMetadata",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "ExtractionTrustRibbon",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "ExtractionTrustRibbon",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.tsx",
+          "function": "DocumentReviewQueuePage",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.tsx",
+          "function": "DocumentReviewQueuePage",
+          "lines": 165,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramSetupDialog.tsx",
+          "function": "ProgramSetupDialog",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramSetupDialog.tsx",
+          "function": "ProgramSetupDialog",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/ScheduleOfValuesPropertyMap.tsx",
+          "function": "ScheduleOfValuesPropertyMap",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/ScheduleOfValuesPropertyMap.tsx",
+          "function": "ScheduleOfValuesPropertyMap",
+          "lines": 221,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/ImageUploadField.tsx",
+          "function": "handleFileSelected",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/ImageUploadField.tsx",
+          "function": "ImageUploadField",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.ts",
+          "function": "useAuthTokenRefresh",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderUserMenu.tsx",
+          "function": "HeaderUserMenu",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderUserMenu.tsx",
+          "function": "HeaderUserMenu",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/contexts/upload/useUploadQueue.ts",
+          "function": "buildUploadErrorMessage",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/contexts/upload/useUploadQueue.ts",
+          "function": "useUploadQueue",
+          "lines": 227,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/SpacesListContent.tsx",
+          "function": "SpacesListContent",
+          "lines": 179,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "ScalingModeToggle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "HeaderToolbar",
+          "lines": 108,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "ScalingModeToggle",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfiguration.ts",
+          "function": "useFieldConfiguration",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useShareManagement.ts",
+          "function": "useShareManagement",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "formatForDisplay",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "canConvertTo",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "formatAsYouType",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/CompactQuoteHeader.tsx",
+          "function": "CompactQuoteHeader",
+          "complexity": 44,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/CompactQuoteHeader.tsx",
+          "function": "CompactQuoteHeader",
+          "lines": 214,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldValueCell",
+          "complexity": 31,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldValueCell",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderMobileMenu.tsx",
+          "function": "HeaderMobileMenu",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderMobileMenu.tsx",
+          "function": "MobileMenuFooter",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "PortalLinkView",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DashboardSettingsSection.tsx",
+          "function": "DashboardSettingsSection",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DashboardSettingsSection.tsx",
+          "function": "DashboardSettingsSection",
+          "lines": 96,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/AnalyticsDashboard.tsx",
+          "function": "ScheduleOfValuesTab",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/InsightsSummary.tsx",
+          "function": "InsightsSummary",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/InsightsSummary.tsx",
+          "function": "InsightsSummary",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/AddDeductibleModal.tsx",
+          "function": "AddDeductibleModal",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonsList.tsx",
+          "function": "CreateComparisonCard",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectDocumentPanel.tsx",
+          "function": "ProjectDocumentPanel",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/SchematicSetupDialog.tsx",
+          "function": "SchematicSetupDialog",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/SchematicSetupDialog.tsx",
+          "function": "SchematicSetupDialog",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectQuoteComparisonPanel.tsx",
+          "function": "ProjectQuoteComparisonPanel",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/UnifiedDealMap.tsx",
+          "function": "UnifiedDealMap",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/UnifiedDealMap.tsx",
+          "function": "UnifiedDealMap",
+          "lines": 175,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/CreateProjectDialog.tsx",
+          "function": "CreateProjectDialog",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/chat/useChatActions.ts",
+          "function": "useChatActions",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCardActions.tsx",
+          "function": "LayerCardActions",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/DealDropZones.tsx",
+          "function": "DropZone",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/GeneralSettingsSection.tsx",
+          "function": "GeneralSettingsSection",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/GeneralSettingsSection.tsx",
+          "function": "GeneralSettingsSection",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.tsx",
+          "function": "ApprovedTab",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "ProjectMembersDialog",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "ProjectMembersDialog",
+          "lines": 146,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "MemberListItem",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldListSection.tsx",
+          "function": "CollapsibleCategorySection",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentGrid.tsx",
+          "function": "DocumentGrid",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ProjectsListPage.tsx",
+          "function": "ProjectsListPage",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ReviewQueueNavigation.tsx",
+          "function": "ReviewQueueNavigation",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionResultPanel.tsx",
+          "function": "ExtractionResultPanel",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/AnalyticsVisibilitySection.tsx",
+          "function": "AnalyticsVisibilitySection",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderActions.tsx",
+          "function": "HeaderActions",
+          "lines": 96,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerPalette.tsx",
+          "function": "LayerPalette",
+          "lines": 211,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/PdfExportDialog.tsx",
+          "function": "PdfExportDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/viewer/PasswordGate.tsx",
+          "function": "PasswordGate",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ArchivedDocuments.tsx",
+          "function": "ArchivedDocuments",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/ArchivedDocuments.tsx",
+          "function": "ArchivedDocuments",
+          "lines": 187,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "lines": 259,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/useShareVerification.ts",
+          "function": "transformSnapshotForGrid",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "function": "DocumentListContent",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "function": "DocumentListContent",
+          "lines": 276,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "function": "EditableCell",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "function": "EditableCell",
+          "lines": 248,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentBulkActions.tsx",
+          "function": "DocumentBulkActions",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectCard.tsx",
+          "function": "ProjectCard",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectCard.tsx",
+          "function": "ProjectCard",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramTab.tsx",
+          "function": "ProgramTab",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/quoteComparisonTransform.ts",
+          "function": "transformQuotesForGrid",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/ExportSettingsSection.tsx",
+          "function": "handleExport",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/ExportSettingsSection.tsx",
+          "function": "ExportSettingsSection",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonToolbar.tsx",
+          "function": "ComparisonToolbar",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonToolbar.tsx",
+          "function": "ComparisonToolbar",
+          "lines": 190,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ExportShareDropdown.tsx",
+          "function": "ExportShareDropdown",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/QuoteComparisonShareDialog.tsx",
+          "function": "QuoteComparisonShareDialog",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/QuoteComparisonShareDialog.tsx",
+          "function": "QuoteComparisonShareDialog",
+          "lines": 171,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ProjectSettingsPage.tsx",
+          "function": "ProjectSettingsPage",
+          "lines": 150,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/NeedsReviewTab.tsx",
+          "function": "NeedsReviewTab",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/PublishDialog.tsx",
+          "function": "PublishDialog",
+          "lines": 135,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/TowerCreationModal.tsx",
+          "function": "TowerCreationModal",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/TowerCreationModal.tsx",
+          "function": "TowerCreationModal",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/EmailCollectionDialog.tsx",
+          "function": "EmailCollectionDialog",
+          "lines": 155,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/TemplatePickerDialog.tsx",
+          "function": "TemplatePickerDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProvider.tsx",
+          "function": "ChatProvider",
+          "lines": 129,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldManagementPanel.tsx",
+          "function": "FieldManagementPanel",
+          "lines": 164,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.tsx",
+          "function": "ManagedComparisonGrid",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.tsx",
+          "function": "ManagedComparisonGrid",
+          "lines": 163,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentTable.tsx",
+          "function": "DocumentTable",
+          "lines": 159,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentAuditLogTab.tsx",
+          "function": "AuditLogRow",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentAuditLogTab.tsx",
+          "function": "DocumentAuditLogTab",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/DocumentsLibrary.tsx",
+          "function": "DocumentsLibrary",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
