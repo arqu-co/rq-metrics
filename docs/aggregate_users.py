@@ -53,8 +53,12 @@ def compute_per_user(metrics):
             round(sum(run_numbers) / len(run_numbers), 1)
             if run_numbers else 1.0
         )
+        raw_display = user_names.get(user_key, user_key)
+        # If display name is still an email, use the local part
+        if "@" in raw_display:
+            raw_display = raw_display.split("@")[0]
         result[user_key] = {
-            "display_name": user_names.get(user_key, user_key),
+            "display_name": raw_display,
             "email": user_key if "@" in user_key else None,
             "total_builds": total,
             "first_pass_count": first_pass,

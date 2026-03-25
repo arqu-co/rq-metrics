@@ -189,6 +189,14 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+function displayName(entry) {
+  var name = entry.display_name || entry.user || '';
+  if (name && name !== 'unknown') return name;
+  var email = entry.email || entry.user || '';
+  if (email.indexOf('@') !== -1) return email.split('@')[0];
+  return name || 'unknown';
+}
+
 function renderLeaderboard(leaderboard) {
   var tbody = document.querySelector('#leaderboard-table tbody');
   var badge = document.getElementById('leaderboard-count');
@@ -199,11 +207,10 @@ function renderLeaderboard(leaderboard) {
   }
   tbody.innerHTML = leaderboard.map(function(e) {
     var fpClass = gradeColor(e.first_pass_rate);
-    var name = escapeHtml(e.display_name || e.user);
-    var email = e.email ? ' <span style="color:var(--text-muted);font-size:0.65rem">' + escapeHtml(e.email) + '</span>' : '';
+    var name = escapeHtml(displayName(e));
     return '<tr>' +
       '<td style="color:var(--accent);font-weight:500">' + e.rank + '</td>' +
-      '<td>' + name + email + '</td>' +
+      '<td>' + name + '</td>' +
       '<td>' + e.total_builds + '</td>' +
       '<td class="' + fpClass.replace('v-', '') + '">' + e.first_pass_rate + '%</td>' +
       '<td>' + e.avg_violations + '</td>' +
@@ -393,8 +400,8 @@ function populateUserFilter(users, perUser) {
   (users || []).forEach(function(user) {
     var opt = document.createElement('option');
     opt.value = user;
-    var display = (perUser && perUser[user]) ? perUser[user].display_name : user;
-    opt.textContent = display;
+    var entry = (perUser && perUser[user]) ? perUser[user] : { user: user };
+    opt.textContent = displayName(entry);
     if (user === current) opt.selected = true;
     select.appendChild(opt);
   });
