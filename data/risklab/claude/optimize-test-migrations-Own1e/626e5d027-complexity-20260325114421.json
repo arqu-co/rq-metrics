@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "claude/optimize-test-migrations-Own1e",
+  "sha": "626e5d027",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T15:44:21Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T15:44:21Z",
+      "files_checked": 1,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "_compute_head_revision",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/setup_test_databases.py",
+          "function": "setup_worker_databases",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
