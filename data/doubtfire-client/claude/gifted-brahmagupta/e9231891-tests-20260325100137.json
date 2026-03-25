@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "repo": "gifted-brahmagupta",
+  "repo": "doubtfire-client",
   "branch": "claude/gifted-brahmagupta",
   "sha": "e9231891",
   "user": "unknown",
-  "timestamp": "2026-03-25T14:01:38Z",
+  "timestamp": "2026-03-25T14:01:37Z",
   "phase": "all",
   "run_number": 1,
-  "gate_name": "qa",
+  "gate_name": "tests",
   "critic_verdict": "approved",
   "critic_findings_count": 0,
   "critic_findings_by_rule": {},
@@ -16,20 +16,20 @@
   "gate_failures_after_critic": 0,
   "missed_gates": [],
   "gates_run": [
-    "qa"
+    "tests"
   ],
   "gates": {
-    "qa": {
+    "tests": {
       "status": "pass",
-      "gate_timestamp": "2026-03-25T14:01:38Z",
-      "flows_failed": 0,
-      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
-      "flows_tested": 0,
-      "flows_passed": 0,
-      "issues": 0,
-      "recordings": 0,
-      "issues_details": [],
-      "recordings_details": [],
+      "gate_timestamp": "2026-03-25T14:01:37Z",
+      "test_runner": "bin-test",
+      "fingerprint": "25ea9d9ab194df2c34b4b138b71a2f49",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
       "duration_ms": 0
     }
   },

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "repo": "gifted-brahmagupta",
+  "repo": "doubtfire-client",
   "branch": "claude/gifted-brahmagupta",
   "sha": "e9231891",
   "user": "unknown",
-  "timestamp": "2026-03-25T14:01:37Z",
+  "timestamp": "2026-03-25T14:00:09Z",
   "phase": "all",
   "run_number": 1,
-  "gate_name": "tests",
+  "gate_name": "dead-code",
   "critic_verdict": "approved",
   "critic_findings_count": 0,
   "critic_findings_by_rule": {},
@@ -16,20 +16,14 @@
   "gate_failures_after_critic": 0,
   "missed_gates": [],
   "gates_run": [
-    "tests"
+    "dead-code"
   ],
   "gates": {
-    "tests": {
+    "dead-code": {
       "status": "pass",
-      "gate_timestamp": "2026-03-25T14:01:37Z",
-      "test_runner": "bin-test",
-      "fingerprint": "25ea9d9ab194df2c34b4b138b71a2f49",
-      "failed_subprojects": 0,
-      "test_failures": 0,
-      "missing_tests": 0,
-      "failed_subprojects_details": [],
-      "test_failures_details": [],
-      "missing_tests_details": [],
+      "gate_timestamp": "2026-03-25T14:00:09Z",
+      "violations": 0,
+      "violations_details": [],
       "duration_ms": 0
     }
   },
