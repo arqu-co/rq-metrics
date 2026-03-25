@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "claude/admiring-raman",
+  "sha": "517acd8",
+  "user": "unknown",
+  "timestamp": "2026-03-24T14:23:47Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:23:47Z",
+      "scanned_files": 24,
+      "violations": 21,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/BaseIntegrationTest.kt",
+          "line": 142,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val s3Object = Mockito.mock(S3Object::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 248,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val mockCorrectionsApi = Mockito.mock(CorrectionsApi::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 254,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            extractions = Mockito.mock(ExtractionsApi::class.java),"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 255,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            documents = Mockito.mock(DocumentsApi::class.java),"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "line": 519,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val response = Mockito.mock(Response::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "line": 550,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 28,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 31,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 34,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 37,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 40,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/CrimeRiskIndexFactProviderTest.kt",
+          "line": 31,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/FloodHazardZoneFactProviderTest.kt",
+          "line": 34,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/FloodHazardZoneFactProviderTest.kt",
+          "line": 37,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "line": 43,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "line": 46,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 47,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 50,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 53,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 56,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 59,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "claude/sharp-kepler",
+  "sha": "d197d33",
+  "user": "unknown",
+  "timestamp": "2026-03-24T14:30:50Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:30:50Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/activity/CarrierActivityTable.vue\n  164:13  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/deal/TodoActionButtons.vue\n  56:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/command/Command.vue\n  14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/dropdown-menu/DropdownMenuItem.vue\n  30:3  warning  <DropdownMenuItem> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/input-group/InputGroupAddon.vue\n  12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/input-group/InputGroupButton.vue\n  11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/modal/Modal.vue\n  76:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/components/ui/status-dot/StatusDot.vue\n  35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/composables/useDocumentDropZone.ts\n  45:28  error  '_event' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/sharp-kepler/src/pages/auth-callback.vue\n  175:9  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n\u2716 10 problems (1 error, 9 warnings)\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] .github/workflows/ci.yml\n[warn] .github/workflows/claude-code-review.yml\n[warn] .github/workflows/claude.yml\n[warn] .github/workflows/deploy-production.yml\n[warn] .github/workflows/test-coverage-check.yml\n[warn] .github/workflows/ui-stories-check.yml\n[warn] .storybook/storybook-deploy.js\n[warn] components.json\n[warn] docs/storybook-guide.md\n[warn] docs/testing-reference.md\n[warn] docs/tutorials/cursor-guide.md\n[warn] e2e/vue.spec.ts\n[warn] GETTING_STARTED.md\n[warn] PLAN-document-features.md\n[warn] playwright.config.ts\n[warn] pnpm-lock.yaml\n[warn] Code style issues found in 16 files. Run Prettier with --write to fix.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+/* eslint-disable @typescript-eslint/no-explicit-any */\n+                  <!-- eslint-disable vue/no-restricted-syntax -->\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "claude/reverent-almeida",
+  "sha": "fded790",
+  "user": "unknown",
+  "timestamp": "2026-03-24T14:29:56Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:28:45Z",
+      "files_checked": 64,
+      "violations": 25,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "function": "walkTokens",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/formatting.ts",
+          "function": "sanitizeForDisplay",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/formatting.ts",
+          "function": "sanitizeForDisplay",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "executeAutonomousGoal",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "resolveAutonomousApproval",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "executeAutonomousGoal",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/autonomous.ts",
+          "function": "resolveAutonomousApproval",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "function": "simulateSSEChunkParsing",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useContactSearch.ts",
+          "function": "useContactSearch",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "function": "useDealHub",
+          "lines": 377,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "generateFieldValue",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep1",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useMarketCarousel.ts",
+          "function": "useMarketCarousel",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "complexity": 40,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "hasDraftForConversation",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "complexity": 69,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:28:48Z",
+      "violations": 21,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/App.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/DealLabelSuggestion.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/ThinkingIndicator.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/EmailBoxRecipients.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/DealTodo.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/tabs/RiskNarrativeTab.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type DealRecipient",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.test.ts",
+          "name": "type ExtractedActions",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "name": "type Token",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/extractMarkdownActions.ts",
+          "name": "type Tokens",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/index.ts",
+          "name": "type ClassValue",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/contact/index.ts",
+          "name": "type HubspotContactDto",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/geo-risk/risk-type-mapping.test.ts",
+          "name": "type Vertical",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealConversationContext",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabDefinition",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabId",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/deal-tabs.ts",
+          "name": "type DealTabRouteName",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/draft.ts",
+          "name": "type DraftSaveStatusValue",
+          "line": 6
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T14:29:56Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:28:40Z",
+      "files_checked": 65,
+      "violations": 16,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "lines": 718,
+          "max": 300
+        },
+        {
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "lines": 707,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/compose-utils.test.ts",
+          "lines": 441,
+          "max": 300
+        },
+        {
+          "file": "src/components/deal/tabs/ClearingsTab.test.ts",
+          "lines": 412,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "lines": 444,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useEmailActions.spec.ts",
+          "lines": 310,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "lines": 443,
+          "max": 300
+        },
+        {
+          "file": "src/index.css",
+          "lines": 418,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.test.ts",
+          "lines": 588,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/date-time.ts",
+          "lines": 326,
+          "max": 300
+        },
+        {
+          "file": "src/router/index.ts",
+          "lines": 323,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.test.ts",
+          "lines": 839,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "lines": 712,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-tabs.ts",
+          "lines": 405,
+          "max": 300
+        },
+        {
+          "file": "src/stores/draft.ts",
+          "lines": 510,
+          "max": 300
+        },
+        {
+          "file": "src/stores/inbox.ts",
+          "lines": 810,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:29:54Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/reverent-almeida/src/components/ui/command/Command.vue\n  14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/reverent-almeida/src/components/ui/input-group/InputGroupAddon.vue\n  12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/reverent-almeida/src/components/ui/input-group/InputGroupButton.vue\n  11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/reverent-almeida/src/components/ui/status-dot/StatusDot.vue\n  35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n\n\u2716 4 problems (0 errors, 4 warnings)\n\nESLint found too many warnings (maximum: 0).\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] .github/workflows/ci.yml\n[warn] .github/workflows/claude-code-review.yml\n[warn] .github/workflows/claude.yml\n[warn] .github/workflows/deploy-production.yml\n[warn] .github/workflows/test-coverage-check.yml\n[warn] .github/workflows/ui-stories-check.yml\n[warn] .storybook/storybook-deploy.js\n[warn] components.json\n[warn] docs/storybook-guide.md\n[warn] docs/testing-reference.md\n[warn] docs/tutorials/cursor-guide.md\n[warn] e2e/vue.spec.ts\n[warn] GETTING_STARTED.md\n[warn] playwright.config.ts\n[warn] pnpm-lock.yaml\n[warn] Code style issues found in 15 files. Run Prettier with --write to fix.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+                  <!-- eslint-disable vue/no-restricted-syntax -->\n\n"
+        }
+      ],
+      "duration_ms": 66000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-24T14:29:55Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:29:55Z",
+      "scanned_files": 24,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "line": 539,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useDealCreatedHandler.test.ts",
+          "line": 92,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 76.0
+}

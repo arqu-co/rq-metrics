@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "claude/admiring-raman",
+  "sha": "517acd8",
+  "user": "unknown",
+  "timestamp": "2026-03-24T14:23:35Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T14:23:35Z",
+      "files_checked": 152,
+      "violations": 42,
+      "violations_details": [
+        {
+          "file": "scripts/create-topics-queues.sh",
+          "lines": 714,
+          "max": 300
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/controller/EmailControllerIntegrationE2ETest.kt",
+          "lines": 472,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "lines": 333,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/config/TestConfig.kt",
+          "lines": 429,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "lines": 1006,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "lines": 597,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/ListThreadsFromMessagesIntegrationTest.kt",
+          "lines": 360,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/RiskConsiderationsServiceCacheIntegrationTest.kt",
+          "lines": 427,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "lines": 998,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "lines": 561,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "lines": 1615,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "lines": 728,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalService.kt",
+          "lines": 376,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/monitor/OpenTelemetryLLMObservabilityWrapper.kt",
+          "lines": 307,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "lines": 355,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasExtractionService.kt",
+          "lines": 345,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasSovResultMapper.kt",
+          "lines": 537,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "lines": 1629,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/HubspotClient.kt",
+          "lines": 539,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/config/RedisClusterConfig.kt",
+          "lines": 644,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "lines": 647,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "lines": 341,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "lines": 2674,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Deal.kt",
+          "lines": 676,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "lines": 875,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/HubspotDto.kt",
+          "lines": 795,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/features/Feature.kt",
+          "lines": 557,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "lines": 721,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "lines": 2488,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "lines": 1586,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "lines": 2786,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/QuestionnaireFieldDefinitions.kt",
+          "lines": 351,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/QuestionnaireService.kt",
+          "lines": 1228,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "lines": 891,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "lines": 609,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProvider.kt",
+          "lines": 321,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/risklab/service/RisklabWebhookService.kt",
+          "lines": 422,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/atlas/service/AtlasCorrectionServiceTest.kt",
+          "lines": 334,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/CrimeRiskIndexFactProviderTest.kt",
+          "lines": 363,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "lines": 316,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProviderTest.kt",
+          "lines": 315,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "lines": 739,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

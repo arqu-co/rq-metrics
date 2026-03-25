@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "repo": "arqu-atlas",
+  "branch": "claude/friendly-murdock",
+  "sha": "cdcdff3d",
+  "user": "unknown",
+  "timestamp": "2026-03-24T18:29:14Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-24T18:29:14Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/friendly-murdock/src/components/ui/command/Command.vue\n  14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/friendly-murdock/src/components/ui/input-group/InputGroupAddon.vue\n  12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/friendly-murdock/src/components/ui/input-group/InputGroupButton.vue\n  11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/friendly-murdock/src/components/ui/status-dot/StatusDot.vue\n  35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n\n\u2716 4 problems (0 errors, 4 warnings)\n\nESLint found too many warnings (maximum: 0).\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] .github/workflows/ci.yml\n[warn] .github/workflows/claude-code-review.yml\n[warn] .github/workflows/claude.yml\n[warn] .github/workflows/deploy-production.yml\n[warn] .github/workflows/test-coverage-check.yml\n[warn] .github/workflows/ui-stories-check.yml\n[warn] .storybook/storybook-deploy.js\n[warn] components.json\n[warn] docs/storybook-guide.md\n[warn] docs/testing-reference.md\n[warn] docs/tutorials/cursor-guide.md\n[warn] e2e/vue.spec.ts\n[warn] GETTING_STARTED.md\n[warn] playwright.config.ts\n[warn] pnpm-lock.yaml\n[warn] Code style issues found in 15 files. Run Prettier with --write to fix.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+                  <!-- eslint-disable vue/no-restricted-syntax -->\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
