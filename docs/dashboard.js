@@ -182,6 +182,43 @@ function renderGates(gates) {
   });
 }
 
+/* ── Leaderboard ────────────────────────────────── */
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function displayName(entry) {
+  var name = entry.display_name || entry.user || '';
+  if (name && name !== 'unknown') return name;
+  var email = entry.email || entry.user || '';
+  if (email.indexOf('@') !== -1) return email.split('@')[0];
+  return name || 'unknown';
+}
+
+function renderLeaderboard(leaderboard) {
+  var tbody = document.querySelector('#leaderboard-table tbody');
+  var badge = document.getElementById('leaderboard-count');
+  if (badge) badge.textContent = (leaderboard || []).length + ' users';
+  if (!tbody || !leaderboard || leaderboard.length === 0) {
+    if (tbody) tbody.innerHTML = '<tr><td colspan="6" class="empty">No user data yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = leaderboard.map(function(e) {
+    var fpClass = gradeColor(e.first_pass_rate);
+    var name = escapeHtml(displayName(e));
+    return '<tr>' +
+      '<td style="color:var(--accent);font-weight:500">' + e.rank + '</td>' +
+      '<td>' + name + '</td>' +
+      '<td>' + e.total_builds + '</td>' +
+      '<td class="' + fpClass.replace('v-', '') + '">' + e.first_pass_rate + '%</td>' +
+      '<td>' + e.avg_violations + '</td>' +
+      '<td>' + e.avg_fix_cycles + '</td>' +
+      '</tr>';
+  }).join('');
+}
+
 /* ── Per-repo table ──────────────────────────────── */
 function renderRepos(repos) {
   var tbody = document.querySelector('#repo-table tbody');
@@ -342,6 +379,7 @@ function renderDashboard(data) {
   var gates = data.known_gates || [];
   renderMeta(data);
   renderHero(data.summary);
+  renderLeaderboard(data.leaderboard || []);
   renderTrend(data.trends);
   renderGates(data.per_gate);
   renderRepos(data.per_repo);
@@ -354,15 +392,52 @@ function renderDashboard(data) {
   }
 }
 
+function populateUserFilter(users, perUser) {
+  var select = document.getElementById('user-filter');
+  if (!select) return;
+  var current = select.value;
+  select.innerHTML = '<option value="">All users</option>';
+  (users || []).forEach(function(user) {
+    var opt = document.createElement('option');
+    opt.value = user;
+    var entry = (perUser && perUser[user]) ? perUser[user] : { user: user };
+    opt.textContent = displayName(entry);
+    if (user === current) opt.selected = true;
+    select.appendChild(opt);
+  });
+}
+
+function getFilteredByUser(data, user) {
+  if (!user) return data;
+  var detail = (data.by_user_detail || {})[user];
+  if (!detail) return data;
+  var filtered = {};
+  Object.keys(data).forEach(function(k) { filtered[k] = data[k]; });
+  Object.keys(detail).forEach(function(k) { filtered[k] = detail[k]; });
+  return filtered;
+}
+
 function initDashboard(data) {
   _fullData = data;
   populateRepoFilter(data.repos || Object.keys(data.per_repo || {}));
+  populateUserFilter(data.users || [], data.per_user || {});
   renderDashboard(data);
 
-  var select = document.getElementById('repo-filter');
-  if (select) {
-    select.addEventListener('change', function() {
+  var repoSelect = document.getElementById('repo-filter');
+  var userSelect = document.getElementById('user-filter');
+
+  if (repoSelect) {
+    repoSelect.addEventListener('change', function() {
+      if (this.value && userSelect) userSelect.value = '';
       var filtered = getFilteredData(_fullData, this.value);
+      renderDashboard(filtered);
+    });
+  }
+
+  if (userSelect) {
+    userSelect.addEventListener('change', function() {
+      if (this.value && repoSelect) repoSelect.value = '';
+      var filtered = getFilteredByUser(_fullData, this.value);
       renderDashboard(filtered);
     });
   }
