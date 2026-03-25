@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "repo": "risklab-python",
+  "branch": "fix/modal-overflow-audit",
+  "sha": "18a86ee31",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T12:02:15Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:56:56Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-13T20:10:25Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:57:00Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:56:53Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T11:57:23Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 23000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:02:14Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T12:02:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "11adc255169a83312ce00ef5b7d55cf3",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "frontend/src/components/quoteComparison/ExistingSharesList.tsx",
+        "frontend/src/hooks/useShareManagement.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mreturns 0 for null, undefined, NaN, and Infinity\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mreturns 0 for zero\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mrounds values under $100K to nearest $10K\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mrounds values $100K-$1M to nearest $25K\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mrounds values $1M-$10M to nearest $100K\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mrounds values $10M-$100M to nearest $1M\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mrounds values >= $100M to nearest $5M\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/currencyFormatting.test.ts\u001b[2m > \u001b[22mcleanDollarAmount\u001b[2m > \u001b[22mpreserves sign for negative values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines SATELLITE_ZOOM as a number\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines STREET_VIEW_POINT_OF_VIEW with heading and pitch\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/pages/scheduleOfValuesDetail/types.test.ts\u001b[2m > \u001b[22mscheduleOfValuesDetail constants\u001b[2m > \u001b[22mdefines MAP_PANEL_HEIGHT as a CSS string\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mdefines hidden state with zero opacity and vertical offset\u001b[32m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mcomputes visible state with staggered delay\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/documents/details/detailAnimationVariants.test.ts\u001b[2m > \u001b[22mSECTION_VARIANTS\u001b[2m > \u001b[22mincreases delay proportional to index\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns empty color for t <= 0\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns an rgb string for mid-range values\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22minterpolates across all color stops\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22minterpolateVioletScale\u001b[2m > \u001b[22mreturns a color close to peak for t near 1\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports BAR_RADIUS as a number\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports THEMED_TOOLTIP_STYLES with expected properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports CROSSHAIR_STYLE with stroke properties\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports DATUM_GLYPH_STYLE with fill and radius\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/analytics/chart-theme.test.ts\u001b[2m > \u001b[22mchart-theme constants\u001b[2m > \u001b[22mexports brandChartTheme with colors array\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the access token from config\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes the environment from config\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mcaptures uncaught errors and unhandled rejections\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mis enabled when token is present\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/lib/rollbar.test.ts\u001b[2m > \u001b[22mrollbarConfig\u001b[2m > \u001b[22mincludes source map configuration\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mreturns a string of class names\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/components/ui/navigation-menu-styles.test.ts\u001b[2m > \u001b[22mnavigationMenuTriggerStyle\u001b[2m > \u001b[22mincludes base layout classes\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/upload/GlobalUploadContext.test.ts\u001b[2m > \u001b[22mGlobalUploadContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/hooks/chat/ChatContext.test.ts\u001b[2m > \u001b[22mChatContext\u001b[2m > \u001b[22mexports a React context with null default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_ORDER\u001b[2m > \u001b[22mhas five categories in correct order\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Core to Quote Details\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mmaps Form to Form & Terms\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/utils/fieldConstants.test.ts\u001b[2m > \u001b[22mCATEGORY_LABELS\u001b[2m > \u001b[22mhas a label for every category in CATEGORY_ORDER\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/theme/ThemeContext.test.ts\u001b[2m > \u001b[22mThemeContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/project/ProjectContext.test.ts\u001b[2m > \u001b[22mProjectContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m \u001b[30m\u001b[43m node \u001b[49m\u001b[39m src/contexts/auth/AuthContext.test.ts\u001b[2m > \u001b[22mAuthContext\u001b[2m > \u001b[22mexports a React context with undefined default\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m726 passed\u001b[39m\u001b[22m\u001b[90m (726)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6577 passed\u001b[39m\u001b[22m\u001b[90m (6577)\u001b[39m\n\u001b[2m   Start at \u001b[22m 08:01:06\n\u001b[2m   Duration \u001b[22m 64.50s\u001b[2m (transform 17.70s, setup 248.62s, import 119.87s, tests 104.49s, environment 193.88s)\u001b[22m\n\n\u001b[0;32mFrontend tests passed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;31mFAILED\u001b[0m\n  Frontend: \u001b[0;32mPASSED\u001b[0m"
+        }
+      ],
+      "duration_ms": 289000
+    }
+  },
+  "duration_seconds": 1007509.0
+}
