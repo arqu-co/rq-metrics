@@ -37,8 +37,8 @@ def _build_email_to_name_map(metrics):
     return email_to_name
 
 
-def compute_per_user(metrics):
-    """Compute per-user statistics."""
+def group_by_user(metrics):
+    """Group metrics by canonical user key with email-to-name dedup."""
     email_to_name = _build_email_to_name_map(metrics)
     by_user = defaultdict(list)
 
@@ -56,6 +56,12 @@ def compute_per_user(metrics):
             continue
 
         by_user[key].append(m)
+    return by_user
+
+
+def compute_per_user(metrics):
+    """Compute per-user statistics."""
+    by_user = group_by_user(metrics)
 
     result = {}
     for user_key, user_metrics in by_user.items():
