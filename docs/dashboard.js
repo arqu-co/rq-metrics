@@ -183,6 +183,12 @@ function renderGates(gates) {
 }
 
 /* ── Leaderboard ────────────────────────────────── */
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 function renderLeaderboard(leaderboard) {
   var tbody = document.querySelector('#leaderboard-table tbody');
   var badge = document.getElementById('leaderboard-count');
@@ -193,8 +199,8 @@ function renderLeaderboard(leaderboard) {
   }
   tbody.innerHTML = leaderboard.map(function(e) {
     var fpClass = gradeColor(e.first_pass_rate);
-    var name = e.display_name || e.user;
-    var email = e.email ? ' <span style="color:var(--text-muted);font-size:0.65rem">' + e.email + '</span>' : '';
+    var name = escapeHtml(e.display_name || e.user);
+    var email = e.email ? ' <span style="color:var(--text-muted);font-size:0.65rem">' + escapeHtml(e.email) + '</span>' : '';
     return '<tr>' +
       '<td style="color:var(--accent);font-weight:500">' + e.rank + '</td>' +
       '<td>' + name + email + '</td>' +

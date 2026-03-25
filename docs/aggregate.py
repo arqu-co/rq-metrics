@@ -20,7 +20,7 @@ from aggregate_findings import (
     compute_top_violations,
 )
 from aggregate_shared import KNOWN_GATES, count_gate_violations
-from aggregate_users import compute_leaderboard, compute_per_user
+from aggregate_users import _resolve_user_key, compute_leaderboard, compute_per_user
 
 
 def load_metrics(data_dir="data"):
@@ -234,7 +234,6 @@ def build_payload(metrics):
     }
 
     # Per-user slices for client-side filtering
-    from aggregate_users import _resolve_user_key
     by_user = defaultdict(list)
     for m in metrics:
         key = _resolve_user_key(m)
