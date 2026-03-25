@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "skill-pr-feedback-loop",
+  "sha": "78a031a",
+  "user": "Jonathan Farnworth",
+  "timestamp": "2026-03-25T16:03:14Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T16:03:14Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 127,
+          "output": "xargs: shellcheck: No such file or directory\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 127,
+          "output": "\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
