@@ -13,19 +13,24 @@ from aggregate_users import (
 from helpers import make_metric
 
 
-def testresolve_user_key_prefers_email():
+def test_resolve_user_key_uses_name():
     m = make_metric(user="Alice", user_email="alice@co.com")
-    assert resolve_user_key(m) == "alice@co.com"
+    assert resolve_user_key(m) == "Alice"
 
 
-def testresolve_user_key_falls_back_to_name():
+def test_resolve_user_key_name_only():
     m = make_metric(user="Bob")
     assert resolve_user_key(m) == "Bob"
 
 
-def testresolve_user_key_skips_unknown():
+def test_resolve_user_key_skips_unknown_without_email():
     m = make_metric(user="unknown")
     assert resolve_user_key(m) is None
+
+
+def test_resolve_user_key_uses_email_local_part_for_unknown():
+    m = make_metric(user="unknown", user_email="bob@co.com")
+    assert resolve_user_key(m) == "bob"
 
 
 def test_per_user_groups_by_name():
@@ -41,16 +46,30 @@ def test_per_user_groups_by_name():
     assert result["Bob"]["first_pass_rate"] == 100.0
 
 
-def test_per_user_groups_by_email_when_available():
+def test_per_user_merges_old_and_new_records():
+    """Old records (name only) and new records (name + email) merge."""
     metrics = [
+        make_metric(user="Alice", gates_first_pass=True),
         make_metric(user="Alice", user_email="alice@co.com",
-                     gates_first_pass=True),
-        make_metric(user="Alice Smith", user_email="alice@co.com",
                      gates_first_pass=False),
     ]
     result = compute_per_user(metrics)
-    assert "alice@co.com" in result
-    assert result["alice@co.com"]["total_builds"] == 2
+    assert "Alice" in result
+    assert result["Alice"]["total_builds"] == 2
+    assert "alice@co.com" not in result
+
+
+def test_per_user_deduplicates_email_only_via_mapping():
+    """Email-only records merge into name bucket if mapping exists."""
+    metrics = [
+        make_metric(user="Alice", user_email="alice@co.com",
+                     gates_first_pass=True),
+        make_metric(user="unknown", user_email="alice@co.com",
+                     gates_first_pass=False),
+    ]
+    result = compute_per_user(metrics)
+    assert "Alice" in result
+    assert result["Alice"]["total_builds"] == 2
 
 
 def test_per_user_tracks_violations():
