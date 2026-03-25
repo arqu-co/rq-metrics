@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "pr-feedback-skill-test-8",
+  "sha": "b5059b86",
+  "user": "Jonathan Farnworth",
+  "timestamp": "2026-03-25T07:12:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T07:12:12Z",
+      "fingerprint": "b9e876f07a66c07db76a27013cf48250",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/util/StringSanitizer.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
