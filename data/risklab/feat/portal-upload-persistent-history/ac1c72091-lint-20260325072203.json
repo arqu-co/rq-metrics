@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/portal-upload-persistent-history",
+  "sha": "ac1c72091",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:22:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:22:02Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend with ruff...\nF401 [*] `datetime.datetime` imported but unused\n --> tests/services/test_upload_portal_service_list.py:3:22\n  |\n1 | \"\"\"Integration tests for UploadPortalService.list_uploads_by_email.\"\"\"\n2 |\n3 | from datetime import datetime, UTC\n  |                      ^^^^^^^^\n4 |\n5 | import pytest\n  |\nhelp: Remove unused import\n\nF401 [*] `datetime.UTC` imported but unused\n --> tests/services/test_upload_portal_service_list.py:3:32\n  |\n1 | \"\"\"Integration tests for UploadPortalService.list_uploads_by_email.\"\"\"\n2 |\n3 | from datetime import datetime, UTC\n  |                                ^^^\n4 |\n5 | import pytest\n  |\nhelp: Remove unused import\n\nFound 2 errors.\n[*] 2 fixable with the `--fix` option.\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 310ms on 1534 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 872 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\ud83d\udd27 Running formatters (backend + frontend)\n\n\ud83d\udccb Running Backend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Backend Python Code Formatting\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running ruff format check...\u001b[0m\nWould reformat: tests/services/test_upload_portal_service_list.py\n1 file would be reformatted, 1656 files already formatted\n\u001b[0;31m\u274c Formatting issues found\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running ruff linting check...\u001b[0m\nAll checks passed!\n\u001b[0;32m\u2705 Linting check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running mypy type check...\u001b[0m\nSuccess: no issues found in 872 source files\n\u001b[0;32m\u2705 Type checking passed\u001b[0m\n\n\u001b[0;31m\u274c Backend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-backend' to fix formatting/lint issues\u001b[0m\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n[0.04ms] \".env\"\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 152ms on 1532 files using 16 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 317ms on 1534 files with 86 rules using 16 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Frontend formatting, linting, and type checks passed!\u001b[0m\n\n\u26a0\ufe0f  Partial formatting success\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

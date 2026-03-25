@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/portal-upload-persistent-history",
+  "sha": "ac1c72091",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:21:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:21:45Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/tests/services/test_upload_portal_service_list.py",
+          "name": "datetime",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/services/test_upload_portal_service_list.py",
+          "name": "UTC",
+          "line": 3
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
