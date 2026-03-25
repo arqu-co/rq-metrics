@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "fix/worktree-repo-name",
+  "sha": "e137e4d",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T12:18:41Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:18:41Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
