@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "pr-feedback-loop-rq-plugin-integration",
+  "sha": "f103e3b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T22:53:37Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T22:53:37Z",
+      "files_checked": 14,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/CHANGELOG.md",
+          "lines": 651,
+          "max": 500
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
