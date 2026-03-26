@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "grs-sov-load-failure",
+  "sha": "f78e3aa9",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T00:24:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T00:24:06Z",
+      "fingerprint": "9feecb738e12f92919df38bcc2f6fb4e",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/38]\u23af\n\n FAIL  src/components/clearing/ClearingForm.test.ts [ src/components/clearing/ClearingForm.test.ts ]\nError: Failed to resolve import \"@tiptap/extension-image\" from \"src/components/compose/email-box/body/EmailBoxBody.vue\". Does the file exist?\n  Plugin: vite:import-analysis\n  File: /Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/compose/email-box/body/EmailBoxBody.vue:41:18\n  3  |  import { Extension, mergeAttributes, Node } from \"@tiptap/core\";\n  4  |  import Highlight from \"@tiptap/extension-highlight\";\n  5  |  import Image from \"@tiptap/extension-image\";\n     |                     ^\n  6  |  import Link from \"@tiptap/extension-link\";\n  7  |  import Subscript from \"@tiptap/extension-subscript\";\n \u276f TransformPluginContext._formatLog node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29618:43\n \u276f TransformPluginContext.error node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29615:14\n \u276f normalizeUrl node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27738:18\n \u276f node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27796:32\n \u276f TransformPluginContext.transform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27764:4\n \u276f EnvironmentPluginContainer.transform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29416:14\n \u276f loadAndTransform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:23287:26\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/38]\u23af\n\n FAIL  src/components/compose/email-box/EmailBox.test.ts [ src/components/compose/email-box/EmailBox.test.ts ]\n FAIL  src/components/compose/email-box/index.test.ts [ src/components/compose/email-box/index.test.ts ]\n FAIL  src/components/compose/email-box/body/EmailBoxBody.test.ts [ src/components/compose/email-box/body/EmailBoxBody.test.ts ]\nError: Failed to resolve import \"@tiptap/extension-image\" from \"src/components/compose/email-box/body/EmailBoxBody.vue\". Does the file exist?\n  Plugin: vite:import-analysis\n  File: /Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/compose/email-box/body/EmailBoxBody.vue:41:18\n  3  |  import { Extension, mergeAttributes, Node } from \"@tiptap/core\";\n  4  |  import Highlight from \"@tiptap/extension-highlight\";\n  5  |  import Image from \"@tiptap/extension-image\";\n     |                     ^\n  6  |  import Link from \"@tiptap/extension-link\";\n  7  |  import Subscript from \"@tiptap/extension-subscript\";\n \u276f TransformPluginContext._formatLog node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29618:43\n \u276f TransformPluginContext.error node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29615:14\n \u276f normalizeUrl node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27738:18\n \u276f node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27796:32\n \u276f TransformPluginContext.transform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:27764:4\n \u276f EnvironmentPluginContainer.transform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:29416:14\n \u276f loadAndTransform node_modules/.pnpm/vite@7.2.2_@types+node@22.19.1_jiti@2.6.1_lightningcss@1.30.2_yaml@2.8.1/node_modules/vite/dist/node/chunks/config.js:23287:26\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/38]\u23af\n\n\n Test Files  38 failed | 228 passed (266)\n      Tests  3977 passed (3977)\n   Start at  17:23:37\n   Duration  28.78s (transform 10.44s, setup 2.69s, collect 67.27s, tests 26.60s, environment 122.91s, prepare 19.10s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
