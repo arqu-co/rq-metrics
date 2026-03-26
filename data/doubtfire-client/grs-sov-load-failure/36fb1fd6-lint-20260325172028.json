@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "grs-sov-load-failure",
+  "sha": "36fb1fd6",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T00:20:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T00:20:28Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/command/Command.vue:14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/input-group/InputGroupAddon.vue:12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/input-group/InputGroupButton.vue:11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/status-dot/StatusDot.vue:35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "src/services/sov/index.test.ts\nsrc/services/sov/index.ts\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "src/services/geo-risk/service.ts(5,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'GeoRiskExportResponse'.\nsrc/services/geo-risk/service.ts(9,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'RetrieveRisksExportRequest'.\nsrc/services/geo-risk/service.ts(53,41): error TS2339: Property 'exportAsync' does not exist on type 'GeoRiskApi'.\nsrc/services/geo-risk/service.ts(60,41): error TS2339: Property 'getExportStatus' does not exist on type 'GeoRiskApi'.\nsrc/services/inbox/cid-resolver.ts(30,91): error TS2554: Expected 2-3 arguments, but got 4.\nsrc/services/inbox/cid-resolver.ts(73,61): error TS2339: Property 'isInline' does not exist on type 'EmailAttachmentDto'.\nsrc/services/inbox/cid-resolver.ts(73,77): error TS2339: Property 'contentId' does not exist on type 'EmailAttachmentDto'.\nsrc/services/inbox/cid-resolver.ts(87,16): error TS2339: Property 'contentId' does not exist on type 'EmailAttachmentDto'.\nsrc/services/inbox/cid-resolver.ts(88,42): error TS2339: Property 'contentId' does not exist on type 'EmailAttachmentDto'.\nsrc/services/inbox/cid-resolver.ts(109,95): error TS2339: Property 'ownerEmail' does not exist on type 'EmailAttachmentDto'.\nsrc/services/inbox/index.ts(152,16): error TS2339: Property 'attachments' does not exist on type 'MessageDto'.\nsrc/services/inbox/index.ts(152,34): error TS7006: Parameter 'att' implicitly has an 'any' type.\nsrc/services/inbox/index.ts(178,28): error TS2339: Property 'ownerEmail' does not exist on type 'MessageDto'.\nsrc/services/inbox/index.ts(208,93): error TS2554: Expected 2-3 arguments, but got 4.\nsrc/services/inbox/index.ts(241,37): error TS2551: Property 'downloadAllAttachments' does not exist on type 'EmailApi'. Did you mean 'downloadAttachment'?\nsrc/services/inbox/index.ts(275,37): error TS2339: Property 'getAttachmentZipStatus' does not exist on type 'EmailApi'.\nsrc/services/inbox/index.ts(373,18): error TS2339: Property 'batchModifyThreadLabels' does not exist on type 'EmailApi'.\nsrc/services/inbox/index.ts(386,18): error TS2339: Property 'batchModifyMessageLabels' does not exist on type 'EmailApi'.\nsrc/services/inbox/index.ts(509,18): error TS2339: Property 'modifyThreadLabels' does not exist on type 'EmailApi'.\nsrc/services/labels/index.ts(24,45): error TS2559: Type 'boolean' has no properties in common with type 'AxiosRequestConfig<any>'.\nsrc/services/todo/index.ts(3,15): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'AddCommentRequest'.\nsrc/services/todo/index.ts(3,34): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'CreateTodoRequest'. Did you mean 'CreateTagRequest'?\nsrc/services/todo/index.ts(3,53): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'UpdateTodoRequest'. Did you mean 'UpdateTagRequest'?\nsrc/services/todo/index.ts(4,10): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoApi'.\nsrc/services/todo/index.ts(10,15): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'AddCommentRequest'.\nsrc/services/todo/index.ts(10,34): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'CreateTodoRequest'. Did you mean 'CreateTagRequest'?\nsrc/services/todo/index.ts(10,53): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'UpdateTodoRequest'. Did you mean 'UpdateTagRequest'?\nsrc/stores/deal-kickoff.ts(537,49): error TS2339: Property 'contractorWebsite' does not exist on type 'ProjectInfoDto'.\nsrc/stores/labels.ts(60,39): error TS2339: Property 'dealId' does not exist on type '{ id?: string | undefined; name?: string | undefined; type?: string | undefined; color?: string | undefined; }'.\nsrc/stores/labels.ts(64,34): error TS2339: Property 'dealId' does not exist on type 'EmailLabelDto'.\nsrc/stores/labels.ts(109,17): error TS2339: Property 'dealId' does not exist on type 'EmailLabelDto'.\nsrc/stores/labels.ts(110,28): error TS2339: Property 'dealId' does not exist on type 'EmailLabelDto'.\nsrc/types/ai-chat.ts(103,43): error TS2339: Property 'sourceDocuments' does not exist on type 'ChatHistoryEntry'.\nsrc/types/ai-chat.ts(112,22): error TS2339: Property 'messageId' does not exist on type 'ChatHistoryEntry'.\nsrc/types/ai-chat.ts(113,26): error TS2339: Property 'chatMessageId' does not exist on type 'ChatHistoryEntry'.\nsrc/types/ai-chat.ts(114,19): error TS2339: Property 'rating' does not exist on type 'ChatHistoryEntry'.\nsrc/types/ai-task.ts(4,15): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'AITaskDto'.\nsrc/types/ai-task.ts(4,26): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'GetAITasksResponse'. Did you mean 'GetFactsResponse'?\nsrc/types/todo.ts(5,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'AddCommentRequest'.\nsrc/types/todo.ts(6,3): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'CreateTodoRequest'. Did you mean 'CreateTagRequest'?\nsrc/types/todo.ts(7,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'GetTodosByCategoryResponse'.\nsrc/types/todo.ts(8,3): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'GetTodosResponse'. Did you mean 'GetMemosResponse'?\nsrc/types/todo.ts(9,3): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'GetTodoSummaryResponse'. Did you mean 'GetLossSummaryResponse'?\nsrc/types/todo.ts(10,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoCategoryGroup'.\nsrc/types/todo.ts(11,3): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'TodoCommentDto'. Did you mean 'DocumentDto'?\nsrc/types/todo.ts(12,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoDealSummary'.\nsrc/types/todo.ts(13,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoDto'.\nsrc/types/todo.ts(14,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoReviewLinkDto'.\nsrc/types/todo.ts(15,3): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TodoSummaryItem'.\nsrc/types/todo.ts(16,3): error TS2724: '\"typescript-core-api-client\"' has no exported member named 'UpdateTodoRequest'. Did you mean 'UpdateTagRequest'?\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
