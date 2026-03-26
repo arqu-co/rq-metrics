@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "grs-sov-load-failure",
+  "sha": "ff1eff0b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T04:58:10Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:36:38Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T04:58:08Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 40000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:36:39Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:20:59Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:36:36Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T04:57:28Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/command/Command.vue:14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/input-group/InputGroupAddon.vue:12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/input-group/InputGroupButton.vue:11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/ui/status-dot/StatusDot.vue:35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:20:59Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T00:37:19Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T04:58:08Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6c8870b9bfb574d9148e77a861318cbe",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 16629.0
+}
