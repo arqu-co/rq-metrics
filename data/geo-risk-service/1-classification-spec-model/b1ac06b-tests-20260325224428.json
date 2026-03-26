@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "1-classification-spec-model",
+  "sha": "b1ac06b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:44:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:44:28Z",
+      "test_runner": "none",
+      "fingerprint": "85320551860fbeff36edd08a56e3ae2f",
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "service/lambda/src/main/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProvider.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecs.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecsExtended.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/LocationClassificationSpecs.kt"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

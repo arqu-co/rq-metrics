@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "1-classification-spec-model",
+  "sha": "b1ac06b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:44:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:43:44Z",
+      "files_checked": 18,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotFireTest.kt",
+          "function": "assertStringDataClass",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotMiscTest.kt",
+          "function": "assertStringDataClass",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotStaticAndSurgeTest.kt",
+          "function": "assertNumericDataClass",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "function": "getTileProximityMiles",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "function": "enabled",
+          "lines": 284,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecs.kt",
+          "function": "crimeFeatureClassificationSpec",
+          "lines": 118,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/LocationClassificationSpecs.kt",
+          "function": "surgeSpec",
+          "lines": 162,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:44:29Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T05:43:44Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T05:44:30Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:43:43Z",
+      "files_checked": 18,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "lines": 377,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:43:45Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "none",
+          "output": "\"FATAL: No linters, formatters, or typecheckers detected. Set up bin/lint, bin/format, bin/typecheck or install detectable tooling.\""
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T05:44:30Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T05:44:28Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 43000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:44:28Z",
+      "test_runner": "none",
+      "fingerprint": "85320551860fbeff36edd08a56e3ae2f",
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "service/lambda/src/main/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProvider.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecs.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecsExtended.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/LocationClassificationSpecs.kt"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 47.0
+}
