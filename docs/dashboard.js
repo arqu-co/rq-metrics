@@ -2,7 +2,7 @@
 
 const CHART_COLORS = {
   green: '#34d399', yellow: '#fbbf24', red: '#f87171',
-  blue: '#60a5fa', purple: '#a78bfa', gray: '#4a5568',
+  blue: '#60a5fa', purple: '#a78bfa', gray: '#708599',
   cyan: '#22d3ee', orange: '#fb923c'
 };
 
@@ -48,7 +48,7 @@ function fillsForLabels(labels) {
 }
 
 const DARK_GRID = 'rgba(255,255,255,0.04)';
-const LABEL_COLOR = '#4a5568';
+const LABEL_COLOR = '#708599';
 const TEXT_COLOR = '#7a8ba4';
 
 /* ── Chart.js defaults ──────────────────────────── */
