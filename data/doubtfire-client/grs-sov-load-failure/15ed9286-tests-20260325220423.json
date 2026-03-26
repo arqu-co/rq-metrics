@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "grs-sov-load-failure",
+  "sha": "15ed9286",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:04:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:04:23Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a59be004c1395a7b880c6d9efe17b4db",
+      "failed_subprojects": 0,
+      "missing_tests": 11,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "eslint-local-rules/require-data-event.ts",
+        "scripts/extract-datadog-key.js",
+        "src/components/ui/multi-select-chips/MultiSelectChips.stories.ts",
+        "src/components/ui/tooltip-button/TooltipButton.stories.ts",
+        "src/composables/useContactSearch.ts",
+        "src/composables/useKickoffTestFill.ts",
+        "src/lib/utils/amplitude.ts",
+        "src/services/geo-risk/constants.ts",
+        "src/types/deal-hub.ts",
+        "src/types/kickoff-location.ts",
+        "src/types/risklab.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u23af\u23af\u23af\u23af\u23af\u23af Failed Suites 9 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  src/App.test.ts [ src/App.test.ts ]\n FAIL  src/composables/useDealCreatedHandler.test.ts [ src/composables/useDealCreatedHandler.test.ts ]\n FAIL  src/stores/deal-kickoff.test.ts [ src/stores/deal-kickoff.test.ts ]\n FAIL  src/components/layout/DefaultLayout.test.ts [ src/components/layout/DefaultLayout.test.ts ]\n FAIL  src/components/layout/KickoffProgressHeader.test.ts [ src/components/layout/KickoffProgressHeader.test.ts ]\n FAIL  src/components/ai-chat/autonomous/AutonomousModePanel.test.ts [ src/components/ai-chat/autonomous/AutonomousModePanel.test.ts ]\n FAIL  src/components/deal/kickoff/kickoff-validation.test.ts [ src/components/deal/kickoff/kickoff-validation.test.ts ]\nError: Failed to resolve import \"zod\" from \"src/components/deal/kickoff/kickoff-validation.ts\". Does the file exist?\n  Plugin: vite:import-analysis\n  File: /Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/deal/kickoff/kickoff-validation.ts:1:18\n  1  |  import { z } from \"zod\";\n     |                     ^\n  2  |  const DATE_REGEX = /^\\d{4}-\\d{2}-\\d{2}$/;\n  3  |  function requiredDate(label) {\n \u276f TransformPluginContext._formatLog node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:31105:43\n \u276f TransformPluginContext.error node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:31102:14\n \u276f normalizeUrl node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29589:18\n \u276f node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29647:32\n \u276f TransformPluginContext.transform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29615:4\n \u276f EnvironmentPluginContainer.transform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:30904:14\n \u276f loadAndTransform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:26042:26\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/9]\u23af\n\n FAIL  src/components/ai-chat/AIChatBox.test.ts [ src/components/ai-chat/AIChatBox.test.ts ]\n FAIL  src/components/ai-chat/AIChatBox.thinking.test.ts [ src/components/ai-chat/AIChatBox.thinking.test.ts ]\nError: Failed to resolve import \"zod\" from \"src/components/deal/kickoff/kickoff-validation.ts\". Does the file exist?\n  Plugin: vite:import-analysis\n  File: /Users/jon/Repos/doubtfire-client.grs-sov-load-failure/src/components/deal/kickoff/kickoff-validation.ts:1:18\n  1  |  import { z } from \"zod\";\n     |                     ^\n  2  |  const DATE_REGEX = /^\\d{4}-\\d{2}-\\d{2}$/;\n  3  |  function requiredDate(label) {\n \u276f TransformPluginContext._formatLog node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:31105:43\n \u276f TransformPluginContext.error node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:31102:14\n \u276f normalizeUrl node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29589:18\n \u276f node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29647:32\n \u276f TransformPluginContext.transform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:29615:4\n \u276f EnvironmentPluginContainer.transform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:30904:14\n \u276f loadAndTransform node_modules/.pnpm/vite@7.1.10_@types+node@22.18.10_jiti@2.6.1_lightningcss@1.30.1_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-B0GuR2De.js:26042:26\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/9]\u23af\n\n\n Test Files  9 failed | 267 passed (276)\n      Tests  4631 passed (4631)\n   Start at  22:03:46\n   Duration  37.33s (transform 17.58s, setup 3.15s, collect 124.33s, tests 38.98s, environment 149.47s, prepare 21.44s)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

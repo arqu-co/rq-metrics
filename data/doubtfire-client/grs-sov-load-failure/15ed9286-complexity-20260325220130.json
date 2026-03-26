@@ -1,0 +1,258 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "grs-sov-load-failure",
+  "sha": "15ed9286",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:01:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:01:30Z",
+      "files_checked": 87,
+      "violations": 32,
+      "violations_details": [
+        {
+          "file": "src/composables/useBreadcrumbs.ts",
+          "function": "useBreadcrumbs",
+          "lines": 174,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.ts",
+          "function": "useInboxRouteSync",
+          "lines": 255,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/account-switch.ts",
+          "function": "switchToAccount",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/account-switch.ts",
+          "function": "switchToAccount",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useSplitPaneResize.ts",
+          "function": "useSplitPaneResize",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "generateFieldValue",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep1",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep2",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useKickoffTestFill.ts",
+          "function": "fillStep3",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "eslint-local-rules/require-data-event.ts",
+          "function": "getStaticAttributeValue",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "eslint-local-rules/require-data-event.ts",
+          "function": "VElement",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "loadConversation",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "useChatPanel",
+          "lines": 278,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "registerAIChatBox",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "loadConversation",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "function": "useDealHub",
+          "lines": 377,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/config/env-validation.ts",
+          "function": "validateEnvVars",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/api/http-client.ts",
+          "function": "setupTokenRefreshInterceptor",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "complexity": 40,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "hasDraftForConversation",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "complexity": 69,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "function": "simulateSSEChunkParsing",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useContactSearch.ts",
+          "function": "useContactSearch",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useComparisons.ts",
+          "function": "useComparisons",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 230,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/usePtlSelection.ts",
+          "function": "autoSelectDownstream",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/usePtlSelection.ts",
+          "function": "usePtlSelection",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
