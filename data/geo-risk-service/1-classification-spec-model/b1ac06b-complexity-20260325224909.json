@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "1-classification-spec-model",
+  "sha": "b1ac06b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:49:09Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:49:09Z",
+      "files_checked": 18,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotFireTest.kt",
+          "function": "assertStringDataClass",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotMiscTest.kt",
+          "function": "assertStringDataClass",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotStaticAndSurgeTest.kt",
+          "function": "assertNumericDataClass",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "function": "getTileProximityMiles",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "function": "enabled",
+          "lines": 284,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/FeatureClassificationSpecs.kt",
+          "function": "crimeFeatureClassificationSpec",
+          "lines": 118,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/LocationClassificationSpecs.kt",
+          "function": "surgeSpec",
+          "lines": 162,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

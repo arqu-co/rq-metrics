@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "1-classification-spec-model",
+  "sha": "b1ac06b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-26T05:49:10Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-26T05:49:10Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "none",
+          "output": "\"FATAL: No linters, formatters, or typecheckers detected. Set up bin/lint, bin/format, bin/typecheck or install detectable tooling.\""
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
