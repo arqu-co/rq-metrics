@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/upload-modal-extraction-type-position",
+  "sha": "38ac81dca",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T11:53:01Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T11:53:01Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

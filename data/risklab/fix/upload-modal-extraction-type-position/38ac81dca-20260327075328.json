@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/upload-modal-extraction-type-position",
+  "sha": "38ac81dca",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T11:53:28Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T11:53:04Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/upload/UploadModal.tsx",
+          "function": "UploadModal",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/upload/UploadModal.tsx",
+          "function": "UploadModal",
+          "lines": 139,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:59:56Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T11:53:06Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T11:53:01Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T11:53:19Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 13000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T11:53:22Z",
+      "scanned_files": 1,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/upload/UploadModal.test.tsx",
+          "line": 85,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(activityFlowModule, \"AgentActivityFlow\").mockImplementation(() => ("
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:59:51Z",
+      "fingerprint": "538337fb448ab3f397516456b4d771f6",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 577510.0
+}
