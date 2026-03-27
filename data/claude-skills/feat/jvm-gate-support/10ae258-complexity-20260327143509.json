@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/jvm-gate-support",
+  "sha": "10ae258",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T18:35:09Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T18:35:08Z",
+      "files_checked": 9,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/parse_jacoco.py",
+          "function": "parse_jacoco",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/parse_junit_xml.py",
+          "function": "parse_junit_xml",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/parse_junit_xml.py",
+          "function": "parse_junit_xml",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
