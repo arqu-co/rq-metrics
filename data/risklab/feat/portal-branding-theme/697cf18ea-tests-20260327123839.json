@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-branding-theme",
+  "sha": "697cf18ea",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T16:38:38Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T16:38:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8fbad8bfd1c982ff496333c4982d39f5",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[31m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u001b[39m\u001b[1m\u001b[41m Failed Tests 2 \u001b[49m\u001b[22m\u001b[31m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u001b[39m\n\n\u001b[41m\u001b[1m FAIL \u001b[22m\u001b[49m \u001b[30m\u001b[45m dom \u001b[49m\u001b[39m src/contexts/theme/ThemeProvider.test.tsx\u001b[2m > \u001b[22mThemeProvider\u001b[2m > \u001b[22mdefaults to dark theme when no stored preference\n\u001b[31m\u001b[1mError\u001b[22m: \u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[31m\u001b[2m).toHaveTextContent()\u001b[22m\n\nExpected element to have text content:\n\u001b[32m  dark\u001b[31m\nReceived:\n\u001b[31m  system\u001b[31m\u001b[39m\n\u001b[36m \u001b[2m\u276f\u001b[22m src/contexts/theme/ThemeProvider.test.tsx:\u001b[2m34:41\u001b[22m\u001b[39m\n    \u001b[90m 32| \u001b[39m      \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mThemeProvider\u001b[39m\u001b[33m>\u001b[39m\u001b[33m,\u001b[39m\n    \u001b[90m 33| \u001b[39m    )\u001b[33m;\u001b[39m\n    \u001b[90m 34| \u001b[39m    \u001b[34mexpect\u001b[39m(screen\u001b[33m.\u001b[39m\u001b[34mgetByTestId\u001b[39m(\u001b[32m\"theme\"\u001b[39m))\u001b[33m.\u001b[39m\u001b[34mtoHaveTextContent\u001b[39m(\u001b[32m\"dark\"\u001b[39m)\u001b[33m;\u001b[39m\n    \u001b[90m   | \u001b[39m                                        \u001b[31m^\u001b[39m\n    \u001b[90m 35| \u001b[39m    \u001b[34mexpect\u001b[39m(screen\u001b[33m.\u001b[39m\u001b[34mgetByTestId\u001b[39m(\u001b[32m\"resolved\"\u001b[39m))\u001b[33m.\u001b[39m\u001b[34mtoHaveTextContent\u001b[39m(\u001b[32m\"dark\"\u001b[39m)\u001b[33m;\u001b[39m\n    \u001b[90m 36| \u001b[39m  })\u001b[33m;\u001b[39m\n\n\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/2]\u23af\u001b[22m\u001b[39m\n\n\u001b[41m\u001b[1m FAIL \u001b[22m\u001b[49m \u001b[30m\u001b[45m dom \u001b[49m\u001b[39m src/contexts/theme/ThemeProvider.test.tsx\u001b[2m > \u001b[22mThemeProvider\u001b[2m > \u001b[22mapplies dark class to document root for dark theme\n\u001b[31m\u001b[1mAssertionError\u001b[22m: expected false to be true // Object.is equality\u001b[39m\n\n\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- true\u001b[39m\n\u001b[31m+ false\u001b[39m\n\n\u001b[36m \u001b[2m\u276f\u001b[22m src/contexts/theme/ThemeProvider.test.tsx:\u001b[2m67:65\u001b[22m\u001b[39m\n    \u001b[90m 65| \u001b[39m      \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mThemeProvider\u001b[39m\u001b[33m>\u001b[39m\u001b[33m,\u001b[39m\n    \u001b[90m 66| \u001b[39m    )\u001b[33m;\u001b[39m\n    \u001b[90m 67| \u001b[39m    expect(document.documentElement.classList.contains(\"dark\")).toBe(t\u2026\n    \u001b[90m   | \u001b[39m                                                                \u001b[31m^\u001b[39m\n    \u001b[90m 68| \u001b[39m  })\u001b[33m;\u001b[39m\n    \u001b[90m 69| \u001b[39m\n\n\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\u001b[22m\u001b[39m\n\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m729 passed\u001b[39m\u001b[22m\u001b[90m (730)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m2 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m6603 passed\u001b[39m\u001b[22m\u001b[90m (6605)\u001b[39m\n\u001b[2m   Start at \u001b[22m 12:38:09\n\u001b[2m   Duration \u001b[22m 28.84s\u001b[2m (transform 9.12s, setup 94.37s, import 52.69s, tests 59.35s, environment 88.87s)\u001b[22m\n\nerror: script \"test\" exited with code 1\n\u001b[0;31mFrontend tests failed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;32mPASSED\u001b[0m\n  Frontend: \u001b[0;31mFAILED\u001b[0m"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
