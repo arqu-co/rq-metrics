@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "suspicious-leakey",
+  "branch": "claude/suspicious-leakey",
+  "sha": "1674655c6",
+  "user": "unknown",
+  "timestamp": "2026-03-27T21:42:15Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T21:42:15Z",
+      "files_checked": 19,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "lines": 437,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "lines": 324,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
