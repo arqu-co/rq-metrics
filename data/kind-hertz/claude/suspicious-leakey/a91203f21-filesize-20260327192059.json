@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "repo": "kind-hertz",
+  "branch": "claude/suspicious-leakey",
+  "sha": "a91203f21",
+  "user": "unknown",
+  "timestamp": "2026-03-27T23:20:59Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:20:59Z",
+      "files_checked": 665,
+      "violations": 15,
+      "violations_details": [
+        {
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "lines": 948,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "lines": 343,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "lines": 542,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "lines": 436,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "lines": 378,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "lines": 492,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "lines": 408,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "lines": 307,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "lines": 306,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "lines": 325,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/AnalyticsDashboard.tsx",
+          "lines": 328,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonMain.tsx",
+          "lines": 339,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteUpload.tsx",
+          "lines": 308,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/analytics.test.ts",
+          "lines": 384,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "lines": 307,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
