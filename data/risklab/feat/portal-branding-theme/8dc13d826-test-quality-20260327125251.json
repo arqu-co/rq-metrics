@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-branding-theme",
+  "sha": "8dc13d826",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T16:52:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T16:52:51Z",
+      "scanned_files": 6,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 28,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleError = vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 102,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleWarn = vi.spyOn(console, \"warn\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 103,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const getItemSpy = vi.spyOn(localStorage, \"getItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 138,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleWarn = vi.spyOn(console, \"warn\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 143,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const setItemSpy = vi.spyOn(localStorage, \"setItem\").mockImplementation(() => {"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
