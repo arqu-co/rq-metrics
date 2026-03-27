@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "repo": "kind-hertz",
+  "branch": "claude/suspicious-leakey",
+  "sha": "3e2f40e0d",
+  "user": "unknown",
+  "timestamp": "2026-03-27T23:12:37Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:12:36Z",
+      "violations": 31,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/20260311_1000_add_document_quality_scores.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/20260311_1100_add_manually_approved_column.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/core/database.py",
+          "name": "async_session_factory  # noqa",
+          "line": 258
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 12
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 18
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "name": "jwt",
+          "line": 134
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 19
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 24
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 35
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 44
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 55
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 62
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 70
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/AddDeductibleModal.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/HeaderActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/HeaderToolbarActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/LayerCardActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/PdfExportDialog.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/contexts/theme/ThemeProvider.tsx",
+          "name": "type ReactNode",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/contexts/theme/ThemeProvider.tsx",
+          "name": "type Theme",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/Home.tsx",
+          "name": "type ToolDefinition",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/Home.tsx",
+          "name": "type ToolKey",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/QuoteComparisonsList.selection.test.tsx",
+          "name": "React",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/tests/contexts/authInitHelpers.test.ts",
+          "name": "vi",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/tests/contexts/authInitHelpers.test.ts",
+          "name": "beforeEach",
+          "line": 1
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
