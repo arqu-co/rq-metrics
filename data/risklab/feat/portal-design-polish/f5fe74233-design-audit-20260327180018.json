@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-design-polish",
+  "sha": "f5fe74233",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T22:00:18Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
