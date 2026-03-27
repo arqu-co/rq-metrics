@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-branding-theme",
+  "sha": "59d64d974",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T16:33:41Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "frontend/src/hooks/usePortalUploadQueue.ts",
+      "line": 111,
+      "rule": "FUNC_SIZE",
+      "message": "usePortalUploadQueue is 62 lines (max 50). Extract the useEffect fetch-history block (lines 117-139) into a separate function or custom hook to bring it under the 50-line limit."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T16:33:41Z",
+      "test_runner": "bin-test",
+      "fingerprint": "515c4c6e7d4a3f90dc56a51c3bb65a3f",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[41m\u001b[1m FAIL \u001b[22m\u001b[49m \u001b[30m\u001b[45m dom \u001b[49m\u001b[39m src/tests/contexts/ThemeProvider.resolution.test.tsx\u001b[2m > \u001b[22mThemeProvider resolution and DOM effects\u001b[2m > \u001b[22mdocument class manipulation\u001b[2m > \u001b[22madds 'dark' class to documentElement when resolved theme is dark\n\u001b[31m\u001b[1mAssertionError\u001b[22m: expected false to be true // Object.is equality\u001b[39m\n\n\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- true\u001b[39m\n\u001b[31m+ false\u001b[39m\n\n\u001b[36m \u001b[2m\u276f\u001b[22m src/tests/contexts/ThemeProvider.resolution.test.tsx:\u001b[2m54:67\u001b[22m\u001b[39m\n    \u001b[90m 52| \u001b[39m      \u001b[34mrenderUseThemeInsideProvider\u001b[39m()\u001b[33m;\u001b[39m\n    \u001b[90m 53| \u001b[39m\n    \u001b[90m 54| \u001b[39m      expect(document.documentElement.classList.contains(\"dark\")).toBe\u2026\n    \u001b[90m   | \u001b[39m                                                                  \u001b[31m^\u001b[39m\n    \u001b[90m 55| \u001b[39m    })\u001b[33m;\u001b[39m\n    \u001b[90m 56| \u001b[39m\n\n\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/4]\u23af\u001b[22m\u001b[39m\n\n\u001b[41m\u001b[1m FAIL \u001b[22m\u001b[49m \u001b[30m\u001b[45m dom \u001b[49m\u001b[39m src/tests/contexts/ThemeProvider.resolution.test.tsx\u001b[2m > \u001b[22mThemeProvider resolution and DOM effects\u001b[2m > \u001b[22mdocument class manipulation\u001b[2m > \u001b[22mtoggles 'dark' class when theme changes from dark to light\n\u001b[31m\u001b[1mAssertionError\u001b[22m: expected false to be true // Object.is equality\u001b[39m\n\n\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- true\u001b[39m\n\u001b[31m+ false\u001b[39m\n\n\u001b[36m \u001b[2m\u276f\u001b[22m src/tests/contexts/ThemeProvider.resolution.test.tsx:\u001b[2m72:67\u001b[22m\u001b[39m\n    \u001b[90m 70| \u001b[39m      \u001b[35mconst\u001b[39m { result } \u001b[33m=\u001b[39m \u001b[34mrenderUseThemeInsideProvider\u001b[39m()\u001b[33m;\u001b[39m\n    \u001b[90m 71| \u001b[39m\n    \u001b[90m 72| \u001b[39m      expect(document.documentElement.classList.contains(\"dark\")).toBe\u2026\n    \u001b[90m   | \u001b[39m                                                                  \u001b[31m^\u001b[39m\n    \u001b[90m 73| \u001b[39m\n    \u001b[90m 74| \u001b[39m      \u001b[34mact\u001b[39m(() \u001b[33m=>\u001b[39m {\n\n\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/4]\u23af\u001b[22m\u001b[39m\n\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[31m2 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m728 passed\u001b[39m\u001b[22m\u001b[90m (730)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m4 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m6601 passed\u001b[39m\u001b[22m\u001b[90m (6605)\u001b[39m\n\u001b[2m   Start at \u001b[22m 12:33:13\n\u001b[2m   Duration \u001b[22m 27.57s\u001b[2m (transform 8.72s, setup 89.20s, import 50.27s, tests 58.58s, environment 84.24s)\u001b[22m\n\nerror: script \"test\" exited with code 1\n\u001b[0;31mFrontend tests failed\u001b[0m\n\n\u001b[0;34m--- Summary ---\u001b[0m\n  Backend:  \u001b[0;32mPASSED\u001b[0m\n  Frontend: \u001b[0;31mFAILED\u001b[0m"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
