@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/preflight-checks",
+  "sha": "1941d0b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T22:10:30Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:10:17Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:10:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:05:47Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:10:15Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 268000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:10:26Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:05:46Z",
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T22:10:28Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    }
+  },
+  "duration_seconds": 282.0
+}
