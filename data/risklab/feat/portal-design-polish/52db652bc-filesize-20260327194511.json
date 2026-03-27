@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-design-polish",
+  "sha": "52db652bc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T23:45:11Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:45:11Z",
+      "files_checked": 27,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "lines": 436,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "lines": 378,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "lines": 408,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "lines": 310,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonMain.tsx",
+          "lines": 339,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

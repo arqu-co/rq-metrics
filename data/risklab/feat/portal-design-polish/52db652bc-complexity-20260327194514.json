@@ -1,0 +1,125 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-design-polish",
+  "sha": "52db652bc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T23:45:14Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:45:14Z",
+      "files_checked": 27,
+      "violations": 13,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "lines": 249,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "complexity": 60,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "get_field_configuration",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "function": "TestSaveFieldConfigurationUnit",
+          "lines": 388,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_confirm_endpoint_success.py",
+          "function": "TestConfirmWebhook",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/excelExport.ts",
+          "function": "buildWorkbook",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/SharedComparisonContent.tsx",
+          "function": "SharedComparisonContent",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/SharedComparisonContent.tsx",
+          "function": "SharedComparisonContent",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/useSharedDownloads.ts",
+          "function": "useSharedDownloads",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "lines": 259,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
