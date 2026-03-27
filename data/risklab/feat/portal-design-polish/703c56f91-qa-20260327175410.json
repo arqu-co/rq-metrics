@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/portal-design-polish",
+  "sha": "703c56f91",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T21:54:10Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "qa",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
