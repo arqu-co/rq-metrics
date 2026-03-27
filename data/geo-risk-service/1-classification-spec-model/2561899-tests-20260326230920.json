@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "1-classification-spec-model",
+  "sha": "2561899",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-03-27T06:09:20Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T06:09:20Z",
+      "test_runner": "none",
+      "fingerprint": "e274942704dfabdd87400b3dfac77de3",
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "service/lambda/src/main/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProvider.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuilders.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuildersCrime.kt",
+        "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuildersFireCrime.kt"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
