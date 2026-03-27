@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/therapist-skill",
+  "sha": "3aa3d63",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-27T23:05:56Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:05:56Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./skills/therapist/scripts/affirmation.sh:12:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/grounding.sh:12:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/grounding.sh:58:44: note: Consider using 'grep -c' instead of 'grep|wc -l'. [SC2126]\n./skills/therapist/scripts/journal.sh:13:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/mirror.sh:13:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/pause.sh:13:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/pause.sh:52:3: warning: snap_count appears unused. Verify use (or export if used externally). [SC2034]\n./skills/therapist/scripts/reframe.sh:13:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/rubber-band.sh:14:8: note: Not following: ./_lib.sh: openBinaryFile: does not exist (No such file or directory) [SC1091]\n./skills/therapist/scripts/rubber-band.sh:42:5: warning: escaped_correction appears unused. Verify use (or export if used externally). [SC2034]\n./skills/therapist/scripts/rubber-band.sh:44:5: warning: escaped_pattern appears unused. Verify use (or export if used externally). [SC2034]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./skills/therapist/scripts/journal.sh\n./skills/therapist/scripts/pause.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
