@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "repo": "suspicious-leakey",
+  "branch": "claude/suspicious-leakey",
+  "sha": "974913083",
+  "user": "unknown",
+  "timestamp": "2026-03-27T21:51:08Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T21:51:08Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/quoteComparison/FieldRowContextMenu.tsx",
+          "name": "type FieldMenuCallbacks",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/quoteComparison/FieldRowKebabMenu.tsx",
+          "name": "type FieldMenuCallbacks",
+          "line": 21
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
