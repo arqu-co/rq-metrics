@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "chore/bundle-update",
+  "sha": "baa79fd8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-29T18:24:42Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T18:24:41Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "rubocop",
+          "exit_code": 1,
+          "output": "C: 15:121: Layout/LineLength: Line is too long. [132/120]\n== spec/system/ui_issues_screenshots_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  3:  1: Metrics/BlockLength: Block has too many lines. [127/25]\n== spec/views/phoenix/product_archives/edit.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/index.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/new.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/show.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/reports/show_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  3:  1: Metrics/BlockLength: Block has too many lines. [259/25]\nC: 23:  3: Metrics/BlockLength: Block has too many lines. [240/25]\nC: 24:  5: Metrics/BlockLength: Block has too many lines. [52/25]\nC: 25:  7: Metrics/BlockLength: Block has too many lines. [29/25]\nC: 88:  5: Metrics/BlockLength: Block has too many lines. [60/25]\nC: 89:  7: Metrics/BlockLength: Block has too many lines. [37/25]\nC:159:  5: Metrics/BlockLength: Block has too many lines. [31/25]\nC:198:  5: Metrics/BlockLength: Block has too many lines. [34/25]\nC:236:121: Layout/LineLength: Line is too long. [145/120]\nC:264:  5: Metrics/BlockLength: Block has too many lines. [33/25]\n== spec/workers/generate_sample_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/workers/product_archive_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/workers/release_import_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== test/environments/development_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [13/10]\nC: 49:  3: Metrics/BlockLength: Block has too many lines. [29/25]\n== test/environments/production_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/AbcSize: Assignment Branch Condition size for setup is too high. [<9, 21, 1> 22.87/17]\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [18/10]\n== test/environments/staging_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/AbcSize: Assignment Branch Condition size for setup is too high. [<5, 28, 3> 28.6/17]\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [16/10]\nC: 46:  3: Metrics/BlockLength: Block has too many lines. [29/25]\n== test/environments/test_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== test/test_helper.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC: 14:121: Layout/LineLength: Line is too long. [150/120]\n\n456 files inspected, 2110 offenses detected, 651 offenses autocorrectable\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
