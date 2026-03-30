@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "feature/shippo-env-var",
+  "sha": "962ed9c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-30T15:37:40Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T15:37:40Z",
+      "fingerprint": "1c537b73dc51c79dde1277636bdfc734",
+      "test_runner": "bin-test",
+      "missing_tests": 18,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "app/controllers/musicians_controller.rb",
+        "app/controllers/phoenix/application_controller.rb",
+        "app/controllers/phoenix/musicians_controller.rb",
+        "app/controllers/phoenix/pages_controller.rb",
+        "app/models/musician.rb",
+        "config/initializers/shippo.rb",
+        "config/routes.rb",
+        "db/migrate/20260128200003_create_artist_memberships.rb",
+        "db/schema.rb",
+        "lib/tasks/fix_all_blob_content_types.rb",
+        "lib/tasks/fix_blob_checksums.rb",
+        "spec/controllers/musicians_controller_spec.rb",
+        "spec/controllers/phoenix/artist_memberships_controller_spec.rb",
+        "spec/controllers/phoenix/musicians_controller_spec.rb",
+        "spec/controllers/phoenix/pages_controller_authentication_spec.rb",
+        "spec/controllers/phoenix/pages_controller_spec.rb",
+        "spec/models/musician_spec.rb",
+        "spec/spec_helper.rb"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
