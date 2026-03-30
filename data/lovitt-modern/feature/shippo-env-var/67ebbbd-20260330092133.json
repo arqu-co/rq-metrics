@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "feature/shippo-env-var",
+  "sha": "67ebbbd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-30T13:21:33Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:21:24Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:37Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:21:22Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 156000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T13:21:31Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\ude80 Running linting checks...\n\n\ud83d\udd0d HAML template linting...\nRunning: bundle exec haml-lint --fail-level error app/views/\n\n116 files inspected, 56 lints detected\n\u2705 HAML template linting passed (0.76s)\n\n\ud83d\udd0d ERB template formatting check...\n  \u274c app/views/active_storage/blobs/_blob.html.erb needs formatting\n  \u274c app/views/layouts/action_text/contents/_content.html.erb needs formatting\n\u274c ERB template formatting check failed (0.35s)\n   Run 'bin/format' to fix ERB formatting issues\n\n\ud83d\udd0d RuboCop linting...\nRunning: bundle exec rubocop --parallel\nInspecting 189 files\n.............................................................................................................................................................................................\n\n189 files inspected, no offenses detected\n\u2705 RuboCop linting passed (1.06s)\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:36Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 9000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:18:46Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 129000
+    }
+  },
+  "duration_seconds": 304.0
+}
