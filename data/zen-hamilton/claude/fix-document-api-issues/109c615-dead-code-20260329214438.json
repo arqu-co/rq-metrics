@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "repo": "zen-hamilton",
+  "branch": "claude/fix-document-api-issues",
+  "sha": "109c615",
+  "user": "unknown",
+  "timestamp": "2026-03-30T01:44:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 2,
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 904,
+      "rule": "FILE_SIZE",
+      "message": "File is 904 lines (max 300). Pre-existing violation, but chunk 2 adds 6 more lines."
+    },
+    {
+      "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+      "line": 354,
+      "rule": "FILE_SIZE",
+      "message": "File is 354 lines (max 300). Was 317 before chunk 2 added the invalidation test."
+    },
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 351,
+      "rule": "COMPLEXITY",
+      "message": "Invalidation query/delete (lines 351-354) is inside the same try/catch that rolls back checksum on failure. If findByDocId or deleteAll throws after gDriveClient.updateFile succeeds, the checksum is incorrectly rolled back even though the Drive file was already updated. Move invalidation after the try/catch or wrap it in its own try/catch."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T01:44:38Z",
+      "violations": 28,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchToolsIntegrationTest.kt",
+          "name": "ModelProvider",
+          "line": 4
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "name": "assertNotNull",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentCrudIntegrationTest.kt",
+          "name": "nullValue",
+          "line": 35
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 44
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "FeatureSetGroupInfo",
+          "line": 47
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 50
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonRequest",
+          "line": 53
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonResponse",
+          "line": 54
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RiskTypeRisks",
+          "line": 55
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierApprovalService.kt",
+          "name": "ConditionalOnProperty",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierLangChain4jImpl.kt",
+          "name": "ConditionalOnProperty",
+          "line": 16
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/EmailIntentClassificationHandler.kt",
+          "name": "ConditionalOnProperty",
+          "line": 20
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "name": "ConditionalOnProperty",
+          "line": 17
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/handler/EmailIntentClassifierToolsHandler.kt",
+          "name": "ConditionalOnProperty",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/controller/QuestionnaireController.kt",
+          "name": "NameValuePairEntry",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 29
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskExportService.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 40
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/OrganizationService.kt",
+          "name": "UpdateOrganizationEvent",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/visualization/data/GrsSegmentationDataProvider.kt",
+          "name": "QueryLocation",
+          "line": 24
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/SpreadsheetDocumentLoaderTest.kt",
+          "name": "assertEquals",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/retrieval/RetrievalAgentLangChain4JImplTest.kt",
+          "name": "Mockito",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "name": "assertEquals",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "name": "Mockito",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "name": "argThat",
+          "line": 17
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "name": "PageRequest",
+          "line": 22
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/handler/RetrievalToolsHandlerTest.kt",
+          "name": "Mockito",
+          "line": 12
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "name": "Mockito",
+          "line": 25
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

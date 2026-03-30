@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "repo": "zen-hamilton",
+  "branch": "claude/fix-document-api-issues",
+  "sha": "109c615",
+  "user": "unknown",
+  "timestamp": "2026-03-30T01:44:49Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 2,
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 904,
+      "rule": "FILE_SIZE",
+      "message": "File is 904 lines (max 300). Pre-existing violation, but chunk 2 adds 6 more lines."
+    },
+    {
+      "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+      "line": 354,
+      "rule": "FILE_SIZE",
+      "message": "File is 354 lines (max 300). Was 317 before chunk 2 added the invalidation test."
+    },
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 351,
+      "rule": "COMPLEXITY",
+      "message": "Invalidation query/delete (lines 351-354) is inside the same try/catch that rolls back checksum on failure. If findByDocId or deleteAll throws after gDriveClient.updateFile succeeds, the checksum is incorrectly rolled back even though the Drive file was already updated. Move invalidation after the try/catch or wrap it in its own try/catch."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T01:44:49Z",
+      "scanned_files": 53,
+      "violations": 53,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/BaseIntegrationTest.kt",
+          "line": 142,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val s3Object = Mockito.mock(S3Object::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchToolsIntegrationTest.kt",
+          "line": 29,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        mockChatModelFactory = org.mockito.Mockito.mock(ChatModelFactory::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchToolsIntegrationTest.kt",
+          "line": 30,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        mockChatModel = org.mockito.Mockito.mock(ChatModel::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchToolsIntegrationTest.kt",
+          "line": 31,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        mockObjectGraphReader = org.mockito.Mockito.mock(ObjectGraphReader::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 248,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val mockCorrectionsApi = Mockito.mock(CorrectionsApi::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 254,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            extractions = Mockito.mock(ExtractionsApi::class.java),"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/atlas/controller/SubmissionExtractionControllerIntegrationTest.kt",
+          "line": 255,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            documents = Mockito.mock(DocumentsApi::class.java),"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentCrudIntegrationTest.kt",
+          "line": 83,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentCrudIntegrationTest.kt",
+          "line": 84,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val response = Mockito.mock(Response::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "line": 519,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val response = Mockito.mock(Response::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "line": 550,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "            val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/elevation/ElevationServiceTest.kt",
+          "line": 119,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call1 = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/elevation/ElevationServiceTest.kt",
+          "line": 120,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call2 = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/retrieval/RetrievalAgentLangChain4JImplTest.kt",
+          "line": 22,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/retrieval/RetrievalAgentLangChain4JImplTest.kt",
+          "line": 25,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 28,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 31,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 34,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 37,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "line": 40,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/handler/RetrievalToolsHandlerTest.kt",
+          "line": 24,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/handler/RetrievalToolsHandlerTest.kt",
+          "line": 27,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceUpdateDocumentsTest.kt",
+          "line": 26,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceUpdateDocumentsTest.kt",
+          "line": 29,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 23,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var objectGraphWriter: ObjectGraphWriter"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 24,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var dealService: DealService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 25,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var programService: ProgramService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 26,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var indicationMarketService: IndicationMarketService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 27,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var billingInvoiceService: BillingInvoiceService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 28,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var policyService: PolicyService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 29,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var documentService: DocumentService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 30,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var organizationService: OrganizationService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 31,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var userService: co.arqu.user.UserService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 32,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var lineItemService: LineItemService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 33,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var statementOfValueService: StatementOfValueService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ObjectGraphSyncServiceTest.kt",
+          "line": 34,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock private lateinit var indicationService: IndicationService"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 39,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 42,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 45,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 48,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 51,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 54,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "line": 57,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/CrimeRiskIndexFactProviderTest.kt",
+          "line": 31,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/FloodHazardZoneFactProviderTest.kt",
+          "line": 34,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/FloodHazardZoneFactProviderTest.kt",
+          "line": 37,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "line": 43,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "line": 46,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 47,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 50,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 53,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 56,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "line": 59,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

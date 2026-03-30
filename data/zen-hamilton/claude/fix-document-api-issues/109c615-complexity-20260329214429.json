@@ -1,0 +1,3086 @@
+{
+  "schema_version": 1,
+  "repo": "zen-hamilton",
+  "branch": "claude/fix-document-api-issues",
+  "sha": "109c615",
+  "user": "unknown",
+  "timestamp": "2026-03-30T01:44:29Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 2,
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 904,
+      "rule": "FILE_SIZE",
+      "message": "File is 904 lines (max 300). Pre-existing violation, but chunk 2 adds 6 more lines."
+    },
+    {
+      "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+      "line": 354,
+      "rule": "FILE_SIZE",
+      "message": "File is 354 lines (max 300). Was 317 before chunk 2 added the invalidation test."
+    },
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 351,
+      "rule": "COMPLEXITY",
+      "message": "Invalidation query/delete (lines 351-354) is inside the same try/catch that rolls back checksum on failure. If findByDocId or deleteAll throws after gDriveClient.updateFile succeeds, the checksum is incorrectly rolled back even though the Drive file was already updated. Move invalidation after the try/catch or wrap it in its own try/catch."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T01:44:29Z",
+      "files_checked": 241,
+      "violations": 433,
+      "violations_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/controller/EmailControllerIntegrationE2ETest.kt",
+          "function": "setup",
+          "lines": 432,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/controller/EmailControllerIntegrationE2ETest.kt",
+          "function": "setup",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/BaseIntegrationTest.kt",
+          "function": "loadFixtures",
+          "lines": 156,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/BaseIntegrationTest.kt",
+          "function": "loadFixtures",
+          "complexity": 31,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/config/TestConfig.kt",
+          "function": "cacheManager",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/config/TestConfig.kt",
+          "function": "createMockChatModel",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/config/TestConfig.kt",
+          "function": "createMockChatModel",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/config/TestConfig.kt",
+          "function": "mockGmailClient",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DealMiscIntegrationTest.kt",
+          "function": "setupFixtures",
+          "lines": 106,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentCrudIntegrationTest.kt",
+          "function": "testGetDocumentsByUser",
+          "lines": 201,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentCrudIntegrationTest.kt",
+          "function": "testGetDocumentsByUser",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+          "function": "createTestDeal",
+          "lines": 265,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+          "function": "createTestDeal",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailControllerIntegrationTest.kt",
+          "function": "setup",
+          "lines": 224,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "function": "beforeEach",
+          "lines": 606,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "function": "beforeEach",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "function": "beforeEach",
+          "lines": 282,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "function": "beforeEach",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "function": "mockGeoRiskClient",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/RiskNarrativeAutomationControllerIntegrationTest.kt",
+          "function": "queueInfiniteMockOpenAiHttpRequests",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/DocumentServiceIntegrationTest.kt",
+          "function": "beforeEach",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/DocumentServiceIntegrationTest.kt",
+          "function": "beforeEach",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/ListThreadsFromMessagesIntegrationTest.kt",
+          "function": "createThreadWithMessages",
+          "lines": 281,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/ListThreadsFromMessagesIntegrationTest.kt",
+          "function": "createThreadWithMessages",
+          "complexity": 38,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/eventlistener/CreateSubmissionFormEventListenerIntegrationTest.kt",
+          "function": "before",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/RiskConsiderationsServiceCacheIntegrationTest.kt",
+          "function": "afterEach",
+          "lines": 299,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/RiskConsiderationsServiceCacheIntegrationTest.kt",
+          "function": "afterEach",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/UserControllerIntegrationTest.kt",
+          "function": "testCreateAndLogoutUser",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/UserControllerIntegrationTest.kt",
+          "function": "testResetPassword",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/UserControllerIntegrationTest.kt",
+          "function": "testResetPassword_ExpiredToken",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/UserControllerIntegrationTest.kt",
+          "function": "testGetAllUsers",
+          "lines": 426,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/sharedaccount/SharedAccountControllerIntegrationTest.kt",
+          "function": "setupMfaCodeForUser",
+          "lines": 112,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "loadDefaultOrganizationsFromHubspot",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "backFillDealAndProgramPermissionsToUserGroups",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "backfillVerticalAndProductForDeals",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeSOVHeaders",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeSOVHeaders",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeDefaultAITasks",
+          "lines": 141,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeDefaultAITasks",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeUsersForTests",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "function": "initializeUsersForTests",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/DocumentQueryService.kt",
+          "function": "retrieveRelevantChunks",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/DocumentQueryService.kt",
+          "function": "retrieveRelevantChunks",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/DocumentSummarizationService.kt",
+          "function": "generateSummarySync",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/DocumentSummarizationService.kt",
+          "function": "generateSummarySync",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/PdfDocumentLoader.kt",
+          "function": "load",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/PdfDocumentLoader.kt",
+          "function": "load",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/SpreadsheetDocumentLoader.kt",
+          "function": "createWorkbook",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/SpreadsheetDocumentLoader.kt",
+          "function": "extractDocuments",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/SpreadsheetDocumentLoader.kt",
+          "function": "extractDocuments",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildEmailPrompt",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildEmailPrompt",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildResponseFormatSection",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildResponseFormatSection",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildUrlGenerationRules",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildUrlGenerationRules",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildEmailCapabilities",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "buildGeneralCapabilities",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "function": "formatDealContext",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierApprovalService.kt",
+          "function": "convertToApprovalRequest",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierLangChain4jImpl.kt",
+          "function": "classifyEmail",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierLangChain4jImpl.kt",
+          "function": "classifyEmail",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/market/MarketAssignmentAgentLangChain4jImpl.kt",
+          "function": "suggestMarketsForDeal",
+          "lines": 137,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/market/MarketAssignmentAgentLangChain4jImpl.kt",
+          "function": "suggestMarketsForDeal",
+          "complexity": 29,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractSubmission",
+          "lines": 152,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractSubmission",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "createDealFromSubmission",
+          "lines": 163,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "createDealFromSubmission",
+          "complexity": 29,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "buildSummarizedThreadContext",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractRelevantAttachments",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "processAttachment",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "processAttachment",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAndUploadZipContents",
+          "lines": 118,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAndUploadZipContents",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAttachmentTexts",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAttachmentTexts",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAttachmentTextsWithFilenames",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractAttachmentTextsWithFilenames",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "createAndProcessArquSOVDocument",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractSOVDataFromRange",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "extractSOVDataFromRange",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "function": "createSOVExcelFile",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "executeSubmissionWorkflow",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "executeSubmissionWorkflow",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "classifyAttachments",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "classifyAttachments",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "uploadToAtlasAndCreateExtractions",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "parseExtractionToDealSubmission",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "createDealFromExtraction",
+          "lines": 98,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "createDealFromExtraction",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "buildThreadText",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "function": "buildThreadText",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/tone/ToneRefinerAgent.kt",
+          "function": "refine",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalService.kt",
+          "function": "resolveApprovalWithSink",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalService.kt",
+          "function": "resolveApprovalWithSink",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalService.kt",
+          "function": "resolveApproval",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalService.kt",
+          "function": "resolveApproval",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/EmailIntentClassificationHandler.kt",
+          "function": "processResolutionWithStreaming",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/EmailIntentClassificationHandler.kt",
+          "function": "processResolutionWithStreaming",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "processResolution",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "processResolution",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "processResolutionWithStreaming",
+          "lines": 106,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "processResolutionWithStreaming",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "executeToolAction",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/handler/ToolExecutionHandler.kt",
+          "function": "executeToolAction",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/monitor/OpenTelemetryLLMObservabilityWrapper.kt",
+          "function": "executeWithObservability",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "createRating",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "createRating",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "updateRating",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "updateRating",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "getMessageContents",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/rating/MessageRatingService.kt",
+          "function": "getMessageContents",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "function": "classifyEmailIntent",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "function": "classifyEmailIntent",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "function": "processClassificationApproval",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "function": "processClassificationApproval",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "generateSimpleEmailDraft",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "generateSimpleEmailDraft",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "assembleEmailResponse",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "assembleEmailResponse",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "generateEmailDraft",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "generateEmailDraft",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "buildSingleCitation",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "generateFallbackEmailDraft",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "createEmailDraft",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "createEmailDraft",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "buildReplyMailData",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "buildReplyMailData",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "updateEmailDraft",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailResponseTools.kt",
+          "function": "updateEmailDraft",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchTools.kt",
+          "function": "validateCypher",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "buildSourceInfo",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "buildDocumentUrl",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "filterRelevantSources",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "filterRelevantSources",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "calculateAnswerRelevance",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "calculateAnswerRelevance",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/RetrievalTools.kt",
+          "function": "extractAnswerPatterns",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/SubmissionExtractionTools.kt",
+          "function": "extractSubmissionAndCreateDeal",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/controller/AtlasExtractionCallbackController.kt",
+          "function": "handleExtractionCallback",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasCorrectionService.kt",
+          "function": "submitSubmissionCorrections",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasExtractionService.kt",
+          "function": "uploadAndExtractMultiAsync",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasResultMapper.kt",
+          "function": "mergeSubmissions",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasSovResultMapper.kt",
+          "function": "mapToEntries",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasSovResultMapper.kt",
+          "function": "resolveEnumValue",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasSovResultMapper.kt",
+          "function": "formatValue",
+          "lines": 429,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "evictThreadCache",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "onFailure",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "onFailure",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "sendGmailMessage",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "createDraft",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "createDraft",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "updateDraft",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "updateDraft",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "sendDraft",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/GoogleGmailClient.kt",
+          "function": "sendDraft",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/HubspotClient.kt",
+          "function": "createSearchFilter",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/HubspotClient.kt",
+          "function": "httpDelete",
+          "lines": 209,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/client/HubspotClient.kt",
+          "function": "httpDelete",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/config/RedisClusterConfig.kt",
+          "function": "redisCacheManagerBuilderCustomizer",
+          "lines": 367,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BackfillDocumentSummaries.kt",
+          "function": "run",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BackfillDocumentSummaries.kt",
+          "function": "run",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BackfillGlobalSearchIndex.kt",
+          "function": "run",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BackfillGlobalSearchIndex.kt",
+          "function": "run",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchAssignMarketsCommand.kt",
+          "function": "run",
+          "lines": 179,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchAssignMarketsCommand.kt",
+          "function": "run",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "function": "run",
+          "lines": 282,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "function": "run",
+          "complexity": 33,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "function": "fixExistingDeal",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "function": "fixExistingDeal",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchCreateDealsCommand.kt",
+          "function": "assignMarkets",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchFixCoBrokerCommand.kt",
+          "function": "run",
+          "lines": 156,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchFixCoBrokerCommand.kt",
+          "function": "run",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchUpdateDealLatLngCommand.kt",
+          "function": "run",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchUpdateDealLatLngCommand.kt",
+          "function": "run",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchUpdateDealPremiumCommand.kt",
+          "function": "run",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/BatchUpdateDealPremiumCommand.kt",
+          "function": "run",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/cli/tools/RetryFailedDocuments.kt",
+          "function": "run",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/CarrierController.kt",
+          "function": "updateRiskNarrativeViewActivity",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/CarrierController.kt",
+          "function": "updateRiskNarrativeViewActivity",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "function": "create",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "function": "create",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listPrivilegesByUser",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listPrivilegesByUser",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listPrivilegesByUserGroup",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listAllUserGroupPrivilegesByDeal",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "grantPrivileges",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "grantGroupPrivileges",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "grantGroupPrivileges",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listByScore",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "listByScore",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "list",
+          "lines": 93,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "list",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "renewal",
+          "lines": 178,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "renewal",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "uploadDealImage",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "uploadDealRiskConsideration",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "uploadFiles",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "uploadFiles",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "upload",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "upload",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "getPrograms",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "function": "getDealMessagesAsEmails",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DocumentController.kt",
+          "function": "shareDocuments",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DocumentController.kt",
+          "function": "shareDocuments",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DocumentController.kt",
+          "function": "extract",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DocumentController.kt",
+          "function": "extract",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/EmailController.kt",
+          "function": "modifyThreadLabels",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "createIndicationMarket",
+          "lines": 153,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "createIndicationMarket",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "updateIndicationMarketProgress",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "createFormalQuoteByCarrier",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "confirmBindOrder",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "convertToLeadTerms",
+          "lines": 139,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/IndicationController.kt",
+          "function": "convertToLeadTerms",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ProgramController.kt",
+          "function": "createV1ProgramFromTemplate",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ProgramController.kt",
+          "function": "createProgramFromTemplate",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ProgramController.kt",
+          "function": "publishProgramToRetailer",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/QuestionnaireController.kt",
+          "function": "getQuestionnaireValues",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Billing.kt",
+          "function": "calculateSplit",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Billing.kt",
+          "function": "totalAmount",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Deal.kt",
+          "function": "hashCode",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Deal.kt",
+          "function": "getPolicyStartEndYear",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/db/Deal.kt",
+          "function": "isQuestionnaireExpired",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "function": "equals",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "function": "equals",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "function": "hashCode",
+          "lines": 179,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "function": "hashCode",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/DealDto.kt",
+          "function": "getPracticeOrdinalIndex",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+          "function": "createQuoteExtractionReviewEmail",
+          "lines": 213,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+          "function": "createQuoteExtractionReviewEmail",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+          "function": "getValidatorGroup",
+          "lines": 486,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+          "function": "getValidatorGroup",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/HubspotDto.kt",
+          "function": "deserialize",
+          "lines": 715,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/features/Feature.kt",
+          "function": "isEnabled",
+          "lines": 545,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/features/Feature.kt",
+          "function": "isEnabled",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/graph/ObjectGraphWriter.kt",
+          "function": "syncDeal",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/graph/ObjectGraphWriter.kt",
+          "function": "syncIndicationMarket",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/graph/ObjectGraphWriter.kt",
+          "function": "syncBillingInvoice",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/graph/ObjectGraphWriter.kt",
+          "function": "syncPolicy",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/graph/ObjectGraphWriter.kt",
+          "function": "syncIndicationLayerPair",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/job/DealExpirationNotificationJob.kt",
+          "function": "checkNotifications",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/job/QuestionnaireWatcherJob.kt",
+          "function": "watch",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/BillingInvoiceService.kt",
+          "function": "filingImport",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "updateDocuments",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "create",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "create",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "send",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "send",
+          "complexity": 34,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "validateMessageContent",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "updateDocuments",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "function": "updateDocuments",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "discard",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "buildDeal",
+          "lines": 108,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "buildDeal",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "createDeal",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "createDeal",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "documentExtraction",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "populateSovEntries",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "save",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "update",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "update",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "share",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "share",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "unshare",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "unshare",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "canMoveToProgress",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "canMoveToProgress",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "updateDealProgress",
+          "lines": 109,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "updateDealProgress",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "createOrUpdateLayerPair",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "convertToArquSOV",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "function": "convertToArquSOV",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+          "function": "updateDocumentSovExtractionStatus",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+          "function": "create",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+          "function": "initiateOcrProcessing",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+          "function": "getCompressedDocBytesByDocuments",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "getSendAsAliases",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "downloadAllAttachments",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "preComputeAttachmentZips",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "tryServeFromCache",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "servePageFromCache",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "extendCacheFromGmail",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "sendEmailAsExternalProvider",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "sendEmailAsExternalProvider",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "function": "getSendAsAliases",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EventPublisher.kt",
+          "function": "publish",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskExportService.kt",
+          "function": "fromString",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskExportService.kt",
+          "function": "initiateAsyncExport",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskExportService.kt",
+          "function": "initiateAsyncExport",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskExportService.kt",
+          "function": "downloadAndDecompressGeoJson",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GeoRiskRetrievalService.kt",
+          "function": "processEncodedCompressedGeoJson",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GmailInboxWatchService.kt",
+          "function": "watch",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/GmailInboxWatchService.kt",
+          "function": "watch",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "getActivityTypeFromHubspotCallOutcome",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "ensureContactsExist",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createNote",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "handleCompanyParentChildRelationships",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "handleCompanyParentChildRelationships",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createHubspotDealFromDeal",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createHubspotDealFromDeal",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createAllHubspotDealsFromDeals",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createOrganizationFromCompanyId",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createOrganizationFromCompanyId",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createUserFromContactId",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "createUserFromContactId",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateHubspotContactWithUserId",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateHubspotContactWithUserId",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateDealProducerFromHubspotDeal",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateCoreOrganizationFromHubspotCompany",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateCoreUserFromHubspotContact",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateCoreUserFromHubspotContact",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateCompanyVerticalAndProductFromContacts",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateCompanyVerticalAndProductFromContacts",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "syncContactLastActivityFromHubspot",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "syncContactLastActivityFromHubspot",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "syncHubspotContactIdFromHubspot",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "syncHubspotContactIdFromHubspot",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "syncCoreUserFromHubspotContact",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "updateContactVerticalAndProductFromAreaOfFocus",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "logOutboundEmail",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/HubspotService.kt",
+          "function": "logOutboundEmail",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/InboxThreadCacheService.kt",
+          "function": "updateCacheWithDelta",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/InboxThreadCacheService.kt",
+          "function": "updateCacheWithDelta",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/InboxThreadCacheService.kt",
+          "function": "computeAndCache",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/InboxThreadCacheService.kt",
+          "function": "computeAndCache",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ObjectGraphSyncService.kt",
+          "function": "syncAll",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ObjectGraphSyncService.kt",
+          "function": "syncDealWithSubEntities",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ObjectGraphSyncService.kt",
+          "function": "syncDealWithSubEntities",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/OrganizationService.kt",
+          "function": "addChild",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/OrganizationService.kt",
+          "function": "addChild",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/OrganizationService.kt",
+          "function": "removeChild",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/QuestionnaireService.kt",
+          "function": "updateQuestionnaireSheet",
+          "lines": 802,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/QuestionnaireService.kt",
+          "function": "valueToString",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "updateThumbsDownRating",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendNewDealMessage",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendDealExpirationMessage",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendDealProgressMessage",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendDealProgressMessage",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendDealReadyForReviewMessage",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendDealReadyForReviewMessage",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendThumbsDownRating",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "sendThumbsDownRating",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "updateThumbsDownRating",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/SlackService.kt",
+          "function": "updateThumbsDownRating",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/CalculateDealProgressEventListener.kt",
+          "function": "onIndicationMarketUpdateSqsEvent",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/CalculateDealProgressEventListener.kt",
+          "function": "onIndicationMarketUpdateSqsEvent",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/CalculateDealProgressEventListener.kt",
+          "function": "calculateSurplusLinesTaxesAndFees",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/CalculateDealProgressEventListener.kt",
+          "function": "calculateSurplusLinesTaxesAndFees",
+          "complexity": 33,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/CreateBillingInvoiceOnIndicatedEventListener.kt",
+          "function": "onIndicationMarketSqsEvent",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/DocumentIndexAndPostProcessEventListener.kt",
+          "function": "handleDocumentCreate",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/DocumentIndexAndPostProcessEventListener.kt",
+          "function": "handleDocumentCreate",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/DocumentIndexAndPostProcessEventListener.kt",
+          "function": "extractedDocument",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/DocumentIndexAndPostProcessEventListener.kt",
+          "function": "extractedDocument",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/EmailIntentClassifierEventListener.kt",
+          "function": "handleNewMessageEvent",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/EmailIntentClassifierEventListener.kt",
+          "function": "handleNewMessageEvent",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/EmailIntentClassifierEventListener.kt",
+          "function": "triggerEmailExtraction",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/EmailIntentClassifierEventListener.kt",
+          "function": "triggerEmailExtraction",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/InboxThreadCacheEventListener.kt",
+          "function": "handleSessionStarted",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/RegenerateRiskConsiderationsOnCreateSOVEventListener.kt",
+          "function": "handleCreateStatementOfValueEntries",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/RegenerateRiskConsiderationsOnCreateSOVEventListener.kt",
+          "function": "checkForRelevantFieldChanges",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/SyncLabelsEventListener.kt",
+          "function": "handleUpdateDeal",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/SyncLabelsEventListener.kt",
+          "function": "handleUpdateDeal",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/eventlistener/SyncLabelsEventListener.kt",
+          "function": "handleCreateDeal",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/monitoring/RiskMonitorService.kt",
+          "function": "evaluate",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/monitoring/RiskMonitorService.kt",
+          "function": "evaluate",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/monitoring/RiskMonitorService.kt",
+          "function": "createProblem",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/monitoring/RiskMonitorService.kt",
+          "function": "createProblem",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "handle",
+          "lines": 149,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "handle",
+          "complexity": 29,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "syncMessage",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "syncMessage",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "setLastEmailTimestamp",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "setLastEmailTimestamp",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "getMatchingDeal",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "getMatchingDeal",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandler.kt",
+          "function": "uploadMessagePart",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProvider.kt",
+          "function": "dependencies",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProvider.kt",
+          "function": "dependencies",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/insights/providers/LlmAssetInsightsProvider.kt",
+          "function": "buildInstruction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/insights/providers/LlmAssetInsightsProvider.kt",
+          "function": "buildInstruction",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/insights/providers/LlmAssetInsightsProvider.kt",
+          "function": "buildResponseSchema",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/RiskConsiderationsService.kt",
+          "function": "evictAndRegenerateRiskConsiderations",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/RiskConsiderationsService.kt",
+          "function": "evictAndRegenerateRiskConsiderations",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/CrimeRiskConsiderationProvider.kt",
+          "function": "getExampleRiskConsiderationResponses",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/CrimeRiskConsiderationProvider.kt",
+          "function": "getExampleRiskConsiderationResponses",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/CrimeRiskConsiderationProvider.kt",
+          "function": "getHardcodedReferenceRiskConsiderationTexts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProvider.kt",
+          "function": "buildInstruction",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProvider.kt",
+          "function": "buildInstruction",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProvider.kt",
+          "function": "buildResponseSchema",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/visualization/VisualizationResolver.kt",
+          "function": "cartesian",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/risk/narrative/automation/visualization/VisualizationResolver.kt",
+          "function": "cartesian",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/risklab/service/RisklabWebhookService.kt",
+          "function": "handleComparisonConfirmed",
+          "lines": 206,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/risklab/service/RisklabWebhookService.kt",
+          "function": "handleComparisonConfirmed",
+          "complexity": 55,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/risklab/service/RisklabWebhookService.kt",
+          "function": "processCoreFields",
+          "lines": 93,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/risklab/service/RisklabWebhookService.kt",
+          "function": "processCoreFields",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/systemevent/SystemEventCaptureServiceImpl.kt",
+          "function": "capture",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/UserService.kt",
+          "function": "create",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/UserService.kt",
+          "function": "create",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/util/DealUtils.kt",
+          "function": "generateDefaultDealDescription",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/util/DealUtils.kt",
+          "function": "generateDefaultDealDescription",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/PineconeServiceTest.kt",
+          "function": "setUp",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/retrieval/RetrievalAgentLangChain4JImplTest.kt",
+          "function": "setField",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/retrieval/RetrievalAgentLangChain4JImplTest.kt",
+          "function": "setField",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowServiceHandleBorConflictTest.kt",
+          "function": "setUp",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowServiceHandleBorConflictTest.kt",
+          "function": "createDeal",
+          "lines": 127,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "function": "stubUser",
+          "lines": 153,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/rating/MessageRatingServiceTest.kt",
+          "function": "stubUser",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/ObjectGraphSearchToolsTest.kt",
+          "function": "setUp",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/atlas/service/AtlasCorrectionServiceTest.kt",
+          "function": "setUp",
+          "lines": 287,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/atlas/service/AtlasSovResultMapperTest.kt",
+          "function": "setUp",
+          "lines": 203,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/client/GooglePeopleClientTest.kt",
+          "function": "setUpSearch",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/client/GooglePeopleClientTest.kt",
+          "function": "setUpList",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/graph/ObjectGraphCarrierRepositoryTest.kt",
+          "function": "all",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/graph/ObjectGraphWriterTest.kt",
+          "function": "setUp",
+          "lines": 384,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/graph/ObjectGraphWriterTest.kt",
+          "function": "setUp",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceUpdateDocumentsTest.kt",
+          "function": "stubFindById",
+          "lines": 129,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/DocumentServiceCompressTest.kt",
+          "function": "extractZipEntries",
+          "lines": 175,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/eventlistener/ObjectGraphSyncEventListenerTest.kt",
+          "function": "setUp",
+          "lines": 141,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/eventlistener/ObjectGraphSyncEventListenerTest.kt",
+          "function": "setUp",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "function": "setupMocksForHistory",
+          "lines": 222,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/pubsub/GmailInboxPubSubHandlerTest.kt",
+          "function": "setupMocksForHistory",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/CrimeRiskIndexFactProviderTest.kt",
+          "function": "setUp",
+          "lines": 262,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/CrimeRiskIndexFactProviderTest.kt",
+          "function": "setUp",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/FloodHazardZoneFactProviderTest.kt",
+          "function": "setUp",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "function": "setUp",
+          "lines": 188,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/facts/providers/RelativeElevationFactProviderTest.kt",
+          "function": "setUp",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProviderTest.kt",
+          "function": "setUp",
+          "lines": 140,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/risk/narrative/automation/risk/considerations/providers/LlmRiskConsiderationProviderTest.kt",
+          "function": "createRiskConsiderationData",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "function": "createOrganization",
+          "lines": 510,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "function": "createOrganization",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "function": "setupPricingTest",
+          "lines": 153,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/risklab/service/RisklabWebhookServiceTest.kt",
+          "function": "setupPricingTest",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
