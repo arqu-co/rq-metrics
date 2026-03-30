@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "objective-wright",
+  "branch": "claude/objective-wright",
+  "sha": "c45fe6a7",
+  "user": "unknown",
+  "timestamp": "2026-03-30T19:13:43Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T19:13:43Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/composables/useContactSearch.ts",
+          "function": "useContactSearch",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
