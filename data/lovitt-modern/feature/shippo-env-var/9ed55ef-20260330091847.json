@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "feature/shippo-env-var",
+  "sha": "9ed55ef",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-30T13:18:47Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:18:37Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:37Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:18:35Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 118000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T13:18:44Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "Running: bundle exec rubocop --parallel\nInspecting 189 files\n...........C.......C..................................C................................................CCC..C.....CC.........................................................................\n\nOffenses:\n\napp/controllers/musicians_controller.rb:19:21: C: [Correctable] Style/PerlBackrefs: Prefer ::Regexp.last_match(1) over $1.\n      Musician.find($1)\n                    ^^\napp/controllers/phoenix/musicians_controller.rb:11:7: C: [Correctable] Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.\n      if params[:query].present?\n      ^^\napp/models/musician.rb:27:19: C: [Correctable] Style/PerlBackrefs: Prefer ::Regexp.last_match(1) over $1.\n      find_by(id: $1)\n                  ^^\nlib/tasks/fix_all_blob_content_types.rb:34:1: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\nrescue => e\n^^^^^^\nlib/tasks/fix_blob_checksums.rb:19:1: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\nrescue => e\n^^^^^^\nlib/tasks/fix_blob_content_types.rake:45:5: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\n    rescue => e\n    ^^^^^^\nlib/tasks/fix_s3_acls.rake:28:5: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\n    rescue => e\n    ^^^^^^\nlib/tasks/paperclip_migrate.rake:94:7: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\n      rescue => e\n      ^^^^^^\nlib/tasks/paperclip_migrate.rake:135:7: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\n      rescue => e\n      ^^^^^^\nlib/tasks/preprocess_variants.rake:27:7: C: [Correctable] Style/RescueStandardError: Avoid rescuing without specifying an error class.\n      rescue => e\n      ^^^^^^\n\n189 files inspected, 10 offenses detected, 10 offenses autocorrectable\n\u274c RuboCop linting failed (1.08s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:36Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 9000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:18:46Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    }
+  },
+  "duration_seconds": 139.0
+}
