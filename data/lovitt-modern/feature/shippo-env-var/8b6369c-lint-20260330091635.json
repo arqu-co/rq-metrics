@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "feature/shippo-env-var",
+  "sha": "8b6369c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-30T13:16:34Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T13:16:34Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "config/routes.rb:78:44: C: [Correctable] Style/SymbolArray: Use %i or %I for an array of symbols.\n      resources :artist_memberships, only: [:create, :destroy]\n                                           ^^^^^^^^^^^^^^^^^^^\nspec/controllers/musicians_controller_spec.rb:33:14: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n      expect {\n             ^\nspec/controllers/phoenix/artist_memberships_controller_spec.rb:17:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/artist_memberships_controller_spec.rb:36:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/artist_memberships_controller_spec.rb:53:14: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n      expect {\n             ^\nspec/controllers/phoenix/musicians_controller_spec.rb:47:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/musicians_controller_spec.rb:60:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/musicians_controller_spec.rb:100:14: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n      expect {\n             ^\nspec/controllers/phoenix/pages_controller_spec.rb:102:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/pages_controller_spec.rb:130:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/pages_controller_spec.rb:171:16: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n        expect {\n               ^\nspec/controllers/phoenix/pages_controller_spec.rb:257:14: C: [Correctable] Style/BlockDelimiters: Avoid using {...} for multi-line blocks.\n      expect {\n             ^\n\n188 files inspected, 16 offenses detected, 16 offenses autocorrectable\n\u274c RuboCop linting failed (1.1s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
