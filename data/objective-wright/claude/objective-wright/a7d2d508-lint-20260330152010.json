@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "repo": "objective-wright",
+  "branch": "claude/objective-wright",
+  "sha": "a7d2d508",
+  "user": "unknown",
+  "timestamp": "2026-03-30T19:20:10Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-30T19:20:10Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/compose/ComposeWrapper.vue:23:1  error  Run autofix to sort these imports!  simple-import-sort/imports\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/deal/TodoActionButtons.vue:56:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/command/Command.vue:14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/dropdown-menu/DropdownMenuItem.vue:30:3  warning  <DropdownMenuItem> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/input-group/InputGroupAddon.vue:12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/input-group/InputGroupButton.vue:11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/modal/Modal.vue:76:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/components/ui/status-dot/StatusDot.vue:35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/pages/auth-callback.vue:175:9  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/objective-wright/src/pages/auth-callback.vue:1 error and 0 warnings potentially fixable with the `--fix` option.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+- Add `eslint-disable`, `@ts-ignore`, `@ts-expect-error`, or any lint suppression\n+// @ts-expect-error - jest-axe types are not fully compatible with vitest\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
