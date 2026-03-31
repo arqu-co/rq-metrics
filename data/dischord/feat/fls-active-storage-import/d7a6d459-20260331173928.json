@@ -1,0 +1,514 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "feat/fls-active-storage-import",
+  "sha": "d7a6d459",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T21:39:27Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:38:15Z",
+      "files_checked": 23,
+      "violations": 15,
+      "violations_details": [
+        {
+          "file": "app/controllers/phoenix/releases_controller.rb",
+          "function": "generate_tourdates_csv",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "releases_linked_in_body",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "link_year",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "seed_links",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/artist.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/artist.rb",
+          "function": "member_lines",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/photo.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/product.rb",
+          "function": "format_display_name",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/release.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/release.rb",
+          "function": "search",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/fls/importer.rb",
+          "function": "create_or_update_tourdate",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "spec/lib/fls/importer_spec.rb",
+          "function": "create_show_fixture",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "function": "test_dir",
+          "lines": 230,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "function": "test_dir",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:38:24Z",
+      "violations": 9,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/article.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 230,
+          "message": "Unused block argument - `value`. If it's necessary, use `_` or `_value` as an argument name to indicate that it won't be used."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/article.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 243,
+          "message": "Unused block argument - `value`. If it's necessary, use `_` or `_value` as an argument name to indicate that it won't be used."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/product.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 225,
+          "message": "Unused method argument - `include_carts`. You can also write as `in_stock?(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 98,
+          "message": "Unused method argument - `fls`. If it's necessary, use `_` or `_fls` as an argument name to indicate that it won't be used. If it's unnecessary, remove it. You can also write as `next(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 102,
+          "message": "Unused method argument - `fls`. If it's necessary, use `_` or `_fls` as an argument name to indicate that it won't be used. If it's unnecessary, remove it. You can also write as `prev(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 206,
+          "message": "Unused block argument - `i`. You can omit the argument if you don't care about it."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/track.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 138,
+          "message": "Unused block argument - `i`. You can omit the argument if you don't care about it."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "spec/lib/fls/show_source_spec.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 185,
+          "message": "Unused block argument - `context`. If it's necessary, use `_` or `_context` as an argument name to indicate that it won't be used. Also consider using a proc without arguments instead of a lambda if you want it to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 30,
+          "message": "Unused block argument - `params`. If it's necessary, use `_` or `_params` as an argument name to indicate that it won't be used."
+        }
+      ],
+      "duration_ms": 9000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-29T18:03:41Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:38:13Z",
+      "files_checked": 23,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "app/models/release.rb",
+          "lines": 309,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:38:57Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "rubocop",
+          "exit_code": 1,
+          "output": "C: 15:121: Layout/LineLength: Line is too long. [132/120]\n== spec/system/ui_issues_screenshots_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  3:  1: Metrics/BlockLength: Block has too many lines. [127/25]\n== spec/views/phoenix/product_archives/edit.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/index.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/new.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/product_archives/show.html.haml_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/views/phoenix/reports/show_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  3:  1: Metrics/BlockLength: Block has too many lines. [259/25]\nC: 23:  3: Metrics/BlockLength: Block has too many lines. [240/25]\nC: 24:  5: Metrics/BlockLength: Block has too many lines. [52/25]\nC: 25:  7: Metrics/BlockLength: Block has too many lines. [29/25]\nC: 88:  5: Metrics/BlockLength: Block has too many lines. [60/25]\nC: 89:  7: Metrics/BlockLength: Block has too many lines. [37/25]\nC:159:  5: Metrics/BlockLength: Block has too many lines. [31/25]\nC:198:  5: Metrics/BlockLength: Block has too many lines. [34/25]\nC:236:121: Layout/LineLength: Line is too long. [145/120]\nC:264:  5: Metrics/BlockLength: Block has too many lines. [33/25]\n== spec/workers/generate_sample_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/workers/product_archive_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== spec/workers/release_import_worker_spec.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== test/environments/development_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [13/10]\nC: 49:  3: Metrics/BlockLength: Block has too many lines. [29/25]\n== test/environments/production_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/AbcSize: Assignment Branch Condition size for setup is too high. [<9, 21, 1> 22.87/17]\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [18/10]\n== test/environments/staging_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  4:  3: Metrics/AbcSize: Assignment Branch Condition size for setup is too high. [<5, 28, 3> 28.6/17]\nC:  4:  3: Metrics/MethodLength: Method has too many lines. [16/10]\nC: 46:  3: Metrics/BlockLength: Block has too many lines. [29/25]\n== test/environments/test_test.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== test/test_helper.rb ==\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC: 14:121: Layout/LineLength: Line is too long. [150/120]\n\n497 files inspected, 2297 offenses detected, 696 offenses autocorrectable\n"
+        }
+      ],
+      "duration_ms": 33000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-29T18:03:40Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:39:27Z",
+      "scanned_files": 8,
+      "violations": 34,
+      "violations_details": [
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 32,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 76,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 118,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/importer_spec.rb",
+          "line": 22,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow($stdout).to receive(:puts)"
+        },
+        {
+          "file": "spec/lib/tasks/fls_import_rake_spec.rb",
+          "line": 8,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow($stdout).to receive(:puts)"
+        },
+        {
+          "file": "spec/lib/tasks/fls_import_rake_spec.rb",
+          "line": 41,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Aws::S3::Client).to receive(:new).and_return(s3_client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 26,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(File).to receive(:exist?).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 29,
+          "pattern": "double() for code under test",
+          "code": "    s3_client = instance_double(Aws::S3::Client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 30,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(s3_client).to receive(:get_object) do |_params, options|"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 43,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(FileUtils).to receive(:remove_entry_secure).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 60,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:cleanup!).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 61,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:fetch_from_s3!).and_return(true) # Completely stub fetch_from_s3!"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 62,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:finalize!).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 65,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 66,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:remove_entry_secure).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 130,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 135,
+          "pattern": "allow().to receive() on internal",
+          "code": "        allow(File).to receive(:exist?).with(product_archive.release_root).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 146,
+          "pattern": "allow().to receive() on internal",
+          "code": "        allow(File).to receive(:exist?).with(product_archive.release_root).and_return(false)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 158,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:remove_entry_secure)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 159,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:update_attribute)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 160,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product.release).to receive(:update_attribute)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 161,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Rails.logger).to receive(:info)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 202,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 205,
+          "pattern": "double() for code under test",
+          "code": "      zipfile = double('zipfile')"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 206,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(zipfile).to receive(:file).and_return(double('file', exist?: false))"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 206,
+          "pattern": "double() for code under test",
+          "code": "      allow(zipfile).to receive(:file).and_return(double('file', exist?: false))"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 207,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(zipfile).to receive(:add)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 208,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Zip::ZipFile).to receive(:open).and_yield(zipfile)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 211,
+          "pattern": "double() for code under test",
+          "code": "      s3_client = instance_double(Aws::S3::Client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 212,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(s3_client).to receive(:get_object)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 213,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:aws_client).and_return(s3_client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 216,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(File).to receive(:open).with(anything, 'wb').and_yield(StringIO.new)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 217,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(File).to receive(:open).with(product_archive.zip_file_path).and_return(StringIO.new)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 220,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:update_attribute).and_return(true)"
+        }
+      ],
+      "duration_ms": 18000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:39:09Z",
+      "fingerprint": "c8cb909ee8592fe0719b684b49e440cc",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 17,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\nWhile loading ./spec/fixtures/images/test_photo.png a `raise SyntaxError` occurred, RSpec will now quit.\nFailure/Error: __send__(method, file)\n\nSyntaxError:\n  \u001b[1m/Users/jerrod/Projects/dischord/spec/fixtures/images/test_photo.png:1: syntax error found (\u001b[1;4mSyntaxError\u001b[m\u001b[1m)\u001b[m\n  \u001b[1m/Users/jerrod/Projects/dischord/spec/fixtures/images/test_photo.png:1: invalid multibyte character 0x89\u001b[m\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:2144:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:2144:in 'RSpec::Core::Configuration#load_file_handling_errors'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1643:in 'block in RSpec::Core::Configuration#load_spec_files'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1641:in 'Array#each'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1641:in 'RSpec::Core::Configuration#load_spec_files'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:102:in 'RSpec::Core::Runner#setup'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:86:in 'RSpec::Core::Runner#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:71:in 'RSpec::Core::Runner.run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:45:in 'RSpec::Core::Runner.invoke'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/exe/rspec:4:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/rspec:25:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/rspec:25:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:59:in 'Kernel.load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:59:in 'Bundler::CLI::Exec#kernel_load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:23:in 'Bundler::CLI::Exec#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:452:in 'Bundler::CLI#exec'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/command.rb:28:in 'Bundler::Thor::Command#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in 'Bundler::Thor::Invocation#invoke_command'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor.rb:538:in 'Bundler::Thor.dispatch'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:35:in 'Bundler::CLI.dispatch'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/base.rb:584:in 'Bundler::Thor::Base::ClassMethods#start'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:29:in 'Bundler::CLI.start'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/exe/bundle:28:in 'block in <top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/friendly_errors.rb:117:in 'Bundler.with_friendly_errors'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/exe/bundle:20:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/bundle:25:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/bundle:25:in '<main>'\n# \n#   Showing full backtrace because every line was filtered out.\n#   See docs for RSpec::Configuration#backtrace_exclusion_patterns and\n#   RSpec::Configuration#backtrace_inclusion_patterns for more information.\n\nAn error occurred while loading ./test/environments/production_test.rb.\nFailure/Error: kernel_class.send(:no_warning_require, name)\n\nLoadError:\n  cannot load such file -- test_helper\n# ./test/environments/production_test.rb:1:in '<top (required)>'\n\n\nFinished in 0.00005 seconds (files took 2.96 seconds to load)\n\u001b[31m0 examples, 0 failures, 2 errors occurred outside of examples\u001b[0m"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "app/controllers/anonymous_redemptions_controller.rb",
+        "app/controllers/phoenix/releases_controller.rb",
+        "app/models/article.rb",
+        "app/models/artist.rb",
+        "app/models/concerns/paperclip_migratable.rb",
+        "app/models/front_photo.rb",
+        "app/models/product_archive_creator.rb",
+        "app/models/release.rb",
+        "app/models/track.rb",
+        "spec/lib/fls/import_logger_spec.rb",
+        "spec/lib/fls/importer_spec.rb",
+        "spec/lib/fls/location_parser_spec.rb",
+        "spec/lib/fls/show_source_spec.rb",
+        "spec/lib/tasks/fls_import_rake_spec.rb",
+        "spec/models/concerns/paperclip_migratable_spec.rb",
+        "spec/models/paperclip_migration_spec.rb",
+        "spec/models/product_archive_creator_spec.rb"
+      ],
+      "duration_ms": 12000
+    }
+  },
+  "duration_seconds": 185747.0
+}
