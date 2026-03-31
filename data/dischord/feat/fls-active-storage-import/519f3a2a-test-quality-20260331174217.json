@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "feat/fls-active-storage-import",
+  "sha": "519f3a2a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T21:42:16Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:42:16Z",
+      "scanned_files": 8,
+      "violations": 34,
+      "violations_details": [
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 32,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 76,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/import_logger_spec.rb",
+          "line": 118,
+          "pattern": "allow().to receive() on internal",
+          "code": "    before { allow($stdout).to receive(:puts) }"
+        },
+        {
+          "file": "spec/lib/fls/importer_spec.rb",
+          "line": 22,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow($stdout).to receive(:puts)"
+        },
+        {
+          "file": "spec/lib/tasks/fls_import_rake_spec.rb",
+          "line": 8,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow($stdout).to receive(:puts)"
+        },
+        {
+          "file": "spec/lib/tasks/fls_import_rake_spec.rb",
+          "line": 41,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Aws::S3::Client).to receive(:new).and_return(s3_client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 26,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(File).to receive(:exist?).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 29,
+          "pattern": "double() for code under test",
+          "code": "    s3_client = instance_double(Aws::S3::Client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 30,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(s3_client).to receive(:get_object) do |_params, options|"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 43,
+          "pattern": "allow().to receive() on internal",
+          "code": "    allow(FileUtils).to receive(:remove_entry_secure).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 60,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:cleanup!).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 61,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:fetch_from_s3!).and_return(true) # Completely stub fetch_from_s3!"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 62,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:finalize!).and_call_original"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 65,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 66,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:remove_entry_secure).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 130,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 135,
+          "pattern": "allow().to receive() on internal",
+          "code": "        allow(File).to receive(:exist?).with(product_archive.release_root).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 146,
+          "pattern": "allow().to receive() on internal",
+          "code": "        allow(File).to receive(:exist?).with(product_archive.release_root).and_return(false)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 158,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:remove_entry_secure)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 159,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:update_attribute)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 160,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product.release).to receive(:update_attribute)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 161,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Rails.logger).to receive(:info)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 202,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(FileUtils).to receive(:mkdir_p).and_return(true)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 205,
+          "pattern": "double() for code under test",
+          "code": "      zipfile = double('zipfile')"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 206,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(zipfile).to receive(:file).and_return(double('file', exist?: false))"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 206,
+          "pattern": "double() for code under test",
+          "code": "      allow(zipfile).to receive(:file).and_return(double('file', exist?: false))"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 207,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(zipfile).to receive(:add)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 208,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(Zip::ZipFile).to receive(:open).and_yield(zipfile)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 211,
+          "pattern": "double() for code under test",
+          "code": "      s3_client = instance_double(Aws::S3::Client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 212,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(s3_client).to receive(:get_object)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 213,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product_archive).to receive(:aws_client).and_return(s3_client)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 216,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(File).to receive(:open).with(anything, 'wb').and_yield(StringIO.new)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 217,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(File).to receive(:open).with(product_archive.zip_file_path).and_return(StringIO.new)"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "line": 220,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:update_attribute).and_return(true)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "feat/fls-active-storage-import",
+  "sha": "519f3a2a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T21:41:11Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:41:11Z",
+      "files_checked": 23,
+      "violations": 15,
+      "violations_details": [
+        {
+          "file": "app/controllers/phoenix/releases_controller.rb",
+          "function": "generate_tourdates_csv",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "releases_linked_in_body",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "link_year",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/article.rb",
+          "function": "seed_links",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/artist.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/artist.rb",
+          "function": "member_lines",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/photo.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/product.rb",
+          "function": "format_display_name",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/release.rb",
+          "function": "reprocess_missing_thumbnails",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/release.rb",
+          "function": "search",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/fls/importer.rb",
+          "function": "create_or_update_tourdate",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "spec/lib/fls/importer_spec.rb",
+          "function": "create_show_fixture",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "function": "test_dir",
+          "lines": 230,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "function": "test_dir",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

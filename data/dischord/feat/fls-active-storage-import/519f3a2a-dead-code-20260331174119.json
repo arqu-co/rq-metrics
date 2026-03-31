@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "feat/fls-active-storage-import",
+  "sha": "519f3a2a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T21:41:18Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:41:18Z",
+      "violations": 8,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/article.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 230,
+          "message": "Unused block argument - `value`. If it's necessary, use `_` or `_value` as an argument name to indicate that it won't be used."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/article.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 243,
+          "message": "Unused block argument - `value`. If it's necessary, use `_` or `_value` as an argument name to indicate that it won't be used."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/product.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 225,
+          "message": "Unused method argument - `include_carts`. You can also write as `in_stock?(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 98,
+          "message": "Unused method argument - `fls`. If it's necessary, use `_` or `_fls` as an argument name to indicate that it won't be used. If it's unnecessary, remove it. You can also write as `next(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedMethodArgument",
+          "line": 102,
+          "message": "Unused method argument - `fls`. If it's necessary, use `_` or `_fls` as an argument name to indicate that it won't be used. If it's unnecessary, remove it. You can also write as `prev(*)` if you want the method to accept any arguments but don't care about them."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/release.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 206,
+          "message": "Unused block argument - `i`. You can omit the argument if you don't care about it."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "app/models/track.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 138,
+          "message": "Unused block argument - `i`. You can omit the argument if you don't care about it."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "spec/models/product_archive_creator_spec.rb",
+          "cop": "Lint/UnusedBlockArgument",
+          "line": 30,
+          "message": "Unused block argument - `params`. If it's necessary, use `_` or `_params` as an argument name to indicate that it won't be used."
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

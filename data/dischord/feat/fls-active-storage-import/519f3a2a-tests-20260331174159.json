@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "repo": "dischord",
+  "branch": "feat/fls-active-storage-import",
+  "sha": "519f3a2a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T21:41:59Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T21:41:59Z",
+      "fingerprint": "e7eb8b794b21579f5e0ac22e29a240ed",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 17,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "app/controllers/anonymous_redemptions_controller.rb",
+        "app/controllers/phoenix/releases_controller.rb",
+        "app/models/article.rb",
+        "app/models/artist.rb",
+        "app/models/concerns/paperclip_migratable.rb",
+        "app/models/front_photo.rb",
+        "app/models/product_archive_creator.rb",
+        "app/models/release.rb",
+        "app/models/track.rb",
+        "spec/lib/fls/import_logger_spec.rb",
+        "spec/lib/fls/importer_spec.rb",
+        "spec/lib/fls/location_parser_spec.rb",
+        "spec/lib/fls/show_source_spec.rb",
+        "spec/lib/tasks/fls_import_rake_spec.rb",
+        "spec/models/concerns/paperclip_migratable_spec.rb",
+        "spec/models/paperclip_migration_spec.rb",
+        "spec/models/product_archive_creator_spec.rb"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\nWhile loading ./spec/fixtures/images/test_photo.png a `raise SyntaxError` occurred, RSpec will now quit.\nFailure/Error: __send__(method, file)\n\nSyntaxError:\n  \u001b[1m/Users/jerrod/Projects/dischord/spec/fixtures/images/test_photo.png:1: syntax error found (\u001b[1;4mSyntaxError\u001b[m\u001b[1m)\u001b[m\n  \u001b[1m/Users/jerrod/Projects/dischord/spec/fixtures/images/test_photo.png:1: invalid multibyte character 0x89\u001b[m\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:2144:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:2144:in 'RSpec::Core::Configuration#load_file_handling_errors'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1643:in 'block in RSpec::Core::Configuration#load_spec_files'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1641:in 'Array#each'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/configuration.rb:1641:in 'RSpec::Core::Configuration#load_spec_files'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:102:in 'RSpec::Core::Runner#setup'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:86:in 'RSpec::Core::Runner#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:71:in 'RSpec::Core::Runner.run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/lib/rspec/core/runner.rb:45:in 'RSpec::Core::Runner.invoke'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/rspec-core-3.13.6/exe/rspec:4:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/rspec:25:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/rspec:25:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:59:in 'Kernel.load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:59:in 'Bundler::CLI::Exec#kernel_load'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli/exec.rb:23:in 'Bundler::CLI::Exec#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:452:in 'Bundler::CLI#exec'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/command.rb:28:in 'Bundler::Thor::Command#run'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/invocation.rb:127:in 'Bundler::Thor::Invocation#invoke_command'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor.rb:538:in 'Bundler::Thor.dispatch'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:35:in 'Bundler::CLI.dispatch'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/vendor/thor/lib/thor/base.rb:584:in 'Bundler::Thor::Base::ClassMethods#start'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/cli.rb:29:in 'Bundler::CLI.start'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/exe/bundle:28:in 'block in <top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/3.4.0/bundler/friendly_errors.rb:117:in 'Bundler.with_friendly_errors'\n# /Users/jerrod/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/exe/bundle:20:in '<top (required)>'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/bundle:25:in 'Kernel#load'\n# /Users/jerrod/.rbenv/versions/3.4.5/bin/bundle:25:in '<main>'\n# \n#   Showing full backtrace because every line was filtered out.\n#   See docs for RSpec::Configuration#backtrace_exclusion_patterns and\n#   RSpec::Configuration#backtrace_inclusion_patterns for more information.\n\nAn error occurred while loading ./test/environments/production_test.rb.\nFailure/Error: kernel_class.send(:no_warning_require, name)\n\nLoadError:\n  cannot load such file -- test_helper\n# ./test/environments/production_test.rb:1:in '<top (required)>'\n\n\nFinished in 0.00004 seconds (files took 1.12 seconds to load)\n\u001b[31m0 examples, 0 failures, 2 errors occurred outside of examples\u001b[0m"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
