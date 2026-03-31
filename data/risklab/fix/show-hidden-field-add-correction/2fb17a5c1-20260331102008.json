@@ -1,0 +1,219 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/show-hidden-field-add-correction",
+  "sha": "2fb17a5c1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-03-31T17:20:08Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T16:48:38Z",
+      "files_checked": 3,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "lines": 279,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "complexity": 68,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "_enqueue_field_config_corrections",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "get_field_configuration",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_submit_batch_async",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "function": "TestSaveFieldConfigurationUnit",
+          "lines": 495,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T17:20:08Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-31T16:48:39Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T16:48:38Z",
+      "files_checked": 3,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "lines": 414,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "lines": 515,
+          "max": 300
+        }
+      ]
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T16:48:49Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\ud83d\udd27 Running formatters (backend + frontend)\n\n\ud83d\udccb Running Backend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Backend Python Code Formatting\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\nWARNING:root:/Users/jonathanthom/.config/python_keyring/keyringrc.cfg does not exist!\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.2.27.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.2.27.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 102ms on 1548 files using 16 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 198ms on 1522 files with 86 rules using 16 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Frontend formatting, linting, and type checks passed!\u001b[0m\n\n\u26a0\ufe0f  Partial formatting success\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\nWARNING:root:/Users/jonathanthom/.config/python_keyring/keyringrc.cfg does not exist!\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.2.27.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.2.27.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Type checking failed\n"
+        }
+      ]
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T17:20:07Z",
+      "scanned_files": 1,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 120,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 224,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 226,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-31T17:20:06Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5f8158c0928128d79a59a516671ef91e",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 417043.0
+}

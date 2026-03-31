@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/show-hidden-field-add-correction",
+  "sha": "2fb17a5c1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-03-31T16:48:38Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-31T16:48:38Z",
+      "files_checked": 3,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "lines": 279,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "complexity": 68,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "_enqueue_field_config_corrections",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "get_field_configuration",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_submit_batch_async",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "function": "TestSaveFieldConfigurationUnit",
+          "lines": 495,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
