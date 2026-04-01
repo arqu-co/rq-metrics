@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "silly-keller",
+  "branch": "fix-deployme-clearings-recipient-contacts",
+  "sha": "fd70c308",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-01T23:38:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-01T23:38:25Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
