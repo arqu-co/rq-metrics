@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/exclude-empty-value-fields-from-webhook",
+  "sha": "f7647be08",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-01T16:00:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-01T16:00:25Z",
+      "files_checked": 5,
+      "violations": 14,
+      "violations_details": [
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "_build_webhook_quotes",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "get_comparisons_by_deal",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/comparison_webhook_service/comparison_webhook_service.py",
+          "function": "_build_quote_fields",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/comparison_webhook_service/comparison_webhook_service.py",
+          "function": "_build_quote_fields",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/comparison_webhook_service/comparison_webhook_service.py",
+          "function": "ComparisonWebhookService",
+          "lines": 204,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/comparison_webhook_service/comparison_webhook_service.py",
+          "function": "send_confirmation_webhook",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "function": "TestBuildWebhookQuotes",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_comparison_webhook_service_payload.py",
+          "function": "test_builds_payload_with_quotes_and_fields",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_comparison_webhook_service_payload.py",
+          "function": "test_injects_default_participation_when_missing",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_comparison_webhook_service_payload.py",
+          "function": "TestBuildWebhookPayload",
+          "lines": 407,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

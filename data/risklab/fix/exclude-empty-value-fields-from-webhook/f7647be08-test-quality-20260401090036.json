@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/exclude-empty-value-fields-from-webhook",
+  "sha": "f7647be08",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-01T16:00:35Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-01T16:00:35Z",
+      "scanned_files": 2,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 34,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 36,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 49,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 66,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 80,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing_project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 82,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_helpers.py",
+          "line": 95,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
