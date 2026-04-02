@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "bold-wilson",
+  "branch": "claude/bold-wilson",
+  "sha": "afe26718",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T13:37:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "DRY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/components/conversation/ConversationDetailView.vue",
+      "line": 668,
+      "rule": "DRY",
+      "message": "The expression `index === displayMessages.length - 1` is repeated 5 times across lines 668-672, and `threadAttachmentData.attachments[0]?.messageId ?? ''` is repeated twice. Extract a computed or inline `const isLastMessage = index === displayMessages.length - 1` and `const threadMessageId = threadAttachmentData.attachments[0]?.messageId ?? ''` to eliminate duplication."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-02T13:37:52Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
