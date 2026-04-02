@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "repo": "dazzling-hawking",
+  "branch": "claude/dazzling-hawking",
+  "sha": "677267e2",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T00:10:22Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-02T00:10:22Z",
+      "violations": 31,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/App.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.stop.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/footer/EmailBoxFooter.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/FromAddressSelector.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/DealMailListPane.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/InboxPage.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/InboxPagination.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/ai-chat-panel.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/badge/Badge.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/button/Button.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/calendar-invite-card/CalendarInviteCard.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/multi-select-chips/MultiSelectChips.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/status-dot/StatusDot.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.test.ts",
+          "name": "type ComparisonsRisklabService",
+          "line": 4
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type DealRecipient",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useEmailClassification.ts",
+          "name": "type DealLabelAlternative",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.ts",
+          "name": "type MaybeRefOrGetter",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useMessageContentResolution.test.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useMessageContentResolution.ts",
+          "name": "type ComputedRef",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useMessageContentResolution.ts",
+          "name": "type ParsedCalendarEvent",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type PtlProgramService",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.ts",
+          "name": "type LayerLeafNode",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/contact/index.ts",
+          "name": "type HubspotContactDto",
+          "line": 3
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
