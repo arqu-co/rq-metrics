@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "optimistic-herschel",
+  "branch": "feat/deal-context-label-selection",
+  "sha": "0a94bd90",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T19:49:08Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-02T19:49:08Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/EmailBoxTags.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
