@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/security-ci-qa-upgrades",
+  "sha": "5ee5343",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-03T14:01:47Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "performance",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-03T14:01:33Z",
+      "files_checked": 1,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/inspect-pr-checks.py",
+          "function": "fetch_checks",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/inspect-pr-checks.py",
+          "function": "analyze_check",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/inspect-pr-checks.py",
+          "function": "_fetch_check_log",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/inspect-pr-checks.py",
+          "function": "main",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 11000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-03T14:01:22Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 13000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-03T14:01:00Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T12:06:28Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-03T14:00:55Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-03T14:01:09Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-18T17:37:29Z",
+      "findings": 0,
+      "findings_details": [],
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      }
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T12:06:26Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T11:59:01Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-03T14:01:45Z",
+      "test_runner": "bin-test",
+      "fingerprint": "0cbb714d6b38a5ef16fbaeff70628706",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "plugins/rq/scripts/inspect-pr-checks.py"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 12000
+    }
+  },
+  "duration_seconds": 1369456.0
+}
