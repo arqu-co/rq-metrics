@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/exceptions-config-redesign",
+  "sha": "1d46330",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-05T15:10:14Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-05T15:09:47Z",
+      "files_checked": 6,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/is_allowed_check.py",
+          "function": "_entry_matches",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T15:09:49Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T15:09:45Z",
+      "files_checked": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-05T15:09:59Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/validate-config.sh:120:27: note: Command appears to be unreachable. Check usage (or ignore if invoked indirectly). [SC2317]\n"
+        }
+      ],
+      "duration_ms": 10000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T15:10:13Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-05T15:10:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c3382f359716caa8caeb47024e32f115",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "test_validate_rq_config.py:57: in test_short_reason_rejected\n    assert code != 0\nE   assert 0 != 0\n________________ TestInvalidConfig.test_unknown_field_rejected _________________\ntest_validate_rq_config.py:63: in test_unknown_field_rejected\n    assert code != 0\nE   assert 0 != 0\n______________ TestInvalidConfig.test_dead_code_invalid_type_enum ______________\ntest_validate_rq_config.py:86: in test_dead_code_invalid_type_enum\n    assert code != 0\nE   assert 0 != 0\n================================ tests coverage ================================\n_______________ coverage: platform darwin, python 3.13.3-final-0 _______________\n\nName                          Stmts   Miss  Cover   Missing\n-----------------------------------------------------------\nanalyze_complexity.py            52      1    98%   136\ncollect_metrics_payload.py      154      2    99%   252-253\ncomplexity_heuristic.py          90      2    98%   150, 193\ncomplexity_tools.py             114      2    98%   58, 115\nconftest.py                      21      8    62%   27-37\nfind_affected_tests.py           91     17    81%   66-71, 86, 121-132, 136-137\ngh_client.py                     78      8    90%   77, 92, 113-115, 128-129, 132\ninspect_pr_checks.py            149     15    90%   50-52, 60-62, 64-65, 99-103, 203, 220\nis_allowed_check.py              72      7    90%   30-31, 33-34, 39-40, 110\nparse_cobertura.py               31      7    77%   19, 46-51\nparse_jacoco.py                  38      8    79%   20, 32, 55-60\nparse_junit_xml.py               56     11    80%   19, 39, 52, 56, 63, 85-90\nparse_sarif.py                   37      7    81%   58-64\nparse_simplecov.py               29     29     0%   9-51\nparse_test_failures.py          182     27    85%   26, 58-59, 68, 77, 80-81, 94, 110, 125, 136, 145, 148-149, 159, 162-163, 178, 187-188, 214, 247, 255-257, 278-279\nrender_exceptions.py             79     79     0%   8-124\nscan_disguised_mocks.py          40      3    92%   74, 76, 79\ntest_collect_metrics_cli.py      48      1    98%   25\ntest_commands_config.py          58      1    98%   21\ntest_load_config.py             132      1    99%   69\ntest_parse_test_failures.py      79      2    97%   232-234\nvalidate_proof.py                59      6    90%   17-20, 66-68\n-----------------------------------------------------------\nTOTAL                          3764    244    94%\n\n21 files skipped due to complete coverage.\nCoverage JSON written to file coverage.json\n=========================== short test summary info ============================\nFAILED test_validate_rq_config.py::TestInvalidConfig::test_unknown_gate_rejected\nFAILED test_validate_rq_config.py::TestInvalidConfig::test_missing_reason_rejected\nFAILED test_validate_rq_config.py::TestInvalidConfig::test_short_reason_rejected\nFAILED test_validate_rq_config.py::TestInvalidConfig::test_unknown_field_rejected\nFAILED test_validate_rq_config.py::TestInvalidConfig::test_dead_code_invalid_type_enum\n5 failed, 39 passed in 9.50s"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 12000
+    }
+  },
+  "duration_seconds": 28.0
+}
