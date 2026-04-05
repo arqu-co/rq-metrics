@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "axr",
+  "branch": "feat/phase-2-mechanical-scoring",
+  "sha": "d9ceafe",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-05T22:20:22Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T22:20:22Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
