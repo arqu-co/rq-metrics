@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/post-plan-to-pr",
+  "sha": "3a6862d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-05T11:48:10Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:47:46Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:48:07Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:47:47Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:48:09Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:47:45Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:47:55Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:48:08Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:48:06Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T11:48:05Z",
+      "fingerprint": "6002ec694fa3b2daaa9218eee688a231",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 10000
+    }
+  },
+  "duration_seconds": 24.0
+}
