@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "feat/helpdesk-plugin",
+  "sha": "355eeee2c553f788a6023c00216f4cf9af352306",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T18:24:47Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T18:24:47Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
