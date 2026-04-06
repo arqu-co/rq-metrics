@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "axr",
+  "branch": "feat/phase-2a-rubric-v2",
+  "sha": "e50e62c",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-06T02:19:25Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-06T02:19:25Z",
+      "files_checked": 9,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/axr/scripts/check-style-validation.sh",
+          "lines": 347,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
