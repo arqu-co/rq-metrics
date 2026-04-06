@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/review-agent-budgets",
+  "sha": "d112661",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T01:28:27Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "DRY": 1,
+    "DEAD_CODE": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/agents/review-security.md",
+      "line": 78,
+      "rule": "DRY",
+      "message": "Schema inconsistency: review-security.md still uses bare JSON array format (line 78: 'Output ONLY a valid JSON array') while all 3 updated agents use the new JSON object with status/reviewed/remaining/findings/needs_continuation. Must be updated to match."
+    },
+    {
+      "file": "plugins/rq/agents/review-style.md",
+      "line": 54,
+      "rule": "DEAD_CODE",
+      "message": "Stale turn reference: 'by turn 8' is left over from old maxTurns=10. With maxTurns=12 and reading budget through turn 10, this should say 'by turn 10'."
+    },
+    {
+      "file": "plugins/rq/agents/review-style.md",
+      "line": 56,
+      "rule": "DEAD_CODE",
+      "message": "Stale format reference: 'output `[]` immediately' refers to old bare array format. Should say 'output immediately with an empty findings array' or reference the full JSON object with {\"status\": \"complete\", ...} as the other agents do."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:28:26Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

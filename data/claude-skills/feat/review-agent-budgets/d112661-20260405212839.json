@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/review-agent-budgets",
+  "sha": "d112661",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T01:28:39Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "DRY": 1,
+    "DEAD_CODE": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/agents/review-security.md",
+      "line": 78,
+      "rule": "DRY",
+      "message": "Schema inconsistency: review-security.md still uses bare JSON array format (line 78: 'Output ONLY a valid JSON array') while all 3 updated agents use the new JSON object with status/reviewed/remaining/findings/needs_continuation. Must be updated to match."
+    },
+    {
+      "file": "plugins/rq/agents/review-style.md",
+      "line": 54,
+      "rule": "DEAD_CODE",
+      "message": "Stale turn reference: 'by turn 8' is left over from old maxTurns=10. With maxTurns=12 and reading budget through turn 10, this should say 'by turn 10'."
+    },
+    {
+      "file": "plugins/rq/agents/review-style.md",
+      "line": 56,
+      "rule": "DEAD_CODE",
+      "message": "Stale format reference: 'output `[]` immediately' refers to old bare array format. Should say 'output immediately with an empty findings array' or reference the full JSON object with {\"status\": \"complete\", ...} as the other agents do."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:28:26Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:41:58Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:41:31Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:42:01Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:28:25Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:28:36Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 10000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:42:00Z",
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:41:56Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-05T17:41:53Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e9ffc710cf9c8019de4fa8754ecd4a8a",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 28025.0
+}
