@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "axr",
+  "branch": "feat/phase-3-axr-fix",
+  "sha": "96836cd6f94881dd3ad2d59cbeebcf840fedb6fc",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-06T11:58:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/axr/commands/axr-fix.md",
+      "line": 44,
+      "rule": "COMPLEXITY",
+      "message": "Blockers jq query does not filter defaulted_from_deferred:true despite line 15 requiring it. Fix: jq -r '[.blockers[] | select(.defaulted_from_deferred != true)][:3][] | .id' .axr/latest.json"
+    },
+    {
+      "file": "plugins/axr/commands/axr-fix.md",
+      "line": 19,
+      "rule": "COMPLEXITY",
+      "message": "Step 2 does not guard against empty $ARGUMENTS despite failure mode on line 134 documenting the behavior. Add an explicit empty-check before the if/elif/else chain."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T11:58:22Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
