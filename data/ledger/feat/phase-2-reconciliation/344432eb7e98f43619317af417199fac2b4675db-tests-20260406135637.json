@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase-2-reconciliation",
+  "sha": "344432eb7e98f43619317af417199fac2b4675db",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-06T20:56:37Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-06T20:56:37Z",
+      "fingerprint": "88cdb6963cffc7a54e60d1b0297580c8",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 10,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2713 TestService connection verified\n  Connected to TestService\n.\n============================================================\nPREFLIGHT: DirectBase\n============================================================\n.\n============================================================\nPREFLIGHT: DirectBase\n============================================================\n..\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2713 TestService connection verified\n  Connected to TestService\n..\n============================================================\nPREFLIGHT: PartialImpl\n============================================================\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_SECRET\n................Branch coverage (88.98%) is below the expected minimum coverage (90.00%).\nSimpleCov failed with exit 2 due to a coverage related error\n\n\nFinished in 21.040667s, 65.1595 runs/s, 168.1506 assertions/s.\n1371 runs, 3538 assertions, 1 failures, 4 errors, 0 skips\nCoverage report generated for Minitest to /Users/clee/Documents/billing-redux/coverage.\nLine Coverage: 99.25% (1730 / 1743)\nBranch Coverage: 88.98% (412 / 463)"
+        }
+      ],
+      "missing_tests_details": [
+        "app/javascript/controllers/inline_edit_controller.js",
+        "app/javascript/controllers/inline_edit_helpers.js",
+        "app/javascript/controllers/reconciliation_controller.js",
+        "app/javascript/controllers/reconciliation_helpers.js",
+        "app/javascript/controllers/return_premium_controller.js",
+        "app/models/deal_program.rb",
+        "db/migrate/20260403000001_add_vertical_to_deals.rb",
+        "db/migrate/20260403000002_create_deal_programs.rb",
+        "db/migrate/20260404000001_create_reconciliation_allocations.rb",
+        "server.js"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
