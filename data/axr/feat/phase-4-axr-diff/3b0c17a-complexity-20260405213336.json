@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "axr",
+  "branch": "feat/phase-4-axr-diff",
+  "sha": "3b0c17a",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-06T01:33:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:33:36Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
