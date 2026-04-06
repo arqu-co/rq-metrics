@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase-2-reconciliation",
+  "sha": "a441666c04434cc39a89f132fb14cecfd268c05b",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-06T21:04:00Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T21:03:54Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T21:03:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:59:11Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T21:03:53Z",
+      "files_checked": 62,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 282000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:59:11Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T21:03:59Z",
+      "scanned_files": 30,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    }
+  },
+  "duration_seconds": 288.0
+}
