@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "fix/sha-reporting-consistency",
+  "sha": "9ba780961df2debb354b444ed57a95305e02d9e4",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T01:57:32Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T01:57:31Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
