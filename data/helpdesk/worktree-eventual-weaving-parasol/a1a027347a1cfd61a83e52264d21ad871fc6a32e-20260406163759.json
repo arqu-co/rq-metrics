@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "worktree-eventual-weaving-parasol",
+  "sha": "a1a027347a1cfd61a83e52264d21ad871fc6a32e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T20:37:59Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:51Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:52Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:58Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:50Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:54Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:57Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:37:55Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    }
+  },
+  "duration_seconds": 8.0
+}
