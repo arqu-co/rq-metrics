@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "feat/learn-from-resolutions",
+  "sha": "faf599bfa37e3b0fe016f1ed2ad1b09645de8a94",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T20:33:06Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-06T20:33:05Z",
+      "coverage_tool": "py",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "scripts/kb-confirm.py",
+          "coverage": 90,
+          "min": 95
+        },
+        {
+          "file": "scripts/kb-update-content.py",
+          "coverage": 92,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

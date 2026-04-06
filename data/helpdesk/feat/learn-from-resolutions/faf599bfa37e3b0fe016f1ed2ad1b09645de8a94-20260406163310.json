@@ -1,0 +1,126 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "feat/learn-from-resolutions",
+  "sha": "faf599bfa37e3b0fe016f1ed2ad1b09645de8a94",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T20:33:09Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:32:48Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-06T20:33:05Z",
+      "coverage_tool": "py",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "scripts/kb-confirm.py",
+          "coverage": 90,
+          "min": 95
+        },
+        {
+          "file": "scripts/kb-update-content.py",
+          "coverage": 92,
+          "min": 95
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:32:51Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:33:08Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:32:46Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:32:53Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:33:07Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:33:02Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:33:00Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f7a55519e8fa51c767201a740953a92d",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 7000
+    }
+  },
+  "duration_seconds": 22.0
+}

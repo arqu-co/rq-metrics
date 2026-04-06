@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "feat/learn-from-resolutions",
+  "sha": "faf599bfa37e3b0fe016f1ed2ad1b09645de8a94",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T20:33:09Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:33:08Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
