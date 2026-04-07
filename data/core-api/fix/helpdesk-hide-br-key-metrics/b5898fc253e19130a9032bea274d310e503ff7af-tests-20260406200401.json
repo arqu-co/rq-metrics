@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "fix/helpdesk-hide-br-key-metrics",
+  "sha": "b5898fc253e19130a9032bea274d310e503ff7af",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T00:04:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T00:04:00Z",
+      "fingerprint": "d7b97511e3c216c09034738475746973",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/core/service/DailySubmissionSovGenerator.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
