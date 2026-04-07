@@ -1,0 +1,97 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "2-describe-feature-set-groups-expose-schemes",
+  "sha": "b22a80c7541bbc3afa5b6a9bf67c733355a89caa",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T04:17:07Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T04:17:07Z",
+      "files_checked": 36,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "client-python/georisk_client/generated/models/bucket_range.py",
+          "function": "BucketRange",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/classification_aspect.py",
+          "function": "ClassificationAspect",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/classification_bucket.py",
+          "function": "ClassificationBucket",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/classification_mapping.py",
+          "function": "ClassificationMapping",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/classification_scheme.py",
+          "function": "ClassificationScheme",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/classification_source.py",
+          "function": "ClassificationSource",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/models/feature_set_group_info.py",
+          "function": "FeatureSetGroupInfo",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/test/test_classification_aspect.py",
+          "function": "TestClassificationAspect",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client-python/georisk_client/generated/test/test_describe_feature_set_groups_response.py",
+          "function": "TestDescribeFeatureSetGroupsResponse",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
