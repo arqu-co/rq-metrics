@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/arqu-engineer-design",
+  "sha": "2cd3f2dd8aa60af47954197f49e0315d0845cb8b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T21:01:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:01:59Z",
+      "test_runner": "bin-test",
+      "fingerprint": "53fc329f109b4257ab24d9e75833031f",
+      "missing_tests": 5,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "src/container/provider.ts",
+        "src/tasks/ci-logs-fetcher.ts",
+        "src/tasks/router.ts",
+        "src/trust/tokens.ts",
+        "tests/receiver/helpers.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

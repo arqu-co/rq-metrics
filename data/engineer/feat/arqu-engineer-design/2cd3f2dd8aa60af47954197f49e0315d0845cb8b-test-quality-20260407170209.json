@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/arqu-engineer-design",
+  "sha": "2cd3f2dd8aa60af47954197f49e0315d0845cb8b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T21:02:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:02:09Z",
+      "scanned_files": 30,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 67,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 72,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 1000);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 78,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 84,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(pastCooldown);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 90,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 95,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 5000);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 99,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 15000);"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
