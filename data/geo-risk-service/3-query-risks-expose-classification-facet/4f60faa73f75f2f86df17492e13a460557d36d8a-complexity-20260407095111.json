@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "3-query-risks-expose-classification-facet",
+  "sha": "4f60faa73f75f2f86df17492e13a460557d36d8a",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T16:51:11Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T16:51:11Z",
+      "files_checked": 25,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/api/QueryRisksTest.kt",
+          "function": "testCasesProvider",
+          "lines": 188,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/lambda/src/test/kotlin/co/arqu/georiskservice/api/QueryRisksTest.kt",
+          "function": "testCasesProvider",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
