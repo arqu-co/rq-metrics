@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/channel-plugins",
+  "sha": "3c079dc785a39f4e38a5855224c8a9c2e02c733a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T23:54:25Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T23:54:24Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "typecheck:datadog-channel",
+          "exit_code": 1,
+          "output": "\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages\n"
+        },
+        {
+          "check": "typecheck:github-channel",
+          "exit_code": 1,
+          "output": "\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
