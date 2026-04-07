@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/arqu-engineer-design",
+  "sha": "a2eda2460d9a2b13f156e595389d606711f83b4c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T21:04:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:04:31Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] tests/container/provider.test.ts\n[warn] tests/trust/tokens.test.ts\n[warn] Code style issues found in 2 files. Run Prettier with --write to fix.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

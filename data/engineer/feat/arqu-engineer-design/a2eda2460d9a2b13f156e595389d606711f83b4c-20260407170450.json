@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/arqu-engineer-design",
+  "sha": "a2eda2460d9a2b13f156e595389d606711f83b4c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T21:04:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T21:04:09Z",
+      "files_checked": 70,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:04:46Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T21:04:24Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 15000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T21:04:49Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T21:04:07Z",
+      "files_checked": 73,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:04:31Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] tests/container/provider.test.ts\n[warn] tests/trust/tokens.test.ts\n[warn] Code style issues found in 2 files. Run Prettier with --write to fix.\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T21:04:48Z",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:04:45Z",
+      "scanned_files": 34,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 67,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 72,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 1000);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 78,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 84,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(pastCooldown);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 90,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 95,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 5000);"
+        },
+        {
+          "file": "tests/db/ci-threads.test.ts",
+          "line": 99,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(Date, \"now\").mockReturnValue(now + 15000);"
+        }
+      ],
+      "duration_ms": 11000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:04:34Z",
+      "fingerprint": "854153e5bd414efeff3589dbe1864eb1",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "tests/receiver/helpers.ts"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 3000
+    }
+  },
+  "duration_seconds": 42.0
+}
