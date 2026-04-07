@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/channel-plugins",
+  "sha": "52538e7c502d261b4f1f6ce3aa19b4438cf6285f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T23:57:44Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T23:57:16Z",
+      "files_checked": 26,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/github-channel/src/events.ts",
+          "function": "formatPrEvent",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/github-channel/src/events.ts",
+          "function": "formatWorkflowFailure",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T23:57:23Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T23:57:13Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T23:57:35Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "typecheck:datadog-channel",
+          "exit_code": 2,
+          "output": "error TS2688: Cannot find type definition file for 'bun-types'.\n  The file is in the program because:\n    Entry point of type library 'bun-types' specified in compilerOptions\n"
+        },
+        {
+          "check": "typecheck:github-channel",
+          "exit_code": 2,
+          "output": "error TS2688: Cannot find type definition file for 'bun-types'.\n  The file is in the program because:\n    Entry point of type library 'bun-types' specified in compilerOptions\n"
+        }
+      ],
+      "duration_ms": 12000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T23:57:43Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T23:57:39Z",
+      "fingerprint": "2c39c1f6ffb5f177a55c3858e8a8184d",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/node_modules/zod/src/v3/tests/language-server.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/api.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/events.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/state.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/tools.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/validate.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/events.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/gh.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/poll.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/state.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/tools.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/validate.test.ts\n(no match in any of [<Dir tests>])\n\n\nno tests ran in 0.04s"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 4000
+    }
+  },
+  "duration_seconds": 30.0
+}

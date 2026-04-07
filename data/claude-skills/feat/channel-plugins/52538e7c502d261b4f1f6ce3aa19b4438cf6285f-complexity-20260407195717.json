@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/channel-plugins",
+  "sha": "52538e7c502d261b4f1f6ce3aa19b4438cf6285f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T23:57:17Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T23:57:16Z",
+      "files_checked": 26,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/github-channel/src/events.ts",
+          "function": "formatPrEvent",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/github-channel/src/events.ts",
+          "function": "formatWorkflowFailure",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
