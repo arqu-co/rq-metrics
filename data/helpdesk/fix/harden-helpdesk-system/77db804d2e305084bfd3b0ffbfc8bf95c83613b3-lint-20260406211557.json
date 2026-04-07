@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "fix/harden-helpdesk-system",
+  "sha": "77db804d2e305084bfd3b0ffbfc8bf95c83613b3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T01:15:57Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T01:15:56Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "rubocop",
+          "exit_code": 1,
+          "output": "C:  5:  7: [Correctable] Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.\n== repos/risklab-rails/test/services/quality/schedule_of_values_quality_calculator_test.rb ==\nC:  5:  7: [Correctable] Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.\n== repos/risklab-rails/test/services/quality/schematic_quality_calculator_test.rb ==\nC:  5:  7: [Correctable] Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.\n== repos/risklab-rails/test/services/quote_comparisons/persistence_service_test.rb ==\nC: 54:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(entry[:quote_metadata][:is_multi_option]).\nC: 65:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result.first[:quote_metadata][:is_multi_option]).\nC: 75:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result.first[:quote_metadata][:is_multi_option]).\n== repos/risklab-rails/test/services/quote_comparisons/share_service_test.rb ==\nC: 50:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(result[:is_expired]).\nC: 94:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result).\nC:107:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(result).\n== repos/risklab-rails/test/services/schedule_of_values/upload_service_test.rb ==\nC: 17: 11: Rails/SkipsModelValidations: Avoid using update_column because it skips validations.\n== repos/risklab-rails/test/services/sov/location_queries_test.rb ==\nC: 91: 24: [Correctable] Rails/Pluck: Prefer pluck(:state) over map { |r| r[:state] }.\n== repos/risklab-rails/test/services/sov/portfolio_breakdowns_test.rb ==\nC: 46: 33: [Correctable] Rails/Pluck: Prefer pluck(:label) over map { |g| g[:label] }.\n== repos/risklab-rails/test/services/sov/property_detail_service_test.rb ==\nC: 32:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(address_field[:is_corrected]).\nC: 44:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(address_field[:is_corrected]).\nC:100: 37: [Correctable] Rails/Pluck: Prefer pluck(:field_name) over map { |f| f[:field_name] }.\n== repos/risklab-rails/test/services/sov/property_fields_test.rb ==\nC: 73:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(Sov::PropertyFields.convert_value('is_modular_construction', 'true')).\nC: 74:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(Sov::PropertyFields.convert_value('is_modular_construction', 'false')).\n== repos/risklab-rails/test/services/spaces/share_service_test.rb ==\nC: 23:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(result[:is_password_protected]).\nC: 29:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result[:is_password_protected]).\nC: 89:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result).\nC:100:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(result).\nC:115:  7: [Correctable] Minitest/RefuteFalse: Prefer using refute(result[:is_password_protected]).\nC:127:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result[:is_password_protected]).\nC:160:  7: [Correctable] Minitest/AssertTruthy: Prefer using assert(result[:is_password_protected]).\n== repos/workspace/services/arqu-web/node_modules/speakingurl/lib/speakingurl-rails.rb ==\nC:  1:  1: Naming/FileName: The name of this source file (speakingurl-rails.rb) should use snake_case.\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  6:  5: Style/Documentation: Missing top-level documentation comment for class Speakingurl::Rails::Railtie.\n== repos/workspace/services/arqu-web/node_modules/speakingurl/speakingurl-rails.gemspec ==\nW:  1:  1: Gemspec/RequiredRubyVersion: required_ruby_version should be specified.\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n== repos/workspace/services/doubtfire-client/node_modules/speakingurl/lib/speakingurl-rails.rb ==\nC:  1:  1: Naming/FileName: The name of this source file (speakingurl-rails.rb) should use snake_case.\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nC:  6:  5: Style/Documentation: Missing top-level documentation comment for class Speakingurl::Rails::Railtie.\n== repos/workspace/services/doubtfire-client/node_modules/speakingurl/speakingurl-rails.gemspec ==\nW:  1:  1: Gemspec/RequiredRubyVersion: required_ruby_version should be specified.\nC:  1:  1: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n\n1737 files inspected, 1299 offenses detected, 265 offenses autocorrectable\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
