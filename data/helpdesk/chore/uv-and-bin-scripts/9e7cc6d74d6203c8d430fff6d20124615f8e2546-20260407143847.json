@@ -1,0 +1,129 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "chore/uv-and-bin-scripts",
+  "sha": "9e7cc6d74d6203c8d430fff6d20124615f8e2546",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T18:38:47Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T18:38:20Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "helpdesk/scripts/test_state_conversation.py",
+          "function": "test_list_conversation_active_returns_active_states",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:43Z",
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:24Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:46Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:18Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T18:38:28Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "mypy",
+          "exit_code": 2,
+          "output": "sov-explorer is not a valid Python package name\n"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:44Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:40Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T18:38:37Z",
+      "test_runner": "bin-test",
+      "fingerprint": "38cd126de59f9d02dd7bd1536b19db7f",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 9000
+    }
+  },
+  "duration_seconds": 28.0
+}
