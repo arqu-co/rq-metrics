@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/RQ-6616/catalog-dto-update",
+  "sha": "c6a6470c5941d7543d44aa11ac8d12ea7a29c8ef",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T21:41:05Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:41:05Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

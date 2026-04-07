@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/RQ-6616/catalog-dto-update",
+  "sha": "c6a6470c5941d7543d44aa11ac8d12ea7a29c8ef",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T21:40:55Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T21:40:55Z",
+      "files_checked": 5,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "lines": 1081,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
