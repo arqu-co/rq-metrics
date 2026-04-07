@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "chore/uv-and-bin-scripts",
+  "sha": "cebb3d43d6e0af96acc78d78a30b76eec5e9078c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-07T18:36:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T18:36:54Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "ruff-lint",
+          "exit_code": 1,
+          "output": "E741 Ambiguous variable name: `l`\n  --> helpdesk/scripts/test_state_conversation.py:90:24\n   |\n88 |         assert result.returncode == 0, f\"stderr: {result.stderr}\"\n89 |\n90 |         lines = [l for l in result.stdout.strip().split(\"\\n\") if l.strip()]\n   |                        ^\n91 |         assert len(lines) == 3, f\"Expected 3 results, got {len(lines)}: {lines}\"\n   |\n\nE741 Ambiguous variable name: `l`\n   --> helpdesk/scripts/test_state_conversation.py:128:24\n    |\n127 |         result = _run_list_conversation_active(tmpdir)\n128 |         lines = [l for l in result.stdout.strip().split(\"\\n\") if l.strip()]\n    |                        ^\n129 |         assert len(lines) == 1\n    |\n\nFound 2 errors.\n"
+        },
+        {
+          "check": "mypy",
+          "exit_code": 2,
+          "output": "sov-explorer is not a valid Python package name\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
