@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/RQ-6616/catalog-dto-update",
+  "sha": "942d056771bd64d7372b0e449c9c92ee4925e24e",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T22:46:27Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T22:46:27Z",
+      "violations": 21,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "BucketRange",
+          "line": 44
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationAspect",
+          "line": 45
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationBucket",
+          "line": 46
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationMapping",
+          "line": 47
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationScheme",
+          "line": 48
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationSource",
+          "line": 49
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 50
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 56
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonRequest",
+          "line": 59
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonResponse",
+          "line": 60
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RiskTypeRisks",
+          "line": 61
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 35
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 41
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "BucketRange",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationAspect",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationBucket",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationMapping",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationScheme",
+          "line": 12
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationSource",
+          "line": 13
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "FeatureSetGroupInfo",
+          "line": 15
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
