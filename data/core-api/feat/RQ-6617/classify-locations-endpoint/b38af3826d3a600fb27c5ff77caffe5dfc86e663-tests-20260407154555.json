@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/RQ-6617/classify-locations-endpoint",
+  "sha": "b38af3826d3a600fb27c5ff77caffe5dfc86e663",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T22:45:55Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T22:45:54Z",
+      "fingerprint": "c97c3b57bfbd66a8246cd9a7108c4051",
+      "test_runner": "bin-test",
+      "missing_tests": 5,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/core/controller/ClassifyLocationsIntegrationTest.kt",
+        "src/main/kotlin/co/arqu/core/controller/GeoRiskController.kt",
+        "src/main/kotlin/co/arqu/core/dto/ClassifyLocationsDto.kt",
+        "src/main/kotlin/co/arqu/core/service/LocationClassificationService.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
