@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "2-describe-feature-set-groups-expose-schemes",
+  "sha": "4f6d1e813b520b527a01a4794c85455b7faa9e3b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-07T02:20:47Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-07T02:20:37Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T02:19:05Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T02:20:36Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 35000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-07T02:20:37Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "none",
+          "output": "\"FATAL: No linters, formatters, or typecheckers detected. Set up bin/lint, bin/format, bin/typecheck or install detectable tooling.\""
+        }
+      ],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T02:20:01Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 56000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T02:20:46Z",
+      "fingerprint": "26a7376d77df7e1bf0d83f6507923f10",
+      "test_runner": "none",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 9000
+    }
+  },
+  "duration_seconds": 101.0
+}
