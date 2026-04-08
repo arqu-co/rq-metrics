@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/gate-enforcement-fixes",
+  "sha": "614bd92e63ad20599522f0b6fbd877c8b6c871fd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T18:25:39Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T18:25:39Z",
+      "files_checked": 1,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/test_validate_rq_config.py",
+          "function": "TestInvalidConfig",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
