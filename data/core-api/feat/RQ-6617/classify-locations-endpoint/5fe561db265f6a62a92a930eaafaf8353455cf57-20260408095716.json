@@ -1,0 +1,351 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/RQ-6617/classify-locations-endpoint",
+  "sha": "5fe561db265f6a62a92a930eaafaf8353455cf57",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-08T16:57:16Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-08T16:57:09Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T16:57:11Z",
+      "violations": 40,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "Feature",
+          "line": 19
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "FeatureAttribute",
+          "line": 20
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "FeatureSetGroupRisks",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "LocationClassificationResult",
+          "line": 22
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "QueryRisksRequest",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "QueryRisksResponse",
+          "line": 24
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "RiskTypeRisks",
+          "line": 25
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskClassifyLocationsIntegrationTest.kt",
+          "name": "SegmentationAttributeRisks",
+          "line": 26
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "BucketRange",
+          "line": 45
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationAspect",
+          "line": 46
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationBucket",
+          "line": 47
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationMapping",
+          "line": 48
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationScheme",
+          "line": 49
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "ClassificationSource",
+          "line": 50
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 51
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 57
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonRequest",
+          "line": 60
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RetrieveRisksGeoJsonResponse",
+          "line": 61
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "name": "RiskTypeRisks",
+          "line": 62
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 35
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/mapper/GeoRiskMapper.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 41
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/LocationClassificationService.kt",
+          "name": "FeatureSetGroupRisks",
+          "line": 18
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/LocationClassificationService.kt",
+          "name": "QueryLocation",
+          "line": 19
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/LocationClassificationService.kt",
+          "name": "QueryRisksQueryFilterOptions",
+          "line": 20
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/service/LocationClassificationService.kt",
+          "name": "QueryRisksResponse",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "BucketRange",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationAspect",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationBucket",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationMapping",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationScheme",
+          "line": 12
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "ClassificationSource",
+          "line": 13
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "DescribeFeatureSetGroupsResponse",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/mapper/GeoRiskMapperTest.kt",
+          "name": "FeatureSetGroupInfo",
+          "line": 15
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "Feature",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "FeatureAttribute",
+          "line": 22
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "FeatureSetGroupRisks",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "LocationClassificationResult",
+          "line": 24
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "QueryRisksResponse",
+          "line": 25
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "RiskTypeRisks",
+          "line": 26
+        },
+        {
+          "type": "unused_import",
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "name": "SegmentationAttributeRisks",
+          "line": 27
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T16:57:15Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T16:57:09Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/GeoRiskControllerIntegrationTest.kt",
+          "lines": 1082,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "lines": 312,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T16:57:14Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T16:57:15Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T16:57:15Z",
+      "scanned_files": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/LocationClassificationServiceTest.kt",
+          "line": 32,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 6.0
+}
