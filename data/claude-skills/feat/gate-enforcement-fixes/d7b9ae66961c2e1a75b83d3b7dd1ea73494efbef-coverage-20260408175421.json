@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/gate-enforcement-fixes",
+  "sha": "d7b9ae66961c2e1a75b83d3b7dd1ea73494efbef",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T21:54:21Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T21:54:20Z",
+      "files_checked": 4,
+      "coverage_tool": "py",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/conftest.py",
+          "coverage": 65,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/find_affected_tests.py",
+          "coverage": 79,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
