@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/channel-plugins",
+  "sha": "e25316a3eb037aaf4e8b23ff12029f9620496864",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T00:01:34Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T00:01:27Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T00:00:14Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 151000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T00:01:24Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 57000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T00:00:27Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 13000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-07T23:57:43Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T00:01:32Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4e08b91ea08056eb0238bb1786d16d25",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 229.0
+}
