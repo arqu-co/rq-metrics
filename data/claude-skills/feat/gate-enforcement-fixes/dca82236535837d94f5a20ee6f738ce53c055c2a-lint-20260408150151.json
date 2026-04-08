@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/gate-enforcement-fixes",
+  "sha": "dca82236535837d94f5a20ee6f738ce53c055c2a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T19:01:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T19:01:50Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_gate_plan.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
