@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "fix/ci-install-bun",
+  "sha": "f17c42eb1a56899e9eec0087eefdc208414453d9",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T07:28:06Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "qa",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T07:28:05Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
