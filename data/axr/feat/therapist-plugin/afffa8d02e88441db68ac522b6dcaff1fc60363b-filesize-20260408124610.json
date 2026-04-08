@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "axr",
+  "branch": "feat/therapist-plugin",
+  "sha": "afffa8d02e88441db68ac522b6dcaff1fc60363b",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-08T16:46:09Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T16:46:09Z",
+      "files_checked": 27,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/therapist/scripts/test_hooks.sh",
+          "lines": 395,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
