@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-migration",
+  "sha": "63814b6167164f5b03f6e6c948be704344999d91",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T20:56:31Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T20:56:31Z",
+      "files_checked": 6,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/sync_gh.py",
+          "function": "create_field",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "engineer/scripts/sync_project_fields.py",
+          "function": "main",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "engineer/scripts/sync_project_fields.py",
+          "function": "main",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
