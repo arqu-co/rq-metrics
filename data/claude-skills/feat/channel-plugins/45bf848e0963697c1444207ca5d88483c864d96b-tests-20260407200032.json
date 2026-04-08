@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/channel-plugins",
+  "sha": "45bf848e0963697c1444207ca5d88483c864d96b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T00:00:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T00:00:31Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4e08b91ea08056eb0238bb1786d16d25",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/node_modules/zod/src/v3/tests/language-server.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/api.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/events.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/state.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/tools.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/datadog-channel/tests/validate.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/events.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/gh.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/poll.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/state.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/tools.test.ts\n(no match in any of [<Dir tests>])\n\nERROR: not found: /Users/jerrod/.claude/plugins/marketplaces/arqu-plugins/plugins/github-channel/tests/validate.test.ts\n(no match in any of [<Dir tests>])\n\n\nno tests ran in 0.04s"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
