@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "helpdesk",
+  "branch": "feat/rename-to-engineer",
+  "sha": "1b0eff8cea3de825a21b685ba1de4a9b6ccf27fd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T01:47:13Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T01:47:12Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
