@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-migration",
+  "sha": "61ec54717a474e89a8125c332c6e9fef8f24f5f8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T21:22:06Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T21:22:05Z",
+      "coverage_tool": "py",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "engineer/scripts/conftest.py",
+          "coverage": 93,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-migration",
+  "sha": "61ec54717a474e89a8125c332c6e9fef8f24f5f8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T21:22:01Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-08T21:22:00Z",
+      "fingerprint": "bdfcef1ac6f63ed4e4e8a8a329840425",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.mypy_cache/3.12/test_sync_project_fields.meta.json\n(no match in any of [<Dir 3.12>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/rq/scripts/__pycache__/conftest.cpython-313-pytest-8.3.5.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.04s"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
