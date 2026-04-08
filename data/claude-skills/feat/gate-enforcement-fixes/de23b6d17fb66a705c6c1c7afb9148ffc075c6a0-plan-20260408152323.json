@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "claude-skills",
+  "branch": "feat/gate-enforcement-fixes",
+  "sha": "de23b6d17fb66a705c6c1c7afb9148ffc075c6a0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-08T19:23:23Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "plan",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-08T19:23:22Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
