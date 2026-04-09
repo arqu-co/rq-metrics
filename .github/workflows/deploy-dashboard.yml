@@ -42,10 +42,19 @@ jobs:
           fi
 
       - name: Open issue for worktree-named data
+        # Never block dashboard deploy on issue-bookkeeping failures. The
+        # aggregate + deploy steps below MUST run even if this step fails
+        # (missing label, rate limit, etc.).
         if: steps.detect.outputs.found == 'true'
+        continue-on-error: true
         run: |
           NAMES="${{ steps.detect.outputs.bogus }}"
           echo "::warning::Worktree-named repos need manual repair: $NAMES"
+          # Ensure label exists; `--force` makes it idempotent.
+          gh label create stale-plugin \
+            --color "d73a4a" \
+            --description "Data written by an outdated rq plugin version" \
+            --force || true
           BODY="## Worktree-named metrics need repair"
           BODY="$BODY"$'\n\n'"The following repo directories use Docker-style random names from worktrees:"$'\n'
           for name in $NAMES; do

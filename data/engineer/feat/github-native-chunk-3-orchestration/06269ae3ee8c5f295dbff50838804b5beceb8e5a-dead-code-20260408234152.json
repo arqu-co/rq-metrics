@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "06269ae3ee8c5f295dbff50838804b5beceb8e5a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T03:41:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DRY": 1,
+    "TEST_QUALITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "engineer/scripts/state_sync_ops.py",
+      "line": 77,
+      "rule": "DRY",
+      "message": "_atomic_update duplicates the mkstemp/rename/unlink-on-error pattern that already exists in sync_project_fields.py:105. The two implementations differ in one notable detail: sync_project_fields.py calls os.fsync() before os.rename; state_sync_ops.py does not. Neither file imports the other's helper."
+    },
+    {
+      "file": "engineer/scripts/test_state_sync_ops.py",
+      "line": 195,
+      "rule": "TEST_QUALITY",
+      "message": "monkeypatch.setattr(os, 'rename', boom) patches a stdlib call (os.rename) that is used internally by state_sync_ops._atomic_update. This is a borderline case: os is not code we wrote, but the patch reaches into the module under test's implementation detail rather than an external I/O boundary. Acceptable only if the test is explicitly testing the cleanup path \u2014 which it is \u2014 but the import of os inside the test function (line 182) should be moved to the top-level imports."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-09T03:41:51Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "engineer/scripts/gh_metadata.py",
+          "name": "sys",
+          "line": 17
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
