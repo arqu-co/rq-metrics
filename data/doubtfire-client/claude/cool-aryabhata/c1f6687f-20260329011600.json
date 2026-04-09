@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "claude/cool-aryabhata",
+  "sha": "c1f6687f",
+  "user": "unknown",
+  "timestamp": "2026-03-29T05:16:00Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:28Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "getSurplusTaxesAndFeesTotal",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "formatSltBreakdown",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-29T05:15:29Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:26Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/services/activity/index.ts",
+          "lines": 351,
+          "max": 300
+        },
+        {
+          "file": "src/services/billing/billing.test.ts",
+          "lines": 342,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:58Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/activity/CarrierActivityTable.vue\n  164:13  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/deal/TodoActionButtons.vue\n  56:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/program/BillingOperationsPanel.vue\n  206:9  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/command/Command.vue\n  14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/dropdown-menu/DropdownMenuItem.vue\n  30:3  warning  <DropdownMenuItem> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/input-group/InputGroupAddon.vue\n  12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/input-group/InputGroupButton.vue\n  11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/modal/Modal.vue\n  76:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/components/ui/status-dot/StatusDot.vue\n  35:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n\n/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/src/pages/auth-callback.vue\n  175:9  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n\n\u2716 10 problems (0 errors, 10 warnings)\n\nESLint found too many warnings (maximum: 0).\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] .github/workflows/ci.yml\n[warn] .github/workflows/claude-code-review.yml\n[warn] .github/workflows/claude.yml\n[warn] .github/workflows/deploy-production.yml\n[warn] .github/workflows/test-coverage-check.yml\n[warn] .github/workflows/ui-stories-check.yml\n[warn] .storybook/storybook-deploy.js\n[warn] components.json\n[warn] docs/storybook-guide.md\n[warn] docs/testing-reference.md\n[warn] docs/tutorials/cursor-guide.md\n[warn] e2e/vue.spec.ts\n[warn] GETTING_STARTED.md\n[warn] playwright.config.ts\n[warn] pnpm-lock.yaml\n[warn] Code style issues found in 15 files. Run Prettier with --write to fix.\n"
+        }
+      ],
+      "duration_ms": 29000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-29T05:16:00Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:59Z",
+      "test_runner": "vitest",
+      "fingerprint": "de37b89014a9c24e5767d321538af559",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/node_modules/.pnpm/vitest@3.2.4_@types+node@22.18.10_jiti@2.6.1_jsdom@26.1.0_lightningcss@1.30.1_yaml@2.8.1/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404\n          throw new CACError(`Unknown option \\`${name.length > 1 ? `--${name}` : `-${name}`}\\``);\n                ^\n\nCACError: Unknown option `--changedSince`\n    at Command.checkUnknownOptions (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/node_modules/.pnpm/vitest@3.2.4_@types+node@22.18.10_jiti@2.6.1_jsdom@26.1.0_lightningcss@1.30.1_yaml@2.8.1/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404:17)\n    at CAC.runMatchedCommand (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/node_modules/.pnpm/vitest@3.2.4_@types+node@22.18.10_jiti@2.6.1_jsdom@26.1.0_lightningcss@1.30.1_yaml@2.8.1/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:604:13)\n    at CAC.parse (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/node_modules/.pnpm/vitest@3.2.4_@types+node@22.18.10_jiti@2.6.1_jsdom@26.1.0_lightningcss@1.30.1_yaml@2.8.1/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:545:12)\n    at file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/doubtfire-client/.claude/worktrees/cool-aryabhata/node_modules/.pnpm/vitest@3.2.4_@types+node@22.18.10_jiti@2.6.1_jsdom@26.1.0_lightningcss@1.30.1_yaml@2.8.1/node_modules/vitest/dist/cli.js:27:13\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.21.1"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 1000
+    }
+  },
+  "duration_seconds": 34.0
+}

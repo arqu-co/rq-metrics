@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "claude/pedantic-roentgen",
+  "sha": "8bbd965",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T19:39:14Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "complexity"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-02T19:39:06Z",
+      "files_checked": 3,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/security/CustomPermissionEvaluatorTest.kt",
+          "function": "createAuthentication",
+          "lines": 143,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/security/CustomPermissionEvaluatorTest.kt",
+          "function": "createAuthentication",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-02T19:39:07Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-02T19:39:05Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-02T19:39:13Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    }
+  },
+  "duration_seconds": 8.0
+}

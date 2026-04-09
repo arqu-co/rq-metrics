@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "claude/cool-aryabhata",
+  "sha": "c1f6687f",
+  "user": "unknown",
+  "timestamp": "2026-03-29T05:15:28Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:28Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "getSurplusTaxesAndFeesTotal",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "formatSltBreakdown",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

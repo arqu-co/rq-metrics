@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "claude/suspicious-leakey",
+  "sha": "1674655c6",
+  "user": "unknown",
+  "timestamp": "2026-03-27T21:41:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T21:41:53Z",
+      "test_runner": "bin-test",
+      "fingerprint": "136842eb34928f339bcbd7bc62f098bd",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning affected tests\u001b[0m\n\n\u001b[0;34m--- Backend (affected) ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: creating and starting...\u001b[0m\nError: failed to bootstrap container (cause: \"internalError: \"failed to bootstrap container risklab-db (cause: \"unknown: \"bind(descriptor:ptr:bytes:): Address already in use (errno: 48)\"\")\"\")"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "frontend/src/components/ui/context-menu.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

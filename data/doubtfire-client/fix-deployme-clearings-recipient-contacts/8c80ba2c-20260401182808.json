@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "fix-deployme-clearings-recipient-contacts",
+  "sha": "8c80ba2c",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-01T23:28:08Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-01T23:27:16Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/utils/clearing-contacts.ts",
+          "function": "getFilteredUsers",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-01T23:27:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-01T23:28:07Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-01T23:27:09Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/utils/clearing-contacts.ts",
+          "lines": 463,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-01T23:28:06Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-01T23:28:05Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 48000
+    }
+  },
+  "duration_seconds": 58.0
+}

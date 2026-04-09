@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "claude/cool-aryabhata",
+  "sha": "c1f6687f",
+  "user": "unknown",
+  "timestamp": "2026-03-29T05:15:26Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-29T05:15:26Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/services/activity/index.ts",
+          "lines": 351,
+          "max": 300
+        },
+        {
+          "file": "src/services/billing/billing.test.ts",
+          "lines": 342,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

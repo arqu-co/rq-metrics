@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "claude/dazzling-proskuriakova",
+  "sha": "68c951e9",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T17:01:15Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-02T17:01:15Z",
+      "files_checked": 1,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "function": "createWrapper",
+          "lines": 690,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/components/ai-chat/approvals/MarketAssignmentApproval.test.ts",
+          "function": "createWrapper",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
