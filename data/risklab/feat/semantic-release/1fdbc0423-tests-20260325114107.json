@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "feat/semantic-release",
+  "sha": "1fdbc0423",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T15:41:07Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T15:41:07Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5f8d959ea63e533ee517dd0c470dcb75",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "fix/modal-overflow-audit",
+  "sha": "ce829a316",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T11:45:43Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T11:45:43Z",
+      "files_checked": 6,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/quoteComparison/ExistingSharesList.tsx",
+          "function": "ExistingSharesList",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/ShareManagementDialog.tsx",
+          "function": "ExistingSharesSection",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

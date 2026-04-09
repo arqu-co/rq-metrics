@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase-2-reconciliation",
+  "sha": "34401cb",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-05T02:36:27Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 6,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "DRY": 1,
+    "COMPLEXITY": 1,
+    "DESIGN_A11Y": 2,
+    "DEAD_CODE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "app/views/billing_tasks/show.html.erb",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "362 lines \u2014 exceeds 300-line limit by 62 lines"
+    },
+    {
+      "file": "app/views/billing_tasks/show.html.erb",
+      "line": 157,
+      "rule": "DRY",
+      "message": "The entire carrier-data-entry form block (~85 lines) is copy-pasted verbatim at lines 157-242 and again at lines 246-330. The only difference is indentation (inside vs outside the two-column grid). Extract to a partial _carrier_form.html.erb."
+    },
+    {
+      "file": "app/javascript/controllers/carrier_data_entry_controller.js",
+      "line": 46,
+      "rule": "COMPLEXITY",
+      "message": "applyExtraction() cyclomatic complexity is 15 (base 1 + 14 branches: if(!raw), try/catch, 2x if(!row), if(carrierName), if(carrierSelect), if(option), if(grossPremium), if(grossInput), if(netPremium), if(netInput), if(commissionPct), if(commissionInput), if(participationPct)). Max is 8. Split field-mapping into a helper that handles one field at a time, or consolidate the per-field if/querySelector/dispatch/mark pattern into a single applyField(fieldName, selector, value) method."
+    },
+    {
+      "file": "app/views/billing_tasks/show.html.erb",
+      "line": 74,
+      "rule": "DESIGN_A11Y",
+      "message": "The .document-tab <button> has focus:outline-none with no focus:ring-* replacement. Keyboard users get no visible focus indicator. Add focus:ring-2 focus:ring-teal-500 (matching the pattern already used on the Apply button at line 146)."
+    },
+    {
+      "file": "app/views/billing_tasks/show.html.erb",
+      "line": 83,
+      "rule": "DESIGN_A11Y",
+      "message": "Pending Atlas extraction state renders a static yellow dot (&#9679;) with no spinner animation and no Turbo polling / meta-refresh. The requirements state: 'If Atlas extraction pending, spinner shown; polling via Turbo or page refresh.' Neither animate-spin nor any polling mechanism is present."
+    },
+    {
+      "file": "app/controllers/billing_tasks_controller.rb",
+      "line": 11,
+      "rule": "DEAD_CODE",
+      "message": "BillingTask.includes(deal: [:documents, :retailer]) on line 11 eager-loads :documents, but line 15 immediately re-queries the same association as @task.deal.documents.includes(:atlas_extraction).order(...), which issues a new SQL query and discards the preloaded records. The :documents in the line 11 includes clause is wasted. Remove :documents from the includes on line 11."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-05T02:36:27Z",
+      "files_checked": 52,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "app/javascript/controllers/inline_edit_controller.js",
+          "function": "get",
+          "lines": 155,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/javascript/controllers/inline_edit_controller.js",
+          "function": "get",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/javascript/controllers/reconciliation_controller.js",
+          "function": "pct",
+          "lines": 148,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/javascript/controllers/reconciliation_controller.js",
+          "function": "pct",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/controllers/deals_controller.rb",
+          "function": "create_return_premium",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/controllers/deals_controller.rb",
+          "function": "apply_status_filter",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
