@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "4541a729885e54cb5b486e733c7ae941a26b4bc6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T11:28:38Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:22Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:26Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:20Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:28Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:36Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:28:33Z",
+      "fingerprint": "1bc44f4fc5e4a9f55c118abb7e28133c",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 16.0
+}
