@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
-"""Normalize worktree-named repo directories before aggregation.
+"""Normalize bogus repo directories before aggregation.
 
-Detects Docker-style random names (adjective-surname) that were recorded
-by old rq plugin versions when running in git worktrees.
+Two detection strategies:
+  1. Pattern match: Docker-style random names (adjective-surname) from
+     git worktrees — fast, no network, offline-safe.
+  2. GitHub verify: any directory whose name does not correspond to a
+     real repo in the configured org — exhaustive, requires `gh` CLI
+     and network access. Catches directory-style bogus names (e.g. a
+     local clone whose directory differs from the git remote name)
+     that the pattern detector misses.
 
 Modes:
-  detect:  List bogus repo directories (default, used by GHA).
-  repair:  Rewrite repo field in JSON files and move to correct directory.
-           Requires a mapping file or --map flags.
+  detect:        List worktree-pattern bogus dirs (default, offline).
+  detect --verify-org ORG: List ALL bogus dirs via GitHub API.
+  repair:        Rewrite repo field and move data. Accepts arbitrary
+                 --map key=value regardless of detector opinion.
 
 Usage:
-  python3 normalize_repo_names.py <data_dir>
-  python3 normalize_repo_names.py <data_dir> --repair --map gifted-brahmagupta=doubtfire-client
+  python3 normalize_repo_names.py data
+  python3 normalize_repo_names.py data --verify-org arqu-co
+  python3 normalize_repo_names.py data --repair billing-redux=ledger
 """
 
 import glob
@@ -19,6 +27,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 
 # Docker namesgenerator adjectives (subset — enough for reliable detection)
@@ -54,6 +63,43 @@ def is_worktree_name(name):
         return False
     adjective = name.split("-")[0]
     return adjective in DOCKER_ADJECTIVES
+
+
+def repo_exists_in_org(org, name):
+    """Return True if `gh api repos/<org>/<name>` returns 200.
+
+    Uses the `gh` CLI exit code (NOT stdout parsing). On 404 the CLI
+    prints the error JSON to stdout but exits non-zero — a naive
+    non-empty-output check would falsely report the repo as existing.
+    """
+    try:
+        result = subprocess.run(
+            ["gh", "api", f"repos/{org}/{name}"],
+            capture_output=True,
+            check=False,
+            timeout=10,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        # gh not installed or network slow — treat as unknown (don't
+        # false-positive flag a real repo when we can't verify).
+        return True
+    return result.returncode == 0
+
+
+def find_bogus_repos_via_github(data_dir, org):
+    """Return list of directory names that are NOT real repos in `org`.
+
+    Exhaustive — catches both worktree-pattern names and directory-
+    style bogus names. Requires `gh` CLI with read access to `org`.
+    """
+    bogus = []
+    for entry in sorted(os.listdir(data_dir)):
+        path = os.path.join(data_dir, entry)
+        if not os.path.isdir(path) or entry.startswith("_"):
+            continue
+        if not repo_exists_in_org(org, entry):
+            bogus.append(entry)
+    return bogus
 
 
 def find_bogus_repos(data_dir):
@@ -97,47 +143,68 @@ def repair_repo(data_dir, worktree_name, real_repo):
     return fixed
 
 
-def main():
-    data_dir = sys.argv[1] if len(sys.argv) > 1 else "data"
-    args = sys.argv[2:]
-
+def _parse_args(argv):
+    data_dir = argv[1] if len(argv) > 1 else "data"
+    args = argv[2:]
     is_repair = "--repair" in args
+    verify_org = None
     repo_map = {}
-    for arg in args:
-        if arg.startswith("--map"):
+    i = 0
+    while i < len(args):
+        arg = args[i]
+        if arg == "--verify-org" and i + 1 < len(args):
+            verify_org = args[i + 1]
+            i += 2
+            continue
+        if arg.startswith("--"):
+            i += 1
             continue
         if "=" in arg:
             worktree, real = arg.split("=", 1)
             repo_map[worktree] = real
+        i += 1
+    return data_dir, is_repair, verify_org, repo_map
 
-    # In repair mode, accept any mapping — not just worktree-pattern
-    # bogus names. Old-plugin data can leak directory-style names too
-    # (e.g. 'billing-redux' = user's local clone of arqu-co/ledger).
-    if is_repair and repo_map:
-        total = 0
-        for name, real in repo_map.items():
-            src_dir = os.path.join(data_dir, name)
-            if not os.path.isdir(src_dir):
-                print(f"  SKIP {name}: directory does not exist")
-                continue
-            count = repair_repo(data_dir, name, real)
-            print(f"  Repaired {name} -> {real} ({count} files)")
-            total += count
-        print(f"\nRepaired {total} files total")
-        return
 
-    bogus = find_bogus_repos(data_dir)
+def _do_repair(data_dir, repo_map):
+    total = 0
+    for name, real in repo_map.items():
+        src_dir = os.path.join(data_dir, name)
+        if not os.path.isdir(src_dir):
+            print(f"  SKIP {name}: directory does not exist")
+            continue
+        count = repair_repo(data_dir, name, real)
+        print(f"  Repaired {name} -> {real} ({count} files)")
+        total += count
+    print(f"\nRepaired {total} files total")
+
+
+def _print_bogus_report(data_dir, bogus, label):
     if not bogus:
-        print("No worktree-named repos detected.")
+        print(f"No {label} repos detected.")
         return
-
-    print(f"Found {len(bogus)} worktree-named repo(s):")
+    print(f"Found {len(bogus)} {label} repo(s):")
     for name in bogus:
         file_count = sum(
             len(files)
             for _, _, files in os.walk(os.path.join(data_dir, name))
         )
         print(f"  {name} ({file_count} files)")
+
+
+def main():
+    data_dir, is_repair, verify_org, repo_map = _parse_args(sys.argv)
+
+    if is_repair and repo_map:
+        _do_repair(data_dir, repo_map)
+        return
+
+    if verify_org:
+        bogus = find_bogus_repos_via_github(data_dir, verify_org)
+        _print_bogus_report(data_dir, bogus, f"non-{verify_org}")
+    else:
+        bogus = find_bogus_repos(data_dir)
+        _print_bogus_report(data_dir, bogus, "worktree-named")
 
 
 if __name__ == "__main__":
