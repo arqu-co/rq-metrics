@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "d246b705fc24fb19d8e8033e366864e580d83e54",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T11:39:40Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:39:39Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
