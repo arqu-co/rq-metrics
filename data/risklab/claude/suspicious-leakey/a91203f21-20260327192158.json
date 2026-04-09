@@ -1,0 +1,5061 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "claude/suspicious-leakey",
+  "sha": "a91203f21",
+  "user": "unknown",
+  "timestamp": "2026-03-27T23:21:58Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:21:00Z",
+      "files_checked": 664,
+      "violations": 406,
+      "violations_details": [
+        {
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "function": "upgrade",
+          "lines": 813,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/chat/routes_adk.py",
+          "function": "confirm_action",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/chat/routes_adk.py",
+          "function": "send_chat_message",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoint_helpers.py",
+          "function": "log_bulk_audit_events",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoints.py",
+          "function": "upload_documents",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/document_endpoints.py",
+          "function": "upload_documents",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/documents/extraction_endpoints.py",
+          "function": "submit_document_extraction",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/documents/extraction_endpoints.py",
+          "function": "reprocess_document_extraction",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "create_comparison",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "modify_comparison_quotes",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "function": "get_comparisons_by_deal",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "upload_quote",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "upload_quote",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_handle_eml_upload",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_handle_eml_upload",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "create_quotes_from_atlas",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_try_create_body_quote",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "function": "_create_quote_from_atlas_ref",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_endpoints.py",
+          "function": "get_loss_run_insights",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_endpoints.py",
+          "function": "get_loss_run_insights",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/projects/project_data_handlers.py",
+          "function": "execute_clear_project_data",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_creation_handler.py",
+          "function": "create_synchronous_comparison",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "lines": 249,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "save_field_configuration",
+          "complexity": 60,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "function": "get_field_configuration",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/core/core_api_deps.py",
+          "function": "get_core_api_user",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/core/core_api_deps.py",
+          "function": "get_core_api_user",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/core/database.py",
+          "function": "_get_database_url",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/main.py",
+          "function": "create_web_app",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/analytics_loss_grouping_service.py",
+          "function": "AnalyticsLossGroupingService",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/auth/opaque_validator.py",
+          "function": "validate_opaque_token",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/field_name_normalizer.py",
+          "function": "FieldNameNormalizer",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 252,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/acord_quality.py",
+          "function": "_extract_fields",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/acord_quality.py",
+          "function": "AcordQualityCalculator",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "_check_gate",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "_score_fields",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/loss_run_quality.py",
+          "function": "LossRunQualityCalculator",
+          "lines": 189,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/quality_orchestrator.py",
+          "function": "_persist_result",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/quote_quality.py",
+          "function": "QuoteQualityCalculator",
+          "lines": 127,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "_check_gate",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "_score_fields_across_properties",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schedule_of_values_quality.py",
+          "function": "ScheduleOfValuesQualityCalculator",
+          "lines": 215,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "_check_gate",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "_structural_validation",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "SchematicQualityCalculator",
+          "lines": 224,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "SchematicQualityCalculator",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/quality/schematic_quality.py",
+          "function": "compute",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/auth/oauth_service.py",
+          "function": "OAuthService",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/utilities/error_handling/graceful_degradation.py",
+          "function": "GracefulDegradationService",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/utilities/error_handling/graceful_degradation.py",
+          "function": "with_graceful_degradation",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_group_by_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_batch_correction_feedback.py",
+          "function": "_submit_batch_async",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_correction_feedback.py",
+          "function": "_process_correction",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_correction_feedback.py",
+          "function": "_process_correction",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_document_extraction.py",
+          "function": "_submit_to_atlas",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_extraction.py",
+          "function": "_extract_quote_async",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_extraction.py",
+          "function": "_extract_quote_async",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_process_comparison_async",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/deal_export.py",
+          "function": "_export_deal_async",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/deal_export.py",
+          "function": "_export_deal_async",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/risk_assessment.py",
+          "function": "_assess_project_async",
+          "lines": 159,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/risk_assessment.py",
+          "function": "_assess_project_async",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/utils/email_to_pdf.py",
+          "function": "_build_email_html",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/check_alembic_heads.py",
+          "function": "extract_revision_info",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/scripts/check_alembic_heads.py",
+          "function": "find_heads",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/agents/chat/quote_comparison/test_tools_move_field.py",
+          "function": "TestMoveField",
+          "lines": 116,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/conftest.py",
+          "function": "chat_comparison_with_quotes",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming.py",
+          "function": "TestStreamChatResponseBranches",
+          "lines": 130,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_streaming_text_with_buffering_and_completion",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_streaming_text_with_buffering_and_completion",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "TestStreamChatAgentResponses",
+          "lines": 189,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "TestStreamChatAgentResponses",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/chat/test_chat_endpoints_streaming_agent.py",
+          "function": "test_action_proposed_event_from_agent",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "function": "TestEditCellSingleQuote",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_audit_stream.py",
+          "function": "TestStreamAuditEvents",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_delete.py",
+          "function": "TestDocumentDeleteEndpoint",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_download.py",
+          "function": "TestDocumentDownloadEndpoint",
+          "lines": 176,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_extraction.py",
+          "function": "TestDocumentExtractionEndpoint",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_get.py",
+          "function": "TestDocumentGetEndpoint",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_endpoints_upload_and_list.py",
+          "function": "TestDocumentListEndpoint",
+          "lines": 226,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "function": "TestBuildExportZip",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "function": "TestExportDocumentsZipEndpoint",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_detect_submit.py",
+          "function": "TestDetectExtractionType",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_detect_submit.py",
+          "function": "TestSubmitExtraction",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/documents/test_extraction_endpoints_reprocess_results.py",
+          "function": "TestReprocessExtraction",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_create.py",
+          "function": "test_create_comparison_success",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_create.py",
+          "function": "TestExternalComparisonCreate",
+          "lines": 164,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "function": "TestGetComparisonsByDeal",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "function": "TestModifyComparisonQuotesAdd",
+          "lines": 109,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_modify_quotes_validation.py",
+          "function": "TestExternalComparisonModifyQuotesValidation",
+          "lines": 96,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_email_body.py",
+          "function": "TestEmailBodyClassification",
+          "lines": 241,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "test_quote_fields_populated_from_atlas",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasCompleted",
+          "lines": 174,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasCompleted",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasExtracting",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "function": "TestCreateQuotesFromAtlasValidation",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_upload.py",
+          "function": "TestExternalQuoteUpload",
+          "lines": 146,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_validation.py",
+          "function": "TestExternalQuoteUploadEdgeCases",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "function": "TestCreateComparisonUnit",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_limit.py",
+          "function": "TestComparisonCreation",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "function": "TestSaveFieldConfigurationUnit",
+          "lines": 388,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "function": "test_list_audit_logs_response_includes_filename_and_email",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "function": "TestAuditLogEndpoints",
+          "lines": 151,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "function": "TestRefreshDirectSuccessPath",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "function": "TestUpgradeUserRoleErrorPaths",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "function": "TestAuthEndpointsLogin",
+          "lines": 264,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_me.py",
+          "function": "TestAuthEndpointsMe",
+          "lines": 211,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_permissions.py",
+          "function": "TestPermissionsEndpoint",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_health_endpoints.py",
+          "function": "TestRedisHealth",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints.py",
+          "function": "seed_sov_properties",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "test_returns_matched_litigation_risk",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "TestLitigationRiskScoring",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_endpoints_scoring.py",
+          "function": "seed_sov_properties",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_litigation_risk_state_normalization.py",
+          "function": "TestLitigationRiskStateNormalization",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "function": "TestLossRunCorrectionEndpoints",
+          "lines": 258,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_endpoints.py",
+          "function": "TestLossRunDashboardEndpoint",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_nuclear_verdicts_endpoints.py",
+          "function": "TestNuclearVerdictsEndpoint",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints.py",
+          "function": "TestListProjectMembers",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints.py",
+          "function": "TestAddProjectMember",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_members_endpoints_mutations.py",
+          "function": "TestTransferOwnership",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_owner_only.py",
+          "function": "TestUpdateProjectOwnerOnly",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_project_owner_only.py",
+          "function": "TestClearProjectDataOwnerOnly",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_projects_clear_data.py",
+          "function": "TestClearProjectDataSafeguards",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_projects_clear_data.py",
+          "function": "TestClearProjectDataErrorHandling",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_quote_pdf_endpoint.py",
+          "function": "TestQuotePDFEndpoint403",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_quote_pdf_streaming.py",
+          "function": "TestPDFStreaming",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_endpoints_navigation.py",
+          "function": "TestScheduleOfValuesCorrectionNavigation",
+          "lines": 142,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_mutation_endpoints.py",
+          "function": "TestScheduleOfValuesCorrectionMutationEndpoints",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/test_schedule_of_values_correction_read_endpoints.py",
+          "function": "TestScheduleOfValuesCorrectionReadEndpoints",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/cli/test_tasks.py",
+          "function": "TestBackfillDocumentProcessing",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/conftest_quote.py",
+          "function": "quote_comparison",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "function": "TestLifespan",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_auth_dependencies.py",
+          "function": "TestGetUserQuoteComparison",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_auth_dependencies.py",
+          "function": "TestGetUserQuoteUpload",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_bearer_auth.py",
+          "function": "TestVerifyBearerToken",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps.py",
+          "function": "TestGetCoreApiUser",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps.py",
+          "function": "TestGetOptionalCoreApiUser",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "function": "TestResolveFromAccessToken",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_deps_refresh_token.py",
+          "function": "TestResolveFromRefreshToken",
+          "lines": 111,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_resource_ownership_verification.py",
+          "function": "TestVerifyProjectOwnership",
+          "lines": 116,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/e2e/test_chat_agent_tool_selection_e2e.py",
+          "function": "TestChatAgentToolSelection",
+          "lines": 215,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/fixtures/database.py",
+          "function": "get_or_create_test_user",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/fixtures/database.py",
+          "function": "get_or_create_test_project",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_project_sharing_integration_access.py",
+          "function": "TestResourceAccessWithSharing",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_all_fields_populated",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "TestDocumentListResponseConstruction",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_default_values_for_optional_fields",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_list_response.py",
+          "function": "test_from_attributes_with_object",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "test_all_fields_populated",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "TestDocumentQualityResponseConstruction",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/pydantic/document/test_document_quality_response.py",
+          "function": "test_default_values",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/sqlalchemy/test_document_quality_score.py",
+          "function": "test_all_fields_populated",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/sqlalchemy/test_document_quality_score.py",
+          "function": "TestDocumentQualityScoreInstantiation",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_loss_run_claim.py",
+          "function": "TestLossRunClaim",
+          "lines": 180,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_loss_run_upload.py",
+          "function": "TestLossRunUpload",
+          "lines": 105,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project.py",
+          "function": "test_project_user_relationship_fails_without_factory",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_project.py",
+          "function": "TestProjectModel",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project_member.py",
+          "function": "TestProjectMemberCreation",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_project_member_constraints.py",
+          "function": "TestProjectMemberConstraints",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_comparison_fields.py",
+          "function": "TestQuoteComparisonFields",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_comparison_share.py",
+          "function": "TestQuoteComparisonShareModel",
+          "lines": 185,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_quote_upload.py",
+          "function": "test_quote_upload_with_user_and_project",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_quote_upload.py",
+          "function": "TestQuoteUploadModel",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_sqlalchemy_models.py",
+          "function": "test_tower_hierarchy_creation",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/models/test_sqlalchemy_models.py",
+          "function": "TestTowerSchemaIntegration",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/test_user.py",
+          "function": "TestUserModel",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/perf_plugin.py",
+          "function": "pytest_terminal_summary",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_cli_baseline.py",
+          "function": "TestCmdBaseline",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_hooks.py",
+          "function": "TestPytestTerminalSummary",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/plugins/test_perf_report.py",
+          "function": "TestGenerateHtmlReport",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_confirm_endpoint_success.py",
+          "function": "TestConfirmWebhook",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_confirm_endpoint_validation.py",
+          "function": "TestConfirmEndpointValidation",
+          "lines": 140,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "function": "TestCreateComparison",
+          "lines": 166,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "function": "test_create_comparison_success",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/scripts/test_backfill_document_processing.py",
+          "function": "TestFindUnprocessedDocuments",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/scripts/test_backfill_document_processing.py",
+          "function": "TestMain",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/auth/test_opaque_validator.py",
+          "function": "TestValidateOpaqueToken",
+          "lines": 112,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/conftest.py",
+          "function": "mixed_quality_properties",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_acord_quality.py",
+          "function": "TestExtractFields",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_acord_quality.py",
+          "function": "TestCheckGate",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_loss_run_quality.py",
+          "function": "TestCheckGate",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_loss_run_quality_integration.py",
+          "function": "TestComputeIntegration",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_orchestrator.py",
+          "function": "TestComputeAndStoreQuality",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_result.py",
+          "function": "test_defaults_for_failed_gate",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_result.py",
+          "function": "TestQualityResult",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_quality_tier_weights.py",
+          "function": "TestTierWeights",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schedule_of_values_quality_integration.py",
+          "function": "TestComputeIntegration",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schematic_quality.py",
+          "function": "TestCheckGate",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/quality/test_schematic_quality.py",
+          "function": "TestStructuralValidation",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/shared/test_database_logger_alerts_audit.py",
+          "function": "TestDatabaseAuditLogger",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_accumulation_risk_service.py",
+          "function": "TestRadiusExposure",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_accumulation_risk_service.py",
+          "function": "geocoded_properties",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_admin_feature_flag_service.py",
+          "function": "test_merges_database_flags_with_code_defaults",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_deal_policy.py",
+          "function": "TestDealPolicyFieldMapping",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_loss_run_claim.py",
+          "function": "test_missing_casualty_fields_default_to_none",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_loss_run_claim.py",
+          "function": "TestLossRunClaimFieldMapping",
+          "lines": 137,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_field_mapping_schedule_of_values.py",
+          "function": "TestScheduleOfValuesFieldMapping",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_losses.py",
+          "function": "TestArchivedDocumentExclusion",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_losses.py",
+          "function": "archived_and_active_claims",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_schedule_of_values.py",
+          "function": "TestArchivedDocumentExclusion",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_schedule_of_values.py",
+          "function": "archived_and_active_uploads",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_sov_heatmap.py",
+          "function": "TestInsuredNamePropertyNameFallback",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_analytics_service_sov_heatmap.py",
+          "function": "TestConstructionOccupancyProtectionExposureHeatmapWhitelist",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "function": "TestProcessAcordExtractionResult",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_quote_add_field_path.py",
+          "function": "TestBuildAtlasQuoteAddFieldPath",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "function": "TestGeocodeCascade",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "function": "TestGoogleMapsGeocoding",
+          "lines": 128,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_confidence_score_seeder.py",
+          "function": "TestSeedScheduleOfValuesConfidenceScores",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_confidence_score_seeder.py",
+          "function": "TestSeedLossRunConfidenceScores",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_audit_service.py",
+          "function": "TestDocumentAuditService",
+          "lines": 250,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_delete.py",
+          "function": "TestDocumentServiceDelete",
+          "lines": 199,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_extraction.py",
+          "function": "TestHasLinkedExtraction",
+          "lines": 127,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_list.py",
+          "function": "TestDocumentServiceList",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "test_upload_persists_document",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "test_upload_multiple_captures_per_file_errors",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_document_service_upload.py",
+          "function": "TestDocumentServiceUpload",
+          "lines": 184,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_location_triangles.py",
+          "function": "TestGetLossTriangles",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_location_triangles.py",
+          "function": "seeded_claims",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_service.py",
+          "function": "TestGetLossSummary",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_analytics_service.py",
+          "function": "seeded_claims",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_correlation_service.py",
+          "function": "test_state_aggregation_values",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_correlation_service.py",
+          "function": "properties_with_claims",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_claim_detail_service.py",
+          "function": "TestLossRunClaimDetailService",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "function": "TestApplyCorrection",
+          "lines": 174,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "function": "TestRollbackAndBatchCorrections",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_review_service.py",
+          "function": "TestLossRunReviewService",
+          "lines": 131,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_dashboard.py",
+          "function": "TestLossRunServiceDashboard",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_flatten.py",
+          "function": "TestFlattenClaims",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "test_casualty_kpis_with_claims",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "TestPropertyKeyPerformanceIndicators",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_service_kpis.py",
+          "function": "TestCasualtyKeyPerformanceIndicators",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_premium_analytics_service.py",
+          "function": "TestAnalyticsServicePremiumMethods",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_service.py",
+          "function": "TestProgramCrud",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_submission_service.py",
+          "function": "TestSubmissionCrud",
+          "lines": 187,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "function": "TestUploadDocumentToSubmission",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "function": "TestAttachDocumentToSubmission",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_project_quality_summary_service.py",
+          "function": "test_returns_tiers_with_correct_counts",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_project_quality_summary_service.py",
+          "function": "TestProjectQualitySummaryService",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "test_snapshot_contains_full_structure",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "TestCreateShare",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_quote_comparison_share_service.py",
+          "function": "TestListSharesByComparison",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "function": "TestAssessUpload",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "function": "TestAssessProperty",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "function": "TestCalculateOverallScore",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_portfolio_breakdowns.py",
+          "function": "seeded_properties",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_upload_extended_flatten.py",
+          "function": "TestFlattenProperties",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_upload_service.py",
+          "function": "TestScheduleOfValuesUploadService",
+          "lines": 208,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_sov_backfill_migration.py",
+          "function": "TestStringColumnBackfill",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_value_completeness_backfill.py",
+          "function": "TestBuildingValueBackfill",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_value_completeness_num_units.py",
+          "function": "TestNumUnitsArrayBackfill",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/shared/bulk_operations/test_bulk_error_handler_branches.py",
+          "function": "TestHandleBulkOperationErrorBranches",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/shared/bulk_operations/test_bulk_error_handler_execution.py",
+          "function": "TestBulkErrorHandlerSafeBulkExecute",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback.py",
+          "function": "TestSubmitAtlasCorrection",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback.py",
+          "function": "TestProcessCorrectionSkips",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_atlas_correction_feedback_helpers.py",
+          "function": "sov_correction",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/tasks/test_comparison_processing_failures.py",
+          "function": "TestProcessComparisonValidation",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/test_authorization_service_integration.py",
+          "function": "TestIntegrationScenarios",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/test_database_utils.py",
+          "function": "TestDatabaseTestHelper",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/utils/test_email_to_pdf.py",
+          "function": "TestBuildEmailHtml",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/utils/test_indication_detection.py",
+          "function": "TestIsEmailIndication",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/DocumentsLibrary.tsx",
+          "function": "DocumentsLibrary",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/AddDeductibleModal.tsx",
+          "function": "AddDeductibleModal",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.tsx",
+          "function": "DocumentReviewQueuePage",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.tsx",
+          "function": "DocumentReviewQueuePage",
+          "lines": 165,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/EmailCollectionDialog.tsx",
+          "function": "EmailCollectionDialog",
+          "lines": 155,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/quoteComparisonTransform.ts",
+          "function": "transformQuotesForGrid",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectSelectorDropdown.tsx",
+          "function": "ProjectSelectorDropdown",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/MemberInviteForm.tsx",
+          "function": "MemberInviteForm",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/SchematicSetupDialog.tsx",
+          "function": "SchematicSetupDialog",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/SchematicSetupDialog.tsx",
+          "function": "SchematicSetupDialog",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfiguration.ts",
+          "function": "useFieldConfiguration",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/CategoryFieldRows.tsx",
+          "function": "CategoryFieldRows",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderUserMenu.tsx",
+          "function": "HeaderUserMenu",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderUserMenu.tsx",
+          "function": "HeaderUserMenu",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ArchiveConfirmationDialog.tsx",
+          "function": "ArchiveConfirmationDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectCard.tsx",
+          "function": "ProjectCard",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectCard.tsx",
+          "function": "ProjectCard",
+          "lines": 86,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/ExportSettingsSection.tsx",
+          "function": "handleExport",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/ExportSettingsSection.tsx",
+          "function": "ExportSettingsSection",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/PublishDialog.tsx",
+          "function": "PublishDialog",
+          "lines": 135,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/TowerCreationModal.tsx",
+          "function": "TowerCreationModal",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/TowerCreationModal.tsx",
+          "function": "TowerCreationModal",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldValueCell",
+          "complexity": 31,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldRow",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldValueCell",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGridCells.tsx",
+          "function": "FieldRow",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/UnifiedDealMap.tsx",
+          "function": "UnifiedDealMap",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/UnifiedDealMap.tsx",
+          "function": "UnifiedDealMap",
+          "lines": 175,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldManagementPanel.tsx",
+          "function": "FieldManagementPanel",
+          "lines": 164,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.tsx",
+          "function": "ManagedComparisonGrid",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.tsx",
+          "function": "ManagedComparisonGrid",
+          "lines": 175,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/quoteUpload/useQuoteUploadMutations.ts",
+          "function": "useQuoteUploadMutations",
+          "lines": 112,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/CreateProjectDialog.tsx",
+          "function": "CreateProjectDialog",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/QuoteSelectionList.tsx",
+          "function": "QuoteSelectionList",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/viewer/PasswordGate.tsx",
+          "function": "PasswordGate",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/InsightsSummary.tsx",
+          "function": "InsightsSummary",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/InsightsSummary.tsx",
+          "function": "InsightsSummary",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/GeneralSettingsSection.tsx",
+          "function": "GeneralSettingsSection",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/GeneralSettingsSection.tsx",
+          "function": "GeneralSettingsSection",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerDetailsDialog.tsx",
+          "function": "LayerDetailsDialog",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerDetailsDialog.tsx",
+          "function": "LayerDetailsDialog",
+          "lines": 203,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProvider.tsx",
+          "function": "ChatProvider",
+          "lines": 129,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "function": "ComparisonGrid",
+          "lines": 243,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/SharedComparisonContent.tsx",
+          "function": "SharedComparisonContent",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/SharedComparisonContent.tsx",
+          "function": "SharedComparisonContent",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/DealExportDropdown.tsx",
+          "function": "DealExportDropdown",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramSetupDialog.tsx",
+          "function": "ProgramSetupDialog",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramSetupDialog.tsx",
+          "function": "ProgramSetupDialog",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "formatForDisplay",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "canConvertTo",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/utils/fieldFormatting.ts",
+          "function": "formatAsYouType",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/InlineFieldNameInput.tsx",
+          "function": "useInlineFieldNameInput",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/AnalyticsVisibilitySection.tsx",
+          "function": "AnalyticsVisibilitySection",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.ts",
+          "function": "useAuthTokenRefresh",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/useShareVerification.ts",
+          "function": "transformSnapshotForGrid",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/TemplatePickerDialog.tsx",
+          "function": "TemplatePickerDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/chat/useChatActions.ts",
+          "function": "useChatActions",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/DocumentViewer.tsx",
+          "function": "DocumentViewer",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/DocumentViewer.tsx",
+          "function": "DocumentViewer",
+          "lines": 226,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigMutations.ts",
+          "function": "useFieldConfigMutations",
+          "lines": 218,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DangerZoneSection.tsx",
+          "function": "DangerZoneSection",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "function": "EditableCell",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "function": "EditableCell",
+          "lines": 249,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/AnalyticsDashboard.tsx",
+          "function": "ScheduleOfValuesTab",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DashboardSettingsSection.tsx",
+          "function": "DashboardSettingsSection",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/projects/settings/DashboardSettingsSection.tsx",
+          "function": "DashboardSettingsSection",
+          "lines": 96,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useShareManagement.ts",
+          "function": "useShareManagement",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ProjectsListPage.tsx",
+          "function": "ProjectsListPage",
+          "lines": 119,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectDocumentPanel.tsx",
+          "function": "ProjectDocumentPanel",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/utils/excelExport.ts",
+          "function": "buildWorkbook",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCatalog.tsx",
+          "function": "WidgetCatalog",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/useComparisonListFilters.ts",
+          "function": "useComparisonListFilters",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/useComparisonListFilters.ts",
+          "function": "useComparisonListFilters",
+          "lines": 131,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonToolbar.tsx",
+          "function": "ComparisonToolbar",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonToolbar.tsx",
+          "function": "ComparisonToolbar",
+          "lines": 190,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/contexts/upload/useUploadQueue.ts",
+          "function": "buildUploadErrorMessage",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/contexts/upload/useUploadQueue.ts",
+          "function": "useUploadQueue",
+          "lines": 227,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectSchematicsPanel.tsx",
+          "function": "ProjectSchematicsPanel",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/gridTowerBuilder/GridTowerHeader.tsx",
+          "function": "GridTowerHeader",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ArchivedDocuments.tsx",
+          "function": "ArchivedDocuments",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/ArchivedDocuments.tsx",
+          "function": "ArchivedDocuments",
+          "lines": 187,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionResultPanel.tsx",
+          "function": "ExtractionResultPanel",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/PdfExportDialog.tsx",
+          "function": "PdfExportDialog",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonsList.tsx",
+          "function": "CreateComparisonCard",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbarActions.tsx",
+          "function": "HeaderToolbarActions",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.tsx",
+          "function": "ApprovedTab",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldListSection.tsx",
+          "function": "CollapsibleCategorySection",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderMobileMenu.tsx",
+          "function": "HeaderMobileMenu",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderMobileMenu.tsx",
+          "function": "MobileMenuFooter",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCard.tsx",
+          "function": "WidgetCard",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/WidgetCard.tsx",
+          "function": "WidgetCard",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/CompactQuoteHeader.tsx",
+          "function": "CompactQuoteHeader",
+          "complexity": 44,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/CompactQuoteHeader.tsx",
+          "function": "CompactQuoteHeader",
+          "lines": 214,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentGrid.tsx",
+          "function": "DocumentGrid",
+          "lines": 138,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCardActions.tsx",
+          "function": "LayerCardActions",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldRowLabel.tsx",
+          "function": "FieldRowLabel",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/portal/CreatePortalDialog.tsx",
+          "function": "PortalLinkView",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/DealDropZones.tsx",
+          "function": "DropZone",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/QuoteComparisonShareDialog.tsx",
+          "function": "QuoteComparisonShareDialog",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/QuoteComparisonShareDialog.tsx",
+          "function": "QuoteComparisonShareDialog",
+          "lines": 171,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "ProjectMembersDialog",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "ProjectMembersDialog",
+          "lines": 146,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/ProjectMembersDialog.tsx",
+          "function": "MemberListItem",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/SortableFieldRow.tsx",
+          "function": "SortableFieldRow",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/SortableFieldRow.tsx",
+          "function": "SortableFieldRow",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/ProgramTab.tsx",
+          "function": "ProgramTab",
+          "lines": 168,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerPalette.tsx",
+          "function": "LayerPalette",
+          "lines": 211,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/ImageUploadField.tsx",
+          "function": "handleFileSelected",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/spaces/builder/ImageUploadField.tsx",
+          "function": "ImageUploadField",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/NeedsReviewTab.tsx",
+          "function": "NeedsReviewTab",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/ScheduleOfValuesPropertyMap.tsx",
+          "function": "ScheduleOfValuesPropertyMap",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/ScheduleOfValuesPropertyMap.tsx",
+          "function": "ScheduleOfValuesPropertyMap",
+          "lines": 221,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderActions.tsx",
+          "function": "HeaderActions",
+          "lines": 96,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldRowContextMenu.tsx",
+          "function": "FieldRowContextMenu",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/projects/ProjectQuoteComparisonPanel.tsx",
+          "function": "ProjectQuoteComparisonPanel",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ReviewQueueNavigation.tsx",
+          "function": "ReviewQueueNavigation",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentTable.tsx",
+          "function": "DocumentTable",
+          "lines": 159,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/ProjectSettingsPage.tsx",
+          "function": "ProjectSettingsPage",
+          "lines": 150,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCreationModal.tsx",
+          "function": "LayerCreationModal",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/LayerCreationModal.tsx",
+          "function": "LayerCreationModal",
+          "lines": 148,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentAuditLogTab.tsx",
+          "function": "AuditLogRow",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentAuditLogTab.tsx",
+          "function": "DocumentAuditLogTab",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "ScalingModeToggle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "HeaderToolbar",
+          "lines": 108,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/gridBuilder/HeaderToolbar.tsx",
+          "function": "ScalingModeToggle",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentBulkActions.tsx",
+          "function": "DocumentBulkActions",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ExportShareDropdown.tsx",
+          "function": "ExportShareDropdown",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/useSharedDownloads.ts",
+          "function": "useSharedDownloads",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/FieldRowKebabMenu.tsx",
+          "function": "FieldRowKebabMenu",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "extractMetadata",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "ExtractionTrustRibbon",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/ExtractionTrustRibbon.tsx",
+          "function": "ExtractionTrustRibbon",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/SpacesListContent.tsx",
+          "function": "SpacesListContent",
+          "lines": 179,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "function": "DocumentListContent",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "function": "DocumentListContent",
+          "lines": 276,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:21:17Z",
+      "violations": 31,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/20260311_1000_add_document_quality_scores.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/alembic/versions/20260311_1100_add_manually_approved_column.py",
+          "name": "sqlalchemy",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/core/database.py",
+          "name": "async_session_factory  # noqa",
+          "line": 258
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 12
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 18
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/document/__init__.py",
+          "name": "(",
+          "line": 21
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "name": "jwt",
+          "line": 134
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 14
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 19
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 24
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 35
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 44
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 55
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 62
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/tests/factories/__init__.py",
+          "name": "(",
+          "line": 70
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/AddDeductibleModal.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/HeaderActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/HeaderToolbarActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/LayerCardActions.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/gridBuilder/PdfExportDialog.tsx",
+          "name": "React",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/contexts/theme/ThemeProvider.tsx",
+          "name": "type ReactNode",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/contexts/theme/ThemeProvider.tsx",
+          "name": "type Theme",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/Home.tsx",
+          "name": "type ToolDefinition",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/Home.tsx",
+          "name": "type ToolKey",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/pages/QuoteComparisonsList.selection.test.tsx",
+          "name": "React",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/tests/contexts/authInitHelpers.test.ts",
+          "name": "vi",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "frontend/src/tests/contexts/authInitHelpers.test.ts",
+          "name": "beforeEach",
+          "line": 1
+        }
+      ],
+      "duration_ms": 17000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T23:13:20Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:20:59Z",
+      "files_checked": 665,
+      "violations": 15,
+      "violations_details": [
+        {
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "lines": 948,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "lines": 343,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "lines": 542,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "lines": 436,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/quotes/field_config_endpoints.py",
+          "lines": 378,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "lines": 492,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "lines": 408,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "lines": 307,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "lines": 306,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "lines": 325,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/AnalyticsDashboard.tsx",
+          "lines": 328,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonMain.tsx",
+          "lines": 339,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteUpload.tsx",
+          "lines": 308,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/analytics.test.ts",
+          "lines": 384,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "lines": 307,
+          "max": 300
+        }
+      ],
+      "duration_ms": 459000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:21:27Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\ud83d\udd27 Running formatters (backend + frontend)\n\n\ud83d\udccb Running Backend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Backend Python Code Formatting\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\nerror: Failed to fetch: `https://us-west1-python.pkg.dev/cloud-run-poc-469620/python-packages/simple/quotelab/`\n  Caused by: Missing credentials for https://us-west1-python.pkg.dev/cloud-run-poc-469620/python-packages/simple/quotelab/\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 110ms on 1557 files using 14 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 211ms on 1559 files with 86 rules using 14 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Frontend formatting, linting, and type checks passed!\u001b[0m\n\n\u26a0\ufe0f  Partial formatting success\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\nerror: Failed to fetch: `https://us-west1-python.pkg.dev/cloud-run-poc-469620/python-packages/simple/quotelab/`\n  Caused by: Missing credentials for https://us-west1-python.pkg.dev/cloud-run-poc-469620/python-packages/simple/quotelab/\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Type checking failed\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+import app.models.sqlalchemy  # noqa: F401 \u2014 register all models\n+from tests.fixtures.database import (  # noqa: E402, F401\n+from tests.conftest_app import (  # noqa: E402, F401\n+from tests.conftest_tower import (  # noqa: E402, F401\n+from tests.conftest_quote import (  # noqa: E402, F401\n+from tests.conftest_test_data import (  # noqa: E402, F401\n+from tests.factories.base import BaseFactory  # noqa: E402\n\n"
+        }
+      ],
+      "duration_ms": 10000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-27T23:13:19Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-27T23:21:57Z",
+      "scanned_files": 309,
+      "violations": 308,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "line": 14,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "line": 26,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "line": 31,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        db=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/chat/test_operations_edit_cell.py",
+          "line": 32,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        current_user=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/documents/test_audit_stream.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_redis.pubsub = MagicMock(return_value=mock_pubsub)"
+        },
+        {
+          "file": "backend/tests/api/documents/test_audit_stream.py",
+          "line": 95,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_redis.pubsub = MagicMock(return_value=mock_pubsub)"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "line": 138,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_project = MagicMock(id=5)"
+        },
+        {
+          "file": "backend/tests/api/documents/test_document_export_unit.py",
+          "line": 166,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_project = MagicMock(id=5)"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_by_deal_ptl.py",
+          "line": 12,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 16,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 33,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 41,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 61,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.build_comparison_details\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 62,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.load_field_normalizer\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 63,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.load_comparisons_for_project\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 64,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.verify_project_membership\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 65,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.find_project_by_deal\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 76,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 81,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 85,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_normalizer = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 101,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_share_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 123,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.build_comparison_details\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 124,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.load_field_normalizer\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 125,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.load_comparisons_for_project\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 126,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.verify_project_membership\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 127,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.api.external.comparisons.find_project_by_deal\")"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 138,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 143,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 148,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_normalizer = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_get_by_deal.py",
+          "line": 163,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_share_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 20,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 22,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 29,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        lookup_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 32,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        new_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 36,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        quotes_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 41,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_task = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 68,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 73,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        lookup_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 95,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 100,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        lookup_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 103,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        quotes_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 126,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comparison = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 133,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        lookup_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 136,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        new_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_comparison_endpoints_direct_modify_add.py",
+          "line": 138,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        quotes_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "line": 313,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                mock_celery.delay = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "line": 349,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                mock_celery.delay = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "line": 388,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                mock_celery.delay = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 21,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison_data = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 36,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison_data = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 39,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db.execute = AsyncMock(return_value=make_db_result(scalar=MagicMock()))"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 41,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        count_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 57,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison_data = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_create.py",
+          "line": 81,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        comparison_data = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 120,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 224,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_field_config_endpoints_unit_save.py",
+          "line": 226,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_insights_endpoints.py",
+          "line": 92,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_service = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "line": 196,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "line": 209,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_service = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_audit_log_endpoints.py",
+          "line": 233,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 43,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 55,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 81,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_form = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 84,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 94,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_form = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 121,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 123,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 147,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 149,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 165,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_extended_direct.py",
+          "line": 167,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 26,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 102,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 145,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 178,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 202,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_auth_endpoints_login.py",
+          "line": 260,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "line": 115,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "line": 148,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "line": 206,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/api/test_loss_run_correction_endpoints.py",
+          "line": 229,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 36,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.core.middleware.setup_all_middleware\")"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 45,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.core.middleware.setup_all_middleware\")"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 59,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.core.middleware.setup_all_middleware\")"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 74,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.core.middleware.setup_all_middleware\")"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 94,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock(spec=FastAPI)"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 135,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock(spec=FastAPI)"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 163,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock(spec=FastAPI)"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 191,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock(spec=FastAPI)"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 192,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_langfuse = MagicMock()"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 222,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "            patch.object(Path, \"exists\", return_value=True),"
+        },
+        {
+          "file": "backend/tests/core/test_app_factory_unit.py",
+          "line": 235,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "        with patch.object(Path, \"exists\", return_value=False):"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "line": 29,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "line": 70,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fake_user = MagicMock(id=42, email=None, user_role=\"unverified\")"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "line": 96,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fake_user = MagicMock(id=10)"
+        },
+        {
+          "file": "backend/tests/core/test_deps_access_token.py",
+          "line": 162,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fake_user = MagicMock(id=42, email=None, user_role=\"unverified\")"
+        },
+        {
+          "file": "backend/tests/core/test_deps_refresh_token.py",
+          "line": 61,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fake_user = MagicMock(id=42, email=None, user_role=\"unverified\")"
+        },
+        {
+          "file": "backend/tests/core/test_deps_refresh_token.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/core/test_deps_refresh_token.py",
+          "line": 125,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fake_user = MagicMock(id=42, email=None, user_role=\"unverified\")"
+        },
+        {
+          "file": "backend/tests/e2e/test_chat_agent_tool_selection_e2e.py",
+          "line": 27,
+          "pattern": "@patch without wraps",
+          "code": "@patch(\"app.utils.llm_rate_limiting.check_global_llm_limit\")"
+        },
+        {
+          "file": "backend/tests/e2e/test_chat_agent_tool_selection_e2e.py",
+          "line": 28,
+          "pattern": "@patch without wraps",
+          "code": "@patch(\"app.utils.llm_rate_limiting.increment_llm_usage\")"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "line": 83,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_comparison_service = Mock()"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                    request=Mock(),"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "line": 130,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=Mock(),"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "line": 169,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=Mock(),"
+        },
+        {
+          "file": "backend/tests/quote_comparison/api/test_endpoints_comparison.py",
+          "line": 214,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=Mock(),"
+        },
+        {
+          "file": "backend/tests/services/test_admin_feature_flag_service.py",
+          "line": 47,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.feature_flags.clear_cache\")"
+        },
+        {
+          "file": "backend/tests/services/test_admin_feature_flag_service.py",
+          "line": 65,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.feature_flags.clear_cache\")"
+        },
+        {
+          "file": "backend/tests/services/test_admin_feature_flag_service.py",
+          "line": 76,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.feature_flags.clear_cache\")"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "line": 74,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "line": 98,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "line": 108,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_acord_processor_integration.py",
+          "line": 149,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 21,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_session.execute.return_value = MagicMock("
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 22,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            scalars=MagicMock(return_value=MagicMock(all=MagicMock(return_value=[])))"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        sov_coords = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 64,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 133,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 166,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_cascade.py",
+          "line": 232,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 38,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_gmaps = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 85,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 94,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_gmaps = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 124,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 133,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_gmaps = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_claim_geocoding_google_maps.py",
+          "line": 156,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        loop = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_claim_detail_service.py",
+          "line": 68,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 68,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 87,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 102,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 124,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 139,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 174,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service.py",
+          "line": 190,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "line": 71,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "line": 103,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "line": 128,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_BATCH_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_correction_service_rollback_batch.py",
+          "line": 129,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(MOCK_FB)"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_review_service.py",
+          "line": 61,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.atlas_feedback_status_sync.enqueue_atlas_status_sync\")"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_review_service.py",
+          "line": 74,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.atlas_feedback_status_sync.enqueue_atlas_status_sync\")"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_review_service.py",
+          "line": 115,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.atlas_feedback_status_sync.enqueue_atlas_status_sync\")"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "line": 80,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.program_fit_upload_service.DocumentService\")"
+        },
+        {
+          "file": "backend/tests/services/test_program_fit_upload_service.py",
+          "line": 105,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.program_fit_upload_service.DocumentService\")"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 35,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 49,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 55,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 82,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        existing_assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 90,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 119,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop1 = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 121,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop2 = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 124,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 136,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_assess.return_value = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 145,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop1 = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 147,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        prop2 = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 150,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_property.py",
+          "line": 172,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 140,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 146,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 152,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 166,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 182,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 192,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 207,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 219,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 234,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_risk_assessment_service_scoring.py",
+          "line": 246,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        assessment = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 77,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 97,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 113,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 136,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 152,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 192,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 209,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service.py",
+          "line": 245,
+          "pattern": "@patch without wraps",
+          "code": "@patch(FEEDBACK_PATCH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 96,
+          "pattern": "@patch without wraps",
+          "code": "@patch(CORRECTION_FEEDBACK_PATCH_PATH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 131,
+          "pattern": "@patch without wraps",
+          "code": "@patch(STATUS_SYNC_PATCH_PATH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 147,
+          "pattern": "@patch without wraps",
+          "code": "@patch(STATUS_SYNC_PATCH_PATH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 183,
+          "pattern": "@patch without wraps",
+          "code": "@patch(STATUS_SYNC_PATCH_PATH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 213,
+          "pattern": "@patch without wraps",
+          "code": "@patch(BATCH_FEEDBACK_PATCH_PATH)"
+        },
+        {
+          "file": "backend/tests/services/test_schedule_of_values_correction_service_review.py",
+          "line": 214,
+          "pattern": "@patch without wraps",
+          "code": "@patch(CORRECTION_FEEDBACK_PATCH_PATH)"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 32,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockReturnValue(new Promise(() => {}));"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 40,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: [] });"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 68,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 87,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 105,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 115,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const listSpy = vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: [] });"
+        },
+        {
+          "file": "frontend/src/components/documents/ApprovedTab.test.tsx",
+          "line": 131,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/components/documents/NeedsReviewTab.test.tsx",
+          "line": 45,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockReturnValue(new Promise(() => {}));"
+        },
+        {
+          "file": "frontend/src/components/documents/NeedsReviewTab.test.tsx",
+          "line": 53,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: [] });"
+        },
+        {
+          "file": "frontend/src/components/header/HeaderUserMenu.test.tsx",
+          "line": 38,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(configModule, \"commitSha\", \"get\").mockReturnValue(\"abc12345def67890\");"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.display.test.tsx",
+          "line": 9,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "  vi.spyOn(apiEndpoints.quoteComparison, \"updateQuote\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.type-change.test.tsx",
+          "line": 11,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "  vi.spyOn(apiEndpoints.quoteComparison, \"updateQuote\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.test.tsx",
+          "line": 64,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.quoteComparison, \"deleteQuote\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.test.tsx",
+          "line": 65,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.quoteComparison, \"updateQuoteOrder\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ManagedComparisonGrid.test.tsx",
+          "line": 66,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(useFieldConfigurationModule, \"useFieldConfiguration\").mockReturnValue("
+        },
+        {
+          "file": "frontend/src/components/settings/PortalSettingsSection.test.tsx",
+          "line": 113,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const writeTextMock = vi.spyOn(navigator.clipboard, \"writeText\").mockResolvedValue(undefined);"
+        },
+        {
+          "file": "frontend/src/contexts/project/ProjectProvider.test.tsx",
+          "line": 58,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"getByUser\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/contexts/project/ProjectProvider.test.tsx",
+          "line": 61,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"create\").mockResolvedValue(undefined as never);"
+        },
+        {
+          "file": "frontend/src/contexts/project/ProjectProvider.test.tsx",
+          "line": 62,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"update\").mockResolvedValue(undefined as never);"
+        },
+        {
+          "file": "frontend/src/contexts/project/ProjectProvider.test.tsx",
+          "line": 63,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"delete\").mockResolvedValue(undefined as never);"
+        },
+        {
+          "file": "frontend/src/contexts/project/ProjectProvider.test.tsx",
+          "line": 64,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"clearData\").mockResolvedValue(undefined as never);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderActions.test.tsx",
+          "line": 37,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(useChatStreamModule, \"useChatStream\").mockImplementation(mockUseChatStream);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderActions.test.tsx",
+          "line": 38,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"loadMessages\").mockImplementation(mockLoadMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderActions.test.tsx",
+          "line": 39,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"saveMessages\").mockImplementation(mockSaveMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderActions.test.tsx",
+          "line": 40,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"clearStoredMessages\").mockImplementation("
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderEffects.test.tsx",
+          "line": 31,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(useChatStreamModule, \"useChatStream\").mockImplementation(mockUseChatStream);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderEffects.test.tsx",
+          "line": 32,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"loadMessages\").mockImplementation(mockLoadMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderEffects.test.tsx",
+          "line": 33,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"saveMessages\").mockImplementation(mockSaveMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderEffects.test.tsx",
+          "line": 34,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"clearStoredMessages\").mockImplementation("
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderMessaging.test.tsx",
+          "line": 31,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(useChatStreamModule, \"useChatStream\").mockImplementation(mockUseChatStream);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderMessaging.test.tsx",
+          "line": 33,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"loadMessages\").mockImplementation(mockLoadMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderMessaging.test.tsx",
+          "line": 34,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"saveMessages\").mockImplementation(mockSaveMessages);"
+        },
+        {
+          "file": "frontend/src/hooks/chat/ChatProviderMessaging.test.tsx",
+          "line": 35,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(chatMessageStorageModule, \"clearStoredMessages\").mockImplementation("
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigurationTypeAndSave.test.ts",
+          "line": 21,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.quoteComparison, \"getFieldConfiguration\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigurationTypeAndSave.test.ts",
+          "line": 24,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.quoteComparison, \"saveFieldConfiguration\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigurationTypeAndSave.test.ts",
+          "line": 27,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.quoteComparison, \"updateQuote\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/hooks/useFieldConfigurationTypeAndSave.test.ts",
+          "line": 51,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "      vi.spyOn(apiEndpoints.quoteComparison, \"saveFieldConfiguration\").mockRejectedValue({"
+        },
+        {
+          "file": "frontend/src/hooks/useReviewQueueDocuments.test.tsx",
+          "line": 108,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const listSpy = vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: [] });"
+        },
+        {
+          "file": "frontend/src/hooks/useReviewQueueDocuments.test.tsx",
+          "line": 118,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockReturnValue(new Promise(() => {}));"
+        },
+        {
+          "file": "frontend/src/pages/DocumentsLibrary.test.tsx",
+          "line": 98,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"delete\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/pages/DocumentsLibrary.test.tsx",
+          "line": 99,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"get\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonsList.selection.test.tsx",
+          "line": 17,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(errorHandling, \"handleApiError\").mockReturnValue({"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 37,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockReturnValue(new Promise(() => {}));"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 45,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: [] });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 65,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 83,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 101,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 119,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 137,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"list\").mockResolvedValue({ data: documents });"
+        },
+        {
+          "file": "frontend/src/pages/project/DocumentReviewQueuePage.test.tsx",
+          "line": 138,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.documents, \"quality\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/admin.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/admin.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/admin.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/admin.test.ts",
+          "line": 25,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PATCH\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/admin.test.ts",
+          "line": 30,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/analytics.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/analytics.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 11,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 12,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 13,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 82,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 83,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 84,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 85,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 113,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 114,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 115,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/auth.test.ts",
+          "line": 116,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({ data: {}, response: new Response() });"
+        },
+        {
+          "file": "frontend/src/services/api/deals.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/deals.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/documents.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/documents.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/documents.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/grs.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/grs.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/index.test.ts",
+          "line": 63,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(document, \"createElement\").mockReturnValue(mockLink as unknown as HTMLElement);"
+        },
+        {
+          "file": "frontend/src/services/api/index.test.ts",
+          "line": 64,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(document.body, \"appendChild\").mockImplementation((node) => node);"
+        },
+        {
+          "file": "frontend/src/services/api/lossRun.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/lossRun.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/lossRun.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PATCH\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 25,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 70,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 75,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 80,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PATCH\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/programFit.test.ts",
+          "line": 85,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 12,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 13,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 14,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PATCH\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 16,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "line": 293,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue(mockResponse);"
+        },
+        {
+          "file": "frontend/src/services/api/schedule-of-values.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/schedule-of-values.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/schedule-of-values.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/schedule-of-values.test.ts",
+          "line": 25,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 10,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 15,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"PUT\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 25,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"DELETE\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 144,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"GET\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/api/spaces.test.ts",
+          "line": 149,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(client, \"POST\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/services/errorNotification.test.ts",
+          "line": 8,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/components/LoginForm.authentication.test.tsx",
+          "line": 19,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.auth, \"requestEmailLogin\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/tests/components/LoginForm.authentication.test.tsx",
+          "line": 20,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.auth, \"getSsoLoginUrl\").mockResolvedValue({"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 78,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 79,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"getByUser\").mockImplementation((...args: unknown[]) =>"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 82,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"create\").mockImplementation((...args: unknown[]) =>"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 85,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"update\").mockImplementation((...args: unknown[]) =>"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 88,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"delete\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 89,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.projects, \"clearData\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ProjectProvider.mutations.test.tsx",
+          "line": 90,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(apiEndpoints.users, \"trackTool\").mockResolvedValue({});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 28,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleError = vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 102,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleWarn = vi.spyOn(console, \"warn\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 103,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const getItemSpy = vi.spyOn(localStorage, \"getItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 138,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleWarn = vi.spyOn(console, \"warn\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/tests/contexts/ThemeProvider.initialization.test.tsx",
+          "line": 143,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const setItemSpy = vi.spyOn(localStorage, \"setItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "frontend/src/tests/hooks/usePermissions.errorHandling.test.tsx",
+          "line": 25,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(apiEndpoints.auth, \"permissions\").mockImplementation((...args: unknown[]) =>"
+        }
+      ],
+      "duration_ms": 30000
+    }
+  },
+  "duration_seconds": 518.0
+}

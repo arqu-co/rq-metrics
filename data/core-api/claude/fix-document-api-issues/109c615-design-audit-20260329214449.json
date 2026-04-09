@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "claude/fix-document-api-issues",
+  "sha": "109c615",
+  "user": "unknown",
+  "timestamp": "2026-03-30T01:44:49Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 2,
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 904,
+      "rule": "FILE_SIZE",
+      "message": "File is 904 lines (max 300). Pre-existing violation, but chunk 2 adds 6 more lines."
+    },
+    {
+      "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+      "line": 354,
+      "rule": "FILE_SIZE",
+      "message": "File is 354 lines (max 300). Was 317 before chunk 2 added the invalidation test."
+    },
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/DocumentService.kt",
+      "line": 351,
+      "rule": "COMPLEXITY",
+      "message": "Invalidation query/delete (lines 351-354) is inside the same try/catch that rolls back checksum on failure. If findByDocId or deleteAll throws after gDriveClient.updateFile succeeds, the checksum is incorrectly rolled back even though the Drive file was already updated. Move invalidation after the try/catch or wrap it in its own try/catch."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T01:44:49Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

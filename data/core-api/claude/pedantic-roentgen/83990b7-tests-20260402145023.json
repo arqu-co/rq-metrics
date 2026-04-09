@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "claude/pedantic-roentgen",
+  "sha": "83990b7",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-02T19:50:22Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/integrationTest/kotlin/co/arqu/core/controller/DocumentSharingIntegrationTest.kt",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 368 lines (max 300). The file was 317 lines on master; this change adds 51 more. Split the new preview test into a dedicated DocumentPreviewIntegrationTest.kt or extract other tests to reduce this file."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [],
+  "gates": {},
+  "duration_seconds": null
+}
