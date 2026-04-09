@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "fix/anonymous-user-token-resolution",
+  "sha": "abca1b1e0",
+  "user": "unknown",
+  "timestamp": "2026-03-25T21:15:00Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "FUNC_SIZE": 1,
+    "SRP": 1
+  },
+  "critic_findings": [
+    {
+      "file": "backend/app/core/core_api_deps.py",
+      "line": 31,
+      "rule": "FUNC_SIZE",
+      "message": "get_core_api_user is 52 lines (lines 31-82), exceeding the 50-line max by 2. Trim the docstring (16 lines) or extract the try/except error-handling into a _validate_token() helper."
+    },
+    {
+      "file": "backend/app/core/core_api_deps.py",
+      "line": 53,
+      "rule": "SRP",
+      "message": "API contract change: error details collapsed from two distinct messages ('Missing Authorization header' / 'Invalid Authorization header format') into one generic 'Missing or invalid Authorization header'. Core-api callers parsing error details will lose the ability to distinguish missing vs. malformed headers. Confirm this is acceptable with the core-api team, or restore distinct messages by checking whether _extract_bearer_token returned None due to missing input vs. bad format."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T21:15:00Z",
+      "files_checked": 608,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "backend/alembic/versions/000001_initial_schema.py",
+          "lines": 948,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/comparisons.py",
+          "lines": 343,
+          "max": 300
+        },
+        {
+          "file": "backend/app/api/external/quotes.py",
+          "lines": 542,
+          "max": 300
+        },
+        {
+          "file": "backend/tests/api/external/test_quotes_from_atlas.py",
+          "lines": 492,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/documents/DocumentListContent.tsx",
+          "lines": 307,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/ComparisonGrid.tsx",
+          "lines": 310,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/components/quoteComparison/EditableCell.tsx",
+          "lines": 324,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/AnalyticsDashboard.tsx",
+          "lines": 328,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/pages/QuoteComparisonMain.tsx",
+          "lines": 333,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/analytics.test.ts",
+          "lines": 384,
+          "max": 300
+        },
+        {
+          "file": "frontend/src/services/api/quoteComparison.test.ts",
+          "lines": 307,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

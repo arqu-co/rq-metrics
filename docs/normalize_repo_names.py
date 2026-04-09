@@ -110,29 +110,34 @@ def main():
             worktree, real = arg.split("=", 1)
             repo_map[worktree] = real
 
+    # In repair mode, accept any mapping — not just worktree-pattern
+    # bogus names. Old-plugin data can leak directory-style names too
+    # (e.g. 'billing-redux' = user's local clone of arqu-co/ledger).
+    if is_repair and repo_map:
+        total = 0
+        for name, real in repo_map.items():
+            src_dir = os.path.join(data_dir, name)
+            if not os.path.isdir(src_dir):
+                print(f"  SKIP {name}: directory does not exist")
+                continue
+            count = repair_repo(data_dir, name, real)
+            print(f"  Repaired {name} -> {real} ({count} files)")
+            total += count
+        print(f"\nRepaired {total} files total")
+        return
+
     bogus = find_bogus_repos(data_dir)
     if not bogus:
         print("No worktree-named repos detected.")
         return
 
-    if is_repair and repo_map:
-        total = 0
-        for name in bogus:
-            if name in repo_map:
-                count = repair_repo(data_dir, name, repo_map[name])
-                print(f"  Repaired {name} -> {repo_map[name]} ({count} files)")
-                total += count
-            else:
-                print(f"  SKIP {name}: no mapping provided")
-        print(f"\nRepaired {total} files total")
-    else:
-        print(f"Found {len(bogus)} worktree-named repo(s):")
-        for name in bogus:
-            file_count = sum(
-                len(files)
-                for _, _, files in os.walk(os.path.join(data_dir, name))
-            )
-            print(f"  {name} ({file_count} files)")
+    print(f"Found {len(bogus)} worktree-named repo(s):")
+    for name in bogus:
+        file_count = sum(
+            len(files)
+            for _, _, files in os.walk(os.path.join(data_dir, name))
+        )
+        print(f"  {name} ({file_count} files)")
 
 
 if __name__ == "__main__":

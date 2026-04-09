@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "claude/plan-document-features-vAFYa",
+  "sha": "27e36241",
+  "user": "unknown",
+  "timestamp": "2026-03-25T13:23:19Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T13:23:18Z",
+      "failures": 4,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 127,
+          "output": "\n> doubtfire-client@0.0.0 lint\n> eslint . --fix --max-warnings=0\n\nsh: eslint: command not found\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[error] Cannot find package 'prettier-plugin-tailwindcss' imported from /Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/doubtfire-plan/noop.js\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+/* eslint-disable @typescript-eslint/no-explicit-any */\n+                  <!-- eslint-disable vue/no-restricted-syntax -->\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

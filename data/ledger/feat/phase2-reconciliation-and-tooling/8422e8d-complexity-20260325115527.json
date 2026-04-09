@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/phase2-reconciliation-and-tooling",
+  "sha": "8422e8d",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-03-25T18:55:27Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-03-25T18:55:27Z",
+      "files_checked": 28,
+      "violations": 17,
+      "violations_details": [
+        {
+          "file": "bin/poll-bigquery.ts",
+          "function": "run",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/atlas.ts",
+          "function": "run",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/atlas.ts",
+          "function": "run",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/preflights/bigquery.ts",
+          "function": "run",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/brex.ts",
+          "function": "run",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/brex.ts",
+          "function": "run",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/preflights/gmail.ts",
+          "function": "run",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/inscipher.ts",
+          "function": "run",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/inscipher.ts",
+          "function": "run",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/preflights/plaid.ts",
+          "function": "run",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/plaid.ts",
+          "function": "run",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/preflights/postscanmail.ts",
+          "function": "run",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/preflights/postscanmail.ts",
+          "function": "run",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/process-doc.ts",
+          "function": "run",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/simulate-noc.ts",
+          "function": "formatSlackMessage",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "bin/simulate-noc.ts",
+          "function": "run",
+          "lines": 132,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "bin/simulate-noc.ts",
+          "function": "run",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
