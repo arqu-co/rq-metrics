@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "013d710863e206c09426e92934d5949ff5b2b955",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T11:27:30Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-09T11:27:15Z",
+      "files_checked": 10,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/gh_issues_api_cli.py",
+          "function": "main",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:27:19Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:27:13Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:27:21Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:27:29Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T11:27:26Z",
+      "fingerprint": "95e0e51ee66f7d2017df6cf9b7919ab4",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 16.0
+}

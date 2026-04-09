@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "85b6aa16230f64a60cf8ab298a2e6893ac307091",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T10:54:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-09T10:54:08Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_gh_issues_api.py",
+          "function": "test_create_issue_three_call_sequence",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

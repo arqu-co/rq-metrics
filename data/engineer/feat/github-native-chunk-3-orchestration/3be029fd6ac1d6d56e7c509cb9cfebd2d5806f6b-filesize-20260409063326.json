@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "3be029fd6ac1d6d56e7c509cb9cfebd2d5806f6b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T10:33:26Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-09T10:33:25Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_gh_metadata.py",
+          "lines": 373,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

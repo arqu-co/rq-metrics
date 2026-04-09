@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/github-native-chunk-3-orchestration",
+  "sha": "85b6aa16230f64a60cf8ab298a2e6893ac307091",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-09T10:54:23Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-09T10:54:08Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_gh_issues_api.py",
+          "function": "test_create_issue_three_call_sequence",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T10:54:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T10:54:06Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T10:54:14Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T10:54:22Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T10:54:19Z",
+      "test_runner": "bin-test",
+      "fingerprint": "684bc65c1c1ab7402da25735870acc47",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 16.0
+}
