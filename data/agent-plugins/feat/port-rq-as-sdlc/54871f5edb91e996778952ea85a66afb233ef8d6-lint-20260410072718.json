@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/port-rq-as-sdlc",
+  "sha": "54871f5edb91e996778952ea85a66afb233ef8d6",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-10T11:27:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "FUNC_SIZE": 1,
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/sdlc/scripts/test_audit_trail.sh",
+      "line": 301,
+      "rule": "FILE_SIZE",
+      "message": "test_audit_trail.sh is 301 lines, exceeds max 300. Writer's 2-line addition (comment + SDLC_TESTING export) pushed it from 299 to 301. gate-filesize.sh FAILS on this file. Fix: remove 1+ line (collapse the added comment or merge the two export lines)."
+    },
+    {
+      "file": "plugins/sdlc/scripts/audit_render.py",
+      "line": 74,
+      "rule": "FUNC_SIZE",
+      "message": "_render_report is 95 lines (max 50). Function is currently invisible to gate-complexity because audit_render.py is untracked, but the gate will FAIL on the first post-commit run. Fix: extract the plan-table rendering block and the audit-trail details block into helper functions."
+    },
+    {
+      "file": "plugins/sdlc/scripts/audit_render.py",
+      "line": 74,
+      "rule": "COMPLEXITY",
+      "message": "_render_report has cyclomatic complexity 23 (max 8). Driven by chained if/for blocks for plan/trail/duration/tools/unplanned/orphaned rendering. gate-complexity will FAIL once the file is committed. Fix: extract sub-renderers \u2014 each handles one conditional branch."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T11:27:17Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
