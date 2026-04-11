@@ -289,6 +289,96 @@
     </div>
   </div>
 
+  <!-- Token cost hero strip -->
+  <div class="hero" id="token-hero-strip"></div>
+
+  <!-- Token cost leaderboard + top sessions -->
+  <div class="grid-2 section-gap">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Cost Leaderboard</h2>
+        <span class="badge" id="token-leaderboard-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="token-leaderboard-table">
+          <thead><tr>
+            <th>#</th><th>User</th><th>Sessions</th>
+            <th>Tokens</th><th>Cost (USD)</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Most Expensive Sessions</h2>
+        <span class="badge" id="token-top-sessions-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="token-top-sessions-table">
+          <thead><tr>
+            <th>Repo / Branch</th><th>User</th>
+            <th>Tokens</th><th>Cost (USD)</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Token cost trend + per-repo/per-branch/per-PR breakdowns -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-head"><h2>Daily Cost Trend</h2></div>
+      <div class="panel-body"><canvas id="token-cost-trend-chart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Cost by Repo</h2>
+        <span class="badge" id="token-per-repo-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="token-per-repo-table">
+          <thead><tr>
+            <th>Repo</th><th>Sessions</th><th>Tokens</th><th>Cost</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Cost by Branch</h2>
+        <span class="badge" id="token-per-branch-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="token-per-branch-table">
+          <thead><tr>
+            <th>Repo / Branch</th><th>Sessions</th><th>Tokens</th><th>Cost</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Cost by PR</h2>
+        <span class="badge" id="token-per-pr-count"></span>
+      </div>
+      <div class="panel-body flush">
+        <table id="token-per-pr-table">
+          <thead><tr>
+            <th>PR</th><th>Sessions</th><th>Tokens</th><th>Cost</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <!-- Row 1: Trend + Fix Cycles + Gate Timing -->
   <div class="grid-3">
     <div class="panel span-2">
@@ -391,5 +481,6 @@
 
 <script src="dashboard.js"></script>
 <script src="dashboard_charts.js"></script>
+<script src="dashboard_tokens.js"></script>
 </body>
 </html>
