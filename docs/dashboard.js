@@ -390,6 +390,9 @@ function renderDashboard(data) {
   if (typeof initNewCharts === 'function') {
     initNewCharts(data);
   }
+  if (typeof renderTokenDashboard === 'function') {
+    renderTokenDashboard(data.tokens || {});
+  }
 }
 
 function populateUserFilter(users, perUser) {

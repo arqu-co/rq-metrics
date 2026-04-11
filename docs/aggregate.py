@@ -20,22 +20,36 @@ from aggregate_findings import (
     compute_top_violations,
 )
 from aggregate_shared import KNOWN_GATES, count_gate_violations
+from aggregate_tokens import build_token_payload, is_token_event
 from aggregate_users import compute_leaderboard, compute_per_user, group_by_user
 
 
 def load_metrics(data_dir="data"):
-    """Load all metric files from data directory."""
+    """Load all gate metric files from data directory.
+
+    Filters out token-usage events — those are loaded separately by
+    aggregate_tokens.load_token_events().
+    """
     metrics = []
     pattern = os.path.join(data_dir, "**/*.json")
     for filepath in glob.glob(pattern, recursive=True):
         try:
             with open(filepath) as f:
                 data = json.load(f)
-                data["_file"] = filepath
-                metrics.append(data)
         except (json.JSONDecodeError, OSError):
             continue
+        if is_token_event(data):
+            continue
+        data["_file"] = filepath
+        metrics.append(data)
     return metrics
+
+
+def load_token_metrics(data_dir="data"):
+    """Load all token-usage events from data directory."""
+    from aggregate_tokens import load_token_events
+
+    return load_token_events(data_dir)
 
 
 def compute_summary(metrics):
@@ -250,11 +264,18 @@ def main():
     metrics = load_metrics(data_dir)
     payload = build_payload(metrics)
 
+    # Add token-usage rollup as a sibling top-level key
+    token_events = load_token_metrics(data_dir)
+    payload["tokens"] = build_token_payload(token_events)
+
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, "w") as f:
         json.dump(payload, f, indent=2)
 
-    print(f"Aggregated {len(metrics)} records -> {output_file}")
+    print(
+        f"Aggregated {len(metrics)} gate records + "
+        f"{len(token_events)} token events -> {output_file}"
+    )
 
 
 if __name__ == "__main__":
