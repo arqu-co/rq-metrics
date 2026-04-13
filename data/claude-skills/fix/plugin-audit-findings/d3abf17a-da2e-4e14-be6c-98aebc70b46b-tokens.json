@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "fix/plugin-audit-findings",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-21T23:59:43.322Z",
+  "session_id": "d3abf17a-da2e-4e14-be6c-98aebc70b46b",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 2,
+    "output": 17,
+    "cache_read": 11551,
+    "cache_create": 20680,
+    "est_cost_usd": 0.4063815
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 32250,
+      "cost_usd": 0.4063815
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "fix/rq-gate-script-issues",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-18T13:42:52.058Z",
+  "session_id": "bd81e647-b245-4d83-bc7f-467ed3575479",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 1931,
+    "output": 46369,
+    "cache_read": 37681277,
+    "cache_create": 603674,
+    "est_cost_usd": 71.347443
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 38333251,
+      "cost_usd": 71.347443
+    }
+  }
+}

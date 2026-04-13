@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "feat/codex-skill-integrations",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-04T17:39:08.560Z",
+  "session_id": "e231929e-d3d0-49d1-a22f-476a3493b570",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 6,
+    "output": 1280,
+    "cache_read": 71834,
+    "cache_create": 73458,
+    "est_cost_usd": 1.5811785
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 146578,
+      "cost_usd": 1.5811785
+    }
+  }
+}
