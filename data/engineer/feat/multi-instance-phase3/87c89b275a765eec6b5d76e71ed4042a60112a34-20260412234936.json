@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/multi-instance-phase3",
+  "sha": "87c89b275a765eec6b5d76e71ed4042a60112a34",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-13T03:49:36Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DRY": 1,
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "engineer/scripts/test_instance_id.py",
+      "line": 50,
+      "rule": "DRY",
+      "message": "import os appears inline at lines 50, 145, and 167. The _run_script helper imports os locally; the two --read mode tests (lines 137 and 162) bypass _run_script entirely and duplicate the subprocess.run setup verbatim. Move os to the top-level imports and extend _run_script to accept an optional args list so --read mode tests can call _run_script(tmp_path, settings_path=settings, extra_env={}, args=['--read'])."
+    },
+    {
+      "file": "engineer/config/settings.yaml",
+      "line": 60,
+      "rule": "NAMING",
+      "message": "Top-level claim_emoji: 'raising_hand' (line 60) coexists with coordination.ticket_claim_emoji: 'eyes' (line 76). The rename fixed the coordination sub-key but left the old top-level key in place. If claim_emoji is the engineer-claiming emoji and ticket_claim_emoji is the multi-instance ticket-reservation emoji, both keys must be retained and their distinct purposes must be documented with inline comments. If they are the same concept, remove the old top-level key and update SKILL.md line 450 to read from coordination.ticket_claim_emoji."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "lint",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T03:49:16Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:02Z",
+      "coverage_tool": "py",
+      "files_checked": 8,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T03:49:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:07Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T03:49:14Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T03:49:22Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-09T18:27:44Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:05Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-09T18:28:18Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-13T02:37:38Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:27:56Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T03:49:34Z",
+      "fingerprint": "93009555722527fc3e35f01232f7ad1a",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 12000
+    }
+  },
+  "duration_seconds": 292910.0
+}
