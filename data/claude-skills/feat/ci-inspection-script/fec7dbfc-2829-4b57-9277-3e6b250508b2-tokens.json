@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "feat/ci-inspection-script",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-04T19:01:17.759Z",
+  "session_id": "fec7dbfc-2829-4b57-9277-3e6b250508b2",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 8,
+    "output": 599,
+    "cache_read": 75288,
+    "cache_create": 110716,
+    "est_cost_usd": 2.2339019999999996
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 186611,
+      "cost_usd": 2.2339019999999996
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "docs/tech-lead-serial-fallback",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-10T10:38:46.897Z",
+  "session_id": "e81c4e8e-4bf6-476a-a291-78a98e921755",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 174,
+    "output": 54047,
+    "cache_read": 12725875,
+    "cache_create": 436164,
+    "est_cost_usd": 31.3230225
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 13216260,
+      "cost_usd": 31.3230225
+    }
+  }
+}

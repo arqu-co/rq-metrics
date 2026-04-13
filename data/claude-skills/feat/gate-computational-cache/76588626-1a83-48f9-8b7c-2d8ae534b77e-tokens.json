@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "feat/gate-computational-cache",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-10T13:07:11.336Z",
+  "session_id": "76588626-1a83-48f9-8b7c-2d8ae534b77e",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 41,
+    "output": 8679,
+    "cache_read": 1575136,
+    "cache_create": 99966,
+    "est_cost_usd": 4.8886065
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 1683822,
+      "cost_usd": 4.8886065
+    }
+  }
+}

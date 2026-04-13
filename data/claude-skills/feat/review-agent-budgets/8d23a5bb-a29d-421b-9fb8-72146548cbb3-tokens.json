@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "feat/review-agent-budgets",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T00:56:32.037Z",
+  "session_id": "8d23a5bb-a29d-421b-9fb8-72146548cbb3",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 39,
+    "output": 1645,
+    "cache_read": 838007,
+    "cache_create": 195033,
+    "est_cost_usd": 5.03783925
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 1034724,
+      "cost_usd": 5.03783925
+    }
+  }
+}
