@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/36-rq-hooks-cross-repo-scoping",
+  "sha": "99a128e575931ea3199d6ee56b28c6a2a6f28cc1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-13T13:04:13Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1,
+    "DRY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "engineer/scripts/enforce-rq.sh",
+      "line": 134,
+      "rule": "COMPLEXITY",
+      "message": "PUSH CHECKS block has cyclomatic complexity of 11 (base 1 + IS_PUSH branch + &&-chain on phase_exists + 8 further if-branches). Exceeds max of 8. Extract the proof-file validation sequence and the tests.json runner check into named shell functions."
+    },
+    {
+      "file": "engineer/scripts/test_enforce_rq.py",
+      "line": 15,
+      "rule": "DRY",
+      "message": "_GIT_ENV (lines 15-21) and init_repo (lines 49-60) are duplicated verbatim from test_enforce_rq_write.py. A conftest.py already exists at engineer/scripts/conftest.py. Move both into conftest.py and import/use them from there."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "lint",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:04:10Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:02Z",
+      "coverage_tool": "py",
+      "files_checked": 8,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:01:59Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:07Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:04:08Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 111000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:02:01Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-09T18:27:44Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:05Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-09T18:28:18Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-13T13:02:17Z",
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:27:56Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:02:15Z",
+      "fingerprint": "ed2375861e7bfabc5f75087f5e25f60f",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 14000
+    }
+  },
+  "duration_seconds": 326186.0
+}
