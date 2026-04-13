@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/36-rq-hooks-cross-repo-scoping",
+  "sha": "99a128e575931ea3199d6ee56b28c6a2a6f28cc1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-13T13:04:11Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1,
+    "DRY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "engineer/scripts/enforce-rq.sh",
+      "line": 134,
+      "rule": "COMPLEXITY",
+      "message": "PUSH CHECKS block has cyclomatic complexity of 11 (base 1 + IS_PUSH branch + &&-chain on phase_exists + 8 further if-branches). Exceeds max of 8. Extract the proof-file validation sequence and the tests.json runner check into named shell functions."
+    },
+    {
+      "file": "engineer/scripts/test_enforce_rq.py",
+      "line": 15,
+      "rule": "DRY",
+      "message": "_GIT_ENV (lines 15-21) and init_repo (lines 49-60) are duplicated verbatim from test_enforce_rq_write.py. A conftest.py already exists at engineer/scripts/conftest.py. Move both into conftest.py and import/use them from there."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-13T13:04:10Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
