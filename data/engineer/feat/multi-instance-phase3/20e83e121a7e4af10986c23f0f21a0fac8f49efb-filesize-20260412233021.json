@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/multi-instance-phase3",
+  "sha": "20e83e121a7e4af10986c23f0f21a0fac8f49efb",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-13T03:30:21Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DRY": 1,
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "engineer/scripts/test_instance_id.py",
+      "line": 50,
+      "rule": "DRY",
+      "message": "import os appears inline at lines 50, 145, and 167. The _run_script helper imports os locally; the two --read mode tests (lines 137 and 162) bypass _run_script entirely and duplicate the subprocess.run setup verbatim. Move os to the top-level imports and extend _run_script to accept an optional args list so --read mode tests can call _run_script(tmp_path, settings_path=settings, extra_env={}, args=['--read'])."
+    },
+    {
+      "file": "engineer/config/settings.yaml",
+      "line": 60,
+      "rule": "NAMING",
+      "message": "Top-level claim_emoji: 'raising_hand' (line 60) coexists with coordination.ticket_claim_emoji: 'eyes' (line 76). The rename fixed the coordination sub-key but left the old top-level key in place. If claim_emoji is the engineer-claiming emoji and ticket_claim_emoji is the multi-instance ticket-reservation emoji, both keys must be retained and their distinct purposes must be documented with inline comments. If they are the same concept, remove the old top-level key and update SKILL.md line 450 to read from coordination.ticket_claim_emoji."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-13T03:30:20Z",
+      "files_checked": 5,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/gh_issues_api.py",
+          "lines": 385,
+          "max": 300
+        },
+        {
+          "file": "engineer/scripts/gh_issues_api_graphql.py",
+          "lines": 317,
+          "max": 300
+        },
+        {
+          "file": "engineer/scripts/test_gh_issues_api.py",
+          "lines": 447,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
