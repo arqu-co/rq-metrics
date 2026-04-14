@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "clearing-bulk-draft",
+  "sha": "3865f027946d4b8306ebed4ba74c59b48405aef8",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-14T22:39:40Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:40Z",
+      "scanned_files": 9,
+      "violations": 14,
+      "violations_details": [
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+          "line": 25,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+          "line": 28,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 44,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 47,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 50,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 53,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 56,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 59,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 62,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 65,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 68,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 71,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 74,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 77,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,331 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "clearing-bulk-draft",
+  "sha": "3865f027946d4b8306ebed4ba74c59b48405aef8",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-14T22:39:40Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-14T22:39:17Z",
+      "files_checked": 41,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:20Z",
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailThreadsControllerIntegrationTest.kt",
+          "name": "Matchers",
+          "line": 15
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "name": "ConditionalOnProperty",
+          "line": 17
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "name": "getDomainName",
+          "line": 37
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/controller/EmailController.kt",
+          "name": "EmailClassificationCategory",
+          "line": 4
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:14Z",
+      "files_checked": 41,
+      "violations": 21,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailThreadsControllerIntegrationTest.kt",
+          "lines": 393,
+          "max": 300
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/ClearingServiceIntegrationTest.kt",
+          "lines": 376,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/Initializer.kt",
+          "lines": 998,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalRequestBuilder.kt",
+          "lines": 597,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/DealClassifierTools.kt",
+          "lines": 344,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/QuoteExtractTools.kt",
+          "lines": 491,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/atlas/service/AtlasCorrectionService.kt",
+          "lines": 493,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/config/RedisClusterConfig.kt",
+          "lines": 675,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "lines": 317,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+          "lines": 2699,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/EmailController.kt",
+          "lines": 1084,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+          "lines": 994,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+          "lines": 907,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/DealService.kt",
+          "lines": 2504,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+          "lines": 1665,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/ProgramService.kt",
+          "lines": 998,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/UserGroupPrivilegeService.kt",
+          "lines": 451,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/UserGroupService.kt",
+          "lines": 380,
+          "max": 300
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/UserService.kt",
+          "lines": 662,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+          "lines": 340,
+          "max": 300
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "lines": 390,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:40Z",
+      "scanned_files": 9,
+      "violations": 14,
+      "violations_details": [
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+          "line": 25,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+          "line": 28,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 44,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 47,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 50,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 53,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 56,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 59,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 62,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 65,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 68,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 71,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 74,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+          "line": 77,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "54fe2652ad34cbff88c0a4b97c6421b5",
+      "missing_tests": 41,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/core/controller/EmailThreadsControllerIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/core/controller/ProgramLineItemTargetsPersistenceIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/core/service/ClearingServiceIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/user/UserServiceConditionalFailIntegrationTest.kt",
+        "src/main/kotlin/co/arqu/Initializer.kt",
+        "src/main/kotlin/co/arqu/ai/v2/agent/autonomous/Planner.kt",
+        "src/main/kotlin/co/arqu/ai/v2/agent/intent/EmailIntentClassifierAgent.kt",
+        "src/main/kotlin/co/arqu/ai/v2/approval/ApprovalRequestBuilder.kt",
+        "src/main/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandler.kt",
+        "src/main/kotlin/co/arqu/ai/v2/tool/DealClassifierTools.kt",
+        "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+        "src/main/kotlin/co/arqu/ai/v2/tool/QuoteExtractTools.kt",
+        "src/main/kotlin/co/arqu/atlas/db/AtlasMessageExtraction.kt",
+        "src/main/kotlin/co/arqu/atlas/model/EmailClassificationCategory.kt",
+        "src/main/kotlin/co/arqu/atlas/service/AtlasCorrectionService.kt",
+        "src/main/kotlin/co/arqu/atlas/service/AtlasExtractionAsyncService.kt",
+        "src/main/kotlin/co/arqu/client/MailosaurClient.kt",
+        "src/main/kotlin/co/arqu/config/RedisClusterConfig.kt",
+        "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+        "src/main/kotlin/co/arqu/core/controller/DealController.kt",
+        "src/main/kotlin/co/arqu/core/controller/EmailController.kt",
+        "src/main/kotlin/co/arqu/core/controller/MessagingController.kt",
+        "src/main/kotlin/co/arqu/core/dto/EmailDto.kt",
+        "src/main/kotlin/co/arqu/core/dto/MessageDto.kt",
+        "src/main/kotlin/co/arqu/core/repository/DealRepository.kt",
+        "src/main/kotlin/co/arqu/core/repository/ProgramRepository.kt",
+        "src/main/kotlin/co/arqu/core/repository/UserGroupPrivilegeRepository.kt",
+        "src/main/kotlin/co/arqu/core/service/ClearingService.kt",
+        "src/main/kotlin/co/arqu/core/service/DealService.kt",
+        "src/main/kotlin/co/arqu/core/service/EmailClassificationService.kt",
+        "src/main/kotlin/co/arqu/core/service/EmailService.kt",
+        "src/main/kotlin/co/arqu/core/service/ProgramService.kt",
+        "src/main/kotlin/co/arqu/core/service/UserGroupPrivilegeService.kt",
+        "src/main/kotlin/co/arqu/core/service/UserGroupService.kt",
+        "src/main/kotlin/co/arqu/user/UserRepository.kt",
+        "src/main/kotlin/co/arqu/user/UserService.kt",
+        "src/unitTest/kotlin/co/arqu/ai/v2/approval/PtlSelectionApprovalHandlerTest.kt",
+        "src/unitTest/kotlin/co/arqu/ai/v2/tool/QuoteExtractToolsTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceFanOutTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceStateTransitionTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/ClearingServiceValidateRelatedRecipientsTest.kt"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 18000
+    }
+  },
+  "duration_seconds": 26.0
+}

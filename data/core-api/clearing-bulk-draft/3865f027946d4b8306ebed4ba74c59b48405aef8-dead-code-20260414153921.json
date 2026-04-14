@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "clearing-bulk-draft",
+  "sha": "3865f027946d4b8306ebed4ba74c59b48405aef8",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-14T22:39:21Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T22:39:20Z",
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailThreadsControllerIntegrationTest.kt",
+          "name": "Matchers",
+          "line": 15
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/ai/v2/tool/EmailIntentClassifierTools.kt",
+          "name": "ConditionalOnProperty",
+          "line": 17
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/controller/ClearingController.kt",
+          "name": "getDomainName",
+          "line": 37
+        },
+        {
+          "type": "unused_import",
+          "file": "src/main/kotlin/co/arqu/core/controller/EmailController.kt",
+          "name": "EmailClassificationCategory",
+          "line": 4
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
