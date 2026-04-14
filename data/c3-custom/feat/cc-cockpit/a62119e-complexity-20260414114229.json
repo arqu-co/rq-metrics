@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "repo": "c3-custom",
+  "branch": "feat/cc-cockpit",
+  "sha": "a62119e",
+  "user": "unknown",
+  "timestamp": "2026-04-14T15:42:29Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T15:42:29Z",
+      "files_checked": 29,
+      "violations": 22,
+      "violations_details": [
+        {
+          "file": "client/src/App.tsx",
+          "function": "App",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/TagPopover.tsx",
+          "function": "TagPopover",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "function": "useTerminalSessions",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/TerminalPanel.tsx",
+          "function": "TerminalPanel",
+          "complexity": 30,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/TerminalPanel.tsx",
+          "function": "TerminalPanel",
+          "lines": 171,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 27,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "lines": 194,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "classifyBranch",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "determineAttention",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchCIStatus",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchReviewDetails",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchCIStatus",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchReviewDetails",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/useBranches.ts",
+          "function": "useBranches",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/worktree-manager.ts",
+          "function": "ensureWorktree",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/worktree-manager.ts",
+          "function": "ensureWorktree",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "parseSessionFile",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/app.ts",
+          "function": "createApp",
+          "lines": 184,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "repo": "c3-custom",
+  "branch": "feat/cc-cockpit",
+  "sha": "a62119e",
+  "user": "unknown",
+  "timestamp": "2026-04-14T15:42:35Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T15:42:35Z",
+      "fingerprint": "565c44f0b9b6dea6e04836b403626f4d",
+      "test_runner": "vitest",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 11,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/c3-custom/node_modules/vitest/dist/chunks/cac.wyYWMVI-.js:406\n          throw new CACError(`Unknown option \\`${name.length > 1 ? `--${name}` : `-${name}`}\\``);\n                ^\n\nCACError: Unknown option `--changedSince`\n    at Command.checkUnknownOptions (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/c3-custom/node_modules/vitest/dist/chunks/cac.wyYWMVI-.js:406:17)\n    at CAC.runMatchedCommand (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/c3-custom/node_modules/vitest/dist/chunks/cac.wyYWMVI-.js:606:13)\n    at CAC.parse (file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/c3-custom/node_modules/vitest/dist/chunks/cac.wyYWMVI-.js:547:12)\n    at file:///Users/aliciadrinkwater/Desktop/01%20arqu/03%20prototypes/c3-custom/node_modules/vitest/dist/cli.js:11:13\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.0"
+        }
+      ],
+      "missing_tests_details": [
+        "client/src/App.tsx",
+        "client/src/components/BranchOverview.tsx",
+        "client/src/components/Sidebar.tsx",
+        "client/src/components/TagPopover.tsx",
+        "client/src/components/TerminalPanel.tsx",
+        "client/src/hooks/useBranchOverview.ts",
+        "client/src/hooks/useBranches.ts",
+        "client/src/hooks/useTerminalSessions.ts",
+        "client/src/main.tsx",
+        "server/app.ts",
+        "server/types.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
