@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "repo": "feat-slt-integration",
+  "branch": "feat/slt-integration",
+  "sha": "8d7caa78",
+  "user": "unknown",
+  "timestamp": "2026-04-14T19:17:32Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T19:16:51Z",
+      "files_checked": 64,
+      "violations": 20,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/utils/email-styles.ts",
+          "function": "scopeCss",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/email-styles.ts",
+          "function": "scopeCss",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useSendAsAliases.ts",
+          "function": "useSendAsAliases",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 230,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/config/env-validation.ts",
+          "function": "validateEnvVars",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useEmailClassification.ts",
+          "function": "classifyCurrentEmail",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useEmailClassification.ts",
+          "function": "useEmailClassification",
+          "lines": 193,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useEmailClassification.ts",
+          "function": "classifyCurrentEmail",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useContactSearch.ts",
+          "function": "useContactSearch",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useComparisons.ts",
+          "function": "useComparisons",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.ts",
+          "function": "useInboxRouteSync",
+          "lines": 255,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/usePtlSelection.ts",
+          "function": "autoSelectDownstream",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/usePtlSelection.ts",
+          "function": "usePtlSelection",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "getSurplusTaxesAndFeesTotal",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/lib/utils/slt.ts",
+          "function": "formatSltBreakdown",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "function": "useDealHub",
+          "lines": 449,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDealLabelNavigation.ts",
+          "function": "applyLabelAndNavigate",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useDealLabelNavigation.ts",
+          "function": "useDealLabelNavigation",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDealLabelNavigation.ts",
+          "function": "applyLabelAndNavigate",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T15:49:16Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T19:16:54Z",
+      "violations": 22,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/App.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/FromAddressSelector.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/DealMailListPane.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/InboxPage.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/InboxPagination.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/ai-chat-panel.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/button/Button.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/calendar-invite-card/CalendarInviteCard.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.test.ts",
+          "name": "type ComparisonsRisklabService",
+          "line": 4
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useComparisons.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useContactSearch.ts",
+          "name": "type DealRecipient",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useEmailClassification.ts",
+          "name": "type DealLabelAlternative",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.ts",
+          "name": "type MaybeRefOrGetter",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.test.ts",
+          "name": "type PtlProgramService",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/usePtlSelection.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/contact/index.ts",
+          "name": "type HubspotContactDto",
+          "line": 3
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-14T15:49:17Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T19:16:50Z",
+      "files_checked": 78,
+      "violations": 12,
+      "violations_details": [
+        {
+          "file": "docs/plans/2026-03-19-button-glow-prop.md",
+          "lines": 605,
+          "max": 500
+        },
+        {
+          "file": "docs/plans/2026-03-24-inbox-view-mode.md",
+          "lines": 765,
+          "max": 500
+        },
+        {
+          "file": "docs/plans/2026-03-27-slt-integration.md",
+          "lines": 1344,
+          "max": 500
+        },
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "lines": 718,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/compose-utils.test.ts",
+          "lines": 584,
+          "max": 300
+        },
+        {
+          "file": "src/components/ui/button/Button.stories.ts",
+          "lines": 338,
+          "max": 300
+        },
+        {
+          "file": "src/components/ui/button/Button.test.ts",
+          "lines": 981,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useDealHub.ts",
+          "lines": 519,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "lines": 710,
+          "max": 300
+        },
+        {
+          "file": "src/services/activity/index.ts",
+          "lines": 351,
+          "max": 300
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "lines": 1519,
+          "max": 300
+        },
+        {
+          "file": "src/stores/inbox.ts",
+          "lines": 906,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T19:17:29Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+- Add `eslint-disable`, `@ts-ignore`, `@ts-expect-error`, or any lint suppression\n+// @ts-expect-error - jest-axe types are not fully compatible with vitest\n\n"
+        }
+      ],
+      "duration_ms": 35000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-14T15:49:16Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T19:17:31Z",
+      "scanned_files": 33,
+      "violations": 17,
+      "violations_details": [
+        {
+          "file": "src/components/ai-chat/AIChatBox.test.ts",
+          "line": 539,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 31,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock('./useDealContextSession', () => ({"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 73,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 74,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadIndividualEmails').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 75,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadDealMessagesFromApi').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 76,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearConversations').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 77,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearAll').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 266,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 267,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'loading', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 283,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 599,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 600,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 601,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 622,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 623,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 29,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 30,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T15:49:13Z",
+      "test_runner": "bin-test",
+      "fingerprint": "cedc5c76fcf15679630e227ad378e907",
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/components/ui/button/Button.stories.ts",
+        "src/components/ui/calendar-invite-card/CalendarInviteCard.stories.ts",
+        "src/composables/useEmailClassification.ts",
+        "src/types/risklab.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " 4 \u2502 import { defineConfig } from 'vite'\n   \u2502                              \u2500\u2500\u2500\u252c\u2500\u2500  \n   \u2502                                 \u2570\u2500\u2500\u2500\u2500 Module not found, treating it as an external dependency\n\u2500\u2500\u2500\u256f\n\nfailed to load config from /Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/.cc-worktrees/doubtfire-client/feat-slt-integration/vitest.config.ts\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Startup Error \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\nError [ERR_MODULE_NOT_FOUND]: Cannot find package 'vitest' imported from /Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/.cc-worktrees/doubtfire-client/feat-slt-integration/vitest.config.ts.timestamp-1776181753923-a93f1865772f8.mjs\n    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)\n    at packageResolve (node:internal/modules/esm/resolve:768:81)\n    at moduleResolve (node:internal/modules/esm/resolve:854:18)\n    at defaultResolve (node:internal/modules/esm/resolve:984:11)\n    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:780:12)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:25)\n    at ModuleLoader.resolve (node:internal/modules/esm/loader:687:38)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:305:38)\n    at ModuleJob._link (node:internal/modules/esm/module_job:175:49) {\n  code: 'ERR_MODULE_NOT_FOUND'\n}"
+        }
+      ]
+    }
+  },
+  "duration_seconds": 12498.0
+}
