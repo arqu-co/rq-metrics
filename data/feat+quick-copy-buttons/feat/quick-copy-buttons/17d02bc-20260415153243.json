@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "repo": "feat+quick-copy-buttons",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "17d02bc",
+  "user": "unknown",
+  "timestamp": "2026-04-15T19:32:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:26Z",
+      "files_checked": 27,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:42Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T18:52:44Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:26Z",
+      "files_checked": 27,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T19:32:31Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "server/routes/branch-routes.test.ts(55,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(56,7): error TS2741: Property 'isCurrent' is missing in type '{ repo: string; name: string; directory: string; worktreePath: string; isWorktree: true; lastCommitDate: string; }' but required in type 'LocalBranch'.\nserver/routes/branch-routes.test.ts(66,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(67,57): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(154,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(155,7): error TS2741: Property 'isCurrent' is missing in type '{ repo: string; name: string; directory: string; worktreePath: string; isWorktree: true; lastCommitDate: string; }' but required in type 'LocalBranch'.\nserver/routes/branch-routes.test.ts(168,54): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(169,54): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "server/routes/branch-routes.test.ts(55,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(56,7): error TS2741: Property 'isCurrent' is missing in type '{ repo: string; name: string; directory: string; worktreePath: string; isWorktree: true; lastCommitDate: string; }' but required in type 'LocalBranch'.\nserver/routes/branch-routes.test.ts(66,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(67,57): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(154,53): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(155,7): error TS2741: Property 'isCurrent' is missing in type '{ repo: string; name: string; directory: string; worktreePath: string; isWorktree: true; lastCommitDate: string; }' but required in type 'LocalBranch'.\nserver/routes/branch-routes.test.ts(168,54): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\nserver/routes/branch-routes.test.ts(169,54): error TS2322: Type 'null' is not assignable to type 'string | undefined'.\n"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T18:52:43Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:42Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T19:32:41Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e6b8d868e329aeb7e6a7276a9e69d1e7",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 10000
+    }
+  },
+  "duration_seconds": 2399.0
+}
