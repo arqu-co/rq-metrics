@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "fix+github-rate-limit",
+  "branch": "worktree-fix+github-rate-limit",
+  "sha": "79b09ad",
+  "user": "unknown",
+  "timestamp": "2026-04-15T21:31:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "qa",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T21:05:54Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
