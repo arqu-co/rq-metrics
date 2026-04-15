@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "repo": "fix+hmr-ws-proxy",
+  "branch": "fix/hmr-ws-proxy",
+  "sha": "f1235a9",
+  "user": "unknown",
+  "timestamp": "2026-04-15T20:16:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:32Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:16:38Z",
+      "coverage_tool": "js",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "server/ws-upgrade-proxy.ts",
+          "coverage": 94.73,
+          "min": 95
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:16:33Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type Server",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type IncomingMessage",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type Socket",
+          "line": 3
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:38Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:32Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:36Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:38Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:16:38Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:16:37Z",
+      "fingerprint": "c23b32700cf6ca3b77af4e324e22bafa",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "server/index.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 1000
+    }
+  },
+  "duration_seconds": 6.0
+}

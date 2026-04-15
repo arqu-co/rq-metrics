@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "repo": "fix+hmr-ws-proxy",
+  "branch": "fix/hmr-ws-proxy",
+  "sha": "f1235a9",
+  "user": "unknown",
+  "timestamp": "2026-04-15T20:16:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:16:33Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type Server",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type IncomingMessage",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/ws-upgrade-proxy.test.ts",
+          "name": "type Socket",
+          "line": 3
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
