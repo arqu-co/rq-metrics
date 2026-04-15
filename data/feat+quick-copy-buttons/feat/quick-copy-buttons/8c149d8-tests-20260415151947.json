@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "feat+quick-copy-buttons",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "8c149d8",
+  "user": "unknown",
+  "timestamp": "2026-04-15T19:19:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T19:19:46Z",
+      "test_runner": "bin-test",
+      "fingerprint": "63966ec122b55565d98f55ca38844a81",
+      "missing_tests": 5,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "client/src/components/AppHeader.tsx",
+        "server/routes/branch-meta-routes.ts",
+        "server/routes/branch-routes.ts",
+        "server/routes/ci-routes.ts",
+        "server/routes/misc-routes.ts"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
