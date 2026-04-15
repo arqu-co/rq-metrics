@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "repo": "feat+quick-copy-buttons",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "f3167fa",
+  "user": "unknown",
+  "timestamp": "2026-04-15T20:45:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:44:42Z",
+      "files_checked": 29,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "lines": 239,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "autoClassifyBranch",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "complexity": 30,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "lines": 237,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:44:59Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:44:43Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T18:52:44Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:44:41Z",
+      "files_checked": 29,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "lines": 366,
+          "max": 300
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "lines": 416,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:44:47Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T18:52:43Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:44:58Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 11000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:44:58Z",
+      "fingerprint": "39a2a1e1bcafc70515c77600dd0e97f8",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/BranchOverview.tsx",
+        "client/src/components/Sidebar.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 6736.0
+}

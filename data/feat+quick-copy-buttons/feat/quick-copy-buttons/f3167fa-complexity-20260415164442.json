@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "repo": "feat+quick-copy-buttons",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "f3167fa",
+  "user": "unknown",
+  "timestamp": "2026-04-15T20:44:42Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:44:42Z",
+      "files_checked": 29,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "lines": 239,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "autoClassifyBranch",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "complexity": 30,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "lines": 237,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

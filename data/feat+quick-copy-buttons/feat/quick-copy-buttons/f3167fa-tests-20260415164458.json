@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "feat+quick-copy-buttons",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "f3167fa",
+  "user": "unknown",
+  "timestamp": "2026-04-15T20:44:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T20:44:58Z",
+      "fingerprint": "39a2a1e1bcafc70515c77600dd0e97f8",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/BranchOverview.tsx",
+        "client/src/components/Sidebar.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
