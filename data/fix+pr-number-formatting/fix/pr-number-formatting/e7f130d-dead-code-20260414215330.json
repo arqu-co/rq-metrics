@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "repo": "fix+pr-number-formatting",
+  "branch": "fix/pr-number-formatting",
+  "sha": "e7f130d",
+  "user": "unknown",
+  "timestamp": "2026-04-15T01:53:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T01:53:30Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/hooks/useBranches.test.ts",
+          "name": "ClaudeSession",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "client/src/hooks/useBranches.test.ts",
+          "name": "BranchMeta",
+          "line": 2
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
