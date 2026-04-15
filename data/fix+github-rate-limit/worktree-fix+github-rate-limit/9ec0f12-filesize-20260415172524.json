@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "fix+github-rate-limit",
+  "branch": "worktree-fix+github-rate-limit",
+  "sha": "9ec0f12",
+  "user": "unknown",
+  "timestamp": "2026-04-15T21:25:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T21:25:23Z",
+      "files_checked": 37,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/__tests__/github-poller-ci.test.ts",
+          "lines": 312,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

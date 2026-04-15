@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "repo": "fix+github-rate-limit",
+  "branch": "worktree-fix+github-rate-limit",
+  "sha": "9ec0f12",
+  "user": "unknown",
+  "timestamp": "2026-04-15T21:25:40Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T21:25:40Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a79bbde6c531a585836bb97a538beca1",
+      "failed_subprojects": 0,
+      "missing_tests": 3,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "server/app-routes-branches.ts",
+        "server/app-routes-ci.ts",
+        "server/app-routes-meta.ts"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
