@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "feat+preview-branch-link",
+  "branch": "worktree-feat+preview-branch-link",
+  "sha": "dcac2a1",
+  "user": "unknown",
+  "timestamp": "2026-04-15T18:43:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T18:43:31Z",
+      "fingerprint": "3069beb0010435906fb89b131025744f",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/hooks/useBranchOverview.ts",
+        "server/types.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
