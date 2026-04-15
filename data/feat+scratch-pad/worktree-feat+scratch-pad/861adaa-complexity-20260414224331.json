@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "repo": "feat+scratch-pad",
+  "branch": "worktree-feat+scratch-pad",
+  "sha": "861adaa",
+  "user": "unknown",
+  "timestamp": "2026-04-15T02:43:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T02:43:31Z",
+      "files_checked": 17,
+      "violations": 17,
+      "violations_details": [
+        {
+          "file": "client/src/App.tsx",
+          "function": "App",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/useBranches.ts",
+          "function": "useBranches",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "function": "useTerminalSessions",
+          "lines": 183,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "determineAttention",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchCIStatus",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchReviewDetails",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchCIStatus",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/github-poller.ts",
+          "function": "fetchReviewDetails",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/app.ts",
+          "function": "createApp",
+          "lines": 261,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "lines": 239,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/ScratchPad.tsx",
+          "function": "ScratchPad",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "autoClassifyBranch",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "complexity": 30,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "BranchCard",
+          "lines": 237,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
