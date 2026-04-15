@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "repo": "feat+preview-branch-link",
+  "branch": "worktree-feat+preview-branch-link",
+  "sha": "1e773bc",
+  "user": "unknown",
+  "timestamp": "2026-04-15T18:52:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T18:52:51Z",
+      "files_checked": 18,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "derive",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "parsePlanProgress",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "findLatestPlanFile",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "parsePlanProgress",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "findLatestPlanFile",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
