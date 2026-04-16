@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "repo": "feat+state-management-audit",
+  "branch": "feat/state-management-audit",
+  "sha": "2921d6f",
+  "user": "unknown",
+  "timestamp": "2026-04-16T17:23:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/branch-overview-helpers.tsx",
+      "line": 26,
+      "rule": "COMPLEXITY",
+      "message": "getAlerts() cyclomatic complexity is 10 (max 8). The 2 new if-blocks for ci_stale and approval_stale pushed it from 8 to 10. Extract a data-driven approach: define an array of {attentionKey, icon, label, color} objects and iterate, or split into getCIAlerts + getReviewAlerts helpers."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:23:50Z",
+      "coverage_tool": "js",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "server/github-poller.ts",
+          "coverage": 89.24,
+          "min": 95
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "coverage": 12.26,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
