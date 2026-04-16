@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "fix+vite-host-rewrite",
+  "branch": "fix/vite-host-rewrite",
+  "sha": "66eee35",
+  "user": "unknown",
+  "timestamp": "2026-04-16T19:08:35Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:08:35Z",
+      "fingerprint": "a4c1c548fdb12eb2d27801dcdd5d99d0",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
