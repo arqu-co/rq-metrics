@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "fix+dns-branch-routing-36",
+  "branch": "fix/dns-branch-routing-36",
+  "sha": "007165e",
+  "user": "unknown",
+  "timestamp": "2026-04-16T18:05:18Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T18:05:18Z",
+      "fingerprint": "1aa47f63458c1903cb04ac6b7302eec9",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
