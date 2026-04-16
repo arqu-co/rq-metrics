@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "infra",
+  "branch": "fix/okta-secrets-rotate-parse",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-16T14:56:00.824Z",
+  "session_id": "d9004fb4-5d00-4f1b-88d8-382013123c54",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 369,
+    "output": 248960,
+    "cache_read": 27117772,
+    "cache_create": 729745,
+    "est_cost_usd": 71.04290115
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 23508414,
+      "cost_usd": 63.27194025
+    },
+    "review": {
+      "tokens": 3988941,
+      "cost_usd": 7.272458250000001
+    },
+    "unknown": {
+      "tokens": 599491,
+      "cost_usd": 0.49850265
+    }
+  }
+}
