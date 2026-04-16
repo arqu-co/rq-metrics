@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "fix/hide-default-branches",
+  "sha": "50f686e",
+  "user": "unknown",
+  "timestamp": "2026-04-16T19:54:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T19:54:28Z",
+      "files_checked": 4,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "server/branch-listing.ts",
+          "function": "autoClassify",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/local-branch-scanner.ts",
+          "function": "scanRepoBranches",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
