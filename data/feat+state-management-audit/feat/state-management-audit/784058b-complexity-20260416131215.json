@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "repo": "feat+state-management-audit",
+  "branch": "feat/state-management-audit",
+  "sha": "784058b",
+  "user": "unknown",
+  "timestamp": "2026-04-16T17:12:15Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/branch-overview-helpers.tsx",
+      "line": 26,
+      "rule": "COMPLEXITY",
+      "message": "getAlerts() cyclomatic complexity is 10 (max 8). The 2 new if-blocks for ci_stale and approval_stale pushed it from 8 to 10. Extract a data-driven approach: define an array of {attentionKey, icon, label, color} objects and iterate, or split into getCIAlerts + getReviewAlerts helpers."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:15Z",
+      "files_checked": 32,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "server/state-invariants.ts",
+          "function": "validatePullRequestInvariants",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/branch-overview-helpers.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "shared/classify-branch.ts",
+          "function": "autoClassify",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "BranchCard",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "CardHeader",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "BranchCard",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "StatusMenu",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "loadSessions",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "parseSessionFile",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "loadSessions",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/ci-ticker.ts",
+          "function": "runRefreshCycle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
