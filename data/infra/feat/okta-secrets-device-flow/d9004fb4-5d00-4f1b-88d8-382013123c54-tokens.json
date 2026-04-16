@@ -1,0 +1,42 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "infra",
+  "branch": "feat/okta-secrets-device-flow",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-16T14:56:00.824Z",
+  "session_id": "d9004fb4-5d00-4f1b-88d8-382013123c54",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 796,
+    "output": 409036,
+    "cache_read": 75202899,
+    "cache_create": 1468204,
+    "est_cost_usd": 169.0288029
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 23508414,
+      "cost_usd": 63.27194025
+    },
+    "review": {
+      "tokens": 22477964,
+      "cost_usd": 46.24719675
+    },
+    "ship": {
+      "tokens": 30495066,
+      "cost_usd": 59.01116325
+    },
+    "unknown": {
+      "tokens": 599491,
+      "cost_usd": 0.49850265
+    }
+  }
+}
