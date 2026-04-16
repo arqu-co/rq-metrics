@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "repo": "feat+state-management-audit",
+  "branch": "feat/state-management-audit",
+  "sha": "39f8203",
+  "user": "unknown",
+  "timestamp": "2026-04-16T19:24:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/branch-overview-helpers.tsx",
+      "line": 26,
+      "rule": "COMPLEXITY",
+      "message": "getAlerts() cyclomatic complexity is 10 (max 8). The 2 new if-blocks for ci_stale and approval_stale pushed it from 8 to 10. Extract a data-driven approach: define an array of {attentionKey, icon, label, color} objects and iterate, or split into getCIAlerts + getReviewAlerts helpers."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:24:39Z",
+      "scanned_files": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
