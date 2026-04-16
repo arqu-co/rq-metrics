@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "repo": "feat-slt-integration",
+  "branch": "feat/slt-integration",
+  "sha": "c2f25d0b",
+  "user": "unknown",
+  "timestamp": "2026-04-16T21:53:52Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T21:53:52Z",
+      "files_checked": 22,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "docs/plans/2026-03-27-slt-integration.md",
+          "lines": 1344,
+          "max": 500
+        },
+        {
+          "file": "docs/plans/2026-04-02-slt-column-aligned-panel.md",
+          "lines": 1541,
+          "max": 500
+        },
+        {
+          "file": "src/components/deal/CreateProgramModal.test.ts",
+          "lines": 488,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useBillingInvoices.ts",
+          "lines": 338,
+          "max": 300
+        },
+        {
+          "file": "src/services/activity/index.ts",
+          "lines": 351,
+          "max": 300
+        },
+        {
+          "file": "src/services/billing/billing.test.ts",
+          "lines": 330,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

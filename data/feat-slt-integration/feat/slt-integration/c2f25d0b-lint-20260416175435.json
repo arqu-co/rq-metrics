@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "feat-slt-integration",
+  "branch": "feat/slt-integration",
+  "sha": "c2f25d0b",
+  "user": "unknown",
+  "timestamp": "2026-04-16T21:54:35Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T21:54:35Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "src/components/layout/KickoffProgressHeader.vue(319,5): error TS2353: Object literal may only specify known properties, and 'skipSovPopulation' does not exist in type 'CreateDealRequest'.\nsrc/composables/useGoogleMaps.ts(1,43): error TS2307: Cannot find module '@googlemaps/js-api-loader' or its corresponding type declarations.\nsrc/services/compose/index.ts(189,55): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'RawAxiosRequestConfig | undefined'.\n  Type 'string' has no properties in common with type 'AxiosRequestConfig<any>'.\nsrc/services/compose/index.ts(237,41): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'RawAxiosRequestConfig | undefined'.\n  Type 'string' has no properties in common with type 'AxiosRequestConfig<any>'.\nsrc/services/compose/index.ts(304,56): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'RawAxiosRequestConfig | undefined'.\n  Type 'string' has no properties in common with type 'AxiosRequestConfig<any>'.\nsrc/services/deal/transform.ts(27,34): error TS2339: Property 'classification' does not exist on type 'EmailDto'.\nsrc/services/inbox/classification.ts(3,15): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'TriggerEmailClassificationResponse'.\nsrc/services/inbox/classification.ts(3,51): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'UpdateEmailClassificationRequest'.\nsrc/services/inbox/classification.ts(19,35): error TS2339: Property 'getClassification' does not exist on type 'EmailApi'.\nsrc/services/inbox/classification.ts(73,18): error TS2339: Property 'updateClassification' does not exist on type 'EmailApi'.\nsrc/services/inbox/classification.ts(89,35): error TS2339: Property 'triggerClassification' does not exist on type 'EmailApi'.\nsrc/services/inbox/index.ts(179,32): error TS2339: Property 'classification' does not exist on type 'MessageDto'.\nsrc/services/risklab/index.ts(126,51): error TS2339: Property 'atlasDocumentId' does not exist on type 'DocumentDto'.\nsrc/services/risklab/index.ts(126,74): error TS2339: Property 'atlasExtractionId' does not exist on type 'DocumentDto'.\nsrc/services/risklab/index.ts(127,55): error TS2339: Property 'atlasDocumentId' does not exist on type 'DocumentDto'.\nsrc/services/risklab/index.ts(127,79): error TS2339: Property 'atlasExtractionId' does not exist on type 'DocumentDto'.\nsrc/services/risklab/index.ts(133,30): error TS2339: Property 'atlasDocumentId' does not exist on type 'DocumentDto'.\nsrc/services/risklab/index.ts(134,26): error TS2339: Property 'atlasExtractionId' does not exist on type 'DocumentDto'.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
