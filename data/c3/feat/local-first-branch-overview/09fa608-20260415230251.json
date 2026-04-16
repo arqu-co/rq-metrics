@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/local-first-branch-overview",
+  "sha": "09fa608",
+  "user": "unknown",
+  "timestamp": "2026-04-16T03:02:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T03:02:43Z",
+      "files_checked": 12,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "client/src/components/branch-overview-helpers.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "parsePlanProgress",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "findLatestPlanFile",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "parsePlanProgress",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "function": "findLatestPlanFile",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "lines": 234,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/app.ts",
+          "function": "createApp",
+          "lines": 266,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T03:02:50Z",
+      "coverage_tool": "js",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "server/app.ts",
+          "coverage": 37.41,
+          "min": 95
+        },
+        {
+          "file": "server/branch-overview.ts",
+          "coverage": 62.82,
+          "min": 95
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T03:02:43Z",
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/app.ts",
+          "name": "existsSync",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "server/app.ts",
+          "name": "statSync",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "server/app.ts",
+          "name": "type GitHubEnrichmentResponse",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "server/github-enrichment.ts",
+          "name": "type GitHubErrorCode",
+          "line": 4
+        }
+      ],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:51Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:42Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:47Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:51Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:50Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T03:02:50Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f228b4d426accf09caf97043694c3fab",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/BranchOverview.tsx",
+        "client/src/components/branch-overview-helpers.tsx",
+        "client/src/hooks/useBranchGitHub.ts",
+        "client/src/hooks/useBranchPlan.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 9.0
+}
