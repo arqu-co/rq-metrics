@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "19c72c6afbd0464570b2c1a3bc51efd767a4c1f7",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-17T18:05:17Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:05:16Z",
+      "files_checked": 23,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/composables/useInvoiceMutations.test.ts",
+          "lines": 387,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
