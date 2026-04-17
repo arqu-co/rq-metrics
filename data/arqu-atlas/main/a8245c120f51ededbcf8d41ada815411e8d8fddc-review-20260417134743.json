@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "main",
+  "sha": "a8245c120f51ededbcf8d41ada815411e8d8fddc",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T20:47:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T20:47:43Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
