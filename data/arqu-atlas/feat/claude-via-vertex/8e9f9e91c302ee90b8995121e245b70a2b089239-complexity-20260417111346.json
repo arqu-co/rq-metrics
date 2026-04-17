@@ -1,0 +1,97 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/claude-via-vertex",
+  "sha": "8e9f9e91c302ee90b8995121e245b70a2b089239",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T18:13:46Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:13:46Z",
+      "files_checked": 11,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_response_parser.py",
+          "function": "AnthropicResponseParser",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_vertex_request_builder.py",
+          "function": "AnthropicVertexRequestBuilder",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/client.py",
+          "function": "GeminiClient",
+          "lines": 209,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "__post_init__",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/common/test_anthropic_response_parser.py",
+          "function": "TestAnthropicResponseParser",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_anthropic_vertex_request_builder.py",
+          "function": "TestAnthropicVertexRequestBuilder",
+          "lines": 112,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "function": "TestAnthropicRouting",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

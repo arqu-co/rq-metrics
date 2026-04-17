@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/claude-via-vertex",
+  "sha": "8e9f9e91c302ee90b8995121e245b70a2b089239",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T18:13:49Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "review",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:13:49Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
