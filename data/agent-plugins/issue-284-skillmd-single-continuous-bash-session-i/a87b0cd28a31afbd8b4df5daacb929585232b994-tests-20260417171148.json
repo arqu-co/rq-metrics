@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-284-skillmd-single-continuous-bash-session-i",
+  "sha": "a87b0cd28a31afbd8b4df5daacb929585232b994",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:11:47Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:11:46Z",
+      "test_runner": "bin-test",
+      "fingerprint": "b65209a84d2b899c61faab360735a75d",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "plugins/rq/scripts/_skill_isolation_allowlist.py"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
