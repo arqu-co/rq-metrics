@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "2902d54316c499a3e119826d412d778677fdd3f2",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-17T17:28:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:26:38Z",
+      "files_checked": 21,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:26:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:26:35Z",
+      "files_checked": 21,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:27:28Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 49000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:28:08Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:28:07Z",
+      "fingerprint": "73bb22997f712a2c759609e0525686a0",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 39000
+    }
+  },
+  "duration_seconds": 93.0
+}
