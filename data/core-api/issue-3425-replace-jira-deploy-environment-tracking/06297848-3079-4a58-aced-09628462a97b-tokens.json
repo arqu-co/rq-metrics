@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "jaunty-gathering-bonbon",
+  "branch": "issue-3425-replace-jira-deploy-environment-tracking",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T19:07:40.675Z",
+  "session_id": "06297848-3079-4a58-aced-09628462a97b",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5640,
+    "output": 327959,
+    "cache_read": 76815804,
+    "cache_create": 1699535,
+    "est_cost_usd": 8.50072649
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 40135874,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 23549091,
+      "cost_usd": 3.0221949
+    },
+    "unknown": {
+      "tokens": 15163973,
+      "cost_usd": 5.47853159
+    }
+  }
+}
