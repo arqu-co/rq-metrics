@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/register-cloud-plugins",
+  "sha": "26a5eda9c1f73b2ad3f9bbc83697209c0221a6c5",
+  "user": "Jerrod Blavos",
+  "user_email": "jerrodblavos@mac.com",
+  "timestamp": "2026-04-17T20:56:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T20:56:51Z",
+      "fingerprint": "8cd7aac8298a170e7372c9ac8b7b455c",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "bin/prove-codex: marketplace path mismatch (got '/Users/jerrod/.agents/plugins/marketplace.json', want '/Users/jerrod/Sites/agent-plugins/.claude/worktrees/elegant-wiggling-acorn/codex/.agents/plugins/marketplace.json')"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
