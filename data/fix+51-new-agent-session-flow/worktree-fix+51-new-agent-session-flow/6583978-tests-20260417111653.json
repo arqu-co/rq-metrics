@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "fix+51-new-agent-session-flow",
+  "branch": "worktree-fix+51-new-agent-session-flow",
+  "sha": "6583978",
+  "user": "unknown",
+  "timestamp": "2026-04-17T15:16:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T15:16:53Z",
+      "fingerprint": "5dd63063f24c0434d8c15f0d4dc871ac",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "                  \u001b[36m<div\u001b[39m\n                    \u001b[33mclass\u001b[39m=\u001b[32m\"flex-1 border-t border-paper-200\"\u001b[39m\n                  \u001b[36m/>\u001b[39m\n                \u001b[36m</div>\u001b[39m\n                \u001b[36m<ul\u001b[39m\n                  \u001b[33mclass\u001b[39m=\u001b[32m\"space-y-1\"\u001b[39m\n                \u001b[36m/>\u001b[39m\n              \u001b[36m</section>\u001b[39m\n              \u001b[36m<div\u001b[39m\n                \u001b[33mclass\u001b[39m=\u001b[32m\"text-center py-8 text-sm text-stone-400\"\u001b[39m\n              \u001b[36m>\u001b[39m\n                \u001b[0mNo issues found\u001b[0m\n              \u001b[36m</div>\u001b[39m\n              \u001b[36m<div\u001b[39m\n                \u001b[33mclass\u001b[39m=\u001b[32m\"sticky bottom-0 bg-paper-50 pt-2 flex gap-2\"\u001b[39m\n              \u001b[36m>\u001b[39m\n                \u001b[36m<button\u001b[39m\n                  \u001b[33mclass\u001b[39m=\u001b[32m\"text-xs px-3 py-1.5 bg-white border border-paper-200 rounded-lg text-stone-600 hover:border-blue-400 transition-colors\"\u001b[39m\n                \u001b[36m>\u001b[39m\n                  \u001b[0mBack\u001b[0m\n                \u001b[36m</button>\u001b[39m\n                \u001b[36m<button\u001b[39m\n                  \u001b[33mclass\u001b[39m=\u001b[32m\"text-xs px-3 py-1.5 bg-white border border-paper-200 rounded-lg text-stone-600 hover:border-blue-400 transition-colors\"\u001b[39m\n                \u001b[36m>\u001b[39m\n                  \u001b[0mSkip\u001b[0m\n                \u001b[36m</button>\u001b[39m\n              \u001b[36m</div>\u001b[39m\n            \u001b[36m</div>\u001b[39m\n          \u001b[36m</div>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</body>\u001b[39m\n\u001b[36m</html>\u001b[39m\n \u276f Proxy.waitForWrapper ../../../node_modules/@testing-library/dom/dist/wait-for.js:163:27\n \u276f client/src/components/TerminalPanel.test.tsx:149:11\n    147|\n    148|     // Step 2: select issue\n    149|     await waitFor(() => expect(screen.getByText(\"the bug\")).toBeTruthy\u2026\n       |           ^\n    150|     fireEvent.click(screen.getByText(\"the bug\"));\n    151|\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[5/5]\u23af\n\n\n Test Files  2 failed | 17 passed (19)\n      Tests  5 failed | 180 passed (185)\n   Start at  11:16:47\n   Duration  5.54s (transform 1.07s, setup 0ms, import 2.90s, tests 7.33s, environment 9.53s)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
