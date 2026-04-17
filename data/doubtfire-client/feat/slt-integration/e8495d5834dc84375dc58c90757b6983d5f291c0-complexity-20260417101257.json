@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "e8495d5834dc84375dc58c90757b6983d5f291c0",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-17T17:12:57Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T17:12:57Z",
+      "files_checked": 21,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/composables/useBillingInvoices.ts",
+          "function": "useBillingInvoices",
+          "lines": 107,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useInvoiceMutations.ts",
+          "function": "useInvoiceMutations",
+          "lines": 170,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
