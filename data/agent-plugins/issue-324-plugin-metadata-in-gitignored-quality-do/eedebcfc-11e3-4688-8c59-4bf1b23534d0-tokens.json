@@ -1,0 +1,56 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "whimsical-shimmying-phoenix",
+  "branch": "issue-324-plugin-metadata-in-gitignored-quality-do",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T13:50:19.245Z",
+  "session_id": "eedebcfc-11e3-4688-8c59-4bf1b23534d0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 18626,
+    "output": 713729,
+    "cache_read": 267598854,
+    "cache_create": 7399096,
+    "est_cost_usd": 16.92278495
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 74062995,
+      "cost_usd": null
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#4": {
+      "tokens": 71862978,
+      "cost_usd": 5.8522557
+    },
+    "review": {
+      "tokens": 126581367,
+      "cost_usd": 8.9172366
+    },
+    "unknown": {
+      "tokens": 3222965,
+      "cost_usd": 2.15329265
+    }
+  }
+}
