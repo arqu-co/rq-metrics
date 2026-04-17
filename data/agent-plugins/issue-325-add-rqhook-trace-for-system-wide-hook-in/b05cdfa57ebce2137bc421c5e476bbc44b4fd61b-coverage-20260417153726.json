@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-325-add-rqhook-trace-for-system-wide-hook-in",
+  "sha": "b05cdfa57ebce2137bc421c5e476bbc44b4fd61b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T19:37:25Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:37:24Z",
+      "files_checked": 4,
+      "coverage_tool": "py",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/hook_trace_log.py",
+          "coverage": 82,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/hook_trace_mutate.py",
+          "coverage": 81,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
