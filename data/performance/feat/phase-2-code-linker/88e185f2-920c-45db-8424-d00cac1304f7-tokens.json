@@ -1,0 +1,47 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "performance",
+  "branch": "feat/phase-2-code-linker",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-16T22:05:04.358Z",
+  "session_id": "88e185f2-920c-45db-8424-d00cac1304f7",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 33582,
+    "output": 773733,
+    "cache_read": 271040546,
+    "cache_create": 9401551,
+    "est_cost_usd": 21.45849299
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 8342861,
+      "cost_usd": 4.7177652000000005
+    },
+    "using-rq": {
+      "tokens": 124835785,
+      "cost_usd": 10.36582585
+    },
+    "review#1": {
+      "tokens": 99672130,
+      "cost_usd": 5.7784963000000005
+    },
+    "review#2": {
+      "tokens": 44135870,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 4262766,
+      "cost_usd": 0.59640564
+    }
+  }
+}

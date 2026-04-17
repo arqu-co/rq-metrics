@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "performance",
+  "branch": "feat/phase-2-code-linker",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T09:19:19.754Z",
+  "session_id": "32b8420d-204c-47e3-ab5d-d78171b3d787",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 58,
+    "output": 9422,
+    "cache_read": 816778,
+    "cache_create": 133965,
+    "est_cost_usd": null
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 960223,
+      "cost_usd": null
+    }
+  }
+}
