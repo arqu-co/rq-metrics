@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3428-device-flow-broken-oauth2deviceverificat",
+  "sha": "fb1d71de579299cc8c9da6656b7040201c3f458a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:59:54Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:59:53Z",
+      "fingerprint": "326fb8e3da37dc4b1df10d366fd0af83",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/user/oauth/DeviceAuthorizationFlowIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/user/oauth/DeviceAuthorizationTestSupport.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
