@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "whimsical-shimmying-phoenix",
+  "branch": "ci/split-quality-gates-parallel",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T11:41:00.069Z",
+  "session_id": "a0f98b53-bbc0-4ac8-b56b-7e39b4e113ed",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 1084,
+    "output": 172097,
+    "cache_read": 50657141,
+    "cache_create": 2067369,
+    "est_cost_usd": 2.47892265
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 10501233,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 38463008,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 3933450,
+      "cost_usd": 2.47892265
+    }
+  }
+}
