@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "feat+mobile-view-issue-9",
+  "branch": "worktree-feat+mobile-view-issue-9",
+  "sha": "351735d",
+  "user": "unknown",
+  "timestamp": "2026-04-17T17:20:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T17:20:45Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/App.tsx",
+          "name": "type BranchGroup",
+          "line": 7
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
