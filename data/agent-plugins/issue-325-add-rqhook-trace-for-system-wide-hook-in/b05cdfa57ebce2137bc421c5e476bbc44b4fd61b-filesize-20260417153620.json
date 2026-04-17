@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-325-add-rqhook-trace-for-system-wide-hook-in",
+  "sha": "b05cdfa57ebce2137bc421c5e476bbc44b4fd61b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T19:36:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T19:36:19Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
