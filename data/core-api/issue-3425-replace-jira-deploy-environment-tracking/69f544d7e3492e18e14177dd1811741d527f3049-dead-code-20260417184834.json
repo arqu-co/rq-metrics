@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3425-replace-jira-deploy-environment-tracking",
+  "sha": "69f544d7e3492e18e14177dd1811741d527f3049",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T22:48:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T22:48:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
