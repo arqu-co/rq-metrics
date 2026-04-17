@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-284-skillmd-single-continuous-bash-session-i",
+  "sha": "a87b0cd28a31afbd8b4df5daacb929585232b994",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:11:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "plan",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:11:21Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
