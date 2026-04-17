@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "34ed46e7a65437bd42ca32299da117190ed0dde9",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-17T16:30:08Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T16:30:08Z",
+      "fingerprint": "f1f46800f4a1cb3927841577f80453b6",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/composables/useInvoiceDefaults.ts"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

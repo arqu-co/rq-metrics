@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "34ed46e7a65437bd42ca32299da117190ed0dde9",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-17T16:28:39Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T16:28:39Z",
+      "violations": 8,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/program/BillingInvoiceRow.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useBillingInvoices.test.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useBillingInvoices.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useBillingInvoices.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInvoiceDefaults.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInvoiceMutations.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/lib/utils/api-error.test.ts",
+          "name": "type ServiceError",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/services/lineOfBusiness/index.ts",
+          "name": "type LineOfBusinessDto",
+          "line": 3
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
