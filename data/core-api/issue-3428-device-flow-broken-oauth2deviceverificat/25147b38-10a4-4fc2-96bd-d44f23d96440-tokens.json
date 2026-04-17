@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "peppy-greeting-salamander",
+  "branch": "issue-3428-device-flow-broken-oauth2deviceverificat",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T20:23:06.000Z",
+  "session_id": "25147b38-10a4-4fc2-96bd-d44f23d96440",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 790,
+    "output": 192660,
+    "cache_read": 43511684,
+    "cache_create": 1525902,
+    "est_cost_usd": 3.9037563
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 19345980,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 25885056,
+      "cost_usd": 3.9037563
+    }
+  }
+}
