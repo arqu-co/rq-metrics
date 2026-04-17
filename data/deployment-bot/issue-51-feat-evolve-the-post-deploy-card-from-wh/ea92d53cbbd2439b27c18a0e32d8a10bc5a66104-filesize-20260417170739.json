@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-51-feat-evolve-the-post-deploy-card-from-wh",
+  "sha": "ea92d53cbbd2439b27c18a0e32d8a10bc5a66104",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:07:38Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:07:37Z",
+      "files_checked": 13,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "deploy_card.py",
+          "lines": 357,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "tests/test_deploy_card.py",
+          "lines": 330,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
