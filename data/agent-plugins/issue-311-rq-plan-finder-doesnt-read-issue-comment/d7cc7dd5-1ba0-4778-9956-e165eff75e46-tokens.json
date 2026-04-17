@@ -1,0 +1,48 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "glittery-munching-lobster",
+  "branch": "issue-311-rq-plan-finder-doesnt-read-issue-comment",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-16T18:32:58.922Z",
+  "session_id": "d7cc7dd5-1ba0-4778-9956-e165eff75e46",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 16473,
+    "output": 1339066,
+    "cache_read": 484137073,
+    "cache_create": 21302064,
+    "est_cost_usd": 59.39160937
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 37463916,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 169186277,
+      "cost_usd": 26.21393707
+    },
+    "using-rq": {
+      "tokens": 167270678,
+      "cost_usd": 26.84420955
+    },
+    "review#2": {
+      "tokens": 124017078,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 8856727,
+      "cost_usd": 6.333462750000001
+    }
+  }
+}
