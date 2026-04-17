@@ -1,0 +1,56 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "glittery-munching-lobster",
+  "branch": "issue-284-skillmd-single-continuous-bash-session-i",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-16T18:32:58.922Z",
+  "session_id": "d7cc7dd5-1ba0-4778-9956-e165eff75e46",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 31021,
+    "output": 1810550,
+    "cache_read": 659799815,
+    "cache_create": 31611678,
+    "est_cost_usd": 73.22324146
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 37463916,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 169186277,
+      "cost_usd": 26.21393707
+    },
+    "using-rq": {
+      "tokens": 167270678,
+      "cost_usd": 26.84420955
+    },
+    "review#2": {
+      "tokens": 298524018,
+      "cost_usd": 13.83163209
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#3": {
+      "tokens": 11951448,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 8856727,
+      "cost_usd": 6.333462750000001
+    }
+  }
+}
