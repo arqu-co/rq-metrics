@@ -1,0 +1,191 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/claude-via-vertex",
+  "sha": "8e9f9e91c302ee90b8995121e245b70a2b089239",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T18:03:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 5,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "issue-binding",
+    "review",
+    "test-quality"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:01:54Z",
+      "files_checked": 11,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/common/ai/client.py",
+          "function": "GeminiClient",
+          "lines": 209,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_response_parser.py",
+          "function": "AnthropicResponseParser",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_vertex_request_builder.py",
+          "function": "AnthropicVertexRequestBuilder",
+          "lines": 99,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "__post_init__",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/common/test_anthropic_response_parser.py",
+          "function": "TestAnthropicResponseParser",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_anthropic_vertex_request_builder.py",
+          "function": "TestAnthropicVertexRequestBuilder",
+          "lines": 112,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "function": "TestAnthropicRouting",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:03:24Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T18:01:55Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T18:01:53Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 139000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:03:25Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T18:01:56Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-17T17:59:34Z",
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:03:26Z",
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T18:03:24Z",
+      "scanned_files": 5,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "line": 137,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            response = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T18:03:23Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5a1210df722e9aabbadd6675c5042ca1",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 87000
+    }
+  },
+  "duration_seconds": 232.0
+}
