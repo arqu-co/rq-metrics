@@ -1,0 +1,446 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/claude-via-vertex",
+  "sha": "1165ae7421a7ece884db83a022930525566941a6",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T19:54:07Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 8,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "issue-binding",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:51:38Z",
+      "files_checked": 31,
+      "violations": 24,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_response_parser.py",
+          "function": "parse_response",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_response_parser.py",
+          "function": "parse_response",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_response_parser.py",
+          "function": "AnthropicResponseParser",
+          "lines": 146,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/anthropic_vertex_request_builder.py",
+          "function": "AnthropicVertexRequestBuilder",
+          "lines": 111,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/client.py",
+          "function": "AIClient",
+          "lines": 173,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/response_parser.py",
+          "function": "GeminiResponseParser",
+          "lines": 77,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/retry_handler.py",
+          "function": "RetryHandler",
+          "lines": 130,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/schema_builder.py",
+          "function": "SchemaBuilder",
+          "lines": 103,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/ai/vertex_request_builder.py",
+          "function": "VertexRequestBuilder",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/config.py",
+          "function": "WorkbenchConfig",
+          "lines": 220,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/services/extraction_service.py",
+          "function": "ExtractionService",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/tasks/extraction_task.py",
+          "function": "_run_extraction_sync",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "function": "TestEndToEndDispatch",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_multimodal.py",
+          "function": "TestGeminiClientGenerateWithFiles",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "function": "TestRetryHandlerErrorExtraction",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "function": "TestRetryHandlerEdgeCases",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_schema_builder.py",
+          "function": "TestSchemaBuilder",
+          "lines": 139,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "function": "TestGetAccessToken",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_model_registry.py",
+          "function": "test_get_base_models_returns_all",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_model_registry.py",
+          "function": "TestModelRegistryTunedModels",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/test_model_registry.py",
+          "function": "TestModelRegistryJobMeta",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "AIConfig",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/arqu_atlas/common/config/ai.py",
+          "function": "__post_init__",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:05Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:51:41Z",
+      "files_checked": 31,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/common/__init__.py",
+          "name": "(",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "src/arqu_atlas/common/__init__.py",
+          "name": "(",
+          "line": 15
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:51:36Z",
+      "files_checked": 31,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/test_model_registry.py",
+          "lines": 403,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:05Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T19:51:45Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-17T17:59:34Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:07Z",
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:04Z",
+      "scanned_files": 11,
+      "violations": 22,
+      "violations_details": [
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "line": 205,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "            patch.object(client, \"_make_request\", return_value=response),"
+        },
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "line": 224,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "            patch.object(client, \"_make_request\", return_value=response),"
+        },
+        {
+          "file": "tests/unit/common/test_multimodal.py",
+          "line": 57,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"arqu_atlas.common.ai.vertex_request_builder.get_access_token\", return_value=\"tok\")"
+        },
+        {
+          "file": "tests/unit/common/test_multimodal.py",
+          "line": 74,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"arqu_atlas.common.ai.vertex_request_builder.get_access_token\", return_value=\"tok\")"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 24,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 33,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 42,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 51,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 63,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 76,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 140,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 148,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock("
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 167,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        bad_response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 172,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock(side_effect=[bad_response, success_response])"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 184,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 188,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock(return_value=response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 201,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 24,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 39,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 53,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 69,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 84,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:02Z",
+      "fingerprint": "178694ab0f5903748bf587815a7f3478",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/arqu_atlas/workbench/api/services/extraction_method_handlers.py"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 137000
+    }
+  },
+  "duration_seconds": 6873.0
+}

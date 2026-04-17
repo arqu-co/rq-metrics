@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/claude-via-vertex",
+  "sha": "1165ae7421a7ece884db83a022930525566941a6",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-17T19:54:05Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T19:54:04Z",
+      "scanned_files": 11,
+      "violations": 22,
+      "violations_details": [
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "line": 205,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "            patch.object(client, \"_make_request\", return_value=response),"
+        },
+        {
+          "file": "tests/unit/common/test_client_routing.py",
+          "line": 224,
+          "pattern": "patch.object with return_value (no wraps)",
+          "code": "            patch.object(client, \"_make_request\", return_value=response),"
+        },
+        {
+          "file": "tests/unit/common/test_multimodal.py",
+          "line": 57,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"arqu_atlas.common.ai.vertex_request_builder.get_access_token\", return_value=\"tok\")"
+        },
+        {
+          "file": "tests/unit/common/test_multimodal.py",
+          "line": 74,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"arqu_atlas.common.ai.vertex_request_builder.get_access_token\", return_value=\"tok\")"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 24,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 33,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 42,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 51,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 63,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 76,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 140,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 148,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock("
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 167,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        bad_response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 172,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock(side_effect=[bad_response, success_response])"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 184,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock(spec=requests.Response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 188,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock(return_value=response)"
+        },
+        {
+          "file": "tests/unit/common/test_retry_handler_internal.py",
+          "line": 201,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request_func = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 24,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 39,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 53,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 69,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        },
+        {
+          "file": "tests/unit/common/test_vertex_auth.py",
+          "line": 84,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_creds = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
