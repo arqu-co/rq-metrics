@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-51-feat-evolve-the-post-deploy-card-from-wh",
+  "sha": "6478806224716975b7f6862cf33c5b93af8c378e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:18:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:35Z",
+      "test_runner": "bin-test",
+      "fingerprint": "07ee172fe69adbdf0f9236a45fdaec5e",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
