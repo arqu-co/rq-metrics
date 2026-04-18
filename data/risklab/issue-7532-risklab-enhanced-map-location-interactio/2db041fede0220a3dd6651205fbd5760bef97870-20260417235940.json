@@ -1,0 +1,175 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7532-risklab-enhanced-map-location-interactio",
+  "sha": "2db041fede0220a3dd6651205fbd5760bef97870",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-18T06:59:40Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "filesize"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "review-coverage",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T06:54:29Z",
+      "files_checked": 70,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_build_final_comparison_results",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_build_final_comparison_results",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_process_comparison_async",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:59:38Z",
+      "files_checked": 25,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:54:36Z",
+      "files_checked": 70,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T06:54:24Z",
+      "files_checked": 70,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "lines": 444,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_comparison_preserves_hidden.py",
+          "lines": 419,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:59:38Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:55:13Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 37000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-18T06:55:14Z",
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-17T06:52:07Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T06:52:36Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:46:13Z",
+      "scanned_files": 30,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T06:59:36Z",
+      "fingerprint": "9495c619f384688ee0cf493e6c860a1b",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 262000
+    }
+  },
+  "duration_seconds": 86851.0
+}

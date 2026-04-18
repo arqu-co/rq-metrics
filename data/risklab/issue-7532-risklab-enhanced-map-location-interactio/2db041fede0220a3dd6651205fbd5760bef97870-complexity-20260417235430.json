@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7532-risklab-enhanced-map-location-interactio",
+  "sha": "2db041fede0220a3dd6651205fbd5760bef97870",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-18T06:54:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T06:54:29Z",
+      "files_checked": 70,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/quotes/comparison_endpoints.py",
+          "function": "update_quote_order",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_build_final_comparison_results",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_build_final_comparison_results",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/comparison_processing.py",
+          "function": "_process_comparison_async",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
