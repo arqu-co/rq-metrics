@@ -1,0 +1,41 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "issue-345-rq-prohibit-filing-rejected-alternatives",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T19:04:22.909Z",
+  "session_id": "3103150f-217a-4ce1-8b7e-8b84c2e81dfc",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 225,
+    "output": 37683,
+    "cache_read": 8920212,
+    "cache_create": 452256,
+    "est_cost_usd": null
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 4920207,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 4189339,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 300830,
+      "cost_usd": null
+    }
+  }
+}
