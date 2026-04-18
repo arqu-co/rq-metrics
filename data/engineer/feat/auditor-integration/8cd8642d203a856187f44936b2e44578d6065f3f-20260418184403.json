@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/auditor-integration",
+  "sha": "8cd8642d203a856187f44936b2e44578d6065f3f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T22:44:03Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "issue-binding",
+    "lint",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T22:34:52Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-18T22:43:50Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T22:35:00Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 8000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:07Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T22:34:50Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T22:43:52Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T22:43:45Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+| 7 | TypeScript strictness gaps | `tsconfig.json` + `tsconfig.app.json` \u2014 `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` state; `@ts-expect-error` + `any` sprawl |\n+- @ts-expect-error / @ts-ignore directives\n+| `@ts-expect-error` / `@ts-ignore` | low | low | 16 | 10 |\n+**10. `@ts-expect-error` / `@ts-ignore` \u2014 16 instances**\n+- @ts-expect-error / @ts-ignore directives\n+| `@ts-expect-error` / `@ts-ignore` | low | low | 16 | 10 |\n+**10. `@ts-expect-error` / `@ts-ignore` \u2014 16 instances**\n+07\tts-strictness\tAudit: TypeScript strictness gaps\tany annotations and as any / as unknown as casts in production code|Non-null assertions !. outside test code|@ts-expect-error / @ts-ignore directives|Record<string, any> in service responses|Implicit any in callback params|tsconfig strict flags (noUncheckedIndexedAccess, exactOptionalPropertyTypes)|@types/jest present without Jest \u2014 type drift\n+| `@ts-expect-error` / `@ts-ignore` | 16 | **16** | 10 | \u2705 CONFIRMED |\n+### 6. \u2705 `@ts-expect-error` / `@ts-ignore` \u2014 16 instances (CONFIRMED)\n+- **6 findings confirmed with exact counts**: `: any`, `as any`, `!.`, `@ts-ignore`, `@types/jest`, top files\n+- `@ts-expect-error` / `@ts-ignore` directives\n+| `@ts-expect-error` / `@ts-ignore` | 8 | MEDIUM | 8 files |\n+### 4. **MEDIUM**: `@ts-expect-error` Without Explanation\n+// @ts-expect-error - rawEmail is actually an EmailDto object, not a RawReceivedEmail -> https://arqu-co.atlassian.net/browse/RQ-6001\n+2. **HIGH**: Document `@ts-expect-error` in `src/services/inbox/utils.ts` \u2014 add inline comment + Jira link.\n+### Claim 5: \"1 production @ts-expect-error in src/services/inbox/utils.ts:18\"\n+// @ts-expect-error - rawEmail is actually an EmailDto object, not a RawReceivedEmail -> https://arqu-co.atlassian.net/browse/RQ-6001\n+**Additional check**: No other `@ts-expect-error` or `@ts-ignore` directives found in src/** (excluding test files) \u2713\n+| @ts-expect-error (prod) | 1 | 1 | \u2705 |\n"
+        }
+      ],
+      "duration_ms": 249000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-09T18:27:44Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:05Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-13T15:53:17Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T22:44:00Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T22:43:58Z",
+      "scanned_files": 1,
+      "duration_ms": 6000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:27:56Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T22:39:36Z",
+      "test_runner": "bin-test",
+      "fingerprint": "b48d78893688cf5e9262120a5b35f51e",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 276000
+    }
+  },
+  "duration_seconds": 792976.0
+}
