@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat/audit-backstops-from-issue-556",
+  "sha": "28c4cc48c008f614d54b8a06b3bb13baa2ffb1d8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T02:02:34Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T02:02:32Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
