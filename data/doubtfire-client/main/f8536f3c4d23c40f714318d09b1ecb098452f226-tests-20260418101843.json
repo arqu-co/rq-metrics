@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "main",
+  "sha": "f8536f3c4d23c40f714318d09b1ecb098452f226",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T14:18:43Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:18:42Z",
+      "test_runner": "bin-test",
+      "fingerprint": "349bcd72a4a4c1557d9f6c06047c7001",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "undefined\n\u2009ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL\u2009 Command \"vitest\" not found"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
