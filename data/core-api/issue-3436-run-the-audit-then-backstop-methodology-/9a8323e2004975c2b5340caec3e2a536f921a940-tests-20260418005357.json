@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3436-run-the-audit-then-backstop-methodology-",
+  "sha": "9a8323e2004975c2b5340caec3e2a536f921a940",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T04:53:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T04:53:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8c70bdd00f7b6f4279223b07eb67dced",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "> Task :core-integrations:classes UP-TO-DATE\n> Task :core-google:classes UP-TO-DATE\n> Task :core-ai:jar UP-TO-DATE\n> Task :core-ml:jar UP-TO-DATE\n> Task :core-pdf:jar UP-TO-DATE\n> Task :core-integrations:jar UP-TO-DATE\n> Task :core-google:jar UP-TO-DATE\n> Task :processResources UP-TO-DATE\n> Task :kaptGenerateStubsSharedTestResourcesKotlin UP-TO-DATE\n> Task :kaptSharedTestResourcesKotlin UP-TO-DATE\n> Task :compileSharedTestResourcesKotlin NO-SOURCE\n> Task :compileSharedTestResourcesJava NO-SOURCE\n> Task :sharedTestResourcesClasses UP-TO-DATE\n> Task :kaptGenerateStubsKotlin\n\n> Task :kaptKotlin\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/UnformattedSOVMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/UnformattedSOVMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/LossSummaryMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/LossSummaryMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ProgramMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ProgramMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/EmailMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/EmailMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ProgramTemplateMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ProgramTemplateMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ContractorCheckResultMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/ContractorCheckResultMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/StatementOfValueTemplateMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/StatementOfValueTemplateMapperImpl.java\nerror: error reading /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/NameValuePairEntryMapperImpl.java; /Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/NameValuePairEntryMapperImpl.java\n/Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/IndicationMapperImpl.java:1332: error: reached end of file while parsing\n        }\n         ^\n/Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/generated/source/kapt/main/co/arqu/core/mapper/StatementOfValueMapperImpl.java:479: error: reached end of file while parsing\n    public StatementOfValuePriorityDto map(StatementOfValuePriority priority) {\n                                                                            ^\n\n> Task :kaptKotlin FAILED\nKotlin build report is written to file:///Users/jerrod/Sites/core-api/.claude/worktrees/peppy-greeting-salamander/build/reports/kotlin-build/core-build-2026-04-18-00-53-53-0.txt\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':kaptKotlin'.\n> A failure occurred while executing org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask$KaptExecutionWorkAction\n   > java.lang.reflect.InvocationTargetException (no error message)\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n> Get more help at https://help.gradle.org.\n\nBUILD FAILED in 21s\n11 actionable tasks: 2 executed, 9 up-to-date\nConfiguration cache entry reused."
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
