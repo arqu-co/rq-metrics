@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/auditor-integration",
+  "sha": "8cd8642d203a856187f44936b2e44578d6065f3f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T22:39:24Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T22:39:23Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+| 7 | TypeScript strictness gaps | `tsconfig.json` + `tsconfig.app.json` \u2014 `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` state; `@ts-expect-error` + `any` sprawl |\n+- @ts-expect-error / @ts-ignore directives\n+| `@ts-expect-error` / `@ts-ignore` | low | low | 16 | 10 |\n+**10. `@ts-expect-error` / `@ts-ignore` \u2014 16 instances**\n+- @ts-expect-error / @ts-ignore directives\n+| `@ts-expect-error` / `@ts-ignore` | low | low | 16 | 10 |\n+**10. `@ts-expect-error` / `@ts-ignore` \u2014 16 instances**\n+07\tts-strictness\tAudit: TypeScript strictness gaps\tany annotations and as any / as unknown as casts in production code|Non-null assertions !. outside test code|@ts-expect-error / @ts-ignore directives|Record<string, any> in service responses|Implicit any in callback params|tsconfig strict flags (noUncheckedIndexedAccess, exactOptionalPropertyTypes)|@types/jest present without Jest \u2014 type drift\n+| `@ts-expect-error` / `@ts-ignore` | 16 | **16** | 10 | \u2705 CONFIRMED |\n+### 6. \u2705 `@ts-expect-error` / `@ts-ignore` \u2014 16 instances (CONFIRMED)\n+- **6 findings confirmed with exact counts**: `: any`, `as any`, `!.`, `@ts-ignore`, `@types/jest`, top files\n+- `@ts-expect-error` / `@ts-ignore` directives\n+| `@ts-expect-error` / `@ts-ignore` | 8 | MEDIUM | 8 files |\n+### 4. **MEDIUM**: `@ts-expect-error` Without Explanation\n+// @ts-expect-error - rawEmail is actually an EmailDto object, not a RawReceivedEmail -> https://arqu-co.atlassian.net/browse/RQ-6001\n+2. **HIGH**: Document `@ts-expect-error` in `src/services/inbox/utils.ts` \u2014 add inline comment + Jira link.\n+### Claim 5: \"1 production @ts-expect-error in src/services/inbox/utils.ts:18\"\n+// @ts-expect-error - rawEmail is actually an EmailDto object, not a RawReceivedEmail -> https://arqu-co.atlassian.net/browse/RQ-6001\n+**Additional check**: No other `@ts-expect-error` or `@ts-ignore` directives found in src/** (excluding test files) \u2713\n+| @ts-expect-error (prod) | 1 | 1 | \u2705 |\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
