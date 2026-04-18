@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "issue-7514-add-undo-button-for-deleted-messages-1657",
+  "branch": "issue-7514-add-undo-button-for-deleted-messages-1657",
+  "sha": "9f02d485",
+  "user": "unknown",
+  "timestamp": "2026-04-18T11:50:46Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T11:50:46Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/deal/TodoActionButtons.vue:56:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/deal/TodoDetailModal.vue:8:3  warning  Prop 'dealName' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/deal/TodoDetailModal.vue:9:3  warning  Prop 'dealId' requires default value to be set    vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/command/Command.vue:14:61  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/dialog/DialogContent.vue:139:7  error  Attribute \"@touchmove\" should go before \"@touchstart\"    vue/attributes-order\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/dialog/DialogContent.vue:140:7  error  Attribute \"@touchend\" should go before \"@touchstart\"     vue/attributes-order\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/dialog/DialogContent.vue:141:7  error  Attribute \"@touchcancel\" should go before \"@touchstart\"  vue/attributes-order\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/dropdown-menu/DropdownMenuItem.vue:30:3  warning  <DropdownMenuItem> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/input-group/InputGroupAddon.vue:12:5  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/input-group/InputGroupButton.vue:11:3  warning  Prop 'class' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/modal/Modal.vue:76:11  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/components/ui/status-dot/StatusDot.vue:37:3  warning  Prop 'color' requires default value to be set  vue/require-default-prop\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/pages/auth-callback.vue:175:9  warning  <Button> must have a data-event attribute for Amplitude tracking. Add data-event=\"verb-noun\" or data-event-skip to opt out. See .claude/rules/event-tracking.md for naming conventions  local-rules/require-data-event\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7514-add-undo-button-for-deleted-messages-1657/src/pages/auth-callback.vue:3 errors and 0 warnings potentially fixable with the `--fix` option.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
