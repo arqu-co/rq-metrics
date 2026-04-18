@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "issue-78-frontend-data-layer",
+  "branch": "fix/issue-78-frontend-data-layer",
+  "sha": "46dd91a",
+  "user": "unknown",
+  "timestamp": "2026-04-18T12:23:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T12:23:51Z",
+      "files_checked": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
