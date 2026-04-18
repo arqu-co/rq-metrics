@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "issue-332-rq-configurable-testscope-for-scoped-loc",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T22:39:38.845Z",
+  "session_id": "a5c7c3e5-8a07-48d1-a0b7-a9e58e043393",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 36209,
+    "output": 425617,
+    "cache_read": 78718956,
+    "cache_create": 6745708,
+    "est_cost_usd": 19.091725
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 12840631,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 69888608,
+      "cost_usd": 18.2558994
+    },
+    "unknown": {
+      "tokens": 3197251,
+      "cost_usd": 0.8358256
+    }
+  }
+}
