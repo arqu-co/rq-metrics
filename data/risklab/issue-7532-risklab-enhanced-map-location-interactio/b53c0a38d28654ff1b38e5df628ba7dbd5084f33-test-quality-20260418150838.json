@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7532-risklab-enhanced-map-location-interactio",
+  "sha": "b53c0a38d28654ff1b38e5df628ba7dbd5084f33",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-18T22:08:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T22:08:38Z",
+      "scanned_files": 38,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                comparison_id=1, db=mock_db, comparison=MagicMock(id=1)"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        q1 = MagicMock(id=1, options=[])"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 87,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        q2 = MagicMock(id=2, options=[])"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 88,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_comp = MagicMock(id=10, user_id=1, quotes=[q1, q2], comparison_results={})"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 91,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 99,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                comparison=MagicMock(id=10, user_id=1),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 112,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                request=MagicMock(quote_ids=[1]),"
+        },
+        {
+          "file": "backend/tests/api/quotes/test_comparison_endpoints_unit_read_update.py",
+          "line": 114,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                comparison=MagicMock(id=10),"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
