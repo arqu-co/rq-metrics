@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-332-rq-configurable-testscope-for-scoped-loc",
+  "sha": "ef44c96333a6fe8e8f13ce5d413aac9119f3e13a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T00:23:50Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T00:23:49Z",
+      "files_checked": 5,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/test_validate_proof_tests_gate.py",
+          "function": "TestTestScopeFields",
+          "lines": 85,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
