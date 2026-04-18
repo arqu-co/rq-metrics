@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "melodic-bubbling-nest",
+  "branch": "issue-347-claude-bounce-start",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-18T21:35:28.049Z",
+  "session_id": "b11f3932-223d-4d52-acc0-bd0f7963abf7",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 24656,
+    "output": 150573,
+    "cache_read": 46051131,
+    "cache_create": 1374841,
+    "est_cost_usd": 2.876574
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 15852252,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 2975479,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 28773470,
+      "cost_usd": 2.876574
+    }
+  }
+}
