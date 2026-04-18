@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "issue-7513-cannot-view-email-content-when-viewing-trash-1814",
+  "branch": "issue-7513-cannot-view-email-content-when-viewing-trash-1814",
+  "sha": "20912bf1",
+  "user": "unknown",
+  "timestamp": "2026-04-18T14:50:35Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:50:34Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c6948bb8084dbb9bc02560b2d311aaaf",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 5,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "scripts/gen-routes-manifest.ts",
+        "src/components/compose/email-box/footer/EmailBoxFooter.stories.ts",
+        "src/components/layout/nav-config.ts",
+        "src/services/deal-kickoff/token-estimate.ts",
+        "vitest.setup.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
