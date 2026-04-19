@@ -1,0 +1,202 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "3b4e8d7a6a57b9b62966ef2a7baf72e3d72ea5a0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T17:06:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "filesize",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:05:47Z",
+      "files_checked": 7,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/test_gate_markdown_composition.py",
+          "function": "test_looks_like_command_matrix",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/test_gate_markdown_helpers.py",
+          "function": "test_format_emits_proof_json",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:06:40Z",
+      "files_checked": 4,
+      "coverage_tool": "py",
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/gate_markdown_composition.py",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/validate_frontmatter.py",
+          "coverage": 36,
+          "min": 95
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T17:05:52Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:44Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:05:40Z",
+      "files_checked": 9,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/test_gate_markdown_composition.py",
+          "lines": 360,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T17:06:43Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T17:06:16Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 24000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T17:06:48Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T14:14:51Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:29:00Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:42Z",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T15:38:41Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T14:11:03Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T17:06:46Z",
+      "scanned_files": 35,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T14:47:01Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:06:33Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a5025a3df5f3119990a5bd7c81f29b36",
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "plugins/rq/scripts/gate_markdown_blocks.py"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 17000
+    }
+  },
+  "duration_seconds": 789066.0
+}
