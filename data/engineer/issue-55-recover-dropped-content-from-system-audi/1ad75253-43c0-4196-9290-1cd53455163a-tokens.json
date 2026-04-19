@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "clever-forging-swan",
+  "branch": "issue-55-recover-dropped-content-from-system-audi",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T08:17:07.439Z",
+  "session_id": "1ad75253-43c0-4196-9290-1cd53455163a",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 3103,
+    "output": 264016,
+    "cache_read": 61808421,
+    "cache_create": 3052868,
+    "est_cost_usd": 10.711554
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 43679601,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 1765641,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 19683166,
+      "cost_usd": 10.711554
+    }
+  }
+}
