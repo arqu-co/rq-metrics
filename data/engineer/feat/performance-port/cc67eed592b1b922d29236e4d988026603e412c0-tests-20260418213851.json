@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "cc67eed592b1b922d29236e4d988026603e412c0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:38:50Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:38:50Z",
+      "fingerprint": "9724ab8550a7585454b5da2244425feb",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.venv/lib/python3.13/site-packages/anyio/abc/__pycache__/__init__.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/rq/scripts/__pycache__/conftest.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.23s"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
