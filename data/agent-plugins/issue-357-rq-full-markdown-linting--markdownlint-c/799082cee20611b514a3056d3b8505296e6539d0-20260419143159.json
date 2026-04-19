@@ -1,0 +1,174 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "799082cee20611b514a3056d3b8505296e6539d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T18:31:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "complexity"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T18:31:09Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "function": "cmd_format_new",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "function": "cmd_format_new",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:48Z",
+      "coverage_tool": "py",
+      "files_checked": 4,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:13Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:44Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:05Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:50Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:32Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 19000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:55Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T14:14:51Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:29:00Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:42Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T15:38:41Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T14:11:03Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:53Z",
+      "scanned_files": 35,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T14:47:01Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:31:44Z",
+      "test_runner": "bin-test",
+      "fingerprint": "512f7c99390997c5d0e0c2bd47236ebe",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 12000
+    }
+  },
+  "duration_seconds": 794173.0
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "799082cee20611b514a3056d3b8505296e6539d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T18:31:10Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T18:31:09Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "function": "cmd_format_new",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "function": "cmd_format_new",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
