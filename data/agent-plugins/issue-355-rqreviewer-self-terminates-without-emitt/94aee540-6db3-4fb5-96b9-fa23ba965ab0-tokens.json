@@ -1,0 +1,30 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "serene-greeting-mochi",
+  "branch": "issue-355-rqreviewer-self-terminates-without-emitt",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T12:46:52.792Z",
+  "session_id": "94aee540-6db3-4fb5-96b9-fa23ba965ab0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 579,
+    "output": 153134,
+    "cache_read": 18030643,
+    "cache_create": 1296828,
+    "est_cost_usd": 5.8346628
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 19481184,
+      "cost_usd": 5.8346628
+    }
+  }
+}
