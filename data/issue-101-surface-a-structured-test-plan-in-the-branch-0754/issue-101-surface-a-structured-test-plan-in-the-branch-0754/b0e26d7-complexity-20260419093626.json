@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "b0e26d7",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:36:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:26Z",
+      "files_checked": 22,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/TestPlanItemRow.tsx",
+          "function": "TestPlanItemRow",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
