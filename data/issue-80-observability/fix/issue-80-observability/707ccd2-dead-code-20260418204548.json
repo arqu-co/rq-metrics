@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "repo": "issue-80-observability",
+  "branch": "fix/issue-80-observability",
+  "sha": "707ccd2",
+  "user": "unknown",
+  "timestamp": "2026-04-19T00:45:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T00:45:47Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/github-poller.ts",
+          "name": "RateLimitCircuitOpenError",
+          "line": 19
+        },
+        {
+          "type": "unused_import",
+          "file": "server/index.ts",
+          "name": "SessionStateDetector",
+          "line": 38
+        },
+        {
+          "type": "unused_import",
+          "file": "server/index.ts",
+          "name": "sanitizeBranchForSubdomain",
+          "line": 39
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
