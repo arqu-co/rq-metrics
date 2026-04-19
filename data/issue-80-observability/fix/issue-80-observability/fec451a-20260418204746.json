@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "repo": "issue-80-observability",
+  "branch": "fix/issue-80-observability",
+  "sha": "fec451a",
+  "user": "unknown",
+  "timestamp": "2026-04-19T00:47:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:35Z",
+      "files_checked": 47,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T00:47:46Z",
+      "coverage_tool": "js",
+      "below_threshold": 12,
+      "below_threshold_details": [
+        {
+          "file": "server/app-routes-branches.ts",
+          "coverage": 88.52,
+          "min": 95
+        },
+        {
+          "file": "server/app-routes-ci.ts",
+          "coverage": 94.11,
+          "min": 95
+        },
+        {
+          "file": "server/auto-prune-wiring.ts",
+          "coverage": 93.18,
+          "min": 95
+        },
+        {
+          "file": "server/branch-meta.ts",
+          "coverage": 92.95,
+          "min": 95
+        },
+        {
+          "file": "server/config.ts",
+          "coverage": 94.73,
+          "min": 95
+        },
+        {
+          "file": "server/github-poll-events.ts",
+          "coverage": 78.26,
+          "min": 95
+        },
+        {
+          "file": "server/github-poller-persistence.ts",
+          "coverage": 89.47,
+          "min": 95
+        },
+        {
+          "file": "server/github-poller-repo.ts",
+          "coverage": 94.11,
+          "min": 95
+        },
+        {
+          "file": "server/github-poller.ts",
+          "coverage": 34.78,
+          "min": 95
+        },
+        {
+          "file": "server/local-branch-scanner.ts",
+          "coverage": 92.77,
+          "min": 95
+        },
+        {
+          "file": "server/terminal-ws.ts",
+          "coverage": 89.18,
+          "min": 95
+        },
+        {
+          "file": "server/worktree-pid-file.ts",
+          "coverage": 79.74,
+          "min": 95
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:45:57Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:34Z",
+      "files_checked": 47,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 97000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:41Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:45:57Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:44Z",
+      "scanned_files": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:47:44Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e7f3e1e4731ffa71befa4ec035256fca",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 109.0
+}
