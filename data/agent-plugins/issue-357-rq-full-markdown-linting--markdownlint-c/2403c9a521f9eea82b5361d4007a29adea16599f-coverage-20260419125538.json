@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "2403c9a521f9eea82b5361d4007a29adea16599f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T16:55:37Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T16:55:36Z",
+      "coverage_tool": "py",
+      "files_checked": 3,
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/gate_markdown_composition.py",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/gate_markdown_helpers.py",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "plugins/rq/scripts/validate_frontmatter.py",
+          "coverage": 36,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
