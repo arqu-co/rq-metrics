@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "repo": "issue-7514-add-undo-button-for-deleted-messages-1657",
+  "branch": "issue-7514-add-undo-button-for-deleted-messages-1657",
+  "sha": "c42cd76e",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:45:55Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:45:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "260e08ef245ae885ca89aefa77a6f03e",
+      "test_failures": 1,
+      "missing_tests": 5,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "- wait for promises to resolve using the await keyword\n\n\u23af\u23af\u23af\u23af\u23af Uncaught Exception \u23af\u23af\u23af\u23af\u23af\nReferenceError: document is not defined\n \u276f Timeout.Cookies.update [as _onTimeout] node_modules/.pnpm/universal-cookie@8.0.1/node_modules/universal-cookie/esm/index.mjs:303:46\n \u276f listOnTimeout node:internal/timers:588:17\n \u276f processTimers node:internal/timers:523:7\n\nThis error originated in \"src/components/deal/DealNavEmptyState.test.ts\" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.\nThis error was caught after test environment was torn down. Make sure to cancel any running tasks before test finishes:\n- cancel timeouts using clearTimeout and clearInterval\n- wait for promises to resolve using the await keyword\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n\n Test Files  352 passed (352)\n      Tests  5932 passed (5932)\n     Errors  2 errors\n   Start at  09:45:11\n   Duration  43.60s (transform 14.58s, setup 15.84s, collect 170.32s, tests 45.82s, environment 205.93s, prepare 26.50s)"
+        }
+      ],
+      "missing_tests_details": [
+        "scripts/gen-routes-manifest.ts",
+        "src/components/compose/email-box/footer/EmailBoxFooter.stories.ts",
+        "src/components/layout/nav-config.ts",
+        "src/services/deal-kickoff/token-estimate.ts",
+        "vitest.setup.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
