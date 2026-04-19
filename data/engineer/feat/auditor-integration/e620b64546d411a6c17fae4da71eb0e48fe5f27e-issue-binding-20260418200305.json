@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/auditor-integration",
+  "sha": "e620b64546d411a6c17fae4da71eb0e48fe5f27e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T00:03:04Z",
+  "phase": "all",
+  "run_number": 7,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T00:03:03Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
