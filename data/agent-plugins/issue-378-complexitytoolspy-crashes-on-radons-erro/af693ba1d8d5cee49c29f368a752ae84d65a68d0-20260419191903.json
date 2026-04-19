@@ -1,0 +1,124 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-378-complexitytoolspy-crashes-on-radons-erro",
+  "sha": "af693ba1d8d5cee49c29f368a752ae84d65a68d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T23:19:02Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "coverage",
+    "issue-binding",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:36Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:18:52Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:38Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:35Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:18:54Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:41Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:43Z",
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:18:58Z",
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:18:49Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:18:48Z",
+      "fingerprint": "03996a339286b7e4f3eae6c975a454d0",
+      "test_runner": "pytest",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: file or directory not found: plugins/rq/scripts/test_complexity_tools.py\n\n\n=============================== warnings summary ===============================\n../../../../../../../../.pyenv/versions/3.13.3/lib/python3.13/site-packages/_pytest/config/__init__.py:1441\n  /Users/jerrod/.pyenv/versions/3.13.3/lib/python3.13/site-packages/_pytest/config/__init__.py:1441: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /Users/jerrod/Sites/claude-skills/.claude/worktrees/serene-greeting-mochi/plugins/rq/scripts/.quality/proof/junit.xml -\n1 warning in 0.00s"
+        }
+      ],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 23.0
+}

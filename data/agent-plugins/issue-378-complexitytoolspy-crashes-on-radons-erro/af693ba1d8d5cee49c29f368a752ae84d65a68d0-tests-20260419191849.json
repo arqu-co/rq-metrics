@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-378-complexitytoolspy-crashes-on-radons-erro",
+  "sha": "af693ba1d8d5cee49c29f368a752ae84d65a68d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T23:18:48Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:18:48Z",
+      "test_runner": "pytest",
+      "fingerprint": "03996a339286b7e4f3eae6c975a454d0",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: file or directory not found: plugins/rq/scripts/test_complexity_tools.py\n\n\n=============================== warnings summary ===============================\n../../../../../../../../.pyenv/versions/3.13.3/lib/python3.13/site-packages/_pytest/config/__init__.py:1441\n  /Users/jerrod/.pyenv/versions/3.13.3/lib/python3.13/site-packages/_pytest/config/__init__.py:1441: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /Users/jerrod/Sites/claude-skills/.claude/worktrees/serene-greeting-mochi/plugins/rq/scripts/.quality/proof/junit.xml -\n1 warning in 0.00s"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
