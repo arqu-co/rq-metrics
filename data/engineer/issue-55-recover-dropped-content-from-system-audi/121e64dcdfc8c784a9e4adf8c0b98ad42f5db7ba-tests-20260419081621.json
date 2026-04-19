@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "issue-55-recover-dropped-content-from-system-audi",
+  "sha": "121e64dcdfc8c784a9e4adf8c0b98ad42f5db7ba",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T12:16:21Z",
+  "phase": "all",
+  "run_number": 9,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T09:31:56Z",
+      "test_runner": "bin-test",
+      "fingerprint": "9414610f05d6e57c6ab29d9de628624a",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
