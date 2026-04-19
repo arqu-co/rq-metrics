@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "5821a49d3466565f8a974fda9c94382b4707658e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:09:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:09:09Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6f71c306ad2d2f6ecc9e975bb0f5b329",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.venv/lib/python3.12/site-packages/pytest_cov/__pycache__/__init__.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/risk-specialist/scripts/test_scan_ops.sh\n(no match in any of [<Dir scripts>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/performance/tests/commands/__pycache__/test_apm.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/performance/tests/commands/__pycache__/test_monitors.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/performance/tests/ddclient/__pycache__/test_models.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/performance/tests/ddclient/__pycache__/test_snapshots.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.28s"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
