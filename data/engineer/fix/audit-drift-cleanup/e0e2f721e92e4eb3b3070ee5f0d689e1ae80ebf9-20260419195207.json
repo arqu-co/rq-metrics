@@ -1,0 +1,187 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/audit-drift-cleanup",
+  "sha": "e0e2f721e92e4eb3b3070ee5f0d689e1ae80ebf9",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T23:52:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "lint",
+    "test-quality"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "tokens-posted"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:51:33Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T23:47:03Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 13000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:51:36Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:51:28Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 265000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:51:58Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:51:41Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "engineer/bin/refresh.sh:73:1: error: Couldn't parse this shellcheck directive. Fix to allow more checks. [SC1073]\nengineer/bin/refresh.sh:73:31: error: Expected '=' after directive key. Fix any mentioned problems and try again. [SC1072]\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:01:03Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T23:51:44Z",
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-19T12:25:18Z"
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T09:36:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:52:02Z",
+      "scanned_files": 2,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:51:56Z",
+      "scanned_files": 1,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 89,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 98,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 226,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 245,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 257,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 279,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.time.sleep\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 280,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        }
+      ],
+      "duration_ms": 12000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T23:46:50Z",
+      "fingerprint": "6cac7f7e9b3b71f41ee45c6a1adffb27",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:47:28Z"
+    }
+  },
+  "duration_seconds": 51339.0
+}
