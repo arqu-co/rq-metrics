@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "0667661",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:31:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:31:25Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
