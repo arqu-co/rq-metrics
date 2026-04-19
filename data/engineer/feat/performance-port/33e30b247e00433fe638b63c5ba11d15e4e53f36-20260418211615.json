@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "33e30b247e00433fe638b63c5ba11d15e4e53f36",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:16:15Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "coverage",
+    "issue-binding",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "issue-binding",
+    "lint",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:15:01Z",
+      "files_checked": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 403000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:16:02Z",
+      "coverage_tool": "py",
+      "files_checked": 15,
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "(none matched in coverage data)",
+          "coverage": 0,
+          "min": 95,
+          "vacuous": true
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:15:12Z",
+      "files_checked": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 11000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:07Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:08:18Z",
+      "files_checked": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:16:03Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:15:14Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T01:15:16Z",
+      "duration_ms": 2000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:05Z",
+      "flows_failed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-19T00:02:23Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:02:24Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:16:13Z",
+      "scanned_files": 1,
+      "duration_ms": 10000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:27:56Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:15:55Z",
+      "fingerprint": "6f71c306ad2d2f6ecc9e975bb0f5b329",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.venv/lib/python3.12/site-packages/pytest_cov/__pycache__/__init__.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/risk-specialist/scripts/test_scan_ops.sh\n(no match in any of [<Dir scripts>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/rq/scripts/test_gate_cache_patterns.sh\n(no match in any of [<Dir scripts>])\n\n\nno tests ran in 0.29s"
+        }
+      ],
+      "duration_ms": 39000
+    }
+  },
+  "duration_seconds": 802097.0
+}
