@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "5821a49d3466565f8a974fda9c94382b4707658e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:09:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:09:15Z",
+      "coverage_tool": "py",
+      "files_checked": 15,
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "(none matched in coverage data)",
+          "coverage": 0,
+          "min": 95,
+          "vacuous": true
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
