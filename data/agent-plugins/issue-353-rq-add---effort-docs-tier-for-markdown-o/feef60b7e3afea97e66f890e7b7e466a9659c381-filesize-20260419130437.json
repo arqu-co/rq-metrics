@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-353-rq-add---effort-docs-tier-for-markdown-o",
+  "sha": "feef60b7e3afea97e66f890e7b7e466a9659c381",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T17:04:37Z",
+  "phase": "docs",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:04:36Z",
+      "files_checked": 6,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/run-gates.sh",
+          "lines": 302,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
