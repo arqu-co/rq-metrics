@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "0e1691ff6455b4c24b6b4878978bc347406705f3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T18:52:45Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "plan",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T18:52:42Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
