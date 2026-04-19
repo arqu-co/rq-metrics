@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "fix/claude-bounce-tmux-autodetect",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T08:32:51.963Z",
+  "session_id": "19f03756-c2ea-4226-9b4b-77360b2b7a8e",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 372,
+    "output": 120159,
+    "cache_read": 18779625,
+    "cache_create": 829433,
+    "est_cost_usd": 2.29450875
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "dev": {
+      "tokens": 19112694,
+      "cost_usd": 2.29450875
+    },
+    "review": {
+      "tokens": 616895,
+      "cost_usd": null
+    }
+  }
+}
