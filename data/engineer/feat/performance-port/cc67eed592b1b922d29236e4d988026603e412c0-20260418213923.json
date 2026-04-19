@@ -1,0 +1,185 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "cc67eed592b1b922d29236e4d988026603e412c0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:39:23Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 5,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "filesize",
+    "issue-binding",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:38:32Z",
+      "files_checked": 71,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/backfill_source.py",
+          "function": "fetch_all_items",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:39:17Z",
+      "coverage_tool": "py",
+      "files_checked": 30,
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "engineer/scripts/backfill_source.py",
+          "coverage": 64,
+          "min": 95
+        },
+        {
+          "file": "engineer/scripts/kb-update-content.py",
+          "coverage": 0,
+          "min": 95
+        }
+      ],
+      "duration_ms": 16000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:36:30Z",
+      "files_checked": 71,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:07Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:38:28Z",
+      "files_checked": 71,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_gh_issues_api_cli.py",
+          "lines": 305,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 25000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:39:19Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:36:35Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T01:36:36Z",
+      "duration_ms": 1000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-09T18:28:05Z",
+      "flows_failed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-19T00:02:23Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:02:24Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:38:03Z",
+      "scanned_files": 1,
+      "duration_ms": 50000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:37:13Z",
+      "scanned_files": 38,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 37000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:39:01Z",
+      "test_runner": "bin-test",
+      "fingerprint": "9724ab8550a7585454b5da2244425feb",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.venv/lib/python3.13/site-packages/anyio/abc/__pycache__/__init__.cpython-313-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/rq/scripts/__pycache__/conftest.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.25s"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 29000
+    }
+  },
+  "duration_seconds": 803474.0
+}
