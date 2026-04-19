@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "worktree-serene-greeting-mochi",
+  "sha": "53851ebf2bf183308e381103471989ba6e3f4aed",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T12:48:41Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": "plan",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T12:48:40Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
