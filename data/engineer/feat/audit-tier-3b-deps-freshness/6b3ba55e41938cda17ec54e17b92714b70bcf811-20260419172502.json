@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/audit-tier-3b-deps-freshness",
+  "sha": "6b3ba55e41938cda17ec54e17b92714b70bcf811",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T21:25:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "tokens-posted"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:21Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:52Z",
+      "coverage_tool": "py",
+      "files_checked": 2,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:24Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:16Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 304000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:55Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T21:24:29Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "engineer/scripts/morning_summary.py:136:89: E501 Line too long (133 > 88)\nengineer/scripts/state_sync_ops.py:70:89: E501 Line too long (137 > 88)\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "Would reformat: engineer/scripts/morning_summary.py\nWould reformat: engineer/scripts/state_sync_ops.py\n2 files would be reformatted, 66 files already formatted\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:01:03Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T09:31:41Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-19T12:25:18Z"
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T09:36:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:58Z",
+      "scanned_files": 2,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:19:12Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:24:45Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f95956ed6e9d67d4009a1be0561a9fce",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 16000
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:47:28Z"
+    }
+  },
+  "duration_seconds": 42797.0
+}
