@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/audit-tier-3b-deps-freshness",
+  "sha": "6e6c932c47941477d05e9666f0ae98b43f5a93d5",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T21:27:13Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:27:11Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
