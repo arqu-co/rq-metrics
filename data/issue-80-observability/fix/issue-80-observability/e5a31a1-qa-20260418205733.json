@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "issue-80-observability",
+  "branch": "fix/issue-80-observability",
+  "sha": "e5a31a1",
+  "user": "unknown",
+  "timestamp": "2026-04-19T00:57:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "qa",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T00:45:57Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
