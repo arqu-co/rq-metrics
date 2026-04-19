@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-378-complexitytoolspy-crashes-on-radons-erro",
+  "sha": "5e6a1a2b0e895fcb1c8e2f70d16812e4be23acf5",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T22:43:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T22:42:59Z",
+      "files_checked": 2,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/complexity_tools.py",
+          "function": "_violations_from_radon",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
