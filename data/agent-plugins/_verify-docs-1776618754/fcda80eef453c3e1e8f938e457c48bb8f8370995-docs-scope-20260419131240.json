@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "_verify-docs-1776618754",
+  "sha": "fcda80eef453c3e1e8f938e457c48bb8f8370995",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T17:12:40Z",
+  "phase": "docs",
+  "run_number": 1,
+  "gate_name": "docs-scope",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "docs-scope"
+  ],
+  "gates": {
+    "docs-scope": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T17:12:39Z",
+      "files_checked": 3,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
