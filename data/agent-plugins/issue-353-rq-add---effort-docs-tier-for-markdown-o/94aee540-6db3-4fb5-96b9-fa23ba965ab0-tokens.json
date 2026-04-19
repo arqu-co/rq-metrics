@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "serene-greeting-mochi",
+  "branch": "issue-353-rq-add---effort-docs-tier-for-markdown-o",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T12:46:52.792Z",
+  "session_id": "94aee540-6db3-4fb5-96b9-fa23ba965ab0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 24757,
+    "output": 470442,
+    "cache_read": 150911659,
+    "cache_create": 7301447,
+    "est_cost_usd": 14.087426700000002
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 33654179,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 67004261,
+      "cost_usd": 2.08288605
+    },
+    "review#2": {
+      "tokens": 45963520,
+      "cost_usd": 1.8929304
+    },
+    "unknown": {
+      "tokens": 12086345,
+      "cost_usd": 10.11161025
+    }
+  }
+}
