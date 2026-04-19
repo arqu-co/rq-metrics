@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "feat/performance-port",
+  "sha": "33e30b247e00433fe638b63c5ba11d15e4e53f36",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T01:15:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T01:15:55Z",
+      "fingerprint": "6f71c306ad2d2f6ecc9e975bb0f5b329",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],       "te          "test": "(unpa        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/engineer/.venv/lib/python3.12/site-packages/pytest_cov/__pycache__/__init__.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/risk-specialist/scripts/test_scan_ops.sh\n(no match in any of [<Dir scripts>])\n\nERROR: not found: /Users/jerrod/Sites/engineer/.worktrees/claude-skills-enforce-review/plugins/rq/scripts/test_gate_cache_patterns.sh\n(no match in any of [<Dir scripts>])\n\n\      ],
+      "missing_tests_deta      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
+
