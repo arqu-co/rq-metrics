@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/test-quality-internal-mocks",
+  "sha": "dd18a4e6f5b9e136bbdc5354e21094fc764863f4",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T22:18:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "tokens-posted"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T22:17:03Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_capture_gh_fixtures.py",
+          "function": "test_main_apply_captures_both_fixtures",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 12000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T22:18:43Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 12000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T22:17:23Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 20000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T22:16:51Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T22:18:47Z",
+      "duration_ms": 4000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T22:17:34Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "engineer/scripts/test_backfill_source.py:18:89: E501 Line too long (93 > 88)\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "Would reformat: engineer/scripts/test_backfill_source.py\n1 file would be reformatted, 68 files already formatted\n"
+        }
+      ],
+      "duration_ms": 11000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:01:03Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T09:31:41Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-19T12:25:18Z"
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-19T09:36:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T22:18:52Z",
+      "scanned_files": 2,
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T21:47:12Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T22:18:31Z",
+      "fingerprint": "814cfc6778a0ebb46717400f216ebb14",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 57000
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:47:28Z"
+    }
+  },
+  "duration_seconds": 46031.0
+}
