@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "clever-forging-swan",
+  "branch": "fix/test-quality-internal-mocks",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T08:17:07.439Z",
+  "session_id": "1ad75253-43c0-4196-9290-1cd53455163a",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 33648,
+    "output": 850804,
+    "cache_read": 333788296,
+    "cache_create": 13792012,
+    "est_cost_usd": 26.6711514
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 43679601,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 285101993,
+      "cost_usd": 15.9595974
+    },
+    "unknown": {
+      "tokens": 19683166,
+      "cost_usd": 10.711554
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/test-quality-internal-mocks",
+  "sha": "61eaef09942bab489741817ddb3b8730bbf2c91e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T22:13:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T22:13:05Z",
+      "files_checked": 4,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "function": "test_apply_with_multiple_batches_sleeps",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "function": "TestMainCli",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "engineer/scripts/test_capture_gh_fixtures.py",
+          "function": "test_main_apply_captures_both_fixtures",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
