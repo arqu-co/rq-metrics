@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "fix/audit-drift-cleanup",
+  "sha": "a5d57b6aa4eef9778e9bd8e9548371eee7bdc3e5",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T23:46:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T23:46:58Z",
+      "scanned_files": 1,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 89,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 98,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 226,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 245,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 257,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 279,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.time.sleep\")"
+        },
+        {
+          "file": "engineer/scripts/test_backfill_source.py",
+          "line": 280,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"backfill_source.gh_graphql_typed\")"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
