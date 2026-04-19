@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "fix/reuse-linked-worktree-116",
+  "sha": "d524e91",
+  "user": "unknown",
+  "timestamp": "2026-04-19T01:18:21Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:07Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:20Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:07Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:51Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:04Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:16Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T03:02:51Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:20Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T01:18:19Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4f7b10ec0489dc53a61a763ce052a4d3",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 3000
+    }
+  },
+  "duration_seconds": 252929.0
+}
