@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "issue-82-correctness",
+  "branch": "fix/issue-82-correctness",
+  "sha": "6d13b2d",
+  "user": "unknown",
+  "timestamp": "2026-04-19T00:29:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T00:29:19Z",
+      "files_checked": 22,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/session-state-detector.ts",
+          "function": "parseAgentState",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
