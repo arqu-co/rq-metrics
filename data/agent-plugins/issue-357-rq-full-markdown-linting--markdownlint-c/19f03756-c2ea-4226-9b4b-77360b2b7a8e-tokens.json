@@ -1,0 +1,51 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T08:32:51.963Z",
+  "session_id": "19f03756-c2ea-4226-9b4b-77360b2b7a8e",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 3274,
+    "output": 607780,
+    "cache_read": 232919866,
+    "cache_create": 9828303,
+    "est_cost_usd": 10.205807250000001
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "dev": {
+      "tokens": 19112694,
+      "cost_usd": 2.29450875
+    },
+    "review#1": {
+      "tokens": 34422709,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 175394638,
+      "cost_usd": 7.9112985
+    },
+    "review#2": {
+      "tokens": 14429182,
+      "cost_usd": null
+    }
+  }
+}
