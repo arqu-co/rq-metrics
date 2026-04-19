@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-357-rq-full-markdown-linting--markdownlint-c",
+  "sha": "31c07ccb4b58cf687d5ce46a3a3d3758961c98bc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T16:37:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T16:37:15Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/gate-markdown.sh:16:1: warning: GATE_NAME appears unused. Verify use (or export if used externally). [SC2034]\n./plugins/rq/scripts/gate-markdown.sh:48:1: note: This function is never invoked. Check usage (or ignored if invoked indirectly). [SC2329]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/gate-markdown.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
