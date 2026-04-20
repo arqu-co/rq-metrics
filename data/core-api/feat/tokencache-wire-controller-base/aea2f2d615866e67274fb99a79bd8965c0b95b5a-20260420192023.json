@@ -1,0 +1,124 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/tokencache-wire-controller-base",
+  "sha": "aea2f2d615866e67274fb99a79bd8965c0b95b5a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T23:20:23Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "issue-binding",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T21:18:56Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T21:04:11Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:18:58Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:18:54Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T23:20:18Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:19:02Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T23:20:20Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T20:45:16Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:11:42Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:50:46Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:19:25Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T23:10:02Z",
+      "fingerprint": "502a88cc302610f0c84c66cc26a79b13",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/AbstractControllerIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/config/TokenCacheWiringTest.kt"
+      ],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 9304.0
+}
