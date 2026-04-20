@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "audit-1290-cache-invalidation",
+  "sha": "bde83f934c5f2f61709972716df267f3f777d5cd",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-20T22:38:18Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T22:38:18Z",
+      "scanned_files": 2,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 183,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(SOV_INVALIDATE_PATCH, new_callable=AsyncMock)"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 207,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 208,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(LOSS_RUN_INVALIDATE_PATCH, new_callable=AsyncMock)"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 311,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(\"app.services.loss_run_correction_service.enqueue_atlas_correction_feedback\")"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 312,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(LOSS_RUN_INVALIDATE_PATCH, new_callable=AsyncMock)"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 373,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_quote = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 381,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                return_value=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 390,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                return_value=MagicMock(),"
+        },
+        {
+          "file": "backend/tests/api/test_correction_endpoint_cache_invalidation.py",
+          "line": 394,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            user = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
