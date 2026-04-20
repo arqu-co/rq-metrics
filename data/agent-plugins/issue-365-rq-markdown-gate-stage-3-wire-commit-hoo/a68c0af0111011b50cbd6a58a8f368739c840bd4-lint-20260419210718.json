@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-365-rq-markdown-gate-stage-3-wire-commit-hoo",
+  "sha": "a68c0af0111011b50cbd6a58a8f368739c840bd4",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T01:07:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T01:07:17Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_enforce_markdown_staged.sh:52:29: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:62:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:63:15: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:73:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:74:35: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:84:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:85:33: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:86:45: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:95:29: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:106:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:107:32: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:108:32: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:120:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:121:15: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:131:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/hooks/test_enforce_markdown_staged.sh:132:33: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_enforce_markdown_staged.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
