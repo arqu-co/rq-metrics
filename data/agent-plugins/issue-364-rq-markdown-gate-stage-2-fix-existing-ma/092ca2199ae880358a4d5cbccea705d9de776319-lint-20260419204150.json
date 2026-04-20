@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-364-rq-markdown-gate-stage-2-fix-existing-ma",
+  "sha": "092ca2199ae880358a4d5cbccea705d9de776319",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T00:41:50Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T00:41:49Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/claude-bounce.sh:2:1: error: Couldn't parse this here string. Fix to allow more checks. [SC1073]\n./plugins/rq/scripts/claude-bounce.sh:2:1: note: The mentioned syntax error was in this simple command. [SC1009]\n./plugins/rq/scripts/claude-bounce.sh:2:5: error:  Fix any mentioned problems and try again. [SC1072]\n./plugins/rq/scripts/claude-start.sh:2:1: error: Couldn't parse this here string. Fix to allow more checks. [SC1073]\n./plugins/rq/scripts/claude-start.sh:2:1: note: The mentioned syntax error was in this simple command. [SC1009]\n./plugins/rq/scripts/claude-start.sh:2:5: error:  Fix any mentioned problems and try again. [SC1072]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

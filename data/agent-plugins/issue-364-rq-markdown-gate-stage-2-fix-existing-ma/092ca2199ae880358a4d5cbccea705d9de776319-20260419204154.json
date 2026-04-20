@@ -1,0 +1,170 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-364-rq-markdown-gate-stage-2-fix-existing-ma",
+  "sha": "092ca2199ae880358a4d5cbccea705d9de776319",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T00:41:53Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "lint",
+    "markdown"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:39:43Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T19:25:45Z",
+      "coverage_tool": "py",
+      "files_checked": 4,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:39:45Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:44Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:39:41Z",
+      "files_checked": 194,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:41:26Z",
+      "duration_ms": 66000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T00:41:49Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/claude-bounce.sh:2:1: error: Couldn't parse this here string. Fix to allow more checks. [SC1073]\n./plugins/rq/scripts/claude-bounce.sh:2:1: note: The mentioned syntax error was in this simple command. [SC1009]\n./plugins/rq/scripts/claude-bounce.sh:2:5: error:  Fix any mentioned problems and try again. [SC1072]\n./plugins/rq/scripts/claude-start.sh:2:1: error: Couldn't parse this here string. Fix to allow more checks. [SC1073]\n./plugins/rq/scripts/claude-start.sh:2:1: note: The mentioned syntax error was in this simple command. [SC1009]\n./plugins/rq/scripts/claude-start.sh:2:5: error:  Fix any mentioned problems and try again. [SC1072]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n"
+        }
+      ],
+      "duration_ms": 23000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T00:40:20Z",
+      "duration_ms": 9000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T14:14:51Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:40:11Z",
+      "duration_ms": 26000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T13:55:42Z",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T15:38:41Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T14:11:03Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T00:41:26Z",
+      "scanned_files": 35,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T18:36:14Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T19:24:25Z",
+      "test_runner": "bin-test",
+      "fingerprint": "3988d19244b5422f1207b602160b199b",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 816367.0
+}
