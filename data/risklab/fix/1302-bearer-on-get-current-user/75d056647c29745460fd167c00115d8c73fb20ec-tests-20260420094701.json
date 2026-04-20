@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/1302-bearer-on-get-current-user",
+  "sha": "75d056647c29745460fd167c00115d8c73fb20ec",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T13:47:01Z",
+  "phase": "build",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T13:47:00Z",
+      "fingerprint": "ea25f9f29868ad8b5e56cab9d6c383da",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning all tests\u001b[0m\n\n\u001b[0;34m--- Backend ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: creating and starting...\u001b[0m\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized)."
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
