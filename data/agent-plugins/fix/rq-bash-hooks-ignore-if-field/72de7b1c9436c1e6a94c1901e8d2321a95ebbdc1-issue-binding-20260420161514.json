@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/rq-bash-hooks-ignore-if-field",
+  "sha": "72de7b1c9436c1e6a94c1901e8d2321a95ebbdc1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T20:15:14Z",
+  "phase": "all",
+  "run_number": 4,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T20:15:13Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
