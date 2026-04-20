@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/1308-projects-mine",
+  "sha": "69b05f8c16b483150269044ca6d5c796ad342887",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T20:44:14Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T20:44:13Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend with ruff...\nF401 [*] `typing.List` imported but unused\n  --> app/api/projects/base.py:9:20\n   |\n 7 | import logging\n 8 | from datetime import datetime, timezone\n 9 | from typing import List, Optional\n   |                    ^^^^\n10 |\n11 | from fastapi import APIRouter, Depends, HTTPException, Query\n   |\nhelp: Remove unused import: `typing.List`\n\nFound 1 error.\n[*] 1 fixable with the `--fix` option.\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 291ms on 1670 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 912 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
