@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/widget-schemas-endpoint",
+  "sha": "17e6e44a5febcdd1cb2f4bf198a5d9af0e741dbc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T14:31:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 3
+  },
+  "critic_findings": [
+    {
+      "file": "backend/tests/services/widget_registry/test_content_configs.py",
+      "line": 48,
+      "rule": "MISSING_TEST",
+      "message": "AC4 not covered: no test passes the alias 'htmlContent=\"<p>\"' to HtmlEmbedConfig and asserts html_content == \"<p>\". Only the default case (empty string) is tested. The populate_by_name alias round-trip is never exercised."
+    },
+    {
+      "file": "backend/tests/services/widget_registry/test_content_configs.py",
+      "line": 36,
+      "rule": "MISSING_TEST",
+      "message": "AC3 partially uncovered: the acceptance criterion requires ImageConfig to reject extra keys. No pytest.raises(ValidationError) test exists for ImageConfig with an extra field \u2014 only RichTextConfig (line 22) has a strict/extra-key rejection test."
+    },
+    {
+      "file": "backend/tests/services/widget_registry/test_content_configs.py",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "AC6 not covered: no test asserts that every model's JSON schema has additionalProperties == False. extra='forbid' enforces this at runtime but the acceptance criterion requires a real schema assertion, e.g. assert Model.model_json_schema().get('additionalProperties') is False for all 5 models."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:31:08Z",
+      "test_runner": "bin-test",
+      "fingerprint": "24ddb9c814ae953e4b1fb0c7099846b3",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
