@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "serene-greeting-mochi",
+  "branch": "issue-329-plan-claimsh-check-claim-reports-unclaim",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T12:46:52.792Z",
+  "session_id": "94aee540-6db3-4fb5-96b9-fa23ba965ab0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 27133,
+    "output": 926860,
+    "cache_read": 552732544,
+    "cache_create": 26393613,
+    "est_cost_usd": 17.8603683
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 33654179,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 67004261,
+      "cost_usd": 2.08288605
+    },
+    "review#2": {
+      "tokens": 467335365,
+      "cost_usd": 5.665872
+    },
+    "unknown": {
+      "tokens": 12086345,
+      "cost_usd": 10.11161025
+    }
+  }
+}
