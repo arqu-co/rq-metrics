@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "audit-1298-bundle-purge",
+  "sha": "0d41ef8b9f0a6e8866b2b8ceb2816caff3d3a3d6",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-20T21:31:37Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:31:35Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
