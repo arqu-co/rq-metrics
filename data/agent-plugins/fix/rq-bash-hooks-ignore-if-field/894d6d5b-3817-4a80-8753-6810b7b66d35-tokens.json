@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "fix/rq-bash-hooks-ignore-if-field",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T16:33:05.626Z",
+  "session_id": "894d6d5b-3817-4a80-8753-6810b7b66d35",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5074,
+    "output": 187411,
+    "cache_read": 43448313,
+    "cache_create": 2166498,
+    "est_cost_usd": 3.0370563
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 29174011,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 11243240,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 5390045,
+      "cost_usd": 3.0370563
+    }
+  }
+}
