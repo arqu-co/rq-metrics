@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1306-bintest-119s-of-per-invocation-setup-ove",
+  "sha": "7d68510250d8cfb59f1014cbadc334262bd27676",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T21:44:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:44:31Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend with ruff...\nAll checks passed!\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 252ms on 1670 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 911 source files\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nnode:internal/modules/esm/resolve:204\n  const resolvedOption = FSLegacyMainResolve(pkgPath, packageConfig.main, baseStringified);\n                         ^\n\nError: Cannot find package '/private/var/folders/hw/dzkq0wzx1cj1y59sy_ytmh9c0000gn/T/bunx-501-oxfmt@latest/node_modules/tinypool/index.js' imported from /private/var/folders/hw/dzkq0wzx1cj1y59sy_ytmh9c0000gn/T/bunx-501-oxfmt@latest/node_modules/oxfmt/dist/cli.js\n    at legacyMainResolve (node:internal/modules/esm/resolve:204:26)\n    at packageResolve (node:internal/modules/esm/resolve:778:12)\n    at moduleResolve (node:internal/modules/esm/resolve:858:18)\n    at defaultResolve (node:internal/modules/esm/resolve:990:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20)\n    at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38)\n    at #link (node:internal/modules/esm/module_job:208:49) {\n  code: 'ERR_MODULE_NOT_FOUND'\n}\n\nNode.js v24.11.0\n\u001b[0;31m\u274c oxfmt check failed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 244ms on 1670 files with 86 rules using 16 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u001b[0;31m\u274c TypeScript type checking failed\u001b[0m\n\n\u001b[0;31m\u274c Frontend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-frontend' to fix formatting/lint issues\u001b[0m\n\u274c Frontend formatting failed\n\n\u274c All formatting failed\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Type checking failed\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
