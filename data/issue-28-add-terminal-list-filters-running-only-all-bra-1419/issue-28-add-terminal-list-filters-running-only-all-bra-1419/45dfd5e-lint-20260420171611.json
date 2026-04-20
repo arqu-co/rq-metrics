@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "repo": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "branch": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "sha": "45dfd5e",
+  "user": "unknown",
+  "timestamp": "2026-04-20T21:16:11Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:16:10Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+Fix the violation at its source (don't add `// noqa`, don't skip tests). Re-run gates until clean. Remember: `npm install` inside a worktree is forbidden \u2014 its `node_modules` is a symlink to the main checkout.\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
