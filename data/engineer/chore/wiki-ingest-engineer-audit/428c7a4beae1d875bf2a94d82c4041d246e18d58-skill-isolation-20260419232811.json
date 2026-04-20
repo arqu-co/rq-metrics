@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "chore/wiki-ingest-engineer-audit",
+  "sha": "428c7a4beae1d875bf2a94d82c4041d246e18d58",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T03:28:11Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:28:10Z",
+      "scanned_files": 1,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
