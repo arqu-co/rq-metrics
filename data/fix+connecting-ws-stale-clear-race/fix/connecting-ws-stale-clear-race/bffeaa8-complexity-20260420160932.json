@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "fix+connecting-ws-stale-clear-race",
+  "branch": "fix/connecting-ws-stale-clear-race",
+  "sha": "bffeaa8",
+  "user": "unknown",
+  "timestamp": "2026-04-20T20:09:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T20:09:32Z",
+      "files_checked": 2,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/App.tsx",
+          "function": "App",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

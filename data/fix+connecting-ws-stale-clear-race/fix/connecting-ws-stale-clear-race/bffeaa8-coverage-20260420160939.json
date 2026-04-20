@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "fix+connecting-ws-stale-clear-race",
+  "branch": "fix/connecting-ws-stale-clear-race",
+  "sha": "bffeaa8",
+  "user": "unknown",
+  "timestamp": "2026-04-20T20:09:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:09:39Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
