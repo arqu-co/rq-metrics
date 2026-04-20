@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "branch": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "sha": "faddb92",
+  "user": "unknown",
+  "timestamp": "2026-04-20T21:07:42Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:07:42Z",
+      "files_checked": 11,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
