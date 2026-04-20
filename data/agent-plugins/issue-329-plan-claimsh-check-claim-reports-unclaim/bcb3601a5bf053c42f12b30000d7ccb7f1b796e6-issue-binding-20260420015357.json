@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-329-plan-claimsh-check-claim-reports-unclaim",
+  "sha": "bcb3601a5bf053c42f12b30000d7ccb7f1b796e6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T05:53:57Z",
+  "phase": "all",
+  "run_number": 6,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T05:53:56Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
