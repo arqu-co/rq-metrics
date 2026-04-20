@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/widget-schemas-endpoint",
+  "sha": "29851b29522a3f23d87c5c8d9b319c25457c0345",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T14:06:46Z",
+  "phase": "build",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "backend/app/services/widget_registry/analytics_configs.py",
+      "line": 3,
+      "rule": "NAMING",
+      "message": "Module docstring is 8 lines; task constraint caps module docstrings at ~2 lines. Trim to a single-line docstring and remove the extended body."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:01:09Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:01:16Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:01:03Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 113000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:06:43Z",
+      "duration_ms": 129000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:01:30Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 14000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:04:34Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T13:15:16Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:04:31Z",
+      "scanned_files": 0,
+      "duration_ms": 6000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T13:59:10Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:04:25Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d8705349f30cf6ee6f34057eb62eeddb",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 175000
+    }
+  },
+  "duration_seconds": 3087.0
+}
