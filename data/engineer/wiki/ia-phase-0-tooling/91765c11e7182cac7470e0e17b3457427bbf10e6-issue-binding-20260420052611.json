@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "engineer",
+  "branch": "wiki/ia-phase-0-tooling",
+  "sha": "91765c11e7182cac7470e0e17b3457427bbf10e6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T09:26:10Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T09:26:09Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
