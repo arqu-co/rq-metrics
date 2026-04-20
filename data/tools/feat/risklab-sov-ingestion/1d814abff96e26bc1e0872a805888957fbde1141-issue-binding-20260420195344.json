@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "feat/risklab-sov-ingestion",
+  "sha": "1d814abff96e26bc1e0872a805888957fbde1141",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T23:53:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T23:53:41Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
