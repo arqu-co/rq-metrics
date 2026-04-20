@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/widget-schemas-endpoint",
+  "sha": "29851b29522a3f23d87c5c8d9b319c25457c0345",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T14:05:13Z",
+  "phase": "build",
+  "run_number": 2,
+  "gate_name": "issue-binding",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "backend/app/services/widget_registry/analytics_configs.py",
+      "line": 3,
+      "rule": "NAMING",
+      "message": "Module docstring is 8 lines; task constraint caps module docstrings at ~2 lines. Trim to a single-line docstring and remove the extended body."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T14:05:11Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
