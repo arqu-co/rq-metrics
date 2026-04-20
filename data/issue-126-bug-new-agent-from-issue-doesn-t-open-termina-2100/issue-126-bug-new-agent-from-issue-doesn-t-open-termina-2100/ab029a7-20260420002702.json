@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "repo": "issue-126-bug-new-agent-from-issue-doesn-t-open-termina-2100",
+  "branch": "issue-126-bug-new-agent-from-issue-doesn-t-open-termina-2100",
+  "sha": "ab029a7",
+  "user": "unknown",
+  "timestamp": "2026-04-20T04:27:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:15Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 15000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:58Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:18Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:41:51Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:00Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 31000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:41:51Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:26:54Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:41:50Z",
+      "test_runner": "bin-test",
+      "fingerprint": "fafbb87a6ffd8281e751cad4eae34159",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 2708.0
+}
