@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/widget-schemas-endpoint",
+  "sha": "ef211b3e4f9f678f5dd94c48e07e56a63e53b34a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T16:18:55Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "TEST_QUALITY": 3
+  },
+  "critic_findings": [
+    {
+      "file": "backend/tests/api/spaces/conftest.py",
+      "line": 14,
+      "rule": "TEST_QUALITY",
+      "message": "mock_current_user fixture uses MagicMock(id=1) \u2014 banned pattern. Writer's tests depend on this fixture for 5 of 7 test cases. Replace with a real UserResponse instance constructed from model fields."
+    },
+    {
+      "file": "backend/tests/api/spaces/test_widget_schemas_endpoint.py",
+      "line": 13,
+      "rule": "TEST_QUALITY",
+      "message": "TestListWidgetSchemas class calls list_widget_schemas() directly (handler-only unit tests). ACs 1, 3, 4, 5, 6 are exercised without HTTP round-trip. Review brief explicitly prohibits handler-only unit tests as sufficient. All schema-content assertions must go through AsyncClient + ASGI transport."
+    },
+    {
+      "file": "backend/tests/api/spaces/test_widget_schemas_endpoint.py",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "AC2 auth-wiring test uses dependency_overrides[get_current_user] = lambda: None \u2014 still bypasses auth. There is no test that hits the route with NO override to confirm get_current_user is actually wired into the handler. If Depends(get_current_user) were deleted from the signature, this test would still pass."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:18:54Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
