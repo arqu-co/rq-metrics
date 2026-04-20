@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/1302-bearer-on-get-current-user",
+  "sha": "d7401198754658fc046a34a2106f1340ac5a6062",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T14:46:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T14:45:59Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
