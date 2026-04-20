@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repo": "session-20260419-2103",
+  "branch": "session-20260419-2103",
+  "sha": "21b0938",
+  "user": "unknown",
+  "timestamp": "2026-04-20T04:08:35Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T04:08:35Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
