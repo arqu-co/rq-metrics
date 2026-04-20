@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "feat+worktree-node-modules-symlink",
+  "branch": "feat/worktree-node-modules-symlink",
+  "sha": "3af35ca",
+  "user": "unknown",
+  "timestamp": "2026-04-20T15:29:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T15:29:22Z",
+      "test_runner": "bin-test",
+      "fingerprint": "b8c87449e58855935220333fb7176d80",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
