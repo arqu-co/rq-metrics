@@ -1,0 +1,60 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "issue-364-rq-markdown-gate-stage-2-fix-existing-ma",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-19T08:32:51.963Z",
+  "session_id": "19f03756-c2ea-4226-9b4b-77360b2b7a8e",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 6130,
+    "output": 1390997,
+    "cache_read": 763664022,
+    "cache_create": 20267171,
+    "est_cost_usd": 43.219937529999996
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "dev": {
+      "tokens": 19112694,
+      "cost_usd": 2.29450875
+    },
+    "review#1": {
+      "tokens": 34422709,
+      "cost_usd": null
+    },
+    "brainstorm#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 175394638,
+      "cost_usd": 7.9112985
+    },
+    "review#2": {
+      "tokens": 88298926,
+      "cost_usd": null
+    },
+    "brainstorm#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#2": {
+      "tokens": 468099353,
+      "cost_usd": 33.014130279999996
+    }
+  }
+}
