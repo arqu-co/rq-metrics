@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "repo": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "branch": "issue-28-add-terminal-list-filters-running-only-all-bra-1419",
+  "sha": "faddb92",
+  "user": "unknown",
+  "timestamp": "2026-04-20T21:07:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:07:27Z",
+      "files_checked": 11,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/components/Sidebar.tsx",
+          "function": "Sidebar",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:07:35Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:07:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:04:23Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:07:26Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 183000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:07:32Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+Fix the violation at its source (don't add `// noqa`, don't skip tests). Re-run gates until clean. Remember: `npm install` inside a worktree is forbidden \u2014 its `node_modules` is a symlink to the main checkout.\n\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:04:23Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:07:34Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:07:34Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d52d87e85999abe5475c5f7481d5f036",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 192.0
+}
