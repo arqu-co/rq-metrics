@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/1303-widget-dry-run",
+  "sha": "73d6be8bf13f90343de6408776aa60c118d937e3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T21:47:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:47:00Z",
+      "files_checked": 6,
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/space/__init__.py",
+          "name": "(",
+          "line": 8
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/space/__init__.py",
+          "name": "(",
+          "line": 11
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/space/__init__.py",
+          "name": "(",
+          "line": 27
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/space/__init__.py",
+          "name": "(",
+          "line": 31
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/1303-widget-dry-run",
+  "sha": "73d6be8bf13f90343de6408776aa60c118d937e3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T21:46:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:46:55Z",
+      "files_checked": 6,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "backend/app/api/spaces/dry_run.py",
+          "function": "dry_run_widget",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
