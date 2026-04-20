@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "feat/risklab-sov-ingestion",
+  "sha": "12745600d545539e49279193e447217605863592",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T23:47:05Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T23:47:05Z",
+      "files_checked": 11,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/get_sov_upload_status.ts",
+          "function": "buildSummary",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
