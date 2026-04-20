@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "audit-1295-pii-strip",
+  "sha": "8c53916bfd86e8e0b1670df19726b6f9c1964d7a",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-20T21:52:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:52:57Z",
+      "files_checked": 12,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/app/api/authentication/sso.py",
+          "function": "sso_callback",
+          "lines": 133,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/authentication/sso.py",
+          "function": "sso_callback",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/core/core_api_deps.py",
+          "function": "get_core_api_user",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/core/core_api_deps.py",
+          "function": "get_core_api_user",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/auth/email_service.py",
+          "function": "EmailService",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/shared/auth/oauth_service.py",
+          "function": "OAuthService",
+          "lines": 114,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_observability_pii.py",
+          "function": "test_request_id_present_on_records_in_request_context",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/core/test_observability_pii.py",
+          "function": "test_auth_flow_does_not_log_customer_email",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
