@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-365-rq-markdown-gate-stage-3-wire-commit-hoo",
+  "sha": "e87004afd6e946e0ed04a4f0ddc65ae35170f512",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T01:09:37Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T01:09:36Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
