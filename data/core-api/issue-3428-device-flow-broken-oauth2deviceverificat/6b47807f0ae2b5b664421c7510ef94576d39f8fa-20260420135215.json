@@ -1,0 +1,121 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3428-device-flow-broken-oauth2deviceverificat",
+  "sha": "6b47807f0ae2b5b664421c7510ef94576d39f8fa",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T17:52:14Z",
+  "phase": "all",
+  "run_number": 5,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "issue-binding",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T16:44:39Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:10:06Z",
+      "files_checked": 0,
+      "coverage_tool": "jacoco",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:44:42Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:44:37Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T17:52:10Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:11:34Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:11:41Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T17:11:35Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T17:52:12Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:52:09Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:46:56Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:05:58Z",
+      "test_runner": "bin-test",
+      "fingerprint": "838858ca3e03fd4805d07370a4bc7347",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 4055.0
+}
