@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "main",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-10T17:52:42.639Z",
+  "session_id": "c480acd4-34b7-4175-a322-caa1bb2ee83a",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 21,
+    "output": 2953,
+    "cache_read": 286690,
+    "cache_create": 115721,
+    "est_cost_usd": 0.56431875
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 405385,
+      "cost_usd": 0.56431875
+    }
+  }
+}

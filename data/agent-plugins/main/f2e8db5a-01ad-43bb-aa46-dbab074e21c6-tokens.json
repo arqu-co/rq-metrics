@@ -1,0 +1,75 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "claude-skills",
+  "branch": "main",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-31T20:42:51.857Z",
+  "session_id": "f2e8db5a-01ad-43bb-aa46-dbab074e21c6",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-6",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 104343,
+    "output": 1329167,
+    "cache_read": 1558595090,
+    "cache_create": 31320308,
+    "est_cost_usd": 2874.50979716
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 125918965,
+      "cost_usd": 282.121212
+    },
+    "ship#1": {
+      "tokens": 17288639,
+      "cost_usd": 27.2148435
+    },
+    "ship#2": {
+      "tokens": 51321719,
+      "cost_usd": 112.661388
+    },
+    "review#1": {
+      "tokens": 122437391,
+      "cost_usd": 188.25359805
+    },
+    "ship#3": {
+      "tokens": 226682711,
+      "cost_usd": 373.5367956
+    },
+    "brainstorm": {
+      "tokens": 122693894,
+      "cost_usd": 197.9566425
+    },
+    "review#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#4": {
+      "tokens": 159337984,
+      "cost_usd": 337.44449265
+    },
+    "review#5": {
+      "tokens": 60850843,
+      "cost_usd": 87.94047090000001
+    },
+    "ship#4": {
+      "tokens": 12413886,
+      "cost_usd": 36.28893075
+    },
+    "unknown": {
+      "tokens": 692402876,
+      "cost_usd": 1231.09142321
+    }
+  }
+}
