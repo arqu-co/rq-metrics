@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/widget-schemas-endpoint",
+  "sha": "a9d0e85c9256b6eab6a214ba34af47dc780f28b4",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T16:47:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 3,
+  "critic_findings_by_rule": {
+    "TEST_QUALITY": 3
+  },
+  "critic_findings": [
+    {
+      "file": "backend/tests/api/spaces/conftest.py",
+      "line": 14,
+      "rule": "TEST_QUALITY",
+      "message": "mock_current_user fixture uses MagicMock(id=1) \u2014 banned pattern. Writer's tests depend on this fixture for 5 of 7 test cases. Replace with a real UserResponse instance constructed from model fields."
+    },
+    {
+      "file": "backend/tests/api/spaces/test_widget_schemas_endpoint.py",
+      "line": 13,
+      "rule": "TEST_QUALITY",
+      "message": "TestListWidgetSchemas class calls list_widget_schemas() directly (handler-only unit tests). ACs 1, 3, 4, 5, 6 are exercised without HTTP round-trip. Review brief explicitly prohibits handler-only unit tests as sufficient. All schema-content assertions must go through AsyncClient + ASGI transport."
+    },
+    {
+      "file": "backend/tests/api/spaces/test_widget_schemas_endpoint.py",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "AC2 auth-wiring test uses dependency_overrides[get_current_user] = lambda: None \u2014 still bypasses auth. There is no test that hits the route with NO override to confirm get_current_user is actually wired into the handler. If Depends(get_current_user) were deleted from the signature, this test would still pass."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review-wip-reviewer-74288",
+    "review-wip-reviewer-75317",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:43:34Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:46:58Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:43:40Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:43:30Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 19000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:47:00Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:43:48Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:47:06Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T15:16:56Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T16:19:12Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-20T16:43:11Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-74288": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "backend/app/services/widget_registry/registry.py",
+          "line": 10,
+          "severity": "low",
+          "category": "style",
+          "title": "WIDGET_REGISTRY missing explicit tuple type annotation",
+          "body": "The review focus area explicitly asks to verify WIDGET_REGISTRY: tuple[WidgetRegistryEntry, ...]. The value is a tuple by construction, but the binding has no annotation. Siblings ANALYTICS_REGISTRY, CONTENT_REGISTRY, LOSSES_REGISTRY, _SOV_REGISTRY, _RISK_PREMIUM_GRS_REGISTRY are all explicitly annotated. Fix: 'WIDGET_REGISTRY: tuple[WidgetRegistryEntry, ...] = ANALYTICS_REGISTRY + CONTENT_REGISTRY' (import WidgetRegistryEntry from .entry).",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/app/services/widget_registry/registry.py",
+          "line": 13,
+          "severity": "low",
+          "category": "style",
+          "title": "build_widget_schemas_response lacks a docstring",
+          "body": "This is the only public function in the module and is the producer of the endpoint response, but has no docstring explaining what it does or the Draft 2020-12 JSON Schema contract. Add a one-line docstring (matches project rule: <=2 lines).",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/app/services/widget_registry/entry.py",
+          "line": 1,
+          "severity": "low",
+          "category": "style",
+          "title": "Redundant path comment above module docstring",
+          "body": "Line 1 is a comment '# backend/app/services/widget_registry/entry.py' duplicating the file path. The same pattern appears in backend/app/services/widget_registry/__init__.py:1 and backend/tests/services/widget_registry/test_registry.py:1. These self-referential path comments are noise \u2014 the file's location is known from its path and they rot silently if the file moves. The module docstring on the next line is sufficient. Remove the path comment from all three files.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/app/services/widget_registry/content_configs.py",
+          "line": 7,
+          "severity": "low",
+          "category": "DRY",
+          "title": "_STRICT ConfigDict duplicated across analytics_configs and content_configs",
+          "body": "Identical `_STRICT = ConfigDict(extra=\"forbid\", populate_by_name=True)` is defined in both analytics_configs.py:7 and content_configs.py:7. If the strictness policy ever needs to change (e.g., adding json_schema_extra), the change must happen in two places. Extract to a shared module (e.g., widget_registry/_config.py) and import.",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/app/models/pydantic/space/widget_schemas_response.py",
+          "line": 8,
+          "severity": "info",
+          "category": "style",
+          "title": "Response model classes lack docstrings",
+          "body": "WidgetSchemaEntry and WidgetSchemasResponse have no docstrings. For OpenAPI-exposed response models consumed by external clients (arqu-mcp Worker), docstrings surface in the generated schema and help consumers understand the contract. Add one-line docstrings to each class.",
+          "confidence": "low"
+        },
+        {
+          "file": "backend/app/services/widget_registry/analytics_registry.py",
+          "line": 108,
+          "severity": "info",
+          "category": "naming",
+          "title": "_RISK_PREMIUM_GRS_REGISTRY name mixes three categories",
+          "body": "The private tuple bundles Risk (5), Premium (2), and GRS (1) entries. The name is long and informative but signals that three distinct frontend source files were collapsed into one bucket. Consider splitting into _RISK_REGISTRY, _PREMIUM_REGISTRY, _GRS_REGISTRY and concatenating in ANALYTICS_REGISTRY \u2014 matches the per-source-file organization used for _SOV_REGISTRY and the separated LOSSES_REGISTRY file. Low priority but improves discoverability as more GRS widgets are added.",
+          "confidence": "low"
+        },
+        {
+          "file": "backend/tests/services/widget_registry/test_registry.py",
+          "line": 22,
+          "severity": "low",
+          "category": "correctness",
+          "title": "TS key regex rejects digits in widget keys",
+          "body": "KEY_RE = re.compile(r'^\\s*key:\\s*\"([a-z_]+)\"') only matches lowercase letters and underscores. If the frontend ever introduces a widget key with a digit (e.g., 'chart_v2', 'sov_2024'), the drift-detection test will silently skip it, producing a false-positive match between registries. Widen to [a-z0-9_]+ to match common identifier conventions.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/app/services/widget_registry/registry.py",
+          "line": 13,
+          "severity": "info",
+          "category": "DRY",
+          "title": "build_widget_schemas_response manually re-maps all 8 fields",
+          "body": "The function constructs a WidgetSchemaEntry by listing every field of WidgetRegistryEntry except config_model. If WidgetRegistryEntry ever gains a new metadata field (e.g., 'min_column_span', 'icon'), WidgetSchemaEntry and this mapping must both be updated and there is no compile-time link. Consider: `WidgetSchemaEntry(**e.model_dump(exclude={'config_model'}), config_schema=e.config_model.model_json_schema(by_alias=True))`. The field sets are intentionally parallel, so a model_dump splat keeps them in sync at one seam.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-75317": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "backend/tests/api/spaces/test_widget_schemas_endpoint.py",
+          "line": 48,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "test_requires_get_current_user_dependency does not prove the dependency is wired",
+          "body": "The test overrides get_current_user with lambda: None and asserts response.status_code == 200. If Depends(get_current_user) were deleted from the list_widget_schemas signature, FastAPI would never resolve the override, the route would still return 200, and this test would still pass. The test's docstring claims it verifies the route is wired end-to-end but it only verifies the endpoint returns 200 when called over HTTP. Evidence: no assertion captures whether the override was invoked (e.g. a Mock with call count, a sentinel-returning override). Impact: an accidental removal of Depends(get_current_user) would publish widget-schemas as an unauthenticated endpoint \u2014 exactly the regression this test exists to guard. Fix: replace lambda: None with a Mock whose return_value is a sentinel object, and assert the mock was called once after the request (or use a fixture that tracks invocations). Alternatively, drop the dependency_overrides entry entirely so the real get_current_user runs \u2014 a truly anonymous request then exercises the production auth path.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:47:08Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:47:04Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T13:59:10Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T16:46:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4019c2b765d26e1b3b486058bd7bd819",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 187000
+    }
+  },
+  "duration_seconds": 10078.0
+}
