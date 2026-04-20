@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "master",
+  "sha": "9f7d512d5c03d661d322059b442b752d9f8e0bec",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-20T21:02:17Z",
+  "phase": "all",
+  "run_number": 5,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "lint",
+    "markdown",
+    "plan",
+    "qa",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:43:09Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T20:52:59Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:43:10Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T07:12:13Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:43:09Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:43:29Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:53:01Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T20:43:30Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T07:12:13Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T21:02:17Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T21:02:16Z",
+      "scanned_files": 0,
+      "duration_ms": 555000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:44:05Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:44:05Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e3a8612d3b4415fb22ab304efec0ea00",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 2296204.0
+}
