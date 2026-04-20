@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-366-rq-markdown-gate-stage-4-pre-gh-issuepr-",
+  "sha": "6202d67c205ea5b3068279d1cdc28ff8993e4a9b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T02:04:35Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T02:04:35Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_enforce_gh_body_markdown.sh:30:9: warning: Declare and assign separately to avoid masking return values. [SC2155]\n./plugins/rq/hooks/test_enforce_gh_body_markdown.sh:44:9: warning: Declare and assign separately to avoid masking return values. [SC2155]\n./plugins/rq/hooks/test_enforce_gh_body_markdown.sh:117:13: note: Expressions don't expand in single quotes, use double quotes for that. [SC2016]\n./plugins/rq/hooks/test_enforce_gh_body_markdown.sh:120:15: note: Expressions don't expand in single quotes, use double quotes for that. [SC2016]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_enforce_gh_body_markdown.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
