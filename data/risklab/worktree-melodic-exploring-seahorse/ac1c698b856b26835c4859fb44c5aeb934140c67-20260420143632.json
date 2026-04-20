@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "worktree-melodic-exploring-seahorse",
+  "sha": "ac1c698b856b26835c4859fb44c5aeb934140c67",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T18:36:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:35:00Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T18:36:25Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:35:02Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:34:59Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T18:36:26Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T18:36:15Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend with ruff...\nwarning: Support for Python 3.14 is under development and may be unstable. Enable `preview` to remove this warning.\nAll checks passed!\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 233ms on 1670 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 911 source files\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nnode:internal/modules/esm/resolve:204\n  const resolvedOption = FSLegacyMainResolve(pkgPath, packageConfig.main, baseStringified);\n                         ^\n\nError: Cannot find package '/private/var/folders/hw/dzkq0wzx1cj1y59sy_ytmh9c0000gn/T/bunx-501-oxfmt@latest/node_modules/tinypool/index.js' imported from /private/var/folders/hw/dzkq0wzx1cj1y59sy_ytmh9c0000gn/T/bunx-501-oxfmt@latest/node_modules/oxfmt/dist/cli.js\n    at legacyMainResolve (node:internal/modules/esm/resolve:204:26)\n    at packageResolve (node:internal/modules/esm/resolve:778:12)\n    at moduleResolve (node:internal/modules/esm/resolve:858:18)\n    at defaultResolve (node:internal/modules/esm/resolve:990:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20)\n    at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38)\n    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38)\n    at #link (node:internal/modules/esm/module_job:208:49) {\n  code: 'ERR_MODULE_NOT_FOUND'\n}\n\nNode.js v24.11.0\n\u001b[0;31m\u274c oxfmt check failed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 221ms on 1670 files with 86 rules using 16 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u001b[0;31m\u274c TypeScript type checking failed\u001b[0m\n\n\u001b[0;31m\u274c Frontend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-frontend' to fix formatting/lint issues\u001b[0m\n\u274c Frontend formatting failed\n\n\u274c All formatting failed\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Type checking failed\n"
+        }
+      ],
+      "duration_ms": 73000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:36:28Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T18:36:16Z",
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T18:36:30Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:34:58Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T18:36:23Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T18:36:21Z",
+      "test_runner": "bin-test",
+      "fingerprint": "33c393ee61b22b55654caca3bc95cfeb",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning all tests\u001b[0m\n\n\u001b[0;34m--- Backend ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: creating and starting...\u001b[0m\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized)."
+        }
+      ],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 92.0
+}
