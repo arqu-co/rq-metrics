@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-402-rq-collapse-20-hook-surface-into-dispatc",
+  "sha": "9fa2794ed7abeb43cd4332dbdf55b3156ca0d029",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T19:41:49Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T19:41:48Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/test_hook_perf_summary_py.py",
+          "function": "test_summarize_entry_fields",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
