@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "refactor/split-todoservicetest",
+  "sha": "b07b81782b75e47d464902cfe6c1cff292ef721a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T18:04:28Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:04:28Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
