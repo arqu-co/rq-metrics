@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "audit-1300-async-gcs",
+  "sha": "7dd18a9cba3fdc14987bb2ece581c845721a39d8",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-21T16:15:29Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:15:29Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "backend/app/storage/gcs.py",
+          "function": "GCSProvider",
+          "lines": 194,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/storage/test_gcs_provider_async.py",
+          "function": "TestGetDownloadUrlAsyncHygiene",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

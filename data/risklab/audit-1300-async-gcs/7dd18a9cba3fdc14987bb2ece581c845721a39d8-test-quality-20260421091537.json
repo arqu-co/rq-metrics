@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "audit-1300-async-gcs",
+  "sha": "7dd18a9cba3fdc14987bb2ece581c845721a39d8",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-21T16:15:37Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:15:36Z",
+      "scanned_files": 1,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/tests/storage/test_gcs_provider_async.py",
+          "line": 46,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    provider.gcs_client = MagicMock()"
+        },
+        {
+          "file": "backend/tests/storage/test_gcs_provider_async.py",
+          "line": 52,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    blob = MagicMock(name=\"blob\")"
+        },
+        {
+          "file": "backend/tests/storage/test_gcs_provider_async.py",
+          "line": 53,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    bucket = MagicMock(name=\"bucket\")"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
