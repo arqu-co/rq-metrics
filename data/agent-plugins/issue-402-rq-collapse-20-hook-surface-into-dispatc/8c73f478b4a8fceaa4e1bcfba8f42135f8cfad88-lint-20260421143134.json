@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-402-rq-collapse-20-hook-surface-into-dispatc",
+  "sha": "8c73f478b4a8fceaa4e1bcfba8f42135f8cfad88",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T18:31:34Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:31:33Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/hook-lib.sh\n./plugins/rq/hooks/test_hook_lib.sh\n./plugins/rq/hooks/test_rq_bash_post_dispatcher.sh\n./plugins/rq/hooks/test_rq_bash_pre_dispatcher.sh\n./plugins/rq/hooks/test_rq_prompt_submit_dispatcher.sh\n./plugins/rq/hooks/test_rq_session_dispatcher.sh\n./plugins/rq/hooks/test_ui_noise.sh\n./plugins/rq/scripts/hook-perf-benchmark.sh\n./plugins/rq/scripts/test_hook_perf_summary.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
