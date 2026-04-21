@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tile-builder-usfs-sdi-timeout-fix",
+  "sha": "b29d04fd6d94d217c9bffa09eeb8f8fb7c30a64b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-21T21:41:44Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:44Z",
+      "files_checked": 18,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "service/infra/src/main/kotlin/co/arqu/georiskservice/infra/constructs/TileBuilder.kt",
+          "lines": 600,
+          "max": 500,
+          "status": "fail"
+        },
+        {
+          "file": "service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfigTest.kt",
+          "lines": 533,
+          "max": 500,
+          "status": "fail"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "lines": 656,
+          "max": 500,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

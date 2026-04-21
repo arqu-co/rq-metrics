@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tile-builder-usfs-sdi-timeout-fix",
+  "sha": "b29d04fd6d94d217c9bffa09eeb8f8fb7c30a64b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-21T21:41:57Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 6,
+  "missed_gates": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "issue-binding",
+    "markdown",
+    "test-quality"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:48Z",
+      "files_checked": 16,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "service/infra/src/main/kotlin/co/arqu/georiskservice/infra/constructs/TileBuilder.kt",
+          "function": "buildShardEnvironmentVariables",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfig.kt",
+          "function": "areTippecanoeParamsCompatible",
+          "lines": 155,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfigTest.kt",
+          "function": "baseConfig",
+          "lines": 171,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt",
+          "function": "setUp",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfig.kt",
+          "function": "tippecanoeConfigFromEnvironment",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "main",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithPmtiles",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithPmtiles",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithFetch",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "executeFetchPhase",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "executeParallelProcessPhase",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:50Z",
+      "files_checked": 16,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "name": "GridGenerator",
+          "line": 6
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:44Z",
+      "files_checked": 18,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "service/infra/src/main/kotlin/co/arqu/georiskservice/infra/constructs/TileBuilder.kt",
+          "lines": 600,
+          "max": 500,
+          "status": "fail"
+        },
+        {
+          "file": "service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfigTest.kt",
+          "lines": 533,
+          "max": 500,
+          "status": "fail"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "lines": 656,
+          "max": 500,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:54Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:41:53Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:56Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:41:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:41:55Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:54Z",
+      "scanned_files": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt",
+          "line": 33,
+          "pattern": "MockK every{} returns on internal",
+          "code": "        every { s3Client.putObject(any<PutObjectRequest>(), any<RequestBody>()) } returns"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 12.0
+}

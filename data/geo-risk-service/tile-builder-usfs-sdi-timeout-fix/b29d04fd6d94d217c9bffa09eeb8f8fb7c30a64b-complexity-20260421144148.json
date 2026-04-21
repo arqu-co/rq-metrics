@@ -1,0 +1,111 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tile-builder-usfs-sdi-timeout-fix",
+  "sha": "b29d04fd6d94d217c9bffa09eeb8f8fb7c30a64b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-21T21:41:48Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:48Z",
+      "files_checked": 16,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "service/infra/src/main/kotlin/co/arqu/georiskservice/infra/constructs/TileBuilder.kt",
+          "function": "buildShardEnvironmentVariables",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfig.kt",
+          "function": "areTippecanoeParamsCompatible",
+          "lines": 155,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfigTest.kt",
+          "function": "baseConfig",
+          "lines": 171,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt",
+          "function": "setUp",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfig.kt",
+          "function": "tippecanoeConfigFromEnvironment",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "main",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithPmtiles",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithPmtiles",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "tryContinueWithFetch",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "executeFetchPhase",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "executeParallelProcessPhase",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tile-builder-usfs-sdi-timeout-fix",
+  "sha": "b29d04fd6d94d217c9bffa09eeb8f8fb7c30a64b",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-21T21:41:54Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:41:54Z",
+      "scanned_files": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt",
+          "line": 33,
+          "pattern": "MockK every{} returns on internal",
+          "code": "        every { s3Client.putObject(any<PutObjectRequest>(), any<RequestBody>()) } returns"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
