@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-131-risklab-mcp-data-discovery-implementatio",
+  "sha": "0f9f6e3f2a8a8d53b984f80215d0d6a8106c6835",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:09:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:09:43Z",
+      "fingerprint": "c07aad457524d225a03135900175df03",
+      "test_runner": "npm-test",
+      "test_failures": 0,
+      "missing_tests": 3,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "packages/rq-server/src/tools/risklab/get_data_availability.register.ts",
+        "packages/rq-server/src/tools/risklab/preview_losses.register.ts",
+        "packages/rq-server/src/tools/risklab/preview_sov_summary.register.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
