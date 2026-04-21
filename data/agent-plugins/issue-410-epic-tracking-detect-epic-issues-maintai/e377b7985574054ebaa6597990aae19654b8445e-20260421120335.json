@@ -1,0 +1,463 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-410-epic-tracking-detect-epic-issues-maintai",
+  "sha": "e377b7985574054ebaa6597990aae19654b8445e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:03:34Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-69084",
+    "review-wip-reviewer-79467",
+    "review-wip-reviewer-88154",
+    "review-wip-reviewer-90646",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:02:36Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T14:57:56Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:02:39Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:02:32Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:03:21Z",
+      "duration_ms": 8000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:03:13Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/lib/epic-helpers.sh\n./plugins/rq/scripts/lib/test-epic-fixtures.sh\n"
+        }
+      ],
+      "duration_ms": 34000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:03:31Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T15:51:04Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:42:56Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:03:28Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T11:15:18Z"
+    },
+    "review-wip-reviewer-69084": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-79467": {
+      "status": "complete",
+      "findings": 10,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 17,
+          "severity": "low",
+          "category": "design",
+          "title": "resolve_quality_dir doc claims \"pure query\" but sibling functions have mkdir side effects",
+          "body": "The module header and resolve_quality_dir's docstring describe the API as a \"pure query\" that \"Does NOT create the directory\" (lines 14-16). resolve_proof_dir (line 27) and resolve_plans_dir (line 35) then call mkdir -p as a side effect on every call. Mixing pure and side-effectful resolvers under the same naming convention surprises callers who read the header and expect all three to behave the same way. Either rename the side-effectful pair (e.g., ensure_proof_dir / ensure_plans_dir) or split the API into resolve_*_dir (pure) + ensure_*_dir (creates). At minimum, update the module header to document that two of the three resolvers create on call.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 43,
+          "severity": "medium",
+          "category": "design",
+          "title": "CHECKPOINT_DIR allowed as setter but not recognized as rooted prefix",
+          "body": "SETTER_ASSIGNMENT_RE (line 42-45) accepts PROOF_DIR, QUALITY_DIR, METRICS_DIR, and CHECKPOINT_DIR as setter targets. ROOTED_PREFIX_RE (line 25-31) allows usage via $REPO_ROOT, $PROOF_DIR, $QUALITY_DIR, $METRICS_DIR \u2014 but NOT $CHECKPOINT_DIR. The gate therefore permits a line like CHECKPOINT_DIR=\".quality/checkpoints\" but will flag any later use such as \"$CHECKPOINT_DIR/foo.json\" even though that is the intended rooted idiom run-gates.sh itself uses (line 8: CHECKPOINT_DIR=\"${CHECKPOINT_DIR:-.quality/checkpoints}\"). The two lists should be symmetric: if a variable is a legitimate setter target it must also be a legitimate rooted prefix. Add $CHECKPOINT_DIR to ROOTED_PREFIX_RE, or remove CHECKPOINT_DIR from SETTER_ASSIGNMENT_RE.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 25,
+          "severity": "low",
+          "category": "style",
+          "title": "ROOTED_PREFIX_RE accepts four lowercase aliases not documented as canonical",
+          "body": "Lines 29-30 permit $git_root, $repo_root, $local_root, and $worktree_root as rooted prefixes, but the gate's own header (lines 4-7) and the broader skill-authoring convention document REPO_ROOT (uppercase) as the canonical derivation. Accepting four unspecified lowercase aliases invites per-script divergence and defeats the gate's purpose of enforcing a single canonical pattern. Either document these aliases explicitly in the module docstring with a justification, or drop them and migrate any existing callers to REPO_ROOT.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 5,
+          "severity": "low",
+          "category": "style",
+          "title": "Module docstring lists fewer allowed prefixes than the implementation actually accepts",
+          "body": "The module docstring (lines 5-7) says bare references must be preceded by \"$REPO_ROOT, $PROOF_DIR, $QUALITY_DIR, $(resolve_quality_dir), $(resolve_proof_dir), $(resolve_plans_dir)\". The implementation (ROOTED_PREFIX_RE, lines 25-31) also accepts $METRICS_DIR and four lowercase aliases ($git_root, $repo_root, $local_root, $worktree_root). Future maintainers will read the docstring as ground truth and be confused when lines with $METRICS_DIR pass. Bring the docstring and regex into sync as a single source of truth \u2014 or derive ROOTED_PREFIX_RE from a named list constant documented at the top of the file.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-markdown.sh",
+          "line": 127,
+          "severity": "medium",
+          "category": "design",
+          "title": "_is_ignored_path .quality guard matches absolute REPO_ROOT path but git ls-files returns relative paths",
+          "body": "Line 127 matches $1 against *\"$REPO_ROOT\"/.quality/* and \"$REPO_ROOT\"/.quality* . git ls-files (line 103) and git diff --name-only (line 111) emit repo-relative paths like .quality/plans/foo.md, never the absolute $REPO_ROOT/.quality/... form. The absolute-path guard will therefore never trigger in normal operation; excluding the .quality/ tree from the markdown gate is relying on this logic, so it silently fails open. Either strip $REPO_ROOT from the test (match .quality/* and .quality* directly) or add the relative form to the case statement above. Low-risk to misdiagnose as cosmetic \u2014 it directly affects whether the markdown gate scans files under .quality/.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 1,
+          "severity": "info",
+          "category": "architecture",
+          "title": "New scripts/lib/ directory hosts a single 40-line helper",
+          "body": "lib/ is a reasonable location for sourced helpers, but it is introduced here for a single file (quality-paths.sh, 40 lines). The existing scripts/ directory already contains other sourced helpers that follow a different convention: git-helpers.sh, cache.sh, load-config.sh, detect-test-runner.sh, test-file-patterns.sh, select-affected-tests.sh, run-subproject-tests.sh all live at scripts/ top level and are sourced directly. Introducing scripts/lib/ establishes a second convention. Either (a) move quality-paths.sh up to scripts/ to match the existing convention, or (b) accept lib/ as the new home and plan to migrate the other sourced helpers over time. Leaving it split 1-vs-N with no documented rationale is the worst of both worlds.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-quality-path-discipline.sh",
+          "line": 41,
+          "severity": "low",
+          "category": "style",
+          "title": "Three separate python3 invocations to parse the violations array",
+          "body": "The gate wrapper shells out to python3 three times: line 41 to count violations, lines 56-74 as a heredoc to write the fail-proof JSON, and lines 77-82 to pretty-print violations to stderr. Each invocation re-parses the same violations_json string. A single python3 -c/-m call that takes the JSON once and emits count + pretty-print + writes the proof file would be clearer and avoid re-parsing. Alternatively, let gate_quality_path_discipline.py emit the full proof JSON directly and have the wrapper just tee it to the proof file and print to stderr \u2014 collapsing the Python/bash boundary down to one call.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_gate_quality_path_discipline.sh",
+          "line": 70,
+          "severity": "low",
+          "category": "DRY",
+          "title": "Bash test cases 1, 2, 9 re-cover ground already covered by the Python unit tests",
+          "body": "Case 1 (bare .sh FAIL) and Case 2 (rooted $REPO_ROOT PASS) in the .sh suite re-test what test_line_has_bare_quality_plain and test_line_has_bare_quality_rooted_repo_root already verify in the Python suite at the unit level. Case 9 explicitly invokes python3 \"$SCANNER\" directly, duplicating the scope of test_collect_violations_finds_sh_and_md. The bash suite's unique value is verifying the bash wrapper's exit code and proof-JSON format; cases that assert Python scanner behavior add no coverage and increase maintenance cost when the rooted-prefix rules evolve. Trim the .sh suite to wrapper-level concerns (exit codes, proof JSON shape, CHANGELOG/test_*.sh skipping, fallback-default handling as an end-to-end integration) and let the Python unit tests own the line-by-line detection rules.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 81,
+          "severity": "low",
+          "category": "design",
+          "title": "Fallback-default and setter checks whitelist the entire line instead of the specific occurrence",
+          "body": "Inside the per-occurrence loop at line 74, when a line matches FALLBACK_DEFAULT_RE (line 81) or SETTER_ASSIGNMENT_RE (line 84) the whole line is treated as clean. That means a single line like PROOF=\"${X:-.quality/a}\" && cat .quality/b will whitelist both occurrences even though only the first is a fallback-default; the second is a bare reference that should be flagged. The fix is to scope the allow-check to the specific occurrence (test whether this particular .quality/ is the one preceded by the fallback/setter pattern) instead of matching anywhere on the line. As a design, the per-occurrence split strategy is correct \u2014 the fallback/setter checks just need to participate in the same per-occurrence scope.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/run-gates.sh",
+          "line": 8,
+          "severity": "info",
+          "category": "style",
+          "title": "CHECKPOINT_DIR default uses bare relative .quality/checkpoints \u2014 passes gate only by setter-assignment exemption",
+          "body": "Line 8 defines CHECKPOINT_DIR=\"${CHECKPOINT_DIR:-.quality/checkpoints}\". This happens to match SETTER_ASSIGNMENT_RE and FALLBACK_DEFAULT_RE so the gate passes, but it is the one place in the runtime where the new path-discipline rule is sidestepped via exemption rather than honored by derivation. For the flagship orchestrator script, derive the path from REPO_ROOT like every other script: CHECKPOINT_DIR=\"${CHECKPOINT_DIR:-$(git rev-parse --show-toplevel)/.quality/checkpoints}\" (or reuse the lib helper once you add resolve_checkpoint_dir). Leading by example matters more for run-gates.sh than for any other file.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-88154": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_hook_trace_e2e.sh",
+          "line": 21,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "e2e test depends on real $HOME/.claude/plugins for hook_trace_log.py helper",
+          "body": "The test copies hook-trace-wrapper.sh into a mktemp sandbox but does NOT copy its sibling hook_trace_log.py. The wrapper at hook-trace-wrapper.sh:77-82 first looks for the helper next to itself (sandbox \u2014 absent), then falls back to $HOME/.claude/plugins/.../rq/.../hook_trace_log.py. Since the test never overrides HOME, it relies on the developer's real installed plugin. On a clean CI runner (no cached rq plugin), the fallback find returns empty, the `|| true` at wrapper:87 swallows the error, NO log line is written, and the test fails at line 40 with 'expected 1 log line with var set, got 0'. The test claims to be a full-stack integration test but actually short-circuits on an external precondition. Fix: either (a) copy hook_trace_log.py into the sandbox alongside the wrapper, or (b) set HOME=$SANDBOX and stage a fake plugin tree so the fallback has a deterministic target, or (c) make the wrapper's helper path an env var the test can override.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-wrapper.sh",
+          "line": 52,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Log rotation contradicts SKILL.md claim of 'keeping the last 25 MB'",
+          "body": "SKILL.md:67 documents: 'The log rotates when it exceeds 50 MB, keeping the last 25 MB.' The implementation at hook-trace-wrapper.sh:42-54 renames the full 50 MB file to '${LOG}.${ts}.bak' and starts a fresh log \u2014 it does NOT truncate to 25 MB, and it keeps EVERY rotated archive forever. After N rotations the user accumulates N \u00d7 50 MB of archived logs with no retention policy. Either fix the implementation (tail -c 25MB during rotation, or prune old .bak files) or fix the doc to say 'rotates full archives; oldest archives retained indefinitely'. The current state is a silent disk-usage bug + documentation lie.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_hook_trace_env_gate.sh",
+          "line": 55,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "Env-gate test covers unset but not empty-string case",
+          "body": "The spec (review focus #5) requires the prefix to collapse when CLAUDE_RQ_TRACE_WRAPPER is 'set but empty'. Shell's ${var:+...} treats unset and empty-string identically, so behavior is correct, but check_prefix_collapse only exercises the unset case (line 83: `unset CLAUDE_RQ_TRACE_WRAPPER`). A regression that switched the expansion to ${var+...} (which expands when var is set, even to empty) would pass this test but break the empty-string contract. Add a parallel assertion with CLAUDE_RQ_TRACE_WRAPPER='' set explicitly, expecting the same empty result.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-wrapper.sh",
+          "line": 90,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Stdout and stderr are serialized instead of interleaved",
+          "body": "The wrapper captures OUT and ERR to separate tempfiles (line 69) and emits them sequentially at lines 90-91: `cat \"$OUT\"; cat \"$ERR\" >&2`. For a wrapped hook that writes to both streams, the consumer sees all stdout first and all stderr second, losing the original interleaving. Claude Code hooks typically emit a single JSON blob on stdout with diagnostic on stderr, so this is usually harmless \u2014 but hooks that print progress to stderr during long operations (e.g., `echo 'Checking...' >&2; do-work; echo '{...json...}'`) will have their ordering flattened. If strict ordering is not required, document it explicitly in the wrapper header. If it is required, tee through a single fd.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-install.sh",
+          "line": 47,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Install silently overwrites existing wrapper and env file without confirmation or backup",
+          "body": "Lines 47-49 unconditionally `cp \"$WRAPPER_SRC\" \"$WRAPPER_DST\"` and rewrite ENV_DST. If a user has customized either file (e.g., wrapper with extra logging, env file with a different CLAUDE_RQ_TRACE_WRAPPER target pointing to a forked wrapper), those customizations are destroyed with no warning. At minimum, emit `overwriting existing hook-trace-wrapper.sh` to stderr when WRAPPER_DST already exists, or offer a `--force` flag and refuse by default. Same concern applies to ENV_DST at line 49.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/hook_trace_log.py",
+          "line": 68,
+          "severity": "low",
+          "category": "security",
+          "title": "Log append does not enforce 0600 mode on pre-existing log files",
+          "body": "hook-trace-wrapper.sh:21-22 documents 'Log files are created with mode 0600 so stdout/stderr/tool_command content (which may contain secrets) is not world-readable.' The umask 077 (wrapper line 31) only applies to files CREATED by the wrapper process. If the log file already exists with wider permissions (e.g., a user ran an earlier version without umask, or the file was touched manually), `open(logfile, 'a')` at hook_trace_log.py:68 preserves the existing mode. The secrecy guarantee in the docs is therefore not enforced across upgrades. Fix: before appending, stat the log; if mode is wider than 0600, either chmod it to 0600 or refuse to write with a clear error. The wrapper could also run `chmod 600 \"$LOG\"` after ensuring it exists.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-90646": {
+      "status": "complete",
+      "findings": 16,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/gate-quality-path-discipline.sh",
+          "line": 19,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Silent-wrong fallback when git is broken \u2014 gate passes with 0 violations",
+          "body": "`REPO_ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"` falls back to $PWD when git is unavailable or CWD is outside a git tree. The Python scanner then looks for $REPO_ROOT/plugins/rq, which does not exist, so collect_violations() returns [] and the gate reports PASS with 0 violations \u2014 silently masking a broken environment. The gate should fail closed (exit non-zero with 'not in a git tree' like lib/quality-paths.sh does) rather than report a clean pass. Recommended fix: if ! REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null); then write a skip/error proof and exit non-zero, mirroring the discipline of lib/quality-paths.sh:resolve_quality_dir.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 81,
+          "severity": "high",
+          "category": "correctness",
+          "title": "FALLBACK_DEFAULT_RE and SETTER_ASSIGNMENT_RE short-circuit the whole line, allowing bare refs to hide alongside allowed patterns",
+          "body": "line_has_bare_quality() iterates per-occurrence of .quality/ but checks FALLBACK_DEFAULT_RE.search(line) and SETTER_ASSIGNMENT_RE.match(stripped) against the full line, not the specific occurrence. A line like `PROOF_DIR=\"${PROOF_DIR:-.quality/proof}\"; cat .quality/proof/foo.json` contains BOTH a legitimate fallback default AND a bare usage; the fallback regex matches anywhere on the line, so every occurrence is whitelisted and the bare `cat .quality/proof/foo.json` passes. Same false-negative risk for the setter-assignment allowance (line 84): `PROOF_DIR=\".quality/proof\" && cat .quality/foo` is a single line in shell that line_has_bare_quality will pass. Fix: scope the two allow-patterns to the specific occurrence's prefix/substring rather than the whole line, or split by `;`/`&&` before scanning.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 52,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "ECHO_PROSE_RE false-negative: echo with command substitution containing real .quality/ path is wrongly treated as prose",
+          "body": "ECHO_PROSE_RE matches any line beginning with `echo`/`printf` followed by a quoted string containing `.quality/`. That covers `echo \"See .quality/proof/ for output.\"` (intended) but also matches `echo \"result: $(cat .quality/proof/foo.json)\"` \u2014 the bare path inside the $() is a genuine usage, not prose, yet the whole line is suppressed. Fix: only skip prose when .quality/ is NOT inside a `$(...)` or backtick command substitution; or drop this allowance entirely and move the two intended prose lines (echo \"See .quality/proof/\" strings inside gate-quality-path-discipline.sh itself) into a narrow allow-list comment.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 114,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Fence parser treats `~~~` fences as prose and mis-pairs nested backtick fences",
+          "body": "_iter_bash_fence_lines only matches ``` / ```` fences via `^(`{3,})(\\w*)`. CommonMark also accepts `~~~` fences \u2014 any `~~~bash` block inside a SKILL.md would be parsed as prose, bypassing the scanner entirely. Additionally, when a 4-backtick fence encloses a 3-backtick example, the inner ``` toggles in_fence off prematurely. Both yield false-negatives. Fix: recognize `~~~` fences and remember the exact opening fence marker so only an equal-or-longer closing marker of the same char terminates the block.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate_quality_path_discipline.py",
+          "line": 128,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Bare fence (no language) is treated as bash \u2014 scans Python/diff/text snippets",
+          "body": "`if in_fence and fence_lang in (\"bash\", \"sh\", \"\")`. Bare ``` fences are considered bash for scanning purposes. This is exercised in tests (test_scan_md_file_bare_fence_treated_as_bash) so it is a deliberate choice, but it produces false-positives on markdown fences containing non-bash snippets that happen to mention .quality/. The design tension should be called out in the docstring; either document the convention 'bare fences are scanned, use ```text for plain-text examples' or narrow the language set to {bash, sh}.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 30,
+          "severity": "low",
+          "category": "design",
+          "title": "resolve_proof_dir / resolve_plans_dir have unexpected side effects (mkdir) for a `resolve_*` query API",
+          "body": "The naming convention `resolve_*` reads as a pure query; both functions silently mkdir on first call. A sourced read-only context (e.g., a helper that only needs the path for logging, or a sandbox with a read-only .quality/) will either fail under `set -e` (mkdir -p on a read-only FS returns non-zero) or succeed with a directory created as a side effect. The `mkdir -p` return value is also unchecked \u2014 if it fails, printf still emits the path and the caller receives a nonexistent directory without signal. Fix: either rename to `ensure_proof_dir` / `ensure_plans_dir` to advertise the side effect, or split into pure-query + explicit-ensure helpers, and propagate mkdir failure (`mkdir -p ... || return 1`).",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-markdown.sh",
+          "line": 17,
+          "severity": "low",
+          "category": "correctness",
+          "title": "REPO_ROOT fallback to pwd causes silent no-op outside a git tree",
+          "body": "`REPO_ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"` \u2014 if git is unavailable, BASELINE_FILE anchors in pwd, _collect_files' `git ls-files` / `git diff` emit nothing, and the gate reports pass with file_count=0. The pattern is widespread in the codebase and this PR did not introduce it, but it is exactly the silent-wrong behavior that quality-path-discipline is meant to outlaw. Consider aligning gate-markdown.sh with lib/quality-paths.sh \u2014 fail fast when git is not available rather than masquerading as a clean pass.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-markdown.sh",
+          "line": 127,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Glob pattern `\"$REPO_ROOT\"/.quality*` over-matches sibling directories like `.quality-backup/`",
+          "body": "In `[[ \"$1\" == *\"$REPO_ROOT\"/.quality/* || \"$1\" == \"$REPO_ROOT\"/.quality* ]]` the second arm uses a trailing `*` glob so `$REPO_ROOT/.qualityother` or `$REPO_ROOT/.quality-bak` also match. If a contributor ever creates such a sibling directory (e.g., `.quality-backup/`, `.qualityold/`) its markdown files will be silently skipped. Tighten to `\"$REPO_ROOT\"/.quality` (exact) or `\"$REPO_ROOT\"/.quality/*` if you want to catch files at any depth.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/plan-find.sh",
+          "line": 91,
+          "severity": "low",
+          "category": "correctness",
+          "title": "`git rev-parse ... || pwd` fallback \u2014 same silent-wrong pattern",
+          "body": "`REPO_ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"` inside _fetch_plan_from_issue_comments falls back to pwd outside a git tree. The immediate `[ -f \"$binding\" ] || return 0` on line 93 makes this safe in practice (no binding \u2192 no-op), but the pattern is the same anti-pattern quality-path-discipline is trying to eliminate. Either remove the fallback or document why this specific site is intentionally lax.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-quality-path-discipline.sh",
+          "line": 39,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Scanner output captured without stderr isolation \u2014 scanner warnings corrupt JSON parsing",
+          "body": "`VIOLATIONS_JSON=\"$(python3 \"$SCRIPT_DIR/gate_quality_path_discipline.py\" \"$REPO_ROOT\")\"` captures stdout only, which is correct. However if the scanner ever learns to emit progress to stdout (e.g., during a debug build), the next `json.loads(sys.argv[1])` on line 41 will raise and the ERR trap writes a generic crash proof that hides the real reason. Consider adding `set -o pipefail`-style guard: validate the captured string parses as JSON before passing it further, and write a more descriptive fail proof on JSON-parse errors.",
+          "confidence": "low"
+        },
+        {
+          "file": "plugins/rq/scripts/run-gates.sh",
+          "line": 61,
+          "severity": "info",
+          "category": "correctness",
+          "title": "quality-path-discipline has no _gate_patterns entry \u2014 cache invalidates on every file change",
+          "body": "`quality-path-discipline` is registered at line 61 but not added to the `_gate_patterns` case statement (lines 113-128). It falls through to the default `*` clause, which invalidates the cache for ANY changed file \u2014 including unrelated doc-only or JSON edits. This is conservative (fails safe by running the gate too often rather than too rarely) but means the gate will re-run on virtually every commit, negating cache benefits. Consider adding a `quality-path-discipline) echo '*.sh *.md' ;;` entry so caching tracks only the file types the scanner actually reads.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 85,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "create_issue fallback parses issue number from unstructured output with `grep -oE '[0-9]+$' | tail -1`",
+          "body": "When `gh issue create --json` fails (non-zero exit \u2014 gh may still have created the issue before failing), create_issue falls back to parsing the human-readable URL with `grep -oE '[0-9]+$' | tail -1`. The regex matches any trailing digits on any line, so an auth-warning banner like `Gist ID: 123` or a stderr line bleeding into stdout could yield the wrong number. Also, running `gh issue create` a second time on the fallback path would create a duplicate issue if the first partially succeeded. Fix: detect the exact failure modes of the first call, or only fall back when gh exit code indicates 'not fatal' (no issue created).",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/plan-find.sh",
+          "line": 161,
+          "severity": "low",
+          "category": "correctness",
+          "title": "grep -rlF on $HOME/.claude/plans follows into symlinks and fails noisily if dir missing",
+          "body": "`grep -rlF \"Branch: $branch\" \"$plans_dir\"` \u2014 if $HOME/.claude/plans contains symlinks to other repos' plan dirs, grep recurses into all of them and may surface cross-project plans (a privacy-adjacent leak in multi-tenant setups). Also, if $plans_dir does not exist, grep prints 'No such file' to stderr; the `2>/dev/null || true` mutes that but masks a genuine misconfiguration. Consider `find -maxdepth N -not -type l` or explicit directory creation on first use.",
+          "confidence": "low"
+        },
+        {
+          "file": "plugins/rq/skills/ship/SKILL.md",
+          "line": 351,
+          "severity": "low",
+          "category": "correctness",
+          "title": "source-ing git-helpers.sh from $(find ...) subshell leaks no helpers back",
+          "body": "`source \"$(find . -name 'git-helpers.sh' -path '*/rq/*' 2>/dev/null | head -1)\"` \u2014 if the find returns empty (cwd isn't the plugin checkout), the source arg is empty and `source \"\"` fails under set -e in a typical script; in this SKILL.md bash fence it just emits an error. Also, if the find returns multiple candidates (worktree + cache), `head -1` may pick the stale one. The step works today because the script runs from the plugin checkout, but the preamble convention elsewhere in the repo uses the PLUGIN_DIR discovery twice (local then $HOME/.claude). Apply the same two-step fallback here.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/skills/ship/SKILL.md",
+          "line": 414,
+          "severity": "info",
+          "category": "security",
+          "title": "`git push --force-with-lease` without an explicit rev argument",
+          "body": "The snippet shows `git push --force-with-lease` with no ref argument. In recent git (2.30+), `--force-with-lease` without an argument protects against the remote having advanced since last fetch, but if an upstream commit was fetched into refs/remotes and then force-pushed-over by another agent, the lease check still passes. For a stricter invariant, use `--force-with-lease=<ref>:<expected>` pinning to the local ref the author last pulled. Minor \u2014 probably acceptable for a single-author feature branch.",
+          "confidence": "low"
+        },
+        {
+          "file": "plugins/rq/agents/critic.md",
+          "line": 112,
+          "severity": "info",
+          "category": "correctness",
+          "title": "Agent prompt assumes `git rev-parse --show-toplevel` always succeeds",
+          "body": "`REPO_ROOT=\"$(git rev-parse --show-toplevel)\"` has no fallback \u2014 under `set -e` (not explicitly set in the fenced block) or via the subagent's shell, a non-git cwd will cause the write to /.quality/proof/... at filesystem root, or fail silently depending on the wrapper. Consider failing loud: `REPO_ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null)\" || { echo 'critic: not in a git tree' >&2; exit 1; }`.",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:36:09Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:03:25Z",
+      "scanned_files": 34,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:23:09Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T14:55:54Z",
+      "fingerprint": "a800c0b245e38e345bc5761a787d7493",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 81622.0
+}
