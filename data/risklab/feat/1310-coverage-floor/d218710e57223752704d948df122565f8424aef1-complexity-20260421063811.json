@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/1310-coverage-floor",
+  "sha": "d218710e57223752704d948df122565f8424aef1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T10:38:10Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T10:38:10Z",
+      "files_checked": 3,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/scripts/check_coverage_floor.py",
+          "function": "main",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/check_coverage_floor.py",
+          "function": "main",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/scripts/test_check_coverage_floor.py",
+          "function": "TestCheckCoverageFloor",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
