@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-131-risklab-mcp-data-discovery-implementatio",
+  "sha": "dfb52fc2169655136bc71a29704d853fef77f058",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:25:04Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:22:57Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:53Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:23:03Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:05Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:22:53Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 341000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:55Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:01Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 58000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:25:02Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T15:54:29Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T16:08:47Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:04Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:59Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-14T02:45:12Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:28Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:58Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:17:12Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:24:50Z",
+      "test_runner": "npm-test",
+      "fingerprint": "07e1edb5a5cacf8ee84648ad1061845c",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 49000
+    }
+  },
+  "duration_seconds": 962998.0
+}
