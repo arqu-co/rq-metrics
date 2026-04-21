@@ -1,0 +1,48 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "melodic-exploring-seahorse",
+  "branch": "issue-1306-bintest-119s-of-per-invocation-setup-ove",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T18:34:15.389Z",
+  "session_id": "0ad401ed-b55b-4576-bf5d-2bf5cb3430a4",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 19097,
+    "output": 384136,
+    "cache_read": 133202281,
+    "cache_create": 7017432,
+    "est_cost_usd": 9.66225568
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 108566089,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 3446149,
+      "cost_usd": null
+    },
+    "review#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 11416285,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 17194423,
+      "cost_usd": 9.66225568
+    }
+  }
+}
