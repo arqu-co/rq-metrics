@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "refactor/split-emailbatchmodifylabelstests",
+  "sha": "749c6762866f60d1fff3c2f8ba2cb16158f57d65",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T20:27:17Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T20:27:17Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailBatchModifyMessageLabelsIntegrationTest.kt",
+          "name": "Matchers",
+          "line": 7
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailBatchModifyThreadLabelsIntegrationTest.kt",
+          "name": "Matchers",
+          "line": 10
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
