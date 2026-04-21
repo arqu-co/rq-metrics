@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "sse-error-parsing",
+  "sha": "fd33a3f546ea78d2232d7bed61ff5f14b58cfe35",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T21:48:13Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T21:48:13Z",
+      "scanned_files": 1,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "line": 541,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "line": 542,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
