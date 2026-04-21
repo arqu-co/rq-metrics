@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "sse-error-parsing",
+  "sha": "126f233621d9df52635c026fec277098dfb79dc8",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T22:05:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "filesize",
+    "issue-binding"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:46:36Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:46:37Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T22:04:45Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "lines": 440,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "lines": 813,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T22:05:28Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:47:30Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:05:30Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:05:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:05:29Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:05:27Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 42000
+    }
+  },
+  "duration_seconds": 1134.0
+}
