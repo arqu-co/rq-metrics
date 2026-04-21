@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "frolicking-honking-pearl",
+  "branch": "issue-402-rq-collapse-20-hook-surface-into-dispatc",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T10:41:13.712Z",
+  "session_id": "525516e5-3fd3-4373-8fd3-b008c7f5b12f",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 11936,
+    "output": 877603,
+    "cache_read": 325334459,
+    "cache_create": 15657640,
+    "est_cost_usd": 25.685702850000002
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 6644708,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 331505366,
+      "cost_usd": 25.685702850000002
+    },
+    "review": {
+      "tokens": 3731564,
+      "cost_usd": null
+    }
+  }
+}
