@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "promotions-filter",
+  "sha": "572cc7add3bdd5222c479b2219746dba82c277e9",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T00:33:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:30:29Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:30:32Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/InboxPage.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:30:22Z",
+      "files_checked": 8,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "lines": 844,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/router/index.ts",
+          "lines": 420,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "lines": 1582,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:33:06Z",
+      "duration_ms": 60000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:32:06Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/mcheung/.claude/worktree/promotions-filter/doubtfire-client/src/components/layout/ConversationViewHeader.vue:32:11  error  Attribute \"aria-label\" should go before \":as\"  vue/attributes-order\n/Users/mcheung/.claude/worktree/promotions-filter/doubtfire-client/src/components/layout/ConversationViewHeader.vue:1 error and 0 warnings potentially fixable with the `--fix` option.\n"
+        }
+      ],
+      "duration_ms": 94000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:33:09Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T23:21:17Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:33:08Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:33:06Z",
+      "scanned_files": 6,
+      "violations": 17,
+      "violations_details": [
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 31,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock('./useDealContextSession', () => ({"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 74,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 75,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadIndividualEmails').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 76,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadDealMessagesFromApi').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 77,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearConversations').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 78,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearAll').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 141,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "      const loadSpy = vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue()"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 329,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 330,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'loading', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 346,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 662,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 663,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 664,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 687,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 688,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 32,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 33,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 4312.0
+}
