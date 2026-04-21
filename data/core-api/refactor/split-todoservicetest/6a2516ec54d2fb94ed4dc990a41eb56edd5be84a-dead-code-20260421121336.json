@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "refactor/split-todoservicetest",
+  "sha": "6a2516ec54d2fb94ed4dc990a41eb56edd5be84a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:13:36Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:13:35Z",
+      "files_checked": 7,
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCountsPartOneIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 31
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCountsPartTwoIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 30
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCrudIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 31
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoDtoIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 24
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
