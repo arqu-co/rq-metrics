@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-410-epic-tracking-detect-epic-issues-maintai",
+  "sha": "9b829cfc6aa6bb2d377cea7cb7738b8e6c2eba71",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:45:28Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:45:28Z",
+      "scanned_files": 34,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
