@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "alias-signature-strip",
+  "sha": "0df1cafa84d9f43393066b5aded4a991466a460d",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T17:22:32Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T17:22:32Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
