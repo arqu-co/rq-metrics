@@ -1,0 +1,209 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-403-draft-pr-lifecycle-open-at-scope-approva",
+  "sha": "51e05c1f2a4ae6a107ae21ce270df9d7e3f03bae",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T13:28:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-69084",
+    "review-wip-reviewer-88154",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:26:21Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:28:11Z",
+      "coverage_tool": "py",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 81000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:26:24Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:26:18Z",
+      "files_checked": 32,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:28:13Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:26:43Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 19000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:28:19Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T12:35:29Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:42:56Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:28:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T11:15:18Z"
+    },
+    "review-wip-reviewer-69084": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-88154": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_hook_trace_e2e.sh",
+          "line": 21,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "e2e test depends on real $HOME/.claude/plugins for hook_trace_log.py helper",
+          "body": "The test copies hook-trace-wrapper.sh into a mktemp sandbox but does NOT copy its sibling hook_trace_log.py. The wrapper at hook-trace-wrapper.sh:77-82 first looks for the helper next to itself (sandbox \u2014 absent), then falls back to $HOME/.claude/plugins/.../rq/.../hook_trace_log.py. Since the test never overrides HOME, it relies on the developer's real installed plugin. On a clean CI runner (no cached rq plugin), the fallback find returns empty, the `|| true` at wrapper:87 swallows the error, NO log line is written, and the test fails at line 40 with 'expected 1 log line with var set, got 0'. The test claims to be a full-stack integration test but actually short-circuits on an external precondition. Fix: either (a) copy hook_trace_log.py into the sandbox alongside the wrapper, or (b) set HOME=$SANDBOX and stage a fake plugin tree so the fallback has a deterministic target, or (c) make the wrapper's helper path an env var the test can override.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-wrapper.sh",
+          "line": 52,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Log rotation contradicts SKILL.md claim of 'keeping the last 25 MB'",
+          "body": "SKILL.md:67 documents: 'The log rotates when it exceeds 50 MB, keeping the last 25 MB.' The implementation at hook-trace-wrapper.sh:42-54 renames the full 50 MB file to '${LOG}.${ts}.bak' and starts a fresh log \u2014 it does NOT truncate to 25 MB, and it keeps EVERY rotated archive forever. After N rotations the user accumulates N \u00d7 50 MB of archived logs with no retention policy. Either fix the implementation (tail -c 25MB during rotation, or prune old .bak files) or fix the doc to say 'rotates full archives; oldest archives retained indefinitely'. The current state is a silent disk-usage bug + documentation lie.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_hook_trace_env_gate.sh",
+          "line": 55,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "Env-gate test covers unset but not empty-string case",
+          "body": "The spec (review focus #5) requires the prefix to collapse when CLAUDE_RQ_TRACE_WRAPPER is 'set but empty'. Shell's ${var:+...} treats unset and empty-string identically, so behavior is correct, but check_prefix_collapse only exercises the unset case (line 83: `unset CLAUDE_RQ_TRACE_WRAPPER`). A regression that switched the expansion to ${var+...} (which expands when var is set, even to empty) would pass this test but break the empty-string contract. Add a parallel assertion with CLAUDE_RQ_TRACE_WRAPPER='' set explicitly, expecting the same empty result.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-wrapper.sh",
+          "line": 90,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Stdout and stderr are serialized instead of interleaved",
+          "body": "The wrapper captures OUT and ERR to separate tempfiles (line 69) and emits them sequentially at lines 90-91: `cat \"$OUT\"; cat \"$ERR\" >&2`. For a wrapped hook that writes to both streams, the consumer sees all stdout first and all stderr second, losing the original interleaving. Claude Code hooks typically emit a single JSON blob on stdout with diagnostic on stderr, so this is usually harmless \u2014 but hooks that print progress to stderr during long operations (e.g., `echo 'Checking...' >&2; do-work; echo '{...json...}'`) will have their ordering flattened. If strict ordering is not required, document it explicitly in the wrapper header. If it is required, tee through a single fd.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-trace-install.sh",
+          "line": 47,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Install silently overwrites existing wrapper and env file without confirmation or backup",
+          "body": "Lines 47-49 unconditionally `cp \"$WRAPPER_SRC\" \"$WRAPPER_DST\"` and rewrite ENV_DST. If a user has customized either file (e.g., wrapper with extra logging, env file with a different CLAUDE_RQ_TRACE_WRAPPER target pointing to a forked wrapper), those customizations are destroyed with no warning. At minimum, emit `overwriting existing hook-trace-wrapper.sh` to stderr when WRAPPER_DST already exists, or offer a `--force` flag and refuse by default. Same concern applies to ENV_DST at line 49.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/hook_trace_log.py",
+          "line": 68,
+          "severity": "low",
+          "category": "security",
+          "title": "Log append does not enforce 0600 mode on pre-existing log files",
+          "body": "hook-trace-wrapper.sh:21-22 documents 'Log files are created with mode 0600 so stdout/stderr/tool_command content (which may contain secrets) is not world-readable.' The umask 077 (wrapper line 31) only applies to files CREATED by the wrapper process. If the log file already exists with wider permissions (e.g., a user ran an earlier version without umask, or the file was touched manually), `open(logfile, 'a')` at hook_trace_log.py:68 preserves the existing mode. The secrecy guarantee in the docs is therefore not enforced across upgrades. Fix: before appending, stat the log; if mode is wider than 0600, either chmod it to 0600 or refuse to write with a clear error. The wrapper could also run `chmod 600 \"$LOG\"` after ensuring it exists.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T20:36:09Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:28:15Z",
+      "scanned_files": 34,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T17:23:09Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T13:26:50Z",
+      "test_runner": "bin-test",
+      "fingerprint": "075d59e62194193ea70b548af948eed7",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 7000
+    }
+  },
+  "duration_seconds": 72310.0
+}
