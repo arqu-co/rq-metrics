@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "refactor/split-todoservicetest",
+  "sha": "6a2516ec54d2fb94ed4dc990a41eb56edd5be84a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:34:26Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:25Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
