@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "feat/risklab-document-ingestion",
+  "sha": "448771fe299e3e1ca59d7879335584a8fe4a9e68",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T01:24:06Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:22:59Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T01:23:59Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:23:05Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:22:55Z",
+      "files_checked": 16,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-server/src/tools/deal/deal_get_emails.test.ts",
+          "lines": 310,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 9000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:24:01Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:23:20Z",
+      "failures": 4,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 lint\n> pnpm -r lint --max-warnings=0\n\nScope: 3 of 4 workspace projects\npackages/rq-tools lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-tools lint: Done\npackages/rq-cli lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-server lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-cli lint: Done\npackages/rq-server lint: /Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract.test.ts\npackages/rq-server lint:   168:11  error  '_docSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\npackages/rq-server lint: /Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract_status.test.ts\npackages/rq-server lint:   234:11  error  '_statusSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\npackages/rq-server lint: \u2716 2 problems (2 errors, 0 warnings)\npackages/rq-server lint: Failed\n/Users/jerrod/Sites/tools-docs/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 lint: `eslint src --ext .ts --max-warnings=0`\nExit status 1\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 3 of 4 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-cli typecheck: Done\npackages/rq-server typecheck: src/tools/deal/deal_get_emails.test.ts(166,80): error TS2339: Property 'url' does not exist on type 'Request<unknown, CfProperties<unknown>> | URL'.\npackages/rq-server typecheck:   Property 'url' does not exist on type 'URL'.\npackages/rq-server typecheck: src/tools/document/document_extract.test.ts(168,11): error TS6133: '_docSpy' is declared but its value is never read.\npackages/rq-server typecheck: src/tools/document/document_extract_status.test.ts(234,11): error TS6133: '_statusSpy' is declared but its value is never read.\npackages/rq-server typecheck: Failed\n/Users/jerrod/Sites/tools-docs/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 typecheck: `tsc --noEmit`\nExit status 2\n"
+        },
+        {
+          "check": "typecheck:rq-server",
+          "exit_code": 2,
+          "output": "src/tools/deal/deal_get_emails.test.ts(166,80): error TS2339: Property 'url' does not exist on type 'Request<unknown, CfProperties<unknown>> | URL'.\n  Property 'url' does not exist on type 'URL'.\nsrc/tools/document/document_extract.test.ts(168,11): error TS6133: '_docSpy' is declared but its value is never read.\nsrc/tools/document/document_extract_status.test.ts(234,11): error TS6133: '_statusSpy' is declared but its value is never read.\n"
+        },
+        {
+          "check": "lint:rq-server",
+          "exit_code": 1,
+          "output": "\n> @arqu-co/rq-server@0.2.0 lint\n> eslint src --ext .ts --max-warnings=0\n\n\n/Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract.test.ts\n  168:11  error  '_docSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract_status.test.ts\n  234:11  error  '_statusSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n\u2716 2 problems (2 errors, 0 warnings)\n"
+        }
+      ],
+      "duration_ms": 15000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:24:04Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T00:20:24Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T01:22:46Z",
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:21:32Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:24:03Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:23:56Z",
+      "scanned_files": 8,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-server/src/tools/deal/deal_get_emails.test.ts",
+          "line": 165,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockImplementation((input, init) => {"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:23:52Z",
+      "test_runner": "npm-test",
+      "fingerprint": "f37a303f31732f2d8712bba95ebf146c",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 32000
+    }
+  },
+  "duration_seconds": 3820.0
+}
