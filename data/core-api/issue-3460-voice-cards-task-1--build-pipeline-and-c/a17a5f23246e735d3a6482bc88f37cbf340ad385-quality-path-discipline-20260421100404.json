@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3460-voice-cards-task-1--build-pipeline-and-c",
+  "sha": "a17a5f23246e735d3a6482bc88f37cbf340ad385",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-21T17:04:03Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T17:04:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
