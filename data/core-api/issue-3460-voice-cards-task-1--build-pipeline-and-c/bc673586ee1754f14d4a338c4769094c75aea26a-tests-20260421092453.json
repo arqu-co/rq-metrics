@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3460-voice-cards-task-1--build-pipeline-and-c",
+  "sha": "bc673586ee1754f14d4a338c4769094c75aea26a",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-21T16:24:53Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:24:53Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e9fc6265aa7266f00cf34d1216224763",
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/core/service/voice/VoiceCardPrompt.kt",
+        "src/main/kotlin/co/arqu/core/service/voice/VoiceCardScrubber.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/voice/VoiceCardPromptDriftTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/voice/VoiceCardScrubberTest.kt"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
