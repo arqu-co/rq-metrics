@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "noble-jumping-diffie",
+  "branch": "feat/tokencache-wire-controller-base",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T20:37:05.735Z",
+  "session_id": "5d6c827a-956f-471b-bf20-5f0b08277757",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 458,
+    "output": 95462,
+    "cache_read": 15462980,
+    "cache_create": 1404125,
+    "est_cost_usd": 1.965492
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 12820759,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 1781668,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 2360598,
+      "cost_usd": 1.965492
+    }
+  }
+}
