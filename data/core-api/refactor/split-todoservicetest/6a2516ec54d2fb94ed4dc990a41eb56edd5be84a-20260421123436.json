@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "refactor/split-todoservicetest",
+  "sha": "6a2516ec54d2fb94ed4dc990a41eb56edd5be84a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T16:34:36Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "dead-code",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T16:13:30Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:23Z",
+      "files_checked": 0,
+      "coverage_tool": "jacoco",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:13:35Z",
+      "files_checked": 7,
+      "violations": 4,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCountsPartOneIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 31
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCountsPartTwoIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 30
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoCrudIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 31
+        },
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/service/todo/TodoDtoIntegrationTest.kt",
+          "name": "Mockito",
+          "line": 24
+        }
+      ]
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:13:28Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:25Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:13:40Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:31Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T16:13:42Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:29Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T16:13:24Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T16:34:32Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:34:27Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:13:58Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T16:13:54Z",
+      "fingerprint": "ed26becc7365e235f819ad71663bc1ec",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 1268.0
+}
