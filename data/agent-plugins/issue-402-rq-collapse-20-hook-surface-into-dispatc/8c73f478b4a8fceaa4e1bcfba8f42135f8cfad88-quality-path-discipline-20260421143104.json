@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-402-rq-collapse-20-hook-surface-into-dispatc",
+  "sha": "8c73f478b4a8fceaa4e1bcfba8f42135f8cfad88",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T18:31:04Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:31:03Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/hooks/hook-lib.sh",
+          "line": 91,
+          "snippet": "  local binding_file=\"${HOOK_REPO_ROOT}/.quality/branch-issue.json\""
+        },
+        {
+          "file": "plugins/rq/hooks/rq-bash-pre-dispatcher.sh",
+          "line": 70,
+          "snippet": "  if [ -d \"${repo_root}/.quality/checkpoints\" ]; then"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
