@@ -1,0 +1,55 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "main",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-20T16:33:05.626Z",
+  "session_id": "894d6d5b-3817-4a80-8753-6810b7b66d35",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 8152,
+    "output": 401081,
+    "cache_read": 151570239,
+    "cache_create": 8370503,
+    "est_cost_usd": 8.306156099999999
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 29174011,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 94933712,
+      "cost_usd": 5.2690998
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#4": {
+      "tokens": 30852207,
+      "cost_usd": null
+    },
+    "unknown": {
+      "tokens": 5390045,
+      "cost_usd": 3.0370563
+    }
+  }
+}
