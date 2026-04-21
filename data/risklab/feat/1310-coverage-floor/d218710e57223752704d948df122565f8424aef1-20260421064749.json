@@ -1,0 +1,192 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/1310-coverage-floor",
+  "sha": "d218710e57223752704d948df122565f8424aef1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T10:47:49Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "dead-code",
+    "lint",
+    "markdown"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "qa",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T10:38:10Z",
+      "files_checked": 3,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/scripts/check_coverage_floor.py",
+          "function": "main",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/scripts/check_coverage_floor.py",
+          "function": "main",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/scripts/test_check_coverage_floor.py",
+          "function": "TestCheckCoverageFloor",
+          "lines": 104,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:47:37Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T10:38:13Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/tests/scripts/test_check_coverage_floor.py",
+          "name": "pytest",
+          "line": 10
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:13Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:38:06Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:47:39Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T10:38:21Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend with ruff...\nF401 [*] `pytest` imported but unused\n  --> tests/scripts/test_check_coverage_floor.py:10:8\n   |\n 8 | from pathlib import Path\n 9 |\n10 | import pytest\n   |        ^^^^^^\n11 |\n12 | SCRIPT = Path(__file__).resolve().parents[2] / \"scripts\" / \"check_coverage_floor.py\"\n   |\nhelp: Remove unused import: `pytest`\n\nFound 1 error.\n[*] 1 fixable with the `--fix` option.\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 248ms on 1670 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 916 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T10:47:44Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T23:21:42Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-20T19:28:12Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T00:10:45Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:10:46Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:47:43Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:20:28Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:47:34Z",
+      "fingerprint": "05afe1a6528e5d89d9b0823317d501fa",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 553000
+    }
+  },
+  "duration_seconds": 2733572.0
+}
