@@ -1,0 +1,165 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-402-rq-collapse-20-hook-surface-into-dispatc",
+  "sha": "8c73f478b4a8fceaa4e1bcfba8f42135f8cfad88",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T18:35:10Z",
+  "phase": "all",
+  "run_number": 4,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 6,
+  "missed_gates": [
+    "coverage",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:26:41Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:34:57Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/hook_perf_summary.py",
+          "coverage": 0,
+          "min": 95
+        }
+      ],
+      "duration_ms": 86000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:26:44Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:26:38Z",
+      "files_checked": 25,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:34:59Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:33:31Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/hook-lib.sh\n./plugins/rq/hooks/test_hook_lib.sh\n./plugins/rq/hooks/test_rq_bash_post_dispatcher.sh\n./plugins/rq/hooks/test_rq_bash_pre_dispatcher.sh\n./plugins/rq/hooks/test_rq_prompt_submit_dispatcher.sh\n./plugins/rq/hooks/test_rq_session_dispatcher.sh\n./plugins/rq/hooks/test_ui_noise.sh\n./plugins/rq/scripts/hook-perf-benchmark.sh\n./plugins/rq/scripts/test_hook_perf_summary.sh\n"
+        }
+      ],
+      "duration_ms": 277000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:35:03Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:27:09Z",
+      "duration_ms": 25000
+    },
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:35:01Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/hooks/hook-lib.sh",
+          "line": 91,
+          "snippet": "  local binding_file=\"${HOOK_REPO_ROOT}/.quality/branch-issue.json\""
+        },
+        {
+          "file": "plugins/rq/hooks/rq-bash-pre-dispatcher.sh",
+          "line": 70,
+          "snippet": "  if [ -d \"${repo_root}/.quality/checkpoints\" ]; then"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T18:35:08Z",
+      "duration_ms": 5000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:28:54Z",
+      "scanned_files": 34,
+      "duration_ms": 93000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:27:21Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T18:27:19Z",
+      "fingerprint": "4bd0d67ad8e0ad3f4e0cfbf5f437708e",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 10000
+    }
+  },
+  "duration_seconds": 510.0
+}
