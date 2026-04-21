@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "feat/risklab-document-ingestion",
+  "sha": "448771fe299e3e1ca59d7879335584a8fe4a9e68",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T01:23:21Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:23:20Z",
+      "failures": 4,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 lint\n> pnpm -r lint --max-warnings=0\n\nScope: 3 of 4 workspace projects\npackages/rq-tools lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-tools lint: Done\npackages/rq-cli lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-server lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-cli lint: Done\npackages/rq-server lint: /Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract.test.ts\npackages/rq-server lint:   168:11  error  '_docSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\npackages/rq-server lint: /Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract_status.test.ts\npackages/rq-server lint:   234:11  error  '_statusSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\npackages/rq-server lint: \u2716 2 problems (2 errors, 0 warnings)\npackages/rq-server lint: Failed\n/Users/jerrod/Sites/tools-docs/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 lint: `eslint src --ext .ts --max-warnings=0`\nExit status 1\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 3 of 4 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-cli typecheck: Done\npackages/rq-server typecheck: src/tools/deal/deal_get_emails.test.ts(166,80): error TS2339: Property 'url' does not exist on type 'Request<unknown, CfProperties<unknown>> | URL'.\npackages/rq-server typecheck:   Property 'url' does not exist on type 'URL'.\npackages/rq-server typecheck: src/tools/document/document_extract.test.ts(168,11): error TS6133: '_docSpy' is declared but its value is never read.\npackages/rq-server typecheck: src/tools/document/document_extract_status.test.ts(234,11): error TS6133: '_statusSpy' is declared but its value is never read.\npackages/rq-server typecheck: Failed\n/Users/jerrod/Sites/tools-docs/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 typecheck: `tsc --noEmit`\nExit status 2\n"
+        },
+        {
+          "check": "typecheck:rq-server",
+          "exit_code": 2,
+          "output": "src/tools/deal/deal_get_emails.test.ts(166,80): error TS2339: Property 'url' does not exist on type 'Request<unknown, CfProperties<unknown>> | URL'.\n  Property 'url' does not exist on type 'URL'.\nsrc/tools/document/document_extract.test.ts(168,11): error TS6133: '_docSpy' is declared but its value is never read.\nsrc/tools/document/document_extract_status.test.ts(234,11): error TS6133: '_statusSpy' is declared but its value is never read.\n"
+        },
+        {
+          "check": "lint:rq-server",
+          "exit_code": 1,
+          "output": "\n> @arqu-co/rq-server@0.2.0 lint\n> eslint src --ext .ts --max-warnings=0\n\n\n/Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract.test.ts\n  168:11  error  '_docSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/jerrod/Sites/tools-docs/packages/rq-server/src/tools/document/document_extract_status.test.ts\n  234:11  error  '_statusSpy' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n\u2716 2 problems (2 errors, 0 warnings)\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
