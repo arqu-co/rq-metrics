@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tile-builder-usfs-sdi-timeout-fix",
+  "sha": "823212c1c3a869db0a477857dbba436ed475fb55",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-21T22:45:29Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "markdown"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T22:45:18Z",
+      "files_checked": 24,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfig.kt",
+          "function": "areTippecanoeParamsCompatible",
+          "lines": 158,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/TileBuilderConfigTest.kt",
+          "function": "baseConfig",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/FinalizeTileBuilderHandler.kt",
+          "function": "copyShardsParallel",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt",
+          "function": "setUp",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt",
+          "function": "tryContinueWithPmtiles",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt",
+          "function": "tryContinueWithPmtiles",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt",
+          "function": "tryContinueWithFetch",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt",
+          "function": "executeFetchPhase",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt",
+          "function": "executeParallelProcessPhase",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfig.kt",
+          "function": "tippecanoeConfigFromEnvironment",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt",
+          "function": "main",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:20Z",
+      "files_checked": 24,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:15Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:25Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:24Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T22:45:28Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:27Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T22:45:25Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 13.0
+}
