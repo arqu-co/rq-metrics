@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "",
+  "sha": "d52ba3c89aaf328eff5e8c43e509f92e47f953c2",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T01:00:21Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:58:18Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:58:19Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:58:18Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:00:18Z",
+      "duration_ms": 56000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T00:59:22Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 63000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:00:20Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T23:21:17Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T01:00:20Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T00:33:06Z",
+      "scanned_files": 6,
+      "violations": 17,
+      "violations_details": [
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 31,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock('./useDealContextSession', () => ({"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 74,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 75,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadIndividualEmails').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 76,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadDealMessagesFromApi').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 77,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearConversations').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 78,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearAll').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 141,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "      const loadSpy = vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue()"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 329,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 330,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'loading', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 346,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 662,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 663,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 664,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 687,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 688,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 32,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 33,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})"
+        }
+      ]
+    }
+  },
+  "duration_seconds": 5943.0
+}
