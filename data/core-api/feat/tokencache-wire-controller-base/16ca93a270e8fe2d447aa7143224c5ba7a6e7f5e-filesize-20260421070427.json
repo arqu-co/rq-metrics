@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/tokencache-wire-controller-base",
+  "sha": "16ca93a270e8fe2d447aa7143224c5ba7a6e7f5e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T11:04:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T11:04:26Z",
+      "files_checked": 9,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailAIAgentControllerIntegrationTest.kt",
+          "lines": 317,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "lines": 1647,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "lines": 1113,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/DealKickOffPubSubHandler.kt",
+          "lines": 521,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

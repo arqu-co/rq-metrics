@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "feat/tokencache-wire-controller-base",
+  "sha": "16ca93a270e8fe2d447aa7143224c5ba7a6e7f5e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T11:05:20Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "dead-code",
+    "filesize",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T10:54:26Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T21:04:11Z",
+      "files_checked": 0,
+      "coverage_tool": "jacoco",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T11:04:30Z",
+      "files_checked": 9,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailAIAgentControllerIntegrationTest.kt",
+          "name": "Autowired",
+          "line": 13
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T11:04:26Z",
+      "files_checked": 9,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/EmailAIAgentControllerIntegrationTest.kt",
+          "lines": 317,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+          "lines": 1647,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+          "lines": 1113,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/pubsub/DealKickOffPubSubHandler.kt",
+          "lines": 521,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:54:18Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T11:04:40Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 10000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T11:05:18Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-20T23:24:02Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T11:04:17Z",
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T11:04:18Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T10:54:18Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T11:05:16Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T11:05:12Z",
+      "fingerprint": "709fd6e408fe4b4e75eb2482c5a72a70",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 7,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/core/controller/EmailAIAgentControllerIntegrationTest.kt",
+        "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionExtractionLangChain4jImpl.kt",
+        "src/main/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowService.kt",
+        "src/main/kotlin/co/arqu/core/service/pubsub/DealKickOffPubSubHandler.kt",
+        "src/unitTest/kotlin/co/arqu/ai/v2/agent/submission/SubmissionWorkflowServiceCreateDealFromExtractionTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/DealServiceImplPopulateSovEntriesTest.kt",
+        "src/unitTest/kotlin/co/arqu/core/service/pubsub/DealKickOffPubSubHandlerBuildCreateDealRequestTest.kt"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 32000
+    }
+  },
+  "duration_seconds": 50467.0
+}
