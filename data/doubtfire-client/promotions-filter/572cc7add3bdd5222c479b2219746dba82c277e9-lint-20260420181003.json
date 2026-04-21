@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "promotions-filter",
+  "sha": "572cc7add3bdd5222c479b2219746dba82c277e9",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T01:10:03Z",
+  "phase": "build",
+  "run_number": 2,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:10:02Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/mcheung/.claude/worktree/promotions-filter/doubtfire-client/src/components/layout/ConversationViewHeader.vue:32:11  error  Attribute \"aria-label\" should go before \":as\"  vue/attributes-order\n/Users/mcheung/.claude/worktree/promotions-filter/doubtfire-client/src/components/layout/ConversationViewHeader.vue:1 error and 0 warnings potentially fixable with the `--fix` option.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "promotions-filter",
+  "sha": "572cc7add3bdd5222c479b2219746dba82c277e9",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-21T01:08:56Z",
+  "phase": "build",
+  "run_number": 2,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T01:08:55Z",
+      "files_checked": 8,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "lines": 844,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/router/index.ts",
+          "lines": 420,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "lines": 1582,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
