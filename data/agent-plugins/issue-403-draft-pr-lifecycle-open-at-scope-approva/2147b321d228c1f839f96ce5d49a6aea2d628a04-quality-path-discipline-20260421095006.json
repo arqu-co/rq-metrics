@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-403-draft-pr-lifecycle-open-at-scope-approva",
+  "sha": "2147b321d228c1f839f96ce5d49a6aea2d628a04",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T13:50:05Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-21T13:50:03Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/gate-markdown.sh",
+          "line": 125,
+          "snippet": "    */.quality/* | .quality/* | .quality) return 0 ;;"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 18,
+          "snippet": "Creates a feature branch and writes <repo-root>/.quality/branch-issue.json binding it to"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
