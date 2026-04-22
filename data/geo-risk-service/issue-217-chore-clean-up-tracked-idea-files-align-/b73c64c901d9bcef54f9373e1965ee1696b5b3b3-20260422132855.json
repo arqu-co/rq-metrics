@@ -1,0 +1,174 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "issue-217-chore-clean-up-tracked-idea-files-align-",
+  "sha": "b73c64c901d9bcef54f9373e1965ee1696b5b3b3",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T20:28:55Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-20975",
+    "review-wip-reviewer-77326",
+    "review-wip-reviewer-round3",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:43:44Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T17:43:48Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:43:44Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:09:19Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:28:51Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:28:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:28:53Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:38:18Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T17:43:47Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:28:53Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-15T20:25:52Z"
+    },
+    "review-wip-reviewer-20975": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-77326": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-round3": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "service/build.gradle.kts",
+          "line": 21,
+          "severity": "medium",
+          "category": "style",
+          "title": "GitHub issue shorthand instead of full URLs in INTELLIJ MODULE EXCLUSIONS comment",
+          "body": "Lines 21-22 reference 'arqu-co/geo-risk-service#217 / arqu-co/issues#7597' as bare shorthand. Evidence: 'See arqu-co/geo-risk-service#217 / arqu-co/issues#7597 and JetBrains guidance...'. The repo's documentation convention (and the paired README section at README.md:55-59, which uses full JetBrains URL) is to use clickable URLs. Shorthand is not a URL \u2014 it will not resolve in terminal output, PR comment previews, or IDE hover. Fix: replace with 'https://github.com/arqu-co/geo-risk-service/issues/217' and 'https://github.com/arqu-co/issues/issues/7597' (or equivalent PR URLs). This is a 3-line comment so the longer URLs will stretch it by ~40 chars but the separator is 140 chars wide \u2014 still fits within line budget.",
+          "confidence": "high"
+        },
+        {
+          "file": "service/ingestion/build.gradle.kts",
+          "line": 14,
+          "severity": "low",
+          "category": "style",
+          "title": "excludeDirs API style diverges from sibling build files (addAll(listOf(...)) vs .add())",
+          "body": "ingestion uses 'excludeDirs.addAll(listOf(file(\"artifacts\"), file(\"input-data\"),))' (multi-line, trailing comma after the listOf argument), while infra/build.gradle.kts:16 uses 'excludeDirs.add(file(\"cdk.out\"))' and lambda/build.gradle.kts:19 uses 'excludeDirs.add(file(\"debug-outputs\"))'. Evidence: searching the repo, this is the only site that uses the 'addAll(listOf(...),)' idiom with a trailing comma after the single listOf argument (grep -E '^\\s+\\),$' across build.gradle.kts files). Impact: stylistic outlier in a set of three sibling files introduced together \u2014 harder to scan side-by-side. Fix: use two .add() calls to match sibling files, i.e.\\n\\nidea {\\n    module {\\n        excludeDirs.add(file(\"artifacts\"))\\n        excludeDirs.add(file(\"input-data\"))\\n    }\\n}\\n\\nor use the single-line form 'excludeDirs.addAll(listOf(file(\"artifacts\"), file(\"input-data\")))'. The two-.add() form is most consistent with infra and lambda.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:26:02Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T20:28:53Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:43:48Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:43:47Z",
+      "test_runner": "none",
+      "fingerprint": "e437fe90dce7c39cc2dcd0a3408b19a9",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 604981.0
+}
