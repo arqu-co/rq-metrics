@@ -1,0 +1,47 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": null,
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-21T22:20:52.205Z",
+  "session_id": "40d2591a-7770-4b06-a36a-19b1c6c6e0c7",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 46023,
+    "output": 856759,
+    "cache_read": 234803690,
+    "cache_create": 7324694,
+    "est_cost_usd": 175.4704224
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 72333178,
+      "cost_usd": 55.354739499999994
+    },
+    "review#1": {
+      "tokens": 125504177,
+      "cost_usd": 79.1423422
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#2": {
+      "tokens": 26856247,
+      "cost_usd": 30.764998749999997
+    },
+    "unknown": {
+      "tokens": 18337564,
+      "cost_usd": 10.20834195
+    }
+  }
+}
