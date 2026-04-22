@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-436-rq-next-suggest-must-exclude-any-issue-w",
+  "sha": "b22221ffce01c90ad4e6babeede8b3b3e5e4670f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T15:19:28Z",
+  "phase": "all",
+  "run_number": 5,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-25357",
+    "review-wip-reviewer-41457",
+    "review-wip-reviewer-95518",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:08Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T14:23:48Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:10Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:07Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:45Z",
+      "duration_ms": 10000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:35Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 25000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:51Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:26:57Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:19:06Z",
+      "duration_ms": 70000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:49Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T15:17:56Z",
+      "duration_ms": 65000
+    },
+    "review-wip-reviewer-25357": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_rq_next_suggest_regression.sh",
+          "line": 90,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Regression test plan-claim.sh stub is dead code \u2014 never invoked",
+          "body": "The regression test writes plan-claim.sh into $STUB_DIR (line 90-94) but never sets RQ_PLAN_CLAIM_BIN, so the real plugins/rq/scripts/plan-claim.sh is used instead. The stub is dead code. The test passes incidentally because plan-claim.sh check-claim --local-only returns 'unclaimed' for any issue not bound to a branch-issue.json file. The stub provides no isolation guarantee: if the real plan-claim.sh behavior changes for --local-only, the regression test will silently break. Fix: set RQ_PLAN_CLAIM_BIN=$STUB_DIR/plan-claim.sh before invoking the subject, consistent with make_full_gh_stub.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/next/SKILL.md",
+          "line": 21,
+          "severity": "high",
+          "category": "skill-isolation",
+          "title": "Step 0 uses PLUGIN_DIR without canonical preamble",
+          "body": "Step 0 (line 21) sets SPRS=$PLUGIN_DIR/session-prs.sh but PLUGIN_DIR is never derived in Step 0. The canonical preamble (find . -name run-gates.sh ...) is absent. In a fresh subagent context running only Step 0, PLUGIN_DIR is empty and the assignment becomes SPRS=/session-prs.sh. Fix: add the canonical PLUGIN_DIR preamble to Step 0 before the SPRS assignment.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/next/SKILL.md",
+          "line": 175,
+          "severity": "high",
+          "category": "skill-isolation",
+          "title": "Step 99 uses SPRS set in Step 0 \u2014 cross-step state reuse",
+          "body": "Step 99 (line 175) references $SPRS which was set in Step 0. In a fresh subagent context, SPRS is empty and the command expands to 'bash  refresh'. Fix: re-derive both PLUGIN_DIR (canonical preamble) and SPRS in Step 99.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/next/SKILL.md",
+          "line": 102,
+          "severity": "medium",
+          "category": "skill-isolation",
+          "title": "Step 3 uses PLUGIN_DIR without re-deriving it",
+          "body": "Step 3 \u2014 Bind (line 102) references $PLUGIN_DIR but the canonical preamble is absent from this step. In a subagent context that enters directly at Step 3, PLUGIN_DIR is empty. Fix: add the canonical PLUGIN_DIR preamble to the Step 3 code block.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-41457": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/issue-progress-signals.sh",
+          "line": 13,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "fetch_open_pr_issue_refs silently truncates at 100 PRs",
+          "body": "gh pr list -L 100 silently drops open PRs beyond the 100th. For repos with >100 open PRs, active-work signals on those PRs are never detected. An issue referenced by PR #101+ will appear as a free candidate and be offered for binding, causing concurrent-session collision. Fix: use the gh API pagination or set -L to a larger bound (e.g. 500) with a comment explaining the cap.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_next_suggest_harness.sh",
+          "line": 135,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "plan-claim.sh stub in make_full_gh_stub is dead code",
+          "body": "The stub writes plan-claim.sh into $stub_dir and puts $stub_dir on PATH, but rq-next-suggest.sh invokes plan-claim.sh via absolute path (sd + '/plan-claim.sh' where sd=SCRIPT_DIR). The PATH-based stub is never called. Tests silently use the real plan-claim.sh with --local-only, which happens to return 'unclaimed' for the test issue numbers. This is a fragile implicit dependency: if a real worktree or branch named issue-999-* or issue-100-* exists in the repo, the test will incorrectly block those candidates. Fix: export SCRIPT_DIR pointing to a temp stub dir that contains the plan-claim.sh stub, or pass an env var the script can use to override the plan-claim.sh path.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-95518": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:19:15Z",
+      "duration_ms": 9000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:48Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:03:14Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:03:11Z",
+      "fingerprint": "2e4e23c30378899e8229640883c175ff",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 4564.0
+}
