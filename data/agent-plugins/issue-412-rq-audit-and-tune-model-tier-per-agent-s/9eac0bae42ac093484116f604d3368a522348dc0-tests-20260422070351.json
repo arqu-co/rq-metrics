@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-412-rq-audit-and-tune-model-tier-per-agent-s",
+  "sha": "9eac0bae42ac093484116f604d3368a522348dc0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T11:03:50Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T11:03:50Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1afe1062197170e28002aad5a292671a",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "plugins/rq/scripts/token_report_render_skill.py"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
