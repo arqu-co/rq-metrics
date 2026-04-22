@@ -1,0 +1,150 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-436-rq-next-suggest-must-exclude-any-issue-w",
+  "sha": "0f6f7190d44af0e52782da0019eda14c2a0c34e5",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T14:53:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "review-wip-reviewer-41457",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:27Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T14:23:48Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:28Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:25Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:53Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 23000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:53:00Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:26:57Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:58Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-41457": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/issue-progress-signals.sh",
+          "line": 13,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "fetch_open_pr_issue_refs silently truncates at 100 PRs",
+          "body": "gh pr list -L 100 silently drops open PRs beyond the 100th. For repos with >100 open PRs, active-work signals on those PRs are never detected. An issue referenced by PR #101+ will appear as a free candidate and be offered for binding, causing concurrent-session collision. Fix: use the gh API pagination or set -L to a larger bound (e.g. 500) with a comment explaining the cap.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_next_suggest_harness.sh",
+          "line": 135,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "plan-claim.sh stub in make_full_gh_stub is dead code",
+          "body": "The stub writes plan-claim.sh into $stub_dir and puts $stub_dir on PATH, but rq-next-suggest.sh invokes plan-claim.sh via absolute path (sd + '/plan-claim.sh' where sd=SCRIPT_DIR). The PATH-based stub is never called. Tests silently use the real plan-claim.sh with --local-only, which happens to return 'unclaimed' for the test issue numbers. This is a fragile implicit dependency: if a real worktree or branch named issue-999-* or issue-100-* exists in the repo, the test will incorrectly block those candidates. Fix: export SCRIPT_DIR pointing to a temp stub dir that contains the plan-claim.sh stub, or pass an env var the script can use to override the plan-claim.sh path.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:52:56Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:03:14Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:03:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2e4e23c30378899e8229640883c175ff",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    }
+  },
+  "duration_seconds": 2989.0
+}
