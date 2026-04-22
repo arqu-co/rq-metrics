@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "sse-error-parsing",
+  "sha": "aedb83324e072e12fb5f4f6fd532370d1e99fe57",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-22T00:39:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T00:39:37Z",
+      "files_checked": 8,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "lines": 813,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "lines": 440,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/composables/useAIChatConversationRestore.spec.ts",
+          "lines": 328,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/composables/useAIChatSelection.spec.ts",
+          "lines": 505,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
