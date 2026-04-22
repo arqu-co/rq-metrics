@@ -1,0 +1,30 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "tools",
+  "branch": "issue-146-add-mcp-tools-for-managing-shareable-ass",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T14:03:36.390Z",
+  "session_id": "c409f598-4242-4140-a5ce-97db7d6908fa",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 3458,
+    "output": 65870,
+    "cache_read": 14510416,
+    "cache_create": 666777,
+    "est_cost_usd": 10.56394915
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 15246521,
+      "cost_usd": 10.56394915
+    }
+  }
+}
