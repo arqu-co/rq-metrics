@@ -1,0 +1,56 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "tools",
+  "branch": "issue-146-add-mcp-tools-for-managing-shareable-ass",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T11:41:47.477Z",
+  "session_id": "3d2feeb5-db91-4904-9546-eb67785314cf",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 65332,
+    "output": 1498954,
+    "cache_read": 872173474,
+    "cache_create": 26968763,
+    "est_cost_usd": 602.09346761
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 2120797,
+      "cost_usd": 1.947123
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 73205558,
+      "cost_usd": 59.2452876
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 573460272,
+      "cost_usd": 370.10213805
+    },
+    "review#2": {
+      "tokens": 237103863,
+      "cost_usd": 162.87331496
+    },
+    "review#3": {
+      "tokens": 14816033,
+      "cost_usd": 7.925604
+    }
+  }
+}
