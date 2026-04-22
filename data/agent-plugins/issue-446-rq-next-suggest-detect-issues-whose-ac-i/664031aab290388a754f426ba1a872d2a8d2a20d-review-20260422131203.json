@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-446-rq-next-suggest-detect-issues-whose-ac-i",
+  "sha": "664031aab290388a754f426ba1a872d2a8d2a20d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T17:12:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T17:12:00Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
