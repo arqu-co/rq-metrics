@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-412-rq-audit-and-tune-model-tier-per-agent-s",
+  "sha": "4d289abe04dc5942e0f5c1adde9ea0ac5eca9039",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T10:30:49Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1,
+    "DRY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_audit_model_tiers_cli.py",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No main()-success-path test. The file covers 2 error-exit branches and 1 skip branch but the claimed 'main() stdout' branch is absent. Add a test that builds a minimal agents+skills fixture, calls amt.main(), asserts rc==0 and stdout contains expected output."
+    },
+    {
+      "file": "plugins/rq/scripts/token_report_skills.py",
+      "line": 20,
+      "rule": "DRY",
+      "message": "_fmt_tokens and _fmt_cost are duplicated across token_report_skills.py and token_report_render.py with differing implementations (abbreviated M/k vs raw integer; zero-handling differs). Extract to a shared token_report_fmt.py utility and import from both."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T10:30:48Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
