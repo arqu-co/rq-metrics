@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-454-agent-plugins-add-shareable-assets-skill",
+  "sha": "1cd5e568c13fde9c5530cc26b4c42522e8cea040",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T22:12:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "lint",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:10Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T22:12:38Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:11Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:10Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:38Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:12:35Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 127,
+          "output": "\n"
+        }
+      ],
+      "duration_ms": 24000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:42Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:36Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:41Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:12:43Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:12:41Z",
+      "scanned_files": 34,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T21:32:00Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:12:37Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4c3d4177a8736cc9fdf79f07403cecce",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n==================================== ERRORS ====================================\n________________ ERROR collecting test_validate_frontmatter.py _________________\nImportError while importing test module '/Users/jonathanthom/code/agent-plugins/plugins/rq/scripts/test_validate_frontmatter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_validate_frontmatter.py:11: in <module>\n    from validate_frontmatter import (\nvalidate_frontmatter.py:16: in <module>\n    import frontmatter\nE   ModuleNotFoundError: No module named 'frontmatter'\n=============================== warnings summary ===============================\n../../../../../Library/Python/3.11/lib/python/site-packages/_pytest/config/__init__.py:1434\n  /Users/jonathanthom/Library/Python/3.11/lib/python/site-packages/_pytest/config/__init__.py:1434: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR test_validate_frontmatter.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 1 error in 0.43s"
+        }
+      ],
+      "duration_ms": 1000
+    }
+  },
+  "duration_seconds": 520843.0
+}
