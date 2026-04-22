@@ -1,0 +1,52 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "issue-442-rq-rqverifystateownership--exit-vs-retur",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T11:36:12.844Z",
+  "session_id": "01c6982e-752a-48eb-8ee0-5804718d636b",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 24128,
+    "output": 846953,
+    "cache_read": 234887643,
+    "cache_create": 15063285,
+    "est_cost_usd": 222.6181553
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 718945,
+      "cost_usd": 1.187615
+    },
+    "review#2": {
+      "tokens": 44039775,
+      "cost_usd": 38.70764625
+    },
+    "review#3": {
+      "tokens": 146313045,
+      "cost_usd": 130.44766835000001
+    },
+    "review#4": {
+      "tokens": 38236701,
+      "cost_usd": 35.370073010000006
+    },
+    "review#5": {
+      "tokens": 21513543,
+      "cost_usd": 16.905152689999998
+    }
+  }
+}
