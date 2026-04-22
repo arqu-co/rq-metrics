@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": "b61458d7732645a046c7ac4a0c9341d0a16f1ba5",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T17:13:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+      "line": 0,
+      "rule": "DEAD_CODE",
+      "message": "Working tree has reverted all Unit C changes. The index (staged) contains the correct implementation but the working tree file is back to the pre-Unit-C state (MM in git status --porcelain). If committed now only the staged changes go in, but the working tree divergence must be resolved before any further editing or the writer risks accidentally restoring the revert."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:51Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

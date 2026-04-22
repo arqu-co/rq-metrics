@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": "b61458d7732645a046c7ac4a0c9341d0a16f1ba5",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T17:13:49Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+      "line": 0,
+      "rule": "DEAD_CODE",
+      "message": "Working tree has reverted all Unit C changes. The index (staged) contains the correct implementation but the working tree file is back to the pre-Unit-C state (MM in git status --porcelain). If committed now only the staged changes go in, but the working tree divergence must be resolved before any further editing or the writer risks accidentally restoring the revert."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T17:13:49Z",
+      "files_checked": 12,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ApprovalBasedSubmissionOrchestrator.kt",
+          "lines": 1024,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ClearingOrchestrator.kt",
+          "lines": 512,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ClearingWorkflowOrchestratorImpl.kt",
+          "lines": 628,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "lines": 622,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgentLangChain4JStreamingImpl.kt",
+          "lines": 1074,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "lines": 582,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

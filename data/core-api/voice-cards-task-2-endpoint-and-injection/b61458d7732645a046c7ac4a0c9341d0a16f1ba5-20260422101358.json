@@ -1,0 +1,177 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": "b61458d7732645a046c7ac4a0c9341d0a16f1ba5",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T17:13:58Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+      "line": 0,
+      "rule": "DEAD_CODE",
+      "message": "Working tree has reverted all Unit C changes. The index (staged) contains the correct implementation but the working tree file is back to the pre-Unit-C state (MM in git status --porcelain). If committed now only the staged changes go in, but the working tree divergence must be resolved before any further editing or the writer risks accidentally restoring the revert."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T17:13:50Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-17T16:15:13Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:51Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T17:13:49Z",
+      "files_checked": 12,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ApprovalBasedSubmissionOrchestrator.kt",
+          "lines": 1024,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ClearingOrchestrator.kt",
+          "lines": 512,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ClearingWorkflowOrchestratorImpl.kt",
+          "lines": 628,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "lines": 622,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgentLangChain4JStreamingImpl.kt",
+          "lines": 1074,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "lines": 582,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:54Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:54Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:58Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:10:11Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-16T16:19:17Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:57Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:13:54Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T20:13:22Z",
+      "fingerprint": "0e011827cf33389910dd7fd8c9e73e57",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 521681.0
+}
