@@ -1,0 +1,47 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "issue-441-rqtherapist-collapse-owner-repo-key-deri",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T11:36:12.844Z",
+  "session_id": "01c6982e-752a-48eb-8ee0-5804718d636b",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 12934,
+    "output": 603057,
+    "cache_read": 179850931,
+    "cache_create": 11409040,
+    "est_cost_usd": 170.9146821
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 718945,
+      "cost_usd": 1.187615
+    },
+    "review#2": {
+      "tokens": 44039775,
+      "cost_usd": 38.70764625
+    },
+    "review#3": {
+      "tokens": 146313045,
+      "cost_usd": 130.44766835000001
+    },
+    "review#4": {
+      "tokens": 804197,
+      "cost_usd": 0.5717525
+    }
+  }
+}
