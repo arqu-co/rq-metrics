@@ -1,0 +1,278 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-448-rq-collapse-statekeybranchslug-resolvers",
+  "sha": "05a5091bd32c6eadd419b489f09215c84f0599d7",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T16:57:05Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-49001",
+    "review-wip-reviewer-78055",
+    "review-wip-reviewer-9082",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:21Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T14:18:19Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:23Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:19Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:55Z",
+      "duration_ms": 4000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 28000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:57:03Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:39:46Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:15:19Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:57:00Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T14:52:50Z"
+    },
+    "review-wip-reviewer-49001": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 17,
+          "severity": "high",
+          "category": "security",
+          "title": "CWD-rooted find sources untrusted repo-key.sh on every therapist hook",
+          "body": "_th_source_repo_key runs find . -name repo-key.sh -path */rq/scripts/lib/* | head -1 before falling back to /Users/jerrod/.claude. Therapist hooks run automatically on every Claude Code turn regardless of repo. An attacker who gets a user to cd into (or clone) a repo containing plugins/rq/scripts/lib/repo-key.sh (or any path matching */rq/scripts/lib/*/repo-key.sh) achieves arbitrary bash execution via source. Unlike rq skill preambles (deliberately invoked), therapist hooks are automatic, so CWD searching is a code-execution sink. Fix: remove the CWD branch (find . ...) entirely; search only /Users/jerrod/.claude/plugins and a path derived from BASH_SOURCE (the sibling plugin cache). Keep the inline fallback for the no-rq-installed case.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/repo-key.sh",
+          "line": 38,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Trailing-slash remote URL yields trailing-dash key",
+          "body": "For a remote URL like https://github.com/acme/widgets/ (trailing slash, uncommon but possible from manual git remote set-url), derivation yields owner_repo=widgets/ \u2192 after s|/|-|g \u2192 'widgets-'. _rq_is_safe_key accepts 'widgets-' (regex allows trailing dash). The resulting state dir /Users/jerrod/.claude/state/widgets-/... works but is ugly and differs from the same repo accessed via https://github.com/acme/widgets.git (\u2192 acme-widgets). This causes the same repo to key into two different state dirs depending on how the remote was set. Fix: after scheme strip, trim trailing slashes from trimmed before splitting (trimmed=${trimmed%/}). Add a test_repo_key.sh case.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_repo_key.sh",
+          "line": 95,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "No adversarial test cases for path-traversal-ish remote URLs",
+          "body": "test_repo_key.sh covers happy-path GitHub/GitLab/SSH/file-URL parsing but no adversarial inputs: git@host:../evil/repo.git, git@host:-evil/repo.git, URLs with embedded NUL via basename, URLs containing whitespace, trailing-slash URLs, and URLs that would produce an unsafe key (must be caught by _rq_is_safe_key downstream). The whole point of centralizing this in lib/repo-key.sh is to make it the security-trust boundary \u2014 tests should prove the boundary holds. Add: assertions that unsafe inputs produce keys which _rq_is_safe_key rejects, and/or direct assertions that derive returns a safe key string.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 24,
+          "severity": "medium",
+          "category": "maintainability",
+          "title": "Inline fallback duplicates derive logic \u2014 divergence risk",
+          "body": "The inline fallback (lines 25-51) reproduces _rq_is_safe_key and _rq_derive_repo_key byte-identically from lib/repo-key.sh. When the canonical lib changes (e.g. fixing the trailing-slash key, tightening the safe-key regex), the inline copy will silently diverge \u2014 the whole point of issue #441 was to eliminate exactly this duplication. There is no parity test that runs both the sourced path and the fallback path against a fixture matrix. Fix: either (a) add a test that force-unsets rq discovery and runs the fallback against test_repo_key.sh's fixture matrix, or (b) ship the repo-key.sh with the therapist plugin directly so the 'fallback' IS the sourced file and there is only one copy.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-78055": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_repo_key_fallback.sh",
+          "line": 106,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Fallback parity test omits adversarial cases present in canonical test",
+          "body": "test_repo_key_fallback.sh exercises only happy-path fixtures (https/ssh/file/empty/trailing-slash) but omits the three adversarial cases that test_repo_key.sh validates against the canonical lib: git@host:../evil/repo.git, git@host:-evil/repo.git, and the embedded-newline URL. The file's stated purpose is parity with lib/repo-key.sh, but parity that only covers the sunny path will not catch future drift in the inline fallback's traversal handling \u2014 which is exactly the class of bug the round-1 fallback-divergence finding was about. Fix: mirror the three adversarial blocks from test_repo_key.sh (lines 169-199) into test_repo_key_fallback.sh so the fallback gets the same safety assertions as the canonical lib.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 26,
+          "severity": "low",
+          "category": "maintainability",
+          "title": "Inline _rq_derive_repo_key fallback lacks TODO breadcrumb to #448",
+          "body": "lib/quality-paths.sh line 51 carries a TODO(#448) pointing reviewers at the duplication-tracking issue for the non-collapsible fourth copy. The inline fallback in _lib_paths.sh (lines 26-54) is that fourth copy and is the one most likely to drift silently (it only runs when rq is not installed, so normal test runs never exercise it). It should carry the same TODO(#448) breadcrumb above the `_rq_is_safe_key` / `_rq_derive_repo_key` fallback definitions so a future reader landing here from `git blame` sees the tracking issue without having to cross-reference quality-paths.sh. Fix: add `# TODO(#448): this fallback is a byte-identical copy of lib/repo-key.sh. Parity is enforced by test_repo_key_fallback.sh.` above line 27.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9082": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/git-helpers.sh",
+          "line": 52,
+          "title": "Stale comment references removed _qp_derive_repo_key",
+          "body": "After issue #441 collapsed the three copies into lib/repo-key.sh::_rq_derive_repo_key, git-helpers.sh:52 still says 'Matches lib/quality-paths.sh::_qp_derive_repo_key's guard byte-for-byte'. The _qp_derive_repo_key symbol no longer exists \u2014 quality-paths.sh now sources repo-key.sh. Fix: update the comment to reference lib/repo-key.sh::_rq_derive_repo_key so future readers tracing the parity claim find the real function.",
+          "severity": "low",
+          "category": "documentation",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 24,
+          "title": "Inline fallback is a second copy with no parity enforcement",
+          "body": "The fallback block at lines 24-51 re-implements _rq_is_safe_key and _rq_derive_repo_key verbatim for the standalone-install case. This is exactly the byte-identical-copy problem the PR claims to collapse: when lib/repo-key.sh gets a bug fix or URL-parser update, the therapist inline copy will silently diverge, and the parity test (test_quality_paths_parity.sh, test_repo_key.sh) only exercises the rq copy \u2014 therapist's fallback is never run in CI unless rq is absent. Two concrete failure modes: (1) a security fix to _rq_is_safe_key lands in rq but therapist keeps accepting poisoned keys on standalone installs; (2) a new URL scheme handled in _rq_derive_repo_key produces different state dirs under the fallback vs the sourced lib, fragmenting state across 'did the find succeed this session' coin flips. Fix options (pick one): (a) add a CI gate or test that sources the inline fallback under a stubbed find and runs it through test_repo_key.sh's matrix, asserting byte-identical output vs the canonical lib; (b) drop the fallback entirely and make therapist hard-depend on rq being installed (documented prereq); (c) vendor rq's repo-key.sh at install time into plugins/therapist/scripts/lib/ so there's exactly one on-disk copy, sourced unconditionally. Option (a) preserves standalone-install while making drift detectable; (b) is simpler if the standalone claim isn't actually load-bearing; (c) trades one fallback branch for a vendoring step. The current state \u2014 'trust me, they match' with no mechanical enforcement \u2014 is the same trust model that produced the three-way duplication this PR exists to eliminate.",
+          "severity": "medium",
+          "category": "architecture",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 17,
+          "title": "find discovery may load stale/older rq copy over newer HOME install",
+          "body": "The discovery does: (1) find . -path '*/rq/scripts/lib/*' | head -1, then (2) only if that's empty, fall back to HOME with 'sort -V | tail -1'. The cwd pass has no version sort and takes the first hit. Scenarios that break: a worktree or repo containing a vendored or checked-in copy of plugins/rq/scripts/lib/repo-key.sh (e.g., this very repo \u2014 arqu-co/agent-plugins is the rq plugin's source tree, so running therapist from inside this repo will source the in-tree copy instead of the user's installed plugin version). If the in-tree copy is a work-in-progress, older, or from a different feature branch than the user's installed rq, therapist silently picks up whatever the cwd happens to contain. Secondary issue: 'find .' with no -maxdepth can be slow on large trees and, worse, will descend into node_modules / .venv / nested submodules, occasionally picking up a vendored copy from some unrelated project. Fix: prefer the HOME-installed plugin (the actual installed rq), and only fall back to cwd when no HOME copy exists, OR version-sort both candidate lists and take the highest. Also add -maxdepth (e.g., 6) and/or filter out node_modules/.venv so the search is bounded and deterministic. The current order privileges 'whatever source tree I'm standing in' over 'the plugin the user actually installed', which is backwards for a runtime discovery.",
+          "severity": "medium",
+          "category": "correctness",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 13,
+          "title": "CROSS-REFERENCE comment overstates what's duplicated",
+          "body": "The header says 'duplicated from rq-state-path.sh::resolve_state_path(). Any change to repo-key derivation, slugification, legacy-key migration, or branch-issue.json reading MUST be mirrored in rq-state-path.sh.' After #441, repo-key derivation is NO LONGER duplicated \u2014 both files source lib/repo-key.sh. Only legacy-key migration and pinned-key/slug logic remain duplicated. Leaving 'repo-key derivation' in the must-mirror list misleads future editors into thinking they need to update two places when they actually only need to edit repo-key.sh. Fix: trim the CROSS-REFERENCE list to the items still genuinely duplicated (legacy-key migration, slugification fallback, pinned-key reading), and note that repo-key derivation is now canonical in lib/repo-key.sh. rq-state-path.sh:134-137 already has the correct scoped wording \u2014 mirror it here.",
+          "severity": "low",
+          "category": "documentation",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 112,
+          "title": "_rsp_resolve_branch_slug duplicates _qp_resolve_state_key",
+          "body": "quality-paths.sh::_qp_resolve_state_key (lines 56-70) and rq-state-path.sh::_rsp_resolve_branch_slug (lines 112-132) implement the same algorithm: read .state_key from branch-issue.json, validate with _rq_is_safe_key, echo warning on unsafe, fall back to slugified HEAD, final 'unknown' fallback. The only behavioral difference is the warning prefix ('quality-paths:' vs 'rq-state-path:') and that _rsp takes a mode arg to skip pinned-key lookup in branch mode. Since #441 just proved the three-way duplication problem by collapsing it, leaving this two-way duplicate in the same PR is inconsistent with the stated goal. Fix: extract into lib/repo-key.sh (or a new lib/state-key.sh) as _rq_resolve_state_key with a caller-supplied warning prefix; both resolvers source and call it. The parity test then reduces to asserting both callers produce identical output for identical inputs, which is what test_quality_paths_parity.sh already implicitly tests \u2014 but explicit single-sourcing eliminates the class of drift that required the test to exist. If the 'inlining for hot-path perf' rationale from quality-paths.sh header is genuinely load-bearing, benchmark sourcing-one-more-tiny-lib vs inlining and document the number \u2014 otherwise the perf claim is speculation protecting duplication.",
+          "severity": "medium",
+          "category": "DRY",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_repo_key.sh",
+          "line": 95,
+          "title": "Test matrix misses several URL shapes the parser handles",
+          "body": "_rq_derive_repo_key has non-trivial branches not covered by test_repo_key.sh: (1) ssh://user@host/owner/repo (explicit ssh:// scheme, different from git@ shorthand \u2014 tests only cover git@ shorthand); (2) https URL WITHOUT .git suffix (common for 'gh repo clone' output); (3) URL with trailing slash 'https://github.com/acme/widgets/' (repo_part becomes empty string, owner_repo becomes 'acme/'); (4) multi-colon git@ URL like 'git@host:22:owner/repo' which the global ':\u2192/' substitution was explicitly commented as handling. Tests pin 'global substitution' behavior in the comment but no test exercises a multi-colon URL \u2014 the comment is asserting behavior the tests don't verify. Fix: add cases for each shape above. Case (3) in particular may reveal a real bug \u2014 with trailing slash, owner_repo becomes 'acme/' and after //\u2192- substitution 'acme-', which then passes _rq_is_safe_key and produces a different state dir than the canonical 'acme-widgets'. Worth verifying what today's code does before declaring intent.",
+          "severity": "low",
+          "category": "testing",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 15,
+          "title": "Function name prefix inconsistency \u2014 _th_ wraps calls to _rq_ names",
+          "body": "The therapist convention appears to be _th_ prefix (_th_source_repo_key, _resolve_therapist_dir, _clean_legacy_therapist_symlink \u2014 though the last two break the convention). After sourcing, the public symbols _rq_is_safe_key and _rq_derive_repo_key appear in therapist's namespace with the rq prefix. This is intentional (reusing rq's canonical names enables the fallback block to be byte-identical), but it's worth a sentence in the header comment so a future therapist-only contributor isn't confused seeing _rq_ symbols inside a therapist script and hunting for where they 'should be renamed'. Fix: either (a) add a one-line comment at top of the file documenting that _rq_* symbols are intentionally sourced from rq's lib; or (b) accept this is minor and don't bother. I'd do (a) since this file explicitly calls out the standalone-install constraint \u2014 making the convention explicit costs one line.",
+          "severity": "low",
+          "category": "style",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:53:41Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:56:58Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:16:50Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:16:48Z",
+      "fingerprint": "2e4e23c30378899e8229640883c175ff",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 9704.0
+}
