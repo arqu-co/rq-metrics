@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-132-risklab-mcp-phase-2--review--corrections",
+  "sha": "1ccd32e88adbb81411117bdc2d2068b188f5b326",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T02:30:59Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T02:30:59Z",
+      "files_checked": 71,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-tools/src/errors/mapping.ts",
+          "function": "mapHttpError",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
