@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-446-rq-next-suggest-detect-issues-whose-ac-i",
+  "sha": "409ebc23e8e8ed707ca5397c61222ae8c65d50ac",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T16:28:22Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T16:28:21Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test__rq_next_filter.py",
+          "name": "sys",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test__rq_next_filter.py",
+          "name": "pytest",
+          "line": 9
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
