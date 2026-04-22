@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tiles-surge-generation",
+  "sha": "2e94750fd354062e96358b0f7a34f4763616a143",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T22:18:33Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:18:32Z",
+      "test_runner": "none",
+      "fingerprint": "3c5425b14f27e6cdc266ec09772c146c",
+      "failed_subprojects": 1,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [
+        {
+          "subproject": "grs-explorer",
+          "runner": "pytest",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "FF                                                                       [100%]\n=================================== FAILURES ===================================\n___________________________ test_app_module_imports ____________________________\ntests/test_smoke.py:10: in test_app_module_imports\n    from grs_explorer import app\ngrs_explorer/app.py:6: in <module>\n    from fastapi import FastAPI\nE   ModuleNotFoundError: No module named 'fastapi'\n_____________________________ test_routers_import ______________________________\ntests/test_smoke.py:16: in test_routers_import\n    from grs_explorer.routers import feature_set_groups, tiles\ngrs_explorer/routers/feature_set_groups.py:7: in <module>\n    from fastapi import APIRouter, HTTPException, Request\nE   ModuleNotFoundError: No module named 'fastapi'\n=========================== short test summary info ============================\nFAILED tests/test_smoke.py::test_app_module_imports - ModuleNotFoundError: No...\nFAILED tests/test_smoke.py::test_routers_import - ModuleNotFoundError: No mod...\n2 failed in 0.04s"
+            }
+          ]
+        }
+      ],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
