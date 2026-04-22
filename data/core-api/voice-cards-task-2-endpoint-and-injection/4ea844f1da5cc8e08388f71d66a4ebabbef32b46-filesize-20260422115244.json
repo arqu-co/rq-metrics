@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": "4ea844f1da5cc8e08388f71d66a4ebabbef32b46",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T18:52:44Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgentPromptBuilder.kt",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "590 lines, exceeds 300-line limit. New file not present in rq.config.json allowlist \u2014 filesize gate will add a 6th violation when it runs against working tree. Add to allowlist with tracked-decomposition reason, matching EmailService.kt precedent."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:52:44Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
