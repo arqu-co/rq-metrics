@@ -1,0 +1,522 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-442-rq-rqverifystateownership--exit-vs-retur",
+  "sha": "ff98a6dc79847d25e940920d704db9a89bd78cdc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T19:49:59Z",
+  "phase": "all",
+  "run_number": 4,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-23454",
+    "review-wip-reviewer-49001",
+    "review-wip-reviewer-54921",
+    "review-wip-reviewer-57467",
+    "review-wip-reviewer-59054",
+    "review-wip-reviewer-65642",
+    "review-wip-reviewer-69569",
+    "review-wip-reviewer-77867",
+    "review-wip-reviewer-78055",
+    "review-wip-reviewer-80335",
+    "review-wip-reviewer-88287",
+    "review-wip-reviewer-9082",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:46:44Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T19:40:35Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 109000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:46:46Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:46:42Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 367000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:47:17Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:47:15Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 29000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:47:24Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:38:46Z",
+      "duration_ms": 39000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:15:19Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:47:22Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T14:52:50Z"
+    },
+    "review-wip-reviewer-23454": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 90,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "RETURN trap leaks to caller scopes",
+          "body": "`trap ... RETURN` set inside `_rq_migrate_legacy_state` is not function-local in bash by default \u2014 it fires on every caller return up the stack (verified: inner sets trap, outer also fires it on its own return). In practice the first fire of `rmdir '$lock'` succeeds and subsequent fires are silenced by `2>/dev/null || true`, so no data loss occurs. However the trap definition persists in ancestor scopes and can interfere with unrelated RETURN traps added later in `resolve_quality_dir`/`resolve_state_path` or their callers. Fix: declare `local -` at the top of `_rq_migrate_legacy_state` (saves/restores shell options and trap state in bash 4.4+) OR save the existing RETURN trap, install the new one, and restore on exit. Simpler still: skip the trap entirely and `rmdir` explicitly on both the mv-success and mv-failure paths \u2014 only two exit points after the lock is acquired.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-49001": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 17,
+          "severity": "high",
+          "category": "security",
+          "title": "CWD-rooted find sources untrusted repo-key.sh on every therapist hook",
+          "body": "_th_source_repo_key runs find . -name repo-key.sh -path */rq/scripts/lib/* | head -1 before falling back to /Users/jerrod/.claude. Therapist hooks run automatically on every Claude Code turn regardless of repo. An attacker who gets a user to cd into (or clone) a repo containing plugins/rq/scripts/lib/repo-key.sh (or any path matching */rq/scripts/lib/*/repo-key.sh) achieves arbitrary bash execution via source. Unlike rq skill preambles (deliberately invoked), therapist hooks are automatic, so CWD searching is a code-execution sink. Fix: remove the CWD branch (find . ...) entirely; search only /Users/jerrod/.claude/plugins and a path derived from BASH_SOURCE (the sibling plugin cache). Keep the inline fallback for the no-rq-installed case.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/repo-key.sh",
+          "line": 38,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Trailing-slash remote URL yields trailing-dash key",
+          "body": "For a remote URL like https://github.com/acme/widgets/ (trailing slash, uncommon but possible from manual git remote set-url), derivation yields owner_repo=widgets/ \u2192 after s|/|-|g \u2192 'widgets-'. _rq_is_safe_key accepts 'widgets-' (regex allows trailing dash). The resulting state dir /Users/jerrod/.claude/state/widgets-/... works but is ugly and differs from the same repo accessed via https://github.com/acme/widgets.git (\u2192 acme-widgets). This causes the same repo to key into two different state dirs depending on how the remote was set. Fix: after scheme strip, trim trailing slashes from trimmed before splitting (trimmed=${trimmed%/}). Add a test_repo_key.sh case.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_repo_key.sh",
+          "line": 95,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "No adversarial test cases for path-traversal-ish remote URLs",
+          "body": "test_repo_key.sh covers happy-path GitHub/GitLab/SSH/file-URL parsing but no adversarial inputs: git@host:../evil/repo.git, git@host:-evil/repo.git, URLs with embedded NUL via basename, URLs containing whitespace, trailing-slash URLs, and URLs that would produce an unsafe key (must be caught by _rq_is_safe_key downstream). The whole point of centralizing this in lib/repo-key.sh is to make it the security-trust boundary \u2014 tests should prove the boundary holds. Add: assertions that unsafe inputs produce keys which _rq_is_safe_key rejects, and/or direct assertions that derive returns a safe key string.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 24,
+          "severity": "medium",
+          "category": "maintainability",
+          "title": "Inline fallback duplicates derive logic \u2014 divergence risk",
+          "body": "The inline fallback (lines 25-51) reproduces _rq_is_safe_key and _rq_derive_repo_key byte-identically from lib/repo-key.sh. When the canonical lib changes (e.g. fixing the trailing-slash key, tightening the safe-key regex), the inline copy will silently diverge \u2014 the whole point of issue #441 was to eliminate exactly this duplication. There is no parity test that runs both the sourced path and the fallback path against a fixture matrix. Fix: either (a) add a test that force-unsets rq discovery and runs the fallback against test_repo_key.sh's fixture matrix, or (b) ship the repo-key.sh with the therapist plugin directly so the 'fallback' IS the sourced file and there is only one copy.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-54921": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 61,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Stale lock from crashed invocation permanently blocks migration",
+          "body": "If a process is killed (SIGKILL, SIGTERM without trap, power loss, or any uncaught set -e abort from a caller sourcing this lib) between `mkdir \"$lock\"` on line 61 and `rmdir \"$lock\"` on lines 64/70/74, the lock directory persists forever. Every subsequent call hits `mkdir \"$lock\" 2>/dev/null || return 0` and silently no-ops \u2014 migration becomes permanently impossible for that repo/key on that machine with no user-visible error. The legacy state dir sits there forever, and the hot path continues to run the lock acquisition on every hook invocation. Recommended fixes (one or more): (a) add a `trap 'rmdir \"$lock\" 2>/dev/null' EXIT INT TERM` inside the function scope after mkdir succeeds so signal-based exits clean up; (b) add stale-lock age recovery before `return 0` \u2014 e.g. if `mkdir` fails, check the lock's mtime and rmdir+retry if older than some threshold (60s is ample \u2014 migration is a single mv); (c) at minimum, emit a stderr warning the first time migration is skipped due to lock contention so operators can diagnose.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 61,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No EXIT/INT/TERM trap means every non-normal exit leaks the lock",
+          "body": "The three in-function cleanup calls (`rmdir \"$lock\"` on lines 64, 70, 74) only fire on the three explicit code paths. Any other termination \u2014 the caller's `set -e` aborting a subsequent command after this function returns but while this function's frame is still on the stack is not applicable (bash functions don't defer), but signal delivery during `mv` (line 73) absolutely is. SIGTERM/SIGINT during the `mv` \u2014 which for a large legacy state tree across filesystems can take many seconds \u2014 kills the script mid-mv with the lock still held. Next invocation permanently no-ops (see companion finding on line 61). Fix: install a function-scoped trap immediately after the `mkdir \"$lock\"` succeeds: `trap 'rmdir \"$lock\" 2>/dev/null || true' RETURN INT TERM` and clear it before normal return. Bash RETURN traps fire even on early returns.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 61,
+          "severity": "low",
+          "category": "security",
+          "title": "Pre-emptive lock-directory creation by a local process blocks migration",
+          "body": "A process with write access to `$HOME/.claude/state/` \u2014 realistically the same user, but also any buggy tool, container-shared-home setup, or a prior crashed rq invocation \u2014 can create `$HOME/.claude/state/.migrate-<new_key>.lock` as a directory. From that moment forward, `_rq_migrate_legacy_state` silently returns 0 on every call and the legacy state tree is never migrated. Impact is limited because an attacker with `$HOME` write already owns the user, but the crashed-invocation variant is the realistic DoS path (see the stale-lock finding). Mitigation overlaps with the stale-lock fix: age-based lock recovery with a stderr warning eliminates both the crash-induced DoS and the pre-emptive-attacker DoS. Additionally consider tightening the lock path with `$$` or a random suffix used only as a probe, then renaming to the canonical lock \u2014 but the simpler stale-age check is sufficient.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 73,
+          "severity": "low",
+          "category": "correctness",
+          "title": "mv failure is silently swallowed with no diagnostic",
+          "body": "`mv \"$old_root\" \"$new_root\" 2>/dev/null || true` hides real failures (EXDEV cross-filesystem, EACCES, ENOSPC). The lock is released, so the next caller retries and fails identically in perpetuity \u2014 user sees no indication that their legacy state is stranded. Unlike the race-loss case (handled earlier by the re-check), a genuine mv failure deserves a one-shot stderr warning: `mv ... || { echo \"warn: failed to migrate $old_root \u2192 $new_root\" >&2; rmdir \"$lock\"; return 0; }`. This also makes the `|| true` on mv unnecessary.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-57467": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-59054": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 88,
+          "severity": "medium",
+          "category": "dry",
+          "title": "Repo-key derive+validate+migrate block duplicated between resolve_quality_dir and resolve_state_path",
+          "body": "After extracting _rq_current_branch_slug and _rq_resolve_state_key into lib/state-paths.sh, the two resolvers still duplicate ~8 lines of glue verbatim: capture remote_url, capture root, call _rq_derive_repo_key, validate via _rq_is_safe_key (with only the error prefix differing: 'quality-paths' vs 'rq-state-path'), compute legacy_key via basename on remote_url, and invoke _rq_migrate_legacy_state. Compare quality-paths.sh:42-57 to rq-state-path.sh:88-101 \u2014 the blocks are byte-identical apart from the prefix string. This is the same class of duplication that motivated #441/#448 and directly parallels the warn_prefix pattern already used by _rq_resolve_state_key. Fix: extract a third primitive in lib/state-paths.sh, e.g. _rq_prepare_repo_key <warn_prefix> that echoes the validated repo key and runs the legacy migration as a side effect, leaving callers with two lines (capture remote_url+root, call the helper). The parity test test_quality_paths_parity.sh continues to enforce byte-equal output.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 91,
+          "severity": "low",
+          "category": "dead-code",
+          "title": "Unreachable root=\"\" fallback after verify_git_worktree",
+          "body": "Line 91 assigns root=\"\" on git rev-parse failure, but verify_git_worktree (line 79) has already exited with code 1 when we are not in a git worktree. git rev-parse --show-toplevel cannot fail here. The empty fallback is dead and also subtly unsafe: if it ever did fire, _rq_resolve_state_key would be called with binding=\"/.quality/branch-issue.json\" (a literal absolute path), silently reading the wrong file rather than failing. Fix: drop the || root=\"\" fallback and let -e surface any unexpected failure, matching resolve_quality_dir which does the same (quality-paths.sh:43-46) by returning 1 on a failed rev-parse instead of masking it.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-65642": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 90,
+          "severity": "high",
+          "category": "correctness",
+          "title": "RETURN trap leaks into caller scope (and globally persists)",
+          "body": "Evidence: Verified empirically with bash \u2014 a RETURN trap installed inside a function fires on EVERY subsequent function return in the caller chain and remains installed globally after the function exits. Reproducer: bash -c 'f(){ trap \"echo X\" RETURN; }; g(){ f; echo after; }; g; trap -p RETURN' prints X twice (once for f, once for g) and shows the trap still installed.\n\nImpact: (1) rmdir of the lock path fires on every subsequent function return in resolve_quality_dir / resolve_state_path / _rq_prepare_repo_key \u2014 harmless no-ops but unexpected. (2) The trap PERSISTS after the migration call returns: any later code that inspects trap -p RETURN or relies on a clean trap table gets stale data. (3) If a future maintainer adds their own RETURN trap in a caller, the expectation that this one is scoped to _rq_migrate_legacy_state is false.\n\nFix: use 'local -' at the top of _rq_migrate_legacy_state (bash 4.4+; scopes shell options AND traps). Alternatively wrap the lock-taking body in a subshell ( ... ) so the trap dies with the subshell. Or explicitly clear: 'trap - RETURN' immediately before every return statement in this function. Given this file already targets bash (shell=bash), 'local -' is the cleanest.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 85,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Race window between concurrent peers leaves new_root created-but-empty",
+          "body": "Evidence: Peer A acquires the mkdir lock and begins mv. Peer B arrives within 60s, sees fresh lock, emits the 'held \u2014 retry on next invocation' warning and returns 0 at line 87. B's caller (_rq_prepare_repo_key) then returns, and its caller (resolve_quality_dir) proceeds to build $HOME/.claude/state/$repo/$branch_slug/rq and resolve_proof_dir / resolve_plans_dir call mkdir -p on it. That mkdir runs BEFORE A's mv completes, which now finds new_root already exists \u2014 A hits the [ -d \"$new_root\" ] guard at line 94 and emits 'both legacy and new state paths exist; not migrating'. Legacy state is stranded until manually moved.\n\nImpact: whenever two hooks fire concurrently on a repo whose legacy state still exists, one of them guarantees the other's migration fails. Because the migration is one-shot and the warning is printed once per invocation, users hit this exactly when parallel sessions exist (the scenario #448 and its siblings target).\n\nFix: peer B should BLOCK on the lock (retry with backoff for some bounded duration) rather than returning 0 immediately, OR peer B's subsequent path construction must not mkdir -p under new_root until peer A releases the lock. Simplest: have peer B sleep+retry up to ~5s, then fall through with the current warning if A is genuinely stuck.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 48,
+          "severity": "low",
+          "category": "style",
+          "title": "_rq_prepare_repo_key name hides a filesystem-mutating side effect",
+          "body": "Evidence: The name reads as a pure derivation helper ('prepare the key'), but it invokes _rq_migrate_legacy_state which performs an mv under $HOME/.claude/state. A reader skimming resolve_quality_dir line 48 has no syntactic cue that a rename may occur. The docstring at lines 43-47 does mention the side effect, but a function that moves directories on the user's home should wear that fact in its name.\n\nImpact: future refactors (e.g. someone memoizing repo-key lookup, or adding a --dry-run path) may call _rq_prepare_repo_key expecting read-only behavior.\n\nFix: rename to something like _rq_prepare_repo_key_and_migrate, or split into _rq_derive_and_validate_repo_key (pure) + explicit _rq_migrate_legacy_state() call at each site. Given there are only two call sites (quality-paths.sh:48 and rq-state-path.sh:93), the explicit split is low-cost and removes the hidden-side-effect footgun.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-69569": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-77867": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 13,
+          "severity": "medium",
+          "category": "stale-doc",
+          "title": "Cross-reference comment contradicts the refactor",
+          "body": "Lines 13-17 still say: 'repo-key derivation logic lives in lib/repo-key.sh ... Any change to slugification, legacy-key migration, or branch-issue.json reading MUST be mirrored in rq-state-path.sh. The parity test test_quality_paths_parity.sh enforces byte-equal output across a fixture matrix'. That mirror-in-rq-state-path rule is exactly what #448 eliminates \u2014 slugification, legacy migration, and branch-issue.json reading now live once in lib/state-paths.sh and are sourced by both callers. Leaving this comment in place tells future maintainers to duplicate logic that is no longer duplicated, and name-drops a parity test whose raison d'etre has changed. Fix: rewrite the block to say state-key resolution and legacy-key migration live in lib/state-paths.sh (sourced by both resolve_quality_dir and rq-state-path.sh); keep only the perf note about not forking a subprocess from the hot path; drop or re-scope the parity-test reference to match current reality.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 9,
+          "severity": "low",
+          "category": "stale-doc",
+          "title": "Inlining rationale says 'duplicate' \u2014 PR collapses the duplication",
+          "body": "Lines 9-12 read: 'perf benchmarks showed p95 regressions up to +96% when this resolver forked to rq-state-path.sh. The hot path is exercised on every hook invocation, so we duplicate the small key/slug/migration logic in pure bash here.' The perf motivation is still correct \u2014 forking a subprocess is expensive \u2014 but after #448 the logic is NOT duplicated: it is sourced from lib/state-paths.sh into both resolve_quality_dir and rq-state-path.sh. Readers will be confused by 'we duplicate' pointing at code that no longer duplicates. Fix: reword to 'we source the shared primitives from lib/state-paths.sh rather than forking to rq-state-path.sh, keeping the hot path in-process.'",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 42,
+          "severity": "low",
+          "category": "usage-drift",
+          "title": "Usage strings omit --read-pinned-key",
+          "body": "The header comment at line 5 and the case branch at line 51-54 both support --read-pinned-key, but the two usage lines printed on error (line 42 and line 58) only list '[--cross-branch|--repo-only] <plugin> <subpath>'. A user who runs the script with no args or with a missing plugin name sees a help message that hides one-third of the supported flags. Fix: update both usage strings to '[--cross-branch|--repo-only|--read-pinned-key] <plugin> <subpath>' to match the docstring and the actual parser.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 108,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "Branch-mode slug block duplicates the fallback tail inside _rq_resolve_state_key",
+          "body": "Lines 108-111 re-implement the exact fallback that already lives at lines 28-31 of lib/state-paths.sh (raw_branch = git rev-parse --abbrev-ref HEAD, slugify_branch, _rq_is_safe_key guard, 'unknown' sentinel). That is precisely the fourth-duplicate shape #448 was written to collapse \u2014 just one level deeper. The user's review question (#3) flags this block and the answer is: a small extraction reads cleaner and eliminates the duplication the PR is ostensibly about. Fix: extract the slug fallback into lib/state-paths.sh as _rq_current_branch_slug(), call it both from _rq_resolve_state_key (replacing lines 28-31 there) and from rq-state-path.sh's branch-mode arm (replacing lines 108-111). Result: one definition of 'how the branch slug is derived,' the pinned-key/branch-mode if/else in rq-state-path.sh collapses to two parallel one-liners, and the helper in state-paths.sh becomes self-composing.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-78055": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_repo_key_fallback.sh",
+          "line": 106,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Fallback parity test omits adversarial cases present in canonical test",
+          "body": "test_repo_key_fallback.sh exercises only happy-path fixtures (https/ssh/file/empty/trailing-slash) but omits the three adversarial cases that test_repo_key.sh validates against the canonical lib: git@host:../evil/repo.git, git@host:-evil/repo.git, and the embedded-newline URL. The file's stated purpose is parity with lib/repo-key.sh, but parity that only covers the sunny path will not catch future drift in the inline fallback's traversal handling \u2014 which is exactly the class of bug the round-1 fallback-divergence finding was about. Fix: mirror the three adversarial blocks from test_repo_key.sh (lines 169-199) into test_repo_key_fallback.sh so the fallback gets the same safety assertions as the canonical lib.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 26,
+          "severity": "low",
+          "category": "maintainability",
+          "title": "Inline _rq_derive_repo_key fallback lacks TODO breadcrumb to #448",
+          "body": "lib/quality-paths.sh line 51 carries a TODO(#448) pointing reviewers at the duplication-tracking issue for the non-collapsible fourth copy. The inline fallback in _lib_paths.sh (lines 26-54) is that fourth copy and is the one most likely to drift silently (it only runs when rq is not installed, so normal test runs never exercise it). It should carry the same TODO(#448) breadcrumb above the `_rq_is_safe_key` / `_rq_derive_repo_key` fallback definitions so a future reader landing here from `git blame` sees the tracking issue without having to cross-reference quality-paths.sh. Fix: add `# TODO(#448): this fallback is a byte-identical copy of lib/repo-key.sh. Parity is enforced by test_repo_key_fallback.sh.` above line 27.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-80335": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_state_owner.sh",
+          "line": 165,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "NUL-byte sanitizer check in scenario 8 is ineffective",
+          "body": "The loop iterates `$'\\x00' $'\\x08' $'\\x1b' $'\\x1f' $'\\x7f'` and runs `grep -q \"$b\"` against the sanitized output. Under bash, `grep -q` with a NUL-byte pattern matches every input (grep treats the pattern as effectively empty), so the NUL iteration always sets `bad_byte=\"\"` (the empty NUL value) \u2014 but since the final test is `[ -z \"$bad_byte\" ]`, an empty assignment is indistinguishable from 'no bad byte found'. The check passes for the wrong reason on NUL: a genuine NUL leak would not be caught. The other four byte classes (BS, ESC, unit-sep, DEL) are validated correctly. Fix: replace the grep-based check with a byte-presence test that tolerates NUL, e.g. `LC_ALL=C od -An -v -tx1 <<<\"$existing\" | tr -d ' \\n' | grep -qE '00|08|1b|1f|7f' && bad_byte=detected`, or drop NUL from the loop since `_rq_owner_read`'s `tr -d '\\000...'` already handles it and add a dedicated NUL-only assertion that reads the file via od.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_state_owner.sh",
+          "line": 194,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "Scenario 10 tests the shell pattern, not rq-state-path.sh's actual cross-branch bypass",
+          "body": "The comment claims 'cross-branch mode \u2014 rq-state-path.sh --cross-branch skips check', but the subshell literally hand-codes the `if [ \"$MODE\" != 'cross-branch' ]` guard rather than invoking `rq-state-path.sh --cross-branch <plugin> <subpath>`. If a future refactor moves the guard, inverts the condition, or drops the `--repo-only` alias from the case statement in rq-state-path.sh, this test would continue to pass while the real script silently regresses. Fix: invoke the real script, e.g. `bash \"$SCRIPT_DIR/rq-state-path.sh\" --cross-branch myplug sub` inside a throwaway git worktree (or use `RQ_STATE_OWNER_DISABLE=0` + a fixture repo) and assert exit 0 plus no collision alert on stderr. At minimum add a second subscenario that exercises the `--repo-only` alias since the refactor advertises both flags route to MODE=cross-branch.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 113,
+          "severity": "info",
+          "category": "style",
+          "title": "`|| exit 1` inside function used in $(...) \u2014 `return 1` would be idiomatic",
+          "body": "`resolve_state_path` is invoked as `STATE_PATH=$(resolve_state_path)` at line 123 under `set -euo pipefail`. Verified empirically that `exit 1` inside the command-substitution subshell does propagate to the outer script (exit status 1), so this is not a bug. However, the function idiom everywhere else in rq (quality-paths.sh:52 uses `|| return 1`) is to `return` from a function and `exit` only at top-level. Using `exit 1` here couples the function to being called at top-level \u2014 if a future refactor calls `resolve_state_path` outside `$(...)` (e.g. assigning via nameref or calling for side effects), `exit 1` would terminate the caller unexpectedly. Fix: change `exit 1` to `return 1` on line 113; the existing `$(resolve_state_path)` caller with `set -e` already aborts on non-zero. Also applies to line 93 for symmetry.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-88287": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 51,
+          "severity": "medium",
+          "category": "race-condition",
+          "title": "Concurrent mv can nest legacy dir inside new_root",
+          "body": "The check-then-mv at lines 46-51 is not atomic. Two concurrent hooks can both pass the `[ -d \"$new_root\" ]` check when new_root does not yet exist. Peer A then creates new_root via its mv; peer B's mv runs afterward. `mv old_root new_root` when new_root EXISTS as a directory moves old_root INTO new_root, producing `$HOME/.claude/state/<new_key>/<legacy_key>/...` \u2014 a nested stale copy of the migrated state. The trailing `2>/dev/null || true` silently swallows any error/oddity, so the user never sees this. Fix: either (a) use `mv -T` (GNU) / equivalent to force replace-or-fail and keep `|| true`, or (b) re-check `[ -d \"$new_root\" ]` immediately after the mv and rmdir/rename the nested dir if it appeared, or (c) gate the migration behind a flock on `$HOME/.claude/state/<new_key>.lock`. `mv -T` is the smallest safe change and matches the stated intent ('refuse to migrate when new_root exists').",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/state-paths.sh",
+          "line": 45,
+          "severity": "low",
+          "category": "security",
+          "title": "Symlink check is TOCTOU-prone",
+          "body": "`[ -L \"$old_root\" ] && return 0` at line 45 followed by `mv \"$old_root\" \"$new_root\"` at line 51 is a classic TOCTOU: a local attacker (or a racing peer) can swap `$old_root` between a regular dir and a symlink after the check but before the mv. Practical impact is low here because `$HOME/.claude/state/<legacy_key>` is user-owned and attacker would already need write access to the user's home. Note for completeness \u2014 not a blocker \u2014 but worth pairing with the flock suggested above.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 111,
+          "severity": "info",
+          "category": "consistency",
+          "title": "Branch-mode fallback diverges from helper on unsafe keys",
+          "body": "In branch-mode (lines 108-111), when `slugify_branch` produces an unsafe result, the code falls back to `branch_slug=\"unknown\"` silently. The shared `_rq_resolve_state_key` helper does the same silently. Both pinned-key and branch-mode thus land on the literal string `unknown` as a state dir. This is intentional and matches the prior behavior, but since the finding list in issue #448 called out the inline block specifically: confirmed it uses the same `_rq_is_safe_key` validation as the helper and the fall-through key is identical. No behavioral regression. Flagging only so the reviewer/user can confirm this was intentional.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9082": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/git-helpers.sh",
+          "line": 52,
+          "title": "Stale comment references removed _qp_derive_repo_key",
+          "body": "After issue #441 collapsed the three copies into lib/repo-key.sh::_rq_derive_repo_key, git-helpers.sh:52 still says 'Matches lib/quality-paths.sh::_qp_derive_repo_key's guard byte-for-byte'. The _qp_derive_repo_key symbol no longer exists \u2014 quality-paths.sh now sources repo-key.sh. Fix: update the comment to reference lib/repo-key.sh::_rq_derive_repo_key so future readers tracing the parity claim find the real function.",
+          "severity": "low",
+          "category": "documentation",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 24,
+          "title": "Inline fallback is a second copy with no parity enforcement",
+          "body": "The fallback block at lines 24-51 re-implements _rq_is_safe_key and _rq_derive_repo_key verbatim for the standalone-install case. This is exactly the byte-identical-copy problem the PR claims to collapse: when lib/repo-key.sh gets a bug fix or URL-parser update, the therapist inline copy will silently diverge, and the parity test (test_quality_paths_parity.sh, test_repo_key.sh) only exercises the rq copy \u2014 therapist's fallback is never run in CI unless rq is absent. Two concrete failure modes: (1) a security fix to _rq_is_safe_key lands in rq but therapist keeps accepting poisoned keys on standalone installs; (2) a new URL scheme handled in _rq_derive_repo_key produces different state dirs under the fallback vs the sourced lib, fragmenting state across 'did the find succeed this session' coin flips. Fix options (pick one): (a) add a CI gate or test that sources the inline fallback under a stubbed find and runs it through test_repo_key.sh's matrix, asserting byte-identical output vs the canonical lib; (b) drop the fallback entirely and make therapist hard-depend on rq being installed (documented prereq); (c) vendor rq's repo-key.sh at install time into plugins/therapist/scripts/lib/ so there's exactly one on-disk copy, sourced unconditionally. Option (a) preserves standalone-install while making drift detectable; (b) is simpler if the standalone claim isn't actually load-bearing; (c) trades one fallback branch for a vendoring step. The current state \u2014 'trust me, they match' with no mechanical enforcement \u2014 is the same trust model that produced the three-way duplication this PR exists to eliminate.",
+          "severity": "medium",
+          "category": "architecture",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 17,
+          "title": "find discovery may load stale/older rq copy over newer HOME install",
+          "body": "The discovery does: (1) find . -path '*/rq/scripts/lib/*' | head -1, then (2) only if that's empty, fall back to HOME with 'sort -V | tail -1'. The cwd pass has no version sort and takes the first hit. Scenarios that break: a worktree or repo containing a vendored or checked-in copy of plugins/rq/scripts/lib/repo-key.sh (e.g., this very repo \u2014 arqu-co/agent-plugins is the rq plugin's source tree, so running therapist from inside this repo will source the in-tree copy instead of the user's installed plugin version). If the in-tree copy is a work-in-progress, older, or from a different feature branch than the user's installed rq, therapist silently picks up whatever the cwd happens to contain. Secondary issue: 'find .' with no -maxdepth can be slow on large trees and, worse, will descend into node_modules / .venv / nested submodules, occasionally picking up a vendored copy from some unrelated project. Fix: prefer the HOME-installed plugin (the actual installed rq), and only fall back to cwd when no HOME copy exists, OR version-sort both candidate lists and take the highest. Also add -maxdepth (e.g., 6) and/or filter out node_modules/.venv so the search is bounded and deterministic. The current order privileges 'whatever source tree I'm standing in' over 'the plugin the user actually installed', which is backwards for a runtime discovery.",
+          "severity": "medium",
+          "category": "correctness",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/quality-paths.sh",
+          "line": 13,
+          "title": "CROSS-REFERENCE comment overstates what's duplicated",
+          "body": "The header says 'duplicated from rq-state-path.sh::resolve_state_path(). Any change to repo-key derivation, slugification, legacy-key migration, or branch-issue.json reading MUST be mirrored in rq-state-path.sh.' After #441, repo-key derivation is NO LONGER duplicated \u2014 both files source lib/repo-key.sh. Only legacy-key migration and pinned-key/slug logic remain duplicated. Leaving 'repo-key derivation' in the must-mirror list misleads future editors into thinking they need to update two places when they actually only need to edit repo-key.sh. Fix: trim the CROSS-REFERENCE list to the items still genuinely duplicated (legacy-key migration, slugification fallback, pinned-key reading), and note that repo-key derivation is now canonical in lib/repo-key.sh. rq-state-path.sh:134-137 already has the correct scoped wording \u2014 mirror it here.",
+          "severity": "low",
+          "category": "documentation",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-state-path.sh",
+          "line": 112,
+          "title": "_rsp_resolve_branch_slug duplicates _qp_resolve_state_key",
+          "body": "quality-paths.sh::_qp_resolve_state_key (lines 56-70) and rq-state-path.sh::_rsp_resolve_branch_slug (lines 112-132) implement the same algorithm: read .state_key from branch-issue.json, validate with _rq_is_safe_key, echo warning on unsafe, fall back to slugified HEAD, final 'unknown' fallback. The only behavioral difference is the warning prefix ('quality-paths:' vs 'rq-state-path:') and that _rsp takes a mode arg to skip pinned-key lookup in branch mode. Since #441 just proved the three-way duplication problem by collapsing it, leaving this two-way duplicate in the same PR is inconsistent with the stated goal. Fix: extract into lib/repo-key.sh (or a new lib/state-key.sh) as _rq_resolve_state_key with a caller-supplied warning prefix; both resolvers source and call it. The parity test then reduces to asserting both callers produce identical output for identical inputs, which is what test_quality_paths_parity.sh already implicitly tests \u2014 but explicit single-sourcing eliminates the class of drift that required the test to exist. If the 'inlining for hot-path perf' rationale from quality-paths.sh header is genuinely load-bearing, benchmark sourcing-one-more-tiny-lib vs inlining and document the number \u2014 otherwise the perf claim is speculation protecting duplication.",
+          "severity": "medium",
+          "category": "DRY",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_repo_key.sh",
+          "line": 95,
+          "title": "Test matrix misses several URL shapes the parser handles",
+          "body": "_rq_derive_repo_key has non-trivial branches not covered by test_repo_key.sh: (1) ssh://user@host/owner/repo (explicit ssh:// scheme, different from git@ shorthand \u2014 tests only cover git@ shorthand); (2) https URL WITHOUT .git suffix (common for 'gh repo clone' output); (3) URL with trailing slash 'https://github.com/acme/widgets/' (repo_part becomes empty string, owner_repo becomes 'acme/'); (4) multi-colon git@ URL like 'git@host:22:owner/repo' which the global ':\u2192/' substitution was explicitly commented as handling. Tests pin 'global substitution' behavior in the comment but no test exercises a multi-colon URL \u2014 the comment is asserting behavior the tests don't verify. Fix: add cases for each shape above. Case (3) in particular may reveal a real bug \u2014 with trailing slash, owner_repo becomes 'acme/' and after //\u2192- substitution 'acme-', which then passes _rq_is_safe_key and produces a different state dir than the canonical 'acme-widgets'. Worth verifying what today's code does before declaring intent.",
+          "severity": "low",
+          "category": "testing",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/therapist/scripts/_lib_paths.sh",
+          "line": 15,
+          "title": "Function name prefix inconsistency \u2014 _th_ wraps calls to _rq_ names",
+          "body": "The therapist convention appears to be _th_ prefix (_th_source_repo_key, _resolve_therapist_dir, _clean_legacy_therapist_symlink \u2014 though the last two break the convention). After sourcing, the public symbols _rq_is_safe_key and _rq_derive_repo_key appear in therapist's namespace with the rq prefix. This is intentional (reusing rq's canonical names enables the fallback block to be byte-identical), but it's worth a sentence in the header comment so a future therapist-only contributor isn't confused seeing _rq_ symbols inside a therapist script and hunting for where they 'should be renamed'. Fix: either (a) add a one-line comment at top of the file documenting that _rq_* symbols are intentionally sourced from rq's lib; or (b) accept this is minor and don't bother. I'd do (a) since this file explicitly calls out the standalone-install constraint \u2014 making the convention explicit costs one line.",
+          "severity": "low",
+          "category": "style",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:53:41Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:47:20Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T14:16:50Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T19:38:07Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4c3d4177a8736cc9fdf79f07403cecce",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 19925.0
+}
