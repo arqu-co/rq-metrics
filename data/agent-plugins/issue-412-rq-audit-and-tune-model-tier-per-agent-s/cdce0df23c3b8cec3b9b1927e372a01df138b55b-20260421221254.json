@@ -1,0 +1,270 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-412-rq-audit-and-tune-model-tier-per-agent-s",
+  "sha": "cdce0df23c3b8cec3b9b1927e372a01df138b55b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T02:12:53Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-18602",
+    "review-wip-reviewer-22213",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:05:00Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T20:52:03Z",
+      "coverage_tool": "py",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:05:03Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:12:41Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 310000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:12:43Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:05:26Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 23000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:12:49Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:07:31Z",
+      "duration_ms": 36000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T20:31:58Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:12:47Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-21T20:45:31Z"
+    },
+    "review-wip-reviewer-18602": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/rq/hooks/hook-lib.sh",
+          "line": 260,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_hook_now_iso has no fallback for bash <4.2",
+          "body": "_hook_now_iso uses printf '%(%Y-%m-%dT%H:%M:%SZ)T' -1, which requires bash 4.2+. macOS system bash is 3.2.57 (verified: /bin/bash at /bin/bash). When hooks are dispatched with #!/usr/bin/env bash and the user's PATH resolves to /bin/bash (default on macOS without Homebrew bash), the printf builtin emits 'printf: (: invalid format character' to stderr AND produces no output. This produces (a) dispatcher-stderr noise surfaced to the harness as hook-error row, and (b) perf rows with ts='' (empty), corrupting the JSONL log. _hook_now_ms has a perl fallback for this exact portability concern; _hook_now_iso needs one too. Fix: add a fallback using 'date -u +%Y-%m-%dT%H:%M:%SZ' when printf builtin fails, or check BASH_VERSINFO[0] -ge 4 at source time and pick the impl once.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-22213": {
+      "status": "complete",
+      "findings": 11,
+      "findings_details": [
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 34,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "Budget-key example uses wrong dispatcher suffix",
+          "body": "Example on lines 33-37 shows keys like 'PreToolUse.rq-bash-pre-dispatcher.gate-issue-binding.sh'. Actual dispatcher field (see HOOK_DISPATCHER_NAME in rq-bash-pre-dispatcher.sh line 31 and hook-budgets.json) is 'rq-bash-pre' with no '-dispatcher' suffix. Users copy-pasting this example will see zero budget matches in check_budgets. Fix: drop the '-dispatcher' suffix in both example keys.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 12,
+          "severity": "low",
+          "category": "docs-drift",
+          "title": "dispatcher field description names '-dispatcher.sh' suffix",
+          "body": "Line 12 of the schema table describes the dispatcher field as 'Dispatcher script name without path (e.g. rq-bash-pre-dispatcher.sh)'. The actual value written is the HOOK_DISPATCHER_NAME export ('rq-bash-pre', 'rq-bash-post', 'rq-prompt-submit', 'rq-session') \u2014 no '.sh' or '-dispatcher' suffix. Fix: change the example to 'rq-bash-pre'.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 22,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "Docs claim 'bin/hook-perf' shows last 50 rows by default \u2014 actually shows all rows",
+          "body": "Line 22: 'bin/hook-perf \u2014 plain table, last 50 rows.' But hook_perf_summary.py (scripts/hook_perf_summary.py) defines --last with default=None, and load_rows only truncates 'if limit is not None and limit > 0'. With no flag, all rows are loaded and summarized. There is no built-in 50-row default anywhere. Fix: either change the default in main() to 50, or correct the docs to say 'all rows (use --last N to restrict)'.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 23,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "--json flag described as 'raw JSONL passthrough' \u2014 actually emits summary JSON",
+          "body": "Line 23: 'bin/hook-perf --json \u2014 raw JSONL passthrough (pipe to jq).' In hook_perf_summary.py main() (line 199-201), --json prints json.dumps(summary, indent=2) where summary is the aggregated per-key dict (count/p50/p95/max/fails). It is NOT raw JSONL passthrough of the source log. Fix: describe it as 'aggregated summary as JSON (for machine consumption)' \u2014 matching the argparse help text on line 183.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 26,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "Plain-table column headings list is wrong",
+          "body": "Line 26: 'Column headings in the plain table: event, dispatcher, sub_guard, duration_ms, exit_code.' The actual print_table header (hook_perf_summary.py line 121) is: event, dispatcher, sub_guard, count, p50, p95, max, fails. The doc lists per-row raw log fields instead of the aggregated table output. Fix: replace with the actual column list.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 41,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "Stale performance description contradicts post-#417 baseline",
+          "body": "Lines 41: 'The current floor for most sub-guards is roughly 240\u2013316 ms, dominated by python3 startup overhead inside hook_run_guard (three invocations per sub-guard...). A p95_ms of 600 ms gives ~2\u00d7 headroom over that floor...' This is the pre-#417 baseline prose. Post-#417 (documented in hook-perf-baseline.md line 41-47 and README line 33-35), the p95 is 15\u201336 ms and budgets are tightened to 100\u2013500 ms, not 600 ms. Fix: rewrite this paragraph to reflect the post-#417 state, or delete it since hook-perf-baseline.md already covers it.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf.md",
+          "line": 53,
+          "severity": "low",
+          "category": "docs-drift",
+          "title": "'Optimization follow-up' section references issue #417 as open \u2014 it is this PR",
+          "body": "Line 51-53: 'Optimization follow-up \u2014 Known bottleneck: python3 cold start ... Tracked at https://github.com/arqu-co/agent-plugins/issues/417.' PR #402 (this PR) has folded in #417 per the review context; the bash-native hot path rewrite is now shipping. hook-perf-baseline.md already documents completion. This section is stale and confuses readers. Fix: either reframe as 'Completed in #417 (merged with #402)' or delete the section.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/docs/hook-perf-baseline.md",
+          "line": 11,
+          "severity": "medium",
+          "category": "docs-drift",
+          "title": "Baseline table labeled 'N=10' while reproduce instructions and default are N=30",
+          "body": "Line 3: 'Generated by ... (N=30 iterations...)'. Line 8-9 reproduce block: 'HOOK_BENCH_ITERATIONS=30 bash ...'. hook-perf-benchmark.sh line 21: 'ITERATIONS=${HOOK_BENCH_ITERATIONS:-30}'. But line 11 header says 'Table (N=10, stub sub-guards, post-#417 bash-native hot path)' and every count column in the table shows 10. Either the baseline was regenerated with N=10 and lines 3/8 are wrong, or the table is from an old run and N=30 rerun is needed. Fix: make the documented N consistent across the file \u2014 if baseline was captured at N=10, update lines 3 and 8; if the canonical N is 30, regenerate the table at N=30.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook-perf-benchmark.sh",
+          "line": 127,
+          "severity": "medium",
+          "category": "coverage-gap",
+          "title": "track-session-prs sub-guard never exercised by benchmark matrix",
+          "body": "The matrix (lines 128-162) runs 11 scenarios covering drift, gate-issue-binding, gate-skill-isolation, enforce-markdown-staged, require-critic-approval, run-gates-all, enforce-review-before-pr, enforce-tokens-posted, enforce-gh-body-markdown, block-merge-without-ci, enforce-fixes, consume-critic-approval, enforce-spec-posted, enforce-plan-posted, hook-trace-reinstall, and the three SessionStart sub-guards. But the PostToolUse:Bash dispatcher routes track-session-prs on any 'gh pr ...' command (rq-bash-post-dispatcher.sh lines 28, 71) \u2014 no benchmark scenario fires a 'gh pr ...' command through POST_DISPATCHER. hook-budgets.json line 18 defines a 100ms p95 budget for 'PostToolUse.rq-bash-post.track-session-prs' that is unverified by the harness. check_budgets silently skips entries with no measured p95, so a regression would slip past. Fix: add scenario 'l. gh pr create (post)' that pipes _bash_post_payload 'gh pr create --title x' to POST_DISPATCHER, OR document the intentional gap in the baseline file.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/hook_perf_summary.py",
+          "line": 152,
+          "severity": "low",
+          "category": "correctness",
+          "title": "check_budgets silently skips budget keys with no measured data",
+          "body": "check_budgets (lines 151-162) iterates summary.items() and compares against budgets. Budget keys with NO matching summary entry are never checked \u2014 no warning, no non-zero exit. If hook-budgets.json declares a p95 budget for a sub-guard that never fires in a benchmark run, the --budget check passes silently. This matches the comment but is hazardous for a regression gate. Fix: iterate budgets.items() instead (or in addition), and print a 'no data for budget key X' warning so benchmark coverage gaps surface. Optional: make missing-data a soft warning that does not fail the run, but is visible.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/hook_perf_summary.py",
+          "line": 59,
+          "severity": "low",
+          "category": "correctness",
+          "title": "--last accepts negative values and silently slices from the wrong end",
+          "body": "load_rows (line 59-60): 'if limit is not None and limit > 0: rows = rows[-limit:]'. Guard rejects limit<=0, but the argparse option --last uses type=int with no floor. User passing '--last -5' parses fine, limit=-5, the guard trips (not >0), and load_rows returns all rows \u2014 not 'last -5 rows', which doesn't have a meaningful interpretation anyway. Mildly surprising: there is no error message or warning. Fix: either make --last argparse type a positive-int function (rejecting <=0), or print a warning 'ignoring non-positive --last' before returning all rows.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T20:37:28Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:12:46Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:43:27Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:06:55Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:06:53Z",
+      "fingerprint": "ff7f741bcb7b735e6c584bcc466266e2",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 87000
+    }
+  },
+  "duration_seconds": 20451.0
+}
