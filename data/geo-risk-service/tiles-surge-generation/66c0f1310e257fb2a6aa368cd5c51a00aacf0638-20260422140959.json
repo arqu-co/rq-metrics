@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tiles-surge-generation",
+  "sha": "66c0f1310e257fb2a6aa368cd5c51a00aacf0638",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T21:09:59Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "issue-binding",
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:02:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:02:42Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:02:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T21:09:56Z",
+      "duration_ms": 404000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T21:09:56Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "ktlint",
+          "exit_code": 1,
+          "output": "/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/api/RetrieveRisksGeoJsonTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/api/RetrieveRisksGeoJsonTest.kt:149:15: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:211:39: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:211:54: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:212:33: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:222:39: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:222:54: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/styling/StylingDefinitionProviderSnapshotTest.kt:222:78: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/business/service/tiles/TileUrlServiceTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/test/TestData.kt:22:7: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/test/TestData.kt:35:7: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/test/TestData.kt:48:7: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/test/kotlin/co/arqu/georiskservice/test/TestData.kt:61:7: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/ResolveTileShardsIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/RetrieveRisksGeoJsonIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/IntegrationTestBase.kt:10:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/TestRunnerCredentials.kt:11:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/TestRunnerCredentials.kt:100:29: Redundant curly braces\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/Primitives.kt:10:1: Not a valid Kotlin file (expecting a top level declaration) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeDerivation.kt:59:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuildersWildfireHailTest.kt:75:1: Unexpected blank line(s) before \"}\"\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemesTest.kt:144:1: Unexpected blank line(s) before \"}\"\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/GridGenerator.kt:136:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/RetryPolicy.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/S3MarkerManager.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/TippecanoeConfig.kt:47:40: Not a valid Kotlin file (expecting a parameter declaration) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/RetryPolicyTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/FinalizeS3Operations.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/FinalizeTileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/TileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/lambdas/src/testIntegration/kotlin/co/arqu/georiskservice/tilebuilder/integration/TileBuilderIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/build.gradle.kts:31:18: Unnecessary space(s)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:25: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:52: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:69: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:88: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:25: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:52: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:84: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardFetcher.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfig.kt:70:94: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerS3.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/TippecanoeRunner.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/test/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfigTest.kt:287:1: Unexpected blank line(s) before \"}\"\n/Users/jon/Repos/geo-risk-service.tiles-surge-generation/service/tile-builder/shard-worker/src/test/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/TippecanoeRunnerTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:09:59Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:09:58Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:03:12Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 30000
+    }
+  },
+  "duration_seconds": 438.0
+}
