@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-132-risklab-mcp-phase-2--review--corrections",
+  "sha": "83097c3212bb45a81d625409f54b7416ccead456",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T01:46:00Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "filesize",
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:43:11Z",
+      "files_checked": 70,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:47Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:43:31Z",
+      "files_checked": 70,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 20000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:05Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T01:43:04Z",
+      "files_checked": 70,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-tools/src/index.ts",
+          "lines": 350,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:49Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T01:44:33Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+          // @ts-expect-error \u2014 intentional invalid value for test\n+          // @ts-expect-error \u2014 intentional invalid value for test\n+        // @ts-expect-error \u2014 intentional invalid value for test\n+        // @ts-expect-error \u2014 intentional invalid value for test\n+        // @ts-expect-error \u2014 intentional invalid value for test\n+        // @ts-expect-error \u2014 intentional invalid value for test\n+      // @ts-expect-error \u2014 intentional invalid value for test\n\n"
+        }
+      ],
+      "duration_ms": 62000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:58Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T21:32:02Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T16:08:47Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:04Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-14T02:45:12Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:28Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:54Z",
+      "scanned_files": 0,
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:44Z",
+      "scanned_files": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 10000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:45:34Z",
+      "test_runner": "npm-test",
+      "fingerprint": "7ed6b69d76f099b7e7c997b4e5daa1fa",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 61000
+    }
+  },
+  "duration_seconds": 996654.0
+}
