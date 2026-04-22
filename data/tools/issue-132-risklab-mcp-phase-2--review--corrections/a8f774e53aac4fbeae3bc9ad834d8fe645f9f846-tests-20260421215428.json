@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-132-risklab-mcp-phase-2--review--corrections",
+  "sha": "a8f774e53aac4fbeae3bc9ad834d8fe645f9f846",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T01:54:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T01:54:27Z",
+      "test_runner": "npm-test",
+      "fingerprint": "2b038d21f9a1c03a244d31d44e030f08",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
