@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-441-rqtherapist-collapse-owner-repo-key-deri",
+  "sha": "63b45c474949b26df1f7c8e753a936641f1e9d9c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T15:56:56Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/lib/repo-key.sh",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "New source file lib/repo-key.sh has no corresponding test_repo_key.sh. Functions _rq_is_safe_key and _rq_derive_repo_key are exercised only indirectly via parity tests; no test file directly targets the canonical lib."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:56:55Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
