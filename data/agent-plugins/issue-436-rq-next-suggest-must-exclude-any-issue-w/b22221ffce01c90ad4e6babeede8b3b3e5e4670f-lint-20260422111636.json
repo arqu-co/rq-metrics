@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-436-rq-next-suggest-must-exclude-any-issue-w",
+  "sha": "b22221ffce01c90ad4e6babeede8b3b3e5e4670f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T15:16:36Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T15:16:35Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
