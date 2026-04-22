@@ -1,0 +1,64 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "issue-395-rq-drop-the-quality-symlink-shim--rewrit",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-21T11:41:53.910Z",
+  "session_id": "3737f994-177f-4fcd-9cc5-42dc7055e679",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 9590,
+    "output": 1300884,
+    "cache_read": 726807393,
+    "cache_create": 20082706,
+    "est_cost_usd": 28.93302481
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 1309625,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 2504516,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 72457221,
+      "cost_usd": 9.17287605
+    },
+    "review#1": {
+      "tokens": 102659648,
+      "cost_usd": 3.6121303499999997
+    },
+    "review#2": {
+      "tokens": 87775673,
+      "cost_usd": 13.177014299999998
+    },
+    "review#3": {
+      "tokens": 427640812,
+      "cost_usd": 2.34306315
+    },
+    "pair-build": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#4": {
+      "tokens": 53853078,
+      "cost_usd": 0.62794096
+    }
+  }
+}
