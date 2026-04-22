@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-438-rq-detect-cross-session-state-dir-collis",
+  "sha": "e34ee7a87d2b005e8301a2510ae3df05548bd312",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T14:18:30Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T14:18:29Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
