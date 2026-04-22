@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-412-rq-audit-and-tune-model-tier-per-agent-s",
+  "sha": "b0d919287e9fc314b6d342326446012a992c1467",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T11:21:21Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:17:22Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:20:58Z",
+      "files_checked": 8,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 133000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:17:31Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 9000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:17:15Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:21:00Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:18:09Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 38000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:21:10Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T10:49:18Z"
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T11:18:13Z",
+      "duration_ms": 4000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:21:07Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T11:09:10Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T11:21:16Z",
+      "duration_ms": 6000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:21:05Z",
+      "scanned_files": 34,
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:18:25Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 12000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T11:18:45Z",
+      "fingerprint": "438ddf8e1193514f2f2b46cd4a2cd026",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 20000
+    }
+  },
+  "duration_seconds": 1918.0
+}
