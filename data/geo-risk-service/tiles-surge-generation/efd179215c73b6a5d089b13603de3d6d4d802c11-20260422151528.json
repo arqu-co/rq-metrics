@@ -1,0 +1,245 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tiles-surge-generation",
+  "sha": "efd179215c73b6a5d089b13603de3d6d4d802c11",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T22:15:28Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-64063",
+    "review-wip-reviewer-80609",
+    "review-wip-reviewer-86654",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T21:44:55Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:15:27Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:44:56Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:44:54Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:44:59Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:44:58Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:45:02Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T22:14:55Z",
+      "duration_ms": 0
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:45:01Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-15T20:25:52Z"
+    },
+    "review-wip-reviewer-64063": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-80609": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/GridGenerator.kt",
+          "line": 72,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "New FSG_GRID_OVERRIDES surge entries lack test coverage",
+          "description": "Commit 1 adds 5 new entries to FSG_GRID_OVERRIDES (noaa-surge-category-1..5 -> 1.0). The existing test class GridGeneratorTest.ResolveDefaultCellSizeForFsg has tests asserting 'usfs-suppression-difficulty-index-p90' returns 1.0, but nothing verifies the new surge entries. Any future typo, key-normalization change, or accidental removal of a surge entry would silently regress cell-size to DEFAULT_CELL_SIZE_DEGREES (2.0), producing 4x larger shards and potentially breaking the validated SDI-style workload this PR is optimizing for. The sibling test in FeatureSetGroupTest.GetTileProximityMiles ('returns surge tile proximity override') does guard the companion TILE_PROXIMITY_OVERRIDES map, so the asymmetric coverage is also inconsistent.",
+          "fix": "Add a test in GridGeneratorTest.ResolveDefaultCellSizeForFsg asserting at least Cat-1 and Cat-5 return 1.0 (matching the Cat-1/Cat-5 boundary pattern used in FeatureSetGroupTest). Optionally assert the case-insensitive path for a surge name as well.",
+          "confidence": "high"
+        },
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/GridGenerator.kt",
+          "line": 70,
+          "severity": "low",
+          "category": "documentation",
+          "title": "FSG_GRID_OVERRIDES has no KDoc explaining why these FSGs get 1.0\u00b0 cell size",
+          "description": "The sibling override map TILE_PROXIMITY_OVERRIDES (FeatureSetGroup.kt:146-155) has a multi-line KDoc explaining rationale ('Raster-derived layers...', 'Surge categories...', 'FEMA flood zones...'). FSG_GRID_OVERRIDES has zero documentation \u2014 a reader sees a bare map of FSG -> 1.0 with no explanation of what 1.0 means (degrees, not miles) or why these specific FSGs deserve an override. This PR is the natural moment to add it since it is materially changing the map's membership.",
+          "fix": "Add a short comment above FSG_GRID_OVERRIDES explaining: (a) values are degrees (not miles) \u2014 distinct from TILE_PROXIMITY_OVERRIDES in FeatureSetGroup.kt; (b) these FSGs use 1.0\u00b0 (half default) because they produce PMTiles comfortably under tippecanoe's budget at that cell size while keeping shard count manageable.",
+          "confidence": "high"
+        },
+        {
+          "file": "service/tools/grs-explorer/run.sh",
+          "line": 13,
+          "severity": "info",
+          "category": "robustness",
+          "title": "Shebang guard is brittle to uv's 'python' vs 'python3' shebang choice",
+          "description": "The guard compares against exactly '#!${expected_python}' where expected_python ends in '/python'. In this repo, grs-explorer/.venv console scripts use '#!.../python' (verified), but client-python/.venv uses '#!.../python3'. If uv ever changes its choice for this venv \u2014 due to a pyproject change, uv version upgrade, or different Python install \u2014 the guard would flag a healthy venv as mismatched and rebuild it on every invocation. The failure mode is only an unnecessary rebuild (per the wt.toml comment, 'uv sync is fast enough that recreating is trivial'), so this is not a correctness bug, just defensive code that could become over-eager.",
+          "fix": "Optional: match the shebang against the parent directory rather than an exact filename, e.g. 'head -n 1 .venv/bin/uvicorn | grep -qF \"#!$(pwd)/.venv/bin/python\"' without -x. This tolerates both 'python' and 'python3.14'. Since the failure mode is benign, leaving as-is is also acceptable \u2014 flagging for awareness only.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-86654": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "service/tools/grs-explorer/run.sh",
+          "line": 12,
+          "severity": "low",
+          "category": "correctness",
+          "title": "$(pwd) vs venv shebang mismatch on symlinked worktree paths causes spurious rebuilds",
+          "body": "Line 12 uses expected_python=\"$(pwd)/.venv/bin/python\" and line 13 compares against the shebang in .venv/bin/uvicorn. If the worktree is accessed via a symlink (common with worktrunk/worktree tooling that may stage working trees under a symlinked alias), $(pwd) returns the symlinked form while uv resolves the symlink when creating the venv, so the console-script shebangs carry the physical path. The guard then fires on every invocation, and rm -rf .venv + uv sync runs every time \u2014 masking the 'uv sync is fast enough that recreating is trivial' assumption in wt.toml. Evidence: Python's venv creation uses the resolved interpreter path; uv follows the same convention. Fix: normalize both sides before comparing, e.g. expected_python=\"$(cd \"$(dirname \"$0\")\" && pwd -P)/.venv/bin/python\" OR normalize after extracting the shebang (readlink -f on the interpreter the shebang points at). At minimum, document the symlink caveat so an unexpected rebuild loop isn't mysterious.",
+          "confidence": "medium"
+        },
+        {
+          "file": ".config/wt.toml",
+          "line": 10,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "exclude = [\".venv/\"] may only match top-level .venv, missing the three nested venvs the comment calls out",
+          "body": "The comment on lines 4-8 explicitly enumerates three .venv locations (cli/, client-python/, service/tools/grs-explorer/) \u2014 none of which are at the repo root. The pattern exclude = [\".venv/\"] is a single unanchored path fragment. Depending on how 'wt step copy-ignored' interprets this list (literal path, glob, or gitignore-style), nested .venv directories may or may not be excluded. If the tool interprets the entry as a literal top-level path (no implicit **), then the entire hardening effort is silently a no-op \u2014 the COW copy still happens, and run.sh's downstream rebuild guard is what actually protects you. If instead it's gitignore-style, '.venv/' would match anywhere by design and this is correct. Evidence: the comment lists three nested locations but the pattern syntax doesn't make the anchoring intent explicit. Fix: verify 'wt'/worktrunk's pattern semantics against a test case (try wt step into a scratch worktree and inspect whether cli/.venv was COW'd), and if nested matching needs to be opt-in, change to exclude = [\"**/.venv/\", \".venv/\"] or whatever the tool's glob prefix is. At minimum leave a comment line documenting that the syntax is gitignore-style and the three nested cases are covered.",
+          "confidence": "medium"
+        },
+        {
+          "file": "service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/GridGenerator.kt",
+          "line": 70,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "New noaa-surge-category-* entries in FSG_GRID_OVERRIDES have no test coverage",
+          "body": "Commit 66c0f13 adds five new entries (noaa-surge-category-1..5 -> 1.0) to FSG_GRID_OVERRIDES at lines 72-76, but GridGeneratorTest.kt's ResolveDefaultCellSizeForFsg nested class (lines 258-285) is not updated to cover them. The companion symmetry is broken too: FeatureSetGroupTest.kt was updated for the 0.25 surge proximity change, but GridGeneratorTest.kt was not updated for the parallel 1.0-degree surge cell-size change. Evidence: grep -rn 'noaa-surge' across service/tile-builder/*/src/test/ returns zero hits. Impact: a regression that drops one of the surge entries (or flips a cell size) would go undetected \u2014 the only integration signal is the tile-builder run itself, which is slow/expensive. Fix: add test cases in GridGeneratorTest.ResolveDefaultCellSizeForFsg that assert 1.0 for each of 'noaa-surge-category-1'..'noaa-surge-category-5' (or a parameterized test iterating 1..5), mirroring the surge assertions pattern already used in FeatureSetGroupTest.GetTileProximityMiles.",
+          "confidence": "high"
+        },
+        {
+          "file": "service/tools/grs-explorer/run.sh",
+          "line": 13,
+          "severity": "low",
+          "category": "edge-case",
+          "title": "Broken symlink at .venv/bin/uvicorn bypasses the rebuild guard",
+          "body": "[ -f .venv/bin/uvicorn ] tests the TARGET of a symlink, not the symlink itself. If .venv/bin/uvicorn is a broken symlink (target missing \u2014 plausible after partial manual cleanup, or after a COW copy where the referenced interpreter was removed), the guard evaluates to false and the stale venv is kept. 'uv sync' may or may not correct this cleanly (it generally will, but the rebuild guard is meant to be the authoritative signal). The same logic path is also bypassed when the venv exists but uvicorn specifically is missing (e.g. uv sync failed partway). Evidence: POSIX -f semantics; the symmetric test -e would at least fire on any existence of the entry. Fix: use [ -e .venv/bin/uvicorn ] OR combine with a broader trigger like 'if [ -d .venv ] && ! <shebang check>; then rm -rf .venv; fi' so a malformed .venv is always rebuilt, not just one with a mismatched shebang.",
+          "confidence": "medium"
+        },
+        {
+          "file": "service/tools/grs-explorer/run.sh",
+          "line": 13,
+          "severity": "info",
+          "category": "robustness",
+          "title": "Probe file (.venv/bin/uvicorn) is tool-specific; choose a more stable probe",
+          "body": "The guard picks .venv/bin/uvicorn as its shebang probe. That file exists only because 'uvicorn' is a declared dependency of grs-explorer. If the project's main console script is renamed or swapped (e.g., to hypercorn, fastapi dev, or a bespoke CLI), this guard silently stops firing and worktrunk's COW copy goes undetected. A more stable probe is .venv/bin/python itself \u2014 the shebang-bearing console scripts are the corrupted-after-COW artifact, but the interpreter's own absolute-path sentinel lives in .venv/pyvenv.cfg ('home = ...') which is what actually drives uv/venv resolution. Fix (low-cost): swap to a project-independent file \u2014 e.g., parse 'home = ' from pyvenv.cfg and compare its directory to the expected interpreter's parent. This survives dependency churn. If keeping the console-script approach, at minimum add a fallback so that if no .venv/bin/uvicorn exists the guard still errs on the side of rebuild when .venv/ exists. See companion finding on -f vs -e.",
+          "confidence": "low"
+        },
+        {
+          "file": "service/shared/src/main/kotlin/co/arqu/georiskservice/shared/FeatureSetGroup.kt",
+          "line": 160,
+          "severity": "info",
+          "category": "performance",
+          "title": "Surge tile generation: total mini-tile count grows ~4x vs prior config",
+          "body": "The two commits combined change surge generation on two axes simultaneously: tile proximity 0.5 -> 0.25 mi (halves mini-tile side, quadrupling mini-tiles per shard) AND grid cell size 2.0\u00b0 -> 1.0\u00b0 (quadruples shard count, quartering mini-tiles per shard). The per-shard count is roughly flat (~19k mini-tiles in both regimes), but the number of SHARDS grows ~4x, so total HTTP fetches, tippecanoe invocations, ECS Fargate tasks, and S3 writes grow ~4x per run. This is likely intentional \u2014 the docstring (lines 150-152) cites the 6 MB API GW / Lambda proxy cap as the driver \u2014 but it's worth calling out for cost/runtime expectations and for shardConcurrency tuning in Step Functions. Evidence: computeShardBounds yields ceil(regionLat/cellSize) * ceil(regionLon/cellSize) shards; generateMiniTileCenters yields ceil(shardLat/(2p/69)) * ceil(...) mini-tiles per shard. Halving cell size -> 4x shards; halving p -> 4x mini-tiles per shard -> /4 when shard is also /4 in area = constant per shard, 4x total. Fix (recommended only if unintended): pick ONE axis (smaller p OR smaller cell) and justify why both were needed. If both are needed to stay under the 6 MB cap, document expected runtime/cost delta in the docstring so future maintainers know the cap pins BOTH dials.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-15T20:26:02Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:45:01Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T21:44:59Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:15:26Z",
+      "fingerprint": "b88b6a2336f2e9b801e0d60e644885e6",
+      "test_runner": "none",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 1,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [
+        {
+          "subproject": "grs-explorer",
+          "runner": "pytest",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "\nno tests ran in 0.00s"
+            }
+          ]
+        }
+      ],
+      "duration_ms": 31000
+    }
+  },
+  "duration_seconds": 611375.0
+}

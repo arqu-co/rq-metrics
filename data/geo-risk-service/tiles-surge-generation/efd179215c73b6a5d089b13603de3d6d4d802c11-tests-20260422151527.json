@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "tiles-surge-generation",
+  "sha": "efd179215c73b6a5d089b13603de3d6d4d802c11",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T22:15:27Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T22:15:26Z",
+      "fingerprint": "b88b6a2336f2e9b801e0d60e644885e6",
+      "test_runner": "none",
+      "missing_tests": 0,
+      "failed_subprojects": 1,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [
+        {
+          "subproject": "grs-explorer",
+          "runner": "pytest",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "\nno tests ran in 0.00s"
+            }
+          ]
+        }
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
