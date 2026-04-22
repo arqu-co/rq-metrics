@@ -1,0 +1,343 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "voice-cards-task-2-endpoint-and-injection",
+  "sha": "27cfe4c2ee9d8664ab762910adb307f258e6f4d3",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-22T18:13:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgentPromptBuilder.kt",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "590 lines, exceeds 300-line limit. New file not present in rq.config.json allowlist \u2014 filesize gate will add a 6th violation when it runs against working tree. Add to allowlist with tracked-decomposition reason, matching EmailService.kt precedent."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-wip-reviewer-10811",
+    "review-wip-reviewer-7851",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-22T18:12:08Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-17T16:15:13Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:12:09Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:12:08Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:13:33Z",
+      "duration_ms": 80000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:12:12Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:13:37Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T16:10:11Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-16T16:19:17Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:13:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-wip-reviewer-10811": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 60,
+          "severity": "high",
+          "category": "error-handling",
+          "title": "Unhandled exception from voice card load can kill every email-agent response",
+          "body": "EmailAgent.kt:60 calls getVoiceCardLoader().loadForEmail(principal.email) outside any try/catch. If loadForEmail throws (IOException from classpath resource read failure, corrupt JAR entry, Spring resource-loader wrapping issue, etc.), the exception propagates up through buildEmailPrompt into streamEmailResponseWithSources and then into the response Flux, failing the entire chat turn. Compare against the aiTasks fetch immediately above (lines 52-57) which uses try/catch to fall back to emptyList() on any exception \u2014 exactly the degradation pattern that should apply here. The same thing applies to CustomMessageGenerationServiceImpl.buildSystemPrompt, but that path is rescued by the outer catch in generateMessageFromRiskConsiderations which falls back to the template \u2014 EmailAgent has no such safety net. Fix: wrap the loader call in try/catch that logs a warn and returns null on any Exception, matching the aiTasks pattern already present in the same function.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/VoiceCardController.kt",
+          "line": 21,
+          "severity": "medium",
+          "category": "security",
+          "title": "Principal resolution diverges from codebase convention; should use @AuthenticationPrincipal",
+          "body": "VoiceCardController resolves the caller identity with SecurityContextHolder.getContext().authentication.name at line 21. Every other controller in the codebase \u2014 AIChatController, GoogleCalendarController, SubmissionExtractionController, etc. \u2014 uses @AuthenticationPrincipal UserDetails principal and reads principal.username/principal.email. This is the ONLY occurrence of authentication.name for identity resolution in src/main/kotlin. Functionally today, authentication.name in this codebase resolves to user.email via UserDetailsImpl.getName(), so the result is equivalent. But the divergence is problematic for three reasons: (1) It bypasses the compile-time null safety the annotation provides \u2014 a non-UserDetailsImpl principal (e.g., anonymous filter, a token-only auth, or a future SSO scheme) would silently sanitize to whatever authentication.name returns and either resolve to another user's card filename or to a lookup miss without any type check; (2) It creates a static dependency on SecurityContextHolder that is strictly harder to test and reason about than an injected principal; (3) It quietly establishes a second identity-resolution pattern in the codebase, inviting drift. Fix: change the endpoint signature to fun getMyVoiceCard(@AuthenticationPrincipal principal: UserDetailsImpl): VoiceCardResponse and read principal.user.email (matching how other controllers extract identity). Add a test that asserts 401/403 behavior when no/stale principal is supplied to guard against regressions.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 184,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Voice-card splice via String.replace will double-inject if USER QUESTION header appears anywhere else in the prompt",
+          "body": "The voice-card injection at EmailAgent.kt:184 splices via basePrompt.replace(\"    === USER QUESTION ===\", voiceCardSection + \"    === USER QUESTION ===\"). Kotlin's String.replace(String, String) is a GLOBAL replace \u2014 every occurrence in basePrompt is replaced, not just the first. The basePrompt at lines 145\u2013163 interpolates the user's $question immediately after the header. If the user's question ever contains the literal substring \"    === USER QUESTION ===\" (four spaces + equals + USER QUESTION + equals \u2014 no emoji, no unicode, just verbatim), every occurrence gets the voice-card section prepended, and the card text appears inline inside the user's question as well as in its own section. In practice a reply-all of a prior LLM prompt or a quoted email that accidentally contains this sentinel would trigger the bug. It also creates a model-prompt tampering vector: any attacker who can arbitrarily control the question string can inject additional voice-card headers, confusing downstream tools or any future code that parses the prompt by header. Fix: restructure buildSystemPrompt to assemble the prompt as an ordered list of sections (role/identity, response format, capabilities, context, urls, ai-task, voice-card, user-question) and join them, so the voice-card block is positioned by construction rather than by text-substitution. If a lighter fix is preferred, use a UUID-style sentinel token that's interpolated once at build time and replaced exactly once.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 128,
+          "severity": "medium",
+          "category": "security",
+          "title": "Full prompt (now including voice-card PII) is logged at TRACE \u2014 enabling TRACE in staging/prod leaks user writing-style details",
+          "body": "EmailAgent.kt:128 logs the full constructed prompt at TRACE: logger.trace(\"Constructed tool-enabled prompt for email ID $messageId: $prompt\"). Before this PR the prompt contained role definitions, tool specs, and deal/email context. After this PR the prompt also carries the user's voice-card markdown \u2014 which may include names, email greeting/closing patterns, phrases the user commonly uses, and stylistic fingerprints derived from their sent mail. If TRACE is ever enabled (for a single package/namespace, during incident debugging, or by misconfiguration), all of a user's voice-card content is written into application logs \u2014 which are typically shipped to centralized logging and retained longer than the card itself. This is a PII expansion of an existing log line. Fix: either (a) change the log to DEBUG and redact the voice-card section before logging (strip from '=== HOW THIS USER WRITES ===' to '=== USER QUESTION ==='), or (b) log only the prompt length/hash, not the body. Option (a) is preferred because the rest of the prompt is still useful for debugging tool behavior.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "line": 223,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Voice-card content is not trimmed here, but IS trimmed in EmailAgent \u2014 inconsistent treatment produces divergent prompts",
+          "body": "CustomMessageGenerationService.kt:223 appends cardMarkdown verbatim inside buildSystemPrompt, but EmailAgent.kt:179 appends voiceCardMarkdown.trim(). A card committed with leading/trailing blank lines, trailing whitespace, or a stray BOM will render differently across the two LLM surfaces: the EmailAgent prompt will collapse boundary whitespace while the CustomMessageGenerationService prompt will preserve it. For style-matching directives, this is a behavioral divergence: two different prompts for the same card, depending on surface. It is also a maintenance hazard \u2014 anyone updating the 'wrap and inject' preamble in one place has to remember to mirror the trimming convention in the other. Fix: pick one rule (trimming is safer because it normalizes the leading/trailing blanks that a committed markdown file often carries) and apply it consistently. Extract a small helper like VoiceCardFormatter.section(card: String): String that returns the HOW-THIS-USER-WRITES block so both EmailAgent and CustomMessageGenerationService call into it.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/VoiceCardControllerIntegrationTest.kt",
+          "line": 60,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Missing 403 test for roles that shouldn't have voice-card access (carrier/retailer/client)",
+          "body": "The integration test covers the ROLE_RS happy-path (200 with card, 404 without card) but does NOT assert that roles NOT in ('ROLE_ADMIN', 'ROLE_RS') are denied. A regression that weakens @PreAuthorize \u2014 for example relaxing to isAuthenticated() so a customer-facing user could fetch their own card, or accidentally granting the role to additional user types \u2014 would not be caught. Since the controller consults SecurityContextHolder identity (not a request parameter), a successful 200 response with the carrier's sanitized email in the URL of a committed card file would be a user-voice-card bleed. Fix: add a test that calls get('/v1/user/me/voice-card', thisAccessToken = accessTokenUserTypeCarrier) and expects status().isForbidden; do the same for accessTokenUserTypeRetailer and accessTokenUserTypeClient. These tokens are all already available on AbstractControllerIntegrationTest \u2014 the three additional tests are free coverage.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/VoiceCardController.kt",
+          "line": 19,
+          "severity": "low",
+          "category": "security",
+          "title": "Missing explicit production response type / HTTP status annotation leaves endpoint behavior implicit",
+          "body": "The controller returns a VoiceCardResponse data class directly from the handler and throws NotFoundException for the not-found path. There is no @ResponseStatus on the method and no explicit content-type. In practice Spring converts to JSON and the NotFoundException handler returns 404, so behavior is OK. But compared with other controllers in this codebase that use ResponseEntity<...> for explicit status control, this is ambiguous for reviewers and API consumers. Additionally, because the endpoint class is the only file that uses SecurityContextHolder for principal resolution, the combination of (1) unusual principal lookup, (2) implicit status, and (3) no test for an unauthenticated or wrong-role call makes the controller's contract harder to audit. Fix: add @ResponseStatus(HttpStatus.OK) for documentation clarity, and optionally convert the return type to ResponseEntity<VoiceCardResponse>. Not strictly required \u2014 a nudge toward codebase consistency rather than a functional defect.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ApprovalBasedSubmissionOrchestrator.kt",
+          "line": 640,
+          "severity": "low",
+          "category": "correctness",
+          "title": "runCatching around userService.findById swallows an already-proven-lookup failure and silently drops voice-card personalization",
+          "body": "Line 640 computes userEmail via runCatching { userService.findById(workflowState.userId).email }.getOrNull() inside the call to customMessageGenerationService.generateCustomMessage. The same workflowState.userId is then immediately used again at line 692 (ApprovalBasedSubmissionOrchestrator) and lines 407/523 of ClearingOrchestrator and ClearingWorkflowOrchestratorImpl as val principal = userService.findById(workflowState.userId) \u2014 without runCatching, allowing the exception to bubble up. The runCatching in the generateCustomMessage call therefore masks what would otherwise be a surfaced failure. If the user actually doesn't exist (edge case: account deleted mid-workflow), the voice-card call silently degrades but the subsequent non-catching findById still throws \u2014 so we trade an early surfaced exception for a late one, having silently lost personalization in between. This is not a correctness bug today because the subsequent findById would fail anyway, but if a future refactor removes the second findById the silent null here becomes a user-visible regression (no voice-card styling, no error). Fix: instead of runCatching, use userService.findById(workflowState.userId).email directly \u2014 the user IS required for this workflow step; there's no safety net to preserve. The try/catch around the outer generateCustomMessage call (lines 630-647 in this file) already catches any exception and reports 'Error: Failed to generate custom message.' Same pattern applies to ClearingOrchestrator.kt:384 and ClearingWorkflowOrchestratorImpl.kt:500.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-7851": {
+      "status": "complete",
+      "findings": 13,
+      "findings_details": [
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "line": 177,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Null-card CustomMessageGenerationService prompt is NOT byte-identical to pre-change behavior (plan violation)",
+          "body": "Evidence: the refactor rewrote the baseSystemPrompt triple-quoted string literal. Pre-change (origin/master) the raw heredoc had trailing whitespace on many lines (od -c confirms 'Happy Friday! \\n' with a trailing space, 'F L .  \\n', 'Reason for delay \\n', 'Pictures of the project - \\n', etc.). The new literal in this file removed all those trailing spaces. Impact: when userEmail is null the generated system prompt is NOT byte-identical to what was shipped on master \u2014 the plan explicitly requires 'Null-card path must be byte-identical to pre-change behavior.' The golden fixture (src/unitTest/resources/voice-cards/custom-message-golden-no-card.txt) was captured from the new code, so the regression test locks in the drifted output and will NOT catch this. Fix: restore the exact original baseSystemPrompt literal, trailing whitespace and all. If you need CR-safe string editing, keep the prompt in a resource file loaded verbatim. Re-capture the golden fixture only after the string matches origin/master byte-for-byte. Verification: git show origin/master:src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt | sed -n '170,215p' should match the new buildSystemPrompt's baseSystemPrompt output character for character.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/VoiceCardController.kt",
+          "line": 21,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "VoiceCardController uses SecurityContextHolder where every other controller uses @AuthenticationPrincipal",
+          "body": "Evidence: 'val email = SecurityContextHolder.getContext().authentication.name' at line 21 is the ONLY occurrence of this pattern in src/main/kotlin (grep -r confirms \u2014 every other controller uses '@AuthenticationPrincipal principal: UserDetails' and calls principal.username or principal.getUser().id). DocumentController.kt:193 is the canonical example. Impact: (a) inconsistency makes the controller harder to test (integration tests must populate the security context; @AuthenticationPrincipal is easier to stub with @WithMockUser or a test-only UserDetails bean); (b) relying on authentication.name is a weak contract \u2014 it's whatever the UserDetailsService set as the 'username' field, which for this codebase is email but is not documented at this call site; (c) @AuthenticationPrincipal is the Spring-recommended pattern and the rest of the codebase already uses it. Fix: change the signature to 'fun getMyVoiceCard(@AuthenticationPrincipal principal: UserDetails): VoiceCardResponse' and use 'principal.username' (the project's UserDetails treats username as email, matching what authentication.name returns today). This is a one-line change and brings VoiceCardController in line with the rest of the controllers.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/clearing/submission/ApprovalBasedSubmissionOrchestrator.kt",
+          "line": 640,
+          "severity": "medium",
+          "category": "dry",
+          "title": "Duplicated 'runCatching { userService.findById(workflowState.userId).email }.getOrNull()' across three orchestrators",
+          "body": "Evidence: the exact same expression appears at ApprovalBasedSubmissionOrchestrator.kt:640, ClearingOrchestrator.kt:384, and ClearingWorkflowOrchestratorImpl.kt:500. All three orchestrators already call userService.findById(workflowState.userId) elsewhere in the SAME method (e.g. line 523 of ClearingWorkflowOrchestratorImpl fetches the principal a few lines later) \u2014 so the 'userEmail' resolution does a redundant network/DB round trip AND swallows exceptions inconsistently with the rest of the flow (the later findById is not wrapped in runCatching and will throw). Impact: (a) DRY violation \u2014 three sites drift independently; (b) duplicate findById per workflow run; (c) resolution logic is invisible to the service layer, so voice-card attribution is impossible to test end-to-end without mocking all three orchestrators. Fix: push the resolution INTO CustomMessageGenerationService. The service already has 'dealService' as a dependency; inject 'userService' (or a dedicated DealOwnerEmailResolver) and let the service derive the userEmail from the deal owner OR from a new explicit 'userId: String' parameter. Callers pass a userId (which they all already have as workflowState.userId) instead of an optional pre-resolved email. One resolution site, one test, no swallowed exceptions in three places.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 184,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "basePrompt.replace('    === USER QUESTION ===', ...) splices voice card via string replace \u2014 brittle coupling",
+          "body": "Evidence: buildSystemPrompt computes the full basePrompt and then calls 'basePrompt.replace(\"    === USER QUESTION ===\", voiceCardSection + \"    === USER QUESTION ===\")'. This couples the splice to two string details: (a) the literal '=== USER QUESTION ===' header, and (b) its exact '    ' (4-space) indent from the enclosing trimIndent heredoc. If anyone ever renames that section header, adjusts the heredoc indent, or localizes any part of the prompt, the voice-card section silently vanishes without any build or test signal \u2014 the golden fixture only covers the NO-CARD path. Worse, if the placeholder ever appears more than once in a template (e.g. prompt engineering adds a second USER QUESTION summary block), replace() mutates all of them. Impact: silent regression risk. The happy-path test 'buildEmailPromptWithCardInsertsSectionBeforeUserQuestion' would still pass because it only asserts the voice-card header is between CONTEXT and USER QUESTION \u2014 it does not catch 'splice was a no-op'. Fix: restructure buildSystemPrompt to assemble the prompt from explicit sections (a list<Pair<String, String>> or a StringBuilder that appends the voice-card block INLINE at the correct position), rather than building-then-finding-then-replacing. Simplest pattern: make the voice-card section a parameter to the heredoc and interpolate it there \u2014 '${voiceCardSection}\\n    === USER QUESTION ===\\n    $question'. Add a test asserting the spliced prompt contains no '=== USER QUESTION ===' that is NOT preceded by the voice-card header (when a card is present).",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 541,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "EmailAgent interface's 'getServiceX' provider-accessor pattern adds a 13th abstract accessor \u2014 refactor to shared helper class",
+          "body": "Evidence: EmailAgent is a Kotlin interface with default methods that call 13 abstract 'getX()' accessors (getEmailService, getMessagingMapper, getRAGService, getDealService, getMessagingService, getUserService, getGmailMessageFetchService, getProgramRepository, getDealRepository, getClearingService, getAITaskService, getVoiceCardLoader, plus getRAGService-returning-nothing). Every implementor must add a new override when any new dependency is introduced. This PR adds the 13th one. The test file EmailAgentPromptInjectionTest.kt:30-58 has a TestEmailAgent stub that must enumerate all 13 accessors just to test one method \u2014 that boilerplate exists BECAUSE of this design. EmailAgentSemanticKernelImpl additionally has a TODO Not-yet-implemented for getRAGService (line 150-152), confirming the contract is not uniform and the interface is being used to share implementation, not to define a polymorphic contract. Impact: the interface behaves like a sealed abstract class with mixed-in helpers \u2014 each prompt-construction concern leaks a new Autowired field through the interface contract. Each new dependency balloons the test double. Fix: extract buildEmailPrompt, formatDealContext, formatClearingContext, buildGeneralCapabilities, buildEmailCapabilities, buildUrlGenerationRules, buildAITaskLinkRules, buildResponseFormatSection, buildSystemPrompt into a Spring @Component 'EmailAgentPromptBuilder' whose constructor takes the dependencies directly. The EmailAgent interface then shrinks to streamEmailResponseWithSources + continueAfterApproval, and both concrete implementations inject EmailAgentPromptBuilder. The unit test then only has to mock the builder's dependencies, not 13 provider-getters. This is a contained, high-leverage refactor; even doing it incrementally (e.g. only the voice-card-related methods this PR) would pay off immediately.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "line": 218,
+          "severity": "medium",
+          "category": "dry",
+          "title": "Voice-card preamble text is duplicated verbatim between EmailAgent and CustomMessageGenerationService",
+          "body": "Evidence: both EmailAgent.kt:173-181 and CustomMessageGenerationService.kt:218-226 build the voice-card preamble with the SAME English sentences: '=== HOW THIS USER WRITES ===' header, 'The following is an LLM-summarized description of this user's email writing style, derived from their historical sent mail.', 'Match these patterns when drafting on their behalf.', 'This is a styling directive; do NOT copy content from it.' The two copies are already slightly out of sync: EmailAgent splits the second paragraph across three lines with '\\n' line breaks, CustomMessageGenerationService joins them with spaces. If anyone tunes the prompt wording (which is inevitable for LLM-facing copy), one site will drift from the other. Impact: the whole point of the voice-card feature is consistent styling guidance to the LLM; two subtly-different preambles produce different model behavior on the two surfaces. Fix: extract a single method/object 'VoiceCardPromptSection.build(cardMarkdown: String): String' in the co.arqu.core.service.voice package (next to VoiceCardLoader) returning the canonical preamble + card block. Both call sites import and use it. Add a unit test pinning the exact text of the preamble so drift is caught on review.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/ai/v2/agent/email/EmailAgent.kt",
+          "line": 622,
+          "severity": "medium",
+          "category": "complexity",
+          "title": "EmailAgent.kt at 622 lines \u2014 this PR adds 33 lines of new content; extract prompt helpers now",
+          "body": "Evidence: filesize gate reports 622 lines (limit 300). Six files fail the gate; EmailAgent.kt is the largest NEW-CONTENT contributor in this PR (+33 lines for voice-card injection). The other five violations (ApprovalBasedSubmissionOrchestrator 1024, ClearingOrchestrator 512, ClearingWorkflowOrchestratorImpl 628, EmailAgentLangChain4JStreamingImpl 1074, CustomMessageGenerationService 582) each took only a 3-6 line delta from this PR. Impact: the file is twice the allowed size; gate is red. 'The file was already over' is not a defense \u2014 the gate fires on every build. Fix: the refactor proposed in Finding 5 (extract an EmailAgentPromptBuilder @Component) would take ~400 lines OUT of EmailAgent.kt in one go (everything from buildEmailPrompt through formatClearingContext), bringing it under 300 lines and resolving the gate for this file. For the other five files, propose a follow-up ticket (linked below) and file it TODAY so the gate debt is tracked. Without an extraction commit in this PR, the gate stays red and blocks ship. Minimum viable fix: move buildSystemPrompt + buildResponseFormatSection + buildUrlGenerationRules + buildAITaskLinkRules + the two capabilities builders + the two context builders + formatDealContext + formatClearingContext into a new file 'EmailAgentPromptBuilder.kt' under the same package. Leave the thin streamEmailResponseWithSources + continueAfterApproval + provider-accessor contract in EmailAgent.kt. The other four orchestrator/impl files are legitimately bigger than 300 lines and merit their own extraction PR \u2014 call that out in the PR description and file a tracking issue.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/ai/v2/agent/email/EmailAgentPromptInjectionTest.kt",
+          "line": 101,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "buildEmailPromptWithCardInsertsSectionBeforeUserQuestion only checks ordering \u2014 does not detect a no-op splice on placeholder rename",
+          "body": "Evidence: the 'withCard' test (lines 101-135) asserts three conditions: voice-card header present, ordered between CONTEXT and USER QUESTION, and card snippet '## Greeting patterns' appears after the header. It does NOT lock down a golden output for the with-card path and it does NOT assert that basePrompt's '    === USER QUESTION ===' placeholder was consumed exactly once. If a future edit to the heredoc replaces the 4-space indent with 8 spaces (or renames the header), basePrompt.replace() silently becomes a no-op and the voice-card section would fall through \u2014 but this test would still pass because it only checks textual containment/order relative to CONTEXT/USER QUESTION, and if the splice no-ops the voice-card header would simply not appear, failing the containment assertion. Wait, actually: if splice no-ops, the assertion at line 123 (voiceCardCount == 1) catches the zero case. OK \u2014 this test is more robust than I first thought. But it STILL does not pin exact output of the preamble text. If tomorrow someone changes the 'Match these patterns when drafting on their behalf.' sentence the test passes silently. Impact: prompt engineering drift goes unnoticed. Fix: add a second golden fixture 'email-agent-golden-with-card.txt' captured with a canned card string, and add a byte-identical assertion for the with-card path too. This caps the full contract in one place.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/controller/VoiceCardController.kt",
+          "line": 23,
+          "severity": "low",
+          "category": "style",
+          "title": "NotFoundException message 'voice card not found' is too terse \u2014 distinguishes nothing for clients or logs",
+          "body": "Evidence: 'if (md.isNullOrBlank()) throw NotFoundException(\"voice card not found\")'. The exception message is lowercase and carries no user identifier, no hint about how to get a card, and no correlation with the caller. Compare with other controllers \u2014 DocumentController throws with messages like 'Document with id=$id not found for user=${principal.username}'. Impact: the response body a client sees is just 'voice card not found', which is fine for 404 semantics. But on the server log side, an on-call engineer debugging 'why does my voice card 404' gets a message with zero context and has to go fishing for the user. Fix: 'throw NotFoundException(\"Voice card not found for user=$email\")'. No PII leak concern beyond the caller's own identity, which is already in the access log. Capitalize for consistency with other thrown messages in the codebase.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/dto/VoiceCardDto.kt",
+          "line": 1,
+          "severity": "info",
+          "category": "style",
+          "title": "VoiceCardDto.kt file name implies multiple DTOs but contains only one data class; consider inlining",
+          "body": "Evidence: the file is named 'VoiceCardDto.kt' and contains only 'data class VoiceCardResponse(val cardMarkdown: String)'. There's no 'VoiceCardDto' type in the file. Two style questions: (a) conventional practice in this codebase appears to put single DTOs either in the controller file or in a shared DTO file \u2014 grep shows most DTOs live alongside their controller or in per-feature DTO files with multiple related types. A one-type file adds a file hop without payoff. (b) the file name does not match any type declared in it, which trips quick search ('where is VoiceCardDto'). Fix: either rename the file to 'VoiceCardResponse.kt' (match the declared type) or inline the data class at the bottom of VoiceCardController.kt (27 lines total \u2014 plenty of room). Prefer inlining for a single-endpoint feature; if more DTOs are coming (future PUT endpoint, etc.), leave as a file but rename to match the type.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/VoiceCardControllerIntegrationTest.kt",
+          "line": 29,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Integration test hardcodes a production user email ('jsakson@arqu.co') as test fixture \u2014 fragile coupling",
+          "body": "Evidence: line 24: 'private const val CARD_USER_EMAIL = \"jsakson@arqu.co\"'. Line 30-33 comment explains the email must match the committed classpath fixture 'src/main/resources/voice-cards/jsakson-at-arqu-co.md'. This test now has a hard dependency on (a) a specific real employee's email living in test source forever, and (b) that file staying checked in. If jsakson@arqu.co leaves the company and the voice-card markdown is deleted (a perfectly reasonable cleanup), the integration test breaks. Also \u2014 this pulls a real person's email into every test fixture file and grepped log line on CI. Impact: data-coupling between a test and a pilot rollout dataset. The test reports success because the fixture exists; it's not testing the controller, it's testing the fixture. Fix: drop a deterministic TEST fixture under src/integrationTest/resources/voice-cards/ that the classpath loader picks up, e.g. 'voice-card-test-user-at-test-co.md', and use 'voice-card-test-user@test.co' as CARD_USER_EMAIL. That's hermetic \u2014 independent of employee turnover or voice-card rollout decisions. If the classpath loader reads voice-cards from both main/resources and test/resources (it does \u2014 resourceLoader.getResource('classpath:...') picks up whichever is on the classpath at test time), this is straightforward. Verify the ResourceLoader classpath for integration tests before making the change.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationService.kt",
+          "line": 219,
+          "severity": "low",
+          "category": "style",
+          "title": "CustomMessageGenerationService preamble is flush-left while the base prompt is 12-space-indented (trimIndent), producing an alignment mismatch",
+          "body": "Evidence: baseSystemPrompt at line 177 uses trimIndent() on a heredoc with 12-space leading indent \u2014 output is flush-left after trimIndent strips the common prefix. The buildString block at line 218-226 appends the preamble with NO leading indent, which looks consistent but compare to the EmailAgent analogue at EmailAgent.kt:173-181 which DOES use 4-space indent on the '    === HOW THIS USER WRITES ===' header to match the surrounding prompt structure. The two surfaces produce voice-card headers at different indentation levels, which LLMs do notice (header alignment cues influence attention). Impact: prompt engineering drift between the two surfaces; the voice card appears at a different visual level depending on which code path invokes it. Fix: decide on one indentation convention (flush-left works fine for LLM comprehension; 4-space matching the EmailAgent style is also fine) and apply it BOTH places. Best solution: extract the shared helper from finding 6 and let it emit one format.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/service/submission/message/CustomMessageGenerationServiceVoiceCardTest.kt",
+          "line": 98,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Mock stub for chatModelFactory.createChatModel hard-codes 7 anyOrNull() positional args, brittle to signature changes",
+          "body": "Evidence: lines 97-107 \u2014 'whenever(chatModelFactory.createChatModel(anyOrNull(), anyOrNull(), anyOrNull(), anyOrNull(), anyOrNull(), anyOrNull(), anyOrNull())).thenReturn(chatModel)'. Seven positional anyOrNull() calls. This mirrors the current signature exactly, but offers zero resilience \u2014 add or remove a parameter from ChatModelFactory.createChatModel and this test silently stops matching (Mockito will return null and the test blows up at runtime with a cryptic 'No ChatRequest was captured'). Impact: test is brittle to an unrelated-looking API change. Fix: use Mockito's 'any<ChatModelFactory>()' with a lambda that doesn't care about exact signature, OR refactor to accept a callback. Cleaner: replace the seven anyOrNull with '@JvmOverloads'-aware invocation by mocking the method with 'any()' if only one createChatModel overload exists, or wrap it in a test helper. Lowest-effort fix: change to 'on { createChatModel(any(), any(), any(), any(), any(), any(), any()) } doReturn chatModel' using mockito-kotlin's typed variant \u2014 still seven positions but at least the failure mode is obvious if the signature changes (compile error instead of silent null return).",
+          "confidence": "low"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:13:36Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T18:12:13Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-21T20:13:22Z",
+      "test_runner": "bin-test",
+      "fingerprint": "0e011827cf33389910dd7fd8c9e73e57",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 525260.0
+}
