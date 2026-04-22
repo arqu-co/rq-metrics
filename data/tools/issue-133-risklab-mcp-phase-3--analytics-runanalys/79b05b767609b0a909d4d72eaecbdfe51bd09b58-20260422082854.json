@@ -1,0 +1,405 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-133-risklab-mcp-phase-3--analytics-runanalys",
+  "sha": "79b05b767609b0a909d4d72eaecbdfe51bd09b58",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T12:28:53Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-93258",
+    "review-wip-reviewer-97145",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:26:11Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T02:37:59Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:26:18Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:05Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:26:05Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:40Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T12:27:54Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 3 of 4 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-cli typecheck: Done\npackages/rq-server typecheck: src/tools/risklab/run_analysis.test.ts(18,20): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string | object | Buffer | MockResponseDataHandler<object> | undefined'.\npackages/rq-server typecheck: Failed\n/Users/jerrod/Sites/tools/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 typecheck: `tsc --noEmit`\nExit status 2\n"
+        },
+        {
+          "check": "typecheck:rq-server",
+          "exit_code": 2,
+          "output": "src/tools/risklab/run_analysis.test.ts(18,20): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string | object | Buffer | MockResponseDataHandler<object> | undefined'.\n"
+        }
+      ],
+      "duration_ms": 96000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:50Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:01:43Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-21T16:08:47Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:04Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:47Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T02:39:15Z"
+    },
+    "review-wip-reviewer-93258": {
+      "status": "complete",
+      "findings": 10,
+      "findings_details": [
+        {
+          "file": "packages/rq-server/src/tools/risklab/index.ts",
+          "line": 33,
+          "severity": "critical",
+          "category": "architect",
+          "title": "Phase 2 tools never registered with MCP server",
+          "evidence": "registerRiskLabTools() calls only 28 register functions. The 9 Phase 2 register functions (registerCorrectSovProperty, registerCorrectLossRunClaim, registerBatchCorrectSovProperties, registerBatchCorrectClaims, registerSetSovPropertyReviewStatus, registerListLossRunClaims, registerListSovProperties, registerGetSovPropertyCorrections, registerGetLossRunClaimCorrections) exist on disk with their own .register.test.ts files but are never imported or invoked here.",
+          "body": "Impact: every Phase 2 correction/review/list tool is dead code at runtime \u2014 the MCP server will not expose them to Claude. Unit tests that call registerX() directly pass (hence the green gates), but shipping this branch means the 14-tool Phase 2 surface is invisible to clients. Fix: add imports for each of the 9 register functions and invoke each in registerRiskLabTools. Recommended order: place them alongside the related Phase 1 calls (corrections near rollback, list near get). Follow-up: add a guard test that asserts the total registered count matches the count of .register.ts files (or an explicit allowlist) so future additions can't silently drift.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/batch_correct_sov_properties.ts",
+          "line": 56,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Partial-batch warning assigned to wrong envelope field",
+          "evidence": "(envelope as { warning?: string }).warning = `Response count ${responseCount} != request count ${requestCount} \u2014 partial batch applied`;",
+          "body": "Impact: SuccessResponse<T> defines warnings: string[] (envelope.ts:35). Writing a scalar `warning` key via an as-cast (1) bypasses the type system, (2) creates a non-schema property that downstream consumers typed against ToolResponse will never read, and (3) leaves the real `warnings` array empty so the partial-batch signal is lost in practice. Fix: replace the cast block with `if (responseCount !== requestCount) envelope.warnings.push(`Response count ${responseCount} != request count ${requestCount} \u2014 partial batch applied`);` \u2014 or pass the warning string as the third arg to success(). Same bug exists verbatim in batch_correct_claims.ts:56.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/batch_correct_claims.ts",
+          "line": 56,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Partial-batch warning assigned to wrong envelope field (duplicate of SOV batch)",
+          "evidence": "(envelope as { warning?: string }).warning = `Response count ${responseCount} != request count ${requestCount} \u2014 partial batch applied`;",
+          "body": "Impact: same as batch_correct_sov_properties.ts:56 \u2014 scalar `warning` property is not part of SuccessResponse; the envelope's `warnings: string[]` array is never populated. Fix identically: push onto envelope.warnings. Bonus: extract a helper like `appendPartialBatchWarning(envelope, requested, received)` to DRY the two batch tools.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/errors/mapping.ts",
+          "line": 197,
+          "severity": "medium",
+          "category": "architect",
+          "title": "413 PAYLOAD_TOO_LARGE status not mapped",
+          "evidence": "The ErrorCode union in envelope.ts now includes PAYLOAD_TOO_LARGE, but mapHttpError has no case for status 413 \u2014 it falls through to unexpected(status) which emits code UPSTREAM_ERROR.",
+          "body": "Impact: PAYLOAD_TOO_LARGE is only ever produced by export_sov.ts's client-side 5MB guard. If the backend ever returns HTTP 413 (large upload, nginx limit, etc.), the envelope will report UPSTREAM_ERROR instead of the semantically correct PAYLOAD_TOO_LARGE, and the user won't see the `rq` CLI recovery hint. Fix: add `if (status === 413) return toolError(\"PAYLOAD_TOO_LARGE\", \"Response exceeds platform size limit\", \"The arqu platform returned a payload too large to handle here \u2014 use the rq CLI to retrieve it.\");` in mapHttpError.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/clients/RiskLabClient.ts",
+          "line": 54,
+          "severity": "medium",
+          "category": "architect",
+          "title": "getBytes duplicates request/retry plumbing instead of sharing with request()",
+          "evidence": "getBytes re-implements path validation, URL building, header construction, 503 retry, error mapping, and rollbar reporting \u2014 all of which already exist in private request(). The two functions will drift.",
+          "body": "Impact: future changes to retry semantics, path validation, or error reporting must be made in two places. The tests will cover the JSON path but not the bytes path (or vice versa). Fix: refactor request() to take an optional `responseKind: \"json\" | \"bytes\"` option (or split into a shared `fetchWithRetry` helper and two small callers that differ only in response parsing). The 'accept' header and 204/empty-body handling are the only genuine differences.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/export_sov.ts",
+          "line": 94,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "5MB cap is post-download \u2014 the bytes already crossed the wire",
+          "evidence": "client.getBytes downloads the full body into an ArrayBuffer; only then do we check result.data.byteLength > MAX_BYTES and reject.",
+          "body": "Impact: for a 500MB export, the Worker buffers the entire response before rejecting \u2014 high memory pressure, Cloudflare Worker memory limits (~128MB), and wasted bandwidth. A proactive check via HEAD request or reading content-length before consuming the body would be better. Fix (if feasible): read response.headers.get(\"content-length\") in getBytes, return PAYLOAD_TOO_LARGE shape early if the header exceeds the cap; fall back to post-download check when the header is absent. If staying with post-download, at minimum document the memory exposure in the file header comment so future maintainers know the risk.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/export_sov.ts",
+          "line": 61,
+          "severity": "low",
+          "category": "correctness",
+          "title": "extractFilename does not handle RFC 5987 filename*=",
+          "evidence": "Only `filename=\"...\"` and `filename=...` matched. Backends often emit `filename*=UTF-8''report%20Q4.xlsx` for non-ASCII filenames.",
+          "body": "Impact: if arqu ever serves a filename with non-ASCII characters via filename*=, extractFilename returns null and the user sees the generated `sov-project-123.xlsx` fallback \u2014 minor UX loss, no crash. Fix: add a third regex for `filename\\*=(?:[^']*)''([^;]+)` and URL-decode the capture before returning.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/list_loss_run_claims.ts",
+          "line": 69,
+          "severity": "low",
+          "category": "style",
+          "title": "document_id spread pattern is harder to read than an explicit optional field",
+          "evidence": "...(upstream.document_id != null ? { document_id: upstream.document_id } : {})",
+          "body": "Impact: minor. The ListLossRunClaimsResult interface declares `document_id?: number`, so setting it conditionally is defensible, but the spread-ternary is noisier than `document_id: upstream.document_id ?? undefined` (or just always passing the nullish value through). Fix: either change the result type to `document_id: number | null` and always assign, or use a single-line conditional.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/correction_schemas.ts",
+          "line": 69,
+          "severity": "low",
+          "category": "style",
+          "title": "`.passthrough()` on request schemas lets unknown client params hit the backend",
+          "evidence": "SovPropertyCorrectionRequestSchema, ClaimCorrectionRequestSchema, BatchSovPropertyCorrectionItemSchema, BatchClaimCorrectionItemSchema all chain .passthrough() \u2014 unknown keys from Claude survive validation and are forwarded.",
+          "body": "Impact: request-shape forwarding makes Claude's tool invocations brittle \u2014 typos in field names (e.g. `currection_type`) pass through instead of producing a Zod error. Response schemas should use passthrough (backend adds fields over time), but request schemas should use the default strict/strip. Fix: drop .passthrough() on the four request schemas; keep it on the response schemas. Detail schemas (PropertyCorrectionDetail, ClaimCorrectionDetail) are fine as-is.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/correct_sov_property.ts",
+          "line": 43,
+          "severity": "low",
+          "category": "style",
+          "title": "buildBody re-declares what the Zod schema already parses",
+          "evidence": "buildBody manually sifts parsed fields and conditionally omits undefined values \u2014 but Zod with .nullish() already produces `undefined` for omitted keys, and JSON.stringify strips undefined. The conditional assignment is defensive but redundant.",
+          "body": "Impact: minor readability. If the backend distinguishes between omitted-and-null, the current code sends neither unless the caller explicitly provides them, which happens to be correct. Fix (optional): replace with `const { property_id: _pid, ...body } = parsed; return body;` or document why the explicit allowlist is necessary (defense-in-depth against schema drift).",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-97145": {
+      "status": "complete",
+      "findings": 12,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/export_sov.ts",
+          "line": 30,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Zod refine() does not reject mutually-exclusive id fields",
+          "body": "The .refine() on line 30 checks 'scope=project implies project_id truthy; scope=upload implies upload_id truthy' but does NOT reject the reverse-misuse case. {scope:'project', project_id:5, upload_id:9} passes validation and silently ignores upload_id; {scope:'upload', project_id:5, upload_id:9} silently ignores project_id. If the caller confused which id belongs with which scope, the tool will build a URL with whichever value matches the scope and silently succeed on an unintended project/upload. Expected behavior per tool contract is 'project_id required when scope=project; upload_id required when scope=upload' \u2014 the symmetric expectation is that the unused field must not be supplied. Fix: tighten refine to assert both that the required id is present AND that the other id is absent, or split into two discriminated-union branches. Test export_sov.test.ts at line 153 tests only the 'missing' case, never the 'wrong pair' case.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/correct_sov_property.ts",
+          "line": 23,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "field_name accepts empty string",
+          "body": "field_name is declared as z.string().max(100) (correction_schemas.ts line 58 also uses .max(100) with no min). An empty string passes validation and is sent to POST /api/sov/properties/{id}/corrections as field_name:''. The backend will presumably 422, but the client should reject this locally: the tool summary 'Corrected property 42: \u2192 Retail.' and the body body.field_name='' are both nonsense. Fix: change to z.string().min(1).max(100) in both correct_sov_property.ts and correction_schemas.ts (BatchSovPropertyCorrectionItemSchema/ClaimCorrectionItemSchema). Also applies to batch variants.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/batch_correct_sov_properties.ts",
+          "line": 56,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Partial-batch warning mutates envelope via cast and may not survive serialization",
+          "body": "Line 56-57 does `(envelope as { warning?: string }).warning = ...` \u2014 this mutates the success envelope by casting away its type. If ToolResponse envelope schema or downstream JSON serializer strips unknown properties, the warning is lost. Additionally, the summary on line 52 uses the RESPONSE counts (e.g. 'Batch-corrected 1 fields across 1 properties.') while the request was for 2 fields \u2014 the LLM reading this may report success even though the warning is present. Fix: either (a) fold the partial-batch signal into the summary text itself ('Batch-corrected 1 of 2 fields; backend skipped/merged some \u2014 check response'), or (b) extend the ToolResponse success variant to include an optional top-level warning field declared in types/envelope. The same pattern exists in batch_correct_claims.ts line 56.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/batch_correct_claims.ts",
+          "line": 56,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Same partial-batch warning cast pattern as batch_correct_sov_properties",
+          "body": "Identical `(envelope as { warning?: string }).warning = ...` pattern at line 56-57 with the same concerns as the SOV variant. Fix together with the SOV handler.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/list_sov_properties.ts",
+          "line": 45,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Handler does not call schema.parse(); relies on MCP SDK for validation",
+          "body": "listSovPropertiesHandler never calls listSovPropertiesSchema.parse(params). It destructures `const { upload_id, skip = 0, limit = 25 } = params;` and passes values straight through to URL construction. Validation is performed by the MCP SDK at the server boundary via `listSovPropertiesSchema.shape`, so in production this is defense-in-depth gap, not an exploit \u2014 but it is inconsistent with correct_sov_property.ts (line 60) and get_loss_run_insights.ts (line 34) which both call .parse() defensively. list_loss_run_claims.ts has the same gap at line 57. If someone ever calls the handler outside the MCP server (e.g. from a test harness, a new CLI frontend, or an internal caller), invalid inputs reach the URL builder unvalidated. Fix: call `const parsed = listSovPropertiesSchema.parse(params)` at the top of the handler, matching the pattern used by the other handlers in this directory.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/list_loss_run_claims.ts",
+          "line": 57,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Handler does not call schema.parse(); same as list_sov_properties",
+          "body": "Identical pattern to list_sov_properties.ts \u2014 no .parse() call, destructures directly from params. Same fix: add `const parsed = listLossRunClaimsSchema.parse(params)` and use parsed below.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-server/src/tools/risklab/export_sov.test.ts",
+          "line": 129,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "5MB boundary not tested at exactly 5*1024*1024",
+          "body": "The oversize test seeds 5*1024*1024+1 bytes (5242881) and asserts PAYLOAD_TOO_LARGE. The handler uses `> MAX_BYTES` (strictly greater-than) at export_sov.ts line 94, so exactly 5242880 bytes should PASS. There is no test for 'at the boundary' (exactly 5242880 returns ok:true) nor for '5242879 (one byte under) returns ok:true'. This leaves an off-by-one regression (changing `>` to `>=`, or changing MAX_BYTES) invisible. Fix: add one test seeding `makeBytes(5*1024*1024)` and asserting `result.ok === true` with the body_base64 round-trip preserved.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-server/src/tools/risklab/export_sov.test.ts",
+          "line": 153,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Refinement tests do not cover wrong-pair misuse",
+          "body": "Tests cover: scope=project w/o project_id (reject), scope=upload w/o upload_id (reject), scope=project with project_id (accept). Missing: scope=project with both ids (currently accepts \u2014 see export_sov.ts finding above), scope=upload with project_id only. Once the refinement is tightened, add these as negative cases.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-server/src/tools/risklab/batch_correct_sov_properties.test.ts",
+          "line": 176,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Partial-batch test does not prove warning survives envelope serialization",
+          "body": "The assertion `(result as { warning?: string }).warning` reads the warning via the same cast that the handler uses to write it. This passes because the test inspects the in-memory object, but it does not prove the warning survives `JSON.stringify(result)` in the MCP response path (register handler calls JSON.stringify(result, null, 2) \u2014 which WILL include unknown keys, so this is actually fine for JSON serialization, but the test doesn't assert that explicitly). If the ToolResponse envelope ever switches to a strict serializer (e.g. zod .strict() or explicit pick), the warning silently disappears. Fix: assert on `JSON.parse(JSON.stringify(result)).warning` to pin the serialized shape, or formalize `warning` as a declared field on the success envelope type.",
+          "confidence": "medium"
+        },
+        {
+          "file": "packages/rq-server/src/tools/risklab/batch_correct_sov_properties.test.ts",
+          "line": 100,
+          "severity": "info",
+          "category": "test-quality",
+          "title": "Zod validation failures surface as UPSTREAM_ERROR (not VALIDATION)",
+          "body": "Lines 100, 114, 129: all three zod-rejection tests assert `result.error.code === 'UPSTREAM_ERROR'`. This is because safeTool catches the zod throw and maps EVERY exception to UPSTREAM_ERROR (base.ts line 110). The effect is that a caller-side input validation failure is reported to the LLM as 'The arqu platform returned an error' \u2014 which is misleading; the arqu platform never received the request. The contract should surface these as VALIDATION errors so the LLM learns to fix its inputs rather than retry. Fix: in safeTool, detect `err instanceof z.ZodError` and return toolError('VALIDATION', ...) with the zod issues summarized. This is cross-cutting so acknowledged here only \u2014 the existing tests encode the wrong expectation and would need updating once the fix lands.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-server/src/clients/RiskLabClient-getBytes.test.ts",
+          "line": 47,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "503 retry test does not assert bearer header on second attempt",
+          "body": "The 503-retry test registers two interceptors without `headers: { authorization: ... }` on either, so the test would pass even if getBytes dropped the bearer on the retry call. The first test (line 27) does enforce the header. Fix: add `headers: { authorization: 'Bearer bearer-token', accept: '*/*' }` to BOTH intercepts in the retry test so a regression that silently drops auth on retry is caught.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/clients/RiskLabClient.ts",
+          "line": 87,
+          "severity": "low",
+          "category": "observability",
+          "title": "getBytes catch block does not log to console.error like request()",
+          "body": "request() at line 203 does `console.error('RiskLabClient fetch failure', { method, path, detail: scrubError(err) })` BEFORE reportError. getBytes at line 87 only calls reportError \u2014 no console.error. In Cloudflare Workers, console.error surfaces in live logs and wrangler tail; reportError is async and may drop on cold worker shutdown. Operators debugging an export failure lose parity with POST/GET failures. Fix: add `console.error('RiskLabClient fetch failure', { method: 'GET', path, detail: scrubError(err) })` in the catch block at line 87 before reportError, matching request()'s pattern.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-10T12:55:28Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:44Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T10:58:24Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:37Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T12:28:30Z",
+      "test_runner": "npm-test",
+      "fingerprint": "40d4c08253e739012afafc99e8ced9e8",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 36000
+    }
+  },
+  "duration_seconds": 1035226.0
+}
