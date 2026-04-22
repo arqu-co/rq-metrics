@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "valiant-dreaming-catmull",
+  "branch": "issue-412-followup-opus47-and-token-pipeline",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T01:29:57.566Z",
+  "session_id": "63f1958c-32dc-4f1b-8ef8-6668d866817b",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5502,
+    "output": 380279,
+    "cache_read": 150387526,
+    "cache_create": 4925269,
+    "est_cost_usd": 105.83207479
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 139956,
+      "cost_usd": 0.8805225
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 155558620,
+      "cost_usd": 104.95155229
+    }
+  }
+}
