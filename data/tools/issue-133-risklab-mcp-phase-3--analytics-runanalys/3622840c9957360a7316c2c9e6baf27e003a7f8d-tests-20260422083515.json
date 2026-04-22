@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-133-risklab-mcp-phase-3--analytics-runanalys",
+  "sha": "3622840c9957360a7316c2c9e6baf27e003a7f8d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T12:35:14Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-22T12:35:13Z",
+      "test_runner": "npm-test",
+      "fingerprint": "cb6dc2b85070ffaae662f54e30efb436",
+      "failed_subprojects": 1,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [
+        {
+          "subproject": "rq-server",
+          "runner": "bin-test",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "     11|     const r = await listAnalysisTypesHandler({}, toolConfig, props());\n       |                     ^\n     12|     expect(r.ok).toBe(true);\n     13|     if (!r.ok) return;\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/4]\u23af\n\n FAIL |node|  src/tools/risklab/list_analysis_types.test.ts > listAnalysisTypesHandler > every entry has >= 3 triggers\nTypeError: listAnalysisTypesHandler is not a function\n \u276f src/tools/risklab/list_analysis_types.test.ts:18:21\n     16| \n     17|   it(\"every entry has >= 3 triggers\", async () => {\n     18|     const r = await listAnalysisTypesHandler({}, toolConfig, props());\n       |                     ^\n     19|     if (!r.ok) throw new Error(\"handler failed\");\n     20|     for (const e of r.data.types) {\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/4]\u23af\n\n FAIL |node|  src/tools/risklab/list_analysis_types.test.ts > listAnalysisTypesHandler > enum param values are arrays\nTypeError: listAnalysisTypesHandler is not a function\n \u276f src/tools/risklab/list_analysis_types.test.ts:26:21\n     24| \n     25|   it(\"enum param values are arrays\", async () => {\n     26|     const r = await listAnalysisTypesHandler({}, toolConfig, props());\n       |                     ^\n     27|     if (!r.ok) throw new Error(\"handler failed\");\n     28|     const cope = r.data.types.find((e) => e.type === \"sov_cope_heatmap\u2026\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/4]\u23af\n\n FAIL |node|  src/tools/risklab/list_analysis_types.test.ts > listAnalysisTypesHandler > summary mentions the count\nTypeError: listAnalysisTypesHandler is not a function\n \u276f src/tools/risklab/list_analysis_types.test.ts:35:21\n     33| \n     34|   it(\"summary mentions the count\", async () => {\n     35|     const r = await listAnalysisTypesHandler({}, toolConfig, props());\n       |                     ^\n     36|     if (!r.ok) throw new Error(\"handler failed\");\n     37|     expect(r.summary).toContain(\"40\");\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/4]\u23af\n\n Test Files  1 failed | 145 passed (146)\n      Tests  4 failed | 1082 passed (1086)\n   Start at  08:34:53\n   Duration  16.58s (transform 3.34s, setup 0ms, collect 52.71s, tests 7.22s, environment 21ms, prepare 7.24s)\n\n[vpw:debug] Shutting down runtimes...\n[vpw:debug] Disposing remote proxy sessions..."
+            }
+          ]
+        }
+      ],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
