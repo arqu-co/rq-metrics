@@ -1,0 +1,30 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "tools",
+  "branch": "issue-133-risklab-mcp-phase-3--analytics-runanalys",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-22T10:29:21.594Z",
+  "session_id": "bfdadf12-a3da-4060-9bd7-55428802aeee",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 3471,
+    "output": 35933,
+    "cache_read": 2316670,
+    "cache_create": 823541,
+    "est_cost_usd": 2.34522546
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 3179615,
+      "cost_usd": 2.34522546
+    }
+  }
+}
