@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "chore/adopt-producer-risklab-plugins",
+  "sha": "8e9a1c151a9389c1aec58ff41ce501610cf4d1c5",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-23T16:00:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T16:00:02Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "none",
+          "output": "\"FATAL: No linters, formatters, or typecheckers detected. Set up bin/lint, bin/format, bin/typecheck or install detectable tooling.\""
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
