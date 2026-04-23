@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-468-rq-cardinal-rules-enforcement-via-subage",
+  "sha": "99c2d8b2fddd3e09fc880f3c7be15ba14d7b160c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T16:21:04Z",
+  "phase": "all",
+  "run_number": 7,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/hooks/test_cardinal_rules_inject.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    },
+    {
+      "file": "plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-71053",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:08Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T14:54:39Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:10Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:06Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:40Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:38Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:45Z"
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:00:27Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:18:57Z",
+      "duration_ms": 146000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:44Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-23T16:16:16Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-71053": {
+      "status": "in_progress",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-bash.sh",
+          "line": 17,
+          "severity": "high",
+          "category": "security",
+          "title": "Rule 1 bypass: |& (stderr+stdout pipe) not detected",
+          "body": "The regex `\\|[[:space:]]*(head|tail|grep)` matches literal `|` but not bash's `|&` (which redirects both stdout and stderr). `bin/test |& tail -5` exits 0 (allowed). A subagent can use |& to truncate gate output without triggering the block.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-bash.sh",
+          "line": 24,
+          "severity": "high",
+          "category": "security",
+          "title": "Rule 2 bypass: git -C <dir> rebase -i not detected",
+          "body": "The Rule 2 regex `git[[:space:]]+rebase` requires `git` followed immediately by spaces then `rebase`. `git -C /tmp rebase -i HEAD~3` inserts `-C /tmp` between `git` and `rebase`, so the regex does not match and the command is allowed. A subagent can run interactive rebase in any working directory using -C.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-bash.sh",
+          "line": 29,
+          "severity": "high",
+          "category": "security",
+          "title": "Rule 3 bypass: git -c <key>=<val> commit --amend not detected",
+          "body": "The Rule 3 regex `git[[:space:]]+commit` requires `git` followed directly by spaces then `commit`. `git -c user.name=x commit --amend` inserts a `-c` config override between `git` and `commit`, bypassing the regex. Confirmed: exits 0.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-bash.sh",
+          "line": 34,
+          "severity": "high",
+          "category": "security",
+          "title": "Rule 4 bypass: git -C <dir> push --force not detected",
+          "body": "Same class of bypass as rules 2 and 3. The Rule 4 regex `git[[:space:]]+push` does not account for global git options like `-C`, `-c`, or `--git-dir`. `git -C /tmp push --force origin main` exits 0. A subagent can force-push to any remote from any working dir using -C.",
+          "confidence": "confirmed"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-bash.sh",
+          "line": 24,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Rules 2, 3, 4 regex matches banned patterns inside string arguments \u2014 false positives block legitimate commits",
+          "body": "The grep-based regex for rules 2 (rebase -i), 3 (--amend), and 4 (--force) matches the banned pattern anywhere in the command string, including inside quoted arguments. For example, `git commit -m \"fix: remove git push --force from script\"` is blocked by rule 4 because the regex finds `git push --force` inside the commit message string. Similarly, `git commit -m \"disabling git rebase -i\"` triggers rule 2. This causes false-positive blocks when agents write commit messages that describe what they're fixing. Fix: anchor rule 4's regex with a leading word/token boundary so it only fires when `git push --force` appears as a shell token, not inside a string. One approach: strip shell-quoted strings before running the regex check, or require the git command to appear at the start of a statement (after `^`, `;`, `&&`, `||`, or `|`). Same fix needed for rules 2 and 3.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/hooks/rq-subagent-start-dispatcher.sh",
+          "line": 12,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "SubagentStart dispatcher bypasses hook-lib.sh \u2014 violates the dispatcher architecture invariant",
+          "body": "All other dispatchers (rq-session-dispatcher.sh, rq-prompt-submit-dispatcher.sh, rq-bash-pre-dispatcher.sh, rq-we-pre-dispatcher.sh) source hook-lib.sh and use hook_run_guard to invoke sub-guards. The new rq-subagent-start-dispatcher.sh shells out directly to the sub-guard (`bash \"${SCRIPT_DIR}/cardinal-rules-inject.sh\" </dev/null`) without sourcing hook-lib.sh or calling hook_run_guard. This violates .review/correctness/hook-dispatcher-architecture.md rule 3: \"Dispatchers source hook-lib.sh and use its helpers. New dispatchers that bypass these helpers are a fail.\" It also means the SubagentStart dispatcher produces no perf log rows, so the hook-trace skill and performance monitoring see a blind spot. Fix: source hook-lib.sh, then use `hook_run_guard` to call cardinal-rules-inject.sh and aggregate the additionalContext from its output into a top-level JSON object.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/hooks/test_cardinal_rules_bash.sh",
+          "line": 52,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Tests do not cover the false-positive scenario \u2014 no test for banned pattern inside a quoted commit message",
+          "body": "The test suite covers happy paths (blocks the banned command, allows the allowed command) but has no test for the false-positive scenario where a banned pattern like `--force` or `--amend` appears inside a quoted commit message or string argument. Adding `expect_allow 'git commit -m \"fix: remove git push --force\"' \"force in commit message\"` would catch regression to the current buggy behavior. Without this test, fixing the regex has no regression guard.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:16:31Z",
+      "duration_ms": 15000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:23:42Z",
+      "scanned_files": 34
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T13:59:43Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T13:59:41Z",
+      "test_runner": "bin-test",
+      "fingerprint": "718c9208d327937f4463b6e6e4343fde",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 8356.0
+}
