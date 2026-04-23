@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/hover-feedback-map-layers",
+  "sha": "7c6f1b44dbfd8fcd5f36537bdf4d17f2a0b6ef8a",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T07:32:05Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T07:32:05Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend formatting with ruff format --check...\n1766 files already formatted\n\ud83d\udd0d Checking backend with ruff...\nAll checks passed!\n\ud83d\udd0d Checking frontend with oxlint...\n\n  ! eslint-plugin-react-hooks(exhaustive-deps): React Hook useCallback has a missing dependency: 'refs'\n     ,-[src/components/dealDashboard/segmentation-map-effects.ts:108:63]\n 107 | \n 108 |   const clearAll = useCallback(() => clearPointerState(refs), []);\n     :                                                        ^^|^   ^^\n     :                                                          `-- useCallback uses `refs` here\n 109 |   const handleMouseMove = useCallback(\n     `----\n  help: Either include it or remove the dependency array.\n\n  ! eslint-plugin-react-hooks(exhaustive-deps): React Hook useCallback has a missing dependency: 'refs'\n     ,-[src/components/dealDashboard/segmentation-map-effects.ts:111:5]\n 109 |   const handleMouseMove = useCallback(\n 110 |     (event: MapLayerMouseEvent) => dispatchPointerMove(refs, event, clearAll),\n     :                                                        ^^|^\n     :                                                          `-- useCallback uses `refs` here\n 111 |     [clearAll],\n     :     ^^^^^^^^^^\n 112 |   );\n     `----\n  help: Either include it or remove the dependency array.\n\nFound 2 warnings and 0 errors.\nFinished in 316ms on 1688 files with 86 rules using 12 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 925 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n\u001b[0;32m\u2705 Backend code formatting, linting, and type checks passed!\u001b[0m\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 185ms on 1686 files using 12 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\n\n  ! eslint-plugin-react-hooks(exhaustive-deps): React Hook useCallback has a missing dependency: 'refs'\n     ,-[src/components/dealDashboard/segmentation-map-effects.ts:108:63]\n 107 | \n 108 |   const clearAll = useCallback(() => clearPointerState(refs), []);\n     :                                                        ^^|^   ^^\n     :                                                          `-- useCallback uses `refs` here\n 109 |   const handleMouseMove = useCallback(\n     `----\n  help: Either include it or remove the dependency array.\n\n  ! eslint-plugin-react-hooks(exhaustive-deps): React Hook useCallback has a missing dependency: 'refs'\n     ,-[src/components/dealDashboard/segmentation-map-effects.ts:111:5]\n 109 |   const handleMouseMove = useCallback(\n 110 |     (event: MapLayerMouseEvent) => dispatchPointerMove(refs, event, clearAll),\n     :                                                        ^^|^\n     :                                                          `-- useCallback uses `refs` here\n 111 |     [clearAll],\n     :     ^^^^^^^^^^\n 112 |   );\n     `----\n  help: Either include it or remove the dependency array.\n\nFound 2 warnings and 0 errors.\nFinished in 296ms on 1688 files with 86 rules using 12 threads.\n\u001b[0;31m\u274c oxlint check failed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;31m\u274c Frontend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-frontend' to fix formatting/lint issues\u001b[0m\n\u274c Frontend formatting failed\n\n\u26a0\ufe0f  Partial formatting success\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
