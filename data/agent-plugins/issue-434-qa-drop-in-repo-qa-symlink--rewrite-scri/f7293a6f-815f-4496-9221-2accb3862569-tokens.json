@@ -1,0 +1,37 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "issue-434-qa-drop-in-repo-qa-symlink--rewrite-scri",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T10:01:51.143Z",
+  "session_id": "f7293a6f-815f-4496-9221-2accb3862569",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 18,
+    "output": 1133,
+    "cache_read": 266149,
+    "cache_create": 178110,
+    "est_cost_usd": 1.274677
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 445410,
+      "cost_usd": 1.274677
+    }
+  }
+}
