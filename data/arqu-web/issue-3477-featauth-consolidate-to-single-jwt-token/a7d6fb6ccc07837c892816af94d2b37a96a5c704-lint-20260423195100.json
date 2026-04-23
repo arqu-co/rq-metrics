@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "issue-3477-featauth-consolidate-to-single-jwt-token",
+  "sha": "a7d6fb6ccc07837c892816af94d2b37a96a5c704",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T23:51:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T23:50:59Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-web@0.20.0 lint\n> eslint . --max-warnings=0\n\n\n/Users/jerrod/Sites/arqu-web/.claude/worktrees/public-client/src/component/admin/email-client/NotificationBellComponent.vue\n  14:3  warning  Prop 'onLoadEmailById' requires default value to be set              vue/require-default-prop\n  15:3  warning  Prop 'onLoadEmailByConversationId' requires default value to be set  vue/require-default-prop\n\n/Users/jerrod/Sites/arqu-web/.claude/worktrees/sso-redirect/src/component/admin/email-client/NotificationBellComponent.vue\n  14:3  warning  Prop 'onLoadEmailById' requires default value to be set              vue/require-default-prop\n  15:3  warning  Prop 'onLoadEmailByConversationId' requires default value to be set  vue/require-default-prop\n\n/Users/jerrod/Sites/arqu-web/src/component/admin/email-client/NotificationBellComponent.vue\n  14:3  warning  Prop 'onLoadEmailById' requires default value to be set              vue/require-default-prop\n  15:3  warning  Prop 'onLoadEmailByConversationId' requires default value to be set  vue/require-default-prop\n\n\u2716 6 problems (0 errors, 6 warnings)\n\nESLint found too many warnings (maximum: 0).\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] public/lib/core/external/model-viewer-1.3.0.min.js\n[warn] public/lib/core/external/model-viewer-legacy-1.3.0.min.js\n[warn] public/lib/ui/webviewer-ui.min.js\n[warn] Code style issues found in 3 files. Run Prettier with --write to fix.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "error TS2688: Cannot find type definition file for 'reflect-metadata'.\n  The file is in the program because:\n    Entry point of type library 'reflect-metadata' specified in compilerOptions\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
