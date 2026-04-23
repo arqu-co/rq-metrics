@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/hover-feedback-map-layers",
+  "sha": "cb6fa6604e392d179352cfb73d0c03db532b7d58",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T18:59:44Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T18:59:44Z",
+      "fingerprint": "c2aa4f193f88f95387dbf6a1ee49da2c",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "frontend/src/components/analytics/grs-feature-popup.tsx"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
