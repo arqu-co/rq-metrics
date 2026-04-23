@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "worktree-magical-stirring-harbor",
+  "sha": "d977efb2abed75db85f56f6eff6563ae56819e8e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T15:12:12Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:55:51Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T01:56:08Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:55:52Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:55:49Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T15:12:07Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T15:12:00Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 lint\n> pnpm -r lint --max-warnings=0\n\nScope: 3 of 4 workspace projects\npackages/rq-tools lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-tools lint: sh: eslint: command not found\n/Users/jerrod/Sites/tools/.claude/worktrees/magical-stirring-harbor/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 lint: `eslint src --ext .ts --max-warnings=0`\nspawn ENOENT\n\u2009WARN\u2009  Local package.json exists, but node_modules missing, did you mean to install?\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 3 of 4 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: nodenv: tsc: command not found\npackages/rq-tools typecheck: The `tsc' command exists in these Node versions:\npackages/rq-tools typecheck:   24.11.1\n/Users/jerrod/Sites/tools/.claude/worktrees/magical-stirring-harbor/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 typecheck: `tsc --noEmit`\nspawn ENOENT\n\u2009WARN\u2009  Local package.json exists, but node_modules missing, did you mean to install?\n"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:56:15Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T01:56:00Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:56:13Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-23T13:30:00Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T15:12:09Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:56:12Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T01:56:06Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T15:12:05Z",
+      "fingerprint": "6b52b84b603b9c8444ed94c7c5313ba2",
+      "test_runner": "npm-test",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n> arqu-rq-monorepo@0.2.0 test\n> pnpm -r test\n\nScope: 3 of 4 workspace projects\npackages/rq-tools test$ vitest run\npackages/rq-tools test: sh: vitest: command not found\n/Users/jerrod/Sites/tools/.claude/worktrees/magical-stirring-harbor/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 test: `vitest run`\nspawn ENOENT\n\u2009WARN\u2009  Local package.json exists, but node_modules missing, did you mean to install?"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 47780.0
+}
