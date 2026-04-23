@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-7630-shareable-assets-upload-flow",
+  "sha": "f7524ba6cc8024b54194258cab1ff835dcc9921b",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-23T21:56:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "packages/rq-server/src/tools/risklab/shareable_assets_revoke.register.ts",
+      "line": 19,
+      "rule": "DEAD_CODE",
+      "message": "WRITE_DESTRUCTIVE imported in a second standalone import block when it could be merged into the existing @arqu-co/rq-tools import at line 15. Not dead, but the split is unnecessary style drift from other register files."
+    },
+    {
+      "file": "packages/rq-server/src/tools/risklab/shareable_assets_revoke.test.ts",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No 5xx / UPSTREAM_ERROR test case. shareable_assets_list has 7 tests including a malformed-upstream path; revoke has 4 and skips 5xx coverage entirely. A server-error reply (500) is the most common failure mode for a DELETE and should be exercised."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T21:56:00Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 lint\n> pnpm -r lint --max-warnings=0\n\nScope: 4 of 5 workspace projects\npackages/rq-tools lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-tools lint: Done\npackages/rq-cli lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-server lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-contract-test lint$ eslint src --max-warnings=0\npackages/rq-contract-test lint: sh: eslint: command not found\n/Users/jonathanthom/code/tools/packages/rq-contract-test:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-contract-test@0.1.0 lint: `eslint src --max-warnings=0`\nspawn ENOENT\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 4 of 5 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-contract-test typecheck$ tsc --noEmit\npackages/rq-contract-test typecheck: sh: tsc: command not found\n/Users/jonathanthom/code/tools/packages/rq-contract-test:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-contract-test@0.1.0 typecheck: `tsc --noEmit`\nspawn ENOENT\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
