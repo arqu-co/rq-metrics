@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-463-new-skill-github-issue-management--codif",
+  "sha": "b46367a5db6916da66f9525086d4734646032c19",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T12:35:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T12:35:04Z",
+      "scanned_files": 35,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
