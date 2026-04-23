@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "main",
+  "sha": "1987a45b4845c45b6d0139b1a8116d08d1c0f8f2",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T23:02:29Z",
+  "phase": "all",
+  "run_number": 5,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T23:02:29Z",
+      "test_runner": "bin-test",
+      "fingerprint": "18120d38faeb9578a840ffeffebd6b4a",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning all tests\u001b[0m\n\u001b[0;34m--- Backend ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: starting existing container...\u001b[0m\nrisklab-db\n\u001b[1;33m  redis: starting existing container...\u001b[0m\nrisklab-redis\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized)."
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
