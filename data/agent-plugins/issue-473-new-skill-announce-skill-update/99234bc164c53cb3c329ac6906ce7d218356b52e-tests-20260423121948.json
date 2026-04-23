@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-473-new-skill-announce-skill-update",
+  "sha": "99234bc164c53cb3c329ac6906ce7d218356b52e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T16:19:47Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T16:19:47Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f6297b493e03600ad769b5b8a2123ddb",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "parse_sarif.py                                                                                                                    37      7    81%   58-64\nparse_simplecov.py                                                                                                                29     29     0%   9-51\nparse_test_counts.py                                                                                                              53      8    85%   73-74, 78-82, 86\nparse_test_failures.py                                                                                                           182     27    85%   26, 58-59, 68, 77, 80-81, 94, 110, 125, 136, 145, 148-149, 159, 162-163, 178, 187-188, 214, 247, 255-257, 278-279\nphase_assembly.py                                                                                                                161      4    98%   121-123, 234\nphase_markers.py                                                                                                                  88      1    99%   142\nplan_claim_classify.py                                                                                                            72      1    99%   111\npr_resolver.py                                                                                                                    73      8    89%   44-47, 49, 105-106, 120\nrender_exceptions.py                                                                                                              83     83     0%   8-140\nrender_pr_failures.py                                                                                                             77      2    97%   96-97\nrender_pr_summary.py                                                                                                             142      4    97%   48, 118, 126, 191\nreport_tokens.py                                                                                                                 167      2    99%   68-69\nscan_disguised_mocks.py                                                                                                           40      3    92%   74, 76, 79\nsession_start_emit.py                                                                                                            169      8    95%   75-79, 91, 208, 294\ntest__rq_next_filter.py                                                                                                          101      2    98%   71-72\ntest_cache.py                                                                                                                    109      2    98%   17, 19\ntest_collect_metrics_cli.py                                                                                                       48      1    98%   25\ntest_commands_config.py                                                                                                           58      1    98%   21\ntest_do_link_pr_closes.py                                                                                                         62      1    98%   77\ntest_do_update_v2.py                                                                                                              99      2    98%   22, 24\ntest_effort_tiers.py                                                                                                             119      1    99%   225\ntest_hook_perf_summary_py.py                                                                                                     153      3    98%   280-282\ntest_issue_sync_helpers.py                                                                                                        67      4    94%   173, 180-181, 246\ntest_issue_sync_post_spec.py                                                                                                     137      2    99%   140-141\ntest_load_config.py                                                                                                              132      1    99%   69\ntest_parse_test_failures.py                                                                                                       79      2    97%   232-234\ntest_pr_resolver.py                                                                                                               91      2    98%   119-120\ntest_render_skills_by_cost.py                                                                                                     53      1    98%   21\ntest_run_gates_cache.py                                                                                                           61      2    97%   17, 19\ntest_session_start_emit_subprocess.py                                                                                            177      6    97%   96-97, 126-127, 140-141\ntest_token_cache_writer_concurrency.py                                                                                            48      4    92%   52-53, 59-60\ntest_token_report_issue_slicer2.py                                                                                                58      1    98%   31\ntest_token_report_issue_slicer.py                                                                                                 76      1    99%   31\ntest_token_report_render.py                                                                                                      105      1    99%   135\ntest_using_rq_table_consistency.py                                                                                                28      2    93%   23, 38\ntest_validate_rq_config.py                                                                                                       124      1    99%   179\ntoken_cache_writer.py                                                                                                            136     10    93%   34-35, 91-96, 238-239\ntoken_report_data.py                                                                                                             171      2    99%   92-93\ntoken_report_render.py                                                                                                           194      4    98%   172, 208, 224, 247\ntoken_report_render_skill.py                                                                                                      38      2    95%   36, 39\ntranscript_index.py                                                                                                               67      1    99%   57\nvalidate_proof.py                                                                                                                 59      6    90%   17-20, 66-68\n------------------------------------------------------------------------------------------------------------------------------------------------------------\nTOTAL                                                                                                                          18864    434    98%\n\n178 files skipped due to complete coverage.\nCoverage JSON written to file coverage.json\n=========================== short test summary info ============================\nFAILED test_audit_model_tiers.py::test_skill_count - assert 32 == 33\n1 failed, 1925 passed, 20 warnings in 85.67s (0:01:25)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
