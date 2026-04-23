@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-468-rq-cardinal-rules-enforcement-via-subage",
+  "sha": "3fa5bf15c724b9e357da1d91eabb2f8f85fe9a9a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T14:53:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/hooks/test_cardinal_rules_inject.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    },
+    {
+      "file": "plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T13:59:41Z",
+      "test_runner": "bin-test",
+      "fingerprint": "718c9208d327937f4463b6e6e4343fde",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
