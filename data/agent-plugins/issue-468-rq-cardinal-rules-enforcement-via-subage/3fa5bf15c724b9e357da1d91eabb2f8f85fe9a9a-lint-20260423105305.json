@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-468-rq-cardinal-rules-enforcement-via-subage",
+  "sha": "3fa5bf15c724b9e357da1d91eabb2f8f85fe9a9a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T14:53:05Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/hooks/test_cardinal_rules_inject.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    },
+    {
+      "file": "plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T14:53:04Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_hooks_json_shape.sh:134:3: note: See if you can use ${variable//search/replace} instead. [SC2001]\n./plugins/rq/hooks/test_hooks_json_shape.sh:152:3: note: See if you can use ${variable//search/replace} instead. [SC2001]\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh:22:6: note: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?. [SC2181]\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh:33:6: note: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?. [SC2181]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/cardinal-rules-we.sh\n./plugins/rq/hooks/test_cardinal_rules_bash.sh\n./plugins/rq/hooks/test_cardinal_rules_inject.sh\n./plugins/rq/hooks/test_cardinal_rules_we.sh\n./plugins/rq/hooks/test_hooks_json_shape.sh\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh\n./plugins/rq/hooks/test_rq_we_pre_dispatcher.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

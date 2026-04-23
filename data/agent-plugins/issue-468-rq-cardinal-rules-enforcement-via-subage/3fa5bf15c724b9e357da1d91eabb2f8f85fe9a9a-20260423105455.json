@@ -1,0 +1,175 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-468-rq-cardinal-rules-enforcement-via-subage",
+  "sha": "3fa5bf15c724b9e357da1d91eabb2f8f85fe9a9a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T14:54:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/hooks/test_cardinal_rules_inject.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    },
+    {
+      "file": "plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh",
+      "line": 2,
+      "rule": "LINT_SUPPRESS",
+      "message": "set -uo pipefail is missing -e flag; all bash scripts in this repo use set -euo pipefail per convention"
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:52:31Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T14:54:39Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 93000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:52:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:52:29Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:54:41Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T14:53:04Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/test_hooks_json_shape.sh:134:3: note: See if you can use ${variable//search/replace} instead. [SC2001]\n./plugins/rq/hooks/test_hooks_json_shape.sh:152:3: note: See if you can use ${variable//search/replace} instead. [SC2001]\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh:22:6: note: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?. [SC2181]\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh:33:6: note: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?. [SC2181]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/rq/hooks/cardinal-rules-we.sh\n./plugins/rq/hooks/test_cardinal_rules_bash.sh\n./plugins/rq/hooks/test_cardinal_rules_inject.sh\n./plugins/rq/hooks/test_cardinal_rules_we.sh\n./plugins/rq/hooks/test_hooks_json_shape.sh\n./plugins/rq/hooks/test_rq_subagent_start_dispatcher.sh\n./plugins/rq/hooks/test_rq_we_pre_dispatcher.sh\n"
+        }
+      ],
+      "duration_ms": 31000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:54:48Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:00:27Z"
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T14:53:06Z",
+      "duration_ms": 2000
+    },
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T14:54:46Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-we.sh",
+          "line": 18,
+          "snippet": "  *.quality/proof/*.json|*.quality/proof/*.jsonl)"
+        },
+        {
+          "file": "plugins/rq/hooks/cardinal-rules-we.sh",
+          "line": 25,
+          "snippet": "  *.quality/checkpoints/*)"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T14:54:52Z",
+      "duration_ms": 4000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T14:54:44Z",
+      "scanned_files": 34,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T13:59:43Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T13:59:41Z",
+      "fingerprint": "718c9208d327937f4463b6e6e4343fde",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 3311.0
+}
