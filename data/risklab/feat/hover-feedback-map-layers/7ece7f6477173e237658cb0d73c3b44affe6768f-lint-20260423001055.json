@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/hover-feedback-map-layers",
+  "sha": "7ece7f6477173e237658cb0d73c3b44affe6768f",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T07:10:55Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T07:10:54Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\ud83d\udd27 Running formatters (backend + frontend)\n\n\ud83d\udccb Running Backend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Backend Python Code Formatting\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 160ms on 1684 files using 12 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 302ms on 1686 files with 86 rules using 12 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Frontend formatting, linting, and type checks passed!\u001b[0m\n\n\u26a0\ufe0f  Partial formatting success\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Type checking failed\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
