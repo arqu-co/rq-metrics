@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/feature-info-popup-tlc",
+  "sha": "5427ac0f3e6cf3b656c75946c545a40f36bf5a12",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T16:54:42Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:54:42Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

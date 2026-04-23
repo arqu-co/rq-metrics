@@ -1,0 +1,152 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/feature-info-popup-tlc",
+  "sha": "5427ac0f3e6cf3b656c75946c545a40f36bf5a12",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-23T16:57:45Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T16:54:43Z",
+      "files_checked": 7,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/GrsFeaturePopup.tsx",
+          "function": "resolveHeaderTitle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/GrsFeaturePopup.tsx",
+          "function": "GrsFeaturePopup",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T16:57:41Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:54:44Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:54:42Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:41Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:55:00Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 16000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:44Z",
+      "duration_ms": 3000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T16:46:45Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:44Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T16:57:45Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:44Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:40Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 160000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T16:57:40Z",
+      "test_runner": "bin-test",
+      "fingerprint": "507b04019c4947e86bd3db09cb71560d",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 660.0
+}
