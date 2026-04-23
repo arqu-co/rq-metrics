@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "chore/move-producer-risklab-to-risk-specialist",
+  "sha": "b109a249a4896b131508ca269665a401814d0edd",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-23T15:57:44Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T15:57:44Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
