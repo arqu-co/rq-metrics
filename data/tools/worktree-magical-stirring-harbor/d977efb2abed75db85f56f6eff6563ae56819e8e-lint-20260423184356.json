@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "worktree-magical-stirring-harbor",
+  "sha": "d977efb2abed75db85f56f6eff6563ae56819e8e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T22:43:55Z",
+  "phase": "all",
+  "run_number": 4,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T22:43:54Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 lint\n> pnpm -r lint --max-warnings=0\n\nScope: 3 of 4 workspace projects\npackages/rq-tools lint$ eslint src --ext .ts --max-warnings=0\npackages/rq-tools lint: sh: eslint: command not found\n/Users/jerrod/Sites/tools/.claude/worktrees/magical-stirring-harbor/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 lint: `eslint src --ext .ts --max-warnings=0`\nspawn ENOENT\n\u2009WARN\u2009  Local package.json exists, but node_modules missing, did you mean to install?\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 3 of 4 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: nodenv: tsc: command not found\npackages/rq-tools typecheck: The `tsc' command exists in these Node versions:\npackages/rq-tools typecheck:   24.11.1\n/Users/jerrod/Sites/tools/.claude/worktrees/magical-stirring-harbor/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 typecheck: `tsc --noEmit`\nspawn ENOENT\n\u2009WARN\u2009  Local package.json exists, but node_modules missing, did you mean to install?\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
