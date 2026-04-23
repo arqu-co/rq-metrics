@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "issue-3477-featauth-consolidate-to-single-jwt-token",
+  "sha": "73d7e5ec147e96a042e3b5afc97a36d371c71ddd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T23:56:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T23:56:16Z",
+      "test_runner": "vitest",
+      "fingerprint": "78c74bcd5960df675f4bc279e77c5408",
+      "missing_tests": 1,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/capability/cookie/utils.vitest.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404\n          throw new CACError(`Unknown option \\`${name.length > 1 ? `--${name}` : `-${name}`}\\``);\n                ^\n\nCACError: Unknown option `--changedSince`\n    at Command.checkUnknownOptions (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404:17)\n    at CAC.runMatchedCommand (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:604:13)\n    at CAC.parse (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:545:12)\n    at file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/cli.js:27:13\n    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.11.1"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
