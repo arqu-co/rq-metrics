@@ -1,0 +1,42 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "velvety-sprouting-marshmallow",
+  "branch": "issue-463-new-skill-github-issue-management--codif",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T10:01:51.143Z",
+  "session_id": "f7293a6f-815f-4496-9221-2accb3862569",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 184645,
+    "output": 415675,
+    "cache_read": 122573173,
+    "cache_create": 4729800,
+    "est_cost_usd": 96.45132660000002
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 92703228,
+      "cost_usd": 75.11172395
+    },
+    "review#2": {
+      "tokens": 35200065,
+      "cost_usd": 21.33960265
+    }
+  }
+}
