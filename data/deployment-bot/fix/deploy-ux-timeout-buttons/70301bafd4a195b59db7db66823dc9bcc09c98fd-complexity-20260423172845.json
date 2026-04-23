@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/deploy-ux-timeout-buttons",
+  "sha": "70301bafd4a195b59db7db66823dc9bcc09c98fd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T21:28:44Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T21:28:43Z",
+      "files_checked": 15,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "deploy_bot.py",
+          "function": "command_handler",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/conftest.py",
+          "function": "command_handler",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/test_DatabaseManager.py",
+          "function": "TestGetAllDeploymentsByRepo",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/test_deploy_bot_buttons.py",
+          "function": "TestCancelButtonDispatch",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

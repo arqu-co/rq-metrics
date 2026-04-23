@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "fix/lucidrisq-web-auth-callback-redirect-uri",
+  "sha": "37abe0edba0ba7db6aaf32ef52c90ca7dfc218e2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T18:45:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T18:45:32Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d7e5f5c3c9e77a7edf53f4e3eddb90a6",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/integrationTest/kotlin/co/arqu/user/UserControllerIntegrationTest.kt",
+        "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2AuthorizationCodeFlowIntegrationTest.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

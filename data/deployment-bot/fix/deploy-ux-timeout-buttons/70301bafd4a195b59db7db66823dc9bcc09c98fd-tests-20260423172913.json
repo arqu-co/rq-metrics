@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/deploy-ux-timeout-buttons",
+  "sha": "70301bafd4a195b59db7db66823dc9bcc09c98fd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T21:29:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T21:29:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6e19164e2d424e4f748d2a3a026e9003",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/deploy-bot/tests/__pycache__/conftest.cpython-313-pytest-8.3.5.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.18s"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
