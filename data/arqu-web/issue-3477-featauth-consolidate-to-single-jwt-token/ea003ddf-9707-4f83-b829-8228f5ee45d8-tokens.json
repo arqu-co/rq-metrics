@@ -1,0 +1,46 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "arqu-web",
+  "branch": "issue-3477-featauth-consolidate-to-single-jwt-token",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T11:44:53.172Z",
+  "session_id": "ea003ddf-9707-4f83-b829-8228f5ee45d8",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5408,
+    "output": 117739,
+    "cache_read": 38019372,
+    "cache_create": 1467766,
+    "est_cost_usd": 16.23098177
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 3294266,
+      "cost_usd": 1.8634302
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 22139680,
+      "cost_usd": 8.77048644
+    },
+    "ship": {
+      "tokens": 7995502,
+      "cost_usd": 4.851464249999999
+    },
+    "unknown": {
+      "tokens": 6180837,
+      "cost_usd": 0.74560088
+    }
+  }
+}
