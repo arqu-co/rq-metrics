@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "issue-3-phase-2-worklog-cli-emit-config-host-res",
+  "sha": "8c65123f67eb19b1a26e4491f04b259dbe102e4b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T21:47:04Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T21:47:04Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
