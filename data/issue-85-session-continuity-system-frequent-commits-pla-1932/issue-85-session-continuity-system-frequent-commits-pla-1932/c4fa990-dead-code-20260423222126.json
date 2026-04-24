@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "branch": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "sha": "c4fa990",
+  "user": "unknown",
+  "timestamp": "2026-04-24T02:21:25Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T02:21:25Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/session-state-detector-coverage.test.ts",
+          "name": "expect",
+          "line": 1
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
