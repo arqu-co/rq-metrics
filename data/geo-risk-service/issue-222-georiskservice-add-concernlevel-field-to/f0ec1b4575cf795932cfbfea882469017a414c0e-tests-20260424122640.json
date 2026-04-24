@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "issue-222-georiskservice-add-concernlevel-field-to",
+  "sha": "f0ec1b4575cf795932cfbfea882469017a414c0e",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-24T19:26:40Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T19:26:39Z",
+      "fingerprint": "c0f2512ad2aa54dce7914aed8ad06364",
+      "test_runner": "none",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 1,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [
+        {
+          "subproject": "client-python",
+          "runner": "pytest",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "tests/test_client.py:9\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:9: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:29\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:29: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:48\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:48: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:67\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:67: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:35\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:35: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:48\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:48: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:60\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:60: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:72\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:72: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:86\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:86: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_auth.py::test_sigv4_without_session_token - Failed: async d...\nFAILED tests/test_client.py::test_build_client_with_profile_uses_sso - Failed...\nFAILED tests/test_client.py::test_build_client_on_cloud_run_service_uses_oidc\nFAILED tests/test_client.py::test_build_client_on_cloud_run_worker_pool_uses_oidc\nFAILED tests/test_client.py::test_build_client_no_profile_no_cloud_run_uses_sso_default\nERROR tests/test_auth.py::test_sigv4_signs_requests - pytest.PytestRemovedIn9...\nERROR tests/test_retry.py::test_retry_on_503 - pytest.PytestRemovedIn9Warning...\nERROR tests/test_retry.py::test_no_retry_on_success - pytest.PytestRemovedIn9...\nERROR tests/test_retry.py::test_no_retry_on_400 - pytest.PytestRemovedIn9Warn...\nERROR tests/test_retry.py::test_max_retries_exhausted - pytest.PytestRemovedI...\nERROR tests/test_retry.py::test_retry_re_signs_each_attempt - pytest.PytestRe...\n5 failed, 7 passed, 12 warnings, 6 errors in 1.99s"
+            }
+          ]
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

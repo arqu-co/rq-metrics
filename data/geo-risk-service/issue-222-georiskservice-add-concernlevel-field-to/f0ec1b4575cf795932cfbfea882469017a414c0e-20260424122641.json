@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "issue-222-georiskservice-add-concernlevel-field-to",
+  "sha": "f0ec1b4575cf795932cfbfea882469017a414c0e",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-24T19:26:40Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-2009",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:37Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 216000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:21:01Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:40Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:20:05Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:25:12Z",
+      "duration_ms": 27000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:45Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:25:15Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T16:26:46Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T19:24:45Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:25:14Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-2009": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ConcernLevelTest.kt",
+          "line": 10,
+          "severity": "minor",
+          "category": "style",
+          "title": "values() is deprecated in Kotlin 1.9+; use entries",
+          "body": "ConcernLevel.values().toList() uses the deprecated values() API. The project is on Kotlin 2.3.0, where values() has been superseded by the type-safe entries property (EnumEntries<ConcernLevel>) since Kotlin 1.9. The repo already follows the entries pattern \u2014 see Region.kt:22. Fix: replace ConcernLevel.values().toList() with ConcernLevel.entries.toList().",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T19:26:40Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:25:14Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:21:00Z",
+      "scanned_files": 27,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 55000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T19:26:39Z",
+      "test_runner": "none",
+      "fingerprint": "c0f2512ad2aa54dce7914aed8ad06364",
+      "failed_subprojects": 1,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [
+        {
+          "subproject": "client-python",
+          "runner": "pytest",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "tests/test_client.py:9\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:9: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:29\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:29: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:48\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:48: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_client.py:67\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_client.py:67: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:35\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:35: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:48\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:48: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:60\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:60: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:72\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:72: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_retry.py:86\n  /Users/jon/Repos/geo-risk-service.issue-222-georiskservice-add-concernlevel-field-to/client-python/tests/test_retry.py:86: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_auth.py::test_sigv4_without_session_token - Failed: async d...\nFAILED tests/test_client.py::test_build_client_with_profile_uses_sso - Failed...\nFAILED tests/test_client.py::test_build_client_on_cloud_run_service_uses_oidc\nFAILED tests/test_client.py::test_build_client_on_cloud_run_worker_pool_uses_oidc\nFAILED tests/test_client.py::test_build_client_no_profile_no_cloud_run_uses_sso_default\nERROR tests/test_auth.py::test_sigv4_signs_requests - pytest.PytestRemovedIn9...\nERROR tests/test_retry.py::test_retry_on_503 - pytest.PytestRemovedIn9Warning...\nERROR tests/test_retry.py::test_no_retry_on_success - pytest.PytestRemovedIn9...\nERROR tests/test_retry.py::test_no_retry_on_400 - pytest.PytestRemovedIn9Warn...\nERROR tests/test_retry.py::test_max_retries_exhausted - pytest.PytestRemovedI...\nERROR tests/test_retry.py::test_retry_re_signs_each_attempt - pytest.PytestRe...\n5 failed, 7 passed, 12 warnings, 6 errors in 1.99s"
+            }
+          ]
+        }
+      ],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 84000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 10794.0
+}
