@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-160-feat-add-mode-analytics-mcp-tool-group-l",
+  "sha": "a4114a41c2453b44a39ba4f7cf3b453ce51ec7d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:29:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:29:19Z",
+      "files_checked": 34,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/config.ts",
+          "function": "loadConfig",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/mode/mode_report_run.ts",
+          "function": "modeReportRunHandler",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/mode/mode_report_fetch.ts",
+          "function": "modeReportFetchHandler",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

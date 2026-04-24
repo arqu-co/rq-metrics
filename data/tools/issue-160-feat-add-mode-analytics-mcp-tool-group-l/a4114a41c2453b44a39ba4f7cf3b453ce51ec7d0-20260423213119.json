@@ -1,0 +1,192 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-160-feat-add-mode-analytics-mcp-tool-group-l",
+  "sha": "a4114a41c2453b44a39ba4f7cf3b453ce51ec7d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:31:18Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:29:19Z",
+      "files_checked": 34,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/config.ts",
+          "function": "loadConfig",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/mode/mode_report_run.ts",
+          "function": "modeReportRunHandler",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/mode/mode_report_fetch.ts",
+          "function": "modeReportFetchHandler",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:31:05Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:29:28Z",
+      "files_checked": 34,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 9000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:29:14Z",
+      "files_checked": 34,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-tools/src/tools/mode/mode_report_fetch.test.ts",
+          "lines": 319,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:31:06Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:30:25Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 57000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:31:12Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T23:17:38Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T01:30:26Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:31:10Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:31:16Z",
+      "duration_ms": 4000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:31:09Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:31:03Z",
+      "scanned_files": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:30:59Z",
+      "fingerprint": "9e594a69b10f1c0d83198c60ea40a26a",
+      "test_runner": "npm-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 1,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [
+        {
+          "subproject": "rq-server",
+          "runner": "bin-test",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...y.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...n.register.ts |     100 |      100 |     100 |     100 |                   \n  ...n.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  test-helpers.ts  |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...v.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n src/tools/tower   |     100 |      100 |     100 |     100 |                   \n  index.ts         |     100 |      100 |     100 |     100 |                   \n  ...m.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...r-fixtures.ts |     100 |      100 |     100 |     100 |                   \n  ...r.register.ts |     100 |      100 |     100 |     100 |                   \n src/tools/user    |     100 |      100 |     100 |     100 |                   \n  index.ts         |     100 |      100 |     100 |     100 |                   \n  ...d.register.ts |     100 |      100 |     100 |     100 |                   \n-------------------|---------|----------|---------|---------|-------------------\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for branches (83.33%) does not meet global threshold (90%) for src/mcp.ts\n[vpw:debug] Shutting down runtimes...\n[vpw:debug] Disposing remote proxy sessions..."
+            }
+          ]
+        }
+      ],
+      "duration_ms": 33000
+    },
+    "work-structure-sync": {
+      "status": "fail"
+    }
+  },
+  "duration_seconds": 8018.0
+}
