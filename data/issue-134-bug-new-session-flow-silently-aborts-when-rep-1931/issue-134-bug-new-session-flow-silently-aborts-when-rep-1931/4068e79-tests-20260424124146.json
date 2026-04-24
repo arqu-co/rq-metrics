@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "issue-134-bug-new-session-flow-silently-aborts-when-rep-1931",
+  "branch": "issue-134-bug-new-session-flow-silently-aborts-when-rep-1931",
+  "sha": "4068e79",
+  "user": "unknown",
+  "timestamp": "2026-04-24T16:41:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T16:41:46Z",
+      "fingerprint": "b8cab4bc79540812e4c0b0609545795b",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useTerminalPanel.test.ts:99:24\n     97|     const resolved = { repo: \"real-repo\", branch: \"issue-1-foo-0001\", \u2026\n     98|     sessions.launch.mockResolvedValueOnce(resolved);\n     99|     const { result } = renderHook(() => useTerminalPanel(null, session\u2026\n       |                        ^\n    100|     const container = document.createElement(\"div\");\n    101|     document.body.appendChild(container);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[56/115]\u23af\n\n FAIL  client/src/hooks/useTerminalPanel.test.ts > useTerminalPanel refit coalescing + hidden-container guard > debounces ResizeObserver \u2192 fit at 100ms (one fit after many observer callbacks)\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useTerminalPanel.test.ts:144:25\n    142|     const branch = { repo: \"r\", branch: \"b\", sessions: [] as any[] };\n    143|     vi.useFakeTimers();\n    144|     const { unmount } = renderHook(() => useTerminalPanel(branch, sess\u2026\n       |                         ^\n    145|       wrapper: ({ children }) => {\n    146|         const parent = document.body;\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[57/115]\u23af\n\n FAIL  client/src/hooks/useTerminalPanel.test.ts > useTerminalPanel refit coalescing + hidden-container guard > does not call fitAddon.fit when container is zero-sized\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useTerminalPanel.test.ts:177:5\n    175|     } as any;\n    176|     const branch = { repo: \"r\", branch: \"b\", sessions: [] as any[] };\n    177|     renderHook(() => useTerminalPanel(branch, sessions));\n       |     ^\n    178|     // Force the display-switch effect's refit path.\n    179|     // Without waiting, fit should still not be called because offsetW\u2026\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[58/115]\u23af\n\n\n Test Files  7 failed | 13 passed (20)\n      Tests  58 failed | 201 passed (259)\n   Start at  12:41:42\n   Duration  3.83s (transform 1.45s, setup 0ms, import 3.32s, tests 7.87s, environment 5.72s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
