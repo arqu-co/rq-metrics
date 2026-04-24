@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "chore/bin-deploy-stage-arg",
+  "sha": "db9fade4929b6898157172a7b6279553941a2506",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T17:32:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T17:32:44Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
