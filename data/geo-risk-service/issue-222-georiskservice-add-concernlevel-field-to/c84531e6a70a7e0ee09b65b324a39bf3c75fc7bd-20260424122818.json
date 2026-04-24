@@ -1,0 +1,170 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "issue-222-georiskservice-add-concernlevel-field-to",
+  "sha": "c84531e6a70a7e0ee09b65b324a39bf3c75fc7bd",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-24T19:28:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-2009",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:37Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 216000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:21:01Z",
+      "files_checked": 0,
+      "coverage_tool": "jacoco",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:40Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:20:05Z",
+      "files_checked": 40,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:28:13Z",
+      "duration_ms": 208000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:45Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:28:16Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T16:26:46Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T19:24:45Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:28:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-2009": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ConcernLevelTest.kt",
+          "line": 10,
+          "severity": "minor",
+          "category": "style",
+          "title": "values() is deprecated in Kotlin 1.9+; use entries",
+          "body": "ConcernLevel.values().toList() uses the deprecated values() API. The project is on Kotlin 2.3.0, where values() has been superseded by the type-safe entries property (EnumEntries<ConcernLevel>) since Kotlin 1.9. The repo already follows the entries pattern \u2014 see Region.kt:22. Fix: replace ConcernLevel.values().toList() with ConcernLevel.entries.toList().",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T19:28:17Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:28:15Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:21:00Z",
+      "scanned_files": 27,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 55000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:28:13Z",
+      "test_runner": "none",
+      "fingerprint": "c0f2512ad2aa54dce7914aed8ad06364",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 10891.0
+}
