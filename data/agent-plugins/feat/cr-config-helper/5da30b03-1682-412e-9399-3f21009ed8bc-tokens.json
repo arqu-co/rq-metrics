@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "goofy-forging-wozniak",
+  "branch": "feat/cr-config-helper",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:38:46.741Z",
+  "session_id": "5da30b03-1682-412e-9399-3f21009ed8bc",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 9498,
+    "output": 608981,
+    "cache_read": 265645321,
+    "cache_create": 11923672,
+    "est_cost_usd": 195.57298415
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 7137452,
+      "cost_usd": 5.567539
+    },
+    "pr-feedback": {
+      "tokens": 269944406,
+      "cost_usd": 188.42074810000003
+    },
+    "unknown": {
+      "tokens": 1105614,
+      "cost_usd": 1.58469705
+    }
+  }
+}
