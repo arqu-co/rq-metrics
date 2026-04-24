@@ -1,0 +1,188 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "issue-1-mvp-worklog-single-pane-of-glass-server-",
+  "sha": "1659f87ec0c06df7854de56ec2b8d4b637f2d75c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T20:40:55Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "review-wip-reviewer-9999",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:43Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T20:40:47Z",
+      "files_checked": 10,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/server.ts",
+          "name": "type Context",
+          "line": 2
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:40Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 177000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:50Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:54Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:35:04Z",
+      "duration_ms": 0
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:53Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "tsconfig.json",
+          "line": 26,
+          "severity": "important",
+          "category": "plan-compliance",
+          "title": "include omits web/**/*.ts",
+          "body": "Plan specifies include: [\"src/**/*\", \"web/**/*\", \"tests/**/*\"] but tsconfig.json has [\"src/**/*.ts\", \"tests/**/*.ts\", \"index.ts\"]. web/ is missing. Task 3 creates the web/ directory and Tasks in Phase 3 will place frontend TypeScript there. When those files land, tsc --noEmit will silently skip them. Fix: add \"web/**/*.ts\" to the include array.",
+          "confidence": "high"
+        },
+        {
+          "file": "index.ts",
+          "line": 1,
+          "severity": "important",
+          "category": "correctness",
+          "title": "bun init placeholder index.ts should be removed",
+          "body": "index.ts contains only 'console.log(\"Hello via Bun!\")' \u2014 a bun init artifact. The real entry is src/server.ts (Task 7). This file is committed, included in tsconfig (line 26), and will confuse anyone running 'bun run index.ts' expecting the server. It is also dead code from day one. Fix: delete index.ts and remove it from tsconfig include. The dev/test scripts all point to src/server.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": ".gitignore",
+          "line": 35,
+          "severity": "minor",
+          "category": "hygiene",
+          "title": ".cursor/ directory not excluded in .gitignore",
+          "body": ".cursor/ is untracked (shown in git status --porcelain) but not listed in .gitignore. Any team member or CI using Cursor will accumulate untracked noise. Fix: add '.cursor/' to the editors/os section of .gitignore.",
+          "confidence": "high"
+        },
+        {
+          "file": "biome.json",
+          "line": 2,
+          "severity": "minor",
+          "category": "maintainability",
+          "title": "biome.json $schema hardcodes version 2.4.13 instead of latest",
+          "body": "'$schema': 'https://biomejs.dev/schemas/2.4.13/schema.json' will become stale when biome is upgraded. IDE schema validation will silently use old rules. Fix: use 'https://biomejs.dev/schemas/latest/schema.json' (as the plan specifies) so the schema always matches the installed version.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:40:52Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:40Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:37:43Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 159000
+    }
+  },
+  "duration_seconds": 4574.0
+}
