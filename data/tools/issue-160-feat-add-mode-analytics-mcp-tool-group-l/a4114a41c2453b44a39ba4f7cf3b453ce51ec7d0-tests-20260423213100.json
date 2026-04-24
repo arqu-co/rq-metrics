@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-160-feat-add-mode-analytics-mcp-tool-group-l",
+  "sha": "a4114a41c2453b44a39ba4f7cf3b453ce51ec7d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:31:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:30:59Z",
+      "test_runner": "npm-test",
+      "fingerprint": "9e594a69b10f1c0d83198c60ea40a26a",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 1,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [
+        {
+          "subproject": "rq-server",
+          "runner": "bin-test",
+          "failures": [
+            {
+              "test": "(unparsed output)",
+              "message": "  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...y.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...n.register.ts |     100 |      100 |     100 |     100 |                   \n  ...n.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...s.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  test-helpers.ts  |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n  ...v.register.ts |     100 |      100 |     100 |     100 |                   \n  ...e.register.ts |     100 |      100 |     100 |     100 |                   \n src/tools/tower   |     100 |      100 |     100 |     100 |                   \n  index.ts         |     100 |      100 |     100 |     100 |                   \n  ...m.register.ts |     100 |      100 |     100 |     100 |                   \n  ...t.register.ts |     100 |      100 |     100 |     100 |                   \n  ...r-fixtures.ts |     100 |      100 |     100 |     100 |                   \n  ...r.register.ts |     100 |      100 |     100 |     100 |                   \n src/tools/user    |     100 |      100 |     100 |     100 |                   \n  index.ts         |     100 |      100 |     100 |     100 |                   \n  ...d.register.ts |     100 |      100 |     100 |     100 |                   \n-------------------|---------|----------|---------|---------|-------------------\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_list.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_run.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_status.register.ts\nERROR: Coverage for lines (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for functions (50%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for statements (33.33%) does not meet global threshold (95%) for src/tools/mode/mode_report_fetch.register.ts\nERROR: Coverage for branches (83.33%) does not meet global threshold (90%) for src/mcp.ts\n[vpw:debug] Shutting down runtimes...\n[vpw:debug] Disposing remote proxy sessions..."
+            }
+          ]
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
