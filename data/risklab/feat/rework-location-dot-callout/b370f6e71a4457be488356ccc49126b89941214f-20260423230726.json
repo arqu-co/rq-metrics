@@ -1,0 +1,146 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/rework-location-dot-callout",
+  "sha": "b370f6e71a4457be488356ccc49126b89941214f",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-24T06:07:26Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:36Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T06:07:25Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:37Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:34Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 80000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:50Z",
+      "duration_ms": 13000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:50Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:53Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T07:23:03Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:52Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-23T21:10:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T21:09:55Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:03:52Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:02:14Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T06:07:24Z",
+      "fingerprint": "162a143f624ac40a64c8e9452e3825a2",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 211000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 81862.0
+}
