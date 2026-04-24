@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "branch": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "sha": "eea0869",
+  "user": "unknown",
+  "timestamp": "2026-04-24T02:32:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T02:32:22Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "server/__tests__/app-routes-debug.test.ts(102,7): error TS2322: Type '() => { id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }[]' is not assignable to type '() => TerminalSession[]'.\n  Type '{ id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }[]' is not assignable to type 'TerminalSession[]'.\n    Property 'startedAt' is missing in type '{ id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }' but required in type 'TerminalSession'.\nserver/__tests__/managed-terminal.test.ts(76,3): error TS2322: Type '{ id: string; pid: number; createdAt: string; startedAt?: string | undefined; cols: number; rows: number; cwd?: string | undefined; branch?: string | undefined; repo?: string | undefined; branchKey?: string | undefined; }' is not assignable to type 'TerminalSession'.\n  Types of property 'startedAt' are incompatible.\n    Type 'string | undefined' is not assignable to type 'string'.\n      Type 'undefined' is not assignable to type 'string'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "server/__tests__/app-routes-debug.test.ts(102,7): error TS2322: Type '() => { id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }[]' is not assignable to type '() => TerminalSession[]'.\n  Type '{ id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }[]' is not assignable to type 'TerminalSession[]'.\n    Property 'startedAt' is missing in type '{ id: string; pid: number; cols: number; rows: number; cwd: string; branch: string; repo: string; branchKey: string; createdAt: string; }' but required in type 'TerminalSession'.\nserver/__tests__/managed-terminal.test.ts(76,3): error TS2322: Type '{ id: string; pid: number; createdAt: string; startedAt?: string | undefined; cols: number; rows: number; cwd?: string | undefined; branch?: string | undefined; repo?: string | undefined; branchKey?: string | undefined; }' is not assignable to type 'TerminalSession'.\n  Types of property 'startedAt' are incompatible.\n    Type 'string | undefined' is not assignable to type 'string'.\n      Type 'undefined' is not assignable to type 'string'.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
