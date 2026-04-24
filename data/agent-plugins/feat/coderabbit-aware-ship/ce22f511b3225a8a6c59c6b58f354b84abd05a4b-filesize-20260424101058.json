@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/coderabbit-aware-ship",
+  "sha": "ce22f511b3225a8a6c59c6b58f354b84abd05a4b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T14:10:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T14:10:56Z",
+      "files_checked": 6,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "lines": 313,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "plugins/rq/scripts/test_pr_verdict.sh",
+          "lines": 303,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
