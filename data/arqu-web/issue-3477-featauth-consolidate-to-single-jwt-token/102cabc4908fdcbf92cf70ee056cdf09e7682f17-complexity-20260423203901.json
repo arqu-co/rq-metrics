@@ -1,0 +1,1952 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "issue-3477-featauth-consolidate-to-single-jwt-token",
+  "sha": "102cabc4908fdcbf92cf70ee056cdf09e7682f17",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T00:39:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T00:39:00Z",
+      "files_checked": 228,
+      "violations": 274,
+      "violations_details": [
+        {
+          "file": "public/lib/ui/chunks/116.chunk.js",
+          "function": "relativeTimeFormatter",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/24.chunk.js",
+          "function": "r",
+          "complexity": 39,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/component/common/SpotlightDialogContent.vitest.ts",
+          "function": "getWrapper",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/views/deal/new/info-step/CreateDealInfoStep.vitest.ts",
+          "function": "getWrapper",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/113.chunk.js",
+          "function": "n",
+          "complexity": 39,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/135.chunk.js",
+          "function": "M",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/103.chunk.js",
+          "function": "a",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/WasmThread.js",
+          "function": "writeChunk",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/WasmThread.js",
+          "function": "read",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/WasmThread.js",
+          "function": "handleMessage",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "oa",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "x",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "y",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "h",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "e",
+          "complexity": 29,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "b",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "a",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "da",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "n",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "z",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "w",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "da",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "oa",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "ea",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "function": "n",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/component/risk-narratives/slide/VisualStage.vitest.ts",
+          "function": "getWrapper",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/117.chunk.js",
+          "function": "relativeTimeFormatter",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/20.chunk.js",
+          "function": "bY",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/20.chunk.js",
+          "function": "bY",
+          "lines": 124,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "function": "fa",
+          "complexity": 35,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "function": "h",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "function": "e",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "function": "fa",
+          "lines": 100,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "function": "b",
+          "lines": 163,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/common/RiskNarrativeTextEditor.vitest.ts",
+          "function": "isActive",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/common/RiskNarrativeTextEditor.vitest.ts",
+          "function": "getEditorInstance",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/common/RiskNarrativeTextEditor.vitest.ts",
+          "function": "makeEditor",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/WebViewerServerPartRetriever.chunk.js",
+          "function": "ka",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/WebViewerServerPartRetriever.chunk.js",
+          "function": "z",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/WebViewerServerPartRetriever.chunk.js",
+          "function": "z",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "q",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "h",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "B",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "D",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "f",
+          "complexity": 34,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "y",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "G",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "I",
+          "complexity": 27,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "F",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "k",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "function": "q",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "l",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "update",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "finish",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "start",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "z",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "t",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "function": "l",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/legacyOffice/LegacyOfficeWorker.js",
+          "function": "o",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/legacyOffice/LegacyOfficeWorker.js",
+          "function": "u",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "oa",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "la",
+          "complexity": 24,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "x",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "config",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "setDate",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "draw",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "adjustPosition",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "render",
+          "complexity": 44,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "oa",
+          "lines": 125,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "function": "render",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/108.chunk.js",
+          "function": "i",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "la",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "z",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "ja",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "ma",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "sa",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "function": "K5",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/office/OfficeWorker.js",
+          "function": "h",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/office/OfficeWorker.js",
+          "function": "c",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/office/OfficeWorker.js",
+          "function": "h",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "stringToUTF8Array",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "_emscripten_futex_wake",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "_emscripten_futex_wait",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "_emscripten_set_canvas_element_size_calling_thread",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "_pthread_create",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "createWasm",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "loadWasmModuleToWorker",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "__spawn_thread",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "function": "_pthread_create",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "n",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "a",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Eb",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "he",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "hc",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "ge",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "be",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Nc",
+          "complexity": 52,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Ba",
+          "complexity": 28,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Yb",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "pb",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "ie",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Pc",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "ke",
+          "complexity": 44,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Cc",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Fc",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "fc",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "gb",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "E",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "he",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Nc",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Ba",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "ie",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "ke",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "function": "Fc",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "q",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "q",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "e",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "writeChunk",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "read",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "u",
+          "lines": 79,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "e",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "onRuntimeInitialized",
+          "lines": 682,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "function": "setup",
+          "lines": 205,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "UTF8ArrayToString",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "stringToUTF8Array",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "read",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "get_char",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "createNode",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "write",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "mmap",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "lookupPath",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "mount",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "rename",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "open",
+          "complexity": 26,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "read",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "write",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "LazyUint8Array_cacheLength",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "doStat",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "___sys_fcntl64",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "___sys_getdents64",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "___sys_ioctl",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "_fd_seek",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "callMain",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "runWithFS",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "createWasm",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "createNode",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "rename",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "open",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "createDevice",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "createLazyFile",
+          "lines": 136,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "LazyUint8Array_cacheLength",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "___sys_getdents64",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "function": "_strftime",
+          "lines": 257,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "value",
+          "complexity": 31,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "value",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "A",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "value",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "function": "value",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "dd",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Ld",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Pd",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Qd",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "ae",
+          "complexity": 40,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "isConnected",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "textContent",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "insertBefore",
+          "complexity": 36,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "removeChild",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Ke",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "activeElement",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "of",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "pf",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Le",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "xe",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "T",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "sg",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Bg",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Gg",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Fg",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Qg",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Zg",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "gh",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "xh",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Lh",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "xi",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "zi",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Oi",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "dj",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "e",
+          "complexity": 166,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "pd",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Pd",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "ae",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Qg",
+          "lines": 115,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "Tg",
+          "lines": 93,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "function": "e",
+          "lines": 218,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "A",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "_e",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Oe",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Ze",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Qe",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "it",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "ut",
+          "complexity": 16,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "fn",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "fn",
+          "complexity": 35,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "fn",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "r",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "show",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "hide",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "D",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Z",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "cn",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Cn",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Lo",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "jo",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Uo",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "cellRangeRenderer",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "pr",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Ar",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 25,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "vi",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "c",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Qe",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "at",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "ut",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "fn",
+          "lines": 121,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "fn",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "Jt",
+          "lines": 544,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "show",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "cn",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 113,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "n",
+          "lines": 94,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 75,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 90,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 81,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "n",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "pr",
+          "lines": 139,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "n",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "n",
+          "lines": 118,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "value",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "t",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "c",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "function": "e",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

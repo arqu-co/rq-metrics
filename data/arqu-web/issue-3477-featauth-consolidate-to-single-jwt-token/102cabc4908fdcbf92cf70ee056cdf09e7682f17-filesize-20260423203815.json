@@ -1,0 +1,292 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "issue-3477-featauth-consolidate-to-single-jwt-token",
+  "sha": "102cabc4908fdcbf92cf70ee056cdf09e7682f17",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T00:38:15Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T00:38:14Z",
+      "files_checked": 235,
+      "violations": 43,
+      "violations_details": [
+        {
+          "file": "public/lib/core/ContentEdit.chunk.js",
+          "lines": 1006,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/DecryptWorker.js",
+          "lines": 746,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/ExternalAnnotationMerger.chunk.js",
+          "lines": 319,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/PDFInfoVersion1.chunk.js",
+          "lines": 424,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/SelectionInfoOld.chunk.js",
+          "lines": 414,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/WebViewerServerPartRetriever.chunk.js",
+          "lines": 1013,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/Worker.js",
+          "lines": 3503,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServer.js",
+          "lines": 5150,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/contentEdit/InfixServerModule.js",
+          "lines": 2394,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/Promise.js",
+          "lines": 324,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/decode.min.js",
+          "lines": 791,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/model-viewer-1.3.0.min.js",
+          "lines": 28263,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/model-viewer-legacy-1.3.0.min.js",
+          "lines": 46298,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/pako_inflate.min.js",
+          "lines": 1412,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/external/webcomponents-bundle.js",
+          "lines": 6061,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/legacyOffice/LegacyOfficeWorker.js",
+          "lines": 1088,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/office/OfficeWorker.js",
+          "lines": 1750,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFNet.js",
+          "lines": 16406,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFNet.prod.js",
+          "lines": 17362,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pdf/PDFworker.js",
+          "lines": 5421,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pdf/WasmThread.js",
+          "lines": 918,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pdf/simple_wasm/MemGrow.js",
+          "lines": 2490,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/pikaday.chunk.js",
+          "lines": 712,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/vendors.pako.chunk.js",
+          "lines": 2375,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/core/webviewer-core.min.js",
+          "lines": 81188,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/ui/chunks/2.chunk.js",
+          "lines": 11104,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/ui/chunks/vendors.html2canvas.chunk.js",
+          "lines": 5542,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/ui/style.css",
+          "lines": 17965,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "public/lib/ui/webviewer-ui.min.js",
+          "lines": 134838,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/capability/admin/risk-narrative-automation/rn-import.vitest.ts",
+          "lines": 532,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/capability/admin/risk-narrative-automation/utils.vitest.ts",
+          "lines": 353,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/email-client/AdminEmailMarketAssignmentApprovalComponent.vitest.ts",
+          "lines": 813,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/RiskConsiderationsSection/RiskConsiderationsSection.vitest.ts",
+          "lines": 417,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/RiskConsiderationsSection/SelectedConsideration/SelectedConsideration.vitest.ts",
+          "lines": 344,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/RiskNarrativesSection/SelectedSlide/SelectedSlide.vitest.ts",
+          "lines": 387,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/RiskNarrativesSection/SlideEditor/VisualizationUpload.vitest.ts",
+          "lines": 306,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/admin/risk-narrative-automation/common/RiskNarrativeTextEditor.vitest.ts",
+          "lines": 541,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/arqu-components/shadcn/extensions/ComboboxMulti.vitest.ts",
+          "lines": 302,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/billing/BillingInvoiceEditDialog.vitest.ts",
+          "lines": 938,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/clearing-submission/clearing-submission-draft/ClearingSubmissionContactFilter.vitest.ts",
+          "lines": 742,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/program/ProgramImportInsCipherDialog.vitest.ts",
+          "lines": 626,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/component/risk-narratives/viewer/NarrativeViewer.vitest.ts",
+          "lines": 416,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/styles/app.css",
+          "lines": 703,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
