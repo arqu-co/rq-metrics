@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/coderabbit-aware-ship",
+  "sha": "5635413d59a4daa70fc4ac5c93935982a0aa60a5",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T15:01:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T15:01:49Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
