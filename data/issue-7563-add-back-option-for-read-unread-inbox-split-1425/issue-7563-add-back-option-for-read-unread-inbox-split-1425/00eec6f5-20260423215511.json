@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "repo": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "branch": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "sha": "00eec6f5",
+  "user": "unknown",
+  "timestamp": "2026-04-24T01:55:11Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:54:01Z",
+      "files_checked": 17,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 108,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 256,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:54:02Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:54:00Z",
+      "files_checked": 17,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:54:37Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 35000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:55:10Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 33000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:55:10Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a40e9c7cfde5ad0a07253f81a2edb691",
+      "missing_tests": 1,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "src/stores/sectioned-inbox.fixtures.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  68 failed | 267 passed (335)\n      Tests  434 failed | 5240 passed (5674)\n     Errors  1 error\n   Start at  21:54:38\n   Duration  31.49s (transform 16.09s, setup 6.07s, collect 132.20s, tests 33.87s, environment 148.74s, prepare 23.57s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 70.0
+}
