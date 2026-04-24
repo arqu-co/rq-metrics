@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "eventproc",
+  "branch": "worktree-structured-watching-waterfall",
+  "sha": "f1d6540ffe0e277d6458dacf77ad19e346474503",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T19:55:48Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T19:55:48Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "gradle-check",
+          "exit_code": 1,
+          "output": "e: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/lifecycle/SpringHasStartedServiceImpl.kt: (82, 60): Unresolved reference: MyVersionInfo\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/lifecycle/SpringHasStartedServiceImpl.kt: (83, 73): Unresolved reference: MyVersionInfo\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizer.kt: (3, 26): Unresolved reference: generated\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizer.kt: (11, 99): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (7, 26): Unresolved reference: generated\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (28, 81): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (28, 121): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (33, 26): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (33, 105): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (37, 78): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (42, 74): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (47, 115): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/mailgun/MailgunWebhookPayloadNormalizerImpl.kt: (145, 30): Unresolved reference: SystemEventDto\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/requestInfo/RequestInfoController.kt: (4, 26): Unresolved reference: version\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/requestInfo/RequestInfoController.kt: (25, 35): Unresolved reference: MyVersionInfo\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/requestInfo/RequestInfoController.kt: (26, 35): Unresolved reference: MyVersionInfo\ne: /Users/jerrod/Sites/eventproc/.claude/worktrees/structured-watching-waterfall/src/main/kotlin/co/arqu/eventproc/requestInfo/RequestInfoController.kt: (27, 48): Unresolved reference: MyVersionInfo\n\nFAILURE: Build completed with 2 failures.\n\n1: Task failed with an exception.\n-----------\n* What went wrong:\nExecution failed for task ':generateGitProperties'.\n> Error while evaluating property 'generatedProperties' of task ':generateGitProperties'\n   > gradlegitproperties.org.eclipse.jgit.errors.RepositoryNotFoundException: repository not found: /Users/jerrod/Sites/eventproc/.git/worktrees/structured-watching-waterfall\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n==============================================================================\n\n2: Task failed with an exception.\n-----------\n* What went wrong:\nExecution failed for task ':compileKotlin'.\n> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction\n   > Compilation error. See log for more details\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n==============================================================================\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 48s\n6 actionable tasks: 6 executed\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
