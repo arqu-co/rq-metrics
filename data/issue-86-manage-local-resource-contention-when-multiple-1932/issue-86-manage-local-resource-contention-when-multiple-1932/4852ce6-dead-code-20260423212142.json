@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "issue-86-manage-local-resource-contention-when-multiple-1932",
+  "branch": "issue-86-manage-local-resource-contention-when-multiple-1932",
+  "sha": "4852ce6",
+  "user": "unknown",
+  "timestamp": "2026-04-24T01:21:42Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:21:42Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/app.ts",
+          "name": "type TestSlotManager",
+          "line": 19
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
