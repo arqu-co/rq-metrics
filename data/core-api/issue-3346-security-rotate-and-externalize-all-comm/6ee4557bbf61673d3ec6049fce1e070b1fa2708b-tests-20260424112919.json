@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3346-security-rotate-and-externalize-all-comm",
+  "sha": "6ee4557bbf61673d3ec6049fce1e070b1fa2708b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T15:29:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T15:29:18Z",
+      "test_runner": "bin-test",
+      "fingerprint": "57b586612bacfb33543864eeab607b3c",
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/config/OpenAIConfig.kt",
+        "src/unitTest/kotlin/co/arqu/config/OpenAIConfigValidateApiKeysTest.kt"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
