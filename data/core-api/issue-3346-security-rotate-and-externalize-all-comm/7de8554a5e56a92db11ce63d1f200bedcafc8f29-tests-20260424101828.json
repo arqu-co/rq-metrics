@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3346-security-rotate-and-externalize-all-comm",
+  "sha": "7de8554a5e56a92db11ce63d1f200bedcafc8f29",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T14:18:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T14:18:27Z",
+      "fingerprint": "1abcbd101e459960bdf65e2f8908baa0",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\nWebAuthnServiceTest > verifyAuthentication should return null when credential belongs to different user() STARTED\n\u001b[0K\u001b[1mco.arqu.user.passkey.WebAuthnServiceTest\u001b[22m verifyAuthentication should return null when credential belongs to different user()\u001b[32m PASSED\u001b[m\n\nWebAuthnServiceTest > verifyAuthentication should return null when credential belongs to different user() PASSED\n\nWebAuthnServiceTest > deleteCredential should return false when credential not found() STARTED\n\u001b[0K\u001b[1mco.arqu.user.passkey.WebAuthnServiceTest\u001b[22m deleteCredential should return false when credential not found()\u001b[32m PASSED\u001b[m\n\nWebAuthnServiceTest > deleteCredential should return false when credential not found() PASSED\n\nWebAuthnServiceTest > updateCredentialName should return null when credential not found() STARTED\n\u001b[0K\u001b[1mco.arqu.user.passkey.WebAuthnServiceTest\u001b[22m updateCredentialName should return null when credential not found()\u001b[32m PASSED\u001b[m\n\nWebAuthnServiceTest > updateCredentialName should return null when credential not found() PASSED\n\nDeepCopyUtilsTest > test deep copy on address should succeed() STARTED\n\u001b[0K\u001b[1mco.arqu.util.DeepCopyUtilsTest\u001b[22m test deep copy on address should succeed()\u001b[32m PASSED\u001b[m\n\nDeepCopyUtilsTest > test deep copy on address should succeed() PASSED\n\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should detect SOV header in test files()\u001b[32m PASSED\u001b[33m (1.9s)\u001b[m\n\nSOVReaderServiceTest > should detect SOV header in test files() PASSED\n\n\u001b[0K\u001b[1;31mFAILURE: \u001b[39mExecuted 1347 tests in 18.1s (10 failed)\u001b[m\n\n\n1347 tests completed, 10 failed\n\n> Task :unitTests FAILED\nKotlin build report is written to file:///Users/jerrod/Sites/core-api/.claude/worktrees/prancy-splashing-candle/build/reports/kotlin-build/core-build-2026-04-24-10-18-26-0.txt\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':unitTests'.\n> There were failing tests. See the report at: file:///Users/jerrod/Sites/core-api/.claude/worktrees/prancy-splashing-candle/build/test-results/tests/unitTests/index.html\n\n* Try:\n> Run with --scan to get full insights.\n\nDeprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.\n\nYou can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.\n\nFor more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.\n\nBUILD FAILED in 18s\n18 actionable tasks: 1 executed, 17 up-to-date\nConfiguration cache entry reused."
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
