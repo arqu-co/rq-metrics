@@ -1,0 +1,30 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "goofy-forging-wozniak",
+  "branch": "issue-476-bugrq-work-structure-sync-gate-runs-in-e",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:38:46.741Z",
+  "session_id": "5da30b03-1682-412e-9399-3f21009ed8bc",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5739,
+    "output": 36447,
+    "cache_read": 6625808,
+    "cache_create": 534098,
+    "est_cost_usd": 6.5344218
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 7202092,
+      "cost_usd": 6.5344218
+    }
+  }
+}
