@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3346-security-rotate-and-externalize-all-comm",
+  "sha": "a1a8224bd5b376840a9a3493234eaf5b72c4c59e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T13:55:38Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T13:55:37Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3346-security-rotate-and-externalize-all-comm",
+  "sha": "a1a8224bd5b376840a9a3493234eaf5b72c4c59e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T13:55:36Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T13:55:35Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1abcbd101e459960bdf65e2f8908baa0",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should reliably detect SOV section with complex layout()\u001b[32m PASSED\u001b[m\n\nSOVReaderServiceTest > should reliably detect SOV section with complex layout() PASSED\n\nSOVReaderServiceTest > should handle empty rows between SOV data() STARTED\n\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should handle empty rows between SOV data()\u001b[32m PASSED\u001b[m\n\nSOVReaderServiceTest > should handle empty rows between SOV data() PASSED\n\nSOVReaderServiceTest > should handle multiple potential header rows and choose the best one() STARTED\n\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should handle multiple potential header rows and choose the best one()\u001b[32m PASSED\u001b[m\n\nSOVReaderServiceTest > should handle multiple potential header rows and choose the best one() PASSED\n\nSOVReaderServiceTest > should detect SOV sections using simplified method() STARTED\n\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should detect SOV sections using simplified method()\u001b[32m PASSED\u001b[m\n\nSOVReaderServiceTest > should detect SOV sections using simplified method() PASSED\n\nSOVReaderServiceTest > should detect SOV header in test files() STARTED\n\u001b[0K\u001b[1mco.arqu.util.SOVReaderServiceTest\u001b[22m should detect SOV header in test files()\u001b[32m PASSED\u001b[33m (1.6s)\u001b[m\n\nSOVReaderServiceTest > should detect SOV header in test files() PASSED\n\n\u001b[0K\u001b[1;31mFAILURE: \u001b[39mExecuted 1347 tests in 16s (10 failed)\u001b[m\n\n\n1347 tests completed, 10 failed\n\n> Task :unitTests FAILED\nKotlin build report is written to file:///Users/jerrod/Sites/core-api/.claude/worktrees/prancy-splashing-candle/build/reports/kotlin-build/core-build-2026-04-24-09-55-34-0.txt\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':unitTests'.\n> There were failing tests. See the report at: file:///Users/jerrod/Sites/core-api/.claude/worktrees/prancy-splashing-candle/build/test-results/tests/unitTests/index.html\n\n* Try:\n> Run with --scan to get full insights.\n\nDeprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.\n\nYou can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.\n\nFor more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.\n\nBUILD FAILED in 16s\n18 actionable tasks: 1 executed, 17 up-to-date\nConfiguration cache entry reused."
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
