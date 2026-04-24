@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-489-rqclaude-start--accept-an-initial-prompt",
+  "sha": "28480712ac388062f7b542e6e9b9495fb35f1585",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T22:16:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T22:16:57Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
