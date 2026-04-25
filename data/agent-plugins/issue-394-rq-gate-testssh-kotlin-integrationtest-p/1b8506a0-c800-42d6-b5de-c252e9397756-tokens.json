@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-394-rq-gate-testssh-kotlin-integrationtest-p",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T14:35:21.066Z",
+  "session_id": "1b8506a0-c800-42d6-b5de-c252e9397756",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 2009,
+    "output": 217505,
+    "cache_read": 84569026,
+    "cache_create": 3040608,
+    "est_cost_usd": 57.70247949
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 15793364,
+      "cost_usd": 14.3083985
+    },
+    "review": {
+      "tokens": 45772368,
+      "cost_usd": 32.140725
+    },
+    "unknown": {
+      "tokens": 26263416,
+      "cost_usd": 11.25335599
+    }
+  }
+}
