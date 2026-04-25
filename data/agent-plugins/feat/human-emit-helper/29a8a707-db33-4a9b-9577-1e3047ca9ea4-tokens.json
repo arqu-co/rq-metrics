@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "feat/human-emit-helper",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T13:07:32.244Z",
+  "session_id": "29a8a707-db33-4a9b-9577-1e3047ca9ea4",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 519,
+    "output": 84556,
+    "cache_read": 35752246,
+    "cache_create": 1377184,
+    "est_cost_usd": 27.819977
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build": {
+      "tokens": 33837612,
+      "cost_usd": 25.85055825
+    },
+    "review": {
+      "tokens": 3376893,
+      "cost_usd": 1.96941875
+    }
+  }
+}
