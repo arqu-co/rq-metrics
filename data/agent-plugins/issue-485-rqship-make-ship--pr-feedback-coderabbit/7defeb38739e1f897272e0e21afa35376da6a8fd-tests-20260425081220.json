@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "7defeb38739e1f897272e0e21afa35376da6a8fd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T12:12:20Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_channel_wait.sh",
+      "line": 7,
+      "rule": "LINT_SUPPRESS",
+      "message": "Comment contains literal token 'shellcheck' (# shellcheck source=...). Per task instructions, use 'lint-rule' instead to avoid parser confusion."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T10:42:44Z",
+      "fingerprint": "a3cf9cdb318b1f1391b08c31e634c945",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
