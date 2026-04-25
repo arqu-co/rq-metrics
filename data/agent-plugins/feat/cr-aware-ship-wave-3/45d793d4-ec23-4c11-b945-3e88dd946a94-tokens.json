@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "goofy-forging-wozniak",
+  "branch": "feat/cr-aware-ship-wave-3",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T04:51:07.699Z",
+  "session_id": "45d793d4-ec23-4c11-b945-3e88dd946a94",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "session_total": {
+    "input": 20,
+    "output": 3346,
+    "cache_read": 126290,
+    "cache_create": 56402,
+    "est_cost_usd": 0.0799052
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 186058,
+      "cost_usd": 0.0799052
+    }
+  }
+}
