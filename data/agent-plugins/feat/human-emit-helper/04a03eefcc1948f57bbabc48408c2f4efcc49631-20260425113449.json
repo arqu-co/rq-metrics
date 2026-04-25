@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/human-emit-helper",
+  "sha": "04a03eefcc1948f57bbabc48408c2f4efcc49631",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T15:34:49Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-9001",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:30:52Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T13:18:52Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:30:54Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:30:51Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:31:24Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:31:22Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 28000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:31:29Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:34:45Z",
+      "duration_ms": 49000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:31:28Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-25T15:33:37Z",
+      "duration_ms": 128000
+    },
+    "review-wip-reviewer-9001": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_human_emit.sh",
+          "line": 101,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "Performance test (d) is flaky: measures bash startup time, not script logic",
+          "body": "The test forks a sub-bash shell and measures total wall time including bash interpreter startup of human-emit.sh itself. The comment at line 119 acknowledges this: 'dominated by bash interpreter startup of human-emit.sh itself.' On a loaded CI system or slow macOS sandbox, bash startup alone routinely exceeds 10ms. This makes the test flaky by design \u2014 it is not testing 'the silent path is fast', it is testing 'bash starts fast', which is not within the script's control. The test will produce intermittent failures in CI without any change to the code under test. Fix: drop the wall-time assertion. Replace with a behavioral assertion (no stdout, no stderr, no file written) which is already covered by test (a). The performance guarantee belongs in documentation, not in a timing assertion that is inherently environment-dependent.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/human-emit.sh",
+          "line": 37,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "File-write failure produces stderr output, violating 'no stderr on failure' contract",
+          "body": "The script's contract (line 14-15) states: 'malformed JSON or missing argument \u2192 exit 0 silently with no output, no append, and nothing on stderr'. But the only stated fail-closed modes are malformed JSON and missing argument. The append on line 37 ('printf -- ... >> ROOT/human-follow-up-work.md') can fail if the file is not writable (permissions issue, read-only filesystem). With 'set -euo pipefail' active, a failed redirect causes bash to print 'bash: /path/human-follow-up-work.md: Permission denied' to stderr and exit non-zero. The spec says the helper must 'never break a caller's flow on a non-human host.' A permissions failure on the fallback file is a realistic scenario (e.g. when running in a Docker container with a read-only mount). Fix: wrap the append in a subshell or redirect stderr: 'printf -- ... >> \"$ROOT/human-follow-up-work.md\" 2>/dev/null || true'. This keeps the fail-closed guarantee consistent across all failure modes.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/ship/SKILL.md",
+          "line": 581,
+          "severity": "low",
+          "category": "correctness",
+          "title": "ship SKILL.md embeds bare PR number in the task text via shell interpolation",
+          "body": "Line 581: the task text is hardcoded as 'CI failing on PR #$NUMBER \u2014 investigate and fix'. The '$NUMBER' comes from 'gh pr view --json number -q .number'. If that call fails (no PR, unauthenticated gh), NUMBER is empty, producing 'CI failing on PR # \u2014 investigate and fix'. The URL ($PR_URL) is passed separately and would also be empty. The human-emit helper fails closed on empty payload, but the caller builds the payload with jq before calling the helper \u2014 jq would produce a valid JSON object with empty string values, so the helper would successfully emit a task with an empty URL and a malformed title. Fix: guard: only invoke the helper when '$PR_URL' is non-empty, since a task with no URL is not actionable. Example: '[ -n \"$PR_URL\" ] && bash ... || true'.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_human_emit.sh",
+          "line": 77,
+          "severity": "low",
+          "category": "correctness",
+          "title": "wc -l line count stripped with tr but not validated against platform differences",
+          "body": "Line 77: 'LINES=$(wc -l <\"$WORK/human-follow-up-work.md\" | tr -d \" \")'. The 'wc -l' on macOS outputs leading spaces before the count. The 'tr -d \" \"' strips them. This is correct on macOS and Linux. However if the file ends without a newline (which 'printf -- ... >>\" file' always adds via \\n), wc -l correctly counts 2. This is fine. But the assert at line 78 hardcodes '\"2\"' as a string comparison. If wc output ever includes a tab character (not a space), tr would not strip it. Safer: use 'LINES=$(wc -l ... | tr -dc \"0-9\")' to strip all non-digits. Low severity since the current platform is macOS where the behavior is consistent.",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:33:56Z",
+      "duration_ms": 19000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T15:31:26Z",
+      "scanned_files": 37,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:17:18Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:17:16Z",
+      "fingerprint": "ca60dafa52f26c8b4ef233167fd67a93",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 8249.0
+}
