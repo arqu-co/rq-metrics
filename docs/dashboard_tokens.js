@@ -145,6 +145,10 @@ function renderTokenPerPr(perPr) {
   });
 }
 
+function renderTokenPerIssue(perIssue) {
+  renderTokenGroupTable('#token-per-issue-table', 'token-per-issue-count', perIssue);
+}
+
 /* ── Daily cost trend chart ───────────────────────────────────── */
 function renderTokenCostTrend(trends) {
   var canvas = document.getElementById('token-cost-trend-chart');
@@ -199,6 +203,7 @@ function renderTokenDashboard(tokenPayload) {
   renderTokenPerRepo(t.per_repo || {});
   renderTokenPerBranch(t.per_branch || {});
   renderTokenPerPr(t.per_pr || {});
+  renderTokenPerIssue(t.per_issue || {});
   renderTokenCostTrend(t.cost_trends || []);
 }
 

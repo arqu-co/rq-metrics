@@ -263,6 +263,8 @@ def compute_top_sessions(
 
 def build_token_payload(events: list[dict]) -> dict:
     """Build the dashboard-ready token payload from token events."""
+    from aggregate_tokens_issue import compute_per_issue_tokens as _per_issue
+
     per_user = compute_per_user_tokens(events)
     return {
         "summary": compute_token_summary(events),
@@ -271,6 +273,7 @@ def build_token_payload(events: list[dict]) -> dict:
         "per_repo": compute_per_repo_tokens(events),
         "per_branch": compute_per_branch_tokens(events),
         "per_pr": compute_per_pr_tokens(events),
+        "per_issue": _per_issue(events),
         "cost_trends": compute_cost_trends(events),
         "top_sessions": compute_top_sessions(events),
         "event_count": len(events),

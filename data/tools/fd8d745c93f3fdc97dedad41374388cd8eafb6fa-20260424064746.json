@@ -1,0 +1,162 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "",
+  "sha": "fd8d745c93f3fdc97dedad41374388cd8eafb6fa",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T10:47:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:46:16Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T10:47:33Z",
+      "files_checked": 0,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:46:18Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:46:15Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T10:47:35Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T10:47:12Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 4 of 5 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-contract-test typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-contract-test typecheck: Done\npackages/rq-cli typecheck: Done\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.register.ts(4,3): error TS2305: Module '\"@arqu-co/rq-tools\"' has no exported member 'shareableAssetsGetUploadInstructionsHandler'.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.register.ts(5,3): error TS2305: Module '\"@arqu-co/rq-tools\"' has no exported member 'shareableAssetsGetUploadInstructionsSchema'.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.test.ts(4,3): error TS2305: Module '\"@arqu-co/rq-tools\"' has no exported member 'shareableAssetsGetUploadInstructionsHandler'.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.test.ts(5,3): error TS2305: Module '\"@arqu-co/rq-tools\"' has no exported member 'shareableAssetsGetUploadInstructionsSchema'.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.test.ts(80,57): error TS7006: Parameter 'f' implicitly has an 'any' type.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.test.ts(84,10): error TS7006: Parameter 'f' implicitly has an 'any' type.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_get_upload_instructions.test.ts(100,57): error TS7006: Parameter 'f' implicitly has an 'any' type.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.register.ts(4,3): error TS2724: '\"@arqu-co/rq-tools\"' has no exported member named 'shareableAssetsReplaceFileHandler'. Did you mean 'shareableAssetsRevokeHandler'?\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.register.ts(5,3): error TS2724: '\"@arqu-co/rq-tools\"' has no exported member named 'shareableAssetsReplaceFileSchema'. Did you mean 'shareableAssetsRevokeSchema'?\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.test.ts(4,3): error TS2724: '\"@arqu-co/rq-tools\"' has no exported member named 'shareableAssetsReplaceFileHandler'. Did you mean 'shareableAssetsRevokeHandler'?\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.test.ts(5,3): error TS2724: '\"@arqu-co/rq-tools\"' has no exported member named 'shareableAssetsReplaceFileSchema'. Did you mean 'shareableAssetsRevokeSchema'?\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.test.ts(78,54): error TS7006: Parameter 'f' implicitly has an 'any' type.\npackages/rq-server typecheck: src/tools/risklab/shareable_assets_replace_file.test.ts(82,10): error TS7006: Parameter 'f' implicitly has an 'any' type.\npackages/rq-server typecheck: Failed\n/Users/jerrod/Sites/tools/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 typecheck: `tsc --noEmit`\nExit status 2\n"
+        }
+      ],
+      "duration_ms": 54000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:47:40Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T23:17:38Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T01:30:26Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:47:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T10:47:43Z",
+      "duration_ms": 3000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:47:37Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T10:47:31Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T10:47:30Z",
+      "test_runner": "npm-test",
+      "fingerprint": "cd25da7fbfc9557de16218fb231ec1a0",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "packages/rq-server test:     120|       shareableAssetsReplaceFileSchema.safeParse({\npackages/rq-server test:        |                                        ^\npackages/rq-server test:     121|         asset_id: 0,\npackages/rq-server test:     122|         project_id: 1,\npackages/rq-server test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[21/25]\u23af\npackages/rq-server test:  FAIL |node|  src/tools/risklab/shareable_assets_replace_file.test.ts > shareable_assets_replace_file \u2014 schema > rejects non-positive project_id\npackages/rq-server test: TypeError: Cannot read properties of undefined (reading 'safeParse')\npackages/rq-server test:  \u276f src/tools/risklab/shareable_assets_replace_file.test.ts:129:40\npackages/rq-server test:     127|   it(\"rejects non-positive project_id\", () => {\npackages/rq-server test:     128|     expect(\npackages/rq-server test:     129|       shareableAssetsReplaceFileSchema.safeParse({\npackages/rq-server test:        |                                        ^\npackages/rq-server test:     130|         asset_id: 1,\npackages/rq-server test:     131|         project_id: 0,\npackages/rq-server test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[22/25]\u23af\npackages/rq-server test:  FAIL |node|  src/tools/risklab/shareable_assets_replace_file.test.ts > shareable_assets_replace_file \u2014 schema > rejects non-integer ids\npackages/rq-server test: TypeError: Cannot read properties of undefined (reading 'safeParse')\npackages/rq-server test:  \u276f src/tools/risklab/shareable_assets_replace_file.test.ts:138:40\npackages/rq-server test:     136|   it(\"rejects non-integer ids\", () => {\npackages/rq-server test:     137|     expect(\npackages/rq-server test:     138|       shareableAssetsReplaceFileSchema.safeParse({\npackages/rq-server test:        |                                        ^\npackages/rq-server test:     139|         asset_id: 1.5,\npackages/rq-server test:     140|         project_id: 2,\npackages/rq-server test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[23/25]\u23af\npackages/rq-server test:  FAIL |node|  src/tools/risklab/shareable_assets_replace_file.test.ts > shareable_assets_replace_file \u2014 schema > accepts positive integer ids\npackages/rq-server test: TypeError: Cannot read properties of undefined (reading 'safeParse')\npackages/rq-server test:  \u276f src/tools/risklab/shareable_assets_replace_file.test.ts:147:40\npackages/rq-server test:     145|   it(\"accepts positive integer ids\", () => {\npackages/rq-server test:     146|     expect(\npackages/rq-server test:     147|       shareableAssetsReplaceFileSchema.safeParse({\npackages/rq-server test:        |                                        ^\npackages/rq-server test:     148|         asset_id: 11,\npackages/rq-server test:     149|         project_id: 43118,\npackages/rq-server test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[24/25]\u23af\npackages/rq-server test:  FAIL |node|  src/tools/risklab/shareable_assets_replace_file.test.ts > shareable_assets_replace_file \u2014 registration wrapper > registers with READ_ONLY and echoes JSON envelope\npackages/rq-server test: TypeError: Cannot read properties of undefined (reading 'shape')\npackages/rq-server test:  \u276f Module.registerShareableAssetsReplaceFile src/tools/risklab/shareable_assets_replace_file.register.ts:43:38\npackages/rq-server test:  \u276f src/tools/risklab/shareable_assets_replace_file.test.ts:164:5\npackages/rq-server test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[25/25]\u23af\npackages/rq-server test:  Test Files  4 failed | 156 passed (160)\npackages/rq-server test:       Tests  25 failed | 1148 passed (1173)\npackages/rq-server test:    Start at  06:47:16\npackages/rq-server test:    Duration  11.46s (transform 1.83s, setup 0ms, collect 33.50s, tests 6.36s, environment 13ms, prepare 4.16s)\npackages/rq-server test: [vpw:debug] Shutting down runtimes...\npackages/rq-server test: [vpw:debug] Disposing remote proxy sessions...\npackages/rq-server test: Failed\n/Users/jerrod/Sites/tools/packages/rq-server:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-server@0.2.0 test: `vitest run`\nExit status 1"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 18000
+    },
+    "work-structure-sync": {
+      "status": "fail"
+    }
+  },
+  "duration_seconds": 41405.0
+}
