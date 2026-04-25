@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "fix/worktree-repo-name",
+  "sha": "e137e4d",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-25T12:18:48Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T12:18:47Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

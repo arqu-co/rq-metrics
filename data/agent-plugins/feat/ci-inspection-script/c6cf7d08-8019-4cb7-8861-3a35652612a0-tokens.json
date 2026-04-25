@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "feat/ci-inspection-script",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-04T19:03:37.808Z",
+  "session_id": "c6cf7d08-8019-4cb7-8861-3a35652612a0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 40,
+    "output": 29510,
+    "cache_read": 2024856,
+    "cache_create": 279957,
+    "est_cost_usd": 10.50032775
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 2334363,
+      "cost_usd": 10.50032775
+    }
+  }
+}

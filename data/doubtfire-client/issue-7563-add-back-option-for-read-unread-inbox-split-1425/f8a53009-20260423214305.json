@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "sha": "f8a53009",
+  "user": "unknown",
+  "timestamp": "2026-04-24T01:43:05Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:41:44Z",
+      "files_checked": 15,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 108,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 256,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:41:44Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:41:42Z",
+      "files_checked": 15,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/stores/sectioned-inbox.test.ts",
+          "lines": 513,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:42:30Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 141,
+          "output": "/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:91:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:137:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:142:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:146:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:157:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:173:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:177:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:179:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:180:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:182:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:183:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:184:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:185:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:188:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:189:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-test-coverage.js:195:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:88:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:120:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:125:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:129:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:133:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:139:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:143:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:145:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:146:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:147:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:150:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:151:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/check-ui-stories.js:157:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/extract-datadog-key.js:5:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/extract-datadog-key.js:16:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/retain-prior-assets.mjs:50:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/retain-prior-assets.mjs:55:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/retain-prior-assets.mjs:58:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/retain-prior-assets.mjs:93:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/retain-prior-assets.mjs:97:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/scripts/write-version-json.mjs:12:1  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/App.vue:128:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/App.vue:133:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/CarrierActivityTable.vue:64:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/CarrierActivityTable.vue:94:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/CarrierActivityTable.vue:108:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/CommentDialog.vue:58:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/CommentDialog.vue:111:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/activity/DeclineDialog.vue:113:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/ai-chat/AIChatBox.vue:160:5   warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/ai-chat/AIChatBox.vue:206:5   warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/ai-chat/AIChatBox.vue:331:5   warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/ai-chat/AIChatBox.vue:533:29  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/doubtfire-client/.claude/worktrees/issue-7563-add-back-option-for-read-unread-inbox-split-1425/src/components/ai-chat/AIChatBox.vue:540:7   warning  Unexpected console statement  no-console\n"
+        }
+      ],
+      "duration_ms": 46000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:43:04Z",
+      "scanned_files": 8,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 125,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const spy = vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 136,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 146,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 158,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 169,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 182,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 193,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 197,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "line": 262,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'getConversationById').mockImplementation(async () => {"
+        }
+      ],
+      "duration_ms": 34000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-24T01:43:04Z",
+      "fingerprint": "28443d86e5c2ab8e281c84c85ab7fde9",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  68 failed | 266 passed (334)\n      Tests  434 failed | 5241 passed (5675)\n     Errors  1 error\n   Start at  21:42:31\n   Duration  32.78s (transform 18.73s, setup 5.99s, collect 142.23s, tests 35.93s, environment 153.71s, prepare 23.82s)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 82.0
+}

@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "feat/review-agent-budgets",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-06T01:29:22.369Z",
+  "session_id": "3ca083eb-e70e-4924-8aed-53183110060f",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 29,
+    "output": 3728,
+    "cache_read": 395742,
+    "cache_create": 310153,
+    "est_cost_usd": 1.33780335
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 709652,
+      "cost_usd": 1.33780335
+    }
+  }
+}

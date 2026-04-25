@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "feat-deployme-document-drag-to-compose",
+  "sha": "86d22bf7",
+  "user": "unknown",
+  "timestamp": "2026-04-23T17:29:22Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "qa",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

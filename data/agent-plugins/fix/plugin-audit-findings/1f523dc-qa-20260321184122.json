@@ -1,0 +1,35 @@
+{
+  "repo": "agent-plugins",
+  "branch": "fix/plugin-audit-findings",
+  "sha": "1f523dc",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T22:41:21Z",
+  "phase": "ship",
+  "run_number": 2,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "qa"
+  ],
+  "gates": {
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T22:41:21Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": [],
+      "duration_ms": 0
+    }
+  },
+  "gate_name": "qa"
+}

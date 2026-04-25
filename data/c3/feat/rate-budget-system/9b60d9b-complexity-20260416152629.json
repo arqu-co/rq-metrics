@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/rate-budget-system",
+  "sha": "9b60d9b",
+  "user": "unknown",
+  "timestamp": "2026-04-16T19:26:29Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T19:26:29Z",
+      "files_checked": 9,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/index.ts",
+          "function": "boot",
+          "lines": 122,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,30 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "feat/gate-computational-cache",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-10T11:23:19.698Z",
+  "session_id": "6b0e6ab9-9ae4-496f-a593-8db70a21408f",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 164,
+    "output": 186475,
+    "cache_read": 2337190,
+    "cache_create": 890990,
+    "est_cost_usd": 34.1999325
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 3414819,
+      "cost_usd": 34.1999325
+    }
+  }
+}

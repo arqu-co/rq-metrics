@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-59-filter-out-local-only-branches-before-github-p-2100",
+  "sha": "71fa5f3",
+  "user": "unknown",
+  "timestamp": "2026-04-20T03:45:17Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:45:17Z",
+      "test_runner": "bin-test",
+      "fingerprint": "de8c654b047c8e3f6eab61cef43925eb",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

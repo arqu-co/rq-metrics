@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-27-move-running-terminals-to-the-top-of-the-list-1204",
+  "sha": "2a152ae",
+  "user": "unknown",
+  "timestamp": "2026-04-19T16:10:21Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T16:10:21Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a86ac7af8bc4550f586501ad49021021",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

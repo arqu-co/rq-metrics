@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "b0e26d7",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:36:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:54Z",
+      "fingerprint": "80939244c32d7188fe8b45fe7d7feb90",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n RUN  v4.1.4 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754\n      Coverage enabled with v8\n\n\n\u23af\u23af\u23af\u23af\u23af\u23af Unhandled Error \u23af\u23af\u23af\u23af\u23af\u23af\u23af\nError: ENOENT: no such file or directory, open '/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754/coverage/.tmp/coverage-0.json'\n \u276f open node:internal/fs/promises:639:25\n \u276f Object.readFile node:internal/fs/promises:1243:14\n \u276f ../../../node_modules/vitest/dist/chunks/coverage.Da5gzbsu.js:757:23\n \u276f V8CoverageProvider.readCoverageFiles ../../../node_modules/vitest/dist/chunks/coverage.Da5gzbsu.js:756:5\n \u276f V8CoverageProvider.generateCoverage ../../../node_modules/@vitest/coverage-v8/dist/provider.js:32:3\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13580:23\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13593:11\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13455:19\n \u276f startVitest ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:14521:8\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\nSerialized Error: { errno: -2, code: 'ENOENT', syscall: 'open', path: '/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754/coverage/.tmp/coverage-0.json' }"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

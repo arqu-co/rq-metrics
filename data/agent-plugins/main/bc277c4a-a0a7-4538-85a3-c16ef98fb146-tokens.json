@@ -1,7 +1,7 @@
 {
   "event_type": "token_usage",
   "schema_version": 1,
-  "repo": "claude-skills",
+  "repo": "agent-plugins",
   "branch": "main",
   "sha": null,
   "user": "Jerrod Blavos",
@@ -12,20 +12,19 @@
   "pr_url": null,
   "models_seen": [
     "<synthetic>",
-    "claude-haiku-4-5-20251001",
     "claude-sonnet-4-6"
   ],
   "session_total": {
-    "input": 164,
-    "output": 7957,
-    "cache_read": 2630950,
-    "cache_create": 320486,
-    "est_cost_usd": 1.24668483
+    "input": 43,
+    "output": 3294,
+    "cache_read": 698499,
+    "cache_create": 179551,
+    "est_cost_usd": 0.9324049499999999
   },
   "phases": {
     "pre-rq": {
-      "tokens": 2959557,
-      "cost_usd": 1.24668483
+      "tokens": 881387,
+      "cost_usd": 0.9324049499999999
     }
   }
 }

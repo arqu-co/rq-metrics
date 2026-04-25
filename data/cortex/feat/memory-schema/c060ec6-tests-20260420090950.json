@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "cortex",
+  "branch": "feat/memory-schema",
+  "sha": "c060ec6",
+  "user": "Alicia Drinkwater",
+  "timestamp": "2026-04-20T13:09:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T13:09:50Z",
+      "fingerprint": "44e7c34fd7983c9fde1d825ea5f86c46",
+      "test_runner": "bin-test",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "tests/helpers/database-test-helper.ts",
+        "tests/setup.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

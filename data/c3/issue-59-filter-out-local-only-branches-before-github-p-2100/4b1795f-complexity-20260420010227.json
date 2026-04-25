@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-59-filter-out-local-only-branches-before-github-p-2100",
+  "sha": "4b1795f",
+  "user": "unknown",
+  "timestamp": "2026-04-20T05:02:27Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T05:02:27Z",
+      "files_checked": 13,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/app-routes-branches.ts",
+          "function": "handleBranchGitHub",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

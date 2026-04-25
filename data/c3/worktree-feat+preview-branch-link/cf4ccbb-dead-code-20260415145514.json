@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-feat+preview-branch-link",
+  "sha": "cf4ccbb",
+  "user": "unknown",
+  "timestamp": "2026-04-15T18:55:14Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T18:55:14Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/components/BranchOverview.tsx",
+          "name": "type BranchOverviewData",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "client/src/components/BranchOverview.tsx",
+          "name": "type AlertPill",
+          "line": 4
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

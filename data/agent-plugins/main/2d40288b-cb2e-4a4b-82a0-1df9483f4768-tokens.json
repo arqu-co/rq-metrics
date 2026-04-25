@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "main",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-13T12:27:49.448Z",
+  "session_id": "2d40288b-cb2e-4a4b-82a0-1df9483f4768",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "session_total": {
+    "input": 26,
+    "output": 362,
+    "cache_read": 108011,
+    "cache_create": 36641,
+    "est_cost_usd": 0.04675068
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 145040,
+      "cost_usd": 0.04675068
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "repo": "deploy-bot",
+  "branch": "issue-51-feat-evolve-the-post-deploy-card-from-wh",
+  "sha": "6478806224716975b7f6862cf33c5b93af8c378e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:18:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "tokens-posted"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:15:57Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:46Z",
+      "files_checked": 5,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 6000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:16:04Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:15:51Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:48Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:13Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 129000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T20:44:32Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-16T12:31:50Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-17T12:18:53Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T12:33:20Z"
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T19:53:02Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:40Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:18:35Z",
+      "test_runner": "bin-test",
+      "fingerprint": "07ee172fe69adbdf0f9236a45fdaec5e",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 22000
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T12:17:35Z"
+    }
+  },
+  "duration_seconds": 118018.0
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "issue-7506-unread-email-count-only-reflects-current-pag-2203",
+  "sha": "7608f5c5",
+  "user": "unknown",
+  "timestamp": "2026-04-19T14:30:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T14:30:25Z",
+      "violations": 17,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.session-expired.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/EmailDraftBlock.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/ApprovalCardRenderer.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/ComparisonSelectionApproval.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/EmailBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/footer/EmailBoxFooter.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/EmailBoxTags.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/DealTodo.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/MobileSearchOverlay.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/BottomTabBar.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/ai-chat-panel.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/combobox/ComboboxList.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useChatPanel.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.ts",
+          "name": "type MaybeRefOrGetter",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useSelectedEmailId.ts",
+          "name": "type ComputedRef",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useSwipeBack.ts",
+          "name": "type Ref",
+          "line": 1
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

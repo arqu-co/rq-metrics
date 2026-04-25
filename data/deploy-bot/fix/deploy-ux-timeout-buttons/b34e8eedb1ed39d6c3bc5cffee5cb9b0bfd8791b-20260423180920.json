@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "repo": "deploy-bot",
+  "branch": "fix/deploy-ux-timeout-buttons",
+  "sha": "b34e8eedb1ed39d6c3bc5cffee5cb9b0bfd8791b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T22:09:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 5,
+  "missed_gates": [
+    "dead-code",
+    "issue-binding",
+    "lint",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "tokens-posted",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:08:19Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:09:00Z",
+      "coverage_tool": "py",
+      "files_checked": 6,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T22:08:27Z",
+      "files_checked": 15,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "deploy_bot.py",
+          "name": "GitHubManager  # noqa",
+          "line": 21
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:08:13Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T22:09:03Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T22:08:32Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "DatabaseManager.py\ndeploy_bot.py\ntests/test_DatabaseManager.py\ntests/test_deploy_tasks_coverage.py\ntests/test_deploy_tasks_response_url.py\ntests/test_store_v2_schema.py\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+from GitHubManager import GitHubManager  # noqa: F401\n\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:09:13Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T20:44:32Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-16T12:31:50Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:09:10Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-17T21:30:42Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T12:33:20Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:09:07Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T19:53:02Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T22:08:53Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T22:08:47Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e59ab5e24bd9e71c8cc7d898f9282a41",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/deploy-bot/tests/__pycache__/conftest.cpython-313-pytest-8.3.5.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.17s"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 15000
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T12:17:35Z"
+    },
+    "work-structure-sync": {
+      "status": "fail"
+    }
+  },
+  "duration_seconds": 639443.0
+}

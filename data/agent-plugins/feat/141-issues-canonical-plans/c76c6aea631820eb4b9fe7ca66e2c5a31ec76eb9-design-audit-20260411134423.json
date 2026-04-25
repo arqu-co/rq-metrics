@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/141-issues-canonical-plans",
+  "sha": "c76c6aea631820eb4b9fe7ca66e2c5a31ec76eb9",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-11T17:44:23Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "design-audit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "design-audit"
+  ],
+  "gates": {
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-11T17:44:22Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

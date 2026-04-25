@@ -1,0 +1,106 @@
+{
+  "repo": "agent-plugins",
+  "branch": "feat/metrics-in-run-gates",
+  "sha": "85a32df",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T17:04:48Z",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "performance",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:02:02Z",
+      "files_checked": 0,
+      "violations": 0,
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T16:44:34Z",
+      "coverage_tool": "py",
+      "below_threshold": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:02:02Z",
+      "violations": 0,
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:04:47Z",
+      "overall_grade": "",
+      "message": "No dev server detected \u2014 gate not applicable",
+      "screenshots": 0,
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:02:01Z",
+      "files_checked": 1,
+      "violations": 0,
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:02:07Z",
+      "failures": 0,
+      "duration_ms": 5000
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-18T17:37:29Z",
+      "findings": 0,
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      }
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:04:46Z",
+      "flows_passed": 0,
+      "message": "No dev server detected \u2014 gate not applicable",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "duration_ms": 157000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:02:09Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T16:31:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "34e212913efc7480eb0ad4f53550461a",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0
+    }
+  },
+  "phase": "build"
+}

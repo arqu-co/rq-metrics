@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "repo": "deploy-bot",
+  "branch": "issue-51-feat-evolve-the-post-deploy-card-from-wh",
+  "sha": "ea92d53cbbd2439b27c18a0e32d8a10bc5a66104",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-17T21:07:43Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "filesize"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan-posted",
+    "plan",
+    "review-coverage",
+    "review",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "tokens-posted"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:07:41Z",
+      "files_checked": 13,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "build_row.py",
+          "function": "build_row",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "deploy_card.py",
+          "function": "_steps_section",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "deploy_card.py",
+          "function": "build_blocks",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/test_build_row.py",
+          "function": "TestBuildRowStepCollapse",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/test_deploy_card.py",
+          "function": "TestStepsChecklist",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:07:15Z",
+      "files_checked": 4,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:06:45Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T21:07:37Z",
+      "files_checked": 13,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "deploy_card.py",
+          "lines": 357,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "tests/test_deploy_card.py",
+          "lines": 330,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 20000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:07:17Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:06:48Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T20:44:32Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-16T12:31:50Z"
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-17T12:18:53Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T12:33:20Z"
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T19:53:02Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:07:10Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T21:07:06Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f82bfbe87273af8913c6c2af6d0d0d24",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 18000
+    },
+    "tokens-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T12:17:35Z"
+    }
+  },
+  "duration_seconds": 117351.0
+}

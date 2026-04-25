@@ -1,0 +1,35 @@
+{
+  "repo": "agent-plugins",
+  "branch": "feat/block-merge-without-ci-2",
+  "sha": "a1b7186",
+  "user": "Jerrod Blavos",
+  "timestamp": "2026-03-21T17:53:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T17:53:15Z",
+      "fingerprint": "bb647309b79755d6496d173ef125b039",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "gate_name": "tests"
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-59-filter-out-local-only-branches-before-github-p-2100",
+  "sha": "3704b3c",
+  "user": "unknown",
+  "timestamp": "2026-04-20T05:37:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "coverage",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T05:37:42Z",
+      "files_checked": 37,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T05:37:53Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T05:37:43Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:44:51Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T05:37:42Z",
+      "files_checked": 37,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T05:37:48Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T03:44:50Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-20T05:37:53Z",
+      "scanned_files": 25,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T05:37:52Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5c8f26225310205fe3e4a8fa3824962c",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n RUN  v4.1.4 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-59-filter-out-local-only-branches-before-github-p-2100\n      Coverage enabled with v8\n\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nstdout | server/__tests__/app-routes-branches.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2301 auth for agents [www.vestauth.com]\n\n \u276f server/__tests__/app-routes-branches.test.ts (14 tests | 1 failed) 1037ms\n     \u00d7 joins multi-segment branch params so feat/a/b resolves end-to-end 18ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-branches.test.ts > GET /api/branches/:repo/:branch/plan > joins multi-segment branch params so feat/a/b resolves end-to-end\nError: socket hang up\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 28 passed (29)\n      Tests  1 failed | 377 passed (378)\n   Start at  01:37:49\n   Duration  3.07s (transform 2.18s, setup 0ms, import 5.30s, tests 8.59s, environment 10.52s)"
+        }
+      ],
+      "duration_ms": 4000
+    }
+  },
+  "duration_seconds": 6783.0
+}

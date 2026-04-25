@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-feat+scratch-pad",
+  "sha": "861adaa",
+  "user": "unknown",
+  "timestamp": "2026-04-15T02:43:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T02:43:32Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/App.tsx",
+          "name": "type BranchGroup",
+          "line": 5
+        },
+        {
+          "type": "unused_import",
+          "file": "server/__tests__/worktree-manager.test.ts",
+          "name": "dirname",
+          "line": 6
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

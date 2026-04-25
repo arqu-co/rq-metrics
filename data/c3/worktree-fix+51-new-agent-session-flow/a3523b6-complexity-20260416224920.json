@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-fix+51-new-agent-session-flow",
+  "sha": "a3523b6",
+  "user": "unknown",
+  "timestamp": "2026-04-17T02:49:20Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T02:49:20Z",
+      "files_checked": 34,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "client/src/components/ConfirmLaunchStep.tsx",
+          "function": "ConfirmLaunchStep",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/RepoPickerStep.tsx",
+          "function": "RepoPickerStep",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "function": "IssuePickerStep",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "function": "IssuePickerStep",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "function": "useTerminalSessions",
+          "lines": 189,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

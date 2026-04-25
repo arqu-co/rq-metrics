@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "0a2e083",
+  "user": "unknown",
+  "timestamp": "2026-04-15T18:52:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T18:52:43Z",
+      "fingerprint": "e94350f2e8d63cf8d5f3ddd89ae5ee59",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n RUN  v4.1.4 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/feat+quick-copy-buttons\n      Coverage enabled with v8\n\nstderr | server/__tests__/api.test.ts > GET /api/branches/:repo/:branch/overview > returns overview shape with commits, comments, plan\nRequest quota exhausted for request GET /repos/{owner}/{repo}/commits\n\nstdout | server/__tests__/api.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 enable debugging { debug: true }\n\n \u276f server/__tests__/api.test.ts (10 tests | 1 failed) 10048ms\n     \u00d7 returns overview shape with commits, comments, plan 10008ms\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/api.test.ts > GET /api/branches/:repo/:branch/overview > returns overview shape with commits, comments, plan\nError: Test timed out in 10000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n \u276f server/__tests__/api.test.ts:56:3\n     54|\n     55| describe(\"GET /api/branches/:repo/:branch/overview\", () => {\n     56|   it(\"returns overview shape with commits, comments, plan\", async () =\u2026\n       |   ^\n     57|     const res = await request(app).get(\"/api/branches/test-repo/main/o\u2026\n     58|     expect(res.status).toBe(200);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 5 passed (6)\n      Tests  1 failed | 43 passed (44)\n   Start at  14:52:32\n   Duration  10.36s (transform 158ms, setup 0ms, import 475ms, tests 10.35s, environment 1.13s)"
+        }
+      ],
+      "missing_tests_details": [
+        "client/src/App.tsx",
+        "server/app.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

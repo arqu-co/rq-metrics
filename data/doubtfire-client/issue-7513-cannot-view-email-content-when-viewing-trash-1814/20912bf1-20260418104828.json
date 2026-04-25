@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "issue-7513-cannot-view-email-content-when-viewing-trash-1814",
+  "sha": "20912bf1",
+  "user": "unknown",
+  "timestamp": "2026-04-18T14:48:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:46:51Z",
+      "files_checked": 68,
+      "violations": 19,
+      "violations_details": [
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "function": "simulateSSEChunkParsing",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "parseDraft",
+          "complexity": 40,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "hasDraftForConversation",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "resumeFromDeal",
+          "complexity": 61,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "loadTokenEstimate",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "function": "loadTokenEstimate",
+          "lines": 59,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "loadConversation",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "startAITask",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "useChatPanel",
+          "lines": 286,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "registerAIChatBox",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "function": "loadConversation",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useMarketResolver.ts",
+          "function": "_useMarketResolver",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "complexity": 22,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "streamSSERequest",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "processSSEStream",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/services/ai-chat/streaming.ts",
+          "function": "streamSSERequest",
+          "lines": 64,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useSwipeBack.ts",
+          "function": "useSwipeBack",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.ts",
+          "function": "useInboxRouteSync",
+          "lines": 280,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "scripts/gen-routes-manifest.ts",
+          "function": "extractRoutes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:48:27Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:46:53Z",
+      "violations": 17,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/AIChatBox.session-expired.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/EmailDraftBlock.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/ApprovalCardRenderer.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ai-chat/approvals/ComparisonSelectionApproval.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/EmailBox.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/footer/EmailBoxFooter.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/header/EmailBoxTags.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/deal/DealTodo.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/inbox/MobileSearchOverlay.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/BottomTabBar.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/layout/ai-chat-panel.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/components/ui/combobox/ComboboxList.test.ts",
+          "name": "type VueWrapper",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useChatPanel.ts",
+          "name": "type Ref",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "name": "type VueWrapper",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useInboxRouteSync.ts",
+          "name": "type MaybeRefOrGetter",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useSelectedEmailId.ts",
+          "name": "type ComputedRef",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "src/composables/useSwipeBack.ts",
+          "name": "type Ref",
+          "line": 1
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T11:32:45Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:46:49Z",
+      "files_checked": 80,
+      "violations": 19,
+      "violations_details": [
+        {
+          "file": "src/components/compose/ComposeWrapper.test.ts",
+          "lines": 713,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/TemplatesPicker.test.ts",
+          "lines": 556,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/email-box/EmailBox.test.ts",
+          "lines": 360,
+          "max": 300
+        },
+        {
+          "file": "src/components/compose/email-box/header/EmailBoxTags.test.ts",
+          "lines": 506,
+          "max": 300
+        },
+        {
+          "file": "src/components/deal/CreateProgramModal.test.ts",
+          "lines": 488,
+          "max": 300
+        },
+        {
+          "file": "src/components/deal/DealNavEmptyState.test.ts",
+          "lines": 366,
+          "max": 300
+        },
+        {
+          "file": "src/components/inbox/AddLabelModal.test.ts",
+          "lines": 342,
+          "max": 300
+        },
+        {
+          "file": "src/components/layout/BottomTabBar.test.ts",
+          "lines": 559,
+          "max": 300
+        },
+        {
+          "file": "src/components/layout/DefaultLayout.test.ts",
+          "lines": 327,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useChatPanel.ts",
+          "lines": 352,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "lines": 844,
+          "max": 300
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.ts",
+          "lines": 306,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/label.test.ts",
+          "lines": 555,
+          "max": 300
+        },
+        {
+          "file": "src/lib/utils/label.ts",
+          "lines": 326,
+          "max": 300
+        },
+        {
+          "file": "src/services/ai-chat/streaming.test.ts",
+          "lines": 353,
+          "max": 300
+        },
+        {
+          "file": "src/services/inbox/index.ts",
+          "lines": 600,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.test.ts",
+          "lines": 909,
+          "max": 300
+        },
+        {
+          "file": "src/stores/deal-kickoff.ts",
+          "lines": 976,
+          "max": 300
+        },
+        {
+          "file": "src/stores/labels.spec.ts",
+          "lines": 332,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:47:36Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "src/services/deal-kickoff/token-estimate.ts(1,15): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'ThreadTokenEstimateResponse'.\nsrc/services/deal-kickoff/token-estimate.ts(11,35): error TS2339: Property 'getThreadTokenEstimate' does not exist on type 'EmailApi'.\nsrc/stores/deal-kickoff.ts(858,58): error TS7006: Parameter 'a' implicitly has an 'any' type.\nsrc/types/ai-chat.ts(1,92): error TS2305: Module '\"typescript-core-api-client\"' has no exported member 'Document'.\n"
+        }
+      ],
+      "duration_ms": 43000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-18T11:32:45Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:48:26Z",
+      "scanned_files": 42,
+      "violations": 16,
+      "violations_details": [
+        {
+          "file": "src/components/compose/ComposeWrapper.test.ts",
+          "line": 113,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock('./compose-utils', () => ({"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 31,
+          "pattern": "jest.mock() on relative import",
+          "code": "vi.mock('./useDealContextSession', () => ({"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 74,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 75,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadIndividualEmails').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 76,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(inboxStore, 'loadDealMessagesFromApi').mockResolvedValue(undefined)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 77,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearConversations').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 78,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(inboxStore, 'clearAll').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 141,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "      const loadSpy = vi.spyOn(inboxStore, 'loadConversations').mockResolvedValue()"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 329,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 330,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'loading', 'get').mockReturnValue(false)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 346,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 662,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 663,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 664,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'hasConversations', 'get').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 687,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "      vi.spyOn(inboxStore, 'switchContext').mockReturnValue(true)"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.test.ts",
+          "line": 688,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(inboxStore, 'invalidateActiveContext').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T14:48:24Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c6948bb8084dbb9bc02560b2d311aaaf",
+      "test_failures": 1,
+      "missing_tests": 5,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "- wait for promises to resolve using the await keyword\n\n\u23af\u23af\u23af\u23af\u23af Uncaught Exception \u23af\u23af\u23af\u23af\u23af\nReferenceError: document is not defined\n \u276f Timeout.Cookies.update [as _onTimeout] node_modules/.pnpm/universal-cookie@8.0.1/node_modules/universal-cookie/esm/index.mjs:303:46\n \u276f listOnTimeout node:internal/timers:588:17\n \u276f processTimers node:internal/timers:523:7\n\nThis error originated in \"src/components/deal/DealNavEmptyState.test.ts\" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.\nThis error was caught after test environment was torn down. Make sure to cancel any running tasks before test finishes:\n- cancel timeouts using clearTimeout and clearInterval\n- wait for promises to resolve using the await keyword\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n\n Test Files  351 passed (351)\n      Tests  5894 passed (5894)\n     Errors  2 errors\n   Start at  10:47:40\n   Duration  43.23s (transform 13.62s, setup 10.39s, collect 174.36s, tests 49.28s, environment 209.82s, prepare 34.19s)"
+        }
+      ],
+      "missing_tests_details": [
+        "scripts/gen-routes-manifest.ts",
+        "src/components/compose/email-box/footer/EmailBoxFooter.stories.ts",
+        "src/components/layout/nav-config.ts",
+        "src/services/deal-kickoff/token-estimate.ts",
+        "vitest.setup.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 48000
+    }
+  },
+  "duration_seconds": 11742.0
+}

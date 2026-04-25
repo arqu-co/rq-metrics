@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/quick-copy-buttons",
+  "sha": "0a2e083",
+  "user": "unknown",
+  "timestamp": "2026-04-15T18:53:02Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T18:53:02Z",
+      "scanned_files": 6,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/CopyBadge.test.tsx",
+          "line": 58,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const consoleSpy = vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        },
+        {
+          "file": "client/src/hooks/usePreviewDomain.test.ts",
+          "line": 37,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const consoleSpy = vi.spyOn(console, \"error\").mockImplementation(() => {});"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

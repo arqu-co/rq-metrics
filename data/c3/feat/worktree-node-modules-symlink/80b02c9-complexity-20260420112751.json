@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/worktree-node-modules-symlink",
+  "sha": "80b02c9",
+  "user": "unknown",
+  "timestamp": "2026-04-20T15:27:51Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-20T15:27:51Z",
+      "files_checked": 5,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/worktree-node-modules.ts",
+          "function": "migrateWorktreeSymlinks",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

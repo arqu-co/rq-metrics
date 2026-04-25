@@ -22,6 +22,8 @@ from aggregate_findings import (
 from aggregate_shared import KNOWN_GATES, count_gate_violations
 from aggregate_tokens import build_token_payload, is_token_event
 from aggregate_users import compute_leaderboard, compute_per_user, group_by_user
+from repo_allowlist import is_known_repo
+from repo_resolver import resolve_repo
 
 
 def load_metrics(data_dir="data"):
@@ -33,6 +35,10 @@ def load_metrics(data_dir="data"):
     metrics = []
     pattern = os.path.join(data_dir, "**/*.json")
     for filepath in glob.glob(pattern, recursive=True):
+        # Skip quarantine and other underscore-prefixed staging dirs
+        rel = os.path.relpath(filepath, data_dir)
+        if rel.split(os.sep)[0].startswith("_"):
+            continue
         try:
             with open(filepath) as f:
                 data = json.load(f)
@@ -40,6 +46,10 @@ def load_metrics(data_dir="data"):
             continue
         if is_token_event(data):
             continue
+        canonical = resolve_repo(data.get("repo"), data_dir)
+        if canonical is None:
+            continue
+        data["repo"] = canonical
         data["_file"] = filepath
         metrics.append(data)
     return metrics

@@ -80,6 +80,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Refresh arqu-co repo allowlist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 docs/refresh_repo_allowlist.py
+
       - name: Aggregate metrics
         run: python3 docs/aggregate.py data docs/data.json
 
