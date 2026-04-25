@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "feat/multi-step-and-markers",
+  "sha": "59d9060e617ee2ca7971ef34c7f0c5a96e4ed685",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T12:46:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T12:46:30Z",
+      "fingerprint": "e9f6fd67c8880593e120aacada62db59",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "bun test v1.3.9 (cf6cdbbb)\n\ntests/cli-hydrate.test.ts:\n40 |   return { env, logs, errs, files, fetches };\n41 | }\n42 | \n43 | test(\"parseHydrateArgs uses PWD as default cwdFilter\", () => {\n44 |   const opts = parseHydrateArgs([]);\n45 |   expect(opts.cwdFilter).toBe(\"/workspace\");\n                              ^\nerror: expect(received).toBe(expected)\n\nExpected: \"/workspace\"\nReceived: \"/Users/jerrod/Sites/worklog\"\n\n      at <anonymous> (/Users/jerrod/Sites/worklog/tests/cli-hydrate.test.ts:45:26)\n(fail) parseHydrateArgs uses PWD as default cwdFilter [1.09ms]\n\n 136 pass\n 1 fail\n 235 expect() calls\nRan 137 tests across 12 files. [169.00ms]"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "src/cli-gh.ts",
+        "web/sw.js"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
