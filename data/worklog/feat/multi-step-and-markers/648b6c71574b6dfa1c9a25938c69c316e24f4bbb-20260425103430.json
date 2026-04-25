@@ -1,0 +1,344 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "feat/multi-step-and-markers",
+  "sha": "648b6c71574b6dfa1c9a25938c69c316e24f4bbb",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T14:34:30Z",
+  "phase": "build",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T14:34:08Z",
+      "files_checked": 29,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "src/cli-gh.ts",
+          "function": "classifyPr",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/cli-gh.ts",
+          "function": "runGhSync",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/db.ts",
+          "function": "upsertItem",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/router.ts",
+          "function": "createItem",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/router.ts",
+          "function": "parseSteps",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/server.ts",
+          "function": "patchStepHandler",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/server.ts",
+          "function": "postIgnore",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/server.ts",
+          "function": "getUsage",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "web/app.ts",
+          "function": "refresh",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "web/render.ts",
+          "function": "renderItem",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "web/util.ts",
+          "function": "hostLabel",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T13:48:37Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T14:34:16Z",
+      "files_checked": 29,
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "web/render.ts",
+          "name": "type GroupedRef",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "web/tabs.ts",
+          "name": "type StateResponse",
+          "line": 1
+        },
+        {
+          "type": "unused_import",
+          "file": "web/tabs.ts",
+          "name": "type Zone",
+          "line": 2
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T14:34:05Z",
+      "files_checked": 37,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/server.ts",
+          "lines": 422,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "web/components.css",
+          "lines": 329,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "web/render.ts",
+          "lines": 305,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:48:39Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:48:22Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T14:34:26Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:35:04Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:53:33Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:48:42Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-24T22:00:18Z"
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "tsconfig.json",
+          "line": 26,
+          "severity": "important",
+          "category": "plan-compliance",
+          "title": "include omits web/**/*.ts",
+          "body": "Plan specifies include: [\"src/**/*\", \"web/**/*\", \"tests/**/*\"] but tsconfig.json has [\"src/**/*.ts\", \"tests/**/*.ts\", \"index.ts\"]. web/ is missing. Task 3 creates the web/ directory and Tasks in Phase 3 will place frontend TypeScript there. When those files land, tsc --noEmit will silently skip them. Fix: add \"web/**/*.ts\" to the include array.",
+          "confidence": "high"
+        },
+        {
+          "file": "index.ts",
+          "line": 1,
+          "severity": "important",
+          "category": "correctness",
+          "title": "bun init placeholder index.ts should be removed",
+          "body": "index.ts contains only 'console.log(\"Hello via Bun!\")' \u2014 a bun init artifact. The real entry is src/server.ts (Task 7). This file is committed, included in tsconfig (line 26), and will confuse anyone running 'bun run index.ts' expecting the server. It is also dead code from day one. Fix: delete index.ts and remove it from tsconfig include. The dev/test scripts all point to src/server.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": ".gitignore",
+          "line": 35,
+          "severity": "minor",
+          "category": "hygiene",
+          "title": ".cursor/ directory not excluded in .gitignore",
+          "body": ".cursor/ is untracked (shown in git status --porcelain) but not listed in .gitignore. Any team member or CI using Cursor will accumulate untracked noise. Fix: add '.cursor/' to the editors/os section of .gitignore.",
+          "confidence": "high"
+        },
+        {
+          "file": "biome.json",
+          "line": 2,
+          "severity": "minor",
+          "category": "maintainability",
+          "title": "biome.json $schema hardcodes version 2.4.13 instead of latest",
+          "body": "'$schema': 'https://biomejs.dev/schemas/2.4.13/schema.json' will become stale when biome is upgraded. IDE schema validation will silently use old rules. Fix: use 'https://biomejs.dev/schemas/latest/schema.json' (as the plan specifies) so the schema always matches the installed version.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:07:33Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:48:41Z",
+      "scanned_files": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:40Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:48:35Z",
+      "scanned_files": 12,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T14:34:24Z",
+      "test_runner": "bin-test",
+      "fingerprint": "688f8418c28e3bf9590ea263142f8670",
+      "missing_tests": 6,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "src/cli-gh.ts",
+        "web/api.ts",
+        "web/handlers.ts",
+        "web/sw.js",
+        "web/tabs.ts",
+        "web/zones.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 8000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 68986.0
+}
