@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "12153eda12d4a1f6622370382224e4dca1db5f88",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T12:55:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_fixtures/cr-suggestions/buildapiargs-target.ts",
+      "line": 71,
+      "rule": "COMPLEXITY",
+      "message": "processPollResult cyclomatic complexity 10 (max 8) \u2014 gate-complexity.sh confirms. Extract the event-processing loop body (mapEventType guard + subscription filter + notify) into a helper function to reduce branch count."
+    },
+    {
+      "file": "plugins/rq/scripts/test_fixtures/cr-suggestions/buildapiargs-expected.ts",
+      "line": 71,
+      "rule": "COMPLEXITY",
+      "message": "processPollResult cyclomatic complexity 10 (max 8) \u2014 same function, expected fixture mirrors the target. Both fixtures must be updated together so the before/after pair stays consistent."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T12:55:08Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
