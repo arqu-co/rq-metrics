@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-120-feat-show-last-prompt-in-terminal-1930",
+  "sha": "04703bb65d22880d6782d0741c12f04f6db5c71a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-25T16:47:11Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:11Z",
+      "files_checked": 21,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/useSessionActions.ts",
+          "function": "useSessionActions",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "function": "parseWsMessage",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "function": "handleWsMessage",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/last-prompt-extractor.ts",
+          "function": "partitionContent",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/last-prompt-extractor.ts",
+          "function": "parseLastPromptLine",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

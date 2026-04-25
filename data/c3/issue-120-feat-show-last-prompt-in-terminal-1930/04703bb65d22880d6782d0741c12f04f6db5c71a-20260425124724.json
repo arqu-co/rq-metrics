@@ -1,0 +1,209 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-120-feat-show-last-prompt-in-terminal-1930",
+  "sha": "04703bb65d22880d6782d0741c12f04f6db5c71a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-25T16:47:24Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "qa",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:11Z",
+      "files_checked": 21,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/useSessionActions.ts",
+          "function": "useSessionActions",
+          "lines": 73,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "function": "parseWsMessage",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "function": "handleWsMessage",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/last-prompt-extractor.ts",
+          "function": "partitionContent",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/last-prompt-extractor.ts",
+          "function": "parseLastPromptLine",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:32:31Z",
+      "coverage_tool": "js",
+      "files_checked": 6,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:47:13Z",
+      "files_checked": 21,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:36:13Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:09Z",
+      "files_checked": 21,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "lines": 327,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "server/__tests__/session-loader.test.ts",
+          "lines": 404,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 58000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:47:21Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:19Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/LastPromptRow.tsx(10,76): error TS2503: Cannot find namespace 'JSX'.\nclient/src/components/LastPromptRow.tsx(19,66): error TS2503: Cannot find namespace 'JSX'.\nclient/src/hooks/terminal-session-helpers.test.ts(26,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; ... 7 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\nclient/src/hooks/terminal-session-wiring.test.ts(46,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; branch: { repo: string; branch: string; directory: string; sessions: never[]; }; ... 6 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\nclient/src/hooks/useSessionActions.test.ts(42,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; branch: { repo: string; branch: string; directory: string; sessions: never[]; }; ... 6 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/LastPromptRow.tsx(10,76): error TS2503: Cannot find namespace 'JSX'.\nclient/src/components/LastPromptRow.tsx(19,66): error TS2503: Cannot find namespace 'JSX'.\nclient/src/hooks/terminal-session-helpers.test.ts(26,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; ... 7 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\nclient/src/hooks/terminal-session-wiring.test.ts(46,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; branch: { repo: string; branch: string; directory: string; sessions: never[]; }; ... 6 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\nclient/src/hooks/useSessionActions.test.ts(42,3): error TS2741: Property 'lastPrompt' is missing in type '{ terminal: TerminalInstance[\"terminal\"]; fitAddon: TerminalInstance[\"fitAddon\"]; ws: WebSocket; serverSessionId: string; containerEl: HTMLDivElement; branch: { repo: string; branch: string; directory: string; sessions: never[]; }; ... 6 more ...; lastSentRows: number; }' but required in type 'TerminalInstance'.\n"
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:23Z",
+      "duration_ms": 1000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:36:12Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:47:22Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:47:22Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:47:20Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:46:11Z",
+      "fingerprint": "1b7df90f10d917d4da225332f14ea28f",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 141071.0
+}

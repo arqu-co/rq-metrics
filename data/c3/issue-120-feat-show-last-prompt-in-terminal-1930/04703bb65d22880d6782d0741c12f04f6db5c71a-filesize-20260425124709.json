@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-120-feat-show-last-prompt-in-terminal-1930",
+  "sha": "04703bb65d22880d6782d0741c12f04f6db5c71a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-25T16:47:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:47:09Z",
+      "files_checked": 21,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "lines": 327,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "server/__tests__/session-loader.test.ts",
+          "lines": 404,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
