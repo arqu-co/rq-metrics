@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/cr-aware-ship-wave-3",
+  "sha": "78594fd21a715925720f540d5f41393c8b63177a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T05:22:45Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T05:22:42Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
