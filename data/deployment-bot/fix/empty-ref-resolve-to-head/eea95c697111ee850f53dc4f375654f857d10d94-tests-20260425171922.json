@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/empty-ref-resolve-to-head",
+  "sha": "eea95c697111ee850f53dc4f375654f857d10d94",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T21:19:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T21:19:21Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a0e270e121a10f4cb8686eb92cd6ad35",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "ref_resolution.py"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
