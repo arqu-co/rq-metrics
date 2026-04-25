@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/serverless-table-name-underscore-suffix",
+  "sha": "cfc09fb04d119b8af70a31ce9e49edd0f7f937df",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T14:43:04Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T14:43:03Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
