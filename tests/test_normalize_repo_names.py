@@ -154,3 +154,48 @@ def test_find_bogus_repos_via_github_skips_reserved_prefixes():
             bogus = find_bogus_repos_via_github(d, "arqu-co")
     assert bogus == []
     assert mock.call_count == 0  # reserved dirs never checked
+
+
+# --- allowlist preference (avoids GHA token's public-repos-only blindness) ---
+
+
+def test_find_bogus_uses_committed_allowlist_when_present():
+    """When ``data/_arqu-co-repos.json`` exists, the detector trusts it
+    instead of calling ``gh api`` per-dir. CI's GITHUB_TOKEN can only
+    see public repos, so a per-dir live check false-positives every
+    private-repo dir as bogus.
+    """
+    import json as _json
+    with tempfile.TemporaryDirectory() as d:
+        # Committed allowlist contains private + public repos
+        with open(os.path.join(d, "_arqu-co-repos.json"), "w") as f:
+            _json.dump({"org": "arqu-co",
+                        "repos": ["arqu-atlas", "engineer", "auto-claude"]}, f)
+        for name in [
+            "arqu-atlas",        # in allowlist → not bogus
+            "engineer",          # in allowlist → not bogus
+            "auto-claude",       # in allowlist → not bogus
+            "bold-wilson",       # not in allowlist → bogus
+            "claude-skills",     # not in allowlist (renamed) → bogus
+        ]:
+            os.makedirs(os.path.join(d, name))
+        # gh api should NEVER be called when allowlist is present.
+        with patch(
+            "normalize_repo_names.repo_exists_in_org",
+            side_effect=AssertionError("gh api must not be called"),
+        ):
+            bogus = find_bogus_repos_via_github(d, "arqu-co")
+    assert set(bogus) == {"bold-wilson", "claude-skills"}
+
+
+def test_find_bogus_falls_back_to_gh_api_when_allowlist_missing():
+    """No committed allowlist → fall back to per-dir gh api (legacy path)."""
+    with tempfile.TemporaryDirectory() as d:
+        os.makedirs(os.path.join(d, "engineer"))
+        os.makedirs(os.path.join(d, "bogus-thing"))
+        with patch(
+            "normalize_repo_names.repo_exists_in_org",
+            side_effect=lambda _o, name: name == "engineer",
+        ):
+            bogus = find_bogus_repos_via_github(d, "arqu-co")
+    assert bogus == ["bogus-thing"]

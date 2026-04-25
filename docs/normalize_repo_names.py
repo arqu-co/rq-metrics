@@ -86,18 +86,41 @@ def repo_exists_in_org(org, name):
     return result.returncode == 0
 
 
-def find_bogus_repos_via_github(data_dir, org):
-    """Return list of directory names that are NOT real repos in `org`.
+def _load_cached_allowlist(data_dir):
+    """Load the committed ``data/_arqu-co-repos.json`` allowlist.
 
-    Exhaustive — catches both worktree-pattern names and directory-
-    style bogus names. Requires `gh` CLI with read access to `org`.
+    Returns the set of repo names. Returns an empty set when the file is
+    missing or corrupt — caller should treat that as "filter disabled"
+    rather than "everything bogus" and fall back to the live ``gh api``
+    detector.
     """
+    path = os.path.join(data_dir, "_arqu-co-repos.json")
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return set()
+    return {str(r) for r in (data.get("repos") or []) if r}
+
+
+def find_bogus_repos_via_github(data_dir, org):
+    """Return list of directory names that are NOT real repos in ``org``.
+
+    Prefers the committed ``data/_arqu-co-repos.json`` allowlist so CI
+    runs (whose ``GITHUB_TOKEN`` can only see public repos) don't
+    false-positive every private-repo dir as bogus. Falls back to
+    per-directory ``gh api`` only when the allowlist file is missing.
+    """
+    allowlist = _load_cached_allowlist(data_dir)
     bogus = []
     for entry in sorted(os.listdir(data_dir)):
         path = os.path.join(data_dir, entry)
         if not os.path.isdir(path) or entry.startswith("_"):
             continue
-        if not repo_exists_in_org(org, entry):
+        if allowlist:
+            if entry not in allowlist:
+                bogus.append(entry)
+        elif not repo_exists_in_org(org, entry):
             bogus.append(entry)
     return bogus
 
