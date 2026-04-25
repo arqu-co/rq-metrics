@@ -1,0 +1,356 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "60f839a24d05dcc818ff82c632423a5ae0ac289d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T13:07:02Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-13410",
+    "review-wip-reviewer-71929",
+    "review-wip-reviewer-80215",
+    "review-wip-reviewer-80648",
+    "review-wip-reviewer-86354",
+    "review-wip-reviewer-94560",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:04:53Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 10000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T10:44:53Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:05:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 10000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:04:43Z",
+      "files_checked": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 366000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:06:52Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:06:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 106000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:06:58Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T12:58:37Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:24:26Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:06:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-24T02:03:08Z"
+    },
+    "review-wip-reviewer-13410": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-71929": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-80215": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "line": 1,
+          "severity": "high",
+          "category": "format",
+          "title": "shfmt formatting violations in pr-verdict.sh and test_pr_verdict.sh",
+          "body": "gate-lint bin-format check fails: both scripts need shfmt formatting. Fix: run bin/format and commit.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/test_fixtures/pr-verdict/verbose-cr.json",
+          "line": 17,
+          "severity": "high",
+          "category": "lint",
+          "title": "noqa comment in fixture body triggers lint-suppressions gate",
+          "body": "verbose-cr.json fixture body contains '# noqa: F401' inside a Python code example string. The lint-suppressions gate scans the entire diff including JSON string contents and matches this as a real suppression. The fixture is a test data file \u2014 the noqa comment is inside a quoted Python snippet, not real code. Fix: either escape/reword the noqa comment in the fixture (e.g. 'noqa:F401' without the space, or rephrase) or add a lint allowlist entry for this fixture with a precise reason.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "line": 243,
+          "severity": "high",
+          "category": "correctness",
+          "title": "pre_merge loop breaks on first CodeRabbit check, missing worse-severity checks",
+          "body": "Lines 232-243: the loop iterates contexts and breaks immediately after the first node whose name starts with 'CodeRabbit'. If a repo has multiple CodeRabbit check-runs (e.g. 'CodeRabbit Review' NEUTRAL then 'CodeRabbit Pre-merge Checks' FAILURE), only the first is evaluated; the error is silently dropped and pre_merge=warning rather than error. Fix: remove the `break`; instead track the worst pre_merge value seen across all CodeRabbit checks (error > warning > green). No test fixture covers this multi-CodeRabbit-check scenario.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "line": 66,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "python3 -c interpolates $binding path \u2014 breaks if repo path contains a single quote",
+          "body": "Line 66: repo=$(python3 -c \"import json,sys; d=json.load(open('$binding')); ...\"). If REPO_ROOT contains a single-quote (e.g. /Users/O'Brien/...), the Python literal is malformed and the command silently returns empty, causing the function to return 1 with a misleading error. Fix: pass the path via environment variable \u2014 export _BINDING_PATH=\"$binding\" and use python3 -c 'import json,os; d=json.load(open(os.environ[\"_BINDING_PATH\"])); ...' so no shell interpolation occurs inside the Python string.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/test_pr_verdict.sh",
+          "line": 126,
+          "severity": "minor",
+          "category": "style",
+          "title": "_assert_contains called with desc==needle \u2014 test description is not human-readable",
+          "body": "Lines 126-130: _run_fixture_test passes the assertion expression itself as both desc and needle (e.g. _assert_contains \"verdict=READY\" \"verdict=READY\" \"$output\"). The description field should be prose that explains what is being asserted, e.g. 'verdict field matches expected value'. Failure messages currently say 'FAIL: verdict=READY' which reads as a test named after its own assertion.",
+          "confidence": "confirmed"
+        }
+      ]
+    },
+    "review-wip-reviewer-80648": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "line": 210,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_nitpick_count uses max() instead of sum() for mixed prefix+emoji bodies",
+          "body": "When a CodeRabbit CHILL-profile body contains both 'Nitpick:' prefixes and '\ud83e\uddf9 Nitpick' emoji-prefixed lines (without a 'Nitpick comments (N)' heading), line 210 does `max(prefix_count, emoji_count)` instead of summing the two. A body with 2 prefix-style and 3 emoji-style nitpicks returns 3 instead of 5, causing actionable undercount and a false READY verdict. Fix: replace `max(prefix_count, emoji_count)` with `prefix_count + emoji_count`. The heading-based path (strategy 1) remains correct because it reads the author-supplied total directly. The catch-all (strategy 4) is only reached when nitpick_count==0 so it is not affected.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/hooks/enforce-pr-verdict.sh",
+          "line": 27,
+          "severity": "low",
+          "category": "correctness",
+          "title": "tail -n 1 on empty log file silently returns empty string \u2014 handled but worth documenting",
+          "body": "Line 27: `LAST=$(tail -n 1 \"$LOG\")`. If the log file exists but is completely empty (e.g. created by a failed write), `tail -n 1` returns an empty string. Lines 34-37 check for empty VERDICT_SHA/FETCHED_AT and exit 2 with 'pr-verdict log corrupt', which is the correct behavior. No code change needed, but the test suite has no test for the empty-file case. A test with a zero-byte log file would confirm this path is exercised.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_enforce_pr_verdict.sh",
+          "line": 91,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No test for empty (zero-byte) log file",
+          "body": "_write_verdict_log always writes a non-empty line. The code path for an existing-but-empty log file (LAST is empty string, exits 2 with 'log corrupt') is untested. Add a test that touches the log file empty and asserts exit 2 + stderr contains 'log corrupt'.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_enforce_pr_verdict.sh",
+          "line": 155,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Integration test verifies block surfaced but not the specific message",
+          "body": "Lines 176-184: the integration test only checks whether stdout contains 'permissionDecision' OR stderr contains 'pr-verdict'. It does not assert on the specific error message ('no fresh pr-verdict'). This means a guard that blocks for any reason (e.g. block-merge-without-ci firing first) would pass the test even if enforce-pr-verdict never ran. Minor \u2014 the integration test is by design a smoke test \u2014 but noting it for completeness.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-86354": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/hooks/block-manual-coderabbit-trigger.sh",
+          "line": 32,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Allow-list check short-circuits entire block when body contains any allowed CR token alongside a blocked one",
+          "body": "Lines 32-37: if the command body contains both a blocked token (e.g. '@coderabbitai review') and an allowed token (e.g. '@coderabbitai autofix'), BLOCKED matches on line 32 but ALLOWED also matches on line 34, so the block is suppressed and the whole comment passes. The intent is to block any blocked command even if an allowed command co-appears. Fix: match the specific token that triggered the block instead of scanning the full body for any allowed token. One approach: iterate over CR commands, and for each token check if it individually is blocked or allowed.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/hooks/block-manual-coderabbit-trigger.sh",
+          "line": 1,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "--body-file bypass not documented in header comment",
+          "body": "The guard only inspects HOOK_TOOL_COMMAND (the shell command string). A gh pr comment using --body-file ./cr.md where the file contains '@coderabbitai review' bypasses the guard entirely since the file contents are never read. This is an accepted limitation but is not called out in the header comment. Fix: add a comment line to the header (e.g. '# Limitation: --body-file is not inspected; file contents bypass this guard.') so callers understand the scope.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_block_manual_coderabbit_trigger.sh",
+          "line": 16,
+          "severity": "medium",
+          "category": "style",
+          "title": "Test duplicates helpers from test_helpers.sh instead of sourcing the shared file",
+          "body": "test_helpers.sh exists in the same scripts/ directory and provides _assert_exit_code, _assert_contains, _assert_bytes, and _setup_gh_shim. This test file reimplements _assert_exit (lines 26-36), _assert_stderr_contains (lines 38-48), _assert_stderr_len (lines 50-61) independently. This is a DRY violation \u2014 two parallel assertion libraries with slightly different interfaces will diverge. Fix: source test_helpers.sh at line 10, replace _assert_exit with _assert_exit_code (adapting the call sites), replace _assert_stderr_contains with _assert_contains, and replace _assert_stderr_len with _assert_bytes (adjusting the 80-char threshold to match the shared 200-byte limit, or add _assert_bytes_80 to test_helpers.sh).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-94560": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_cr_config.sh",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "test_cr_config.sh is 311 lines \u2014 exceeds 300-line limit",
+          "body": "The gate-filesize check fails: 311 lines > 300 limit. The helper functions (_assert, _assert_contains, _assert_not_contains, _assert_exit_code, _assert_one_line, _assert_bytes, _assert_all_fields, _setup_gh_shim, _setup_gh_shim_fail \u2014 lines 11-115) are 105 lines of reusable infrastructure. Extract them to a shared test-helpers file (e.g. test_helpers.sh) and source it at the top of this file. That brings the test body to ~206 lines and the helper file to ~105 lines, both well under 300.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/cr-config.sh",
+          "line": 82,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_cache_fresh uses shell interpolation of CACHE_FILE inside Python string \u2014 path injection hazard",
+          "body": "Line 85: `d = json.load(open('$CACHE_FILE'))` \u2014 CACHE_FILE is shell-expanded inside the Python source literal. If CACHE_FILE contains a single quote (e.g. a user whose HOME path includes O'Brien), the Python expression is syntactically broken and the command silently returns failure (|| return 1), causing the cache to always appear stale and hitting the network every time. Fix: pass CACHE_FILE via env var and use os.environ inside Python, matching the pattern already used correctly in _write_cache (lines 113-128).",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/cr-config.sh",
+          "line": 99,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_read_cache uses shell interpolation of CACHE_FILE inside Python string \u2014 same injection hazard",
+          "body": "Line 99: `d = json.load(open('$CACHE_FILE'))` \u2014 identical pattern to _cache_fresh. Same single-quote path injection risk. Fix: export CACHE_FILE and use os.environ['CACHE_FILE'] inside the Python heredoc (or inline -c string).",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/cr-config.sh",
+          "line": 180,
+          "severity": "important",
+          "category": "complexity",
+          "title": "Four separate python3 -c subshells to unpack YAML parse result \u2014 spawns 4 extra processes per invocation",
+          "body": "Lines 180-183 (and 242-245 in the comment path): after the Python heredoc emits a JSON blob, four separate `echo \"$parsed\" | python3 -c ...` subshells each extract one field. This spawns 4 processes + 4 pipes where a single Python call could unpack all four fields at once. The cost is real (~40-80ms extra on each non-cached invocation) and adds 8 lines of nearly-identical code that violates DRY. Fix: add a helper function _unpack_parsed that parses the JSON once and prints all four values on separate lines, then read them with a single `read ar ai rcw pmm < <(...)` or sequential assignments from a temp file.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/cr-config.sh",
+          "line": 194,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "gh api fetches ALL repo issue comments with --paginate \u2014 no upper bound on payload size",
+          "body": "Line 194: `gh api \"repos/${OWNER_REPO}/issues/comments\" --paginate` fetches every issue comment in the repo without any filter. On active repos this can be thousands of comments and hundreds of KB. The subsequent Python parser only needs comments from user 'coderabbitai' containing 'CodeRabbit Configuration'. Consider using `--jq` server-side filtering or adding a `?per_page=100` cap with a `--paginate` fallback limited to the most recent page. At minimum, document the known limitation in the header comment.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "plugins/rq/scripts/test_cr_config.sh",
+          "line": 62,
+          "severity": "minor",
+          "category": "style",
+          "title": "_assert_one_line pipes through tr | wc -c \u2014 internal grep pipeline in test helper",
+          "body": "Line 62: `nl_count=$(printf '%s' \"$output\" | tr -cd $'\\n' | wc -c | tr -d ' ')`. Using wc -c output with a trailing tr -d ' ' is an indirect way to count newlines. More readable: `nl_count=$(printf '%s' \"$output\" | grep -c '' || true)` minus 1, or simply `IFS=$'\\n' read -ra _lines <<< \"$output\"; nl_count=${#_lines[@]}`. Minor style issue only \u2014 does not affect correctness.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:52:09Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T13:06:55Z",
+      "scanned_files": 37,
+      "duration_ms": 3000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T05:27:00Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T10:32:02Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T12:50:51Z",
+      "test_runner": "bin-test",
+      "fingerprint": "34e027a635f1e976d55089f364f7158a",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 126889.0
+}
