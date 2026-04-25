@@ -1,0 +1,311 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "feat/hydrate",
+  "sha": "2d1d53b2037fbb57370e6ed765f0b0f428808c4d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T11:08:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:07:28Z",
+      "files_checked": 12,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "src/cli-gh.ts",
+          "function": "classifyPr",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/cli-gh.ts",
+          "function": "runGhSync",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/router.ts",
+          "function": "createItem",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/server.ts",
+          "function": "postIgnore",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/server.ts",
+          "function": "getUsage",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "web/app.ts",
+          "function": "renderItem",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "web/app.ts",
+          "function": "refresh",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "web/app.ts",
+          "function": "renderItem",
+          "lines": 80,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T11:07:55Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:07:38Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 10000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:07:22Z",
+      "files_checked": 15,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/server.ts",
+          "lines": 346,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "web/app.css",
+          "lines": 336,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "web/app.ts",
+          "lines": 574,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:07:58Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:07:42Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:08:06Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T20:35:04Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:53:33Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:08:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-24T22:00:18Z"
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "tsconfig.json",
+          "line": 26,
+          "severity": "important",
+          "category": "plan-compliance",
+          "title": "include omits web/**/*.ts",
+          "body": "Plan specifies include: [\"src/**/*\", \"web/**/*\", \"tests/**/*\"] but tsconfig.json has [\"src/**/*.ts\", \"tests/**/*.ts\", \"index.ts\"]. web/ is missing. Task 3 creates the web/ directory and Tasks in Phase 3 will place frontend TypeScript there. When those files land, tsc --noEmit will silently skip them. Fix: add \"web/**/*.ts\" to the include array.",
+          "confidence": "high"
+        },
+        {
+          "file": "index.ts",
+          "line": 1,
+          "severity": "important",
+          "category": "correctness",
+          "title": "bun init placeholder index.ts should be removed",
+          "body": "index.ts contains only 'console.log(\"Hello via Bun!\")' \u2014 a bun init artifact. The real entry is src/server.ts (Task 7). This file is committed, included in tsconfig (line 26), and will confuse anyone running 'bun run index.ts' expecting the server. It is also dead code from day one. Fix: delete index.ts and remove it from tsconfig include. The dev/test scripts all point to src/server.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": ".gitignore",
+          "line": 35,
+          "severity": "minor",
+          "category": "hygiene",
+          "title": ".cursor/ directory not excluded in .gitignore",
+          "body": ".cursor/ is untracked (shown in git status --porcelain) but not listed in .gitignore. Any team member or CI using Cursor will accumulate untracked noise. Fix: add '.cursor/' to the editors/os section of .gitignore.",
+          "confidence": "high"
+        },
+        {
+          "file": "biome.json",
+          "line": 2,
+          "severity": "minor",
+          "category": "maintainability",
+          "title": "biome.json $schema hardcodes version 2.4.13 instead of latest",
+          "body": "'$schema': 'https://biomejs.dev/schemas/2.4.13/schema.json' will become stale when biome is upgraded. IDE schema validation will silently use old rules. Fix: use 'https://biomejs.dev/schemas/latest/schema.json' (as the plan specifies) so the schema always matches the installed version.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:07:33Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:08:01Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T19:24:40Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:07:52Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:07:49Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8118382d720d2639cc0a4bbd28d35ef6",
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "(pass) POST /events rejects missing payload with 400 [0.34ms]\n(pass) POST /events rejects malformed json with 400 [0.19ms]\n(pass) GET /state buckets items by tag [0.31ms]\n(pass) PATCH /items/:id transitions state to done [1.34ms]\n(pass) PATCH emits item.updated event in audit log [0.31ms]\n(pass) PATCH /items/:id returns 404 for missing [0.45ms]\n(pass) PATCH /items/:id rejects malformed json with 400 [0.28ms]\n(pass) main boots server from env vars [0.03ms]\n(pass) main defaults port and db path when env missing [0.55ms]\n\ntests/cli.test.ts:\n(pass) parseEmitArgs requires an event type [0.12ms]\n(pass) parseEmitArgs rejects unknown types [0.02ms]\n(pass) parseEmitArgs accepts valid type with positional text [0.02ms]\n(pass) parseEmitArgs --text overrides positional [0.06ms]\n(pass) parseEmitArgs captures url, tag, and fields [0.07ms]\n(pass) parseEmitArgs --stdin sets fromStdin [0.02ms]\n(pass) buildPayload merges fields, text, url, tags [0.03ms]\n(pass) buildPayload uses stdin when --stdin is set [0.02ms]\n(pass) main init creates config file [0.33ms]\n(pass) main init leaves existing config alone [0.06ms]\n(pass) main emit posts to server and succeeds [0.23ms]\n(pass) main emit injects session metadata from env [0.09ms]\n(pass) main emit returns 1 when server is not ok [0.08ms]\n(pass) main emit reads stdin when --stdin is passed [0.02ms]\n(pass) main ping prints ok when server responds 2xx [0.05ms]\n(pass) main ping fails on non-ok [0.08ms]\n(pass) main items dumps state body [0.14ms]\n(pass) main items fails on server error [0.05ms]\n(pass) main help prints usage [0.04ms]\n(pass) main with no args prints usage [0.03ms]\n(pass) main unknown command returns 2 [0.02ms]\n(pass) main emit bubbles parse errors [0.06ms]\n(pass) initConfig honors WORKLOG_DEFAULT_HOST [0.05ms]\n(pass) buildEnv wires fs and stdin to CliEnv helpers [0.40ms]\n\ntests/bin/bin-scripts.test.ts:\n(pass) bin/lint exists and is executable\n(pass) bin/format exists and is executable [0.08ms]\n(pass) bin/typecheck exists and is executable\n(pass) bin/test exists and is executable\n(pass) bin/coverage exists and is executable\n\n1 tests failed:\n(fail) parseHydrateArgs uses PWD as default cwdFilter [0.20ms]\n\n 136 pass\n 1 fail\n 235 expect() calls\nRan 137 tests across 12 files. [201.00ms]"
+        }
+      ],
+      "missing_tests_details": [
+        "src/cli-gh.ts",
+        "web/sw.js"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 7000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 56606.0
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "repo": "worklog",
+  "branch": "feat/hydrate",
+  "sha": "2d1d53b2037fbb57370e6ed765f0b0f428808c4d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T11:07:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "NAMING": 1,
+    "LINT_SUPPRESS": 3
+  },
+  "critic_findings": [
+    {
+      "file": "src/router.ts",
+      "line": 115,
+      "rule": "NAMING",
+      "message": "upsertInitiative stores anchor_type='url' but the anchor_value is 'initiative:<slug>' (not a URL). AnchorType enum has no 'initiative' variant so this reuses 'url' as a workaround, but it pollutes the semantic meaning and the SQL lookup on line 98 and 143 perpetuates the confusion. A dedicated AnchorType value 'initiative' should be added to types.ts, or the lookup field should be a different column."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 17,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on the json() test helper. Fix: type the return as Promise<Record<string, unknown>> or use a generic \u2014 any: any is avoidable here."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 155,
+      "rule": "LINT_SUPPRESS",
+      "message": "biome-ignore lint/suspicious/noExplicitAny on fakeServe in 'main boots server' test. Fix: type as Parameters<typeof Bun.serve>[0] -> Bun.Server stub, or cast narrowly \u2014 the suppression is broader than needed."
+    },
+    {
+      "file": "tests/server.test.ts",
+      "line": 168,
+      "rule": "LINT_SUPPRESS",
+      "message": "Same biome-ignore on fakeServe in 'main defaults port' test. Same fix."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:07:49Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8118382d720d2639cc0a4bbd28d35ef6",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "src/cli-gh.ts",
+        "web/sw.js"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "(pass) POST /events rejects missing payload with 400 [0.34ms]\n(pass) POST /events rejects malformed json with 400 [0.19ms]\n(pass) GET /state buckets items by tag [0.31ms]\n(pass) PATCH /items/:id transitions state to done [1.34ms]\n(pass) PATCH emits item.updated event in audit log [0.31ms]\n(pass) PATCH /items/:id returns 404 for missing [0.45ms]\n(pass) PATCH /items/:id rejects malformed json with 400 [0.28ms]\n(pass) main boots server from env vars [0.03ms]\n(pass) main defaults port and db path when env missing [0.55ms]\n\ntests/cli.test.ts:\n(pass) parseEmitArgs requires an event type [0.12ms]\n(pass) parseEmitArgs rejects unknown types [0.02ms]\n(pass) parseEmitArgs accepts valid type with positional text [0.02ms]\n(pass) parseEmitArgs --text overrides positional [0.06ms]\n(pass) parseEmitArgs captures url, tag, and fields [0.07ms]\n(pass) parseEmitArgs --stdin sets fromStdin [0.02ms]\n(pass) buildPayload merges fields, text, url, tags [0.03ms]\n(pass) buildPayload uses stdin when --stdin is set [0.02ms]\n(pass) main init creates config file [0.33ms]\n(pass) main init leaves existing config alone [0.06ms]\n(pass) main emit posts to server and succeeds [0.23ms]\n(pass) main emit injects session metadata from env [0.09ms]\n(pass) main emit returns 1 when server is not ok [0.08ms]\n(pass) main emit reads stdin when --stdin is passed [0.02ms]\n(pass) main ping prints ok when server responds 2xx [0.05ms]\n(pass) main ping fails on non-ok [0.08ms]\n(pass) main items dumps state body [0.14ms]\n(pass) main items fails on server error [0.05ms]\n(pass) main help prints usage [0.04ms]\n(pass) main with no args prints usage [0.03ms]\n(pass) main unknown command returns 2 [0.02ms]\n(pass) main emit bubbles parse errors [0.06ms]\n(pass) initConfig honors WORKLOG_DEFAULT_HOST [0.05ms]\n(pass) buildEnv wires fs and stdin to CliEnv helpers [0.40ms]\n\ntests/bin/bin-scripts.test.ts:\n(pass) bin/lint exists and is executable\n(pass) bin/format exists and is executable [0.08ms]\n(pass) bin/typecheck exists and is executable\n(pass) bin/test exists and is executable\n(pass) bin/coverage exists and is executable\n\n1 tests failed:\n(fail) parseHydrateArgs uses PWD as default cwdFilter [0.20ms]\n\n 136 pass\n 1 fail\n 235 expect() calls\nRan 137 tests across 12 files. [201.00ms]"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
