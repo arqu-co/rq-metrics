@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "repo": "humans",
+  "branch": "issue-20-human-skill-require-self-contained-items",
+  "sha": "3b45653506dbe83e65399442b2dbd548499c55f9",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T20:51:57Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:50:51Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T20:51:51Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:50:56Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:50:46Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:05Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:00Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:13Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T20:29:36Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T20:51:54Z",
+      "duration_ms": 3000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:09Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:03Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T20:51:47Z",
+      "fingerprint": "5bb9ac42d649e54d33bce6d52dfb19e6",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 34000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1338.0
+}
