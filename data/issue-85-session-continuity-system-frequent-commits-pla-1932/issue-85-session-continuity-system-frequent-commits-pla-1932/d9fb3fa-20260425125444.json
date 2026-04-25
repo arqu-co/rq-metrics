@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "repo": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "branch": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "sha": "d9fb3fa",
+  "user": "unknown",
+  "timestamp": "2026-04-25T16:54:44Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "qa",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:54:26Z",
+      "files_checked": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:54:43Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:54:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:14:17Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:54:25Z",
+      "files_checked": 33,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:37:15Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:54:33Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:42:44Z"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T01:14:17Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:36:16Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:36:15Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T16:54:42Z",
+      "scanned_files": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 9000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T16:54:42Z",
+      "fingerprint": "7f17e16ee9bbf99b6090657f63511b13",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranchContinuity.test.ts:43:24\n     41|       );\n     42|     });\n     43|     const { result } = renderHook(() => useBranchContinuity(\"o/r\", \"fe\u2026\n       |                        ^\n     44|     await waitFor(() => { expect(result.current.loading).toBe(false); \u2026\n     45|     expect(callCount).toBe(1);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[16/34]\u23af\n\n FAIL  client/src/hooks/useBranchContinuity.test.ts > useBranchContinuity > invokes refetch after a successful squash\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranchContinuity.test.ts:66:24\n     64|       );\n     65|     });\n     66|     const { result } = renderHook(() => useBranchContinuity(\"o/r\", \"fe\u2026\n       |                        ^\n     67|     await waitFor(() => { expect(result.current.loading).toBe(false); \u2026\n     68|     const firstCount = callCount;\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[17/34]\u23af\n\n FAIL  client/src/hooks/useBranchContinuity.test.ts > useBranchContinuity > surfaces an error state when the initial fetch fails\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranchContinuity.test.ts:79:24\n     77|       { status: 500, headers: { \"content-type\": \"application/json\" } },\n     78|     ));\n     79|     const { result } = renderHook(() => useBranchContinuity(\"o/r\", \"fe\u2026\n       |                        ^\n     80|     await waitFor(() => { expect(result.current.loading).toBe(false); \u2026\n     81|     expect(result.current.error).toBeTruthy();\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[18/34]\u23af\n\n\n Test Files  3 failed | 20 passed (23)\n      Tests  17 failed | 253 passed (270)\n   Start at  12:54:34\n   Duration  7.63s (transform 1.47s, setup 0ms, import 2.98s, tests 25.60s, environment 2.30s)"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 142826.0
+}
