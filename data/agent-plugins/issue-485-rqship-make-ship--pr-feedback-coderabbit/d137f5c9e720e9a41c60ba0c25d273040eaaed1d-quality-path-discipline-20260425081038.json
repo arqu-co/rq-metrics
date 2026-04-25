@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "d137f5c9e720e9a41c60ba0c25d273040eaaed1d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T12:10:37Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_channel_wait.sh",
+      "line": 7,
+      "rule": "LINT_SUPPRESS",
+      "message": "Comment contains literal token 'shellcheck' (# shellcheck source=...). Per task instructions, use 'lint-rule' instead to avoid parser confusion."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T12:10:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "d137f5c9e720e9a41c60ba0c25d273040eaaed1d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T12:10:33Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_channel_wait.sh",
+      "line": 7,
+      "rule": "LINT_SUPPRESS",
+      "message": "Comment contains literal token 'shellcheck' (# shellcheck source=...). Per task instructions, use 'lint-rule' instead to avoid parser confusion."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T12:10:31Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
