@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-501-rq-tune-subagent-build-per-task-overhead",
+  "sha": "6172e09c76eca8b60d1c31bffd5e17bcdf439a15",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T17:28:48Z",
+  "phase": "ship",
+  "run_number": 4,
+  "gate_name": "plan",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T17:28:44Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
