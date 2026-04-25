@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/cr-aware-ship-wave-3",
+  "sha": "82d1f5cb35c546440dd3e18cef015fa68c59123a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T05:44:08Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T05:44:07Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "typecheck:github-channel",
+          "exit_code": 2,
+          "output": "server.ts(93,46): error TS2345: Argument of type '(req: { method: \"tools/call\"; params: { name: string; _meta?: { [x: string]: unknown; progressToken?: string | number | undefined; \"io.modelcontextprotocol/related-task\"?: { taskId: string; } | undefined; } | undefined; task?: { ...; } | undefined; arguments?: Record<...> | undefined; }; }) => Promise<...>' is not assignable to parameter of type '(request: { method: \"tools/call\"; params: { name: string; _meta?: { [x: string]: unknown; progressToken?: string | number | undefined; \"io.modelcontextprotocol/related-task\"?: { taskId: string; } | undefined; } | undefined; task?: { ...; } | undefined; arguments?: Record<...> | undefined; }; }, extra: RequestHandler...'.\n  Type 'Promise<ToolResponse>' is not assignable to type '{ [x: string]: unknown; _meta?: { [x: string]: unknown; progressToken?: string | number | undefined; \"io.modelcontextprotocol/related-task\"?: { taskId: string; } | undefined; } | undefined; } | ServerResult | Promise<...>'.\n    Type 'Promise<ToolResponse>' is not assignable to type 'Promise<{ [x: string]: unknown; _meta?: { [x: string]: unknown; progressToken?: string | number | undefined; \"io.modelcontextprotocol/related-task\"?: { taskId: string; } | undefined; } | undefined; } | ServerResult>'.\n      Type 'ToolResponse' is not assignable to type '{ [x: string]: unknown; _meta?: { [x: string]: unknown; progressToken?: string | number | undefined; \"io.modelcontextprotocol/related-task\"?: { taskId: string; } | undefined; } | undefined; } | ServerResult'.\n        Property 'task' is missing in type 'ToolResponse' but required in type '{ [x: string]: unknown; task: { taskId: string; status: \"working\" | \"input_required\" | \"completed\" | \"failed\" | \"cancelled\"; ttl: number | null; createdAt: string; lastUpdatedAt: string; pollInterval?: number | undefined; statusMessage?: string | undefined; }; _meta?: { ...; } | undefined; }'.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
