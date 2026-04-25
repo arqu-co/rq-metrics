@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "humans",
+  "branch": "issue-20-human-skill-require-self-contained-items",
+  "sha": "6b1cbbb0591d19f0d08bd3f30bb000725ef7dda1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T21:19:31Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T21:19:30Z",
+      "files_checked": 9,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/router.ts",
+          "function": "upsertInitiative",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/router.ts",
+          "function": "appendToInitiative",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
