@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/cr-aware-ship-wave-3",
+  "sha": "ad501f9d9f01e346946785d3932ad7b87799c7ed",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T06:06:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 2
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/github-channel/src/poll.ts",
+      "line": 41,
+      "rule": "COMPLEXITY",
+      "message": "processPollResult has cyclomatic complexity 12 (max 8). Extract PR-filter logic into a named helper."
+    },
+    {
+      "file": "plugins/github-channel/src/events.ts",
+      "line": 250,
+      "rule": "COMPLEXITY",
+      "message": "extractPrNumber has cyclomatic complexity 9 (max 8). Extract workflow_run branch into a separate helper."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:06:30Z",
+      "scanned_files": 37,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
