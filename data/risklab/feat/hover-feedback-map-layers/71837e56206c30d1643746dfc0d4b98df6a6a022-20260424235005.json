@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/hover-feedback-map-layers",
+  "sha": "71837e56206c30d1643746dfc0d4b98df6a6a022",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-25T06:50:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "complexity"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T06:49:48Z",
+      "files_checked": 20,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/grs-hover-outline.ts",
+          "function": "bboxOfPolygon",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/grs-hover-outline.ts",
+          "function": "flushPending",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/grs-tile-layer-effects.ts",
+          "function": "handleLayerClick",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T18:57:34Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:49:50Z",
+      "files_checked": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:49:47Z",
+      "files_checked": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 278000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:50:02Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:50:01Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 11000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:50:05Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T18:49:22Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:50:04Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-24T18:54:13Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T18:47:07Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:50:04Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:45:09Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T18:57:32Z",
+      "fingerprint": "dfcd6d85a09f56aa380303a54b267627",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 43378.0
+}
