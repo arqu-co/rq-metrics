@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "9136cfdf669369ebb6efab77c42f9efd475cfc13",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T11:23:05Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "markdown",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/monitor-registry.sh",
+      "line": 67,
+      "rule": "LINT_SUPPRESS",
+      "message": "# shellcheck disable=SC2064 suppresses a real shellcheck warning. The suppression is intentional (double-quote trap captures $lockdir at definition time), but zero-tolerance policy requires fixing the root cause rather than suppressing. Fix: export lockdir and use a single-quoted trap string, or restructure _with_lock to use a subshell so rmdir runs on subshell exit without needing trap."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "markdown"
+  ],
+  "gates": {
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T11:23:04Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
