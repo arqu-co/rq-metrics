@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-485-rqship-make-ship--pr-feedback-coderabbit",
+  "sha": "e37d670d6123a430656c5c5b1b7f5e98e358d7cb",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T11:57:41Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "LINT_SUPPRESS": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/test_channel_wait.sh",
+      "line": 7,
+      "rule": "LINT_SUPPRESS",
+      "message": "Comment contains literal token 'shellcheck' (# shellcheck source=...). Per task instructions, use 'lint-rule' instead to avoid parser confusion."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T11:57:40Z",
+      "scanned_files": 37,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
