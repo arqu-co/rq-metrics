@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-513-rq-mandatory-coderabbit-phase-between-re",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T20:47:41.153Z",
+  "session_id": "919f782c-f0d7-40a7-b610-89d3e4e47a45",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 341,
+    "output": 48943,
+    "cache_read": 19860015,
+    "cache_create": 426921,
+    "est_cost_usd": 9.418826549999999
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 20336220,
+      "cost_usd": 9.418826549999999
+    }
+  }
+}
