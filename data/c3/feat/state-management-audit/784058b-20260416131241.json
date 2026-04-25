@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/state-management-audit",
+  "sha": "784058b",
+  "user": "unknown",
+  "timestamp": "2026-04-16T17:12:40Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/branch-overview-helpers.tsx",
+      "line": 26,
+      "rule": "COMPLEXITY",
+      "message": "getAlerts() cyclomatic complexity is 10 (max 8). The 2 new if-blocks for ci_stale and approval_stale pushed it from 8 to 10. Extract a data-driven approach: define an array of {attentionKey, icon, label, color} objects and iterate, or split into getCIAlerts + getReviewAlerts helpers."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:15Z",
+      "files_checked": 32,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "server/state-invariants.ts",
+          "function": "validatePullRequestInvariants",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/branch-overview-helpers.tsx",
+          "function": "getAlerts",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "shared/classify-branch.ts",
+          "function": "autoClassify",
+          "complexity": 18,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "BranchCard",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "CardHeader",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "BranchCard",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "function": "StatusMenu",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "loadSessions",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "parseSessionFile",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "function": "loadSessions",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/ci-ticker.ts",
+          "function": "runRefreshCycle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:40Z",
+      "coverage_tool": "js",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "server/github-poller.ts",
+          "coverage": 89.24,
+          "min": 95
+        },
+        {
+          "file": "server/session-watcher.ts",
+          "coverage": 12.26,
+          "min": 95
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:16Z",
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "server/github-poller.ts",
+          "name": "type GitHubPRPayload",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "server/github-poller.ts",
+          "name": "type TransformOptions",
+          "line": 23
+        },
+        {
+          "type": "unused_import",
+          "file": "server/github-poller.ts",
+          "name": "type PollState",
+          "line": 25
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T17:12:40Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T17:12:14Z",
+      "files_checked": 32,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:21Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/TerminalToolbar.test.tsx(14,5): error TS2739: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: \"open\"; isDraft: false; ciStatus: \"success\"; reviewState: \"approved\"; ... 4 more ...; requestedReviewers: never[]; }' is missing the following properties from type 'PullRequest': headSha, ciCommitSha, ciIsStale, approvalIsStale\nclient/src/hooks/useCIPolling.test.ts(27,7): error TS2739: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: \"open\"; isDraft: false; ciStatus: \"success\"; reviewState: \"approved\"; ... 4 more ...; requestedReviewers: never[]; }' is missing the following properties from type 'PullRequest': headSha, ciCommitSha, ciIsStale, approvalIsStale\nserver/__tests__/branch-cleanup.test.ts(14,3): error TS2322: Type '{ id: string; directory: string; branch: string; repo: string; startedAt: string; endedAt?: string | undefined; model?: string | undefined; status: \"running\" | \"completed\" | \"stopped\" | \"errored\"; needsInput?: boolean | undefined; tokenUsage?: { input: number; output: number; cacheRead: number; cacheWrite: number; }...' is not assignable to type 'ClaudeSession'.\n  Types of property 'needsInput' are incompatible.\n    Type 'boolean | undefined' is not assignable to type 'boolean'.\n      Type 'undefined' is not assignable to type 'boolean'.\nserver/__tests__/branch-listing.test.ts(16,3): error TS2322: Type '{ id: string; directory: string; branch?: string | undefined; repo?: string | undefined; startedAt: string; endedAt?: string | undefined; model?: string | undefined; status: \"running\" | \"completed\" | \"stopped\" | \"errored\"; needsInput?: boolean | undefined; tokenUsage?: { input: number; output: number; cacheRead: num...' is not assignable to type 'ClaudeSession'.\n  Types of property 'needsInput' are incompatible.\n    Type 'boolean | undefined' is not assignable to type 'boolean'.\n      Type 'undefined' is not assignable to type 'boolean'.\nserver/__tests__/github-pr-cache.test.ts(7,3): error TS2322: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: PullRequestState; ... 11 more ...; approvalIsStale?: boolean | undefined; }' is not assignable to type 'PullRequest'.\n  Types of property 'headSha' are incompatible.\n    Type 'string | undefined' is not assignable to type 'string'.\n      Type 'undefined' is not assignable to type 'string'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/TerminalToolbar.test.tsx(14,5): error TS2739: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: \"open\"; isDraft: false; ciStatus: \"success\"; reviewState: \"approved\"; ... 4 more ...; requestedReviewers: never[]; }' is missing the following properties from type 'PullRequest': headSha, ciCommitSha, ciIsStale, approvalIsStale\nclient/src/hooks/useCIPolling.test.ts(27,7): error TS2739: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: \"open\"; isDraft: false; ciStatus: \"success\"; reviewState: \"approved\"; ... 4 more ...; requestedReviewers: never[]; }' is missing the following properties from type 'PullRequest': headSha, ciCommitSha, ciIsStale, approvalIsStale\nserver/__tests__/branch-cleanup.test.ts(14,3): error TS2322: Type '{ id: string; directory: string; branch: string; repo: string; startedAt: string; endedAt?: string | undefined; model?: string | undefined; status: \"running\" | \"completed\" | \"stopped\" | \"errored\"; needsInput?: boolean | undefined; tokenUsage?: { input: number; output: number; cacheRead: number; cacheWrite: number; }...' is not assignable to type 'ClaudeSession'.\n  Types of property 'needsInput' are incompatible.\n    Type 'boolean | undefined' is not assignable to type 'boolean'.\n      Type 'undefined' is not assignable to type 'boolean'.\nserver/__tests__/branch-listing.test.ts(16,3): error TS2322: Type '{ id: string; directory: string; branch?: string | undefined; repo?: string | undefined; startedAt: string; endedAt?: string | undefined; model?: string | undefined; status: \"running\" | \"completed\" | \"stopped\" | \"errored\"; needsInput?: boolean | undefined; tokenUsage?: { input: number; output: number; cacheRead: num...' is not assignable to type 'ClaudeSession'.\n  Types of property 'needsInput' are incompatible.\n    Type 'boolean | undefined' is not assignable to type 'boolean'.\n      Type 'undefined' is not assignable to type 'boolean'.\nserver/__tests__/github-pr-cache.test.ts(7,3): error TS2322: Type '{ id: number; number: number; title: string; author: string; repo: string; branch: string; url: string; createdAt: string; updatedAt: string; state: PullRequestState; ... 11 more ...; approvalIsStale?: boolean | undefined; }' is not assignable to type 'PullRequest'.\n  Types of property 'headSha' are incompatible.\n    Type 'string | undefined' is not assignable to type 'string'.\n      Type 'undefined' is not assignable to type 'string'.\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T17:12:40Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T17:12:39Z",
+      "scanned_files": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-16T17:12:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f83b71de91d923717cb4ffb9c8c2c4be",
+      "test_failures": 0,
+      "missing_tests": 3,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/components/BranchCard.tsx",
+        "client/src/components/Sidebar.tsx",
+        "server/types.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 17000
+    }
+  },
+  "duration_seconds": 26.0
+}

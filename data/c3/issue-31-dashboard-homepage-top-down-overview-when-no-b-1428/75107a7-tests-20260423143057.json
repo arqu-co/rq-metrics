@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-31-dashboard-homepage-top-down-overview-when-no-b-1428",
+  "sha": "75107a7",
+  "user": "unknown",
+  "timestamp": "2026-04-23T18:30:57Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T18:30:56Z",
+      "test_runner": "bin-test",
+      "fingerprint": "0213a410cbf8a52afc8ac811c8f7ed68",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": " \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranches.test.ts:151:24\n    149|       .mockResolvedValue(jsonErr(500));\n    150|     vi.stubGlobal(\"fetch\", fetchMock);\n    151|     const { result } = renderHook(() => useBranches(10 * 60_000));\n       |                        ^\n    152|     await flushMicrotasks();\n    153|     expect(fetchMock).toHaveBeenCalledTimes(1);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[6/14]\u23af\n\n FAIL  client/src/hooks/useBranches.test.ts > useBranches polling > refetch clears error and retriggers immediately\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranches.test.ts:170:24\n    168|       .mockResolvedValue(jsonOk(successBody));\n    169|     vi.stubGlobal(\"fetch\", fetchMock);\n    170|     const { result } = renderHook(() => useBranches(10 * 60_000));\n       |                        ^\n    171|     await flushMicrotasks();\n    172|     expect(result.current.error).not.toBeNull();\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[7/14]\u23af\n\n FAIL  client/src/hooks/useBranches.test.ts > useBranches polling > caps backoff at 5 minutes\nTypeError: React.act is not a function\n \u276f exports.act ../../../node_modules/react-dom/cjs/react-dom-test-utils.production.js:20:16\n \u276f ../../../node_modules/@testing-library/react/dist/act-compat.js:46:25\n \u276f renderRoot ../../../node_modules/@testing-library/react/dist/pure.js:189:26\n \u276f render ../../../node_modules/@testing-library/react/dist/pure.js:291:10\n \u276f renderHook ../../../node_modules/@testing-library/react/dist/pure.js:339:7\n \u276f client/src/hooks/useBranches.test.ts:180:5\n    178|     const fetchMock = vi.fn().mockResolvedValue(jsonErr(500));\n    179|     vi.stubGlobal(\"fetch\", fetchMock);\n    180|     renderHook(() => useBranches(10 * 60_000));\n       |     ^\n    181|     await flushMicrotasks();\n    182|     // Walk through many backoff doublings (5s, 10s, 20s, 40s, 80s, 16\u2026\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[8/14]\u23af\n\n\n Test Files  1 failed | 3 passed (4)\n      Tests  7 failed | 36 passed (43)\n   Start at  14:30:56\n   Duration  659ms (transform 110ms, setup 0ms, import 215ms, tests 75ms, environment 274ms)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

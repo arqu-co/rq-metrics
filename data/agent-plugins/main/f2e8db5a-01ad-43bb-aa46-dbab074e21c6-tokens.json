@@ -1,7 +1,7 @@
 {
   "event_type": "token_usage",
   "schema_version": 1,
-  "repo": "claude-skills",
+  "repo": "agent-plugins",
   "branch": "main",
   "sha": null,
   "user": "Jerrod Blavos",
@@ -11,16 +11,14 @@
   "pr_number": null,
   "pr_url": null,
   "models_seen": [
-    "claude-haiku-4-5-20251001",
-    "claude-opus-4-6",
-    "claude-sonnet-4-6"
+    "claude-opus-4-6"
   ],
   "session_total": {
-    "input": 104343,
-    "output": 1329167,
-    "cache_read": 1558595090,
-    "cache_create": 31320308,
-    "est_cost_usd": 2874.50979716
+    "input": 29329,
+    "output": 542667,
+    "cache_read": 818252686,
+    "cache_create": 11815976,
+    "est_cost_usd": 1490.0685389999999
   },
   "phases": {
     "pre-rq": {
@@ -32,20 +30,20 @@
       "cost_usd": 27.2148435
     },
     "ship#2": {
-      "tokens": 51321719,
-      "cost_usd": 112.661388
+      "tokens": 48703442,
+      "cost_usd": 97.26862125
     },
     "review#1": {
-      "tokens": 122437391,
-      "cost_usd": 188.25359805
+      "tokens": 114866713,
+      "cost_usd": 180.42521775
     },
     "ship#3": {
-      "tokens": 226682711,
-      "cost_usd": 373.5367956
+      "tokens": 223616961,
+      "cost_usd": 371.08365975
     },
     "brainstorm": {
-      "tokens": 122693894,
-      "cost_usd": 197.9566425
+      "tokens": 122059458,
+      "cost_usd": 191.89947675000002
     },
     "review#2": {
       "tokens": 0,
@@ -56,20 +54,16 @@
       "cost_usd": null
     },
     "review#4": {
-      "tokens": 159337984,
-      "cost_usd": 337.44449265
+      "tokens": 117076230,
+      "cost_usd": 225.6243405
     },
     "review#5": {
-      "tokens": 60850843,
-      "cost_usd": 87.94047090000001
+      "tokens": 48696364,
+      "cost_usd": 78.14223675000001
     },
     "ship#4": {
       "tokens": 12413886,
       "cost_usd": 36.28893075
-    },
-    "unknown": {
-      "tokens": 692402876,
-      "cost_usd": 1231.09142321
     }
   }
 }

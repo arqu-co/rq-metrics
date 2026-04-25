@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-fix+github-rate-limit",
+  "sha": "8dc9802",
+  "user": "unknown",
+  "timestamp": "2026-04-15T21:05:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-15T21:05:53Z",
+      "fingerprint": "ae13a723d7a67e8e1828858e96acc6b8",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 5,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "server/app.ts",
+        "server/branch-cleanup.ts",
+        "server/github-pr-cache.ts",
+        "server/github-pr-fetch.ts",
+        "server/github-pr-transform.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

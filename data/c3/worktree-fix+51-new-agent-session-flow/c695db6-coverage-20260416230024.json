@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-fix+51-new-agent-session-flow",
+  "sha": "c695db6",
+  "user": "unknown",
+  "timestamp": "2026-04-17T03:00:24Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T03:00:24Z",
+      "coverage_tool": "js",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "server/config.ts",
+          "coverage": 76.92,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "main",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-03-24T22:48:01.372Z",
+  "session_id": "56b138dd-189d-4239-827f-b4937cf45ffd",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-6"
+  ],
+  "session_total": {
+    "input": 3278,
+    "output": 35320,
+    "cache_read": 24509875,
+    "cache_create": 304547,
+    "est_cost_usd": 45.173238749999996
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 24853020,
+      "cost_usd": 45.173238749999996
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "feat/slt-integration",
+  "sha": "05a85af2",
+  "user": "unknown",
+  "timestamp": "2026-04-19T15:39:33Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T15:39:33Z",
+      "files_checked": 52,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "scripts/gen-routes-manifest.ts",
+          "function": "extractRoutes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "src/composables/useInboxRouteSync.ts",
+          "function": "useInboxRouteSync",
+          "lines": 280,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

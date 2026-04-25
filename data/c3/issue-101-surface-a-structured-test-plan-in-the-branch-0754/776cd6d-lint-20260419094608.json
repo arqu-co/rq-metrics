@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "776cd6d",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:46:08Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:46:08Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/hooks/useBranchTestPlan.test.ts(180,7): error TS2322: Type 'AbortSignal | null | undefined' is not assignable to type 'AbortSignal | undefined'.\n  Type 'null' is not assignable to type 'AbortSignal | undefined'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/hooks/useBranchTestPlan.test.ts(180,7): error TS2322: Type 'AbortSignal | null | undefined' is not assignable to type 'AbortSignal | undefined'.\n  Type 'null' is not assignable to type 'AbortSignal | undefined'.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

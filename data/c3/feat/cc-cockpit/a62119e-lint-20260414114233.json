@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "feat/cc-cockpit",
+  "sha": "a62119e",
+  "user": "unknown",
+  "timestamp": "2026-04-14T15:42:33Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-14T15:42:33Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/Sidebar.tsx(215,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(220,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(221,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(226,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(230,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(231,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(232,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(240,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(244,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(254,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(256,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/Sidebar.tsx(264,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(58,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(64,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(68,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(82,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(92,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(94,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TagPopover.tsx(103,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(3,28): error TS6142: Module './BranchOverview' was resolved to '/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/c3-custom/client/src/components/BranchOverview.tsx', but '--jsx' is not set.\nclient/src/components/TerminalPanel.tsx(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '@xterm/xterm/css/xterm.css'.\nclient/src/components/TerminalPanel.tsx(99,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(102,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(103,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(105,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(115,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(116,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(117,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(119,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(120,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(129,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(134,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(135,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(144,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(147,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(158,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(160,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(164,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(165,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(175,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(176,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(177,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(178,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(180,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(191,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/components/TerminalPanel.tsx(192,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/main.tsx(3,17): error TS6142: Module './App' was resolved to '/Users/aliciadrinkwater/Desktop/01 arqu/03 prototypes/c3-custom/client/src/App.tsx', but '--jsx' is not set.\nclient/src/main.tsx(4,8): error TS2882: Cannot find module or type declarations for side-effect import of './index.css'.\nclient/src/main.tsx(7,3): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\nclient/src/main.tsx(8,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

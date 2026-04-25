@@ -1,7 +1,7 @@
 {
   "event_type": "token_usage",
   "schema_version": 1,
-  "repo": "claude-skills",
+  "repo": "agent-plugins",
   "branch": "main",
   "sha": null,
   "user": "Jerrod Blavos",
@@ -12,15 +12,14 @@
   "pr_url": null,
   "models_seen": [
     "<synthetic>",
-    "claude-opus-4-6",
-    "claude-sonnet-4-6"
+    "claude-opus-4-6"
   ],
   "session_total": {
-    "input": 59234,
-    "output": 2456596,
-    "cache_read": 2312362324,
-    "cache_create": 70442004,
-    "est_cost_usd": 4684.784754599999
+    "input": 25607,
+    "output": 986207,
+    "cache_read": 1310694036,
+    "cache_create": 27273244,
+    "est_cost_usd": 2551.764009
   },
   "phases": {
     "pre-rq": {
@@ -28,8 +27,8 @@
       "cost_usd": null
     },
     "brainstorm": {
-      "tokens": 145070625,
-      "cost_usd": 369.31855875
+      "tokens": 6628359,
+      "cost_usd": 30.1054425
     },
     "plan#1": {
       "tokens": 0,
@@ -52,20 +51,20 @@
       "cost_usd": null
     },
     "review#3": {
-      "tokens": 980734990,
-      "cost_usd": 2007.0542802000002
+      "tokens": 135020349,
+      "cost_usd": 290.426694
     },
     "review#4": {
-      "tokens": 258619475,
-      "cost_usd": 448.22041514999995
+      "tokens": 237406989,
+      "cost_usd": 430.58429175
     },
     "ship#1": {
       "tokens": 0,
       "cost_usd": null
     },
     "review#5": {
-      "tokens": 487896533,
-      "cost_usd": 912.00545385
+      "tokens": 464092834,
+      "cost_usd": 892.5389279999999
     },
     "review#6": {
       "tokens": 0,
@@ -80,24 +79,24 @@
       "cost_usd": null
     },
     "ship#2": {
-      "tokens": 3232048,
-      "cost_usd": 9.48954525
+      "tokens": 2887823,
+      "cost_usd": 7.698174000000001
     },
     "review#9": {
-      "tokens": 227642092,
-      "cost_usd": 399.01970759999995
+      "tokens": 219955347,
+      "cost_usd": 374.42452875000004
     },
     "review#10": {
       "tokens": 0,
       "cost_usd": null
     },
     "ship#3": {
-      "tokens": 152032351,
-      "cost_usd": 301.19816325
+      "tokens": 146731616,
+      "cost_usd": 291.44104275
     },
     "review#11": {
-      "tokens": 72029533,
-      "cost_usd": 148.5404793
+      "tokens": 68193266,
+      "cost_usd": 144.606756
     },
     "review#12": {
       "tokens": 56491729,

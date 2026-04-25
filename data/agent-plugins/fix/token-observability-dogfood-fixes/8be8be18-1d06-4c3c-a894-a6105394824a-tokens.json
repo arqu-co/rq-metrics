@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "fix/token-observability-dogfood-fixes",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-10T17:23:04.524Z",
+  "session_id": "8be8be18-1d06-4c3c-a894-a6105394824a",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-6",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 24383,
+    "output": 1120565,
+    "cache_read": 614690916,
+    "cache_create": 10943159,
+    "est_cost_usd": 1119.13013637
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "using-rq": {
+      "tokens": 367196083,
+      "cost_usd": 655.77673962
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 259582940,
+      "cost_usd": 463.35339675
+    }
+  }
+}

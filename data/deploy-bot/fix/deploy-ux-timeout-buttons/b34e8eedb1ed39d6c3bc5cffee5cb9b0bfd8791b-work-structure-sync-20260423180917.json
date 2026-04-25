@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "deploy-bot",
+  "branch": "fix/deploy-ux-timeout-buttons",
+  "sha": "b34e8eedb1ed39d6c3bc5cffee5cb9b0bfd8791b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-23T22:09:17Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "work-structure-sync",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "work-structure-sync"
+  ],
+  "gates": {
+    "work-structure-sync": {
+      "status": "fail"
+    }
+  },
+  "duration_seconds": null
+}

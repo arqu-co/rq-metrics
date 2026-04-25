@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "worktree-fix-auto-prune-sweep-and-squash-merge",
+  "sha": "428697c",
+  "user": "unknown",
+  "timestamp": "2026-04-17T14:45:40Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:45:21Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 105000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T14:45:39Z",
+      "coverage_tool": "js",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "server/auto-prune-wiring.ts",
+          "coverage": 64.7,
+          "min": 95
+        },
+        {
+          "file": "server/branch-pruner.ts",
+          "coverage": 94,
+          "min": 95
+        }
+      ],
+      "duration_ms": 11000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:45:22Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:43:36Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {},
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:45:21Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-17T14:45:39Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/ScratchPad.test.tsx(66,22): error TS2304: Cannot find name 'vi'.\nclient/src/components/ScratchPad.test.tsx(69,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(72,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(75,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(78,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(80,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(83,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(84,22): error TS2304: Cannot find name 'vi'.\nclient/src/components/ScratchPad.test.tsx(87,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(8,1): error TS2593: Cannot find name 'beforeEach'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(10,3): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(13,1): error TS2304: Cannot find name 'afterEach'.\nclient/src/hooks/useScratchPad.test.ts(14,3): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(17,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(18,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(20,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(21,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(24,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(27,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(30,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(33,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(36,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(42,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(43,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(46,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(48,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(51,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(61,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(65,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(71,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(75,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(77,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(83,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(91,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(94,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(97,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(103,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(105,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(108,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(110,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(115,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(116,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(121,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(122,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(125,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(139,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(142,5): error TS2304: Cannot find name 'expect'.\nvitest.config.ts(10,5): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Object literal may only specify known properties, and 'environmentMatchGlobs' does not exist in type 'InlineConfig'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/ScratchPad.test.tsx(66,22): error TS2304: Cannot find name 'vi'.\nclient/src/components/ScratchPad.test.tsx(69,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(72,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(75,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(78,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(80,5): error TS2304: Cannot find name 'expect'.\nclient/src/components/ScratchPad.test.tsx(83,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/components/ScratchPad.test.tsx(84,22): error TS2304: Cannot find name 'vi'.\nclient/src/components/ScratchPad.test.tsx(87,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(8,1): error TS2593: Cannot find name 'beforeEach'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(10,3): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(13,1): error TS2304: Cannot find name 'afterEach'.\nclient/src/hooks/useScratchPad.test.ts(14,3): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(17,1): error TS2593: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(18,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(20,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(21,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(24,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(27,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(30,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(33,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(36,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(42,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(43,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(46,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(48,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(51,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(61,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(65,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(71,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(75,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(77,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(83,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(91,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(94,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(97,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(103,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(105,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(108,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(110,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(115,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(116,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(121,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(122,5): error TS2304: Cannot find name 'expect'.\nclient/src/hooks/useScratchPad.test.ts(125,3): error TS2593: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.\nclient/src/hooks/useScratchPad.test.ts(139,7): error TS2304: Cannot find name 'vi'.\nclient/src/hooks/useScratchPad.test.ts(142,5): error TS2304: Cannot find name 'expect'.\nvitest.config.ts(10,5): error TS2769: No overload matches this call.\n  The last overload gave the following error.\n    Object literal may only specify known properties, and 'environmentMatchGlobs' does not exist in type 'InlineConfig'.\n"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:43:35Z",
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": [],
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:45:28Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T14:45:27Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ebc530023cd47c1e947a1d482df108ef",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 5000
+    }
+  },
+  "duration_seconds": 124.0
+}

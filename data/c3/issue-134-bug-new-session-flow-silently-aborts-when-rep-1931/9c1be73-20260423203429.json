@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-134-bug-new-session-flow-silently-aborts-when-rep-1931",
+  "sha": "9c1be73",
+  "user": "unknown",
+  "timestamp": "2026-04-24T00:34:29Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:19Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:18Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:25Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:29Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T00:34:29Z",
+      "fingerprint": "a3a6eb219b1bb8509e273d832af0c839",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 11.0
+}

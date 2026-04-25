@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "issue-7514-add-undo-button-for-deleted-messages-1657",
+  "sha": "6fcddb98",
+  "user": "unknown",
+  "timestamp": "2026-04-18T11:30:19Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-18T11:30:19Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 270,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

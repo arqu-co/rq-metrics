@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "repo": "doubtfire-client",
+  "branch": "feat-deployme-document-drag-to-compose",
+  "sha": "86d22bf7",
+  "user": "unknown",
+  "timestamp": "2026-04-23T17:29:20Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T17:29:20Z",
+      "fingerprint": "581eec942cc15d34a431fc526a29f31c",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 5,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  75 failed | 277 passed (352)\n      Tests  475 failed | 5430 passed (5905)\n     Errors  1 error\n   Start at  13:28:40\n   Duration  40.01s (transform 16.54s, setup 8.31s, collect 165.90s, tests 43.68s, environment 197.69s, prepare 28.52s)"
+        }
+      ],
+      "missing_tests_details": [
+        "scripts/gen-routes-manifest.ts",
+        "src/components/compose/email-box/footer/EmailBoxFooter.stories.ts",
+        "src/components/layout/nav-config.ts",
+        "src/services/deal-kickoff/token-estimate.ts",
+        "vitest.setup.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

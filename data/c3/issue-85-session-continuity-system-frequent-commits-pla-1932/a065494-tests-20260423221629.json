@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-85-session-continuity-system-frequent-commits-pla-1932",
+  "sha": "a065494",
+  "user": "unknown",
+  "timestamp": "2026-04-24T02:16:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T02:16:29Z",
+      "test_runner": "bin-test",
+      "fingerprint": "66db137f63cc6a21b72801f005249b63",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

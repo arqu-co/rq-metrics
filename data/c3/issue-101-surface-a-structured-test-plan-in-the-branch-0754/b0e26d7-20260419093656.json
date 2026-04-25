@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "b0e26d7",
+  "user": "unknown",
+  "timestamp": "2026-04-19T13:36:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "lint",
+    "qa",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:26Z",
+      "files_checked": 22,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverview",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/TestPlanItemRow.tsx",
+          "function": "TestPlanItemRow",
+          "lines": 67,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:55Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:27Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/components/BranchOverview.tsx",
+          "name": "Reviewer",
+          "line": 10
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:35:39Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:36:25Z",
+      "files_checked": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:36:32Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:35:39Z",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T13:36:55Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T13:36:54Z",
+      "test_runner": "bin-test",
+      "fingerprint": "80939244c32d7188fe8b45fe7d7feb90",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n RUN  v4.1.4 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754\n      Coverage enabled with v8\n\n\n\u23af\u23af\u23af\u23af\u23af\u23af Unhandled Error \u23af\u23af\u23af\u23af\u23af\u23af\u23af\nError: ENOENT: no such file or directory, open '/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754/coverage/.tmp/coverage-0.json'\n \u276f open node:internal/fs/promises:639:25\n \u276f Object.readFile node:internal/fs/promises:1243:14\n \u276f ../../../node_modules/vitest/dist/chunks/coverage.Da5gzbsu.js:757:23\n \u276f V8CoverageProvider.readCoverageFiles ../../../node_modules/vitest/dist/chunks/coverage.Da5gzbsu.js:756:5\n \u276f V8CoverageProvider.generateCoverage ../../../node_modules/@vitest/coverage-v8/dist/provider.js:32:3\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13580:23\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13593:11\n \u276f ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:13455:19\n \u276f startVitest ../../../node_modules/vitest/dist/chunks/cli-api.lDy4N9kC.js:14521:8\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\nSerialized Error: { errno: -2, code: 'ENOENT', syscall: 'open', path: '/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-101-surface-a-structured-test-plan-in-the-branch-0754/coverage/.tmp/coverage-0.json' }"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 22000
+    }
+  },
+  "duration_seconds": 3676.0
+}

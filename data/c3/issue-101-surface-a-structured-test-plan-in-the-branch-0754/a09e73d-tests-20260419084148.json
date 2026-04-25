@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "issue-101-surface-a-structured-test-plan-in-the-branch-0754",
+  "sha": "a09e73d",
+  "user": "unknown",
+  "timestamp": "2026-04-19T12:41:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-19T12:41:48Z",
+      "fingerprint": "d9b1172fed074c1eba0abc87bb952077",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

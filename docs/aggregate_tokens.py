@@ -27,6 +27,9 @@ import os
 from collections import defaultdict
 from typing import Iterable
 
+from repo_allowlist import is_known_repo
+from repo_resolver import resolve_repo
+
 _TOKEN_KEYS = ("input", "output", "cache_read", "cache_create")
 
 
@@ -44,14 +47,22 @@ def load_token_events(data_dir: str = "data") -> list[dict]:
     events: list[dict] = []
     pattern = os.path.join(data_dir, "**/*.json")
     for filepath in glob.glob(pattern, recursive=True):
+        rel = os.path.relpath(filepath, data_dir)
+        if rel.split(os.sep)[0].startswith("_"):
+            continue
         try:
             with open(filepath) as f:
                 data = json.load(f)
         except (json.JSONDecodeError, OSError):
             continue
-        if is_token_event(data):
-            data["_file"] = filepath
-            events.append(data)
+        if not is_token_event(data):
+            continue
+        canonical = resolve_repo(data.get("repo"), data_dir)
+        if canonical is None:
+            continue
+        data["repo"] = canonical
+        data["_file"] = filepath
+        events.append(data)
     return events
 
 

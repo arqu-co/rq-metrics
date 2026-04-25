@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repo": "c3",
+  "branch": "fix/issue-82-correctness",
+  "sha": "6d13b2d",
+  "user": "unknown",
+  "timestamp": "2026-04-19T00:29:15Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-19T00:29:15Z",
+      "files_checked": 22,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/worktree-server-manager.ts",
+          "lines": 373,
+          "max": 300
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
