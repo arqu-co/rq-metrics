@@ -1,0 +1,48 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-501-rq-tune-subagent-build-per-task-overhead",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-24T01:38:46.741Z",
+  "session_id": "5da30b03-1682-412e-9399-3f21009ed8bc",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 29089,
+    "output": 1621317,
+    "cache_read": 947042975,
+    "cache_create": 39586714,
+    "est_cost_usd": 692.9664994399999
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 7137452,
+      "cost_usd": 5.567539
+    },
+    "pr-feedback": {
+      "tokens": 691378948,
+      "cost_usd": 485.09275923999996
+    },
+    "review#1": {
+      "tokens": 203496556,
+      "cost_usd": 148.86891055
+    },
+    "review#2": {
+      "tokens": 85161525,
+      "cost_usd": 51.8525936
+    },
+    "unknown": {
+      "tokens": 1105614,
+      "cost_usd": 1.58469705
+    }
+  }
+}
