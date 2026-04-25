@@ -14,6 +14,7 @@ var sumValues = fns.sumValues;
 var findSlowestGate = fns.findSlowestGate;
 var formatViolationText = fns.formatViolationText;
 var formatTimestamp = fns.formatTimestamp;
+var sortFixCycleKeys = fns.sortFixCycleKeys;
 
 var passed = 0;
 var failed = 0;
@@ -140,6 +141,32 @@ test('formatTimestamp handles undefined', function() {
 
 test('formatTimestamp handles empty string', function() {
   assert.strictEqual(formatTimestamp(''), '--');
+});
+
+// --- sortFixCycleKeys ---
+
+test('sortFixCycleKeys sorts numerically, not lexicographically', function() {
+  // Regression for https://github.com/arqu-co/rq-metrics — Fix Cycles chart
+  // showed "29 runs" before "5 runs" because Object.keys().sort() does
+  // string comparison: "29" < "5".
+  var dist = { '1': 2070, '5': 12, '8': 6, '12': 4, '29': 1 };
+  assert.deepStrictEqual(
+    sortFixCycleKeys(dist),
+    ['1', '5', '8', '12', '29']
+  );
+});
+
+test('sortFixCycleKeys handles empty input', function() {
+  assert.deepStrictEqual(sortFixCycleKeys({}), []);
+  assert.deepStrictEqual(sortFixCycleKeys(undefined), []);
+  assert.deepStrictEqual(sortFixCycleKeys(null), []);
+});
+
+test('sortFixCycleKeys preserves all keys', function() {
+  var dist = { '1': 1, '2': 1, '3': 1, '4': 1, '10': 1, '20': 1 };
+  var sorted = sortFixCycleKeys(dist);
+  assert.strictEqual(sorted.length, 6);
+  assert.deepStrictEqual(sorted, ['1', '2', '3', '4', '10', '20']);
 });
 
 // --- Summary ---

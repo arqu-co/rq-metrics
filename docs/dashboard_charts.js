@@ -103,11 +103,19 @@ function renderTopViolationTypes(topViolations) {
   });
 }
 
+function sortFixCycleKeys(dist) {
+  // Numeric sort — string-sorting keys puts "5" and "8" after "29" because
+  // the comparison is lexicographic. Returns sorted string keys.
+  return Object.keys(dist || {}).sort(function(a, b) {
+    return parseInt(a, 10) - parseInt(b, 10);
+  });
+}
+
 function renderFixCyclesChart(fixCycles) {
   var ctx = document.getElementById('fix-cycles-chart');
   if (!ctx) return;
   var dist = fixCycles.distribution || {};
-  var keys = Object.keys(dist).sort();
+  var keys = sortFixCycleKeys(dist);
   if (keys.length === 0) return;
   var colors = keys.map(function(k) {
     var n = parseInt(k, 10);
@@ -135,7 +143,17 @@ function renderFixCyclesChart(fixCycles) {
     options: {
       scales: {
         x: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } },
-        y: { grid: { color: DARK_GRID }, ticks: { color: LABEL_COLOR } }
+        // Log scale — the 1-run bar is two orders of magnitude larger than
+        // the retry tail, so a linear scale renders every retry bar as a
+        // thin invisible sliver.
+        y: {
+          type: 'logarithmic',
+          grid: { color: DARK_GRID },
+          ticks: {
+            color: LABEL_COLOR,
+            callback: function(v) { return Number(v).toLocaleString(); }
+          }
+        }
       },
       plugins: { legend: { display: false } }
     }
@@ -252,6 +270,7 @@ if (typeof module !== 'undefined' && module.exports) {
     sumValues: sumValues,
     findSlowestGate: findSlowestGate,
     formatViolationText: formatViolationText,
-    formatTimestamp: formatTimestamp
+    formatTimestamp: formatTimestamp,
+    sortFixCycleKeys: sortFixCycleKeys
   };
 }
