@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/intent-emit",
+  "sha": "bffabd24ec9e3f057ebf435b9494470010641ec8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T18:43:04Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/scripts/human-emit.sh",
+      "line": 29,
+      "rule": "DEAD_CODE",
+      "message": "Comment says '$HOME/.human/intents.md' but actual runtime path on line 34 is '$HOME/.humans/me/intents.md' \u2014 stale comment from old design, misleads future readers"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T18:43:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
