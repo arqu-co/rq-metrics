@@ -1,0 +1,233 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/intent-emit",
+  "sha": "999ddf0c53088f53091f846b4454936546ab9725",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T21:03:54Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "plan"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-71635",
+    "review-wip-reviewer-safety",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:01:30Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T18:30:59Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:01:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:01:28Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 41000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:02:29Z",
+      "duration_ms": 9000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:02:20Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 47000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:02:39Z",
+      "duration_ms": 3000
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T21:03:49Z",
+      "duration_ms": 70000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:02:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-25T21:00:47Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-71635": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/intent-check.sh",
+          "line": 106,
+          "severity": "high",
+          "category": "correctness",
+          "title": "shasum failure causes fail-closed suppression instead of fail-open pass-through",
+          "body": "On Linux systems without shasum (or any environment where shasum exits non-zero), set -euo pipefail causes the KEY assignment to abort the script with a non-zero exit code. human-emit.sh calls intent-check.sh via `if ! intent-check.sh` \u2014 a non-zero exit is treated as MATCH (line 35), suppressing the marker. This is the opposite of the documented fail-open contract (header: \"claude missing or error \u2192 exit 0 (fail-open)\"). Fix: wrap the KEY computation in a subshell or guard with a command existence check, and add `|| exit 0` so any hash failure exits 0 (fail-open). Also: sha256sum is the Linux equivalent of shasum -a 256; consider supporting both or checking availability.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/intent-check.sh",
+          "line": 1,
+          "severity": "medium",
+          "category": "design",
+          "title": "Exit code semantics are inverted from POSIX convention",
+          "body": "exit 1 means MATCH (suppress) and exit 0 means no-match or fail-open. POSIX convention is exit 0 = success. Here the \"success\" case (suppression found) exits 1, and the \"no action\" case exits 0. This inverted contract is documented in the header, but it makes the caller logic `if ! intent-check.sh` harder to read and reason about. Any new caller must know to negate the exit code. Consider reversing: exit 0 = suppress (match found), exit 1 = pass-through (no match), with the caller checking `if intent-check.sh ...; then exit 0; fi`. This aligns with standard tool conventions where exit 0 = found/true (e.g., grep).",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_human_emit.sh",
+          "line": 75,
+          "severity": "low",
+          "category": "style",
+          "title": "wc -l pipe with tr -dc is a fragile line-count pattern",
+          "body": "Line 75: LINES=$(wc -l <\"...\". | tr -dc \"0-9\") strips non-digits to remove wc padding spaces. A simpler and portable alternative is $(wc -l < \"...\") | awk \"{print $1}\" or just compare directly. The tr -dc pattern also strips newlines from multi-digit counts, which works but is fragile. More importantly, this same pattern appears in _call_count (line 151) in a similar form. The pattern is duplicated. Extract a shared _count_lines helper or use a consistent idiom in both places.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_human_emit.sh",
+          "line": 33,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "_init_work uses cd which leaks working directory into the test runner",
+          "body": "The _init_work helper (line 33) calls `cd \"$1\"` which mutates the shell cwd for all subsequent code in the test script. Multiple test cases call _init_work with different directories, and some assertions depend on cwd (e.g. the non-git fallback test at line 79 calls `cd \"$WORK\"` directly). If any later test forgets to reset cwd or a test is added out of order, it will silently operate in the wrong directory. The git-based tests pass WORK to git operations via the directory being set, but human-emit.sh resolves repo root via `git rev-parse --show-toplevel` from the cwd at time of invocation. Fix: document that callers must cd before invoking $SCRIPT, or use a subshell per test case `(cd \"$WORK\"; \"$SCRIPT\" ...)` to isolate cwd changes.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-safety": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/intent-check.sh",
+          "line": 106,
+          "severity": "high",
+          "category": "correctness",
+          "title": "shasum not found exits non-zero, causing fail-closed suppression of marker",
+          "body": "Line 106: `printf '%s\\n%s' \"$COMBINED\" \"$MTIME\" | shasum -a 256 | awk '{print $1}'` runs under set -euo pipefail. If shasum is absent (e.g. on some Linux systems where sha256sum is the command instead), the pipeline exits non-zero (127). In human-emit.sh line 35, intent-check is called as `if ! \"$SCRIPT_DIR_HE/intent-check.sh\" \"$PAYLOAD\"; then exit 0; fi`. A non-zero non-1 exit (127) satisfies `if !`, causing human-emit to suppress the marker (exit 0) \u2014 the opposite of the documented fail-open behavior. Fix: add `command -v shasum >/dev/null 2>&1 || command -v sha256sum >/dev/null 2>&1 || exit 0` before the cache key line, or use a portable fallback: `KEY=$(printf '%s\\n%s' \"$COMBINED\" \"$MTIME\" | (shasum -a 256 2>/dev/null || sha256sum 2>/dev/null) | awk '{print $1}'); [ -z \"$KEY\" ] && exit 0`.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/intent-check.sh",
+          "line": 106,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Cache key omits payload fields beyond text+context \u2014 distinct payloads may collide",
+          "body": "The cache key at line 106 is sha256(COMBINED + mtime) where COMBINED = text + '\\n' + context. Two payloads that differ only in type/url/other fields but share identical text and context will resolve to the same cache entry and get the same verdict. In practice, the intent check only evaluates the human-readable content (text and context), so the cache collision is semantically correct \u2014 the verdict for 'do the thing' is the same regardless of the URL. However, this is worth documenting clearly. Low risk but worth noting.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_human_emit.sh",
+          "line": 75,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "wc -l | tr pipeline in test \u2014 will be blocked by pre-tool hook in CI",
+          "body": "Line 75: `LINES=$(wc -l <\"$WORK/human-follow-up-work.md\" | tr -dc '0-9')` and line 151-154: `_call_count()` uses `wc -l <\"$STUB_COUNTER\" | tr -dc '0-9'`. The repo's pre-tool hook blocks pipelines with `| head/tail/grep` but NOT `| tr` \u2014 so this specific pipeline passes. However, these are fragile patterns: `wc -l` on macOS includes leading whitespace which tr strips. If the hook policy tightens, these will fail. More importantly `wc -l <file | tr -dc '0-9'` is correct on both BSD and GNU. No immediate bug, but the pattern is inconsistent with the repo's redirect-to-tmp convention.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/human-emit.sh",
+          "line": 35,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Comment says 'Any other exit is treated as no match / fail open' but intent-check exit codes beyond 0/1 cause fail-closed suppression",
+          "body": "Lines 34-38: The comment documents fail-open for 'Any other exit' from intent-check.sh. However the implementation `if ! \"$SCRIPT_DIR_HE/intent-check.sh\" \"$PAYLOAD\"; then exit 0; fi` treats any non-zero exit (including error exits like 127) as 'match \u2192 suppress'. Only exit 0 from intent-check causes fall-through to emit. Any error exit from intent-check (e.g. shasum missing, set -e triggered) causes suppression, not emission. The comment is wrong; the code is fail-closed on intent-check errors. Fix: check $? explicitly, only suppress on exit 1. Example: `\"$SCRIPT_DIR_HE/intent-check.sh\" \"$PAYLOAD\"; ic_exit=$?; [ \"$ic_exit\" -eq 1 ] && exit 0`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T19:04:17Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:02:33Z",
+      "scanned_files": 37,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T18:29:34Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T18:29:33Z",
+      "test_runner": "bin-test",
+      "fingerprint": "553159dac484ffd9cf4f1cae7e06dd74",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 9256.0
+}
