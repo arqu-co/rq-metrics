@@ -1,0 +1,187 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/hover-feedback-map-layers",
+  "sha": "767dd1d02cb17d5ceacca966b5560736117c5d6f",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-25T06:48:10Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "lint"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T06:47:59Z",
+      "files_checked": 20,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/grs-outline-overlay.tsx",
+          "function": "OutlineOverlay",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/grs-hover-outline.ts",
+          "function": "bboxOfPolygon",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/grs-hover-outline.ts",
+          "function": "flushPending",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/grs-tile-layer-effects.ts",
+          "function": "handleLayerClick",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T18:57:34Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:48:01Z",
+      "files_checked": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:47:57Z",
+      "files_checked": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 168000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:48:07Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T06:48:06Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\ud83d\udd27 Running formatters (backend + frontend)\n\n\ud83d\udccb Running Backend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Backend Python Code Formatting\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 161ms on 1703 files using 12 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 303ms on 1705 files with 86 rules using 12 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Frontend formatting, linting, and type checks passed!\u001b[0m\n\n\u26a0\ufe0f  Partial formatting success\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Type checking failed\n"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:48:10Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T18:49:22Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:48:09Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-24T18:54:13Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T18:47:07Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:48:09Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T06:45:09Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-24T18:57:32Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dfcd6d85a09f56aa380303a54b267627",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 43263.0
+}
