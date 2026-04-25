@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-513-rq-mandatory-coderabbit-phase-between-re",
+  "sha": "3d711f8ac7effe82ecaf8761f804ffe7147a4fa7",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-25T22:50:00Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-25T22:48:04Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:12:41Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:49:56Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 83000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:12:44Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:12:38Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:13:15Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:13:14Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:13:21Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:30:38Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:13:20Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-25T22:49:58Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:13:18Z",
+      "scanned_files": 38
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T21:18:16Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-25T22:48:33Z",
+      "fingerprint": "55d3908978911fb8e9c47935c31e9168",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 29000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 5502.0
+}
