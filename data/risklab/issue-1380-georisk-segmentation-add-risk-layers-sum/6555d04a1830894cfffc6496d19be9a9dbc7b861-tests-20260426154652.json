@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "6555d04a1830894cfffc6496d19be9a9dbc7b861",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-26T22:46:52Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:46:51Z",
+      "test_runner": "bin-test",
+      "fingerprint": "664bdad17d8597a99494bdd1418a901a",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "frontend/src/components/analytics/RiskLayersPane.test-helpers.tsx",
+        "frontend/src/components/analytics/useRiskLayersPaneData.test-helpers.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
