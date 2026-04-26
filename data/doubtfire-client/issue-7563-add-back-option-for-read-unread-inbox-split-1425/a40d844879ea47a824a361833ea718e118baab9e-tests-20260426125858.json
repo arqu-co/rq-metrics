@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "sha": "a40d844879ea47a824a361833ea718e118baab9e",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-26T16:58:58Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T16:58:58Z",
+      "test_runner": "bin-test",
+      "fingerprint": "fabdd0ad8b700dc2f4710e19a0968d0a",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  68 failed | 269 passed (337)\n      Tests  409 failed | 5314 passed (5723)\n     Errors  3 errors\n   Start at  12:58:05\n   Duration  52.75s (transform 15.10s, setup 15.27s, collect 190.32s, tests 51.86s, environment 278.51s, prepare 35.41s)"
+        }
+      ],
+      "missing_tests_details": [
+        "src/composables/mark-mutation-guard.ts",
+        "src/stores/sectioned-inbox-in-flight.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
