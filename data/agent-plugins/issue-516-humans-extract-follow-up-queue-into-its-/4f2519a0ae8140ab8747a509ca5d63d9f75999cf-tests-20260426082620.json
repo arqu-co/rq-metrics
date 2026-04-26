@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-516-humans-extract-follow-up-queue-into-its-",
+  "sha": "4f2519a0ae8140ab8747a509ca5d63d9f75999cf",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T12:26:20Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:10Z",
+      "fingerprint": "3a9d48417f29fa44e999a95fea926414",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
