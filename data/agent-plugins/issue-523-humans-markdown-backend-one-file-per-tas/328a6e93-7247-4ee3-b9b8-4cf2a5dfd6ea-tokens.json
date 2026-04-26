@@ -1,0 +1,63 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-523-humans-markdown-backend-one-file-per-tas",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T03:22:20.431Z",
+  "session_id": "328a6e93-7247-4ee3-b9b8-4cf2a5dfd6ea",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 3627,
+    "output": 646697,
+    "cache_read": 237744785,
+    "cache_create": 7918817,
+    "est_cost_usd": 157.34085433
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 225445,
+      "cost_usd": 0.99110225
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 124733853,
+      "cost_usd": 77.21467583
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 23968093,
+      "cost_usd": 18.325132
+    },
+    "pr-feedback#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#2": {
+      "tokens": 26237140,
+      "cost_usd": 15.64450515
+    },
+    "pr-feedback#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#4": {
+      "tokens": 71149395,
+      "cost_usd": 45.16543910000001
+    }
+  }
+}
