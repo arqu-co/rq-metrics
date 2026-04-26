@@ -1,0 +1,212 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-531-rq-rq-next-suggest-fetchresolvingprs-fai",
+  "sha": "60f34af084e1fecb6e58159ce96d41001766ebab",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T20:00:03Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-14159",
+    "review-wip-reviewer-24582",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T19:53:02Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 18000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:57:56Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T19:52:44Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 101000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:57:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:57:54Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:58:31Z",
+      "duration_ms": 34000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T20:00:01Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_issue_progress_signals.sh:131:30: note: Double quote to prevent globbing and word splitting. [SC2086]\n./plugins/rq/scripts/test_issue_progress_signals.sh:133:6: note: Double quote to prevent globbing and word splitting. [SC2086]\n./plugins/rq/scripts/test_issue_progress_signals.sh:133:110: note: Double quote to prevent globbing and word splitting. [SC2086]\n"
+        }
+      ],
+      "duration_ms": 53000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:58:37Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:49:20Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:58:35Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-26T19:57:52Z",
+      "duration_ms": 290000
+    },
+    "review-wip-reviewer-14159": {
+      "status": "in_progress",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_issue_progress_signals.sh",
+          "line": 131,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Fixed /tmp path leaks across concurrent test runs",
+          "body": "Lines 131 and 133 redirect stderr to /tmp/fetch_resolving_prs_stderr.txt \u2014 a fixed path outside the $TMP temp dir. This file is not cleaned up by the EXIT trap, and concurrent runs of the test script will read/write the same file, causing false pass or false fail. Fix: replace /tmp/fetch_resolving_prs_stderr.txt with $TMP/fetch_resolving_prs_stderr.txt on both lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-24582": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/issue-progress-signals.sh",
+          "line": 68,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Non-portable awk regex: \\+ is undefined in POSIX ERE",
+          "body": "The awk pattern uses '\\[\\+?issue-' where \\+ is not defined by POSIX ERE. On most awks (gawk, BSD awk) \\+ is treated as a literal '+', making \\+? match zero or one literal '+'. This happens to produce correct behavior today (matching '[issue-888-' and '[+issue-888-') but is undefined behavior per POSIX. A future awk version or a strict-POSIX environment could treat \\+ as one-or-more '+', breaking the match. Fix: replace '\\[\\+?' with '[[]' followed by '[+]?' in an ERE literal, or use: $0 ~ \"\\\\[\" && $0 ~ \"issue-\" n \"-\" with a post-filter, or simply use a portable character class: \"[\\\\[\\\\+?]\" -> \"[[][+]?issue-\" n \"-\".",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/issue-progress-signals.sh",
+          "line": 48,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Silent suppression of [ builtin errors hides gh CLI failures",
+          "body": "Line 48: `[ \"${count:-0}\" -gt 0 ] 2>/dev/null || return 1` \u2014 the 2>/dev/null suppresses the error message when count is non-numeric (e.g. gh returns an error string or empty). This means if gh fails and returns non-numeric output, the signal silently returns 1 (no signal) rather than propagating the error. Callers have no way to distinguish 'no plan comment' from 'gh call failed'. Fix: validate count is numeric before the comparison, e.g. `[[ \"$count\" =~ ^[0-9]+$ ]] && [ \"$count\" -gt 0 ] || return 1`, and remove the 2>/dev/null.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_issue_progress_signals.sh",
+          "line": 131,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Hardcoded /tmp path for stderr capture causes race condition under concurrent test runs",
+          "body": "Line 131 redirects stderr to a hardcoded `/tmp/fetch_resolving_prs_stderr.txt` instead of a file under `$TMP` (the mktemp'd isolation dir). If two test runs execute concurrently, they write to the same file and the check at line 133 may read the wrong run's output. Fix: use `$TMP/fetch_resolving_prs_stderr.txt` instead of `/tmp/fetch_resolving_prs_stderr.txt`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:59:08Z",
+      "duration_ms": 31000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:58:34Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:51:03Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:51:01Z",
+      "test_runner": "bin-test",
+      "fingerprint": "3a9d48417f29fa44e999a95fea926414",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 641.0
+}
