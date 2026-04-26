@@ -1,0 +1,61 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "infra",
+  "branch": "issue-686-phase-1-add-appdevelopmentstagingarquco-",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:24:26.509Z",
+  "session_id": "67e4b18a-1fb9-4641-8631-780519aa2e68",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 203,
+    "output": 33988,
+    "cache_read": 10683981,
+    "cache_create": 317105,
+    "est_cost_usd": 8.17461175
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback": {
+      "tokens": 111398,
+      "cost_usd": 0.70106
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#2": {
+      "tokens": 8037550,
+      "cost_usd": 5.59346775
+    },
+    "review#2": {
+      "tokens": 2886329,
+      "cost_usd": 1.880084
+    }
+  }
+}
