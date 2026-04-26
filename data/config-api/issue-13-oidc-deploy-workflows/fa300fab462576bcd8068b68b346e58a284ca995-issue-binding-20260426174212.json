@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "config-api",
+  "branch": "issue-13-oidc-deploy-workflows",
+  "sha": "fa300fab462576bcd8068b68b346e58a284ca995",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:42:12Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:42:10Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
