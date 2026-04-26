@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "issue-3488-chore-flip-arqu-web-env-config--cypress-",
+  "sha": "44cbfa747fbbf63deb95080f6d5c896c7af8198a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:31:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:28:56Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:31:31Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:29:01Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:28:50Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:35Z",
+      "duration_ms": 4000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T21:31:07Z",
+      "failures": 4,
+      "failures_details": [
+        {
+          "check": "lint",
+          "exit_code": 1,
+          "output": "\n> arqu-web@0.20.0 lint\n> eslint . --max-warnings=0\n\n\n/Users/jerrod/Sites/arqu-web/.claude/worktrees/valiant-whistling-iverson/src/component/admin/email-client/NotificationBellComponent.vue\n  14:3  warning  Prop 'onLoadEmailById' requires default value to be set              vue/require-default-prop\n  15:3  warning  Prop 'onLoadEmailByConversationId' requires default value to be set  vue/require-default-prop\n\n\u2716 2 problems (0 errors, 2 warnings)\n\nESLint found too many warnings (maximum: 0).\n"
+        },
+        {
+          "check": "format",
+          "exit_code": 1,
+          "output": "Checking formatting...\n[warn] public/lib/core/external/model-viewer-1.3.0.min.js\n[warn] public/lib/core/external/model-viewer-legacy-1.3.0.min.js\n[warn] public/lib/ui/webviewer-ui.min.js\n[warn] Code style issues found in 3 files. Run Prettier with --write to fix.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "../../../node_modules/@types/chai/index.d.ts(177,13): error TS2717: Subsequent property declarations must have the same type.  Property 'an' must be of type 'TypeComparison', but here has type 'Assertion'.\n../../../node_modules/@types/chai/index.d.ts(231,13): error TS2717: Subsequent property declarations must have the same type.  Property 'oneOf' must be of type '(list: readonly any[], message?: string | undefined) => Assertion', but here has type 'OneOf'.\n../../../node_modules/@types/chai/index.d.ts(2131,22): error TS2300: Duplicate identifier 'AssertionError'.\n../../../node_modules/@types/jest/index.d.ts(2,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'beforeEach' must be of type 'HookFunction', but here has type 'Lifecycle'.\n../../../node_modules/@types/jest/index.d.ts(4,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'afterEach' must be of type 'HookFunction', but here has type 'Lifecycle'.\n../../../node_modules/@types/jest/index.d.ts(5,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'describe' must be of type 'SuiteFunction', but here has type 'Describe'.\n../../../node_modules/@types/jest/index.d.ts(7,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'xdescribe' must be of type 'PendingSuiteFunction', but here has type 'Describe'.\n../../../node_modules/@types/jest/index.d.ts(8,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'it' must be of type 'TestFunction', but here has type 'It'.\n../../../node_modules/@types/jest/index.d.ts(10,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'xit' must be of type 'PendingTestFunction', but here has type 'It'.\n../../../node_modules/@types/jest/index.d.ts(11,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'test' must be of type 'TestFunction', but here has type 'It'.\n../../../node_modules/@types/jest/index.d.ts(14,15): error TS2451: Cannot redeclare block-scoped variable 'expect'.\n../../../node_modules/@types/mocha/index.d.ts(6,15): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/@types/mocha/index.d.ts(304,19): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/@types/mocha/index.d.ts(2783,15): error TS2451: Cannot redeclare block-scoped variable 'mocha'.\n../../../node_modules/@types/mocha/index.d.ts(2806,14): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/@types/mocha/index.d.ts(2819,14): error TS2300: Duplicate identifier 'common'.\n../../../node_modules/@vueuse/core/index.d.cts(580,15): error TS2304: Cannot find name 'BluetoothLEScanFilter'.\n../../../node_modules/@vueuse/core/index.d.cts(588,24): error TS2304: Cannot find name 'BluetoothServiceUUID'.\n../../../node_modules/@vueuse/core/index.d.cts(611,17): error TS2304: Cannot find name 'BluetoothDevice'.\n../../../node_modules/@vueuse/core/index.d.cts(613,17): error TS2304: Cannot find name 'BluetoothRemoteGATTServer'.\n../../../node_modules/cypress/types/chai/index.d.ts(20,10): error TS2300: Duplicate identifier 'Message'.\n../../../node_modules/cypress/types/chai/index.d.ts(21,10): error TS2300: Duplicate identifier 'ObjectProperty'.\n../../../node_modules/cypress/types/chai/index.d.ts(88,10): error TS2300: Duplicate identifier 'ChaiPlugin'.\n../../../node_modules/cypress/types/chai/index.d.ts(115,10): error TS2300: Duplicate identifier 'AssertionArgs'.\n../../../node_modules/cypress/types/chai/index.d.ts(159,17): error TS2300: Duplicate identifier 'Operator'.\n../../../node_modules/cypress/types/chai/index.d.ts(161,17): error TS2300: Duplicate identifier 'OperatorComparable'.\n../../../node_modules/cypress/types/chai/index.d.ts(1937,18): error TS2300: Duplicate identifier 'AssertionError'.\n../../../node_modules/cypress/types/cypress-expect.d.ts(2,13): error TS2451: Cannot redeclare block-scoped variable 'expect'.\n../../../node_modules/cypress/types/mocha/index.d.ts(16,15): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/cypress/types/mocha/index.d.ts(239,19): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/cypress/types/mocha/index.d.ts(2648,15): error TS2451: Cannot redeclare block-scoped variable 'mocha'.\n../../../node_modules/cypress/types/mocha/index.d.ts(2671,14): error TS2300: Duplicate identifier 'Mocha'.\n../../../node_modules/cypress/types/mocha/index.d.ts(2694,14): error TS2300: Duplicate identifier 'common'.\n../../../node_modules/vite/dist/node/index.d.ts(5,41): error TS2307: Cannot find module 'rollup/parseAst' or its corresponding type declarations.\n  There are types at '/Users/jerrod/Sites/arqu-web/node_modules/rollup/dist/parseAst.d.ts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.\n../../../node_modules/vitest-canvas-mock/dist/index.d.ts(4,9): error TS2649: Cannot augment module 'jest' with value exports because it resolves to a non-module entity.\n../../../node_modules/vue-cesium/Cesium.d.ts(65,23): error TS7006: Parameter 'type' implicitly has an 'any' type.\n../../../node_modules/vue-cesium/Cesium.d.ts(65,29): error TS7006: Parameter 'listener' implicitly has an 'any' type.\n../../../node_modules/vue-cesium/Cesium.d.ts(65,39): error TS7006: Parameter 'useCapture' implicitly has an 'any' type.\n../../../node_modules/vue-cesium/Cesium.d.ts(142,5): error TS7010: 'constructor', which lacks return-type annotation, implicitly has an 'any' return type.\n../../../node_modules/vue-cesium/Cesium.d.ts(159,12): error TS7006: Parameter 'e' implicitly has an 'any' type.\n../../../node_modules/vue-cesium/es/components/controls/distance-legend/index.d.ts(1,113): error TS2307: Cannot find module '@vue-cesium/utils/types' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(3,30): error TS2307: Cannot find module '@vue-cesium/shared' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(7,166): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(8,87): error TS2307: Cannot find module '@vue-cesium/utils/types' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(83,40): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(84,37): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(85,36): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../node_modules/vue-simple-acl/src/VueSimpleAcl.ts(24,5): error TS2322: Type 'U' is not assignable to type '{ [key: string]: any; }'.\n../../../node_modules/vue3-tour/types/vue3-tour.d.ts(101,15): error TS2314: Generic type 'Modifier' requires 2 type argument(s).\n"
+        },
+        {
+          "check": "typecheck:cypress",
+          "exit_code": 2,
+          "output": "../../../../node_modules/@types/chai/index.d.ts(177,13): error TS2717: Subsequent property declarations must have the same type.  Property 'an' must be of type 'TypeComparison', but here has type 'Assertion'.\n../../../../node_modules/@types/chai/index.d.ts(231,13): error TS2717: Subsequent property declarations must have the same type.  Property 'oneOf' must be of type '(list: readonly any[], message?: string | undefined) => Assertion', but here has type 'OneOf'.\n../../../../node_modules/@types/chai/index.d.ts(2131,22): error TS2300: Duplicate identifier 'AssertionError'.\n../../../../node_modules/@types/jest/index.d.ts(2,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'beforeEach' must be of type 'HookFunction', but here has type 'Lifecycle'.\n../../../../node_modules/@types/jest/index.d.ts(4,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'afterEach' must be of type 'HookFunction', but here has type 'Lifecycle'.\n../../../../node_modules/@types/jest/index.d.ts(5,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'describe' must be of type 'SuiteFunction', but here has type 'Describe'.\n../../../../node_modules/@types/jest/index.d.ts(7,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'xdescribe' must be of type 'PendingSuiteFunction', but here has type 'Describe'.\n../../../../node_modules/@types/jest/index.d.ts(8,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'it' must be of type 'TestFunction', but here has type 'It'.\n../../../../node_modules/@types/jest/index.d.ts(10,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'xit' must be of type 'PendingTestFunction', but here has type 'It'.\n../../../../node_modules/@types/jest/index.d.ts(11,13): error TS2403: Subsequent variable declarations must have the same type.  Variable 'test' must be of type 'TestFunction', but here has type 'It'.\n../../../../node_modules/@types/jest/index.d.ts(14,15): error TS2451: Cannot redeclare block-scoped variable 'expect'.\n../../../../node_modules/@types/mocha/index.d.ts(6,15): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/@types/mocha/index.d.ts(304,19): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/@types/mocha/index.d.ts(2783,15): error TS2451: Cannot redeclare block-scoped variable 'mocha'.\n../../../../node_modules/@types/mocha/index.d.ts(2806,14): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/@types/mocha/index.d.ts(2819,14): error TS2300: Duplicate identifier 'common'.\n../../../../node_modules/@vueuse/core/index.d.cts(580,15): error TS2304: Cannot find name 'BluetoothLEScanFilter'.\n../../../../node_modules/@vueuse/core/index.d.cts(588,24): error TS2304: Cannot find name 'BluetoothServiceUUID'.\n../../../../node_modules/@vueuse/core/index.d.cts(611,17): error TS2304: Cannot find name 'BluetoothDevice'.\n../../../../node_modules/@vueuse/core/index.d.cts(613,17): error TS2304: Cannot find name 'BluetoothRemoteGATTServer'.\n../../../../node_modules/cypress/types/chai/index.d.ts(20,10): error TS2300: Duplicate identifier 'Message'.\n../../../../node_modules/cypress/types/chai/index.d.ts(21,10): error TS2300: Duplicate identifier 'ObjectProperty'.\n../../../../node_modules/cypress/types/chai/index.d.ts(88,10): error TS2300: Duplicate identifier 'ChaiPlugin'.\n../../../../node_modules/cypress/types/chai/index.d.ts(115,10): error TS2300: Duplicate identifier 'AssertionArgs'.\n../../../../node_modules/cypress/types/chai/index.d.ts(159,17): error TS2300: Duplicate identifier 'Operator'.\n../../../../node_modules/cypress/types/chai/index.d.ts(161,17): error TS2300: Duplicate identifier 'OperatorComparable'.\n../../../../node_modules/cypress/types/chai/index.d.ts(1937,18): error TS2300: Duplicate identifier 'AssertionError'.\n../../../../node_modules/cypress/types/cypress-expect.d.ts(2,13): error TS2451: Cannot redeclare block-scoped variable 'expect'.\n../../../../node_modules/cypress/types/mocha/index.d.ts(16,15): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/cypress/types/mocha/index.d.ts(239,19): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/cypress/types/mocha/index.d.ts(2648,15): error TS2451: Cannot redeclare block-scoped variable 'mocha'.\n../../../../node_modules/cypress/types/mocha/index.d.ts(2671,14): error TS2300: Duplicate identifier 'Mocha'.\n../../../../node_modules/cypress/types/mocha/index.d.ts(2694,14): error TS2300: Duplicate identifier 'common'.\n../../../../node_modules/vite/dist/node/index.d.ts(5,41): error TS2307: Cannot find module 'rollup/parseAst' or its corresponding type declarations.\n  There are types at '/Users/jerrod/Sites/arqu-web/node_modules/rollup/dist/parseAst.d.ts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.\n../../../../node_modules/vitest-canvas-mock/dist/index.d.ts(4,9): error TS2649: Cannot augment module 'jest' with value exports because it resolves to a non-module entity.\n../../../../node_modules/vue-cesium/Cesium.d.ts(65,23): error TS7006: Parameter 'type' implicitly has an 'any' type.\n../../../../node_modules/vue-cesium/Cesium.d.ts(65,29): error TS7006: Parameter 'listener' implicitly has an 'any' type.\n../../../../node_modules/vue-cesium/Cesium.d.ts(65,39): error TS7006: Parameter 'useCapture' implicitly has an 'any' type.\n../../../../node_modules/vue-cesium/Cesium.d.ts(142,5): error TS7010: 'constructor', which lacks return-type annotation, implicitly has an 'any' return type.\n../../../../node_modules/vue-cesium/Cesium.d.ts(159,12): error TS7006: Parameter 'e' implicitly has an 'any' type.\n../../../../node_modules/vue-cesium/es/components/controls/distance-legend/index.d.ts(1,113): error TS2307: Cannot find module '@vue-cesium/utils/types' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(3,30): error TS2307: Cannot find module '@vue-cesium/shared' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(7,166): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(8,87): error TS2307: Cannot find module '@vue-cesium/utils/types' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(83,40): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(84,37): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../../node_modules/vue-cesium/es/components/measurements/src/distance/index.d.ts(85,36): error TS2307: Cannot find module '@vue-cesium/utils/drawing-types' or its corresponding type declarations.\n../../../../node_modules/vue-simple-acl/src/VueSimpleAcl.ts(24,5): error TS2322: Type 'U' is not assignable to type '{ [key: string]: any; }'.\n../../../../node_modules/vue3-tour/types/vue3-tour.d.ts(101,15): error TS2314: Generic type 'Modifier' requires 2 type argument(s).\n"
+        }
+      ],
+      "duration_ms": 126000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:41Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:31:08Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-23T10:49:22Z"
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:31:46Z",
+      "duration_ms": 5000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:38Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:26Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T21:31:23Z",
+      "fingerprint": "c0014aad5674426e54161dcb90929c5c",
+      "test_runner": "vitest",
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "cypress/e2e/carrier/carrierGoldenPath.cy.ts",
+        "cypress/e2e/carrier/carrierSignUp.cy.ts",
+        "cypress/e2e/retailer/retailerClearingNavigation.cy.ts",
+        "cypress/e2e/retailer/retailerGoldenPath.cy.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404\n          throw new CACError(`Unknown option \\`${name.length > 1 ? `--${name}` : `-${name}`}\\``);\n                ^\n\nCACError: Unknown option `--changedSince`\n    at Command.checkUnknownOptions (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:404:17)\n    at CAC.runMatchedCommand (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:604:13)\n    at CAC.parse (file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js:545:12)\n    at file:///Users/jerrod/Sites/arqu-web/node_modules/vitest/dist/cli.js:27:13\n    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.11.1"
+        }
+      ],
+      "duration_ms": 15000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 297744.0
+}
