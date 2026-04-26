@@ -1,0 +1,245 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/pr-feedback-no-rq-533",
+  "sha": "042f3bae6cad1ae36334d2ad3185b4c1df6ffdfd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:26:31Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T20:38:56Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T21:23:33Z",
+      "files_checked": 1,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "main",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "main",
+          "complexity": 21,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_ci_status",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_pre_merge",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_verdict",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_compute_human",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T21:26:17Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "coverage": 0,
+          "min": 95
+        }
+      ],
+      "duration_ms": 120000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:23:35Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:23:29Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:26:19Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:24:09Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 34000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:26:26Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:24:10Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:26:24Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-26T19:56:16Z"
+    },
+    "review-wip-reviewer": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/skills/pr-feedback/SKILL.md",
+          "line": 109,
+          "severity": "high",
+          "category": "correctness",
+          "title": "echo ... | grep pipeline in SKILL.md will be blocked by the rq-bash-pre-dispatcher hook",
+          "body": "Line 109 runs `echo \"${ARGUMENTS:-}\" | grep -qE -- '--skip-pr-feedback'`. The pre-tool hook (rule-1) blocks pipelines that pipe command output for truncation/filtering. This exact pattern is blocked in live sessions (as evidenced by the blocked audit-trail commands earlier in this review). In a running Claude session the step will error with BLOCKED(rule-1) rather than executing the skip check, causing the no-rq guard to be bypassed and pr-verdict.sh to be invoked unnecessarily. Fix: replace with a parameter-expansion test, e.g. `[[ \"${ARGUMENTS:-}\" == *'--skip-pr-feedback'* ]]`.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/pr-feedback/SKILL.md",
+          "line": 106,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "REPO_ROOT set after PLUGIN_DIR but PLUGIN_DIR never re-derived in the no-rq branch \u2014 missing preamble for PLUGIN_DIR in no-rq code path",
+          "body": "In Step 0.6, REPO_ROOT is derived at line 106 and used at line 107 for the no-rq check. That is fine. However when the no-rq file is absent and the skill falls through to the `else` branch, it calls `bash \"$PLUGIN_DIR/pr-verdict.sh\"` at line 113. PLUGIN_DIR was set at lines 103-104 in the same step, so it IS in scope within a single-agent execution. But the canonical skill-authoring invariant requires each step to be self-contained. The PLUGIN_DIR preamble at lines 103-104 does not use the canonical two-line preamble verbatim (it uses `head -1` on the first find and has no `sort -V | tail -1` fallback on the second). Check that `gate-skill-isolation.py` accepts this variant \u2014 if it does not match the canonical form it may flag the step. Currently the gate passes (skill-isolation: pass), so this is informational rather than a blocking defect, but the preamble should be verified against the canonical form in `skill-authoring.md`.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/skills/pr-feedback/SKILL.md",
+          "line": 115,
+          "severity": "high",
+          "category": "correctness",
+          "title": "printf ... | sed pipeline to extract VERDICT will be blocked by the rq-bash-pre-dispatcher hook",
+          "body": "Line 115 runs `VERDICT=$(printf '%s\\n' \"$VERDICT_LINE\" | sed -n 's/^verdict=\\([^[:space:]]*\\).*/\\1/p')`. This is a command pipeline using | sed, which is caught by hook rule-1 banning output truncation/filtering pipelines. Fix: use shell parameter expansion instead \u2014 `VERDICT=\"${VERDICT_LINE#verdict=}\"; VERDICT=\"${VERDICT%% *}\"`.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/pr-feedback/SKILL.md",
+          "line": 114,
+          "severity": "low",
+          "category": "correctness",
+          "title": "pr-verdict.log written twice in non-no-rq mode: once by SKILL.md (overwrite) and once by pr-verdict.sh internal _record_proof (append)",
+          "body": "SKILL.md line 114 writes the verdict line to pr-verdict.log with `>` (overwrite). Then pr-verdict.sh's own `_record_proof` call at line 255 also writes the same verdict to the same file via `>>` (append). In non-no-rq mode the file contains the same line twice. This was true before this PR (the pre-PR code also had the same dual-write pattern) and is not made worse, but it is a latent data-quality issue. Consider removing the `printf ... > pr-verdict.log` line from SKILL.md and relying solely on pr-verdict.sh's internal _record_proof.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:56:46Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:26:22Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T19:49:19Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:24:17Z",
+      "fingerprint": "281fcb814a4b272a8e475de842af039f",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 7000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 5827.0
+}
