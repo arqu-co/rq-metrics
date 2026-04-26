@@ -1,0 +1,192 @@
+{
+  "schema_version": 2,
+  "repo": "config-api",
+  "branch": "issue-13-oidc-deploy-workflows",
+  "sha": "614b78d14a7779b6bd33125ee26b8283e90b20e2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:45:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:44:07Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 57000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:31Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:33:10Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:34Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:28Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:45:44Z",
+      "duration_ms": 97000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:42:09Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:45:49Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:33:08Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:45:48Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-26T21:43:10Z",
+      "duration_ms": 61000
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": ".github/workflows/RQ_development_config_api.yml",
+          "line": 98,
+          "severity": "high",
+          "category": "correctness",
+          "title": "OIDC step may chain through static credentials instead of using the OIDC token",
+          "body": "The static 'Configure AWS credentials (static, legacy)' step runs at line 91 and sets AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY in the runner environment. The subsequent 'Configure AWS credentials (OIDC)' step at line 98 uses aws-actions/configure-aws-credentials@v4 with role-to-assume but does NOT set 'unset-current-credentials: true'. When ambient static credentials are present in the environment, configure-aws-credentials@v4 may use them to call sts:AssumeRoleWithWebIdentity as a credential chain source rather than presenting the raw OIDC token. The eventproc reference PRs (https://github.com/arqu-co/eventproc/pull/174 and https://github.com/arqu-co/eventproc/pull/177) should be checked for whether they added this flag. Fix: add 'unset-current-credentials: true' to the OIDC step in all three workflows so the action clears static env creds before calling STS with the OIDC token.",
+          "confidence": "medium"
+        },
+        {
+          "file": ".github/workflows/RQ_development_config_api.yml",
+          "line": 91,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Dual-path is not a true fallback \u2014 static credentials are always consumed even when OIDC succeeds",
+          "body": "The dual-path pattern runs the static credentials step unconditionally, then the OIDC step unconditionally. There is no conditional skip of the static step when OIDC is available, and no fallback from OIDC to static if OIDC fails. The static step always runs and always sets credentials, only to be overwritten by OIDC. This means: (1) the static IAM user's access key is always exchanged and the action always contacts STS with it \u2014 audit logs show both accesses even on clean OIDC runs; (2) if OIDC fails, the workflow fails (not falls back to static). The label 'dual-path' is misleading \u2014 this is OIDC-always with dead static preamble. Fix: either add 'continue-on-error: true' + a conditional check to make static the genuine fallback, OR (preferred) remove the static step entirely and document that OIDC is now the sole credential source.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/RQ_production_config_api.yml",
+          "line": 215,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Changelog job OIDC role ARN is prod but Changelog job does not push images \u2014 over-permissioned",
+          "body": "The Changelog job (lines 191-255) assumes the same role as the Build job: arn:aws:iam::479061657325:role/gha-oidc/gha-container-deploy-config-api-prod. The Changelog job only reads SSM parameters, runs git operations, and posts Slack/Jira \u2014 it does not push Docker images to ECR. Assuming a 'container-deploy' role for a job that performs no container deployment violates least-privilege. The eventproc reference should be checked: if eventproc uses a separate, narrower role for the Changelog job (e.g. gha-oidc/gha-changelog-config-api-prod), this PR should mirror that. Fix: create or reference a changelog-scoped OIDC role with only SSM:GetParameter and the minimal permissions the Changelog job actually needs. If the intent is to share one role for now, document the decision inline.",
+          "confidence": "medium"
+        },
+        {
+          "file": ".github/workflows/RQ_development_config_api.yml",
+          "line": 99,
+          "severity": "low",
+          "category": "style",
+          "title": "OIDC step missing role-session-name, making CloudTrail attribution opaque",
+          "body": "The OIDC configure-aws-credentials step does not set role-session-name. Without it, the assumed session name defaults to a GHA-generated token identifier, making CloudTrail logs difficult to attribute back to the specific workflow run or app. The eventproc reference should be checked: if it sets role-session-name: gha-config-api-{env} (or similar), this PR should match. Fix: add 'role-session-name: gha-config-api-dev' (and -staging, -prod respectively) to each OIDC step.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:33:13Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:45:47Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:32:29Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:32:28Z",
+      "test_runner": "gradle",
+      "fingerprint": "d6f606f727a834d1047ed5c235c47a26",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 861.0
+}
