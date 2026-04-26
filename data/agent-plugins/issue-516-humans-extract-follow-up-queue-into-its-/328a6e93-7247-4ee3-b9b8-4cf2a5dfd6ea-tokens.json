@@ -1,0 +1,39 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-516-humans-extract-follow-up-queue-into-its-",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T03:22:20.431Z",
+  "session_id": "328a6e93-7247-4ee3-b9b8-4cf2a5dfd6ea",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 1631,
+    "output": 316863,
+    "cache_read": 82939451,
+    "cache_create": 2301517,
+    "est_cost_usd": 46.65679783
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 225445,
+      "cost_usd": 0.99110225
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 85334017,
+      "cost_usd": 45.66569558
+    }
+  }
+}

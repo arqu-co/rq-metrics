@@ -1,0 +1,143 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-516-humans-extract-follow-up-queue-into-its-",
+  "sha": "c9c183ab649b094bc6780fb65934ef6ee2b6bf56",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T11:20:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:04Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T05:53:43Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:08Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:01Z",
+      "files_checked": 56,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:41Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:39Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 31000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:47Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T06:01:37Z"
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T05:52:16Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:45Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T05:53:54Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T11:20:44Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T04:40:43Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:10Z",
+      "fingerprint": "3a9d48417f29fa44e999a95fea926414",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 24004.0
+}
