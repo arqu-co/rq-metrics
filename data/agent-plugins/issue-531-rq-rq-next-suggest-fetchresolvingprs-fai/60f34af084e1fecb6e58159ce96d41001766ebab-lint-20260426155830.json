@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-531-rq-rq-next-suggest-fetchresolvingprs-fai",
+  "sha": "60f34af084e1fecb6e58159ce96d41001766ebab",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T19:58:30Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T19:58:29Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_issue_progress_signals.sh:131:30: note: Double quote to prevent globbing and word splitting. [SC2086]\n./plugins/rq/scripts/test_issue_progress_signals.sh:133:6: note: Double quote to prevent globbing and word splitting. [SC2086]\n./plugins/rq/scripts/test_issue_progress_signals.sh:133:110: note: Double quote to prevent globbing and word splitting. [SC2086]\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
