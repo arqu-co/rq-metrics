@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-521-rqship--never-declare-mergeable-without-",
+  "sha": "e741b47ee62e00e4d6ca6e7c776d5e28e7f4157a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T17:25:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T17:25:38Z",
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/pr-verdict.sh",
+          "line": 193,
+          "snippet": "    proof = op.join(repo_root, \".quality/proof/coderabbit.json\")"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
