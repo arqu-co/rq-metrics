@@ -1,0 +1,174 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat-deployme-document-drag-to-compose",
+  "sha": "dab759a5d0bcf122052ccc7ecd0011154340d6fa",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-26T18:03:51Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:35:32Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T17:59:30Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:36:33Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:36:05Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T18:03:49Z",
+      "duration_ms": 45000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T18:03:04Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 141,
+          "output": "/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:91:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:137:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:142:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:146:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:157:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:173:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:177:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:179:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:180:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:182:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:183:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:184:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:185:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:188:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:189:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-test-coverage.js:195:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:88:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:120:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:125:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:129:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:133:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:139:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:143:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:145:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:146:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:147:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:150:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:151:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/check-ui-stories.js:157:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/extract-datadog-key.js:5:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/extract-datadog-key.js:16:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/gen-routes-manifest.ts:67:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/gen-routes-manifest.ts:82:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/retain-prior-assets.mjs:50:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/retain-prior-assets.mjs:55:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/retain-prior-assets.mjs:58:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/retain-prior-assets.mjs:93:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/retain-prior-assets.mjs:97:3  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/scripts/write-version-json.mjs:12:1  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/App.vue:128:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/App.vue:133:7  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/CarrierActivityTable.vue:64:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/CarrierActivityTable.vue:94:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/CarrierActivityTable.vue:108:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/CommentDialog.vue:58:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/CommentDialog.vue:111:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/activity/DeclineDialog.vue:113:5  warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/ai-chat/AIChatBox.vue:173:5   warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/ai-chat/AIChatBox.vue:219:5   warning  Unexpected console statement  no-console\n/Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/.cc-worktrees/doubtfire-client/feat-deployme-document-drag-to-compose/src/components/ai-chat/AIChatBox.vue:329:5   warning  Unexpected console statement  no-console\n"
+        }
+      ],
+      "duration_ms": 212000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:59:32Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T17:58:45Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:59:31Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T18:03:50Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:59:31Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:59:29Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 44000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T18:03:49Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1a58496571658312c2d30e9b31ee1691",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[430/516]\u23af\n\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  83 failed | 305 passed (388)\n      Tests  516 failed | 5791 passed (6307)\n   Start at  14:03:06\n   Duration  43.16s (transform 18.85s, setup 4.23s, collect 195.62s, tests 46.82s, environment 203.80s, prepare 32.38s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 261268.0
+}
