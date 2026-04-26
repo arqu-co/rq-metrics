@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "feac516b72bcdd4d1c5b8c0cf334f2e08bf57ea9",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-26T22:26:20Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:26:20Z",
+      "fingerprint": "12225f2cf0cc3a0d1b32875fa5402577",
+      "test_runner": "bin-test",
+      "missing_tests": 4,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+        "frontend/src/components/analytics/RiskLayersPaneCollapsedRail.tsx",
+        "frontend/src/components/analytics/RiskLayersPaneHeader.tsx",
+        "frontend/src/lib/georisk-segmentation/concern-mapping.ts"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

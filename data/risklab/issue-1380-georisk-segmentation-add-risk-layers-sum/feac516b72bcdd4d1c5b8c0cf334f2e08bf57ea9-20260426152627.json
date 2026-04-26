@@ -1,0 +1,187 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "feac516b72bcdd4d1c5b8c0cf334f2e08bf57ea9",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-26T22:26:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "filesize",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:22:32Z",
+      "files_checked": 25,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "function": "buildSingleRow",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "function": "useRiskLayersPaneData",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T22:26:22Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:22:35Z",
+      "files_checked": 25,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:22:29Z",
+      "files_checked": 25,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPane.test.tsx",
+          "lines": 567,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.test.tsx",
+          "lines": 622,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 71000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:26:22Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:23:15Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 40000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:26:25Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:21:18Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T22:23:16Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:26:24Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:26:26Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:26:24Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T22:26:21Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T22:26:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "12225f2cf0cc3a0d1b32875fa5402577",
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+        "frontend/src/components/analytics/RiskLayersPaneCollapsedRail.tsx",
+        "frontend/src/components/analytics/RiskLayersPaneHeader.tsx",
+        "frontend/src/lib/georisk-segmentation/concern-mapping.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 184000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 308.0
+}
