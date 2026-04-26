@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "issues",
+  "branch": "fix/audit-tooling-bring-forward",
+  "sha": "ce9da4b89e3d780d73a5a519cf07b661b9f89675",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T19:52:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T19:52:26Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+from lib.github_app_auth import gh  # noqa: E402\n+from lib.github_app_auth import gh  # noqa: E402\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

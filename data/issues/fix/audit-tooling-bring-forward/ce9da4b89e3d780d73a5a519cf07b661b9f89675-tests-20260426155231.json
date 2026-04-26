@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "issues",
+  "branch": "fix/audit-tooling-bring-forward",
+  "sha": "ce9da4b89e3d780d73a5a519cf07b661b9f89675",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T19:52:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T19:52:30Z",
+      "fingerprint": "0cf6761221a619edd3f6b48c46848651",
+      "test_runner": "none",
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "lib/__init__.py",
+        "lib/github_app_auth.py"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
