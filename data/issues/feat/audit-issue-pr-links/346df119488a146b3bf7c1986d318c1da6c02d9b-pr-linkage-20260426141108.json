@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "issues",
+  "branch": "feat/audit-issue-pr-links",
+  "sha": "346df119488a146b3bf7c1986d318c1da6c02d9b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T18:11:08Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "pr-linkage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "pr-linkage"
+  ],
+  "gates": {
+    "pr-linkage": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": null
+}
