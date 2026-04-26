@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-516-humans-extract-follow-up-queue-into-its-",
+  "sha": "3bb5532684b9435ea19684b327a5bad8264a719c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T05:46:22Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:44:09Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:44:14Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:44:06Z",
+      "files_checked": 56,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:12Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T05:44:45Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/humans/tests/test_humans_e2e.sh:33:39: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:50:22: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:65:26: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:67:5: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:86:21: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:92:26: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:108:34: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:112:23: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:128:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:130:5: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:146:19: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/humans/tests/test_humans_e2e.sh:148:5: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "./plugins/humans/tests/test_humans_e2e.sh\n"
+        }
+      ],
+      "duration_ms": 31000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T05:46:17Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T04:31:26Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:16Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:14Z",
+      "scanned_files": 45,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T04:40:43Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T05:46:10Z",
+      "test_runner": "bin-test",
+      "fingerprint": "3a9d48417f29fa44e999a95fea926414",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 85000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 4491.0
+}
