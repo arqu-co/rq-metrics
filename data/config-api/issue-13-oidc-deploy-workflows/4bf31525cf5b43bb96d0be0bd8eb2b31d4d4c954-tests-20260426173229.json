@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "config-api",
+  "branch": "issue-13-oidc-deploy-workflows",
+  "sha": "4bf31525cf5b43bb96d0be0bd8eb2b31d4d4c954",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:32:29Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:32:28Z",
+      "fingerprint": "d6f606f727a834d1047ed5c235c47a26",
+      "test_runner": "gradle",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
