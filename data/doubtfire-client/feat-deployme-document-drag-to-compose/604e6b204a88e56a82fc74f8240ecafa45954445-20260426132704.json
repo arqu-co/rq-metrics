@@ -1,0 +1,183 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "feat-deployme-document-drag-to-compose",
+  "sha": "604e6b204a88e56a82fc74f8240ecafa45954445",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-26T17:27:04Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "qa",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T17:26:15Z",
+      "files_checked": 7,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/composables/useDealTabsDragAndDrop.ts",
+          "function": "useDealTabsDragAndDrop",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useDocumentDropZone.ts",
+          "function": "useDocumentDropZone",
+          "lines": 70,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T17:26:16Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/components/compose/email-box/body/EmailBoxBody.test.ts",
+          "name": "type VueWrapper",
+          "line": 3
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T17:26:12Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/components/compose/email-box/body/EmailBoxBody.test.ts",
+          "lines": 380,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-26T17:27:02Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:27:00Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 44000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:27:03Z",
+      "duration_ms": 1000
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T17:29:22Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:27:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:27:03Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T17:27:01Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-23T17:29:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "581eec942cc15d34a431fc526a29f31c",
+      "missing_tests": 5,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "scripts/gen-routes-manifest.ts",
+        "src/components/compose/email-box/footer/EmailBoxFooter.stories.ts",
+        "src/components/layout/nav-config.ts",
+        "src/services/deal-kickoff/token-estimate.ts",
+        "vitest.setup.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  75 failed | 277 passed (352)\n      Tests  475 failed | 5430 passed (5905)\n     Errors  1 error\n   Start at  13:28:40\n   Duration  40.01s (transform 16.54s, setup 8.31s, collect 165.90s, tests 43.68s, environment 197.69s, prepare 28.52s)"
+        }
+      ],
+      "failed_subprojects_details": []
+    }
+  },
+  "duration_seconds": 259063.0
+}
