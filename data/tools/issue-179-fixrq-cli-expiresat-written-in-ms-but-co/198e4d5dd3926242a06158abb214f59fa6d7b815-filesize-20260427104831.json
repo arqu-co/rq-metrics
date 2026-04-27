@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-179-fixrq-cli-expiresat-written-in-ms-but-co",
+  "sha": "198e4d5dd3926242a06158abb214f59fa6d7b815",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T17:48:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:48:31Z",
+      "files_checked": 2,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/auth/auth-code-pkce.test.ts",
+          "lines": 772,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "packages/rq-cli/src/auth/auth-code-pkce.ts",
+          "lines": 325,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
