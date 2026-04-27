@@ -1,0 +1,270 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-182-adopt-semantic-release-for-rq-cli-versio",
+  "sha": "c6c33e4fe204fbaef3037152f0462b4976f54c73",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T20:00:25Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "markdown",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-78693",
+    "review-wip-reviewer-init",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:48:51Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:06Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T20:00:20Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:06Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:04Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:20Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:15Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T20:00:23Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:54:09Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:04:31Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:23Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-78693": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "gates",
+          "title": "dead-code gate fails: inline type modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the literal token 'type ShareableAsset' in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements so the checker handles each correctly: 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"'.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 52,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsUploadHandler is 67 lines (max 50)",
+          "body": "The gate reports shareableAssetsUploadHandler at 67 lines against a 50-line max. The function body contains three distinct phases: (1) decode + size validation (lines 58-72), (2) form construction (lines 74-85), (3) network + response parsing (lines 87-116). Extracting a 'buildUploadForm(params, bytes)' helper (mirroring 'buildUpstreamBody' in shareable_assets_update.ts) reduces the handler body to ~30 lines and passes the gate. The form-building block (12 lines of conditional appends) is the natural extraction target.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsGetUploadInstructionsHandler is 129 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds a large static instruction payload inline \u2014 the example strings, form_fields array, and effect/on_error prose should be extracted as named constants or a builder function. This is a complexity gate violation that blocks the gate from passing.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsReplaceFileHandler is 77 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds example_python, example_curl_fallback, required fields array, effect and on_error strings inline. These should be extracted to named constants or a builder, reducing the handler under 50 lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-init": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 42,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsGetUploadInstructionsHandler exceeds 50-line function limit (129 lines)",
+          "body": "Complexity gate fails: the function body is 129 lines against a 50-line max. The function is in a changed file. The bulk of the length is the inline string-array literals for examplePython, exampleCurlFallback, required, optional, beforeUploadChecklist, afterUploadOptions, and onError \u2014 these are all data blobs, not logic. Extract each blob as a module-level const (or a small factory function) to bring the handler body under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 36,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsReplaceFileHandler exceeds 50-line function limit (77 lines)",
+          "body": "Complexity gate fails: the function body is 77 lines against a 50-line max. The function is in a changed file. The inline blobs for examplePython, exampleCurlFallback, required, effect, and onError can each be extracted to module-level consts (parameterized where they embed endpoint/project_id). That alone would bring the handler under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/test/tools/risklab/shareable_assets_shared.test.ts",
+          "line": 25,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "renameUpstreamShareableAsset is only tested for existence, not behavior",
+          "body": "The third test case 'still exports renameUpstreamShareableAsset' only checks typeof === 'function'. The test was added as a refactor-safety sentinel, but it gives false confidence: a rename of a property in the return shape, a missing delete of share_token, or a logic error in the field mapping would all pass. Since this helper is the central output formatter used by shareable_assets_list, _update, and the forthcoming shareable_assets_upload handler, one behavioral test should be added: pass a record with {id, share_url, is_password_protected, share_token, ...extras} and assert {asset_id, url, has_password, ...extras} with share_token absent.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "correctness",
+          "title": "dead-code gate fails: inline 'type' modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the token 'type ShareableAsset' (with the prefix) as a bare identifier in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements \u2014 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"' \u2014 which the checker handles correctly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace.ts",
+          "line": 19,
+          "severity": "critical",
+          "category": "dead-code",
+          "title": "Unused import: type ShareableAsset causes dead-code gate failure",
+          "body": "The import 'type ShareableAsset' at line 19 is never referenced in the file. The dead-code gate fails with this violation. Fix: remove the unused import.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T20:00:25Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:23Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:42:20Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:00:20Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T20:00:19Z",
+      "test_runner": "npm-test",
+      "fingerprint": "b54545b2735ce5de63ee11f2aadcab8e",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "packages/rq-tools test: upstream validation error subject must not be empty?\npackages/rq-tools test: \npackages/rq-tools test: stderr | src/errors/mapping.test.ts > mapHttpError > 422 \u2192 VALIDATION rejects JSON bodies with embedded newlines in message field\npackages/rq-tools test: upstream validation error {\"message\":\"line1\\nline2\"}\npackages/rq-tools test: stderr | src/errors/mapping.test.ts > mapHttpError > 422 \u2192 VALIDATION rejects JSON bodies with embedded CR in message field\npackages/rq-tools test: upstream validation error {\"message\":\"line1\\rline2\"}\npackages/rq-tools test:  \u2713 src/clients/vocabulary/deal.test.ts (11 tests) 4ms\npackages/rq-tools test:  \u2713 src/errors/mapping.test.ts (17 tests) 3ms\npackages/rq-tools test:  \u2713 src/clients/DoubtfireUrls.test.ts (14 tests) 8ms\npackages/rq-tools test:  \u2713 src/schema-walker/render-zod-error.test.ts (15 tests) 5ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_params-parameterized.test.ts (30 tests) 5ms\npackages/rq-tools test:  \u2713 src/tools/mode/cache.test.ts (6 tests) 3ms\npackages/rq-tools test:  \u2713 src/tools/mode/csv-parse.test.ts (11 tests) 9ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_catalog.test.ts (8 tests) 3ms\npackages/rq-tools test:  \u2713 src/cache/session-cache.test.ts (11 tests) 3ms\npackages/rq-tools test:  \u2713 src/types/envelope.test.ts (5 tests) 2ms\npackages/rq-tools test:  \u2713 src/clients/vocabulary/clearing.test.ts (5 tests) 3ms\npackages/rq-tools test:  \u2713 src/tools/mode/mode-helpers.test.ts (9 tests) 2ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_params-bbox.test.ts (8 tests) 3ms\npackages/rq-tools test:  \u2713 src/schema-walker/enum-completions.test.ts (6 tests) 4ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_types.test.ts (5 tests) 2ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_bounds.test.ts (6 tests) 2ms\npackages/rq-tools test:  \u2713 src/tools/mode/reports.test.ts (4 tests) 2ms\npackages/rq-tools test:  \u2713 test/tools/risklab/shareable_assets_shared.test.ts (3 tests) 2ms\npackages/rq-tools test:  \u2713 src/tools/risklab/schemas.shareable-asset.test.ts (4 tests) 2ms\npackages/rq-tools test:  \u2713 src/clients/api-client.test.ts (12 tests) 1ms\npackages/rq-tools test:  \u2713 src/types/tool-config.test.ts (1 test) 1ms\npackages/rq-tools test:  \u2713 test/tools/risklab/analysis_params.test.ts (33 tests) 5ms\npackages/rq-tools test:  \u2713 src/tools/mode/mode_report_list.test.ts (2 tests) 2ms\npackages/rq-tools test:  \u2713 src/tools/mode/mode_report_status.test.ts (5 tests) 4ms\npackages/rq-tools test:  \u2713 src/tools/mode/mode_report_run.test.ts (8 tests) 8ms\npackages/rq-tools test:  \u2713 src/tools/mode/mode_report_fetch.test.ts (13 tests) 11ms\npackages/rq-tools test:  \u2713 src/schema-walker/schema-to-flags.test.ts (36 tests) 6ms\npackages/rq-tools test:  \u2713 test/tools/risklab/shareable_assets_upload.test.ts (13 tests) 574ms\npackages/rq-tools test:    \u2713 shareableAssetsUploadHandler > rejects oversize files pre-network 567ms\npackages/rq-tools test:  \u2713 test/tools/risklab/shareable_assets_replace.test.ts (4 tests) 577ms\npackages/rq-tools test:    \u2713 shareableAssetsReplaceHandler > rejects oversize files pre-network with VALIDATION 570ms\npackages/rq-tools test: \u23af\u23af\u23af\u23af\u23af\u23af Failed Suites 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\npackages/rq-tools test:  FAIL  test/tools/risklab/run_analysis.test.ts [ test/tools/risklab/run_analysis.test.ts ]\npackages/rq-tools test: Error: Failed to load url undici (resolved id: undici) in /Users/jonathanthom/code/tools/packages/rq-tools/test/tools/risklab/run_analysis.test.ts. Does the file exist?\npackages/rq-tools test:  \u276f loadAndTransform ../../node_modules/.pnpm/vite@5.4.21_@types+node@25.6.0/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51969:17\npackages/rq-tools test: \u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\npackages/rq-tools test:  Test Files  1 failed | 34 passed (35)\npackages/rq-tools test:       Tests  363 passed (363)\npackages/rq-tools test:    Start at  13:00:16\npackages/rq-tools test:    Duration  1.39s (transform 1.01s, setup 0ms, collect 4.71s, tests 1.27s, environment 3ms, prepare 1.21s)\npackages/rq-tools test: Failed\n/Users/jonathanthom/code/tools/packages/rq-tools:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-tools@0.2.0 test: `vitest run`\nExit status 1"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 440285.0
+}
