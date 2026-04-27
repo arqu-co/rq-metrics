@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/pr-feedback-no-rq-533",
+  "sha": "922193a73a81717a594da6e29a5d0f73c900ce5d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T01:43:58Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T01:43:57Z",
+      "files_checked": 4,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_validate",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_blocking_reason",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
