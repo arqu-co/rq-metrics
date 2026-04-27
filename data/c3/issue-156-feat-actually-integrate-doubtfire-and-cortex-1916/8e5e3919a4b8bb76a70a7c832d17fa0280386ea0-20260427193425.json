@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "8e5e3919a4b8bb76a70a7c832d17fa0280386ea0",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-27T23:34:24Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:34:24Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 4000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:33:34Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:34:16Z",
+      "files_checked": 0,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:33:34Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:33:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T23:34:17Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:33:40Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T23:34:18Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:33:41Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:34:18Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T23:34:20Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:34:18Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:34:16Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:34:15Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ca8c0baf96e95b9884b8c9c8f3a4a135",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 34000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 51.0
+}
