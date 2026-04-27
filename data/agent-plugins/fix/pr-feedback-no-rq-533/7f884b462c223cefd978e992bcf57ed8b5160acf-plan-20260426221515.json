@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/pr-feedback-no-rq-533",
+  "sha": "7f884b462c223cefd978e992bcf57ed8b5160acf",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T02:15:15Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "plan",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:15:12Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
