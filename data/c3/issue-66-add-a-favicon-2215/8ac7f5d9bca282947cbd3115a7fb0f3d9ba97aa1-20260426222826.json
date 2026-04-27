@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-66-add-a-favicon-2215",
+  "sha": "8ac7f5d9bca282947cbd3115a7fb0f3d9ba97aa1",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-27T02:28:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:27:51Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T02:28:21Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:27:52Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:27:50Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:28:21Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:27:58Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T02:28:23Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T02:27:59Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:28:23Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T02:28:25Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:28:22Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T02:28:20Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 21000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T02:28:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "12c68ebc4f238d46ee5ac35ea707b033",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "  ...ment-cache.ts |   97.43 |    93.33 |     100 |     100 | 118               \n  ...prefetcher.ts |   96.87 |      100 |     100 |      96 | 101               \n  ...nt-logging.ts |     100 |    91.66 |     100 |     100 | 73,77,87,105      \n  github-client.ts |   99.11 |    94.56 |     100 |     100 | ...66,287,304-305 \n  ...enrichment.ts |     100 |    76.47 |     100 |     100 | 32,59-61          \n  ...etag-cache.ts |   95.83 |     90.9 |     100 |     100 | 52                \n  ...oll-events.ts |   98.21 |       75 |     100 |     100 | 69-112            \n  ...oll-runner.ts |     100 |    92.85 |     100 |     100 | 44                \n  ...ersistence.ts |     100 |    66.66 |     100 |     100 | 31,51             \n  ...oller-repo.ts |    97.5 |      100 |      90 |     100 |                   \n  github-poller.ts |   94.87 |    91.17 |      84 |   97.05 | 217-222           \n  ...b-pr-cache.ts |   98.03 |      100 |     100 |   97.56 | 39                \n  ...b-pr-fetch.ts |   96.55 |       92 |     100 |     100 | 119,151           \n  ...-transform.ts |   99.06 |    96.19 |     100 |    98.7 | 216               \n  ...te-limiter.ts |     100 |    89.79 |     100 |     100 | 80,172,174        \n  ...-allowlist.ts |     100 |    97.05 |     100 |     100 | 108               \n  ...ch-scanner.ts |   89.38 |    76.66 |     100 |   93.61 | 174-176,198-200   \n  ...d-terminal.ts |   94.73 |    88.88 |   88.23 |   95.65 | 68-72,111         \n  orphan-guard.ts  |   95.45 |      100 |   85.71 |   95.23 | 50                \n  plan-finder.ts   |   98.63 |    90.62 |     100 |   98.36 | 79                \n  pr-disk-cache.ts |   94.73 |    92.85 |     100 |     100 | 55                \n  preview-boot.ts  |   98.11 |       88 |   92.85 |   98.03 | 20                \n  ...ct-scanner.ts |   97.36 |    92.85 |   85.71 |   96.96 | 80                \n  ...-allocator.ts |     100 |     87.5 |     100 |     100 | 82-89             \n  ...ion-loader.ts |   96.58 |    88.57 |     100 |   98.01 | 44-45             \n  ...e-detector.ts |    82.3 |       70 |   88.23 |   88.59 | 60-61,99-109,181  \n  ...on-watcher.ts |      92 |      100 |      80 |     100 |                   \n  shutdown.ts      |     100 |    85.71 |     100 |     100 | 29                \n  ...al-manager.ts |     100 |    95.45 |     100 |     100 | 72                \n  terminal-ws.ts   |    97.7 |    96.96 |      95 |     100 | 93                \n  ...lan-parser.ts |   98.14 |    95.83 |     100 |     100 | 32                \n  ...lan-writer.ts |     100 |      100 |      90 |     100 |                   \n  ...ot-manager.ts |   97.53 |    96.29 |   95.23 |     100 | 178               \n  ...ev-command.ts |   96.94 |    94.73 |   96.55 |   99.06 | 160               \n  worktree-log.ts  |   96.15 |      100 |     100 |     100 |                   \n  ...ee-manager.ts |   96.42 |      100 |     100 |   96.05 | 59,68,91          \n  ...e-pid-file.ts |    93.4 |    93.18 |   94.44 |   94.87 | 140-144,179,242   \n  ...tree-proxy.ts |   96.96 |     90.9 |     100 |     100 | 8,110-131,193     \n  ...eady-probe.ts |   97.77 |    94.73 |     100 |     100 | 30                \n  ...er-manager.ts |   96.22 |    92.98 |     100 |   96.77 | 172-173,236       \n  ...ver-routes.ts |    97.4 |    84.37 |     100 |   97.26 | 88-89             \n  ...rade-proxy.ts |   96.07 |    85.29 |     100 |   97.67 | 64                \n-------------------|---------|----------|---------|---------|-------------------\n\n=============================== Coverage summary ===============================\nStatements   : 96.53% ( 3784/3920 )\nBranches     : 90.14% ( 1911/2120 )\nFunctions    : 96.5% ( 828/858 )\nLines        : 98.05% ( 3269/3334 )\n================================================================================"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 35.0
+}
