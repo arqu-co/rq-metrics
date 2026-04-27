@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "issue-49-gcp-readiness",
+  "sha": "b2b902cbe138d34e795a222826ad0421948b97bc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T23:24:35Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T23:24:34Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f9015df0f57e8fb44414c4b8d9d48aba",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "mktemp: mkstemp failed on /tmp/billing-test-XXXXXX.out: File exists"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
