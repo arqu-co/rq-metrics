@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-184-fixrelease-release-preparesh-enoents-on-",
+  "sha": "af87ff6427917a3f459399c4c16f59e1e65410f7",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T20:39:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T20:39:26Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
