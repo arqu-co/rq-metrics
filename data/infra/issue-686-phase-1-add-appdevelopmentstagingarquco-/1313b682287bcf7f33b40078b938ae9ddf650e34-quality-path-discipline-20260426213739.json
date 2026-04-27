@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "issue-686-phase-1-add-appdevelopmentstagingarquco-",
+  "sha": "1313b682287bcf7f33b40078b938ae9ddf650e34",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T01:37:39Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T01:37:38Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

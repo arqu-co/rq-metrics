@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "issue-686-phase-1-add-appdevelopmentstagingarquco-",
+  "sha": "1313b682287bcf7f33b40078b938ae9ddf650e34",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T01:37:42Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-36571",
+    "review-wip-reviewer-45039",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T22:13:58Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:37:15Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:40:01Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:37:18Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:37:12Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T01:37:35Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:37:25Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T01:37:40Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:36:52Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:39:56Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T01:37:38Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-26T21:47:16Z"
+    },
+    "review-wip-reviewer-36571": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-45039": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "devops/terraform/modules/cloud_front/locals.tf",
+          "line": 13,
+          "severity": "high",
+          "category": "correctness",
+          "title": "ACM certificate may not cover app.${env}.arqu.co for non-prod environments",
+          "body": "Line 7 now adds app.${var.environment}.arqu.co as a CloudFront alias for non-prod. CloudFront requires the viewer certificate to cover every alias it serves. The non-prod certificate ARNs are hardcoded (staging: 51ba1095, dev: 1d443118). If these are single-name or limited-SAN certs that only cover webapp.${env}.arqu.co and not app.${env}.arqu.co, CloudFront will reject the distribution update with a certificate-mismatch error. Fix: verify each non-prod ACM cert covers app.staging.arqu.co and app.development.arqu.co (either as explicit SANs or as a wildcard like *.staging.arqu.co / *.development.arqu.co). If not, add those SANs to the certs before applying.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:49:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T01:37:37Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:37:28Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:41:37Z",
+      "fingerprint": "6319f04b61ab4a1c1d87ad674fa3232b",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 14448.0
+}
