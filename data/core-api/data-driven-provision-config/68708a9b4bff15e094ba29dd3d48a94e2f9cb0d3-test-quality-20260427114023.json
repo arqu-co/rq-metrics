@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "data-driven-provision-config",
+  "sha": "68708a9b4bff15e094ba29dd3d48a94e2f9cb0d3",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-27T18:40:23Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T18:40:23Z",
+      "scanned_files": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "src/unitTest/kotlin/co/arqu/core/cli/tools/ProvisioningTargetBackfillCommandTest.kt",
+          "line": 22,
+          "pattern": "@Mock on class under test",
+          "code": "    @Mock"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
