@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "8e5e3919a4b8bb76a70a7c832d17fa0280386ea0",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-27T23:33:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T23:33:34Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
