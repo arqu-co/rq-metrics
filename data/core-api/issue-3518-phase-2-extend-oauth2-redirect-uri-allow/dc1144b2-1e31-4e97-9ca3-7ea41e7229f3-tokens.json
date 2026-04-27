@@ -1,0 +1,62 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "issue-3518-phase-2-extend-oauth2-redirect-uri-allow",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-26T21:24:27.179Z",
+  "session_id": "dc1144b2-1e31-4e97-9ca3-7ea41e7229f3",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 139,
+    "output": 16784,
+    "cache_read": 5110795,
+    "cache_create": 332814,
+    "est_cost_usd": 4.913073499999999
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback": {
+      "tokens": 120488,
+      "cost_usd": 0.758285
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#2": {
+      "tokens": 1997288,
+      "cost_usd": 1.4127052500000001
+    },
+    "review#2": {
+      "tokens": 3342756,
+      "cost_usd": 2.7420832500000003
+    }
+  }
+}
