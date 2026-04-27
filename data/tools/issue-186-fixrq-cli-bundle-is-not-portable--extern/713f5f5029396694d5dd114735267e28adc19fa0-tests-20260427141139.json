@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-186-fixrq-cli-bundle-is-not-portable--extern",
+  "sha": "713f5f5029396694d5dd114735267e28adc19fa0",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T21:11:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T21:11:39Z",
+      "fingerprint": "04bfd0f0656694442854e1917ec9ee92",
+      "test_runner": "npm-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
