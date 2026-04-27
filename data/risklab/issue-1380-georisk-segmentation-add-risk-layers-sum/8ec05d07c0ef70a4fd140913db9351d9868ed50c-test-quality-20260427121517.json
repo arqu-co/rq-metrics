@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "8ec05d07c0ef70a4fd140913db9351d9868ed50c",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-27T19:15:17Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T19:15:17Z",
+      "scanned_files": 27,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
