@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "worktree-dynamic-brewing-church",
+  "sha": "8881eb67a56072b2103e94b02a430917ad6e841e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T14:55:47Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "pr-linkage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "pr-linkage"
+  ],
+  "gates": {
+    "pr-linkage": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": null
+}

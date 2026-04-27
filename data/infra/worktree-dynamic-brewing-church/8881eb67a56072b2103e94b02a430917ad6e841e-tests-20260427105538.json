@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "worktree-dynamic-brewing-church",
+  "sha": "8881eb67a56072b2103e94b02a430917ad6e841e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T14:55:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T14:55:38Z",
+      "fingerprint": "6319f04b61ab4a1c1d87ad674fa3232b",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\nIn bin/revoke-iam-keys line 220:\n    --query 'AccessKeyMetadata[?Status==`Active`].AccessKeyId' --output text)\n            ^-- SC2016 (info): Expressions don't expand in single quotes, use double quotes for that.\n\nFor more information:\n  https://www.shellcheck.net/wiki/SC2016 -- Expressions don't expand in singl..."
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
