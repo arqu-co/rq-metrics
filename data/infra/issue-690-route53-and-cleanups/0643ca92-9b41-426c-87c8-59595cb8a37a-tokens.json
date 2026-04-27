@@ -1,0 +1,63 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "infra",
+  "branch": "issue-690-route53-and-cleanups",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T11:14:15.187Z",
+  "session_id": "0643ca92-9b41-426c-87c8-59595cb8a37a",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 15186,
+    "output": 575486,
+    "cache_read": 340486340,
+    "cache_create": 4418620,
+    "est_cost_usd": 195.37830875
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 22953137,
+      "cost_usd": 17.7146625
+    },
+    "pr-feedback#1": {
+      "tokens": 33787446,
+      "cost_usd": 20.25924195
+    },
+    "pr-feedback#2": {
+      "tokens": 63937651,
+      "cost_usd": 41.35691385
+    },
+    "pr-feedback#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#4": {
+      "tokens": 41722352,
+      "cost_usd": 26.07155425
+    },
+    "pr-feedback#5": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#6": {
+      "tokens": 157756289,
+      "cost_usd": 83.37964124999999
+    },
+    "review": {
+      "tokens": 6530030,
+      "cost_usd": 3.60141475
+    },
+    "unknown": {
+      "tokens": 18808727,
+      "cost_usd": 2.9948802000000003
+    }
+  }
+}
