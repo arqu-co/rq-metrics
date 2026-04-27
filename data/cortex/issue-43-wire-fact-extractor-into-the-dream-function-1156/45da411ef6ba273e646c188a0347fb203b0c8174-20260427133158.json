@@ -1,0 +1,157 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-43-wire-fact-extractor-into-the-dream-function-1156",
+  "sha": "45da411ef6ba273e646c188a0347fb203b0c8174",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T17:31:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "complexity"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T16:29:18Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:31:42Z",
+      "files_checked": 7,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "lib/runtime/dream-tick.ts",
+          "function": "nextDailyState",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:55Z",
+      "files_checked": 5,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:43Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:41Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:55Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:58Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T16:29:08Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T16:29:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:57Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:29:11Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:31:54Z",
+      "fingerprint": "a5616eb66799139861515be3065f9653",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 3000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3770.0
+}
