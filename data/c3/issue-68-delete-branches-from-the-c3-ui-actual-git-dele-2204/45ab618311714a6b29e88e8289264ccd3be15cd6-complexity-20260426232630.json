@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-68-delete-branches-from-the-c3-ui-actual-git-dele-2204",
+  "sha": "45ab618311714a6b29e88e8289264ccd3be15cd6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-27T03:26:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T03:26:30Z",
+      "files_checked": 37,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "server/branch-name-validator.ts",
+          "function": "isValidRepoName",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/branch-cleanup.ts",
+          "function": "cleanupBranch",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
