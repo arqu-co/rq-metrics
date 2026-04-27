@@ -1,0 +1,361 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-deoQn",
+  "sha": "88b9572e6ce546680ea7685d03f760e62b45f2c1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T15:57:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "filesize",
+    "issue-binding",
+    "test-quality"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:54:38Z",
+      "files_checked": 3,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "backend/app/services/program_capacity_service.py",
+          "function": "_compute_layer_capacity",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/program_capacity_service.py",
+          "function": "ProgramCapacityService",
+          "lines": 280,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "function": "TestCalculateLayerCapacity",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "function": "TestValidatePlacementCapacity",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:57:01Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:54:38Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:54:37Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "backend/app/services/program_capacity_service.py",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:57:01Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:54:53Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 15000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:57:05Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T16:11:59Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T15:54:53Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:57:04Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:57:04Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:57:01Z",
+      "scanned_files": 2,
+      "violations": 24,
+      "violations_details": [
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 26,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 39,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 57,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 77,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 96,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 111,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 133,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 155,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 177,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 189,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        spanning = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 197,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 213,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 231,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 44,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 78,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 95,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 112,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 138,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 166,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 187,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 202,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 217,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T15:56:59Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d040eb8c0d5cd8710897978742dba29d",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 126000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2744860.0
+}

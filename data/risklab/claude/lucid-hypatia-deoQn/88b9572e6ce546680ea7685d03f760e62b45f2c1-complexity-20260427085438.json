@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-deoQn",
+  "sha": "88b9572e6ce546680ea7685d03f760e62b45f2c1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T15:54:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:54:38Z",
+      "files_checked": 3,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "backend/app/services/program_capacity_service.py",
+          "function": "_compute_layer_capacity",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/program_capacity_service.py",
+          "function": "ProgramCapacityService",
+          "lines": 280,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "function": "TestCalculateLayerCapacity",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "function": "TestValidatePlacementCapacity",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

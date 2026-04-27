@@ -1,0 +1,178 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-deoQn",
+  "sha": "88b9572e6ce546680ea7685d03f760e62b45f2c1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T15:57:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T15:57:01Z",
+      "scanned_files": 2,
+      "violations": 24,
+      "violations_details": [
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 26,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 39,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 57,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 77,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 96,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 111,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 133,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 155,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 177,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 189,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        spanning = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 197,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 213,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_tower_and_layer.py",
+          "line": 231,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 44,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 62,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 78,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 95,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 112,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 138,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 166,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 187,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 202,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_program_capacity_service_updates_and_validation.py",
+          "line": 217,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
