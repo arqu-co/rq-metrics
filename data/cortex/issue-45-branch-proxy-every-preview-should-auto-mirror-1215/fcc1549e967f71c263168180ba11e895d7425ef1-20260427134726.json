@@ -1,0 +1,163 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-45-branch-proxy-every-preview-should-auto-mirror-1215",
+  "sha": "fcc1549e967f71c263168180ba11e895d7425ef1",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T17:47:26Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T17:42:20Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 6000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:41:58Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T17:42:12Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:47:20Z",
+      "files_checked": 7,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "lib/agents-ui/attention-source.test.ts",
+          "name": "type AttentionSourceRow",
+          "line": 2
+        },
+        {
+          "type": "unused_import",
+          "file": "tools/branch-proxy/server/worktree-manager.ts",
+          "name": "type ChildProcess",
+          "line": 16
+        }
+      ],
+      "duration_ms": 300000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:41:56Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:47:23Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:42:09Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 11000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:47:24Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T16:32:26Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:42:14Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T16:32:34Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:42:14Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:32:28Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:47:23Z",
+      "fingerprint": "ec17e6dd1312616e6ebc202dccf8880e",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "tools/branch-proxy/server/worktree-manager.ts"
+      ],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 4498.0
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-45-branch-proxy-every-preview-should-auto-mirror-1215",
+  "sha": "fcc1549e967f71c263168180ba11e895d7425ef1",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T17:47:23Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:47:23Z",
+      "fingerprint": "ec17e6dd1312616e6ebc202dccf8880e",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "tools/branch-proxy/server/worktree-manager.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
