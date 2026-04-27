@@ -1,0 +1,215 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-44-perf-scheduler-ticks-block-for-hours-effective-1156",
+  "sha": "d5be9ac5144b252b845c0152d848b574f2d4c69b",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T17:49:23Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-wip-reviewer-502",
+    "review-wip-reviewer-92299",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T17:49:23Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 20000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:29Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:51Z",
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:29Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:30Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:28Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:48:59Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:18:42Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:49:02Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T17:48:59Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:30Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:49:01Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-502": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "lib/runtime/timed-agent-sdk-client.test.ts",
+          "line": 39,
+          "severity": "minor",
+          "category": "test-quality",
+          "title": "Monotonically-increasing-deltas test uses inequality assertions that cannot catch delta-swap regressions",
+          "body": "Lines 39-40 assert toBeGreaterThan(0) and toBeGreaterThanOrEqual \u2014 these pass even if totalDeltaMs and firstMessageDeltaMs were swapped, or if totalDeltaMs accidentally equalled firstMessageDeltaMs due to a clock-sampling bug. The advancing fake clock produces deterministic values (firstMessageDeltaMs=10, totalDeltaMs=40 with the +10 increment pattern) so exact equality assertions are feasible and much stronger.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/timed-agent-sdk-client.test.ts",
+          "line": 13,
+          "severity": "minor",
+          "category": "test-coverage",
+          "title": "startedAtMs field is never asserted in any test",
+          "body": "All 8 tests check delta fields (firstMessageDeltaMs, totalDeltaMs, etc.) and counts, but none asserts startedAtMs. This field is the epoch timestamp anchoring all deltas and is used for log ordering in TimingsLogLine. A bug that set startedAtMs incorrectly (e.g. to 0 or to the end time) would go undetected. Test 1 uses a fixed clock of () => 1000 so expect(calls[0].startedAtMs).toBe(1000) is a free one-liner assertion.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/timed-agent-sdk-client.test.ts",
+          "line": 1,
+          "severity": "minor",
+          "category": "test-coverage",
+          "title": "No test for early consumer abandonment (break mid-stream)",
+          "body": "The try/finally in timedStream guarantees a timing record is pushed even when the consumer breaks out of the for-await loop early (the generator's return() method triggers finally). This is a documented invariant \u2014 records survive even partial iteration \u2014 but no test exercises it. A future refactor that accidentally moved the records.push() outside the finally block would silently break this guarantee. A test that iterates with a manual for-await + break after the first message, then checks getRecordedTimings().length === 1, would pin the invariant.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-92299": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/runtime/tick-timing.test.ts",
+          "line": 69,
+          "severity": "minor",
+          "category": "test-coverage",
+          "title": "First appendTimingsLog test does not assert on the ts field",
+          "body": "The test at line 52-72 asserts parsed[runId], parsed[agentId], parsed[status], and parsed[timings], but never checks parsed[ts]. ts is a required field of TimingsLogLine (not optional) and is the primary timestamp used for log ordering. A typo in the serialisation key (e.g. timestamp instead of ts) would go undetected. Fix: add expect(parsed[ts]).toBe(1_700_000_000) after line 72.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T17:49:03Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T17:49:01Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:30Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:22:45Z",
+      "fingerprint": "ebc3fc08f5f74fa2bf055c155e559c56",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 5441.0
+}
