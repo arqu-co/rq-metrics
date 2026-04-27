@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-45-branch-proxy-every-preview-should-auto-mirror-1215",
+  "sha": "c4f3e6e3cc0b99b9fbd72fca0b57fcc1e2e07e8a",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T16:32:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T16:32:28Z",
+      "test_runner": "bin-test",
+      "fingerprint": "01f95b601b5fe3aa077ece4fd9761e6e",
+      "test_failures": 1,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.\u001b[39m\n\n RUN  v2.1.9 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/cortex/.claude/worktrees/issue-45-branch-proxy-every-preview-should-auto-mirror-1215\n\nfilter:  tools/branch-proxy/server/app.test.ts, tools/branch-proxy/server/worktree-env.test.ts\ninclude: **/*.{test,spec}.{ts,tsx}\nexclude:  **/node_modules/**, **/.next/**, e2e/**, **/playwright-report/**, .claude/**, tools/branch-proxy/**\n\nNo test files found, exiting with code 1"
+        }
+      ],
+      "missing_tests_details": [
+        "tools/branch-proxy/server/worktree-manager.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
