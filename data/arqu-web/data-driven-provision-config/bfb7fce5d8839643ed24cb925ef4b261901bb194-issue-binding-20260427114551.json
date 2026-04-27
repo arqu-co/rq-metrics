@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-web",
+  "branch": "data-driven-provision-config",
+  "sha": "bfb7fce5d8839643ed24cb925ef4b261901bb194",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-27T18:45:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T18:45:50Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
