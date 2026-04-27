@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-44-perf-scheduler-ticks-block-for-hours-effective-1156",
+  "sha": "71de650bdc0a15ec410912c493d2851b2bc0f738",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-27T16:38:32Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:38:32Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
