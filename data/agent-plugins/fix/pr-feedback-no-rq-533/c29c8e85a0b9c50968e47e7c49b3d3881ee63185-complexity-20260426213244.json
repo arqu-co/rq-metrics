@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/pr-feedback-no-rq-533",
+  "sha": "c29c8e85a0b9c50968e47e7c49b3d3881ee63185",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-27T01:32:44Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T01:32:43Z",
+      "files_checked": 2,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_verdict",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_validate",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_pre_merge_candidate",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "plugins/rq/scripts/pr_verdict.py",
+          "function": "_compute_human",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
