@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-172-use-rq-cli-for-shareable-assets-upload-i",
+  "sha": "d5443367fbda7c1d38ea8085a72bcb08f31b6b33",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T16:30:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "packages/rq-server/src/tools/risklab/shareable_assets_revoke.register.ts",
+      "line": 19,
+      "rule": "DEAD_CODE",
+      "message": "WRITE_DESTRUCTIVE imported in a second standalone import block when it could be merged into the existing @arqu-co/rq-tools import at line 15. Not dead, but the split is unnecessary style drift from other register files."
+    },
+    {
+      "file": "packages/rq-server/src/tools/risklab/shareable_assets_revoke.test.ts",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No 5xx / UPSTREAM_ERROR test case. shareable_assets_list has 7 tests including a malformed-upstream path; revoke has 4 and skips 5xx coverage entirely. A server-error reply (500) is the most common failure mode for a DELETE and should be exercised."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T16:30:03Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
