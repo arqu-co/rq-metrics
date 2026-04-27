@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-177-add-rqaccesstoken-env-var-support-so-ski",
+  "sha": "2021876d7596f0dc18d9dd17e67a0e545bc7ba26",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-27T17:07:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-27T17:07:46Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "typecheck",
+          "exit_code": 1,
+          "output": "\n> arqu-rq-monorepo@0.2.0 typecheck\n> pnpm -r typecheck\n\nScope: 4 of 5 workspace projects\npackages/rq-tools typecheck$ tsc --noEmit\npackages/rq-tools typecheck: Done\npackages/rq-contract-test typecheck$ tsc --noEmit\npackages/rq-server typecheck$ tsc --noEmit\npackages/rq-cli typecheck$ tsc --noEmit\npackages/rq-contract-test typecheck: src/transport/mcp.ts(1,24): error TS2307: Cannot find module '@modelcontextprotocol/sdk/client/index.js' or its corresponding type declarations.\npackages/rq-contract-test typecheck: src/transport/mcp.ts(2,47): error TS2307: Cannot find module '@modelcontextprotocol/sdk/client/streamableHttp.js' or its corresponding type declarations.\npackages/rq-contract-test typecheck: Failed\n/Users/jonathanthom/code/tools/packages/rq-contract-test:\n\u2009ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL\u2009 @arqu-co/rq-contract-test@0.1.0 typecheck: `tsc --noEmit`\nExit status 1\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
