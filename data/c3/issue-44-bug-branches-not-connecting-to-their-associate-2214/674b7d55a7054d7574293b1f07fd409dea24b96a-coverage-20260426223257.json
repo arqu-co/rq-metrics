@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-44-bug-branches-not-connecting-to-their-associate-2214",
+  "sha": "674b7d55a7054d7574293b1f07fd409dea24b96a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-27T02:32:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T02:32:56Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
