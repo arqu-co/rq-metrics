@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-542-add-chapters-plugin-pr-chapter-book-view",
+  "sha": "3fb80f32b2de9f188c8c4aa79544eb1c0448a589",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T22:15:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:22Z",
+      "scanned_files": 45,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

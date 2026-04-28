@@ -1,0 +1,258 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-542-add-chapters-plugin-pr-chapter-book-view",
+  "sha": "3fb80f32b2de9f188c8c4aa79544eb1c0448a589",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T22:15:24Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "coderabbit",
+    "filesize"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-85302",
+    "review-wip-reviewer-96011",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:54:53Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:11:28Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:14:53Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 152000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:19Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T22:15:18Z",
+      "files_checked": 10,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "plugins/chapters/scripts/test_server.py",
+          "lines": 544,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 12000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:19Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:11:58Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 30000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:23Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:53:36Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:22Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-22T22:35:39Z"
+    },
+    "review-wip-reviewer-85302": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "high",
+          "category": "correctness",
+          "title": "plugin.json references a CHANGELOG.md that does not exist",
+          "body": "The description field ends with 'Changelog: https://github.com/arqu-co/agent-plugins/blob/main/plugins/risklab/CHANGELOG.md' but no CHANGELOG.md file exists under plugins/risklab/. Both peer plugins (producer, rq) have a CHANGELOG.md at that path. The URL is a dead link that will 404 for any user who follows it. Fix: create plugins/risklab/CHANGELOG.md with an initial entry for v0.1.0, matching the format producer uses.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 22,
+          "severity": "medium",
+          "category": "style",
+          "title": "Bare issue reference risklab#1337 violates URL discipline rule",
+          "body": "Line 22 uses 'risklab#1337' as a parenthetical reference. This is not tappable on mobile and violates url-discipline.md which requires full https:// URLs in all user-facing output including skill markdown. The SKILL.md is rendered content, not a commit message body or PR description (the only exceptions). Fix: replace with the full URL https://github.com/arqu-co/risklab/issues/1337. The same issue applies at lines 98, 113, and 114 \u2014 all four bare refs must be expanded.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "low",
+          "category": "style",
+          "title": "plugin.json description references PR #454 as a bare ref",
+          "body": "The description field contains '(#454)' \u2014 a bare PR ref. The url-discipline rule permits bare #N refs only inside commit message bodies and PR descriptions where the git context makes them auto-linkable. A plugin.json description field is displayed in the marketplace UI and does not auto-link. Fix: expand to the full URL https://github.com/arqu-co/agent-plugins/pull/454, or drop the PR ref entirely (the version and date are sufficient changelog context in this field).",
+          "confidence": "high"
+        },
+        {
+          "file": ".gitignore",
+          "line": 31,
+          "severity": "low",
+          "category": "style",
+          "title": ".gitignore: .qa added without slash is scope drift and slightly redundant",
+          "body": "The PR adds '.qa' (no trailing slash) to .gitignore. The entry '.qa/' was already present at line 30, added in a prior commit specifically for the .qa symlink created by the rq-state-migrate hook. '.qa' (without slash) matches both a file and a directory, while '.qa/' matches only directories \u2014 so adding '.qa' is not strictly wrong, but it is a no-op for the existing directory case. More importantly, this change is unrelated to the risklab plugin and belongs in a standalone commit. If a plain file named .qa needs to be ignored, that should be explained; if not, this entry is unnecessary. Fix: remove the '.qa' line (without slash) and leave '.qa/' in place. If a non-directory .qa file genuinely exists and must be gitignored, move this change to a separate PR with a clear rationale.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-96011": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 47,
+          "severity": "high",
+          "category": "correctness",
+          "title": "get_project called with guessed id when user provides only a project name",
+          "body": "Step 1 of 'Resolving the project' says: 'If they gave a name, call get_project with the id you believe matches to confirm.' But get_project takes a numeric id, not a name (confirmed by the MCP tools table: 'Fetch a single project's detail by id'). If the user provided only a name (no id), the agent has no id to pass \u2014 it would have to guess. The correct flow for a name-only input is: call list_projects, find the matching name, extract the id, then use it. Calling get_project with a guessed id is both logically broken and could silently use the wrong project. Fix: split into two cases. (A) User gives name AND id: use get_project(given_id) to verify. (B) User gives name only: call list_projects, find the match by name, use that id directly \u2014 get_project is unnecessary.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "CHANGELOG.md linked in plugin.json description does not exist",
+          "body": "plugin.json description field includes: 'Changelog: https://github.com/arqu-co/agent-plugins/blob/main/plugins/risklab/CHANGELOG.md'. This file does not exist in the repository. The URL will 404. Fix: either create plugins/risklab/CHANGELOG.md with an initial entry for v0.1.0, or remove the Changelog line from the description until the file exists.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 22,
+          "severity": "low",
+          "category": "style",
+          "title": "Bare cross-repo issue refs violate url-discipline rule",
+          "body": "Lines 22, 98, 113, and 114 use bare cross-repo refs: 'risklab#1337', 'arqu-co/risklab#1337', 'arqu-co/risklab#1335'. Per .claude/rules/url-discipline.md, bare #N refs are only acceptable inside commit message bodies and PR descriptions where the current owner/repo is clear from git context. SKILL.md is neither \u2014 it's a knowledge-surface markdown file rendered on GitHub and loaded into agent context. Cross-repo refs (different repo: arqu-co/risklab) never auto-link from this repo regardless of the exception. Fix: replace all four refs with full https:// URLs: https://github.com/arqu-co/risklab/issues/1337 and https://github.com/arqu-co/risklab/issues/1335.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 37,
+          "severity": "low",
+          "category": "correctness",
+          "title": "shareable_assets_list filters expired assets, making expired-asset renewal impossible via MCP",
+          "body": "Line 37 states shareable_assets_list 'filters out' revoked/expired rows. An admin who wants to renew an already-expired asset (extend its expires_at) cannot find its asset_id via this tool because the row is filtered. The only recovery is knowing the asset_id from a prior response. The skill should note this gap and tell the agent to keep track of asset_ids or to use the UI when an asset has already expired. Without this note, the agent may tell an admin to use shareable_assets_update on an expired asset, then fail to provide the id. Fix: add a note in the MCP tools table or the edit/revoke flow section: 'If an asset has already expired, it will not appear in shareable_assets_list; the admin must use the UI or know the asset_id from a prior session.'",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 90,
+          "severity": "low",
+          "category": "security",
+          "title": "Password rotation does not immediately invalidate outstanding HMAC verify tokens",
+          "body": "Line 90 describes the HMAC verify token as using 5-minute time buckets. If an admin rotates a password via PATCH, any verify tokens issued against the old password remain valid for up to 5 minutes. This is a real (if bounded) security window the skill doesn't disclose. An admin who rotates a password believing access is immediately cut off is mistaken \u2014 a recipient who obtained a verify token in the last 5 minutes can still access the content. Fix: add a note to the Security model section: 'Password rotation takes effect on the next verify-password exchange. Outstanding verify tokens remain valid until their 5-minute bucket expires; effective lock-out takes up to 5 minutes.'",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:36:17Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:22Z",
+      "scanned_files": 45,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:15:06Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 13000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:12:21Z",
+      "test_runner": "bin-test",
+      "fingerprint": "fe307e9d638b1ccae6bc411538fd4193",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 23000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 517184.0
+}
