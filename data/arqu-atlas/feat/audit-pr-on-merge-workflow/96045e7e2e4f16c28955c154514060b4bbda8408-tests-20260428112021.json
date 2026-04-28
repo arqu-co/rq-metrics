@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/audit-pr-on-merge-workflow",
+  "sha": "96045e7e2e4f16c28955c154514060b4bbda8408",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T15:20:20Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:20:19Z",
+      "fingerprint": "2e7021cf8d4b4bc3f16d4775df58deca",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": ">>> Running Python tests...\n/opt/homebrew/Cellar/pyenv/2.6.13/libexec/pyenv-exec: /opt/homebrew/bin/pytest: /opt/homebrew/opt/python@3.11/bin/python3.11: bad interpreter: No such file or directory"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
