@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/audit-pr-on-merge-workflow",
+  "sha": "7aec003a483bf7e4bfb0d6334cdbcb05c60b437d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T15:22:33Z",
+  "phase": "all",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:21:15Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 17000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:00Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:20:50Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:04Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:58Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:22:27Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:22:24Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:246:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:246:37: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:269:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:269:58: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:270:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:270:39: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:271:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:271:23: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:272:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:272:31: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:273:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:273:30: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:274:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:274:33: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:275:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:275:22: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:298:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:298:26: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:299:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:299:31: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:300:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:300:26: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:312:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:312:28: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:313:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:313:51: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:314:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:314:49: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:315:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:315:35: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:316:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:316:26: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:327:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:327:35: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:337:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:337:20: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:346:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:346:23: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:363:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:363:23: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:364:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:364:26: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:365:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:365:22: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:374:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:374:29: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:383:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:383:29: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:384:13: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n/Users/jerrod/Sites/ledger/.claude/worktrees/compressed-marinating-metcalfe/db/schema.rb:384:20: C: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.\n"
+        }
+      ],
+      "duration_ms": 69000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:58Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:20:13Z",
+      "duration_ms": 9000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:22:30Z",
+      "duration_ms": 3000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:55Z",
+      "scanned_files": 0,
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:47Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:45Z",
+      "fingerprint": "829123675c18e4a14df3ecc01cf2a4c2",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 32000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 152.0
+}
