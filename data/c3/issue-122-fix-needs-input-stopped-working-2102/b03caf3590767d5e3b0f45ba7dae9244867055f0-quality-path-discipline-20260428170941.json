@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-122-fix-needs-input-stopped-working-2102",
+  "sha": "b03caf3590767d5e3b0f45ba7dae9244867055f0",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T21:09:41Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "rq.config.json",
+      "line": 88,
+      "rule": "MISSING_TEST",
+      "message": "The allow entry for server/managed-terminal.ts masks a stale coverage report, not a genuine untestability. The coverage-summary.json on disk was produced by a terminal-ws-scoped test run (only terminal-ws.ts shows non-zero coverage; managed-terminal.ts shows 0/82 lines covered), yet tests.json proves the gate selected managed-terminal-detector.test.ts and managed-terminal.test.ts \u2014 the report and the test selection contradict each other. The writer's justification ('import type pulls managed-terminal.ts into scope') is mechanically incorrect: TypeScript erases import type at compile time, so it cannot influence runtime coverage scope. The allow entry must be removed; the writer must re-run gate-tests.sh (which will select the correct managed-terminal*.test.ts files) and then gate-coverage.sh to produce a consistent report before committing rq.config.json."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:09:41Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
