@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "8910ed7e37b831985f0e2df290b8d8e0ffb6fce5",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T01:05:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:51:52Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:02:50Z",
+      "coverage_tool": "js",
+      "files_checked": 3,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 250000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:02Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:05:40Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:05:37Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "server/cortex-preview-routes.ts(100,57): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\nserver/cortex-preview-routes.ts(110,38): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\nserver/cortex-preview-routes.ts(121,38): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "server/cortex-preview-routes.ts(100,57): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\nserver/cortex-preview-routes.ts(110,38): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\nserver/cortex-preview-routes.ts(121,38): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.\n  Type 'string[]' is not assignable to type 'string'.\n"
+        }
+      ],
+      "duration_ms": 86000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:05:42Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:40Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T01:05:38Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:05:42Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:05:44Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:05:42Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:05:39Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:04:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "0eecd041987fac8efd72166ab41119e2",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 81000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 4432.0
+}
