@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "feat/audit-pr-on-merge-workflow",
+  "sha": "8bba74cfde15bf9ae45f77872484e5865605f2d8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T16:15:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "plan",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "plan"
+  ],
+  "gates": {
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T16:15:52Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
