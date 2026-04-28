@@ -1,0 +1,365 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-168-make-github-issue-loading-a-manual-choice-ins-1604",
+  "sha": "0ec0a87095a0b18a089beefbd680b551abdd83c4",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T23:53:22Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-11036",
+    "review-wip-reviewer-14655",
+    "review-wip-reviewer-1705",
+    "review-wip-reviewer-45819",
+    "review-wip-reviewer-t6",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:52:48Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:18Z",
+      "coverage_tool": "js",
+      "files_checked": 11,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:52:50Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:52:46Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 323000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:18Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:52:57Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:20Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:22:56Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T23:52:57Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T23:47:15Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-11036": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "docs/test-plans/issue-168-make-github-issue-loading-a-manual-choice-ins-1604.md",
+          "line": 3,
+          "severity": "low",
+          "category": "lint",
+          "title": "MD034 bare URL on line 3 and MD013 line-length violations on 21 lines",
+          "body": "gate-markdown fails with 22 new violations: one MD034 (bare URL at line 3: 'https://github.com/arqu-co/c3/issues/168' must be wrapped in angle brackets or a Markdown link) and 21 MD013 line-length violations across the file. Fix: wrap the URL as [#168](https://github.com/arqu-co/c3/issues/168), and break long lines at 120 chars (or configure the markdownlint max_line_length to match the project's existing rule, if one exists).",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 160,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "deriveListViewBindings uses empty-string label when issuesRepoSlug is null",
+          "body": "Line 160: `const label = issuesRepoSlug ?? ''`. When source is 'fromIssuesRepo' and issuesRepoSlug is null (server config cleared after user made the choice), both sectionLabel and currentSourceLabel become empty strings. The chooser correctly guards against entering this state on fresh mount (computeInitialSource line 135), but a user can reach it by: (1) choosing fromIssuesRepo while issuesRepoSlug is set, (2) the server config clearing that slug, (3) the user switching browser tabs and returning. The ChangeSourceLink then reads 'Showing issues from ' (empty) and the SectionHeader renders no label. Fix: fall back to a sensible literal such as 'issues repo' instead of empty string, or redirect to the chooser when source is fromIssuesRepo and issuesRepoSlug is null at render time.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 175,
+          "severity": "low",
+          "category": "style",
+          "title": "fetchSource local variable name collides with the domain term 'fetch'",
+          "body": "Line 175: `const fetchSource: IssueSource | null = source === 'fromRepo' || source === 'fromIssuesRepo' ? source : null`. The name `fetchSource` is confusing because the codebase also has `fetchIssuesBody` and the project uses the word 'fetch' heavily in its hook API surface. A clearer name would be `activeSource` or `resolvedSource`, making it obvious this is the resolved IssueSource to pass to useIssues rather than a fetch-related construct. This is the same concern the prior reviewer WIP flagged on useIssues.ts line 70 (redundant dep name) \u2014 both stem from mixing the 'fetch' vocabulary with state-machine names.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/IssueSourceChooser.tsx",
+          "line": 4,
+          "severity": "info",
+          "category": "architecture",
+          "title": "ChooserChoice re-exports IssueSource union rather than being its own type",
+          "body": "ChooserChoice = IssueSource | 'skip'. IssueSource is defined in useIssues.ts (a hook), and ChooserChoice is defined in IssueSourceChooser.tsx (a component). issue-source-storage.ts imports IssueSource from useIssues and defines StoredSource = IssueSource | 'skip'. So ChooserChoice and StoredSource are structurally identical types defined in two different modules. They both exist because the two files that use them are in different layers (component vs storage), but a reader has to check both definitions to confirm they are the same. A single type in a shared types file (or in issue-source-storage.ts which already owns the persistence contract) would eliminate the duplication. This is low-risk as TypeScript will catch any divergence, but it is unnecessary fan-out of the same concept.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 84,
+          "severity": "low",
+          "category": "correctness",
+          "title": "useEffect dep array is [load] only \u2014 source=null path increments requestIdRef but load does not change identity",
+          "body": "Lines 84-91: when source flips to null, useIssues increments requestIdRef.current and resets state to EMPTY (correct). The load callback is memoized on [githubSlug, source], so when source becomes null load gets a new identity, which triggers the effect. This is correct. However: if githubSlug changes while source is null, load's identity changes (githubSlug is in deps), triggering the effect again, which goes into the `if (source === null)` branch and unnecessarily increments requestIdRef and calls setState(EMPTY) again. This is harmless (setting EMPTY when already EMPTY) but wasteful and slightly misleading. Not a bug, but a note that a `if (source === null) { requestIdRef.current++; setState(EMPTY); return; }` guard that short-circuits on an already-null source would be cleaner.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/app-routes-issues.ts",
+          "line": 89,
+          "severity": "low",
+          "category": "correctness",
+          "title": "repoSlug cast via String() always produces a non-null string, masking absent param",
+          "body": "Line 89: `const repoSlug = String(req.query.repo ?? '')`. When `req.query.repo` is undefined, this produces the string `''`. parseSlug('') returns null (correct), so the behavior is fine. But `String(undefined)` would produce `'undefined'` without the `?? ''` guard, suggesting the author was aware of the risk. The pattern is slightly misleading because it implies repoSlug could be any string; callers in the `fromRepo` branch pass it straight to `safeList` which then passes it to `parseSlug`. The current code is safe, but a narrower type (e.g. returning early with a typed error when repo is missing and source=fromRepo) would make the intent clearer.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/hooks/useIssuesRepoSlug.ts",
+          "line": 9,
+          "severity": "info",
+          "category": "architecture",
+          "title": "Module-level mutable singletons (cached, inflight) are process-scoped, not React-scoped",
+          "body": "Lines 9-10: `let cached: State | null = null; let inflight: Promise<void> | null = null`. These are module-level variables. In production this is intentional (one slug per app lifetime). In tests, the `__resetForTests` export handles cleanup. The risk: any test file that imports useIssuesRepoSlug but forgets to call __resetForTests will see leaked state from a prior test. The test files for NewSessionWizard and TerminalPanel do call __resetForTests in beforeEach, so the current tests are correct. The hidden coupling is that the cleanup contract is not enforced \u2014 a future test author could easily miss it. A comment in the hook export directing future test authors to call __resetForTests would reduce this risk, but this is an info-level style note.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/NewSessionWizard.tsx",
+          "line": 68,
+          "severity": "info",
+          "category": "architecture",
+          "title": "renderStep is a plain function that calls hooks indirectly through props \u2014 not a component",
+          "body": "renderStep at line 68 is called as a function (`return renderStep({...})`) not as a JSX component (`<RenderStep .../>`). It receives hook results as props and returns JSX. This pattern is valid React but skirts the Rules of Hooks: calling it as a regular function means React sees the hooks (useIssueFilters, etc.) as called from NewSessionWizard's render context, not from a stable component identity. For now this works because renderStep itself does not call any hooks directly \u2014 it only renders sub-components that call hooks. If a hook call were added to renderStep in the future, it would create unstable hook order. A comment noting 'this is a function, not a component \u2014 do not call hooks inside it' would prevent future regressions.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-14655": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useIssuesRepoSlug.ts",
+          "line": 19,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No runtime validation that body.slug is string or null \u2014 non-string values accepted silently",
+          "body": "Line 19: `const body = await res.json() as { slug?: string | null }`. The TypeScript cast does not validate at runtime. If the server ever returns `{slug: 42}` or `{slug: {}}` the value propagates into state typed as `string | null` and downstream consumers calling `.split('/')` (e.g. parseSlug on the server side) would throw. Since the server is co-located this is low-probability but the cast provides false type safety. Fix: add `const slug = typeof body.slug === 'string' ? body.slug : null` before storing in cached.",
+          "confidence": "medium"
+        },
+        {
+          "file": "docs/test-plans/issue-168-make-github-issue-loading-a-manual-choice-ins-1604.md",
+          "line": 3,
+          "severity": "high",
+          "category": "lint",
+          "title": "Markdown gate failure: 22 violations (MD013 line length, MD034 bare URL)",
+          "body": "The markdown gate reports 22 new violations in this file: 1x MD034 (bare URL at line 3 \u2014 `https://github.com/arqu-co/c3/issues/168` should be `[#168](https://...)`) and 21x MD013 (lines exceeding the max line length). These are gate failures blocking the review phase. Fix: wrap the bare URL in a Markdown link, and break or reformat the long lines to stay within the configured limit.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 160,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Empty label string when issuesRepoSlug is null and source is fromIssuesRepo",
+          "body": "Line 160: `const label = issuesRepoSlug ?? ''`. When issuesRepoSlug is null, label is '' (empty string). This empty string is then used as sectionLabel, currentSourceLabel, and the section header in ListView. The user sees a blank section heading and 'Showing issues from ' (trailing space). computeInitialSource() at line 135 guards against mounting the list view with fromIssuesRepo when issuesRepoSlug is null on initial mount \u2014 but it only runs once at mount time (useState initializer). If issuesRepoSlug prop CHANGES from a valid slug to null after mount (server config changes mid-session and parent re-renders), the stored source is still 'fromIssuesRepo', the list view is shown, but the labels become empty strings. Fix: in deriveListViewBindings, replace `issuesRepoSlug ?? ''` with `issuesRepoSlug ?? 'issues repo'` as a fallback label, or alternatively mirror the computeInitialSource guard in the render path to force the chooser when source=fromIssuesRepo and issuesRepoSlug is null.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 71,
+          "severity": "low",
+          "category": "resource-leak",
+          "title": "fetch() not cancelled on unmount \u2014 in-flight network request continues after component unmounts",
+          "body": "useIssues uses requestIdRef to discard stale responses after unmount, but the underlying fetch() call is not aborted. The network request continues to completion even after the component is unmounted. This wastes bandwidth and can hold network connections. requestIdRef.current++ in the source=null useEffect path ensures the response is discarded, but does not cancel the TCP/HTTP request. Fix: pass an AbortSignal to fetch(). Create an AbortController at the start of load(), abort it in the useEffect cleanup (via the returned cleanup function from useEffect). This is a resource efficiency issue, not a correctness issue.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-1705": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 70,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "source in useEffect dep array is redundant",
+          "body": "load is memoized on [githubSlug, source], so load already changes identity whenever source changes. Adding source to the useEffect dep array ([load, source]) causes no double-fire, but the dep is logically redundant and misleading \u2014 it suggests the effect re-runs for reasons beyond load changing. Fix: change deps to [load] only.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 44,
+          "severity": "minor",
+          "category": "style",
+          "title": "Response body cast to Partial<State> instead of a wire-specific type",
+          "body": "The server response only carries {fromRepo, fromIssuesRepo, warnings}. Casting it to Partial<State> pulls in the loading and error fields from the internal State interface, which are internal UI state \u2014 not wire fields. This is harmless at runtime because loading and error are overwritten explicitly in the setState call, but it exposes internal state shape to the wire-parsing path and would silently accept a server sending loading:true without any compile-time complaint. Fix: define a narrow WireBody interface (or inline type) for the three array fields and cast to that.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.test.ts",
+          "line": 71,
+          "severity": "important",
+          "category": "test-quality",
+          "title": "No test for stale-response discard when source flips to null while a fetch is in-flight",
+          "body": "The requestIdRef guard covers two distinct races: (a) source switches between two non-null values (tested at line 90), and (b) source flips to null while a fetch is in-flight. Case (b) is equally important \u2014 the useEffect increments requestIdRef.current when source becomes null, which should cause the in-flight load() to discard its response and leave state as EMPTY. The existing 'returns to empty state when source flips back to null' test (line 71) does not exercise this race because it waits for the fetch to fully resolve before calling rerender({ s: null }). A deferred-resolution variant is needed: start a fetch, flip to null before it resolves, then resolve the fetch and assert state is still EMPTY (not loaded with stale data).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-45819": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-issues.test.ts",
+          "line": 43,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No error-path test for source=fromIssuesRepo dispatch branch",
+          "body": "The fromRepo branch has two error-path tests (line 75: fetchIssues throws Error; line 157: fetchIssues throws string). The fromIssuesRepo branch has only a happy-path test (line 43). There is no test proving that when fetchIssues throws under source=fromIssuesRepo, the slug appears in warnings and fromIssuesRepo is []. Since safeList is shared code the implementation risk is negligible, but the behavioral contract for the fromIssuesRepo failure path is unproven. Fix: add one test: app with issuesRepoSlug set, fetchIssues throws, GET /api/issues?source=fromIssuesRepo, assert res.body.warnings contains the issuesRepoSlug and res.body.fromIssuesRepo equals [].",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-t6": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 229,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "One-render flash of 'No issues found' before fetch begins",
+          "body": "When the component mounts with a stored source ('fromRepo' or 'fromIssuesRepo'), useIssues initialises with EMPTY state (loading:false, fromRepo:[]). The very first render hits the !loading && !error branch and renders 'No issues found'. The loading:true state only arrives after the first useEffect flush. In the browser this is sub-frame but semantically incorrect: the text 'No issues found' appears before any fetch has run. There is no test that asserts the empty text does NOT appear during the loading phase. Fix: add a 'hasFetched' boolean to useIssues state (set to true after the first resolved load) and gate the 'No issues found' message on hasFetched, or initialise state with loading:true when source is non-null. The smallest in-scope fix: replace the empty check with {!issues.loading && !issues.error && hasFetched && filtered.length === 0}.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 283,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Empty currentSourceLabel when stored source is fromIssuesRepo but issuesRepoSlug is null",
+          "body": "Line 283: currentSourceLabel = issuesRepoSlug ?? ''. If a user previously stored 'fromIssuesRepo' for a repo and the server config subsequently sets issuesRepoSlug to null, the list view renders with 'Showing issues from ' (empty string) in ChangeSourceLink and an empty section header. There is no test covering this edge case. Fix: fall back to a meaningful label such as 'issues repo' when issuesRepoSlug is null and source is fromIssuesRepo, or automatically transition back to the chooser when the stored source is fromIssuesRepo but issuesRepoSlug is null.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.test.tsx",
+          "line": 183,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No tests for error display path or loading state in ListView",
+          "body": "IssuePickerStep.tsx lines 227-228 render 'Loading issues...' and a red error message when issues.loading or issues.error are truthy. Neither path is exercised in IssuePickerStep.test.tsx. The 23 tests focus exclusively on happy-path list rendering, chooser interactions, and localStorage behaviour. A fetch-failure scenario (mock fetch rejecting or returning non-200) is absent, leaving the error branch at line 228 and the loading branch at line 227 uncovered. Fix: add at least one test that mocks fetch to reject or return status 500 and asserts the error text appears in the list view; add one test that asserts 'Loading issues...' appears while fetch is pending (use a never-resolving promise for fetch).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:47:23Z",
+      "duration_ms": 8000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:19Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:21:38Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:17Z",
+      "scanned_files": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:53:15Z",
+      "fingerprint": "6105cecd8fcb67384b519e98c6687374",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 18000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 12702.0
+}
