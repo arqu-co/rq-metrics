@@ -1,0 +1,136 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-122-fix-needs-input-stopped-working-2102",
+  "sha": "ec89b88672d62d588ad5bee478d23c3ee1f02626",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T19:53:48Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "rq.config.json",
+      "line": 88,
+      "rule": "MISSING_TEST",
+      "message": "The allow entry for server/managed-terminal.ts masks a stale coverage report, not a genuine untestability. The coverage-summary.json on disk was produced by a terminal-ws-scoped test run (only terminal-ws.ts shows non-zero coverage; managed-terminal.ts shows 0/82 lines covered), yet tests.json proves the gate selected managed-terminal-detector.test.ts and managed-terminal.test.ts \u2014 the report and the test selection contradict each other. The writer's justification ('import type pulls managed-terminal.ts into scope') is mechanically incorrect: TypeScript erases import type at compile time, so it cannot influence runtime coverage scope. The allow entry must be removed; the writer must re-run gate-tests.sh (which will select the correct managed-terminal*.test.ts files) and then gate-coverage.sh to produce a consistent report before committing rq.config.json."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:25Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:38:32Z",
+      "files_checked": 4,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:25Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:21:58Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:45Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:09Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:47Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:43:06Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:46Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:46Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:44Z",
+      "scanned_files": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:53:43Z",
+      "test_runner": "bin-test",
+      "fingerprint": "bb348d4ad1298834577e28e5c683910e",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3698.0
+}
