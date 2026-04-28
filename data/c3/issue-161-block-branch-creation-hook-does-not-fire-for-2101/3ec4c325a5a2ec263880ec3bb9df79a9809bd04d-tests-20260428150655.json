@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-161-block-branch-creation-hook-does-not-fire-for-2101",
+  "sha": "3ec4c325a5a2ec263880ec3bb9df79a9809bd04d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T19:06:55Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T19:06:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5b1f372d37925f14d87cfde2f28008d8",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "  ...enrichment.ts |     100 |    76.47 |     100 |     100 | 32,59-61          \n  ...etag-cache.ts |   95.83 |     90.9 |     100 |     100 | 52                \n  ...oll-events.ts |   98.21 |       75 |     100 |     100 | 69-112            \n  ...oll-runner.ts |     100 |    92.85 |     100 |     100 | 44                \n  ...ersistence.ts |     100 |    66.66 |     100 |     100 | 31,51             \n  ...oller-repo.ts |    97.5 |      100 |      90 |     100 |                   \n  github-poller.ts |   94.87 |    91.17 |      84 |   97.05 | 217-222           \n  ...b-pr-cache.ts |   98.03 |      100 |     100 |   97.56 | 39                \n  ...b-pr-fetch.ts |   96.55 |       92 |     100 |     100 | 119,151           \n  ...-transform.ts |   99.06 |    96.19 |     100 |    98.7 | 216               \n  ...te-limiter.ts |     100 |    89.79 |     100 |     100 | 80,172,174        \n  ...-allowlist.ts |     100 |    97.05 |     100 |     100 | 108               \n  ...-extractor.ts |   98.36 |    88.88 |     100 |     100 | 27,35,81-82,107   \n  ...ch-scanner.ts |   94.73 |    83.33 |     100 |   96.84 | 181-183           \n  ...d-terminal.ts |   94.18 |    86.11 |   85.71 |   94.87 | 76,83-87,131      \n  orphan-guard.ts  |   95.45 |      100 |   85.71 |   95.23 | 50                \n  plan-finder.ts   |   98.63 |    90.62 |     100 |   98.36 | 79                \n  pr-disk-cache.ts |   94.73 |    92.85 |     100 |     100 | 55                \n  preview-boot.ts  |   98.11 |       88 |   92.85 |   98.03 | 20                \n  ...ct-scanner.ts |   97.36 |    92.85 |   85.71 |   96.96 | 80                \n  ...-allocator.ts |     100 |     87.5 |     100 |     100 | 82-89             \n  ...ion-loader.ts |   96.58 |    88.57 |     100 |   98.01 | 45-46             \n  ...h-resolver.ts |   97.82 |      100 |     100 |    97.5 | 83                \n  ...e-detector.ts |   93.89 |    86.41 |     100 |     100 | ...30,140-186,201 \n  ...terminator.ts |   97.72 |    97.95 |     100 |   98.61 | 137               \n  ...on-watcher.ts |      92 |      100 |      80 |     100 |                   \n  shutdown.ts      |     100 |    85.71 |     100 |     100 | 29                \n  ...al-manager.ts |     100 |       90 |     100 |     100 | 115-138           \n  terminal-ws.ts   |   97.82 |    97.14 |   95.23 |     100 | 97                \n  ...lan-parser.ts |   98.14 |    95.83 |     100 |     100 | 32                \n  ...lan-writer.ts |     100 |      100 |      90 |     100 |                   \n  ...ot-manager.ts |   97.53 |    96.29 |   95.23 |     100 | 178               \n  wip-squash.ts    |     100 |    83.33 |     100 |     100 | 42,150            \n  ...ev-command.ts |   96.94 |    94.73 |   96.55 |   99.06 | 160               \n  worktree-log.ts  |   96.15 |      100 |     100 |     100 |                   \n  ...ee-manager.ts |   96.42 |      100 |     100 |   96.05 | 59,68,91          \n  ...e-pid-file.ts |    93.4 |    93.18 |   94.44 |   94.87 | 140-144,179,242   \n  ...tree-proxy.ts |   96.96 |     90.9 |     100 |     100 | 8,110-131,193     \n  ...eady-probe.ts |   95.55 |    94.73 |   91.66 |     100 | 30                \n  ...er-manager.ts |   94.33 |    87.71 |     100 |   94.62 | 169-173,236       \n  ...ver-routes.ts |    97.4 |    84.37 |     100 |   97.26 | 88-89             \n  ...rade-proxy.ts |   96.07 |    85.29 |     100 |   97.67 | 64                \n-------------------|---------|----------|---------|---------|-------------------\n\n=============================== Coverage summary ===============================\nStatements   : 96.98% ( 4307/4441 )\nBranches     : 90.65% ( 2182/2407 )\nFunctions    : 96.74% ( 921/952 )\nLines        : 98.43% ( 3717/3776 )\n================================================================================"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
