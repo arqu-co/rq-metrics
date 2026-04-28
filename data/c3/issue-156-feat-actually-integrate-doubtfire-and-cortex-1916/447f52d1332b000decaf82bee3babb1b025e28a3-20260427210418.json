@@ -1,0 +1,220 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "447f52d1332b000decaf82bee3babb1b025e28a3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T01:04:17Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:51:52Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:02:50Z",
+      "files_checked": 3,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 250000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:39:02Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:04:13Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:54:31Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:04:15Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:40Z",
+      "duration_ms": 249000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T00:54:31Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:04:14Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:04:16Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:04:14Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:04:12Z",
+      "scanned_files": 5,
+      "violations": 11,
+      "violations_details": [
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 102,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 139,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(new Error(\"ECONNREFUSED\"));"
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 150,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 167,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 183,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 196,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(new Error(\"ECONNREFUSED\"));"
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 210,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 222,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(new Error(\"timeout\"));"
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 236,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 248,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(new Error(\"timeout\"));"
+        },
+        {
+          "file": "server/__tests__/cortex-preview-routes.test.ts",
+          "line": 258,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:04:11Z",
+      "fingerprint": "0eecd041987fac8efd72166ab41119e2",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 81000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 4344.0
+}
