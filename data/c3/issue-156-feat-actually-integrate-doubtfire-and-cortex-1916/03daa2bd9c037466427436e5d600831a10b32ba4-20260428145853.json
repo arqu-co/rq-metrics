@@ -1,0 +1,279 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "03daa2bd9c037466427436e5d600831a10b32ba4",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T18:58:53Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-5727",
+    "review-wip-reviewer-71467",
+    "review-wip-reviewer-74266",
+    "review-wip-reviewer-82376",
+    "review-wip-reviewer-round2",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-27T23:51:52Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:43:59Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:58:52Z",
+      "coverage_tool": "js",
+      "files_checked": 10,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:00Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:43:57Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:07Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:06Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:09Z"
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:48:13Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T01:05:38Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:09Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-wip-reviewer-5727": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-71467": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "server/cortex-preview-routes.ts",
+          "line": 68,
+          "severity": "low",
+          "category": "naming",
+          "title": "branchParam helper named differently from its sibling branchParamOf",
+          "body": "cortex-preview-routes.ts defines 'branchParam(req)' at line 68. The sibling worktree-server-routes.ts defines the identical pattern as 'branchParamOf(req)' at line 66. Same logic, different names. A reader expecting naming parity with the sibling module will be surprised. Fix: rename to 'branchParamOf' to match the established pattern.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "line": 140,
+          "severity": "medium",
+          "category": "dry",
+          "title": "Duplicated repo === \"cortex\" dispatch logic in two components",
+          "body": "Both BranchOverview.tsx:140 and Sidebar.tsx:100 contain an identical inline expression `branch.repo === \"cortex\" ? cortexServers : worktreeServers`. The string \"cortex\" is a magic value tied to how the GitHub poller names this repo. If the repo slug ever changes (or a second Cortex-style repo is added), both sites must be updated in sync. Fix: extract a shared helper, e.g. `isExternalPreviewRepo(repo: string): boolean` in a shared utility, or at minimum a named constant `CORTEX_REPO_NAME = \"cortex\"` exported from a shared location.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCortexPreviewServers.ts",
+          "line": 29,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Cortex server entries stored as WorktreeServerEntry but lack the required worktreePath field",
+          "body": "useCortexPreviewServers casts the fetch response as WorktreeServersResponse, which types .servers as WorktreeServerEntry[]. WorktreeServerEntry declares worktreePath: string (non-optional). The Cortex wire format (MappedServerEntry in cortex-preview-routes.ts) omits worktreePath entirely. At runtime, all Cortex server entries will have worktreePath === undefined, violating the declared type contract. While no current UI code reads .worktreePath on Cortex entries, this is a silent trap for future code. Fix: either add worktreePath?: string (make it optional) to WorktreeServerEntry so both data sources satisfy the interface, or introduce a separate CortexServerEntry type for the Cortex hook state that does not include worktreePath.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 76,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "config env var tests re-implement the logic inline rather than testing config.ts",
+          "body": "The \"config env var parsing\" describe block (lines 76-102) does not import or exercise config.ts code paths at all. Lines 78-79 reproduce the parseInt logic inline: `const port = parseInt(process.env.PORT || \"3100\", 10)`. Lines 89-94 reproduce the GITHUB_REPOS split logic inline. These tests verify the test code itself, not config.ts. If config.ts changed its parsing logic, these tests would still pass. The litmus test: deleting config.ts would not cause these tests to fail. Fix: either remove these tests (the parsePositiveInt suite below already covers that helper) or restructure to call config.ts functions and observe the returned config object values.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-74266": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "server/cortex-preview-routes.ts",
+          "line": 68,
+          "severity": "medium",
+          "category": "dead-code",
+          "title": "branchParam Array.isArray branch is unreachable dead code",
+          "body": "Express req.params.branch is typed as string for a single :param segment; the Array.isArray(raw) branch can never be true in normal Express routing. The join('/') path would silently reconstruct a slash-separated string from whatever array arrived \u2014 a path that could contain '../' traversal segments if invoked through an unusual middleware. The dead branch adds maintenance confusion and a hypothetical injection surface. Fix: remove the Array.isArray check and use the direct String(raw) cast only: `return String(req.params.branch);`",
+          "confidence": "high"
+        },
+        {
+          "file": "server/cortex-preview-routes.ts",
+          "line": 85,
+          "severity": "medium",
+          "category": "security",
+          "title": "Generic catch arm leaks internal c3 error messages in 502 body",
+          "body": "handleError's catch-all at line 85 uses `err.message` verbatim for any non-CortexApiError throw. If mapList or mapEntry throws a JS TypeError (e.g. 'Cannot read properties of undefined (reading port)') due to an unexpected Cortex response shape, the raw TypeError message surfaces to the browser in the 502 body, revealing internal c3 state shape. Cortex-sourced messages are acceptable (internal service), but a c3-internal TypeError is not. Fix: map the generic arm to a fixed internal message: `res.status(502).json({ error: 'cortex_error', message: 'Cortex returned an unexpected response' })`, and log the actual err internally.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCortexPreviewServers.ts",
+          "line": 46,
+          "severity": "low",
+          "category": "race-condition",
+          "title": "In-flight fetch after unmount calls state setters on unmounted component",
+          "body": "The cleanup function in useEffect (line 63) clears the poll interval but does not cancel any in-flight fetch. If the component unmounts while fetchPreviewState() is awaiting a network response, the resolved/rejected promise will still call setServers, setWorktrees, setError, or setLoading on an unmounted component. React 18 silently ignores these updates, but in Strict Mode's double-invocation pattern this can cause spurious state updates on the second mount. The existing test only verifies no new intervals fire after unmount \u2014 it does not exercise the in-flight path. Fix: add an AbortController in the useEffect, pass its signal to fetchPreviewState, and set a mounted flag to guard the state-setter calls. Alternatively use a simple `let mounted = true; return () => { mounted = false; clearAndResetInterval(intervalRef); }` guard in refetch's finally block.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/cortex-preview-client.ts",
+          "line": 38,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Caller-supplied init.signal is silently discarded by the timeout spread",
+          "body": "In fetchOrThrow, `{ ...init, signal: AbortSignal.timeout(TIMEOUT_MS) }` overwrites any `signal` key that a caller might include in init. No current caller passes a signal, but the API of fetchOrThrow accepts RequestInit which includes signal, creating a silent footgun for future callers. Fix: use AbortSignal.any([AbortSignal.timeout(TIMEOUT_MS), ...(init?.signal ? [init.signal] : [])]) so both the timeout and any caller cancellation signal are honoured. AbortSignal.any is available in Node 20+.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/BranchOverview.test.tsx",
+          "line": 181,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Direct global.fetch assignment not cleaned up \u2014 vi.restoreAllMocks() does not restore it",
+          "body": "The test at line 177 assigns `global.fetch = vi.fn().mockImplementation(...)` directly (not via vi.stubGlobal or vi.spyOn), then does not restore it in an afterEach. vi.restoreAllMocks() in the beforeEach only restores spies created with vi.spyOn \u2014 it does NOT restore direct global property assignments. The contaminated global.fetch persists after this test. Since it is the last test in the file the contamination does not affect other tests in the same file today, but it will silently break a future test appended after it. Fix: either use vi.stubGlobal('fetch', vi.fn().mockImplementation(...)) which vi.unstubAllGlobals() or vi.restoreAllMocks() will clean up, or add an afterAll/afterEach that restores global.fetch.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-82376": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/components/BranchOverview.test.tsx",
+          "line": 202,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "vi.unstubAllGlobals() not reached on test failure \u2014 stale fetch stub contaminates subsequent tests",
+          "body": "Line 202 calls vi.unstubAllGlobals() after an await waitFor(...) assertion on line 195. If the assertion throws (test failure), execution jumps out of the test body and line 202 is never reached. The beforeEach on line 59 calls vi.restoreAllMocks(), which does NOT restore stubbed globals (vi.stubGlobal is a separate registry from vi.fn() mocks). Result: a failing test in this suite leaves global.fetch as the wrapping spy, which then intercepts fetch calls in all subsequent tests in the file, producing false positives or hard-to-diagnose test order dependencies. The comment on line 181-183 incorrectly claims vi.stubGlobal is 'restored automatically' \u2014 it is not. Fix: replace the ad-hoc vi.unstubAllGlobals() call with an afterEach(() => { vi.unstubAllGlobals(); }) at describe scope, or move the stub into a beforeEach and restore in afterEach.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchOverview.test.tsx",
+          "line": 181,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Misleading comment: vi.stubGlobal does not restore automatically via vi.restoreAllMocks",
+          "body": "Line 181-183 comments state: 'Use vi.stubGlobal so the override is restored automatically. Direct global.fetch = assignment is not undone by vi.restoreAllMocks()'. The first sentence is wrong: vi.stubGlobal is NOT automatically restored by vi.restoreAllMocks(). It requires vi.unstubAllGlobals(). The second sentence is correct. The comment needs to be corrected to reflect that vi.unstubAllGlobals() must be called explicitly (ideally in afterEach or a finally block).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-round2": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T18:58:52Z",
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:09Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:07Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T18:58:51Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c20d6fb558ae1f5fa5d1fe6194025304",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/lib/preview-adapter.ts"
+      ],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 68820.0
+}
