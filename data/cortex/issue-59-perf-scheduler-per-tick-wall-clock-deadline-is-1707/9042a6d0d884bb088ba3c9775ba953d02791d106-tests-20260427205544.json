@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-59-perf-scheduler-per-tick-wall-clock-deadline-is-1707",
+  "sha": "9042a6d0d884bb088ba3c9775ba953d02791d106",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-28T00:55:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:55:43Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8352414512e2323a9c36fa78eebf09ab",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
