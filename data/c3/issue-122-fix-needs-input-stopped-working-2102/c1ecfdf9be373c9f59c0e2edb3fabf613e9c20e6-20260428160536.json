@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-122-fix-needs-input-stopped-working-2102",
+  "sha": "c1ecfdf9be373c9f59c0e2edb3fabf613e9c20e6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T20:05:36Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "rq.config.json",
+      "line": 88,
+      "rule": "MISSING_TEST",
+      "message": "The allow entry for server/managed-terminal.ts masks a stale coverage report, not a genuine untestability. The coverage-summary.json on disk was produced by a terminal-ws-scoped test run (only terminal-ws.ts shows non-zero coverage; managed-terminal.ts shows 0/82 lines covered), yet tests.json proves the gate selected managed-terminal-detector.test.ts and managed-terminal.test.ts \u2014 the report and the test selection contradict each other. The writer's justification ('import type pulls managed-terminal.ts into scope') is mechanically incorrect: TypeScript erases import type at compile time, so it cannot influence runtime coverage scope. The allow entry must be removed; the writer must re-run gate-tests.sh (which will select the correct managed-terminal*.test.ts files) and then gate-coverage.sh to produce a consistent report before committing rq.config.json."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:08Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:38:32Z",
+      "files_checked": 4,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:09Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T20:05:06Z",
+      "files_checked": 29,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/index.ts",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 337000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:32Z",
+      "duration_ms": 17000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:15Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:35Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:54:22Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:34Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:34Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:59:29Z",
+      "scanned_files": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:32Z",
+      "fingerprint": "ebe539bfc7dad4ae04a0e1a025b7abc7",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1623.0
+}
