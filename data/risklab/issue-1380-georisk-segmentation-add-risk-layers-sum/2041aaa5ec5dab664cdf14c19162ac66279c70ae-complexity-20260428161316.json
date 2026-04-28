@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "2041aaa5ec5dab664cdf14c19162ac66279c70ae",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-28T23:13:16Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T23:13:16Z",
+      "files_checked": 72,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "function": "LiveSegmentationMap",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPane.tsx",
+          "function": "RiskLayersPane",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "function": "RiskLayersPaneBody",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useOverflowFade.ts",
+          "function": "useOverflowFade",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "function": "MapDataLayers",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "function": "FitBoundsControl",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.ts",
+          "function": "useAutoFitOnOverlayChange",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
