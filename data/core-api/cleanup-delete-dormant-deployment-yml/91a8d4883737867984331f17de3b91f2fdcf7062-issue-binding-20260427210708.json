@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "cleanup-delete-dormant-deployment-yml",
+  "sha": "91a8d4883737867984331f17de3b91f2fdcf7062",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T01:07:07Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T01:07:06Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
