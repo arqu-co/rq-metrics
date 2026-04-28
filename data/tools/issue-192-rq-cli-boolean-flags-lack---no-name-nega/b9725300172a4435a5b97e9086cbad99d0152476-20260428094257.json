@@ -1,0 +1,426 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-192-rq-cli-boolean-flags-lack---no-name-nega",
+  "sha": "b9725300172a4435a5b97e9086cbad99d0152476",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T16:42:57Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "filesize",
+    "review",
+    "test-quality"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-13734",
+    "review-wip-reviewer-78693",
+    "review-wip-reviewer-init",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:03:34Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:43Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T16:30:53Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:43Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T16:42:42Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "lines": 323,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:54Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:52Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:56Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:21:30Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T21:04:31Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-13734": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-78693": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "gates",
+          "title": "dead-code gate fails: inline type modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the literal token 'type ShareableAsset' in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements so the checker handles each correctly: 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"'.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 52,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsUploadHandler is 67 lines (max 50)",
+          "body": "The gate reports shareableAssetsUploadHandler at 67 lines against a 50-line max. The function body contains three distinct phases: (1) decode + size validation (lines 58-72), (2) form construction (lines 74-85), (3) network + response parsing (lines 87-116). Extracting a 'buildUploadForm(params, bytes)' helper (mirroring 'buildUpstreamBody' in shareable_assets_update.ts) reduces the handler body to ~30 lines and passes the gate. The form-building block (12 lines of conditional appends) is the natural extraction target.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsGetUploadInstructionsHandler is 129 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds a large static instruction payload inline \u2014 the example strings, form_fields array, and effect/on_error prose should be extracted as named constants or a builder function. This is a complexity gate violation that blocks the gate from passing.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsReplaceFileHandler is 77 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds example_python, example_curl_fallback, required fields array, effect and on_error strings inline. These should be extracted to named constants or a builder, reducing the handler under 50 lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-init": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 42,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsGetUploadInstructionsHandler exceeds 50-line function limit (129 lines)",
+          "body": "Complexity gate fails: the function body is 129 lines against a 50-line max. The function is in a changed file. The bulk of the length is the inline string-array literals for examplePython, exampleCurlFallback, required, optional, beforeUploadChecklist, afterUploadOptions, and onError \u2014 these are all data blobs, not logic. Extract each blob as a module-level const (or a small factory function) to bring the handler body under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 36,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsReplaceFileHandler exceeds 50-line function limit (77 lines)",
+          "body": "Complexity gate fails: the function body is 77 lines against a 50-line max. The function is in a changed file. The inline blobs for examplePython, exampleCurlFallback, required, effect, and onError can each be extracted to module-level consts (parameterized where they embed endpoint/project_id). That alone would bring the handler under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/test/tools/risklab/shareable_assets_shared.test.ts",
+          "line": 25,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "renameUpstreamShareableAsset is only tested for existence, not behavior",
+          "body": "The third test case 'still exports renameUpstreamShareableAsset' only checks typeof === 'function'. The test was added as a refactor-safety sentinel, but it gives false confidence: a rename of a property in the return shape, a missing delete of share_token, or a logic error in the field mapping would all pass. Since this helper is the central output formatter used by shareable_assets_list, _update, and the forthcoming shareable_assets_upload handler, one behavioral test should be added: pass a record with {id, share_url, is_password_protected, share_token, ...extras} and assert {asset_id, url, has_password, ...extras} with share_token absent.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "correctness",
+          "title": "dead-code gate fails: inline 'type' modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the token 'type ShareableAsset' (with the prefix) as a bare identifier in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements \u2014 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"' \u2014 which the checker handles correctly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace.ts",
+          "line": 19,
+          "severity": "critical",
+          "category": "dead-code",
+          "title": "Unused import: type ShareableAsset causes dead-code gate failure",
+          "body": "The import 'type ShareableAsset' at line 19 is never referenced in the file. The dead-code gate fails with this violation. Fix: remove the unused import.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T16:30:57Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:42:56Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:42:20Z"
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T16:42:53Z",
+      "scanned_files": 3,
+      "violations": 25,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 129,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 130,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 162,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 192,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 235,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 236,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 237,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 272,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 273,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 274,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 123,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 124,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 158,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 203,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 204,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 205,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 238,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 239,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 240,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 272,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 273,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 274,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 306,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 307,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 308,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:30:52Z",
+      "test_runner": "npm-test",
+      "fingerprint": "a428f168dbe112a8c8a5c6381bebb3d5",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 514836.0
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-192-rq-cli-boolean-flags-lack---no-name-nega",
+  "sha": "b9725300172a4435a5b97e9086cbad99d0152476",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T16:42:53Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T16:42:53Z",
+      "scanned_files": 3,
+      "violations": 25,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 129,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 130,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 162,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 192,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 235,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 236,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 237,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 272,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 273,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 274,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 123,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 124,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 158,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 203,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 204,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 205,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 238,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 239,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 240,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 272,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 273,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 274,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 306,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 307,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 308,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
