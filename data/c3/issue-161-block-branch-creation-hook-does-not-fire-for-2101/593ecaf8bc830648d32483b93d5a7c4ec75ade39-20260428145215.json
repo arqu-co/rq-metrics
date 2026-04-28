@@ -1,0 +1,191 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-161-block-branch-creation-hook-does-not-fire-for-2101",
+  "sha": "593ecaf8bc830648d32483b93d5a7c4ec75ade39",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T18:52:15Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "review-wip-reviewer-18754",
+    "review-wip-reviewer-71934",
+    "review-wip-reviewer-86496",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:05Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:06Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 428000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:13Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:12Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:15Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:56Z",
+      "duration_ms": 0
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:14Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-18754": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-71934": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 24,
+          "severity": "high",
+          "category": "correctness",
+          "title": "afterEach cleanup removes worktreeDir before mainCheckout, but iteration order is coincidental",
+          "body": "The afterEach iterates [worktreeDir, mainCheckout, nonGitDir] (line 24). By accident this is correct \u2014 worktreeDir must be removed before mainCheckout because git tracks it as a registered worktree, and removing mainCheckout first will leave the worktree entry dangling in tmp storage. However, the order is not documented, and a future reordering (e.g. alphabetical sort) would silently produce lingering temp dirs or, on some systems, an error from rmSync. The correctness depends on a coincidence of iteration order with no comment explaining why the order matters. Fix: add a comment explaining the mandatory order, or restructure to explicitly call 'git worktree remove' on worktreeDir before rmSync, which makes the cleanup intent explicit and robust.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 43,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "denyReason() throws JSON.parse error with no diagnostic on allow-path failure",
+          "body": "denyReason() (line 43-46) calls JSON.parse(result.stdout) unconditionally. If an allow-path test incorrectly returns non-empty stdout (e.g., the hook writes a deny envelope when it should allow), the test will throw 'Unexpected token' with no reference to what result.stdout actually contained. This makes failures harder to diagnose. The reference file (throttle-test-commands-hook.test.ts) does not have this issue because it checks code/stderr directly. Fix: wrap with a try/catch that throws a richer error: throw new Error('denyReason: stdout was not valid JSON. Actual stdout: ' + JSON.stringify(result.stdout)), or alternatively assert result.stdout is non-empty before parsing as part of the deny test body.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 52,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Deny tests verify reason text but never assert permissionDecision: 'deny'",
+          "body": "The three deny tests (lines 49-65) each call denyReason() which extracts permissionDecisionReason from hookSpecificOutput. However, none of the tests assert that hookSpecificOutput.permissionDecision === 'deny'. If the hook were accidentally changed to set permissionDecision: 'allow' while still emitting a reason string (a malformed deny envelope), these tests would pass. The Claude hook system treats the permissionDecision field as the action-decision bit \u2014 a missing or wrong value would mean the hook does not actually block. Fix: add expect(JSON.parse(r.stdout).hookSpecificOutput.permissionDecision).toBe('deny') to each deny test, or extend denyReason() to assert the field and return the reason.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 17,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Worktree path created via mkdtempSync then immediately deleted \u2014 TOCTOU window",
+          "body": "Lines 17-19: mkdtempSync creates the worktree directory, then rmSync immediately deletes it so git worktree add can create it. Between rmSync and the git worktree add call there is a brief TOCTOU window where another process could recreate the path. On a heavily loaded CI machine with parallel test runs, this could cause git worktree add to fail ('already exists') or race with another test's temp dir. The mkdtempSync call is used purely to generate a unique name, not to actually create an owned temp dir \u2014 that intent should be made explicit. Fix: derive the path from a mkdtempSync of the parent dir, strip the created dir, and document the pattern. Alternatively, use a fixed suffix under the beforeEach's mainCheckout dir (e.g., join(mainCheckout, 'linked-wt')) to avoid the tmp namespace entirely.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 48,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "git switch --create is listed in hook comment but has no characterization test",
+          "body": "The hook's comment (block-branch-creation.sh line 3) lists four variants it blocks: 'git checkout -b', 'git switch -c', 'git switch --create', and 'git checkout --orphan'. The plan spec (Task 1 acceptance criteria, item b) says 'git switch -c' but is silent on 'git switch --create'. The test suite has tests for 'git checkout -b' (line 49), 'git switch -c' (line 55), and 'git checkout --orphan' (line 61). 'git switch --create' is a full-word alias and is covered by the same regex token, but it has no dedicated test. As a characterization harness, every documented behavior should have a test \u2014 especially since these tests exist to catch regressions if the regex is changed in Task 3. Fix: add a test 'denies git switch --create from main checkout'.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 9,
+          "severity": "low",
+          "category": "style",
+          "title": "Module-level mutable let variables for test state \u2014 prefer local declaration in beforeEach",
+          "body": "Lines 9-11 declare mainCheckout, worktreeDir, nonGitDir as module-level let variables. This is idiomatic vitest but leaks state across the describe block boundary in principle. The reference file (throttle-test-commands-hook.test.ts lines 11-14) uses the same pattern, so this is consistent with the codebase convention. However, the plan spec says to mirror the throttle harness, which it does. This is a minor style note \u2014 not a correctness issue. The pattern is consistent with the canonical reference file. No change required unless the project adopts a stricter convention.",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review-wip-reviewer-86496": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:14Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:52:12Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:36:34Z",
+      "fingerprint": "0c29fc131d9c0410a6e2ea735ea86343",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 941.0
+}
