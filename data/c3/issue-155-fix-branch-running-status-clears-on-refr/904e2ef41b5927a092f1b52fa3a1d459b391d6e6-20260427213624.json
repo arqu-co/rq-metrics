@@ -1,0 +1,264 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-155-fix-branch-running-status-clears-on-refr",
+  "sha": "904e2ef41b5927a092f1b52fa3a1d459b391d6e6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T01:36:24Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/hooks/useTerminalSessions.test.ts",
+      "line": 167,
+      "rule": "NAMING",
+      "message": "fetch stub casts non-string url to `URL` but `fetch` also accepts `Request`; casting a Request to URL silently returns '[object Request]'. Low-severity since fetchJSON always passes a string today, but the cast is unsound."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-architect",
+    "review-correctness",
+    "review-coverage",
+    "review-security",
+    "review-style",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:01:27Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:02:17Z",
+      "coverage_tool": "js",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:01:28Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:01:26Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:21Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:01:33Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:23Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:52:28Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T00:57:03Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:23Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-architect": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T01:28:40Z",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "line": 54,
+          "severity": "high",
+          "category": "architecture",
+          "title": "stop() leaves isRunning true via knownTerminals until next focus refresh",
+          "body": "stop() removes the key from sessionsRef but does not clear known.knownTerminals (React state). The OR fallback then returns true via the knownTerminals branch until visibilitychange/focus/pageshow triggers useKnownTerminals.refresh(). Pre-fix this was instant; this is a regression in user-stop UX.",
+          "fix": "Either call known.refresh() after stopSession resolves, or expose an imperative key-removal callback from useKnownTerminals and invoke it from stop()."
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "line": 58,
+          "severity": "low",
+          "category": "architecture",
+          "title": "Override spread position is fragile under future refactors",
+          "body": "isRunning override depends on sitting after ...actions in the return object. A future spread or reorder silently breaks the fix with no TypeScript error.",
+          "fix": "Add a one-line comment marking the line as an intentional override (e.g. // Override: falls back to knownTerminals when no local instance \u2014 issue #155)."
+        },
+        {
+          "file": ".markdownlint-cli2.jsonc",
+          "line": 5,
+          "severity": "info",
+          "category": "architecture",
+          "title": "MD013 disabled globally rather than scoped to prose directories",
+          "body": "Global suppression broader than needed. Stated motivation is docs/test-plans and CLAUDE.md.",
+          "fix": "Optional \u2014 scope with overrides[].globs targeting docs/**/*.md, README.md, CLAUDE.md."
+        }
+      ],
+      "duration_ms": 35000
+    },
+    "review-correctness": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T01:28:40Z",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useKnownTerminals.ts",
+          "line": 91,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Fetch failure -> localStorage fallback now causes false-positive running badges",
+          "body": "Pre-fix, isRunning only checked sessionsRef so a 5xx during page load = clean empty badges. Post-fix, isRunning ORs in known.knownTerminals which on fetch failure is populated from knownMapFromStorage(). Every previously-known terminal now appears running on a 5xx blip until a successful fetch.",
+          "fix": "Track has-ever-succeeded since mount. On the FIRST fetch failure, leave knownTerminals empty (correct unknown state). Only fall back to localStorage on subsequent failures."
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.test.ts",
+          "line": 188,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Second test's waitFor(size === 0) is vacuously satisfied at mount",
+          "body": "useState(new Map()) initial value satisfies size === 0 immediately, before useEffect fires the fetch. The empty-fallback test could pass even if the fetch was broken.",
+          "fix": "Wait for the fetch mock to be called before asserting: await waitFor(() => expect(vi.mocked(fetch)).toHaveBeenCalledWith(expect.stringContaining('/api/terminals'), expect.anything()))."
+        },
+        {
+          "file": "client/src/hooks/useKnownTerminals.ts",
+          "line": 83,
+          "severity": "info",
+          "category": "correctness",
+          "title": "Pre-existing: refreshInFlight guard drops concurrent refresh callers",
+          "body": "Pre-existing \u2014 not introduced by this PR. Flagging because the new override makes knownTerminals more user-visible.",
+          "fix": "Out of scope for this PR; track in a follow-up if observed during QA."
+        }
+      ],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T01:28:05Z",
+      "duration_ms": 0
+    },
+    "review-security": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T01:28:40Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    },
+    "review-style": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T01:28:40Z",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalSessions.ts",
+          "line": 51,
+          "severity": "low",
+          "category": "style",
+          "title": "Hard-coded line-number reference in comment will rot",
+          "body": "Comment cites useKnownTerminals.ts:93-95. Line numbers shift, leading future readers to wrong code.",
+          "fix": "Replace with prose/symbol-name description."
+        },
+        {
+          "file": "client/src/hooks/useTerminalSessions.test.ts",
+          "line": 164,
+          "severity": "low",
+          "category": "style",
+          "title": "Missing vi.unstubAllGlobals() teardown in the new describe block",
+          "body": "vi.stubGlobal persists for the rest of the test file unless restored. Future tests added below this describe block would inherit a route-aware fetch stub.",
+          "fix": "Add afterEach(() => vi.unstubAllGlobals()) inside the new describe block."
+        }
+      ],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:28:50Z",
+      "duration_ms": 10000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:22Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:21Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:36:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "04c514038389866c058f280d4d9b23b8",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 450000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2635.0
+}
