@@ -1,0 +1,290 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3526-productize-core-api-as-a-first-class-oau",
+  "sha": "5da9a94898188c39f624e0a706fdfa1d5a1d4db2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T13:33:03Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "review-wip-reviewer-65218",
+    "review-wip-reviewer-67879",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T13:32:36Z",
+      "files_checked": 24,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:43Z",
+      "files_checked": 24,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:35Z",
+      "files_checked": 24,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 495000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:55Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:33:01Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T11:16:57Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T12:38:47Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:59Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-65218": {
+      "status": "complete",
+      "findings": 10,
+      "findings_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2ClientInitializerTest.kt",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "File exceeds 300-line gate (475 lines)",
+          "body": "OAuth2ClientInitializerTest.kt is 475 lines, 58% over the 300-line limit. The gate reports this as a FAIL. The file has 13 tests all exercising initializeDefaultClients() \u2014 many are factored from the same scaffold but never share setup. The test for the four-client seed (lines 58-69) calls saveIfNotExists 4 times; the subsequent per-client assertion tests repeat the same 4-call capture setup 10 more times. Extract a shared helper buildSavedClients(): Map<String,OAuth2Client> that wires the capture once, then reuse across the per-client assertion methods. Also consider consolidating the 5 arqu-cli migration scenarios (lines 284-474) into a @ParameterizedTest with a source of legacy shapes, cutting ~100 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/user/oauth/OAuth2ClientServiceTest.kt",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "File exceeds 300-line gate (436 lines)",
+          "body": "OAuth2ClientServiceTest.kt is 436 lines, 45% over the 300-line limit. The gate reports this as a FAIL. Each of the 20+ test methods re-declares whenever(oAuth2ClientRepository...).thenReturn(existingClient) individually. Extract this shared setup into a @BeforeEach fixture that stubs the happy-path returns once, then individual tests only configure deviations. This alone removes roughly 80 lines of duplication. If that is not enough, split the file into OAuth2ClientServiceCreateTest.kt and OAuth2ClientServiceMutationTest.kt.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/BCryptStrengthIntegrationTest.kt",
+          "line": 46,
+          "severity": "medium",
+          "category": "style",
+          "title": "@Suppress(\"UNCHECKED_CAST\") triggers lint-suppressions gate failure",
+          "body": "The lint gate fails with check 'lint-suppressions' pointing at the @Suppress(\"UNCHECKED_CAST\") on line 46. The suppression is used to cast the result of mapField.get(encoder) \u2014 a reflection-based extraction of idToPasswordEncoder. The cast is genuinely unchecked at the JVM level, so the lint gate is flagging the suppression annotation itself as a policy violation. Fix: replace the reflective cast with a type-safe approach. Instead of pulling the raw map, iterate encoder.javaClass.declaredFields to find a field typed as Map<*, *> and use filterIsInstance<BCryptPasswordEncoder>() on its values directly, eliminating the explicit cast and the suppression.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/JwkConfig.kt",
+          "line": 113,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "jwtEncoder casts jwkSource to ImmutableJWKSet \u2014 brittle coupling to implementation type",
+          "body": "Line 114: `val keys = (jwkSource as ImmutableJWKSet<SecurityContext>).jwkSet.keys` hard-codes a cast to ImmutableJWKSet, the only concrete type jwkSource() returns today. If a test or future configuration wraps the source in a different JWKSource implementation (e.g. JWKSetBasedJWKSource, a lazy-loading source, or a test double), this cast throws a ClassCastException at startup. The comment at line 99 explains why narrowing is needed, but the implementation should not be tied to the concrete class. Fix: store the current RSAKey at construction time in a field (e.g. private val currentKey: RSAKey = buildOrGenerateCurrent()), then use it directly in jwtEncoder() without the cast. jwkSource() can still build from that field.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/JwkConfig.kt",
+          "line": 153,
+          "severity": "low",
+          "category": "correctness",
+          "title": "loadPreviousIfConfigured passes currentKid from currentKey.keyID but plan sketched a different comparison",
+          "body": "loadPreviousIfConfigured(currentKid: String) compares previousKeyId != currentKid (line 158). currentKid is supplied by the caller (jwkSource()) as current.keyID. This is correct for the generated-key path where keyID is a UUID. However, for the configured-key path when configuredKeyId is blank, loadOrGenerateCurrent() falls back to the hardcoded string \"oauth2-signing-key\" (line 146). The plan's loadPreviousIfConfigured() used a different comparison: `previousKeyId != configuredKeyId.ifBlank { \"oauth2-signing-key\" }` \u2014 which matches the same logic. The implementation is functionally equivalent in both paths, but the intent is clearer if the comparison uses the resolved current kid via the parameter rather than re-deriving it. This is minor and the logic is correct; document the current-key fallback in a comment so a future reader does not have to reconstruct the reasoning.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2TokenTtlBoundsTest.kt",
+          "line": 10,
+          "severity": "medium",
+          "category": "plan-compliance",
+          "title": "TTL bounds constant diverges from plan spec: 2592000s (30d) implemented vs 1209600s (14d) specified",
+          "body": "The plan at Task 6 specifies refreshTokenTtlSeconds <= 1209600 (14 days) consistently in two places: the acceptance criteria and the test stub code. The implementation uses REFRESH_TTL_MAX_SECONDS = 2592000L (30 days) in both the test and OAuth2ClientInitializer.kt. OAuth2ClientFactories.createDoubtfireClient defaults to refreshTokenTtlDays = 30 (2592000s) and createMcpClient defaults to refreshTokenTtlMinutes = 43_200 (2592000s). The plan says 14 days; the code enforces 30 days. One of these is wrong. If the team intentionally changed from 14d to 30d during implementation, the plan must be updated and the discrepancy documented. If the plan is authoritative, the constants and defaults must be reduced. Walk the user through this decision before closing the review.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2ClientRotateSecretSecrecyTest.kt",
+          "line": 55,
+          "severity": "low",
+          "category": "plan-compliance",
+          "title": "rotate-secret response field name diverges from plan spec: $.clientSecret vs $.rawClientSecret",
+          "body": "The plan's Task 3 acceptance criteria says the test asserts a 'rawClientSecret' field. The plan's test stub at line 328 checks jsonPath('$.rawClientSecret').exists(). The implemented test at line 55 checks jsonPath('$.clientSecret').exists() and then reads the field via get('clientSecret'). This means the rotate-secret endpoint returns clientSecret, not rawClientSecret. If the controller returns the full OAuth2ClientWithSecret wrapper, it would serialize both client and rawClientSecret, not a top-level clientSecret. Verify what the rotate-secret endpoint actually returns and whether the field name is intentional.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuthAuditLogRepository.kt",
+          "line": 10,
+          "severity": "low",
+          "category": "plan-compliance",
+          "title": "Repository is missing @EnableScan that the plan prescribes",
+          "body": "The plan's Task 4 Step 2 specifies @EnableScan and @Repository on OAuthAuditLogRepository. The implementation omits both. @Repository is a Spring stereotype annotation \u2014 its absence means Spring Data DynamoDB may not auto-register this interface as a bean unless another mechanism covers it. Verify that the integration test OAuthAuditLogIntegrationTest passes without @Repository; if bean injection works through the DynamoDB mapper scan path alone, document why so it is not added back accidentally. @EnableScan is trickier: the repository comment says 'do not add methods that would require table scans' and cites a coding guideline. But findAllByClientId() is a GSI query (not a scan), and the plan's stub included @EnableScan. Clarify whether @EnableScan is needed for GSI queries in this Spring Data DynamoDB version, or whether the annotation would erroneously allow full-table scans that the comment prohibits.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientInitializer.kt",
+          "line": 64,
+          "severity": "low",
+          "category": "style",
+          "title": "validateSecrets() duplicates DEPLOYED_PROFILE_BASES logic instead of calling AuthServerConfig.isDeployedProfile()",
+          "body": "AuthServerConfig.validateAuthServerIssuer() delegates to the companion-object helpers isDeployedProfile() and isLocalhostIssuer(). OAuth2ClientInitializer.validateSecrets() on line 64 declares its own local set: val deployedProfiles = setOf(\"prod\", \"staging\", \"development\") and checks environment.activeProfiles.none { it in deployedProfiles }. This misses the composite-profile guard in AuthServerConfig.isDeployedProfile() \u2014 profiles like 'prod-eu' or 'staging-canary' would not trigger secret validation. DRY fix: call AuthServerConfig.isDeployedProfile(environment.activeProfiles) in validateSecrets().",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientInitializer.kt",
+          "line": 163,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "migrateIfTtlOutOfBounds does not record an audit log entry for the migration overwrite",
+          "body": "oAuth2ClientRepository.save(target) on line 180 overwrites an existing Dynamo row without calling oauthAuditService.record(). The audit requirement (Task 4) is that every client mutation is recorded. A TTL migration is functionally an UPDATE. Any operator auditing why a client changed TTLs will find no trace in oauth_audit_log. Fix: after oAuth2ClientRepository.save(target) in migrateIfTtlOutOfBounds, call oauthAuditService.record(clientId, OAuthAuditAction.UPDATE, before = existing, after = target). OAuth2ClientInitializer would need to receive OAuthAuditService (or the repository could record it, but the service is the correct owner). Note: the same gap exists for the lucidrisq-web and arqu-cli migration paths (lines 120 and 234).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-67879": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "src/main/resources/application.yml",
+          "line": 54,
+          "severity": "critical",
+          "category": "security",
+          "title": "Neo4j production password hardcoded in application.yml",
+          "body": "Line 54: `password: hgyYCLbBF5cythu11xng-1ML115JJAYKGk9GqJHQ_RU` is a real credential for a live Neo4j Aura instance committed in plaintext. This file is checked into the repo \u2014 this is a leaked secret. Evidence: the URI on line 51 points to databases.neo4j.io which is a cloud-hosted production database. Fix: rotate this credential immediately, remove the hardcoded value, and replace with `${NEO4J_PASSWORD:}` env var injection (same pattern used for JWT keys at lines 260-262).",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/resources/application.yml",
+          "line": 79,
+          "severity": "critical",
+          "category": "security",
+          "title": "Multiple real API keys/tokens hardcoded in application.yml",
+          "body": "Lines 79 (SendGrid API key), 583-589 (OpenAI keys), 595-596 (Gemini key), 598-599 (Pinecone key), 604 (SerpAPI), 608-609 (Intuit client_id + client_secret), 516 (Copper API key), 568 (Mailgun webhook secret), 460-465 (multiple Slack OAuth bot tokens), 643 (Outlook OAuth refresh token) \u2014 all real keys committed in plaintext. These are either development-environment keys or production keys depending on the deployment context, but committed secrets are compromised secrets regardless. Fix: each should follow the pattern already in place for JWT keys: `${ENV_VAR_NAME:}` with a blank default for local dev and real values injected at runtime.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/resources/application.yml",
+          "line": 240,
+          "severity": "medium",
+          "category": "security",
+          "title": "OAUTH2_WEB_CLIENT_SECRET binding in application.yml is dead code that can cause startup failure",
+          "body": "Line 240: `secret: ${OAUTH2_WEB_CLIENT_SECRET}` (no default). The comment at line 83-86 of OAuth2ClientInitializer.kt says `lucidrisq-web is now a public client (authMethod = NONE) \u2014 no clientSecret, nothing to validate`. But if OAUTH2_WEB_CLIENT_SECRET is not set in a deployment that uses the Spring config for this property, Spring will fail to start. This property is not consumed by OAuth2ClientInitializer.kt (the web client factory no longer takes a secret). Fix: remove the dead `web.secret` binding from application.yml, or add an empty default `${OAUTH2_WEB_CLIENT_SECRET:}` to prevent startup failures in environments that haven't cleaned the var.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientService.kt",
+          "line": 171,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "disableClient and enableClient: audit written with potentially stale savedClient but correct clientId",
+          "body": "Lines 171-172: `oAuth2ClientRepository.save(disabledClient)` returns void-via-Unit (the save return value is discarded), and then `oauthAuditService.record(clientId, OAuthAuditAction.DISABLE, before=existingClient, after=disabledClient)` records `disabledClient` (the in-memory copy) not the persisted copy. For DynamoDB this is fine because Dynamo doesn't modify fields on save, but it's inconsistent with `updateClient`, `rotateClientSecret`, `updateTokenSettings`, `updateClientSettings` which all capture the return of `save()` into `savedClient` first. If the repository ever adds timestamp auto-update or optimistic-locking version fields on write, `disableClient`/`enableClient` will silently log stale data. Fix: capture the return of `oAuth2ClientRepository.save(disabledClient)` as `val savedClient = ...` and pass `savedClient` to the audit call, mirroring the pattern in the other mutation methods.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuthAuditService.kt",
+          "line": 41,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "catch(Exception) swallows OutOfMemoryError and StackOverflowError, but more critically swallows serialization bugs silently",
+          "body": "Line 41: `catch (e: Exception)` \u2014 in Kotlin/JVM, `Exception` does not catch `Error` subclasses (OOME, SOE) so the Error case is fine. The real concern is that this catch also absorbs `JsonMappingException` from `objectMapper.writeValueAsString()` when a field in `OAuth2Client` fails serialization (e.g. a non-serializable custom type added later). That failure would be silently swallowed and logged, leaving the audit log permanently incomplete for that mutation path with no developer feedback during testing. The current intent (best-effort) is documented and intentional. This is low-risk if serialization is tested. The `OAuthAuditLogIntegrationTest` tests the happy path but does not test what happens when serialization fails \u2014 there is no test verifying that a serialization failure triggers the logger.error path. This is acceptable but worth noting as a coverage gap.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/JwkConfig.kt",
+          "line": 114,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "jwtEncoder() casts JWKSource to ImmutableJWKSet without type-safety \u2014 throws ClassCastException if source is swapped",
+          "body": "Line 114: `val keys = (jwkSource as ImmutableJWKSet<SecurityContext>).jwkSet.keys` \u2014 this unchecked cast will throw ClassCastException at startup if the injected JWKSource is not an ImmutableJWKSet (e.g. if a future JwkConfig subclass or a test overrides jwkSource() with a different implementation like RemoteJWKSet or a mock). The require() on line 115 guards against empty keys but not against a wrong type. The only current wiring keeps jwkSource() producing an ImmutableJWKSet, so this is low probability today. Fix: add an `is ImmutableJWKSet<*>` check before the cast with a meaningful require() message, or restructure the bean to take the RSAKey directly instead of re-extracting it from the source.",
+          "confidence": "medium"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientInitializer.kt",
+          "line": 90,
+          "severity": "low",
+          "category": "correctness",
+          "title": "lucidrisq-web skips TTL migration \u2014 accessTokenTtlMinutes=547500 from shared config could persist in old rows",
+          "body": "Lines 90-131: initializeWebClient() handles only the confidential-to-public migration. It does NOT call migrateIfTtlOutOfBounds('lucidrisq-web', webClient). The shared arqu.security.accessTokenTtlMinutes and arqu.security.refreshTokenTtlMinutes are 547500 in all deployed profiles per application.yml line 235-236. If a lucidrisq-web row was originally seeded with those enormous TTLs (pre-Phase-1 factory), the TTL migration never fires for it, leaving the row with accessTokenTtlSeconds = 547500 * 60 = 32,850,000s (~380 days). The OAuth2TokenTtlBoundsTest would catch this at integration-test time against the freshly-seeded row, but a pre-existing DynamoDB row keeps its old TTLs. Fix: add `migrateIfTtlOutOfBounds('lucidrisq-web', webClient)` before `seed(webClient)` in initializeWebClient(), or document explicitly why lucidrisq-web is exempted.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:58Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:32:54Z",
+      "scanned_files": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:24:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "93bd2629c12b116b02824d75192adf83",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": 8164.0
+}
