@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-168-make-github-issue-loading-a-manual-choice-ins-1604",
+  "sha": "9aae67a4ed841bd59f94e38b4ed754433ee732b5",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T22:14:43Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T22:14:43Z",
+      "files_checked": 18,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/IssuePickerStep.test.tsx",
+          "lines": 303,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "lines": 327,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
