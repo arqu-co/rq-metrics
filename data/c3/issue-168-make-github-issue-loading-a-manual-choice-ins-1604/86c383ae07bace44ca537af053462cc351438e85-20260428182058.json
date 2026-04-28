@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-168-make-github-issue-loading-a-manual-choice-ins-1604",
+  "sha": "86c383ae07bace44ca537af053462cc351438e85",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T22:20:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-1705",
+    "review-wip-reviewer-45819",
+    "review-wip-reviewer-t6",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:31Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:54Z",
+      "files_checked": 11,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:32Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:29Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:55Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:38Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:57Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:06:24Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T21:13:11Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-1705": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 70,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "source in useEffect dep array is redundant",
+          "body": "load is memoized on [githubSlug, source], so load already changes identity whenever source changes. Adding source to the useEffect dep array ([load, source]) causes no double-fire, but the dep is logically redundant and misleading \u2014 it suggests the effect re-runs for reasons beyond load changing. Fix: change deps to [load] only.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.ts",
+          "line": 44,
+          "severity": "minor",
+          "category": "style",
+          "title": "Response body cast to Partial<State> instead of a wire-specific type",
+          "body": "The server response only carries {fromRepo, fromIssuesRepo, warnings}. Casting it to Partial<State> pulls in the loading and error fields from the internal State interface, which are internal UI state \u2014 not wire fields. This is harmless at runtime because loading and error are overwritten explicitly in the setState call, but it exposes internal state shape to the wire-parsing path and would silently accept a server sending loading:true without any compile-time complaint. Fix: define a narrow WireBody interface (or inline type) for the three array fields and cast to that.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useIssues.test.ts",
+          "line": 71,
+          "severity": "important",
+          "category": "test-quality",
+          "title": "No test for stale-response discard when source flips to null while a fetch is in-flight",
+          "body": "The requestIdRef guard covers two distinct races: (a) source switches between two non-null values (tested at line 90), and (b) source flips to null while a fetch is in-flight. Case (b) is equally important \u2014 the useEffect increments requestIdRef.current when source becomes null, which should cause the in-flight load() to discard its response and leave state as EMPTY. The existing 'returns to empty state when source flips back to null' test (line 71) does not exercise this race because it waits for the fetch to fully resolve before calling rerender({ s: null }). A deferred-resolution variant is needed: start a fetch, flip to null before it resolves, then resolve the fetch and assert state is still EMPTY (not loaded with stale data).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-45819": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-issues.test.ts",
+          "line": 43,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No error-path test for source=fromIssuesRepo dispatch branch",
+          "body": "The fromRepo branch has two error-path tests (line 75: fetchIssues throws Error; line 157: fetchIssues throws string). The fromIssuesRepo branch has only a happy-path test (line 43). There is no test proving that when fetchIssues throws under source=fromIssuesRepo, the slug appears in warnings and fromIssuesRepo is []. Since safeList is shared code the implementation risk is negligible, but the behavioral contract for the fromIssuesRepo failure path is unproven. Fix: add one test: app with issuesRepoSlug set, fetchIssues throws, GET /api/issues?source=fromIssuesRepo, assert res.body.warnings contains the issuesRepoSlug and res.body.fromIssuesRepo equals [].",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-t6": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 229,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "One-render flash of 'No issues found' before fetch begins",
+          "body": "When the component mounts with a stored source ('fromRepo' or 'fromIssuesRepo'), useIssues initialises with EMPTY state (loading:false, fromRepo:[]). The very first render hits the !loading && !error branch and renders 'No issues found'. The loading:true state only arrives after the first useEffect flush. In the browser this is sub-frame but semantically incorrect: the text 'No issues found' appears before any fetch has run. There is no test that asserts the empty text does NOT appear during the loading phase. Fix: add a 'hasFetched' boolean to useIssues state (set to true after the first resolved load) and gate the 'No issues found' message on hasFetched, or initialise state with loading:true when source is non-null. The smallest in-scope fix: replace the empty check with {!issues.loading && !issues.error && hasFetched && filtered.length === 0}.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.tsx",
+          "line": 283,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Empty currentSourceLabel when stored source is fromIssuesRepo but issuesRepoSlug is null",
+          "body": "Line 283: currentSourceLabel = issuesRepoSlug ?? ''. If a user previously stored 'fromIssuesRepo' for a repo and the server config subsequently sets issuesRepoSlug to null, the list view renders with 'Showing issues from ' (empty string) in ChangeSourceLink and an empty section header. There is no test covering this edge case. Fix: fall back to a meaningful label such as 'issues repo' when issuesRepoSlug is null and source is fromIssuesRepo, or automatically transition back to the chooser when the stored source is fromIssuesRepo but issuesRepoSlug is null.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/IssuePickerStep.test.tsx",
+          "line": 183,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No tests for error display path or loading state in ListView",
+          "body": "IssuePickerStep.tsx lines 227-228 render 'Loading issues...' and a red error message when issues.loading or issues.error are truthy. Neither path is exercised in IssuePickerStep.test.tsx. The 23 tests focus exclusively on happy-path list rendering, chooser interactions, and localStorage behaviour. A fetch-failure scenario (mock fetch rejecting or returning non-200) is absent, leaving the error branch at line 228 and the loading branch at line 227 uncovered. Fix: add at least one test that mocks fetch to reject or return status 500 and asserts the error text appears in the list view; add one test that asserts 'Loading issues...' appears while fetch is pending (use a never-resolving promise for fetch).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T22:20:57Z",
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:56Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:21:38Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:54Z",
+      "scanned_files": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:20:53Z",
+      "fingerprint": "b37e0cc2550985a481c75d54273bbc83",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 15000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 7159.0
+}
