@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-542-add-chapters-plugin-pr-chapter-book-view",
+  "sha": "783a7283e92d242737fea827d40a3e1b3730edb1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T21:54:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:54:45Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "(none matched in coverage data)",
+          "coverage": 0,
+          "min": 95,
+          "vacuous": true
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
