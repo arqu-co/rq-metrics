@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "624668ed3ac0ebee0c5eaf4e3e3b4c07a490964d",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-28T07:53:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T07:53:38Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend formatting with ruff format --check...\n1766 files already formatted\n\ud83d\udd0d Checking backend with ruff...\nAll checks passed!\n\ud83d\udd0d Checking frontend with oxlint...\n\n  x eslint(no-unused-vars): Identifier 'Button' is imported but never used.\n    ,-[src/components/dealDashboard/SegmentationMapHelpers.tsx:12:10]\n 11 | import { Crosshair } from \"lucide-react\";\n 12 | import { Button } from \"@/components/ui/button\";\n    :          ^^^|^^\n    :             `-- 'Button' is imported here\n 13 | import { Spinner } from \"@/components/ui/spinner\";\n    `----\n  help: Consider removing this import.\n\nFound 0 warnings and 1 error.\nFinished in 329ms on 1734 files with 86 rules using 12 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 925 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\u001b[1;33m\ud83d\udce6 Checking dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running ruff format check...\u001b[0m\n1766 files already formatted\n\u001b[0;32m\u2705 Formatting check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running ruff linting check...\u001b[0m\nAll checks passed!\n\u001b[0;32m\u2705 Linting check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running mypy type check...\u001b[0m\nSuccess: no issues found in 925 source files\n\u001b[0;32m\u2705 Type checking passed\u001b[0m\n\n\u001b[0;32m\u2705 Backend code formatting, linting, and type checks passed!\u001b[0m\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 154ms on 1732 files using 12 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\n\n  x eslint(no-unused-vars): Identifier 'Button' is imported but never used.\n    ,-[src/components/dealDashboard/SegmentationMapHelpers.tsx:12:10]\n 11 | import { Crosshair } from \"lucide-react\";\n 12 | import { Button } from \"@/components/ui/button\";\n    :          ^^^|^^\n    :             `-- 'Button' is imported here\n 13 | import { Spinner } from \"@/components/ui/spinner\";\n    `----\n  help: Consider removing this import.\n\nFound 0 warnings and 1 error.\nFinished in 316ms on 1734 files with 86 rules using 12 threads.\n\u001b[0;31m\u274c oxlint check failed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\n\u001b[0;32m\u2705 TypeScript type checking passed\u001b[0m\n\n\u001b[0;31m\u274c Frontend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-frontend' to fix formatting/lint issues\u001b[0m\n\u274c Frontend formatting failed\n\n\u26a0\ufe0f  Partial formatting success\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

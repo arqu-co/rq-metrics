@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "624668ed3ac0ebee0c5eaf4e3e3b4c07a490964d",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-28T07:53:24Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T07:53:24Z",
+      "files_checked": 59,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "name": "Button",
+          "line": 12
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
