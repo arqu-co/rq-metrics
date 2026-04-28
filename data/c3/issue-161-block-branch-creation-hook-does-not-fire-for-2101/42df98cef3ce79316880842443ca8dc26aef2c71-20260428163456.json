@@ -1,0 +1,530 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-161-block-branch-creation-hook-does-not-fire-for-2101",
+  "sha": "42df98cef3ce79316880842443ca8dc26aef2c71",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T20:34:55Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-18754",
+    "review-wip-reviewer-33906",
+    "review-wip-reviewer-35809",
+    "review-wip-reviewer-4047",
+    "review-wip-reviewer-50509",
+    "review-wip-reviewer-62192",
+    "review-wip-reviewer-62475",
+    "review-wip-reviewer-6322",
+    "review-wip-reviewer-68111",
+    "review-wip-reviewer-71934",
+    "review-wip-reviewer-78095",
+    "review-wip-reviewer-86496",
+    "review-wip-reviewer-86745",
+    "review-wip-reviewer-98095",
+    "review-wip-reviewer-r4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:45Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T19:06:56Z",
+      "files_checked": 0,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:46Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:44Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:52Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:54Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T18:44:56Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T19:06:41Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:54Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T19:45:24Z"
+    },
+    "review-wip-reviewer-18754": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-33906": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 49,
+          "severity": "low",
+          "category": "style",
+          "title": "assertDenyEnvelope crashes with TypeError instead of assertion failure when hookSpecificOutput is absent",
+          "body": "Line 49: parsed = JSON.parse(result.stdout). Line 55: expect(parsed.hookSpecificOutput.permissionDecision).toBe('deny'). If the hook emits valid JSON that lacks hookSpecificOutput (e.g. {}), JavaScript throws TypeError: Cannot read properties of undefined (reading 'permissionDecision') rather than a vitest assertion failure. The test then surfaces a confusing native JS error with no stdout/stderr context instead of a clean assertion message. Fix: use parsed?.hookSpecificOutput?.permissionDecision and add an explicit assertion before accessing the field, e.g. expect(parsed.hookSpecificOutput, 'hookSpecificOutput missing in output').toBeDefined(); expect(parsed.hookSpecificOutput.permissionDecision).toBe('deny');",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-35809": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 31,
+          "severity": "low",
+          "category": "correctness",
+          "title": "runHookRaw has no error handler \u2014 unhandled EventEmitter error if bash not on PATH",
+          "body": "runHookRaw spawns bash via child_process.spawn but attaches no 'error' event listener on the child process. In Node.js, an unhandled 'error' event on an EventEmitter throws synchronously and crashes the process. If bash is absent from PATH, the spawn emits ENOENT as an 'error' event, the test process crashes, and the Promise never resolves \u2014 tests hang or the process exits with an uncaught exception rather than a test failure. In this environment bash is always present, so this never fires in practice, but the pattern is fragile. Fix: add child.on('error', (err) => resolve({ code: -1, stdout: '', stderr: err.message })); after the existing listeners.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-4047": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 18,
+          "severity": "medium",
+          "category": "error-handling",
+          "title": "Malformed JSON on stdin causes non-zero exit (fail-closed), contradicting 'fail open' comment",
+          "body": "Line 18: input=\"$(cat)\". Line 19: command=$(printf '%s' \"$input\" | jq -r '.tool_input.command // \"\"'). With set -euo pipefail active (line 9), if jq receives malformed JSON it exits with code 5. A command-substitution assignment inherits the exit code under set -e in bash, so the script aborts with exit 5 before reaching exit 0. Claude Code PreToolUse hooks that exit non-zero have the tool use blocked (not allowed through). The comment above the jq-missing guard says 'fail open rather than turning the hook into an outage' \u2014 but malformed JSON input produces an outage anyway. Observed: echo 'not json' | bash hook.sh exits 5 with no stdout. Fix: wrap the stdin extraction and both jq command/cwd extractions in a subshell or add '|| true' to the assignment, then validate that command and cwd are non-empty strings before proceeding. If extraction fails, exit 0 explicitly.",
+          "confidence": "high"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 32,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "rq_start regex misses single-quoted invocation: bash 'rq-start.sh'",
+          "body": "Line 32 regex: (^|/|[[:space:]]|\")rq-start\\.sh([[:space:]]|\"|$). The allowed prefix characters are: start-of-string, slash, whitespace, or double-quote. Single-quote is NOT in this set. A command of 'bash '\\''rq-start.sh'\\'' 161' passes through the hook unblocked. Confirmed: printf \"bash 'rq-start.sh' 161\" | grep -qE '(^|/|[[:space:]]|\")rq-start\\.sh([[:space:]]|\"|$)' exits 1 (no match). The review spec flags this as a false negative that must be reported. Fix: add single-quote to the prefix and suffix character classes: (^|/|[[:space:]]|\"|')rq-start\\.sh([[:space:]]|\"|'|$). This mirrors the same class in both prefix and suffix.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 28,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No test for malformed JSON input \u2014 silent exit-5 behavior is unspecified and untested",
+          "body": "The test suite covers 13 scenarios but none supply malformed JSON to the hook. When malformed JSON is given, the hook exits 5 (not 0) with no stdout and jq's parse error on stderr. This behavior is both unspecified (the comment says 'fail open' but it doesn't) and untested. If Claude Code's hook runtime treats non-zero exit as 'block all tool use', operators could be locked out of any Bash tool call if Claude Code ever sends a malformed envelope. A test should document the actual behavior: expect(r.code).toBe(0) (if fixed to fail open) or explicitly assert exit 5 with a comment explaining why it is acceptable. Add to the direct-commands describe block: it('fails open on malformed JSON stdin', async () => { const r = await runHookRaw('not json', mainCheckout); expect(r.code).toBe(0); expect(r.stdout).toBe(''); });",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 111,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No test documents the single-quoted false negative for rq-start.sh",
+          "body": "bash 'rq-start.sh' 161 slips through the hook unblocked (confirmed by grep returning 1). The test suite has no test that pins this behavior \u2014 neither as a known miss nor as a blocked case. If the regex is later widened to cover single quotes (fixing Finding 2), there will be no regression test. Add a test: it(\"allows bash 'rq-start.sh' (single-quoted \u2014 known regex gap)\", async () => { const r = await runHook(\"bash 'rq-start.sh' 161\", mainCheckout); expect(r.code).toBe(0); expect(r.stdout).toBe(''); }); This documents intent. When Finding 2 is fixed, update the test to assert deny.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-50509": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-62192": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 48,
+          "severity": "low",
+          "category": "correctness",
+          "title": "assertDenyEnvelope does not guard against non-object JSON.parse result",
+          "body": "The variable `parsed` is typed as an object literal but JSON.parse() can return null, a number, a string, or an array. If result.stdout is the string 'null', JSON.parse succeeds, the try-block does not throw, but the subsequent property access `parsed.hookSpecificOutput` throws a TypeError that escapes the catch block and surfaces as a raw process error rather than the descriptive assertDenyEnvelope message. The hook never actually emits 'null' so practical risk is zero, but the type declaration (line 48) should be widened to `unknown` with a runtime object-guard so the defensive catch actually catches all failure modes. Fix: change `let parsed: { hookSpecificOutput?: ... }` to `let parsed: unknown`, then add `if (typeof parsed !== 'object' || parsed === null) throw new Error('assertDenyEnvelope: stdout was not a JSON object. stdout: ...')` before the toBeDefined check.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-62475": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git switch --orphan not blocked by current regex",
+          "body": "The regex on line 31 matches switch[[:space:]]+(-c|-C|--create|--force-create) but NOT --orphan. Running 'git switch --orphan foo' from the main checkout creates an orphan branch and switches HEAD to it \u2014 the same footgun as -c. Empirically verified: HEAD changes from 'main' to 'HEAD' (unborn orphan branch). The = form 'git switch --orphan=foo' is also unblocked. Fix: add --orphan to the switch arm of the regex: switch[[:space:]]+(-c|-C|--create|--force-create|--orphan). Test cases needed: 'git switch --orphan foo' (deny from main), 'git switch --orphan=foo' (deny from main), both allow from worktree.",
+          "confidence": "confirmed-empirically"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git stash branch not blocked by current regex",
+          "body": "The regex has no arm for 'stash branch'. Running 'git stash branch <name>' from the main checkout creates a new branch from the stash and switches HEAD to it \u2014 empirically confirmed: HEAD changed from 'main' to 'stashbranch'. The variant 'git stash branch <name> stash@{N}' has the same behavior. Fix: add a stash arm to the regex: stash[[:space:]]+branch. The full updated regex arm would be (checkout[[:space:]]+(-b|-B|--orphan)|switch[[:space:]]+(-c|-C|--create|--force-create|--orphan)|stash[[:space:]]+branch). Test cases needed: 'git stash branch newbranch' (deny from main), 'git stash branch newbranch stash@{0}' (deny from main), both allow from worktree.",
+          "confidence": "confirmed-empirically"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git checkout --track / -t not blocked \u2014 creates new local branch and switches HEAD",
+          "body": "Running 'git checkout --track origin/foo' or 'git checkout -t origin/foo' from the main checkout creates a new local tracking branch named 'foo' and switches HEAD to it. Empirically confirmed: 'git checkout --track origin/feature/remote' changed HEAD from 'main' to 'feature/remote'. The current regex only catches checkout followed by -b, -B, or --orphan \u2014 not --track or -t. The -t short flag is unambiguous: it always creates a new branch (it errors if the local branch already exists unless combined with -B). Fix: add (--track|-t) to the checkout arm: checkout[[:space:]]+(-b|-B|--orphan|--track|-t). Note: 'git checkout -t origin/foo -b localname' is also a new-branch creation and would be caught once --track|-t are included. Test cases needed: 'git checkout --track origin/foo' (deny from main), 'git checkout -t origin/foo' (deny from main), both allow from worktree.",
+          "confidence": "confirmed-empirically"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git switch --track / -t not blocked \u2014 creates new local branch and switches HEAD",
+          "body": "Running 'git switch --track origin/foo' or 'git switch -t origin/foo' from the main checkout creates a new local tracking branch named 'foo' and switches HEAD to it. Empirically confirmed: 'git switch --track origin/feature/remote2' changed HEAD from 'main' to 'feature/remote2'. The current regex switch arm only covers -c, -C, --create, --force-create. Fix: add (--track|-t) to the switch arm: switch[[:space:]]+(-c|-C|--create|--force-create|--orphan|--track|-t). Test cases needed: 'git switch --track origin/foo' (deny from main), 'git switch -t origin/foo' (deny from main), both allow from worktree.",
+          "confidence": "confirmed-empirically"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "medium",
+          "category": "security",
+          "title": "git switch/checkout DWIM can create a new local branch from remote-tracking ref \u2014 not blocked",
+          "body": "When a repo has remote-tracking refs (origin/feature/foo) but no matching local branch, 'git switch feature/foo' and 'git checkout feature/foo' (with no flags) silently create a new local tracking branch named 'feature/foo' and switch HEAD to it. Empirically confirmed: HEAD changed from 'main' to 'remote-only-branch' via bare 'git switch remote-only-branch'. The regex has no arm for this case. Severity is medium (not high) because: (a) it requires a remote-tracking ref to already exist \u2014 a bare main checkout without a configured remote is safe; (b) intercepting bare 'git switch <name>' without flags would also block legitimate switches to existing local branches, causing false positives. Recommendation: document this as a known limitation rather than trying to block it via regex, OR add a shell-level check in the hook that calls 'git rev-parse --verify <branch>' to distinguish switch-existing vs create-new. The hook already has access to cwd and can run git commands.",
+          "confidence": "confirmed-empirically"
+        }
+      ]
+    },
+    "review-wip-reviewer-6322": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git checkout -B (force-create) evades the hook regex",
+          "body": "The git_direct regex on line 31 only matches `-b` (lowercase) but git also accepts `-B` (uppercase) which force-creates or resets a branch to the start-point. Both `git checkout -B foo` and the glued form `git checkout -Bfoo` pass through the hook without triggering a deny. On the main checkout this leaves the operator on the feature branch after the session ends \u2014 exactly the footgun the hook exists to prevent. Fix: extend the alternation to `(-b|-B|--orphan)` in the checkout arm, and add tests for `git checkout -B foo` and `git checkout -Bfoo`.",
+          "confidence": "high"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git switch -C / --force-create evades the hook regex",
+          "body": "The git_direct regex on line 31 only matches `-c` and `--create` in the switch arm but git switch also accepts `-C` (uppercase, equivalent to --force-create) and `--force-create` as branch-creation flags. All of `git switch -C foo`, `git switch -Cfoo`, and `git switch --force-create foo` pass through the hook without triggering a deny. Fix: extend the switch arm alternation to `(-c|-C|--create|--force-create)` and add tests for each new form.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 68,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "No tests for git checkout -B or git switch -C / --force-create",
+          "body": "The test suite covers `-b`, `-B` (glued), `-c`, `-C` (glued), `--create`, and `--orphan` but has zero coverage for the force-create variants: `git checkout -B foo`, `git checkout -Bfoo`, `git switch -C foo`, `git switch -Cfoo`, and `git switch --force-create foo`. Once the hook regex is fixed (finding on line 31) these tests are needed to prevent regressions. Add deny tests for all five forms in the 'direct git commands' describe block.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-68111": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Regex matches `git switch -create` as a false positive via `-c` prefix",
+          "body": "The round-5 fix dropped the trailing `([[:space:]]|$)` group to allow glued flags like `-bfoo` and `-cfoo`. The unintended consequence is that the alternation `(-c|--create)` now matches `-c` as a prefix inside any longer flag string. Concretely, `git switch -create foo` (one dash, full word 'create') is now denied by the hook, because the regex finds `switch ` followed by `-c` (a prefix of `-create`) with no terminator requirement. Evidence: running the hook with cwd=main-checkout and command `git switch -create foo` returns a deny envelope. Under the old regex this would have been allowed (old had `([[:space:]]|$)` after the flag). Practical impact is low because `git switch -create` is not a real git invocation and no legitimate workflow would produce it, but the regex is structurally imprecise: `-c` is being matched when the user typed `-create`. Fix: change the alternation to `(-c[^-]|-c$|--create)` to ensure `-c` only matches when followed by a non-hyphen character (a glued branch name) or end-of-string, not when followed by more flag letters. Same fix for `-b`: change to `(-b[^-]|-b$|--orphan)`. Alternatively, use a word-boundary anchor: `(-b(?![a-zA-Z-])|--orphan|switch[[:space:]]+(-c(?![a-zA-Z-])|--create))`.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 93,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No worktree-allow test for glued flag forms",
+          "body": "The round-5 changes added deny tests for glued flags (`-bfoo` at line 93, `-cfoo` at line 99). The spaced-flag suite has a corresponding 'allows from linked worktree' test (line 105: `git checkout -b foo` from worktreeDir). No equivalent allow-from-worktree test exists for glued forms. The hook's worktree-allow logic is the same regardless of flag form (it exits 0 before the deny path), so this is a test-coverage gap rather than a latent bug, but the deny tests and allow tests should be symmetric. Fix: add two tests \u2014 `git checkout -bfoo` from worktreeDir (expect stdout='') and `git switch -cfoo` from worktreeDir (expect stdout='').",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-71934": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 24,
+          "severity": "high",
+          "category": "correctness",
+          "title": "afterEach cleanup removes worktreeDir before mainCheckout, but iteration order is coincidental",
+          "body": "The afterEach iterates [worktreeDir, mainCheckout, nonGitDir] (line 24). By accident this is correct \u2014 worktreeDir must be removed before mainCheckout because git tracks it as a registered worktree, and removing mainCheckout first will leave the worktree entry dangling in tmp storage. However, the order is not documented, and a future reordering (e.g. alphabetical sort) would silently produce lingering temp dirs or, on some systems, an error from rmSync. The correctness depends on a coincidence of iteration order with no comment explaining why the order matters. Fix: add a comment explaining the mandatory order, or restructure to explicitly call 'git worktree remove' on worktreeDir before rmSync, which makes the cleanup intent explicit and robust.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 43,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "denyReason() throws JSON.parse error with no diagnostic on allow-path failure",
+          "body": "denyReason() (line 43-46) calls JSON.parse(result.stdout) unconditionally. If an allow-path test incorrectly returns non-empty stdout (e.g., the hook writes a deny envelope when it should allow), the test will throw 'Unexpected token' with no reference to what result.stdout actually contained. This makes failures harder to diagnose. The reference file (throttle-test-commands-hook.test.ts) does not have this issue because it checks code/stderr directly. Fix: wrap with a try/catch that throws a richer error: throw new Error('denyReason: stdout was not valid JSON. Actual stdout: ' + JSON.stringify(result.stdout)), or alternatively assert result.stdout is non-empty before parsing as part of the deny test body.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 52,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Deny tests verify reason text but never assert permissionDecision: 'deny'",
+          "body": "The three deny tests (lines 49-65) each call denyReason() which extracts permissionDecisionReason from hookSpecificOutput. However, none of the tests assert that hookSpecificOutput.permissionDecision === 'deny'. If the hook were accidentally changed to set permissionDecision: 'allow' while still emitting a reason string (a malformed deny envelope), these tests would pass. The Claude hook system treats the permissionDecision field as the action-decision bit \u2014 a missing or wrong value would mean the hook does not actually block. Fix: add expect(JSON.parse(r.stdout).hookSpecificOutput.permissionDecision).toBe('deny') to each deny test, or extend denyReason() to assert the field and return the reason.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 17,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Worktree path created via mkdtempSync then immediately deleted \u2014 TOCTOU window",
+          "body": "Lines 17-19: mkdtempSync creates the worktree directory, then rmSync immediately deletes it so git worktree add can create it. Between rmSync and the git worktree add call there is a brief TOCTOU window where another process could recreate the path. On a heavily loaded CI machine with parallel test runs, this could cause git worktree add to fail ('already exists') or race with another test's temp dir. The mkdtempSync call is used purely to generate a unique name, not to actually create an owned temp dir \u2014 that intent should be made explicit. Fix: derive the path from a mkdtempSync of the parent dir, strip the created dir, and document the pattern. Alternatively, use a fixed suffix under the beforeEach's mainCheckout dir (e.g., join(mainCheckout, 'linked-wt')) to avoid the tmp namespace entirely.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 48,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "git switch --create is listed in hook comment but has no characterization test",
+          "body": "The hook's comment (block-branch-creation.sh line 3) lists four variants it blocks: 'git checkout -b', 'git switch -c', 'git switch --create', and 'git checkout --orphan'. The plan spec (Task 1 acceptance criteria, item b) says 'git switch -c' but is silent on 'git switch --create'. The test suite has tests for 'git checkout -b' (line 49), 'git switch -c' (line 55), and 'git checkout --orphan' (line 61). 'git switch --create' is a full-word alias and is covered by the same regex token, but it has no dedicated test. As a characterization harness, every documented behavior should have a test \u2014 especially since these tests exist to catch regressions if the regex is changed in Task 3. Fix: add a test 'denies git switch --create from main checkout'.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 9,
+          "severity": "low",
+          "category": "style",
+          "title": "Module-level mutable let variables for test state \u2014 prefer local declaration in beforeEach",
+          "body": "Lines 9-11 declare mainCheckout, worktreeDir, nonGitDir as module-level let variables. This is idiomatic vitest but leaks state across the describe block boundary in principle. The reference file (throttle-test-commands-hook.test.ts lines 11-14) uses the same pattern, so this is consistent with the codebase convention. However, the plan spec says to mirror the throttle harness, which it does. This is a minor style note \u2014 not a correctness issue. The pattern is consistent with the canonical reference file. No change required unless the project adopts a stricter convention.",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review-wip-reviewer-78095": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 28,
+          "severity": "low",
+          "category": "style",
+          "title": "HookResult interface field order differs from reference test",
+          "body": "The HookResult interface at line 28 declares fields as { code; stdout; stderr } but the reference test throttle-test-commands-hook.test.ts (line 29) declares them as { code; stderr; stdout }. Both files define HookResult independently rather than sharing a type, and the field ordering differs. While TypeScript does not care about interface field order, the inconsistency with the only analogous hook test in the codebase makes the interface harder to read at a glance and signals a copy-paste that wasn't normalized. Fix: reorder the fields in block-branch-creation-hook.test.ts to match the reference: { code: number; stderr: string; stdout: string }.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-86496": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 48,
+          "severity": "important",
+          "category": "security",
+          "title": "reason string assembled via bash interpolation of $command, not via jq --arg",
+          "body": "Lines 48 and 50 build the deny reason with bash double-quote interpolation: reason=\"...Command was: ${command}...\". The command value comes from untrusted jq input (the hook's stdin). While jq --arg on line 53 safely delivers the final string to JSON, the intermediate bash string interpolation is a downgrade from the original approach. The prior code (pre-Task-2) kept both $cmd and $tl as separate jq --arg values and assembled the message entirely inside jq, which meant user-controlled data never touched bash string expansion at all. The current approach is safe in practice (backtick/dollar-paren in $command cannot execute because they are already stored in a variable before expansion), but it introduces a conceptually weaker boundary. A reviewer unfamiliar with bash expansion rules might not realise this is safe. Fix: restore the original pattern -- use --arg cmd \"$command\" --arg tl \"$toplevel\" --arg trigger \"$trigger\" and assemble both reason variants inside the jq expression, keeping user data out of bash string expansion entirely.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 116,
+          "severity": "important",
+          "category": "test-quality",
+          "title": "rq_start deny tests do not assert the trigger-specific reason text, so the wrong deny branch could fire undetected",
+          "body": "Tests at lines 113-138 check that denyReason(r) matches /rq-start\\.sh/ and /bin\\/claude-task/. Both the rq_start and the git_direct deny branches include 'bin/claude-task' in their reason text (lines 48 and 50 of the hook). If the if/elif order were accidentally swapped, or if the rq_start branch fell through to the git_direct branch, the test would still pass because the git_direct reason also contains 'bin/claude-task'. The rq_start branch emits a reason containing 'child shell' and '/rq:start' -- text that is unique to the rq_start path. Fix: add expect(reason).toMatch(/child shell/) (or /rq:start/) to the deny tests in the rq-start.sh describe block, ensuring the rq_start-specific reason text is asserted and the two deny paths are distinguishable.",
+          "confidence": "high"
+        },
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 30,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "Hook comment omits the left-boundary anchoring rule, making the regex harder to reason about",
+          "body": "Line 26 says the hook intercepts 'bash <path>/rq-start.sh <N>'. The regex at line 30 is (^|/|[[:space:]]|\")rq-start\\.sh([[:space:]]|\"|$). The left boundary (^|/|[[:space:]]|\") means the match requires start-of-string, a slash, whitespace, or a double-quote immediately before 'rq-start.sh'. This correctly rejects 'cat fake-rq-start.sh' (hyphen before 'rq' is not in the boundary set) and 'echo my-rq-start.sh.bak' (both prefix and suffix are wrong). The comment describes only the intended positive case and does not document the boundary semantics. A future maintainer editing the regex or adding an allow-list exception could inadvertently widen or narrow the boundary without realising it. Fix: extend the comment on line 26 to note the boundary: 'matched only when rq-start.sh is preceded by start-of-string, slash, whitespace, or double-quote -- rejects foo-rq-start.sh'.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-86745": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".claude/hooks/block-branch-creation.sh",
+          "line": 31,
+          "severity": "high",
+          "category": "security",
+          "title": "git checkout -b<branch> (glued, no space) evades the git_direct regex",
+          "body": "The git_direct regex requires a space after -b: (checkout[[:space:]]+(-b|--orphan)|switch[[:space:]]+(-c|--create))([[:space:]]|$). But git accepts -b<branch> with no space (e.g. 'git checkout -bfoo' or 'git switch -cnewbranch'). Verified empirically: git checkout -btest-glued exits 0 and creates the branch. A model could evade the hook by omitting the space. Fix: change the alternation from '(-b|--orphan)' to '(-b\\S*|--orphan)' \u2014 or more precisely, require the regex to match on -b with any following non-whitespace or end, i.e. replace the trailing ([[:space:]]|$) guard so it fires on -b alone regardless of what follows. Simplest fix: add -b\\b alternative or use (-b|--orphan) without the trailing space requirement by splitting the check: match checkout[[:space:]]+-b and require end-of-word or end-of-string after -b rather than requiring a space. Concrete fix at line 31: change the regex to also match -b followed immediately by a non-space character: (checkout[[:space:]]+(-b[^[:space:]]*|--orphan)|switch[[:space:]]+(-c[^[:space:]]*|--create))([[:space:]]|$|[^[:space:]])  \u2014 or simpler: drop the trailing guard after -b/-c since the presence of -b in a checkout command is already sufficient signal.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 62,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "toBeDefined() passes for null: non-null assertion on hookSpecificOutput throws TypeError instead of assertion failure",
+          "body": "assertDenyEnvelope (line 47) guards against null JSON at line 56, but only checks 'parsed !== null'. If the hook emitted '{\"hookSpecificOutput\": null}', parsed would be an object (not null), passing the line 56 check. Then line 62 calls expect(envelope.hookSpecificOutput).toBeDefined() \u2014 vitest's toBeDefined checks value !== undefined, so null passes. Lines 63-64 then execute envelope.hookSpecificOutput!.permissionDecision where hookSpecificOutput is null, causing TypeError: Cannot read properties of null rather than a clear vitest assertion failure. Fix: change line 56's guard to also check that hookSpecificOutput is a non-null object, or change line 62 to expect(envelope.hookSpecificOutput).not.toBeNull() before the ! dereferences. Minimal fix: replace line 62 with: if (typeof (parsed as Record<string,unknown>).hookSpecificOutput !== 'object' || (parsed as Record<string,unknown>).hookSpecificOutput === null) { throw new Error('hookSpecificOutput missing or null'); }",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 67,
+          "severity": "high",
+          "category": "correctness",
+          "title": "No test for git checkout -bBRANCH (glued, no space) \u2014 undetected evasion",
+          "body": "The test suite has no case for 'git checkout -bfoo' or 'git switch -cfoo' (branch name glued to flag with no space). Git accepts both forms: 'git checkout -btest-glued' exits 0 and creates the branch. The current regex requires a space after -b/-c so these forms evade the hook. A test should be added both to document the evasion and to drive the fix (a test that asserts 'git checkout -bfoo' is denied, which will fail until the regex is fixed). The test belongs in the 'direct git commands' describe block alongside the existing deny tests.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-98095": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/block-branch-creation-hook.test.ts",
+          "line": 119,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "expect() call inside denyReason helper obscures failure location",
+          "body": "denyReason() calls expect(parsed.hookSpecificOutput.permissionDecision).toBe('deny') at line 119 inside a helper function. When this assertion fails, vitest reports the failure at the denyReason() call site in the test body rather than at line 119. This makes it harder to diagnose whether the hook returned empty stdout (caught by the try/catch), returned a non-deny decision (caught by line 119), or returned a deny without the expected text (caught by the caller). Fix: remove the expect() from denyReason and return the full permissionDecision field alongside the reason, or add a dedicated isDeny() assertion at each call site. The safer fix is to return the raw permissionDecisionReason and let the caller assert permissionDecision separately \u2014 keeping the helper a pure parser with no side effects.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:45:59Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:54Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:34:52Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T19:45:58Z",
+      "fingerprint": "2b9cd6d07f00cbe2c543c11859b4ca69",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 6598.0
+}
