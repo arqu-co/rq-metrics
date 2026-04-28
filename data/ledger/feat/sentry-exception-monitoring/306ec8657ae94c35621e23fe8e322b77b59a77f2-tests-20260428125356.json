@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/sentry-exception-monitoring",
+  "sha": "306ec8657ae94c35621e23fe8e322b77b59a77f2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T16:53:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T16:53:55Z",
+      "fingerprint": "a8c367b09c145792d88aaf9f107475c5",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "config/initializers/sentry.rb"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
