@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "okta-app-terraform-io",
+  "sha": "2c930927a4108b5a6036fc30b43411a967ada95a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T21:31:41Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:31:40Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
