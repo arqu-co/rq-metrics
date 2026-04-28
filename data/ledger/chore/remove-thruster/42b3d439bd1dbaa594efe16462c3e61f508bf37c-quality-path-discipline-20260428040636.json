@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "chore/remove-thruster",
+  "sha": "42b3d439bd1dbaa594efe16462c3e61f508bf37c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T08:06:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T08:06:35Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
