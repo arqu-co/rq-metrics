@@ -1,0 +1,713 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/postscanmail-preflight-endpoint",
+  "sha": "a09ea5ebf479b16fecbe2716e80b5541556806ae",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T23:40:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "performance",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:34:27Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:22Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T23:40:00Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:26Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T00:00:00Z",
+      "overall_grade": "B",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {
+        "typography": {
+          "grade": "B",
+          "score": 0.83,
+          "items": [
+            {
+              "id": 1,
+              "description": "Consistent font family across pages",
+              "score": 0.5,
+              "note": "Main app consistently uses Inter (sans), Plus Jakarta Sans (headings), JetBrains Mono (mono). passwords/new.html.erb and passwords/edit.html.erb are Rails scaffold defaults using gray-400, blue-600 \u2014 inconsistent with design system."
+            },
+            {
+              "id": 2,
+              "description": "Max 3 font sizes per page",
+              "score": 1.0,
+              "note": "Pages use text-xs (12px), text-sm (14px), text-lg (18px), text-2xl (24px). Most pages use 3-4 sizes. Acceptable for data-dense internal tool."
+            },
+            {
+              "id": 3,
+              "description": "Heading hierarchy (h1 > h2 > h3 in size)",
+              "score": 1.0,
+              "note": "h1: text-2xl (24px), h2: text-lg/text-xl (18-20px), h3: text-sm font-semibold (14px). Consistent descending hierarchy throughout."
+            },
+            {
+              "id": 4,
+              "description": "Body text line height 1.4-1.6",
+              "score": 0.5,
+              "note": "No explicit leading- classes on body text. Tailwind default for text-sm is line-height 1.25rem (ratio ~1.43 which is within range) but implicit. No leading-relaxed applied to paragraphs."
+            },
+            {
+              "id": 5,
+              "description": "No text smaller than 14px",
+              "score": 0.0,
+              "note": "FAIL: text-xs (12px) used 109 times \u2014 table headers, badge labels, timestamps, meta info, audit log diffs, stat card labels, breadcrumbs. Widespread below the 14px floor."
+            },
+            {
+              "id": 6,
+              "description": "Consistent font weight usage",
+              "score": 1.0,
+              "note": "font-bold for h1, font-semibold for h2/h3, font-medium for labels, default (400) for body. Consistent across all 43 views."
+            },
+            {
+              "id": 7,
+              "description": "Proper text alignment (left for body, centered only for headings/CTAs)",
+              "score": 0.5,
+              "note": "Body text left-aligned. Numeric columns right-aligned (correct). Login forgot password link uses text-center. No inappropriate centering of paragraph text."
+            },
+            {
+              "id": 8,
+              "description": "No orphaned headings (heading without following content)",
+              "score": 1.0,
+              "note": "All headings followed by content (tables, cards, forms). No orphaned headings detected."
+            },
+            {
+              "id": 9,
+              "description": "Readable paragraph width (45-75 characters)",
+              "score": 0.5,
+              "note": "Form pages use max-w-lg/max-w-2xl. List pages use max-w-7xl full-width with no prose width on text. Mostly tabular content so acceptable."
+            },
+            {
+              "id": 10,
+              "description": "Consistent letter spacing",
+              "score": 1.0,
+              "note": "tracking-tight on brand logo, tracking-wide on uppercase stat labels, no tracking on body. Consistent and intentional."
+            },
+            {
+              "id": 11,
+              "description": "No all-caps body text (headings/buttons OK)",
+              "score": 1.0,
+              "note": "uppercase only on table header <th> elements and stat card labels \u2014 both label contexts. No all-caps body text."
+            },
+            {
+              "id": 12,
+              "description": "Proper list styling (consistent bullets/numbers)",
+              "score": 1.0,
+              "note": "Document/notice lists use space-y-2 with consistent li. Error lists use list-disc list-inside. Consistent."
+            }
+          ]
+        },
+        "spacing": {
+          "grade": "A",
+          "score": 0.93,
+          "items": [
+            {
+              "id": 13,
+              "description": "Consistent padding scale (4/8/12/16/24/32/48px multiples)",
+              "score": 1.0,
+              "note": "Dominant values: py-2 (187x), px-4 (143x), px-3 (65x), p-4 (28x) \u2014 all on Tailwind 4px scale. py-0.5 for badges is intentional micro-spacing."
+            },
+            {
+              "id": 14,
+              "description": "Consistent margin between sections",
+              "score": 1.0,
+              "note": "Section spacing uses mb-4, mb-6, mb-8 consistently. Page headers: pb-4 mb-6. Consistent vertical rhythm."
+            },
+            {
+              "id": 15,
+              "description": "Aligned elements on implicit grid",
+              "score": 1.0,
+              "note": "Tables use consistent px-4 py-2.5 on all cells. Cards use grid with gap-3 or gap-6. Forms use space-y-4 or space-y-6. Solid implicit grid."
+            },
+            {
+              "id": 16,
+              "description": "Adequate whitespace around CTAs",
+              "score": 1.0,
+              "note": "Primary buttons: px-4 py-2 or px-6 py-2. Login button: px-3.5 py-2.5. Adequate whitespace."
+            },
+            {
+              "id": 17,
+              "description": "Consistent gap in flex/grid layouts",
+              "score": 1.0,
+              "note": "gap-2 (21x), gap-3 (14x), gap-4 (7x), gap-6 (4x) \u2014 consistent 4px-scale gaps. No arbitrary values."
+            },
+            {
+              "id": 18,
+              "description": "No cramped form fields (min 8px between inputs)",
+              "score": 1.0,
+              "note": "Forms use space-y-4, space-y-5, or space-y-6 between inputs. Carrier data entry grid uses gap-4. All well above 8px minimum."
+            },
+            {
+              "id": 19,
+              "description": "Consistent card padding",
+              "score": 1.0,
+              "note": "Cards consistently use p-4 or p-5. One minor variation: invoice column panels use p-3 vs p-4 but contextually intentional (denser data view)."
+            },
+            {
+              "id": 20,
+              "description": "Balanced page margins",
+              "score": 1.0,
+              "note": "All pages: mx-auto max-w-7xl px-4 sm:px-6 lg:px-8. Consistent responsive horizontal margins."
+            },
+            {
+              "id": 21,
+              "description": "Adequate spacing between interactive elements (min 8px)",
+              "score": 1.0,
+              "note": "Nav links: space-x-4 (16px). Action buttons: gap-2 (8px). Table action links: space-x-2 (8px). At the minimum but meets the floor."
+            },
+            {
+              "id": 22,
+              "description": "Consistent icon-to-text spacing",
+              "score": 0.5,
+              "note": "No icon library used. Navigation badges use ml-1.5. Absence of icons avoids icon-text spacing problems but also limits visual communication at the expense of scannability."
+            }
+          ]
+        },
+        "color": {
+          "grade": "B+",
+          "score": 0.83,
+          "items": [
+            {
+              "id": 23,
+              "description": "Text contrast ratio >= 4.5:1 (WCAG AA body text)",
+              "score": 0.5,
+              "note": "PARTIAL FAIL: slate-400 on white = 2.56:1 (muted timestamps, em dashes). teal-600 on white = 3.74:1 (all link text). white on teal-600 = 3.74:1 (primary button text). All fail 4.5:1 AA for normal-size text."
+            },
+            {
+              "id": 24,
+              "description": "Large text contrast >= 3:1",
+              "score": 1.0,
+              "note": "teal-600 (3.74:1) and success-600 (3.77:1) pass for large text (18px+ or 14px bold). Primary buttons and large links pass at large text threshold."
+            },
+            {
+              "id": 25,
+              "description": "Non-text contrast >= 3:1 (icons, borders)",
+              "score": 0.5,
+              "note": "slate-300 form borders on white = approx 1.6:1 \u2014 fails 3:1 non-text threshold. teal-500 focus ring on white = 2.49:1 \u2014 also fails."
+            },
+            {
+              "id": 26,
+              "description": "Max 5 colors in palette",
+              "score": 1.0,
+              "note": "Navy (nav), teal (accent/CTA), slate (neutral), success (green), warning (amber), danger (rose), info (blue), violet (AP rare). Well-controlled for a complex financial tool."
+            },
+            {
+              "id": 27,
+              "description": "Consistent use of primary/secondary/accent",
+              "score": 1.0,
+              "note": "Navy for nav, teal for CTAs and links, slate for neutral UI. Semantic colors applied correctly throughout all 43 views."
+            },
+            {
+              "id": 28,
+              "description": "No pure black (#000) on pure white (#fff) for body text",
+              "score": 1.0,
+              "note": "Body text: slate-800 (#1E293B) on slate-50 (#F8FAFC). No pure black/white. Good."
+            },
+            {
+              "id": 29,
+              "description": "Consistent link colors (visited vs unvisited)",
+              "score": 0.5,
+              "note": "Links: teal-600 with teal-800 hover \u2014 consistent. No visited state styling \u2014 visited links look identical to unvisited. Acceptable for internal tool."
+            },
+            {
+              "id": 30,
+              "description": "Consistent error/success/warning colors",
+              "score": 1.0,
+              "note": "danger-* (rose), success-* (emerald), warning-* (amber). Applied with perfect consistency in badges, alerts, form errors, notice backgrounds."
+            },
+            {
+              "id": 31,
+              "description": "Focus indicator contrast sufficient",
+              "score": 0.5,
+              "note": "focus:ring-teal-500 on most inputs. teal-500 (#14B8A6) on white = 2.49:1 \u2014 below 3:1. Admin retry button has focus:ring-offset-2 which helps perception but ring contrast remains low."
+            },
+            {
+              "id": 32,
+              "description": "Disabled state visually distinguishable",
+              "score": 1.0,
+              "note": "Disabled: bg-slate-50, text-slate-500, border-slate-200, cursor-not-allowed. Active: bg-white, text-slate-900, border-slate-300. Clearly distinct."
+            },
+            {
+              "id": 33,
+              "description": "Color is not sole indicator of state (shape/icon too)",
+              "score": 0.5,
+              "note": "Status badges use color + text label (good). Aging bucket dots are color + text label (good). Table row hover is color-only (minor). Overall adequate."
+            },
+            {
+              "id": 34,
+              "description": "Dark mode consistency (if applicable, else skip)",
+              "score": 1.0,
+              "note": "No dark mode implemented. Item skipped from grade calculation."
+            }
+          ]
+        },
+        "layout": {
+          "grade": "B-",
+          "score": 0.75,
+          "items": [
+            {
+              "id": 35,
+              "description": "No horizontal scroll on mobile (375px)",
+              "score": 0.5,
+              "note": "Navigation bar at 375px contains 9 nav items in a fixed h-16 flex row with no wrapping. Will overflow horizontally. Critical mobile issue."
+            },
+            {
+              "id": 36,
+              "description": "No content overflow/clipping",
+              "score": 0.5,
+              "note": "Tables use overflow-hidden (not overflow-x-auto). Wide tables at narrow viewports clip content rather than scrolling. Affects all major data tables."
+            },
+            {
+              "id": 37,
+              "description": "Consistent breakpoint behavior (375/768/1280)",
+              "score": 0.5,
+              "note": "Content area uses responsive px (px-4 sm:px-6 lg:px-8). Grids stack correctly at mobile. Tables and nav have no mobile breakpoint behavior."
+            },
+            {
+              "id": 38,
+              "description": "Proper stacking order on mobile",
+              "score": 0.5,
+              "note": "Invoice/deal show pages use grid-cols-1 md:grid-cols-3 \u2014 stacks correctly. Carrier data entry form uses grid-cols-2 with no mobile breakpoint \u2014 won't stack."
+            },
+            {
+              "id": 39,
+              "description": "Images scale without distortion",
+              "score": 1.0,
+              "note": "No img tags in any view template. N/A \u2014 pass."
+            },
+            {
+              "id": 40,
+              "description": "Tables scroll horizontally or stack on mobile",
+              "score": 0.0,
+              "note": "FAIL: All data tables use overflow-hidden. Zero tables use overflow-x-auto. Wide tables (8 cols Payments, 7 cols Exceptions, 8 cols Aged Receivables) clip on mobile."
+            },
+            {
+              "id": 41,
+              "description": "Modals/dialogs fit viewport on all sizes",
+              "score": 1.0,
+              "note": "No custom modals. Turbo_confirm uses native browser dialog. N/A \u2014 pass."
+            },
+            {
+              "id": 42,
+              "description": "Navigation accessible on all viewport sizes",
+              "score": 0.0,
+              "note": "FAIL: Fixed h-16 flex row with 9 nav items. No hamburger menu, no sm:hidden/md:flex pattern, no Stimulus controller for mobile nav. Severely broken at 375px."
+            },
+            {
+              "id": 43,
+              "description": "Footer at page bottom (not floating mid-page)",
+              "score": 0.5,
+              "note": "No footer element exists. Layout has only nav + main. No copyright, version info, or support links."
+            },
+            {
+              "id": 44,
+              "description": "Consistent max-width for content areas",
+              "score": 0.5,
+              "note": "Main: max-w-7xl. Forms: max-w-2xl or max-w-lg (some via w-full max-w-2xl, others via max-w-2xl mx-auto \u2014 slight inconsistency). New invoice uses max-w-lg inline."
+            },
+            {
+              "id": 45,
+              "description": "No layout shift on page load",
+              "score": 1.0,
+              "note": "No lazy-loaded images or above-fold dynamic injection. Turbo Drive handles navigation. Minimal CLS risk."
+            },
+            {
+              "id": 46,
+              "description": "Proper z-index layering (no overlapping elements)",
+              "score": 1.0,
+              "note": "No custom z-index in any view. No overlapping positioned elements. No dropdowns requiring z-index management."
+            }
+          ]
+        },
+        "interaction": {
+          "grade": "B",
+          "score": 0.79,
+          "items": [
+            {
+              "id": 47,
+              "description": "All buttons have hover state",
+              "score": 1.0,
+              "note": "All button types have hover: primary (hover:bg-teal-700), danger (hover:bg-danger-700), success (hover:bg-success-700), secondary (hover:bg-slate-200). Complete."
+            },
+            {
+              "id": 48,
+              "description": "All links have hover state",
+              "score": 1.0,
+              "note": "teal links: hover:text-teal-800. Slate links: hover:text-slate-700. Nav links: hover:text-white hover:bg-navy-700. All links have hover states."
+            },
+            {
+              "id": 49,
+              "description": "Focus indicators visible on all interactive elements",
+              "score": 0.5,
+              "note": "Form inputs: focus:ring-2 focus:ring-teal-500. Most action buttons and nav links lack explicit focus: classes. Partial coverage."
+            },
+            {
+              "id": 50,
+              "description": "Loading states for async actions",
+              "score": 0.0,
+              "note": "FAIL: No loading spinners or disabled-during-submit states. No data-turbo-submits-with on any form. Users get no per-button feedback during form submission."
+            },
+            {
+              "id": 51,
+              "description": "Disabled states styled distinctly from active",
+              "score": 1.0,
+              "note": "Disabled: bg-slate-50, text-slate-500, border-slate-200, cursor-not-allowed. Active: bg-white, border-slate-300. Clearly distinct."
+            },
+            {
+              "id": 52,
+              "description": "Error states on form fields",
+              "score": 0.5,
+              "note": "Top-of-form error banner (danger-50) with bulleted error list. No field-level inline highlighting or border-red on invalid fields."
+            },
+            {
+              "id": 53,
+              "description": "Success feedback after actions",
+              "score": 1.0,
+              "note": "Flash notice renders success-50 green alert in layout. Consistent server-rendered success feedback."
+            },
+            {
+              "id": 54,
+              "description": "Clickable areas min 44x44px (touch target)",
+              "score": 0.5,
+              "note": "Primary buttons: py-2 = ~36px height \u2014 below 44px. Table action links (Approve, Dismiss, Accept Match) are inline text with no padding \u2014 very small touch targets. Login button: py-2.5 = ~42px, close but under."
+            },
+            {
+              "id": 55,
+              "description": "Cursor changes on interactive elements (pointer)",
+              "score": 0.5,
+              "note": "18 cursor-pointer usages on submit inputs. Standard links default to pointer. button_to elements used in most places lack cursor-pointer."
+            },
+            {
+              "id": 56,
+              "description": "Smooth transitions (150-300ms, no jank)",
+              "score": 1.0,
+              "note": "transition-shadow on cards, transition-colors on table rows. Tailwind defaults: 150ms ease-in-out. No custom animation causing jank."
+            },
+            {
+              "id": 57,
+              "description": "No janky scroll behavior",
+              "score": 1.0,
+              "note": "No custom scroll handling or sticky elements causing paint issues. Standard browser scroll."
+            },
+            {
+              "id": 58,
+              "description": "Proper tab order matches visual order",
+              "score": 1.0,
+              "note": "No tabindex attributes disrupting natural DOM order. No absolutely positioned content reordering visual vs DOM order."
+            }
+          ]
+        },
+        "accessibility": {
+          "grade": "D+",
+          "score": 0.46,
+          "items": [
+            {
+              "id": 59,
+              "description": "All images have alt text",
+              "score": 1.0,
+              "note": "No img tags in any view template. Favicon in <link> tags only. N/A \u2014 pass."
+            },
+            {
+              "id": 60,
+              "description": "All form inputs have associated labels",
+              "score": 0.0,
+              "note": "FAIL: billing_tasks/show.html.erb carrier data entry form uses bare <label> without for= and bare <input> without id=. Visual pairing only \u2014 screen readers cannot associate them. passwords/new and passwords/edit (scaffold) also have label-less patterns. retailers/_form.html.erb and carriers/_form.html.erb use f.label which generates proper for= \u2014 those pass."
+            },
+            {
+              "id": 61,
+              "description": "ARIA landmarks present (main, nav, footer)",
+              "score": 0.5,
+              "note": "Layout has <main> and <nav> (implicit landmarks). No <footer>. Nav lacks aria-label='Primary navigation'. Partial."
+            },
+            {
+              "id": 62,
+              "description": "Skip-to-content link exists",
+              "score": 0.0,
+              "note": "FAIL: No skip-to-content link in layout. Keyboard users must tab through all 9 nav items on every page before reaching main content."
+            },
+            {
+              "id": 63,
+              "description": "Keyboard-navigable through all flows",
+              "score": 0.5,
+              "note": "Standard HTML elements keyboard-accessible by default. Add Carrier button is a button element. Complex flows (batch approve, turbo confirmations) untested from source alone."
+            },
+            {
+              "id": 64,
+              "description": "No keyboard traps",
+              "score": 1.0,
+              "note": "No custom focus management. Turbo confirm uses native browser dialog. No keyboard traps."
+            },
+            {
+              "id": 65,
+              "description": "Screen reader announcements for dynamic content (aria-live)",
+              "score": 0.0,
+              "note": "FAIL: No aria-live regions anywhere. Running total display (carrier-data-entry) updates via Stimulus with no aria-live='polite'. Turbo Frame updates lack live region announcements."
+            },
+            {
+              "id": 66,
+              "description": "Proper heading hierarchy for screen readers",
+              "score": 0.5,
+              "note": "Most pages: h1 > h2 > h3 correct. invoice/show.html.erb has h3 'Line Items' inside a div without a parent h2 in the AR column \u2014 level skip. Billing task show has multiple same-level h2 (acceptable)."
+            },
+            {
+              "id": 67,
+              "description": "Sufficient color contrast (verified via accessibility tree)",
+              "score": 0.5,
+              "note": "Same as item 23. teal-600 on white = 3.74:1 (FAIL for body text). slate-400 on white = 2.56:1 (FAIL). Link and muted text colors fail throughout."
+            },
+            {
+              "id": 68,
+              "description": "Focus management after modals/dialogs close",
+              "score": 1.0,
+              "note": "No custom modals. Native browser dialogs (turbo_confirm) handle focus automatically. N/A \u2014 pass."
+            },
+            {
+              "id": 69,
+              "description": "Error messages associated with inputs (aria-describedby)",
+              "score": 0.0,
+              "note": "FAIL: Error messages in top-of-form banner have no aria-describedby linking to specific fields. No role='alert' on error container. Screen readers won't auto-announce or associate errors with invalid fields."
+            },
+            {
+              "id": 70,
+              "description": "Page has lang attribute",
+              "score": 0.0,
+              "note": "FAIL: Application layout uses <html> with no lang attribute. Public error pages (404.html, 500.html) correctly use <html lang='en'> \u2014 but the app layout omits it."
+            }
+          ]
+        },
+        "polish": {
+          "grade": "B+",
+          "score": 0.85,
+          "items": [
+            {
+              "id": 71,
+              "description": "Empty states for lists/tables (not just blank)",
+              "score": 1.0,
+              "note": "shared/empty_state partial used on Deals, Retailers, Carriers, Payment Approvals, Exceptions, Billing Tasks, Admin Jobs, Audit Logs, Aged Receivables, Deal detail (invoices, documents, notices). Comprehensive."
+            },
+            {
+              "id": 72,
+              "description": "Loading skeletons or spinners present",
+              "score": 0.0,
+              "note": "FAIL: No skeleton screens or spinners. Turbo Drive provides native thin progress bar for page navigation but no per-component loading state for form submissions or batch operations."
+            },
+            {
+              "id": 73,
+              "description": "Error boundary with recovery action",
+              "score": 0.5,
+              "note": "public/500.html exists. Forms re-render with errors intact for correction. No client-side error boundary (N/A for server-rendered Rails). Recovery implicit via re-rendered form."
+            },
+            {
+              "id": 74,
+              "description": "404 page exists and is styled",
+              "score": 0.5,
+              "note": "public/404.html exists with basic readable layout. NOT styled with app's design system (navy/teal) \u2014 uses default Rails error page inline styles. Functional but visually inconsistent."
+            },
+            {
+              "id": 75,
+              "description": "Long text truncates gracefully (ellipsis or expand)",
+              "score": 1.0,
+              "note": "Deal display_name: .truncate(50) in breadcrumbs. Admin job arguments/errors: truncate at 100. Exception deal name: truncate(30). Audit entity link: truncate(20). Consistent truncation throughout."
+            },
+            {
+              "id": 76,
+              "description": "Many items paginate or virtualize",
+              "score": 1.0,
+              "note": "Deals, Retailers, Carriers, Audit Logs implement pagination with Previous/Next and item count display. Page size: 20 items."
+            },
+            {
+              "id": 77,
+              "description": "Form validation on submit AND blur",
+              "score": 0.5,
+              "note": "HTML5 required on login fields (on-submit native validation). Server-side validation re-renders with errors. No custom blur validation via Stimulus. Blur validation absent."
+            },
+            {
+              "id": 78,
+              "description": "Consistent border radius",
+              "score": 0.5,
+              "note": "Three values in use: rounded (4px), rounded-md (6px), rounded-lg (8px). Cards=rounded-lg, inputs=rounded-md, badges=rounded-md. Some buttons use rounded (4px) while others use rounded-md (6px) \u2014 minor inconsistency on similar components."
+            },
+            {
+              "id": 79,
+              "description": "Consistent shadow usage",
+              "score": 1.0,
+              "note": "Cards: shadow-sm default, shadow-md on hover. Tables: shadow-sm. Login: shadow-xl (intentional prominence). Revenue summary: shadow-sm. Consistent and intentional hierarchy."
+            },
+            {
+              "id": 80,
+              "description": "Favicon present",
+              "score": 1.0,
+              "note": "public/icon.png and public/icon.svg both exist. Layout references both with rel='icon' for PNG and SVG, plus apple-touch-icon. Complete favicon setup."
+            }
+          ]
+        }
+      }
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:19Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 292000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T23:40:01Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:29Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 3000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:40:07Z",
+      "duration_ms": 2000
+    },
+    "performance": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-22T19:42:20Z",
+      "findings": 0,
+      "findings_details": [],
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "advisory": 0
+      }
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-23T23:13:11Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-21T01:46:16Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:40:05Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-23T23:16:10Z"
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T23:40:09Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:40:04Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:58Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:39:56Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4937770a6e71fcea9236a6c39542eca5",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 27000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3362033.0
+}
