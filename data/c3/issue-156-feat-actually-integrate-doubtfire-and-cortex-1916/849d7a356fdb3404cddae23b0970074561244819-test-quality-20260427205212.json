@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-156-feat-actually-integrate-doubtfire-and-cortex-1916",
+  "sha": "849d7a356fdb3404cddae23b0970074561244819",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T00:52:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T00:52:11Z",
+      "scanned_files": 4,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 49,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const spy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 63,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 76,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 86,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(new Error(\"ECONNREFUSED\"));"
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 103,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const spy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 117,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 139,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const spy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 158,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const spy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "server/__tests__/cortex-preview-client.test.ts",
+          "line": 178,
+          "pattern": "spyOn().mockRejectedValue()",
+          "code": "    vi.spyOn(globalThis, \"fetch\").mockRejectedValue(timeoutError);"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
