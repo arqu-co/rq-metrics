@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-168-make-github-issue-loading-a-manual-choice-ins-1604",
+  "sha": "5fefa21dcfc3407d3f8435cbc9c8b4e5fdf11660",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T22:10:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T22:10:46Z",
+      "scanned_files": 9,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "client/src/components/IssuePickerStep.test.tsx",
+          "line": 158,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(window.Storage.prototype, \"setItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "client/src/components/issue-source-storage.test.ts",
+          "line": 54,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(window.Storage.prototype, \"getItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "client/src/components/issue-source-storage.test.ts",
+          "line": 61,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(window.Storage.prototype, \"setItem\").mockImplementation(() => {"
+        },
+        {
+          "file": "client/src/components/issue-source-storage.test.ts",
+          "line": 68,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(window.Storage.prototype, \"removeItem\").mockImplementation(() => {"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
