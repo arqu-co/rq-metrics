@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-62-feat-runtime-sigint-flush-timings-recorder-for-1444",
+  "sha": "4c5c64e6b8c8285b49bb36ef06ee1510b82279f1",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-28T21:14:56Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": "dead-code",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:14:56Z",
+      "files_checked": 15,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "lib/runtime/orchestrator-runner-inflight.test.ts",
+          "name": "type InflightTickRegistry",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "tests/integration/sigint-flush.test.ts",
+          "name": "type ChildProcessByStdio",
+          "line": 1
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

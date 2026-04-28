@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-62-feat-runtime-sigint-flush-timings-recorder-for-1444",
+  "sha": "4c5c64e6b8c8285b49bb36ef06ee1510b82279f1",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-28T21:14:59Z",
+  "phase": "review",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "dead-code",
+    "markdown",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:14:55Z",
+      "files_checked": 15,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/fixtures/sigint-flush-fixture.ts",
+          "function": "main",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:29Z",
+      "files_checked": 8,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:14:56Z",
+      "files_checked": 15,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "lib/runtime/orchestrator-runner-inflight.test.ts",
+          "name": "type InflightTickRegistry",
+          "line": 10
+        },
+        {
+          "type": "unused_import",
+          "file": "tests/integration/sigint-flush.test.ts",
+          "name": "type ChildProcessByStdio",
+          "line": 1
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:14Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:29Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:25Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:14:56Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T19:00:21Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:31Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T21:02:33Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:30Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T21:02:29Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T21:02:28Z",
+      "fingerprint": "6d6198a492dc407ed645aebc729f64bc",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "tests/fixtures/sigint-flush-fixture.ts"
+      ]
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 8075.0
+}
