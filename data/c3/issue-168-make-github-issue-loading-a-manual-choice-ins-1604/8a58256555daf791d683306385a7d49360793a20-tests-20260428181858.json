@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-168-make-github-issue-loading-a-manual-choice-ins-1604",
+  "sha": "8a58256555daf791d683306385a7d49360793a20",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T22:18:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T22:18:58Z",
+      "fingerprint": "e28293a69d81a04547f75565ead3525c",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/IssueFilterBar.tsx",
+        "client/src/components/issue-filters.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
