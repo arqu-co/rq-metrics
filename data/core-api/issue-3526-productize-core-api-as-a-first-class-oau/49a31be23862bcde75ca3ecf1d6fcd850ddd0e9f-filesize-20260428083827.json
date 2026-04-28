@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3526-productize-core-api-as-a-first-class-oau",
+  "sha": "49a31be23862bcde75ca3ecf1d6fcd850ddd0e9f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T12:38:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T12:38:26Z",
+      "files_checked": 19,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2ClientInitializerTest.kt",
+          "lines": 475,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/user/oauth/OAuth2ClientServiceTest.kt",
+          "lines": 436,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

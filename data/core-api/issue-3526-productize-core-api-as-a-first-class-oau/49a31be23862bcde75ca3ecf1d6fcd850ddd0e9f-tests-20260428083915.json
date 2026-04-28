@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3526-productize-core-api-as-a-first-class-oau",
+  "sha": "49a31be23862bcde75ca3ecf1d6fcd850ddd0e9f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T12:39:15Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T12:39:14Z",
+      "fingerprint": "93bd2629c12b116b02824d75192adf83",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 5,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/user/oauth/JwkConfig.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientService.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditLog.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditLogRepository.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditService.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
