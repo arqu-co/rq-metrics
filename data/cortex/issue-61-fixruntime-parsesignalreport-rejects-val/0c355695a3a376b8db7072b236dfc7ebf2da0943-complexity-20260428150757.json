@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-61-fixruntime-parsesignalreport-rejects-val",
+  "sha": "0c355695a3a376b8db7072b236dfc7ebf2da0943",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-28T19:07:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T19:07:56Z",
+      "files_checked": 3,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "lib/runtime/mcp-agent-tick.ts",
+          "function": "normalizeSignalReport",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/runtime/mcp-agent-tick.ts",
+          "function": "isAgentEvent",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/runtime/mcp-agent-tick.ts",
+          "function": "isAgentSignal",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
