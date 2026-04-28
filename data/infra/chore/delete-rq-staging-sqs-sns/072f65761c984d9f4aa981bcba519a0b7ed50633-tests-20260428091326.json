@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "chore/delete-rq-staging-sqs-sns",
+  "sha": "072f65761c984d9f4aa981bcba519a0b7ed50633",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T13:13:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T13:13:26Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6319f04b61ab4a1c1d87ad674fa3232b",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
