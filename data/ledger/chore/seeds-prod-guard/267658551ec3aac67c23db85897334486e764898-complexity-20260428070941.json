@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "chore/seeds-prod-guard",
+  "sha": "267658551ec3aac67c23db85897334486e764898",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T11:09:40Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T11:09:40Z",
+      "files_checked": 2,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "lines": 3301,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "create_invoice!",
+          "complexity": 36,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "audit_log_exists?",
+          "lines": 282,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "db/seeds.rb",
+          "function": "audit_log_exists?",
+          "complexity": 31,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
