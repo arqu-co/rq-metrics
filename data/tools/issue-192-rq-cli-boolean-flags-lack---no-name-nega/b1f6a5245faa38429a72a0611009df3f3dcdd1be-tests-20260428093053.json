@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-192-rq-cli-boolean-flags-lack---no-name-nega",
+  "sha": "b1f6a5245faa38429a72a0611009df3f3dcdd1be",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T16:30:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:30:52Z",
+      "fingerprint": "a428f168dbe112a8c8a5c6381bebb3d5",
+      "test_runner": "npm-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
