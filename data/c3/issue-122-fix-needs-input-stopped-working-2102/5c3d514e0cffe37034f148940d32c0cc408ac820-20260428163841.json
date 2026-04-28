@@ -1,0 +1,302 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-122-fix-needs-input-stopped-working-2102",
+  "sha": "5c3d514e0cffe37034f148940d32c0cc408ac820",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-28T20:38:41Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "rq.config.json",
+      "line": 88,
+      "rule": "MISSING_TEST",
+      "message": "The allow entry for server/managed-terminal.ts masks a stale coverage report, not a genuine untestability. The coverage-summary.json on disk was produced by a terminal-ws-scoped test run (only terminal-ws.ts shows non-zero coverage; managed-terminal.ts shows 0/82 lines covered), yet tests.json proves the gate selected managed-terminal-detector.test.ts and managed-terminal.test.ts \u2014 the report and the test selection contradict each other. The writer's justification ('import type pulls managed-terminal.ts into scope') is mechanically incorrect: TypeScript erases import type at compile time, so it cannot influence runtime coverage scope. The allow entry must be removed; the writer must re-run gate-tests.sh (which will select the correct managed-terminal*.test.ts files) and then gate-coverage.sh to produce a consistent report before committing rq.config.json."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-24100",
+    "review-wip-reviewer-35405",
+    "review-wip-reviewer-51709",
+    "review-wip-reviewer",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:08Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:11:02Z",
+      "files_checked": 14,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:09Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:06:56Z",
+      "files_checked": 29,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:38:38Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:05:15Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:38:40Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:14:29Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T20:11:01Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:38:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-24100": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 58,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Missing pageshow listener \u2014 bfcache tab restores skip needs_input re-seed",
+          "body": "useNeedsInputState registers visibilitychange and focus but not pageshow. The sibling hook useKnownTerminals (line 109) registers all three because pageshow fires on back-forward cache (bfcache) restores where the page is not re-mounted and visibilitychange may not fire. Without pageshow, a bfcache-restored tab will show stale needs_input state until the user manually re-focuses. The fix is to add window.addEventListener('pageshow', onVisibility) and the symmetric removeEventListener in the cleanup.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCIPolling.ts",
+          "line": 31,
+          "severity": "low",
+          "category": "style",
+          "title": "ServerMessage union is missing prune_skipped \u2014 silent server-side message type dropped",
+          "body": "The server's CIBroadcaster sends a prune_skipped message (ci-broadcaster.ts line 49) but the client's ServerMessage union only covers ci_update | rate_limit | branches_updated | needs_input. parseMessage returns parsed as ServerMessage even for prune_skipped frames; applyMessage then hits none of the if-branches and silently does nothing. The missing member is not a regression introduced by this PR (the PR correctly adds needs_input), but since the PR extends the union, it is the natural place to close the gap. Fix: add PruneSkippedMessage { type: 'prune_skipped'; repo: string; branch: string; reason: string } to the union. applyMessage can then ignore it explicitly or log it, which is more correct than silent discard of an unknown variant.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/session-loader.ts",
+          "line": 208,
+          "severity": "low",
+          "category": "style",
+          "title": "Three functions use 'any' type in session-loader.ts \u2014 violates strict TypeScript rule",
+          "body": "pickStartedAt (line 208), pickStatus (line 217), and parseSessionFile (line 222) all use 'any' as their parameter type. This is unchanged by the PR, but strict mode and project rules prohibit 'any'. The correct type is 'unknown' with a type guard or a raw deserialization interface. Fix: define interface RawSessionFile { startedAt?: number | string; created_at?: string; status?: string; endedAt?: string; ended_at?: string; sessionId?: string; id?: string; cwd?: string; directory?: string; model?: string; tokenUsage?: unknown } and use that as the parameter type, adding type narrowing inside the functions.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.tsx",
+          "line": 179,
+          "severity": "info",
+          "category": "style",
+          "title": "useDashboardBranches is a thin two-statement extract \u2014 its return type annotation is verbose boilerplate",
+          "body": "useDashboardBranches at line 179 calls useNeedsInputState() and useBranches(...), then spreads the result. The function earns its name (it co-locates the two hooks that feed the sidebar), but the return type annotation repeats ReturnType<typeof useBranches> and ReturnType<typeof useNeedsInputState> field-by-field rather than using a leaner inferred return type. The annotation is technically correct but adds 10 lines of boilerplate that drifts out of date if useBranches changes. Fix: remove the explicit return type annotation and let TypeScript infer it, or replace the inline interface with type DashboardBranchState = ReturnType<typeof useBranches> & { needsInputState: ReturnType<typeof useNeedsInputState> }.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-35405": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "server/terminal-needs-input-bridge.ts",
+          "line": 20,
+          "severity": "high",
+          "category": "error-handling",
+          "title": "broadcaster.broadcastNeedsInputUpdate throw propagates to unhandled promise rejection",
+          "body": "The bridge callback at line 20 calls broadcaster.broadcastNeedsInputUpdate(). In CIBroadcaster.send() (ci-broadcaster.ts:122), client.send(body) can throw if the socket is in a half-closed state. That exception propagates synchronously back through: broadcastNeedsInputUpdate -> onNeedsInput (terminal-manager.ts:166 _events.emit) -> ManagedTerminal emitter.emit (managed-terminal.ts:79) -> SessionStateDetector.onStateChange (session-state-detector.ts:193) -> checkAgentState() (line 186) which is called via 'void this.checkLastEvent()' (line 174). The void discard means the rejection is unhandled. Node.js will emit an unhandledRejection event. Fix: wrap the bridge callback body in try/catch and log; or wrap CIBroadcaster.send() in try/catch per client.send call (which is more robust \u2014 already a try/catch in closeAll but not in send).",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 46,
+          "severity": "low",
+          "category": "resource-leak",
+          "title": "setMap called after component unmount when fetch resolves post-unmount",
+          "body": "The refresh() callback (line 40-51) has no mounted/unmount guard. If the component unmounts while a fetch is in flight (e.g. user navigates away), the fetch resolves and setMap(buildNeedsInputMap(...)) is called on line 46 on an unmounted component. React 18 no longer warns on this (the warning was removed), but it still wastes a render cycle and can race with a re-mount that starts a fresh fetch. The refreshInFlight guard prevents concurrent re-fetches but does not stop the completed fetch from updating state after unmount. Fix: add an AbortController to the fetch call and abort on unmount, or add a mounted ref that refresh() checks before calling setMap.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 46,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "WS needs_input update overwritten by stale HTTP refetch response",
+          "body": "When visibility/focus triggers refresh() (line 55-57), the in-flight guard prevents concurrent fetches but does not protect WS updates that arrive between the fetch dispatch and its resolution. Sequence: (1) WS message arrives, apply() correctly sets map entry for 'c3/a' to true. (2) visibilitychange fires, refresh() starts fetch. (3) GET /api/terminals response arrives with 'c3/a: false' (a snapshot taken before the WS event). (4) setMap(buildNeedsInputMap(...)) on line 46 replaces the entire map, overwriting the WS update. The indicator flips back to false until the next WS event corrects it. Impact: transient false-negative on the indicator, lasting until the next state change. Fix: merge the HTTP response into the existing map rather than replacing it, taking the HTTP value only for keys not recently updated by WS.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/terminal-manager.ts",
+          "line": 241,
+          "severity": "low",
+          "category": "correctness",
+          "title": "destroyAll() silently relies on removeAllListeners to clean onNeedsInput \u2014 documented but fragile",
+          "body": "In destroyAll() (line 241-244), terminals.clear() is called first, then term.destroy() for each snapshot. term.destroy() calls emitter.removeAllListeners() which removes the onNeedsInput listener registered at create() time. The once('exit') handler is also removed. This is functionally correct, but the behavior is implicit: the onNeedsInput listener is not explicitly removed before destroy(). If ManagedTerminal.destroy() ever changes to call emitter.emit('exit') before removeAllListeners() (for whatever reason), onNeedsInput would fire pointing at a deleted map entry. The destroy() method at line 224-232 explicitly calls terminals.delete(id) BEFORE term.destroy() for this exact reason. destroyAll() does not share this care. Impact: currently no bug, but fragile if destroy() semantics change. Fix: either document this invariant explicitly in destroyAll, or call managed.emitter.off('needs_input', onNeedsInput) explicitly in the exit handler like destroy() does for its map deletion.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/ci-broadcaster.ts",
+          "line": 122,
+          "severity": "high",
+          "category": "error-handling",
+          "title": "CIBroadcaster.send() does not catch ws.send() exceptions, can crash manager event loop",
+          "body": "In send() at line 122, client.send(body) is called without a try/catch. The ws.send() method on the 'ws' npm package throws synchronously if the socket's internal state is broken (e.g., CLOSING state, native socket error). This exception propagates synchronously through the entire fan-out chain: broadcastNeedsInputUpdate -> send() -> client.send() throw -> propagates to the caller of broadcastNeedsInputUpdate (the bridge callback) -> propagates through EventEmitter.emit() -> reaches SessionStateDetector.checkAgentState() which is called via 'void this.checkLastEvent()' -> becomes an unhandled promise rejection. The closeAll() method at line 113 already wraps client.close() in try/catch, showing awareness of this pattern. Fix: wrap client.send(body) in the send() loop with a try/catch that removes the broken client from this.clients and logs the error.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/managed-terminal.ts",
+          "line": 114,
+          "severity": "low",
+          "category": "security",
+          "title": "setNeedsInputForTest() is public on ManagedTerminal with no production-path guard",
+          "body": "setNeedsInputForTest() is documented as 'test-only' but is a public method on ManagedTerminal. It is not reachable via any HTTP route \u2014 terminal-manager.ts exposes no method that delegates to it, and app-routes-terminals.ts does not reference it. So in practice it is unreachable from production request paths. However, it also does not emit 'needs_input', meaning if a test calls it and then checks the manager-level event emission, the event will not fire and tests could mask a real bug. Specifically, setNeedsInputForTest() mutates currentNeedsInput but does NOT call emitter.emit('needs_input', value) \u2014 unlike the real detector path in startDetector() at line 79. A test that verifies the bridge receives the event must call term.emitter.emit('needs_input', value) directly, not setNeedsInputForTest. The existing tests in terminal-manager-events.test.ts do this correctly (line 110-111), but future test authors could be misled. Fix: add a comment on setNeedsInputForTest() noting it does NOT emit the event, to prevent misuse in tests.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-51709": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "server/ci-broadcaster.ts",
+          "line": 128,
+          "severity": "low",
+          "category": "observability",
+          "title": "send() catch swallows broken-socket errors silently \u2014 no log entry",
+          "body": "The catch block at line 128 deletes the broken client from the set but emits nothing to the logger. When a native socket dies mid-broadcast the operator has no signal in the logs that a client was evicted. Evidence: lines 128-133 contain only a comment, no log.error/log.warn call. The fix for the original finding (broken-client crash) is correct, but it leaves ops blind to the eviction. Fix: import the module logger and add log.warn({ clientCount: this.clients.size }, 'evicted dead client during send') inside the catch block.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 57,
+          "severity": "low",
+          "category": "style",
+          "title": "Redundant mountedRef.current = true inside useEffect body",
+          "body": "useRef(true) at line 39 already initializes the ref to true. The assignment at line 57 inside the useEffect body re-sets it to true immediately before refresh() is called, which is the same value it already has. There is no path by which mountedRef.current would be false at effect entry \u2014 the cleanup (line 68) only fires on unmount. The redundant line implies that the ref might be false when the effect runs, which is misleading to the next reader. Fix: remove line 57 (). The initialization at line 39 is sufficient.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsInputState.test.ts",
+          "line": 150,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "No test for post-unmount setMap guard (mountedRef.current check)",
+          "body": "The mountedRef fix in useNeedsInputState.ts (line 48) prevents setMap from being called after the component unmounts, which was the core of round-1 finding 3. The test file (useNeedsInputState.test.ts) exercises mount, fetch-seed, apply(), and listener add/remove on unmount \u2014 but does not test: unmount while fetch is in-flight, fetch resolves, verify setMap was NOT called (i.e., result.current.get() still returns false/initial). Without this test, the guard can be silently deleted and no test will fail. Fix: add a test that: (1) starts a fetch that resolves on demand, (2) unmounts the hook before the fetch resolves, (3) resolves the fetch, (4) verifies get() returns false (not the fetched value). This directly exercises the invariant the fix was designed to enforce.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCIPolling.test.ts",
+          "line": 179,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "prune_skipped test does not fail if the handling arm is deleted",
+          "body": "The test at line 179 asserts applyMessage({type:'prune_skipped',...}) does not throw. But if the 'if (msg.type === prune_skipped) return' line is removed from applyMessage, the function still silently returns undefined \u2014 the test still passes. The litmus test fails: deleting the source line does not break the test. Fix: assert that no side-effecting callback was invoked. Specifically, pass a setOverrides mock and a toast mock, then assert neither was called. This makes the test meaningful: it verifies the message is deliberately ignored rather than accidentally falling through. Example: const setOverrides = vi.fn(); applyMessage({type:'prune_skipped',...}, setOverrides, makeToast(), makeRef(0)); expect(setOverrides).not.toHaveBeenCalled();",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pending",
+      "gate_timestamp": "2026-04-28T20:11:06Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:38:39Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:38:37Z",
+      "scanned_files": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:09:45Z",
+      "fingerprint": "e86d4407ee85f05b211e102b8c9ab9f0",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2012.0
+}
