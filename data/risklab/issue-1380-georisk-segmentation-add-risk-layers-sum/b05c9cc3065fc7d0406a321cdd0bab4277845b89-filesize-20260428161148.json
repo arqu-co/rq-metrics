@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "b05c9cc3065fc7d0406a321cdd0bab4277845b89",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-28T23:11:48Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T23:11:48Z",
+      "files_checked": 73,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/analytics/segmentation-widget-selection.ts",
+          "lines": 341,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.test.tsx",
+          "lines": 313,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
