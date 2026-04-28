@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3531-chore-delete-dormant-deploymentyml-workf",
+  "sha": "d59493d422017da0354d47d44fd05d2e3da4d36e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T10:52:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:06:58Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:07:00Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:06:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T10:52:01Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T10:52:00Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "Token missing required scopes: read:packages\n\nERROR: Non-interactive shell detected.\nThis operation requires a TTY for interactive prompts.\nPlease either:\n  - Run in an interactive terminal\n  - Set GITHUB_TOKEN and GITHUB_USER environment variables\n\n\nERROR: GitHub token missing required scopes.\nCannot refresh token in non-interactive mode.\nRun this manually: gh auth refresh --hostname github.com --scopes read:packages\n"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:07:12Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:07:10Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:07:08Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T01:07:04Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "duration_seconds": 35104.0
+}
