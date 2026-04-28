@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "helm_charts",
+  "branch": "feat/audit-backstops-from-issue-148",
+  "sha": "5d4b0839450088e7232b3b071faacf8346c7982d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T20:40:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T20:40:51Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
