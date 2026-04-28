@@ -1,0 +1,143 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3526-productize-core-api-as-a-first-class-oau",
+  "sha": "49a31be23862bcde75ca3ecf1d6fcd850ddd0e9f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T12:56:21Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T12:38:28Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:38:34Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T12:56:07Z",
+      "files_checked": 19,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2ClientInitializerTest.kt",
+          "lines": 475,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/unitTest/kotlin/co/arqu/user/oauth/OAuth2ClientServiceTest.kt",
+          "lines": 436,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:56:13Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T12:56:11Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+        @Suppress(\"UNCHECKED_CAST\")\n\n"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:56:19Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T11:16:57Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T12:38:47Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:56:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:56:16Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T12:39:19Z",
+      "scanned_files": 11,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T12:39:14Z",
+      "fingerprint": "93bd2629c12b116b02824d75192adf83",
+      "test_runner": "bin-test",
+      "missing_tests": 5,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/user/oauth/JwkConfig.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuth2ClientService.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditLog.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditLogRepository.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuthAuditService.kt"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    }
+  },
+  "duration_seconds": 5962.0
+}
