@@ -1,0 +1,154 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "feat/audit-pr-on-merge-workflow",
+  "sha": "96045e7e2e4f16c28955c154514060b4bbda8408",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T15:20:52Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:51Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:20:26Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:56Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:48Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:20:29Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:20:08Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "src/arqu_atlas/workbench/api/cli.py:6: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/cli.py:7: error: Cannot find implementation or library stub for module named \"sqlalchemy.exc\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/cli.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/cli.py:30: error: Returning Any from function declared to return \"Client\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/cli.py:52: error: Returning Any from function declared to return \"Client\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/services/fact_deduplication.py:11: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/services/fact_deduplication.py:12: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:22: error: Cannot find implementation or library stub for module named \"pydantic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:24: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:25: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:26: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:41: error: Class cannot subclass \"BaseSettings\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/scripts/merge_duplicate_entities.py:47: error: Untyped decorator makes function \"_apply_database_name_override\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/scripts/backfill_source_context.py:20: error: Cannot find implementation or library stub for module named \"httpx\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_source_context.py:21: error: Cannot find implementation or library stub for module named \"pydantic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_source_context.py:23: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_source_context.py:31: error: Class cannot subclass \"BaseSettings\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/scripts/backfill_source_context.py:42: error: Untyped decorator makes function \"_apply_database_name_override\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/scripts/backfill_file_search_index.py:20: error: Cannot find implementation or library stub for module named \"pydantic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_file_search_index.py:22: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_file_search_index.py:40: error: Class cannot subclass \"BaseSettings\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/scripts/backfill_file_search_index.py:51: error: Untyped decorator makes function \"_apply_database_name_override\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/scripts/backfill_email_decomposition.py:20: error: Cannot find implementation or library stub for module named \"pydantic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_email_decomposition.py:22: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_email_decomposition.py:23: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_email_decomposition.py:47: error: Class cannot subclass \"BaseSettings\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/scripts/backfill_email_decomposition.py:56: error: Untyped decorator makes function \"_apply_database_name_override\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/scripts/backfill_document_md5.py:22: error: Cannot find implementation or library stub for module named \"pydantic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_document_md5.py:24: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_document_md5.py:25: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/scripts/backfill_document_md5.py:36: error: Class cannot subclass \"BaseSettings\" (has type \"Any\")  [misc]\nsrc/arqu_atlas/workbench/api/scripts/backfill_document_md5.py:45: error: Untyped decorator makes function \"_apply_database_name_override\" untyped  [untyped-decorator]\nsrc/arqu_atlas/workbench/api/models/field_interaction.py:5: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/models/field_interaction.py:6: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/rate_limiter.py:6: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/rate_limiter.py:7: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:6: error: Cannot find implementation or library stub for module named \"fastapi\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:7: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy.orm\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:34: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:40: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:41: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:47: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/auth/client_auth.py:48: error: Returning Any from function declared to return \"int\"  [no-any-return]\nsrc/arqu_atlas/workbench/api/migrations/env.py:7: error: Cannot find implementation or library stub for module named \"alembic\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/migrations/env.py:8: error: Cannot find implementation or library stub for module named \"sqlalchemy\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/migrations/env.py:9: error: Cannot find implementation or library stub for module named \"sqlalchemy.engine\"  [import-not-found]\nsrc/arqu_atlas/workbench/api/migrations/env.py:10: error: Cannot find implementation or library stub for module named \"sqlalchemy.ext.asyncio\"  [import-not-found]\nFound 1065 errors in 316 files (checked 843 source files)\n"
+        }
+      ],
+      "duration_ms": 12000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:39Z",
+      "duration_ms": 4000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:20:12Z",
+      "duration_ms": 4000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:35Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:20:47Z",
+      "duration_ms": 8000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:33Z",
+      "scanned_files": 0,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:20:22Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:20:19Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2e7021cf8d4b4bc3f16d4775df58deca",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": ">>> Running Python tests...\n/opt/homebrew/Cellar/pyenv/2.6.13/libexec/pyenv-exec: /opt/homebrew/bin/pytest: /opt/homebrew/opt/python@3.11/bin/python3.11: bad interpreter: No such file or directory"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 59.0
+}
