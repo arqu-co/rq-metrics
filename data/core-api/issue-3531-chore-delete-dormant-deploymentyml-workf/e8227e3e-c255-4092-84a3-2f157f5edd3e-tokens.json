@@ -1,0 +1,41 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "issue-3531-chore-delete-dormant-deploymentyml-workf",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T01:05:17.751Z",
+  "session_id": "e8227e3e-c255-4092-84a3-2f157f5edd3e",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 218,
+    "output": 22620,
+    "cache_read": 6562511,
+    "cache_create": 449616,
+    "est_cost_usd": 6.657945499999999
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 5715617,
+      "cost_usd": 5.693127
+    },
+    "review#2": {
+      "tokens": 1319348,
+      "cost_usd": 0.9648185
+    }
+  }
+}
