@@ -1,0 +1,201 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "issue-706-cleanup-delete-dormant-deploymentyml-fil",
+  "sha": "98a40408b940956b621286090ab70ccc70e5dfbb",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T00:58:24Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-1880",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:44:48Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:30:53Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:31:13Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:30:55Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:15Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:17Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:30:59Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:22Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:31:01Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-1880": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "devops/terraform/account/gha-roles-auth.tf",
+          "line": 64,
+          "severity": "low",
+          "category": "least-privilege",
+          "title": "ssm:GetParameter granted alongside ssm:PutParameter on write-only paths",
+          "body": "The SsmPutGitHash statements on dev and staging roles (lines 64-71, 124-130) grant both ssm:PutParameter and ssm:GetParameter on the GIT_HASH parameter. The auth deploy workflow only writes the parameter (Set Github Sha to SSM step) \u2014 it never reads it back. ssm:GetParameter is not needed for the dev/staging roles on their own GIT_HASH path. Impact: minor over-grant. The same pattern exists in the established eventproc roles (gha-roles.tf line 80-81), so this is consistent with repo convention but still violates least-privilege. Fix: remove ssm:GetParameter from the SsmPutGitHash statements on auth dev and auth staging roles. Keep it only where the workflow actually reads: auth prod SsmPutGitHashProd (workflow reads back prod SHA at line 46 of equivalent logic) and anywhere a GetParameter is actually exercised.",
+          "confidence": "medium"
+        },
+        {
+          "file": "devops/terraform/account/gha-roles-auth.tf",
+          "line": 1,
+          "severity": "medium",
+          "category": "security",
+          "title": "auth deploy.yml still has static-key credential step wired before OIDC role assumption",
+          "body": "In /Users/jerrod/Sites/auth/.github/workflows/deploy.yml lines 73-78, a static key (AWS_ACCESS_KEY_ID / AWS_SECRET_KEY secrets) is configured as the first AWS credentials step before the OIDC role-assumption step at lines 80-85. The OIDC step then overwrites the credential env, but the static key secrets must still be present and valid for the first step to succeed. This means the Ezops static key must remain provisioned in the auth repo even after these OIDC roles are live \u2014 defeating the migration goal. The TF roles are correct, but the workflow migration is incomplete. Impact: the static key is a long-lived credential that can be exfiltrated; OIDC provides time-limited credentials. Fix: once the OIDC roles are applied and verified, remove the static-key step from deploy.yml and remove the AWS_ACCESS_KEY_ID / AWS_SECRET_KEY secrets from the auth repo. This is a workflow task outside this TF file, but it must be tracked as part of Phase 3A completion.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "devops/terraform/account/gha-roles-config-api.tf",
+          "line": 127,
+          "severity": "low",
+          "category": "style",
+          "title": "Misleading Sid: SsmPutGitHash includes ssm:GetParameter",
+          "body": "The SsmPutGitHash statement (line 127, also present in dev/prod variants) bundles ssm:GetParameter alongside ssm:PutParameter and names the Sid 'SsmPutGitHash'. The Sid implies write-only but the statement is actually read+write. The same pattern exists in eventproc (gha-roles.tf) and is a DRY mirror, but the name is still misleading. Fix: rename to SsmReadWriteGitHash (or SsmGetPutGitHash) to accurately reflect both actions granted.",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/account/gha-roles-config-api.tf",
+          "line": 193,
+          "severity": "low",
+          "category": "style",
+          "title": "Inconsistent Sid names: prod uses SsmPutGitHashProd, dev/staging use SsmPutGitHash",
+          "body": "In the dev and staging modules the SSM statement Sid is 'SsmPutGitHash'. In the prod module it is 'SsmPutGitHashProd' (line 193). The Sid suffix adds no semantic value since the resource ARN already encodes 'production'. The same inconsistency exists in gha-roles.tf (eventproc) and is mirrored here. Fix: normalize to 'SsmPutGitHash' in the prod module to match dev/staging, or consistently add an env suffix across all three. Either choice \u2014 pick one and be consistent.",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/account/gha-roles-auth.tf",
+          "line": 188,
+          "severity": "low",
+          "category": "style",
+          "title": "Inconsistent Sid names: prod uses SsmPutGitHashProd, dev/staging use SsmPutGitHash",
+          "body": "In the auth dev and staging modules the SSM write statement Sid is 'SsmPutGitHash'. In the auth prod module it is 'SsmPutGitHashProd' (line 188). The Sid suffix is redundant \u2014 the resource ARN already encodes 'production'. Fix: normalize to 'SsmPutGitHash' across all env modules, or apply the env-suffix pattern consistently. Pick one convention and apply it uniformly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-26T21:44:05Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T00:58:19Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:31:08Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-26T21:33:06Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6319f04b61ab4a1c1d87ad674fa3232b",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 98849.0
+}
