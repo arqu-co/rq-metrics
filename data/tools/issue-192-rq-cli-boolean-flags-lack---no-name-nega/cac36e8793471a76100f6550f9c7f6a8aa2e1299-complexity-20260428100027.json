@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-192-rq-cli-boolean-flags-lack---no-name-nega",
+  "sha": "cac36e8793471a76100f6550f9c7f6a8aa2e1299",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-28T17:00:27Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T17:00:27Z",
+      "files_checked": 4,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commander-bridge/build-option.ts",
+          "function": "applyFlag",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
