@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "feat/audit-pr-on-merge-workflow",
+  "sha": "9e84e41e05a85d4acf5d4e87dd01366408ef28ad",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T15:23:28Z",
+  "phase": "coderabbit",
+  "run_number": 4,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:23:17Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:35Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:21:42Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:37Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:19:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:23:08Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:23:00Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 306ms on 1705 files with 89 rules using 16 threads.\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\n[bin/format-backend] uv sync failed \u2014 CodeArtifact returned 401 and silent recovery couldn't fix it.\n\nThis usually means your AWS SSO session has expired. Run:\n    bin/aws-sso && bin/setup\n\nIf that doesn't resolve it, check:\n  - aws sts get-caller-identity --profile arqu-codeartifact succeeds\n  - You have CodeArtifact read access on the 'arqu' domain\n\nOriginal uv error above.\n\u274c Backend formatting failed\n\n\ud83d\udccb Running Frontend Formatter...\n\u001b[0;34m\ud83d\udd0d Checking Frontend Code (oxfmt + oxlint)\u001b[0m\n\n\u001b[1;33m\ud83d\udce6 Installing dependencies...\u001b[0m\n\u001b[0;32m\ud83d\ude80 Running oxfmt format check...\u001b[0m\nChecking formatting...\n\nAll matched files use the correct format.\nFinished in 186ms on 1703 files using 16 threads.\n\u001b[0;32m\u2705 oxfmt check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running oxlint check...\u001b[0m\nFound 0 warnings and 0 errors.\nFinished in 367ms on 1705 files with 89 rules using 16 threads.\n\u001b[0;32m\u2705 oxlint check passed\u001b[0m\n\n\u001b[0;32m\ud83d\udd0d Running TypeScript type check...\u001b[0m\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u001b[0;31m\u274c TypeScript type checking failed\u001b[0m\n\n\u001b[0;31m\u274c Frontend code checks failed\u001b[0m\n\u001b[1;33m\ud83d\udca1 Run './bin/format-frontend' to fix formatting/lint issues\u001b[0m\n\u274c Frontend formatting failed\n\n\u274c All formatting failed\n"
+        },
+        {
+          "check": "bin-typecheck",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Running type checks\n\ud83d\udd0d Type checking backend with mypy...\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\ud83d\udd0d Type checking frontend with tsc...\nnodenv: tsc: command not found\n\nThe `tsc' command exists in these Node versions:\n  24.11.1\n\nerror: \"tsc\" exited with code 127\n\u274c Type checking failed\n"
+        }
+      ],
+      "duration_ms": 66000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:21:54Z",
+      "duration_ms": 3000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T15:21:28Z",
+      "duration_ms": 111000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:21:51Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:23:10Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:21:49Z",
+      "scanned_files": 0,
+      "duration_ms": 7000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T15:21:39Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 11000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-28T15:23:06Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d040eb8c0d5cd8710897978742dba29d",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning all tests\u001b[0m\n\u001b[0;34m--- Backend ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: creating and starting...\u001b[0m\n  \u00d7 No solution found when resolving dependencies:\n  \u2570\u2500\u25b6 Because only georisk-client-python[oidc]<2026.4.10.1 is available and\n      your project depends on georisk-client-python[oidc]>=2026.4.10.1, we can\n      conclude that your project's requirements are unsatisfiable.\n      And because your project requires arqu-risklab-backend[dev], we can\n      conclude that your project's requirements are unsatisfiable.\n\n      hint: An index URL\n      (https://arqu-479061657325.d.codeartifact.us-west-2.amazonaws.com/pypi/python-packages/simple/)\n      could not be queried due to a lack of valid authentication credentials\n      (401 Unauthorized).\n\n[bin/test] uv sync failed \u2014 CodeArtifact returned 401 and silent recovery couldn't fix it.\n\nThis usually means your AWS SSO session has expired. Run:\n    bin/aws-sso && bin/setup\n\nIf that doesn't resolve it, check:\n  - aws sts get-caller-identity --profile arqu-codeartifact succeeds\n  - You have CodeArtifact read access on the 'arqu' domain\n\nOriginal uv error above."
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 6000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 224.0
+}
