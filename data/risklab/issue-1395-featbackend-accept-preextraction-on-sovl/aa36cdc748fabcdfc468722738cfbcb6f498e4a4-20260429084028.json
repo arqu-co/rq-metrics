@@ -1,0 +1,274 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1395-featbackend-accept-preextraction-on-sovl",
+  "sha": "aa36cdc748fabcdfc468722738cfbcb6f498e4a4",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T15:40:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "complexity",
+    "filesize",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:37:39Z",
+      "files_checked": 22,
+      "violations": 10,
+      "violations_details": [
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/loss_run_upload.py",
+          "function": "LossRunUpload",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/schedule_of_values_upload.py",
+          "function": "ScheduleOfValuesUpload",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 332,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_pre_extraction.py",
+          "function": "test_sov_re_import_creates_separate_upload_rows_same_atlas_extraction",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:24Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 154000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:37:41Z",
+      "files_checked": 22,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:37:36Z",
+      "files_checked": 22,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "lines": 346,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "lines": 380,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:24Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:37:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:27Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:27:38Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:37:50Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:27Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:35Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:40:24Z",
+      "test_runner": "bin-test",
+      "fingerprint": "7fb488e136ef294e88e4e8849b12265b",
+      "failed_subprojects": 0,
+      "missing_tests": 4,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "backend/alembic/versions/20260428_1514_add_atlas_extraction_id_and_doc_id_to_uploads.py",
+        "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+        "backend/app/models/pydantic/loss_run/loss_run_upload_response_model.py",
+        "backend/app/models/pydantic/schedule_of_values_upload/schedule_of_values_upload_base_response.py"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2916662.0
+}

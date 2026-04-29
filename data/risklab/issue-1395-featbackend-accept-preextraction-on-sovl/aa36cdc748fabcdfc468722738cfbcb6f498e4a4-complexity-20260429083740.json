@@ -1,0 +1,104 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1395-featbackend-accept-preextraction-on-sovl",
+  "sha": "aa36cdc748fabcdfc468722738cfbcb6f498e4a4",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T15:37:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:37:39Z",
+      "files_checked": 22,
+      "violations": 10,
+      "violations_details": [
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 88,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 117,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/loss_run_upload.py",
+          "function": "LossRunUpload",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/schedule_of_values_upload.py",
+          "function": "ScheduleOfValuesUpload",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 332,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_pre_extraction.py",
+          "function": "test_sov_re_import_creates_separate_upload_rows_same_atlas_extraction",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
