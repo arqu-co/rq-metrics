@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-69-cortex-doesn-t-appear-to-be-running-automatica-2306",
+  "sha": "ebab33cafc21267f285cda494bf9058932c2b8dd",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T15:49:18Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:49:18Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
