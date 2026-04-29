@@ -1,0 +1,352 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-559-rq-hook-enforce-gh-body-markdown-dispatc",
+  "sha": "1205d64cbd5e5131ccbe327091fd39e371f444b8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T22:02:07Z",
+  "phase": "coderabbit",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-55553",
+    "review-wip-reviewer-60449",
+    "review-wip-reviewer-60662",
+    "review-wip-reviewer-65326",
+    "review-wip-reviewer-72661",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:59:30Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 40000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:02Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T20:12:26Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:05Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:00Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:43Z",
+      "duration_ms": 4000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:39Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 34000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:50Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:16:36Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:45:53Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:48Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T19:36:45Z"
+    },
+    "review-wip-reviewer-55553": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-60449": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/rq/skills/review/SKILL.md",
+          "line": 912,
+          "severity": "critical",
+          "category": "security",
+          "title": "Step 9e uses cwd-first find . for gate-pre-merge.sh \u2014 wildcard-discovery-exec in PR-branch context",
+          "body": "Evidence: SKILL.md lines 912-914 use a cwd-first preamble (find . first, HOME/.claude fallback) to resolve PLUGIN_DIR before running gate-pre-merge.sh. Step 2 of the same skill (line 148) explicitly documents that PLUGIN_DIR MUST resolve from HOME/.claude only because review operates on PR-branch content \u2014 a malicious PR can ship a poisoned run-gates.sh and the find . lookup will execute it.\n\nImpact: A contributor PRs a branch containing plugins/rq/scripts/gate-pre-merge.sh with malicious content. When /rq:review runs Step 9e, it resolves PLUGIN_DIR via find . in the PR worktree, finds the attacker-controlled script, and executes it. This is RCE via the review workflow.\n\nFix: Replace lines 912-913 with the trusted-surface-only preamble (matching Step 2 line 148):\nPLUGIN_DIR=$(find \"$HOME/.claude\" -name \"run-gates.sh\" -path \"*/rq/*\" -exec dirname {} \\; 2>/dev/null | sort -V | tail -1)\nRemove the find . fallback entirely.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_gate_pre_merge.sh",
+          "line": 92,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Test suite only covers 3 of 5 gate checks \u2014 missing Test plan and Closes link negative cases",
+          "body": "Evidence: gate-pre-merge.sh has 5 checks: (1) Conventional Commits title, (2) ## Summary section, (3) ## Test plan section, (4) Closes/Fixes/Resolves link, (5) Python docstring coverage. The test suite at test_gate_pre_merge.sh has only 3 cases: happy path (tests all 5 pass), bad title (check 1), missing Summary (check 2). Checks 3 (## Test plan) and 4 (Closes link) have no negative test.\n\nImpact: If check 3 or check 4 regressed (e.g., regex change that accidentally skips the check), the test suite would not catch it. The gate-pre-merge.sh summary line says '3/3 passed' but 40% of the gate logic is untested in the negative path.\n\nFix: Add two more test cases after line 89:\n# Test 4: missing Test plan\nif run_with_fakes \"$TITLE\" $'## Summary\\n\\n- foo\\n\\nCloses arqu-co/agent-plugins#551' >/dev/null 2>&1; then\n  echo \"FAIL: missing Test plan should have failed\" >&2; exit 1\nfi\necho \"PASS: missing Test plan rejected\"\n# Test 5: missing Closes link\nif run_with_fakes \"$TITLE\" $'## Summary\\n\\n- foo\\n\\n## Test plan\\n\\n- bar' >/dev/null 2>&1; then\n  echo \"FAIL: missing Closes should have failed\" >&2; exit 1\nfi\necho \"PASS: missing Closes rejected\"\nAnd update the final echo to say '5/5' or '(5/5)'.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 91,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "jq destructures branch-issue.json without type guard \u2014 json-type-guards violation",
+          "body": "Evidence: Line 91 uses `jq -r '\"\\(.repo)#\\(.issue)\"'` on branch-issue.json without asserting the file contains an object. If branch-issue.json contains `null`, a JSON array, or a string, jq silently outputs `null#null` (or similar), and ISSUE_REF is set to that garbage string. The check at line 92 `[ \"$ISSUE_REF\" != \"#\" ]` passes (since `null#null != #`), and the advisory prints a meaningless message.\n\nImpact: The scope-drift advisory emits `null#null` as the issue reference instead of a real issue. While the check is advisory-only (non-blocking), it misleads the user into thinking there is a bound issue when the binding file is malformed.\n\nFix: Add a type check before extracting:\nISSUE_REF=$(jq -re 'if type == \"object\" then \"\\(.repo)#\\(.issue)\" else empty end' \"$REPO_ROOT/.quality/branch-issue.json\" 2>/dev/null || echo \"\")\nThe `if type == \"object\"` guard rejects non-object JSON and `empty` produces no output (combined with `|| echo \"\"` this sets ISSUE_REF to empty on type mismatch).",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/revue/agents/style/style.md",
+          "line": 4,
+          "severity": "low",
+          "category": "style",
+          "title": "tools frontmatter uses JSON array syntax while all other agents use YAML list syntax",
+          "body": "Evidence: Line 4 of revue/agents/style/style.md: `tools: [\"Read\", \"Glob\", \"Grep\"]` (JSON array). Every other agent file in the PR uses: `tools: Read, Glob, Grep` (YAML comma-list). The rq counterpart review-style.md line 5 uses the YAML form.\n\nImpact: Depending on how the plugin system parses the frontmatter, the JSON array form may parse correctly or may be treated as a string literal containing brackets. If the parser uses a strict YAML list parser, this is a bug. If it handles both forms, it is inconsistent but harmless. The inconsistency increases the chance of a future parser change breaking only this file.\n\nFix: Change line 4 to: `tools: Read, Glob, Grep` to match all other agent files.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-60662": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/skills/review/SKILL.md",
+          "line": 20,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Audit Trail comment references stale 'find .' preamble for PLUGIN_DIR",
+          "body": "The Audit Trail section at line 20 says: 'already detected in Step 1 via `find . -name \"run-gates.sh\"`'. But Step 2 (line 148) now resolves PLUGIN_DIR from $HOME/.claude only (not cwd-first). The parenthetical references a pattern that no longer exists in this skill, creating a doc/impl parity violation matching the repo's own doc-impl-parity rubric slug. Fix: update the comment to 'already detected in Step 2 via $HOME/.claude lookup' or similar.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 40,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Error message says owner/repo#N required but regex accepts bare #N",
+          "body": "The Closes/Fixes/Resolves regex at line 40 uses '([A-Za-z0-9._-]+/[A-Za-z0-9._-]+)?' making the owner/repo prefix optional \u2014 so 'Closes #123' passes validation. But the error message at line 42 says 'missing Closes / Fixes / Resolves owner/repo#N', implying owner/repo is required. This is a doc/impl parity mismatch. Either: (a) tighten the regex to require owner/repo: remove the '?' so the group is mandatory, or (b) update the error message to say '#N or owner/repo#N' to reflect what the code actually accepts. Option (b) is safer since bare '#N' auto-links on GitHub and is legitimate.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-65326": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 34,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Case mismatch: gate checks '## Test plan' but ship generates '## Test Plan'",
+          "body": "**Evidence:** gate-pre-merge.sh line 34 runs `grep -q '^\\#\\# Test plan'` (lowercase 'p'). plugins/rq/skills/ship/SKILL.md line 542 generates `## Test Plan` (capital P) in the PR body. plugins/rq/skills/finish-branch/SKILL.md line 119 also uses `## Test Plan`. Because the grep is case-sensitive (no -i flag), every PR opened by /rq:ship or /rq:finish-branch will fail the pre-merge gate with 'pre-merge: missing ## Test plan section' even though the section exists. **Impact:** The gate produces a false-positive failure on 100% of PRs opened via the standard rq workflow, defeating its purpose. **Fix:** Either (a) add -i flag to the grep: `grep -qi '^\\#\\# Test plan'`, or (b) standardize all PR templates to use lowercase 'plan'. Option (a) is lower risk \u2014 it accepts both casings without requiring template changes. **Confidence:** high \u2014 traced from ship/SKILL.md:542 through gate-pre-merge.sh:34 directly.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 30,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Gate checks for '## Summary' but ship generates '## What'",
+          "body": "**Evidence:** gate-pre-merge.sh line 30 runs `grep -q '^\\#\\# Summary'`. plugins/rq/skills/ship/SKILL.md line 536 generates `## What` as the first PR body section. There is no `## Summary` in the ship-generated template. **Impact:** Every PR opened via /rq:ship fails the pre-merge gate with 'pre-merge: missing ## Summary section' even though the body is properly structured. Combined with the ## Test Plan casing issue (line 34), ship-generated PRs fail the gate on two counts. **Fix:** Either (a) align the gate to accept what ship actually generates \u2014 change line 30 to `grep -qiE '^\\#\\# (Summary|What)'`, and change line 34 to `grep -qi '^\\#\\# Test [Pp]lan'`, or (b) update ship/SKILL.md to generate `## Summary` and `## Test plan` (lowercase). Option (b) requires a coordinated change to all PR templates (ship + finish-branch) and any existing open PRs. Option (a) is more pragmatic. **Confidence:** high \u2014 traced ship/SKILL.md:536 and gate-pre-merge.sh:30 directly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-72661": {
+      "status": "complete",
+      "findings": 10,
+      "findings_details": [
+        {
+          "file": "plugins/rq/skills/review/SKILL.md",
+          "line": 912,
+          "severity": "critical",
+          "category": "security",
+          "title": "Step 9e uses cwd-first PLUGIN_DIR lookup, violating trusted-surface rule",
+          "body": "**Evidence:** Lines 912-914 of SKILL.md Step 9e contain:\n```\nPLUGIN_DIR=$(find . -name \"run-gates.sh\" -path \"*/rq/*\" -exec dirname {} \\; 2>/dev/null | head -1)\n[ -z \"$PLUGIN_DIR\" ] && PLUGIN_DIR=$(find \"$HOME/.claude\" ...\nbash \"$PLUGIN_DIR/gate-pre-merge.sh\"\n```\nThis is the standard cwd-first preamble \u2014 BUT Step 9e runs at the end of an `/rq:review` session, which operates on a PR-branch-supplied filesystem. The review SKILL.md explicitly documents in Step 2 that `PLUGIN_DIR` must be resolved from `$HOME/.claude` only (not cwd-first) precisely because review runs against PR-branch content: 'Resolve PLUGIN_DIR from $HOME/.claude only. Review runs against the PR-branch's own filesystem, so a `find .` lookup would let a malicious branch ship a poisoned run-gates.sh.'\n\nStep 9e then immediately contradicts this by using cwd-first lookup to resolve `gate-pre-merge.sh`. A malicious PR branch can ship `plugins/rq/scripts/gate-pre-merge.sh` containing arbitrary code \u2014 the cwd-first `find .` will discover it first and `bash \"$PLUGIN_DIR/gate-pre-merge.sh\"` will execute it.\n\n**Impact:** Full arbitrary code execution in the reviewer's shell session when `/rq:review` reaches Step 9e on a malicious PR branch.\n\n**Fix:** Replace the two lines in Step 9e with `$HOME/.claude`-only resolution:\n```bash\nPLUGIN_DIR=$(find \"$HOME/.claude\" -name \"run-gates.sh\" -path \"*/rq/*\" -exec dirname {} \\; 2>/dev/null | sort -V | tail -1)\nbash \"$PLUGIN_DIR/gate-pre-merge.sh\"\n```\n\n**Confidence:** high \u2014 the threat model is explicitly documented three steps earlier in this same SKILL.md (Step 2) and Step 9e directly contradicts it.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_gate_pre_merge.sh",
+          "line": 18,
+          "severity": "high",
+          "category": "security",
+          "title": "mktemp -d without trap EXIT \u2014 resource leak on failure",
+          "body": "**Evidence:** Line 18: `workdir=$(mktemp -d)`. Line 19: `trap 'rm -rf \"$workdir\"' RETURN`. The trap fires on RETURN from the function, not on EXIT from the process. If the test script is killed (SIGKILL, OOM), interrupted (SIGINT before trap fires), or if the early exit at line 11 (`exit 1`) triggers before `run_with_fakes` is called, the mktemp directory is never cleaned up. The RETURN trap is also function-scoped \u2014 a bare `mktemp -d` at top-level scope with `trap RETURN` does not clean up if the script exits nonzero before the function returns.\n\nMore critically: the `mktemp-trap-pairing` rubric this PR introduces (in both review-security.md and revue/agents/security/security.md) requires `trap ... EXIT` \u2014 not `trap ... RETURN`. The test file that ships with the PR violates the very rule the PR establishes.\n\n**Impact:** Every failed test run leaks a temp directory under the system tmp. In CI with many runs this accretes /tmp debris. It also means the new rubric is not applied to its own test file, undermining the test's self-consistency.\n\n**Fix:** Change line 19 from `trap 'rm -rf \"$workdir\"' RETURN` to `trap 'rm -rf \"$workdir\"' EXIT` so cleanup fires on any exit path regardless of signal or early exit.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 10,
+          "severity": "high",
+          "category": "correctness",
+          "title": "jq output used without type guard \u2014 malformed pr.json silently yields wrong PR_NUM",
+          "body": "**Evidence:** Line 10: `PR_NUM=$(jq -r '.pr_number // empty' \"$REPO_ROOT/.quality/pr.json\" 2>/dev/null || echo \"\")`. The `json-type-guards` rubric this PR adds to review-correctness.md requires bash JSON consumers to filter on type before destructuring: 'jq must filter on type: `jq -e 'type == \"object\"'` before destructuring'. Here `.quality/pr.json` is read with no type assertion. If the file contains a JSON array (`[{...}]`), jq's `.pr_number` silently returns `null` and `// empty` yields empty string, falling through to the `gh pr view` call. If pr.json contains a string or integer at the top level, `jq` emits it without error. The `2>/dev/null || echo \"\"` swallows any jq error, making the failure completely silent.\n\n**Impact:** If pr.json is malformed (e.g., written partially during a crash), the gate silently skips the pr.json path and falls back to `gh pr view` \u2014 the user sees no indication that their pr.json was corrupt. Depending on network availability, this could produce a false pass or a misleading error message.\n\n**Fix:** Add a type guard: `PR_NUM=$(jq -re 'if type == \"object\" then .pr_number // empty else empty end' \"$REPO_ROOT/.quality/pr.json\" 2>/dev/null || echo \"\")`. This emits empty on wrong-type input rather than silently proceeding.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 55,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "TOCTOU race: [ ! -f \"$f\" ] check then open(target).read() without error handling",
+          "body": "**Evidence:** Line 55: `[ ! -f \"$f\" ] && continue` \u2014 checks file existence. Line 61: `src = open(target).read()` \u2014 opens the file. Between lines 55 and 61, the file could be deleted (e.g., a git checkout, another process, or the diff itself). The Python `open(target).read()` has no `try/except FileNotFoundError`, so if the file disappears between the bash check and the Python read, the script exits with an unhandled Python exception traceback to stderr and exit code 1, causing FAILED=1 \u2014 a false gate failure attributed to \"missing docstring\" rather than the actual cause (file disappeared).\n\nThis is the `atomic-file-ops` TOCTOU pattern the PR's new rubric documents.\n\n**Impact:** In a concurrent git workflow (e.g., another git process running in parallel), a renamed or deleted Python file can cause a cryptic failure. The error message would be a Python traceback rather than the expected `pre-merge: <file>:<line> missing docstring` format.\n\n**Fix:** Wrap the `open(target).read()` in a try/except:\n```python\ntry:\n    src = open(target).read()\nexcept FileNotFoundError:\n    sys.exit(0)  # file gone since bash check \u2014 skip it\n```\nThis is lower-severity than a security issue because the gate is not a security boundary, but the error message quality matters for operator trust.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_gate_pre_merge.sh",
+          "line": 68,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Test suite missing coverage for Closes/Fixes/Resolves check (gate check #3)",
+          "body": "**Evidence:** The test suite at lines 68-92 covers 3 cases: (1) happy path, (2) bad title, (3) missing Summary section. Gate check #3 (lines 39-43 of gate-pre-merge.sh) verifies that the body contains a `Closes/Fixes/Resolves` reference. There is no test case that omits this reference from the body and expects a nonzero exit. Gate check #4 (docstring) is partially tested via the happy path but has no negative test (a Python file with a public def missing a docstring in the diff). Of the gate's 4 blocking checks, only 2 have negative test coverage.\n\n**Impact:** A future regression that breaks the Closes/Fixes/Resolves check or the docstring check would not be caught by the test suite. The gate could silently pass PRs missing required linkage.\n\n**Fix:** Add:\n- Test 4: body without any Closes/Fixes/Resolves line \u2014 expect nonzero exit.\n- Test 5 (optional but valuable): a Python file in the diff with a public def missing a docstring \u2014 expect nonzero exit with the docstring message.\n\n**Confidence:** high \u2014 the missing test cases are directly enumerable from the gate's check list.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/review/SKILL.md",
+          "line": 247,
+          "severity": "high",
+          "category": "security",
+          "title": "load_review_rules.py resolved cwd-first \u2014 PR branch can supply malicious helper",
+          "body": "**Evidence:** Lines 247-248 use cwd-first preamble: find . then fallback to $HOME/.claude. Step 2 of this same SKILL.md explicitly prohibits cwd-first resolution during review: 'Resolve PLUGIN_DIR from $HOME/.claude only. Review runs against the PR-branch own filesystem, so a find . lookup would let a malicious branch ship a poisoned run-gates.sh.' The same attack applies to load_review_rules.py \u2014 a malicious PR branch can ship plugins/rq/scripts/load_review_rules.py with arbitrary Python that executes at line 252 via: python3 \"$HELPER\" \"$agent\" --repo-root \"$REPO_ROOT\". This is a direct arbitrary code execution vector in the reviewer shell. A malicious implementation could also exfiltrate env vars or inject adversarial instructions into agent prompts.\n\n**Impact:** Full arbitrary code execution on reviewer machine when /rq:review runs Step 2.5 against a malicious PR branch.\n\n**Fix:** Replace the cwd-first two-line preamble with $HOME/.claude-only resolution: HELPER=$(find \"$HOME/.claude\" -name 'load_review_rules.py' -path '*/rq/*' 2>/dev/null | sort -V | tail -1)\n\n**Confidence:** high \u2014 threat model documented three steps earlier in this file.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/review/SKILL.md",
+          "line": 470,
+          "severity": "high",
+          "category": "security",
+          "title": "recover_wip_findings.py and post-resolution-comment.sh resolved cwd-first during review",
+          "body": "**Evidence:** Three additional cwd-first helper lookups in SKILL.md during review-time execution:\n1. Line 470: recover_wip_findings.py \u2014 find . first (WIP recovery, Step 3)\n2. Line 782: post-resolution-comment.sh \u2014 find . first (Step 7 fix walkthrough)\nThese execute during the review session which operates on a PR-branch-supplied filesystem. A malicious PR branch can ship poisoned versions of these helpers under plugins/rq/scripts/ and the cwd-first lookup will discover and execute them. The SKILL.md's own Step 2 comment explicitly documents that 'review runs against the PR-branch own filesystem'. Step 3's write-review-proof.sh and post-review-comment.sh lookups (lines 532, 563) were already fixed to use $HOME/.claude-only, but recover_wip_findings.py (line 470) and post-resolution-comment.sh (line 782) were missed.\n\n**Impact:** Arbitrary code execution during /rq:review fix walkthrough on a malicious PR branch.\n\n**Fix:** Change both lookups to $HOME/.claude-only resolution (drop the find . line, keep only the $HOME/.claude form).\n\n**Confidence:** high \u2014 same class as Finding 1 (Step 9e) and Finding 6 (load_review_rules.py), both already documented in the same file.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 30,
+          "severity": "low",
+          "category": "correctness",
+          "title": "CRLF line endings in PR body cause false-negative on ## Summary / ## Test plan check",
+          "body": "**Evidence:** Lines 30 and 34 use `grep -q '^## Summary'` and `grep -q '^## Test plan'` on `$BODY` which comes from `gh pr view --json body -q .body`. GitHub PR bodies can contain CRLF line endings (especially when authored on Windows or via the web editor). When `$BODY` contains `\\r\\n` line endings, the `^` anchor in `grep` matches after `\\n`, so the pattern becomes `^## Summary\\r` which does NOT match `^## Summary`. Result: a PR body with `## Summary` present but using CRLF endings fails the gate with 'missing ## Summary section' even though the section exists.\n\n**Impact:** False gate failures for PR bodies authored on Windows or via GitHub web editor. The gate rejects valid PRs.\n\n**Fix:** Strip carriage returns before grepping: `echo \"$BODY\" | tr -d '\\r' | grep -q '^## Summary'`. Or use `grep -qP '^## Summary\\r?'` if GNU grep is available.\n\n**Confidence:** medium \u2014 depends on whether GitHub's JSON API normalizes line endings before returning them. GitHub typically normalizes to LF in API responses, but this is not guaranteed for all clients and PR creation methods.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/revue/agents/style/style.md",
+          "line": 4,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "tools frontmatter uses JSON array syntax, inconsistent with all other agent files",
+          "body": "**Evidence:** Line 4 of plugins/revue/agents/style/style.md: `tools: [\"Read\", \"Glob\", \"Grep\"]` (JSON array syntax). Every other agent file in this PR uses plain YAML list syntax: `tools: Read, Glob, Grep`. YAML parsers accept both forms, but the Claude Code frontmatter parser may not \u2014 if it expects comma-separated bare values and encounters a JSON array, it could parse the field as a string literal `[\"Read\", \"Glob\", \"Grep\"]` rather than a list, causing all three tools to be unavailable to the agent (it would have no tools at all, or one incorrectly named tool).\n\n**Impact:** If the frontmatter parser fails to recognize the JSON array, the style agent launches with no tools and cannot read any files. All style findings would be missing from the review output with no error \u2014 the agent would simply output empty results.\n\n**Fix:** Change line 4 to match the convention used by the other 7 agent files: `tools: Read, Glob, Grep`\n\n**Confidence:** high \u2014 the inconsistency is factual. Whether the parser fails on it depends on the harness implementation, but matching the established convention eliminates the risk.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/gate-pre-merge.sh",
+          "line": 91,
+          "severity": "low",
+          "category": "correctness",
+          "title": "null#null issue ref bypasses guard when branch-issue.json has null fields",
+          "body": "**Evidence:** Line 91: `ISSUE_REF=$(jq -r '\"\\(.repo)#\\(.issue)\"' \"$REPO_ROOT/.quality/branch-issue.json\" 2>/dev/null || echo \"\")`. Line 92: `if [ -n \"$ISSUE_REF\" ] && [ \"$ISSUE_REF\" != \"#\" ]`. If branch-issue.json exists but has null values for both .repo and .issue, jq produces the string `null#null` (jq renders null as the literal string 'null' in -r mode). The guard `!= \"#\"` does not catch this case \u2014 `null#null` is neither empty nor `#`, so the advisory prints: `pre-merge: scope advisory \u2014 verify diff stays inside null#null acceptance criteria`. This is a misleading message that references a non-existent issue.\n\n**Impact:** Operator confusion when branch-issue.json has null fields. Low severity because the advisory is informational/non-blocking, but the output is actively misleading.\n\n**Fix:** Tighten the guard to also reject null values:\n`if [ -n \"$ISSUE_REF\" ] && [ \"$ISSUE_REF\" != \"#\" ] && [[ \"$ISSUE_REF\" != *\"null\"* ]]`\nOr use jq to conditionally produce output only when both fields are non-null:\n`ISSUE_REF=$(jq -r 'if .repo != null and .issue != null then \"\\(.repo)#\\(.issue)\" else empty end' ...)`\n\n**Confidence:** high \u2014 jq's -r mode renders null as the literal string 'null', verifiable in any jq installation.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:30:02Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:58:46Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:48:41Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:10:52Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c615989e4487fe12159be9f7ff3e029d",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 34168.0
+}
