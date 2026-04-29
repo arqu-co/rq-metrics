@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "47d00a4757de4c8cdf6f5f7695ce9e9848f71b60",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T05:26:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T05:26:57Z",
+      "test_runner": "bin-test",
+      "fingerprint": "56b7b18c143933764575ea9b42e97922",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 7,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "frontend/src/components/analytics/ChartConcernBar.tsx",
+        "frontend/src/components/analytics/concern-level-summary.ts",
+        "frontend/src/components/analytics/grs-outline-overlay.tsx",
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/components/dealDashboard/fit-bounds-padding.ts",
+        "frontend/src/components/dealDashboard/hover-engine-types.ts",
+        "frontend/src/hooks/useDocumentEscape.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
