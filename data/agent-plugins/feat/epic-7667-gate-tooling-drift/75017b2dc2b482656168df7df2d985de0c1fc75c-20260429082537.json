@@ -1,0 +1,160 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7667-gate-tooling-drift",
+  "sha": "75017b2dc2b482656168df7df2d985de0c1fc75c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T12:25:37Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T11:56:17Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:19:40Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:25:01Z",
+      "coverage_tool": "py",
+      "files_checked": 4,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 211000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:19:49Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 9000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:19:33Z",
+      "files_checked": 21,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 170000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:25:04Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:20:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 60000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:25:17Z",
+      "duration_ms": 5000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T11:31:55Z"
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T12:20:52Z",
+      "duration_ms": 3000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:25:12Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T12:16:43Z",
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T12:25:25Z",
+      "duration_ms": 8000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:25:09Z",
+      "scanned_files": 45,
+      "duration_ms": 5000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T11:12:36Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:21:30Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1339a5b83a043160caf56827ac5df9a5",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 38000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 4369.0
+}
