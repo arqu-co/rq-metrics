@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-178-lint-gate-misses-tsc-errors-in-test-files-1545",
+  "sha": "bae09c327d5597737428c9737d73166b1bff45ee",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T20:07:15Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T20:07:10Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
