@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/critic-concurrency-query-ratelimit-checks",
+  "sha": "3fda3198bc743da99a123d369088cafc55c2dae1",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-29T18:01:45Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T18:01:45Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
