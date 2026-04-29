@@ -1,0 +1,273 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-60-perfscheduler-tick-level-concurrency-iss",
+  "sha": "a1845ddce2f74c80995af8966547cbaed3461590",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T00:06:15Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "pr-linkage",
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-29239",
+    "review-wip-reviewer-62368",
+    "review-wip-reviewer-70687",
+    "review-wip-reviewer-74284",
+    "review-wip-reviewer-88705",
+    "review-wip-reviewer-r2",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:46:33Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:06:14Z",
+      "coverage_tool": "js",
+      "files_checked": 3,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:46:34Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:46:31Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:57:16Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T20:46:41Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:57:17Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T20:46:42Z"
+    },
+    "pr-linkage": {
+      "status": "fail"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:57:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-29239": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 81,
+          "severity": "high",
+          "category": "correctness",
+          "title": "stop() snapshots inflightById before all workers have started \u2014 late-started ticks escape graceful shutdown",
+          "body": "stop() calls `Array.from(this.inflightById.values())` synchronously and then awaits the result. When `concurrency < due.length`, the runWithConcurrency drain loop is still mid-flight: each drain worker suspends at `await worker(item)` (inside fireUnique) while the next item waits behind that await. Any item that hasn't yet reached the `inflightById.set(id, promise)` line at the moment stop() reads the map is invisible to `Promise.allSettled`. Concretely: 4 due orchestrators, concurrency=2 \u2014 drains start items 0 and 1, set them in the map; stop() is called; stop reads {0,1} and awaits them; drains then start items 2 and 3 (after 0 or 1 finish), set them in the map, but nobody awaits those. The process can exit while items 2 and 3 are still running. Fix: instead of reading the map snapshot in stop(), store and await the Promise returned by runWithConcurrency itself (the tickOnce promise). Either keep a `private currentTick: Promise<void> | null` that stop() awaits, or replace the per-id map with a top-level tickOnce promise for shutdown purposes (the per-id map is still needed for intra-tick dedup).",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/tick-timing.ts",
+          "line": 46,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "writeChainsByPath module-level Map grows unbounded \u2014 one entry per unique path, never pruned",
+          "body": "The module-level `writeChainsByPath` map accretes one entry per unique `path` argument and never removes entries. In a long-running scheduler process that rotates log paths (e.g. daily rotation: timings-2026-04-28.jsonl, timings-2026-04-29.jsonl, ...) the map fills indefinitely and holds a resolved Promise per path as a GC root. In production this is a slow memory leak. Fix: after the chain settles, delete the entry. The cleanest place is inside the `.catch` continuation already on line 55: change `next.catch(() => undefined)` to `next.catch(() => undefined).finally(() => { if (writeChainsByPath.get(path) === /* the settled promise */) writeChainsByPath.delete(path); })`. Alternatively, simply delete the path entry inside `writeOneLine` after the write completes \u2014 but that requires threading the path through. The safest fix: after setting the chain, chain a `.finally(() => writeChainsByPath.delete(path))` onto the silenced promise so it cleans up once quiescent.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.test.ts",
+          "line": 9,
+          "severity": "medium",
+          "category": "style",
+          "title": "orchestrator() helper duplicated verbatim across 3 test files \u2014 DRY violation and maintenance footgun",
+          "body": "The 15-line `orchestrator(id, schedule)` factory is copy-pasted identically into scheduler.test.ts (line 9), scheduler-tickonce.test.ts (line 14), and scheduler-concurrency.test.ts (line 10). The PR description calls this out as a deliberate choice ('duplicated rather than extracted'). However, this violates the project's DRY rule: a single schema change to `OrchestratorManifest` or `buildAgentManifest` requires three identical edits, and the three copies can silently diverge. The rationale given ('stays under 300-line cap') doesn't hold \u2014 extracting to `tests/helpers/scheduler-test-helper.ts` (a new file, already below any line cap) costs zero extra lines in the test files (just one import line). Fix: extract to `tests/helpers/scheduler-test-helper.ts`, export `orchestrator()`, and replace all three inline definitions with a single import.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler-concurrency.test.ts",
+          "line": 71,
+          "severity": "low",
+          "category": "style",
+          "title": "Parallel concurrency test uses real 100ms setTimeout \u2014 brittle under slow CI",
+          "body": "The 'runs different orchestrators in parallel' test (line 60-90) uses `await new Promise(resolve => setTimeout(resolve, 100))` inside the tick. The test relies on both ticks being inflight simultaneously, which is guaranteed by the runWithConcurrency design (they are started before either awaits), but the 100ms wall-clock delay makes the test slow (~100ms minimum per run) and fragile under load. The cap test on line 92 uses 30ms. A gate-and-resolve pattern (same as the stop() tests) would verify parallelism without wall-clock dependency and would run in microseconds. Fix: replace both setTimeout-based ticks with explicit `Promise` gates (`resolveA`/`resolveB` pattern already used in stop() tests) so the test controls execution order deterministically.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-62368": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-70687": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/scheduler/scheduler-tickonce.test.ts",
+          "line": 55,
+          "severity": "low",
+          "category": "DRY",
+          "title": "Inline latch pattern duplicates the latch() helper defined in scheduler-concurrency.test.ts",
+          "body": "scheduler-tickonce.test.ts lines 55-57 manually inline the same 'let resolve!: () => void; const promise = new Promise<void>((r) => { resolve = r })' pattern that latch() encapsulates in scheduler-concurrency.test.ts lines 14-20. Since latch() is file-local it cannot be reused. The same extraction that moved buildTestOrchestratorManifest into tests/helpers/ should apply here. Fix: move interface Latch and function latch() to tests/helpers/latch-fixture.ts (or tests/helpers/test-latch.ts), export them, and import in both scheduler-concurrency.test.ts and scheduler-tickonce.test.ts. The inline in scheduler-tickonce.test.ts (lines 55-57) then becomes: const { promise: tickGate, resolve: resolveTick } = latch();",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-74284": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-88705": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 81,
+          "severity": "high",
+          "category": "logic",
+          "title": "stop() misses items queued in runWithConcurrency but not yet started",
+          "body": "stop() snapshots inflightById.values() at call time (line 81). When concurrency < due_count, runWithConcurrency's drain workers process items sequentially \u2014 items 3+ are not yet in inflightById when stop() takes its snapshot. If stop() is called while a tickOnce() with 4 due orchestrators and concurrency=2 is running, items 3 and 4 will fire and complete AFTER stop() returns, violating the graceful-shutdown contract. The test in scheduler-concurrency.test.ts:120 only tests concurrency=2 with exactly 2 items, which never exercises the queued-but-not-started case. Fix: store the Promise returned by tickOnce() (and each timer-fired tickOnce) and await it in stop() alongside inflightById, OR track the runWithConcurrency promise itself so stop() can await the entire pass rather than just the currently-tracked individual ticks.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 139,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "runWithConcurrency silently skips all items when limit=0",
+          "body": "When concurrency=0 is passed (either accidentally or via a misconfigured option), Math.min(0, items.length) = 0, so the for-loop spawns zero drain workers, Promise.all([]) resolves immediately, and all due orchestrators are silently dropped for that pass. No error is thrown, no warning is logged. Fix: add a guard at the top of runWithConcurrency (or in the Scheduler constructor) that throws an Error or clamps to 1 when limit < 1: if (limit < 1) throw new Error('concurrency limit must be >= 1').",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 119,
+          "severity": "medium",
+          "category": "error-handling",
+          "title": "fire() swallows errors from runOrchestratorTick, violating project error-bubbling rule",
+          "body": "fire() (lines 108-122) catches all errors from runOrchestratorTick, logs them, and returns void. This means tickOnce() callers never see tick failures; errors are silently consumed after logging. The project rule is explicit: 'Errors bubble with context. No silent fallbacks.' The test at scheduler-tickonce.test.ts:99 explicitly asserts this swallowing behavior (healthyFired remains true after a crash), so the swallow is intentional \u2014 but it conflicts with CLAUDE.md's 'Errors bubble with context' rule. If the scheduler is intended to be fault-tolerant across orchestrators, that design decision should be documented in a comment explaining why the rule exception is justified here (isolation of one failing orchestrator from others). Without that justification comment, this reads as an accidental omission of error propagation.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/tick-timing.ts",
+          "line": 46,
+          "severity": "low",
+          "category": "resource-leak",
+          "title": "writeChainsByPath Map never shrinks; completed chain entries are never removed",
+          "body": "The module-level writeChainsByPath Map (line 46) accumulates one entry per unique path that has ever been written to, and completed Promise entries are never deleted. In the current usage pattern (single configured timingsLogPath per process), the Map stays at size 0 or 1, so there is no practical leak. However if callers ever pass different paths across the lifetime of the process, each resolved Promise remains in the Map indefinitely. Fix: after the chain for a path resolves (in the .catch keeper on line 53-56), check if the stored chain is the same promise and if so delete the key, OR document at the Map declaration that the single-path usage invariant makes unbounded growth impossible.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/scheduler/scheduler-concurrency.test.ts",
+          "line": 89,
+          "severity": "low",
+          "category": "test-brittleness",
+          "title": "observedMaxActive === 2 assertion is not hermetically guaranteed; relies on timing",
+          "body": "The test at line 60-90 asserts observedMaxActive === 2 (strict equality). The two drain workers start concurrently via Promise.all, but the actual increment of active happens inside tick(), which is reached only after fire() awaits runOrchestratorTick wrapping the tick call. If runOrchestratorTick has async work before invoking tick (e.g., a DB write or any await), drain worker 1 could conceivably reach the active += 1 line, sleep 100ms, and complete before drain worker 2 even starts its tick body \u2014 producing observedMaxActive === 1. The 100ms sleep makes this extremely unlikely in practice, but the test gives no explicit synchronization guarantee that both ticks are active simultaneously. A more hermetic approach: use explicit gates (Promises resolved by the test) so tick A does not complete until tick B has also started, then assert max active was 2.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-r2": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T00:06:15Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:57:17Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T23:57:15Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T00:06:13Z",
+      "test_runner": "bin-test",
+      "fingerprint": "fcdf94c30fc115754cc4816acfa492f0",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "tests/helpers/latch.ts"
+      ],
+      "duration_ms": 536000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 11984.0
+}
