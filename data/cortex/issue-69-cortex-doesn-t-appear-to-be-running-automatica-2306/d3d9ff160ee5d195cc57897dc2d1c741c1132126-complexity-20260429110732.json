@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-69-cortex-doesn-t-appear-to-be-running-automatica-2306",
+  "sha": "d3d9ff160ee5d195cc57897dc2d1c741c1132126",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T15:07:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:32Z",
+      "files_checked": 11,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "lib/agents-ui/attention-items.ts",
+          "function": "compareAttentionItems",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/scheduler-health/build-attention-item.ts",
+          "function": "buildSchedulerHealthAttentionItem",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/attention-row.tsx",
+          "function": "AttentionRow",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/attention-row.tsx",
+          "function": "AttentionRow",
+          "lines": 135,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "handleKey",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "HomeWorkbench",
+          "lines": 166,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "useWorkbenchKeyboard",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

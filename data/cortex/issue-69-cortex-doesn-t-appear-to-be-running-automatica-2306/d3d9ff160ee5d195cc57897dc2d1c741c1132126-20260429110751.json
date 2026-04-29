@@ -1,0 +1,219 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-69-cortex-doesn-t-appear-to-be-running-automatica-2306",
+  "sha": "d3d9ff160ee5d195cc57897dc2d1c741c1132126",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T15:07:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:32Z",
+      "files_checked": 11,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "lib/agents-ui/attention-items.ts",
+          "function": "compareAttentionItems",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/scheduler-health/build-attention-item.ts",
+          "function": "buildSchedulerHealthAttentionItem",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/attention-row.tsx",
+          "function": "AttentionRow",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/attention-row.tsx",
+          "function": "AttentionRow",
+          "lines": 135,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "handleKey",
+          "complexity": 23,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "HomeWorkbench",
+          "lines": 166,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "components/home/home-workbench.tsx",
+          "function": "useWorkbenchKeyboard",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:46Z",
+      "files_checked": 7,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:33Z",
+      "files_checked": 11,
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "components/home/home-workbench.tsx",
+          "name": "type AskAboutItemDetail",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "lib/agents-ui/attention-items.ts",
+          "name": "type AttentionSource",
+          "line": 3
+        },
+        {
+          "type": "unused_import",
+          "file": "lib/agents-ui/attention-items.ts",
+          "name": "type AttentionSourceRow",
+          "line": 3
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:29Z",
+      "files_checked": 11,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "components/home/home-workbench.tsx",
+          "lines": 336,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:46Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:41Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:48Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:07:42Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:47Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:07:50Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:47Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:45Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:07:44Z",
+      "fingerprint": "5107f83384e4c4cb296211ed8cd87202",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 2000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 21.0
+}
