@@ -1,0 +1,164 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-562-rq-agents-dont-surface-claim-status-of-c",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:23:14.571Z",
+  "session_id": "a26e5784-dac3-4b8f-aa61-895168c0ee78",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 7371,
+    "output": 1621465,
+    "cache_read": 1370531027,
+    "cache_create": 33956709,
+    "est_cost_usd": 922.17972439
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#1": {
+      "tokens": 222076051,
+      "cost_usd": 137.10489069999997
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#3": {
+      "tokens": 14341563,
+      "cost_usd": 7.58577775
+    },
+    "ship#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#5": {
+      "tokens": 4671143,
+      "cost_usd": 8.1024055
+    },
+    "review#2": {
+      "tokens": 628144273,
+      "cost_usd": 401.43225175
+    },
+    "writing-plans#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#6": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#4": {
+      "tokens": 45279950,
+      "cost_usd": 30.15260364
+    },
+    "pair-build#5": {
+      "tokens": 29438578,
+      "cost_usd": 19.2296875
+    },
+    "pair-build#6": {
+      "tokens": 3050007,
+      "cost_usd": 5.27426
+    },
+    "pair-build#7": {
+      "tokens": 49209521,
+      "cost_usd": 29.338028500000004
+    },
+    "pair-build#8": {
+      "tokens": 38427229,
+      "cost_usd": 27.894778300000002
+    },
+    "review#5": {
+      "tokens": 51987859,
+      "cost_usd": 27.732927749999998
+    },
+    "review#6": {
+      "tokens": 5962992,
+      "cost_usd": 9.11027825
+    },
+    "review#7": {
+      "tokens": 5047972,
+      "cost_usd": 2.7952432500000004
+    },
+    "review#8": {
+      "tokens": 29785217,
+      "cost_usd": 16.186115
+    },
+    "review#9": {
+      "tokens": 37826757,
+      "cost_usd": 46.04197875
+    },
+    "review#10": {
+      "tokens": 6129234,
+      "cost_usd": 3.42167525
+    },
+    "review#11": {
+      "tokens": 140312411,
+      "cost_usd": 91.0787205
+    },
+    "ship#7": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#12": {
+      "tokens": 9601305,
+      "cost_usd": 5.2149665
+    },
+    "pr-feedback#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#3": {
+      "tokens": 84824510,
+      "cost_usd": 54.483135499999996
+    }
+  }
+}
