@@ -1,0 +1,116 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-551-close-the-coderabbit-vs-rq-review-gap--s",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:23:14.571Z",
+  "session_id": "a26e5784-dac3-4b8f-aa61-895168c0ee78",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 5268,
+    "output": 1130029,
+    "cache_read": 938653520,
+    "cache_create": 20702313,
+    "est_cost_usd": 618.23222809
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback": {
+      "tokens": 222076051,
+      "cost_usd": 137.10489069999997
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#3": {
+      "tokens": 14341563,
+      "cost_usd": 7.58577775
+    },
+    "ship#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#5": {
+      "tokens": 4671143,
+      "cost_usd": 8.1024055
+    },
+    "review#2": {
+      "tokens": 628144273,
+      "cost_usd": 401.43225175
+    },
+    "writing-plans#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#6": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#4": {
+      "tokens": 45279950,
+      "cost_usd": 30.15260364
+    },
+    "pair-build#5": {
+      "tokens": 29438578,
+      "cost_usd": 19.2296875
+    },
+    "pair-build#6": {
+      "tokens": 3050007,
+      "cost_usd": 5.27426
+    },
+    "pair-build#7": {
+      "tokens": 13489565,
+      "cost_usd": 9.35035125
+    }
+  }
+}
