@@ -1,0 +1,420 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "b6fbfa065b99653549632b207a68c052285728e9",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T23:26:52Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "coderabbit"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-13734",
+    "review-wip-reviewer-38774",
+    "review-wip-reviewer-41039",
+    "review-wip-reviewer-78693",
+    "review-wip-reviewer-final",
+    "review-wip-reviewer-init",
+    "review-wip-reviewer-main",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:45:38Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ]
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:37Z",
+      "files_checked": 38,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T22:50:51Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:39Z",
+      "files_checked": 38,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:35Z",
+      "files_checked": 38,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:49Z",
+      "duration_ms": 10000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:52Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T22:44:39Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T16:49:10Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:52Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-28T17:08:47Z"
+    },
+    "review-wip-reviewer-13734": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "upload.test.ts exceeds 300-line limit (323 lines) \u2014 filesize gate fails",
+          "body": "The file is 323 lines against a 300-line max. The gate fails. The three new show_branding tests (lines 223-323) are each fully self-contained and copy the same fetch-stub + spyOn boilerplate without sharing setup. Extracting a shared helper (e.g. a captureUpload() factory that sets up the mock and returns the captured FormData) would remove roughly 30-35 lines of duplication and bring the file under the limit. The existing happy-path test at line 102 already captures form data inline \u2014 a factory pattern here is consistent with how other test files in this repo use local helpers.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/upload.test.ts",
+          "line": 123,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "upload.test.ts and update.test.ts not in test-quality allow-list for process spies \u2014 gate fails",
+          "body": "The test-quality gate flags 25 instances of vi.spyOn(process.stdout/stderr/exit).mockImplementation() across upload.test.ts and update.test.ts. The allow-list in rq.config.json exempts output.test.ts, wire-command.test.ts, deal.test.ts, document.test.ts, market.test.ts, quote.test.ts, and tower.test.ts for exactly this pattern \u2014 but NOT upload.test.ts or update.test.ts. The spies are on OS I/O streams and process termination (external boundaries), so the pattern is legitimate. The fix is to add both files to the allow.test-quality list with the same reason string used by the existing exemptions: 'spies on process.stdout/stderr/exit \u2014 OS I/O streams and process termination are external boundaries, not internal code'.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 258,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "--show-branding update test omits method and URL assertions required by plan",
+          "body": "The plan (Task 3 Acceptance Criteria) states: 'Both tests assert the PATCH method and the URL match the existing happy-path shape.' The --no-show-branding test at line 219 correctly asserts captured.method === 'PATCH' and captured.url === the full URL. The --show-branding test at line 258 declares captured as { body?: unknown } only and never asserts method or URL. A future refactor that accidentally switches to a GET or changes the endpoint path would pass this test undetected. Fix: expand captured to include url and method, and add the same two assertions as the --no-show-branding test.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 26,
+          "severity": "important",
+          "category": "correctness",
+          "title": "afterEach missing vi.unstubAllGlobals() \u2014 fetch stub leaks between tests",
+          "body": "The new tests at lines 219 and 258 both call vi.stubGlobal('fetch', mockFetch). The afterEach at lines 26-30 calls vi.restoreAllMocks() but NOT vi.unstubAllGlobals(). vi.restoreAllMocks() restores spies created with vi.spyOn() but does not restore globals set with vi.stubGlobal(). The fetch stub from a new test will persist into any subsequent test that does not also stub fetch \u2014 specifically, the existing tests (lines 110-217) that already existed in the file. upload.test.ts correctly has vi.unstubAllGlobals() in its afterEach (line 27). Fix: add vi.unstubAllGlobals() to the afterEach in update.test.ts.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-38774": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "packages/rq-cli/src/commands/assets/update.test.ts",
+          "line": 220,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "Two --show-branding PATCH tests duplicate 37 lines; extract a helper like runUploadCapturingForm",
+          "body": "update.test.ts lines 220-296 contain two tests that are byte-for-byte identical except for the CLI flag (--no-show-branding vs --show-branding) and the expected body value (false vs true). The 37-line fetch setup/spy/parseAsync block is copied verbatim. upload.test.ts solved the same problem by extracting runUploadCapturingForm(extraFlags). update.test.ts should do the same: extract a runUpdateCapturingBody(extraFlags) helper inside the describe block, then reduce each test to ~3 lines. Fix: add a helper function async function runUpdateCapturingBody(extraFlags: string[]): Promise<{url: string; method: string; body: unknown}> that handles writeToken, stubGlobal, spyOn, and parseAsync, then use it in both tests.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-41039": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "packages/rq-cli/src/commander-bridge/build-option.ts",
+          "line": 23,
+          "severity": "high",
+          "category": "correctness",
+          "title": "applyFlag silently double-negates boolean flags whose name already starts with --no-",
+          "body": "The regex name.replace(/^\\-\\-/, '--no-') transforms any flag named '--no-foo' into '--no-no-foo'. Commander would then expose '--no-no-foo' (negating a phantom '--no-foo'), never register the correct positive form '--no-foo', and leave the underlying field permanently undefined -- or silently register the wrong option. No current boolean field triggers this today, but the shareable_assets_update schema has fields like clear_slug, clear_password, clear_expires_at that translate to --clear-slug etc. A future boolean field named no_cache or no_branding would produce --no-cache or --no-branding from toFlag(), and applyFlag would silently create --no-no-cache / --no-no-branding instead of the correct --cache / --no-cache pair. Fix: add a guard at the top of the boolean branch: if (name.startsWith('--no-')) { throw new Error('applyFlag: boolean flag name must not start with --no-; got: ' + name + '. Rename the field or handle it manually.'); } This fails fast at startup rather than silently producing wrong CLI behavior at runtime.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-78693": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "gates",
+          "title": "dead-code gate fails: inline type modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the literal token 'type ShareableAsset' in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements so the checker handles each correctly: 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"'.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 52,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsUploadHandler is 67 lines (max 50)",
+          "body": "The gate reports shareableAssetsUploadHandler at 67 lines against a 50-line max. The function body contains three distinct phases: (1) decode + size validation (lines 58-72), (2) form construction (lines 74-85), (3) network + response parsing (lines 87-116). Extracting a 'buildUploadForm(params, bytes)' helper (mirroring 'buildUpstreamBody' in shareable_assets_update.ts) reduces the handler body to ~30 lines and passes the gate. The form-building block (12 lines of conditional appends) is the natural extraction target.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsGetUploadInstructionsHandler is 129 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds a large static instruction payload inline \u2014 the example strings, form_fields array, and effect/on_error prose should be extracted as named constants or a builder function. This is a complexity gate violation that blocks the gate from passing.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "gates",
+          "title": "complexity gate fails: shareableAssetsReplaceFileHandler is 77 lines (max 50)",
+          "body": "File is in the diff for this branch (changed in a prior commit). Handler builds example_python, example_curl_fallback, required fields array, effect and on_error strings inline. These should be extracted to named constants or a builder, reducing the handler under 50 lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-final": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/atlas/import_extraction.ts",
+          "line": 113,
+          "severity": "ERROR",
+          "category": "style",
+          "title": "TS-1: Uint8Array cast via 'as unknown as BlobPart'",
+          "body": "Line 113: `new Blob([validated.bytes as unknown as BlobPart], ...)` uses a double-cast to satisfy the Blob constructor. Uint8Array is a valid BlobPart \u2014 the cast is both unnecessary and banned by TS-1. **Suggestion:** Pass a typed array directly without the cast: `new Blob([validated.bytes], { type: 'application/octet-stream' })`. TypeScript accepts Uint8Array[] as the Blob constructor's first argument.",
+          "confidence": 0.98
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/risklab_import.ts",
+          "line": 77,
+          "severity": "ERROR",
+          "category": "style",
+          "title": "TS-1: Uint8Array cast via 'as unknown as BlobPart'",
+          "body": "Line 77: `new Blob([bytes as unknown as BlobPart], ...)` uses a double-cast. Uint8Array is assignable to BlobPart without any cast. **Suggestion:** Change to `new Blob([bytes], { type: 'application/octet-stream' })`. Same fix as import_extraction.ts line 113.",
+          "confidence": 0.98
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/validate-extraction.ts",
+          "line": 39,
+          "severity": "ERROR",
+          "category": "style",
+          "title": "TS-3: JSON.parse result cast to Record<string, unknown> without Zod parse on same path",
+          "body": "Lines 39-44: `JSON.parse(raw)` is followed by a manual `typeof`/`Array.isArray` check and then returned as `parsed as Record<string, unknown>`. This is exactly the 'JSON.parse(...) as T' pattern TS-3 bans. The structural check is not equivalent to a Zod parse \u2014 it does not validate field types or required keys. **Suggestion:** Replace the manual check with a Zod schema: e.g. `const parsed = z.record(z.string(), z.unknown()).parse(JSON.parse(raw))`. For the non-object case, `z.record(...)` will throw a ZodError which can be caught and rethrown as the current error message.",
+          "confidence": 0.97
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/import-extraction.ts",
+          "line": 37,
+          "severity": "ERROR",
+          "category": "style",
+          "title": "TS-3: JSON.parse result cast to Record<string, unknown> without Zod parse on same path",
+          "body": "Lines 37-43 in loadExtractionJson: `JSON.parse(raw)` followed by a manual structural check and `return parsed as Record<string, unknown>`. Same banned pattern as validate-extraction.ts. **Suggestion:** Use `z.record(z.string(), z.unknown()).parse(JSON.parse(raw))` and convert ZodError to the existing toolError pattern.",
+          "confidence": 0.97
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/import.ts",
+          "line": 39,
+          "severity": "ERROR",
+          "category": "style",
+          "title": "TS-3: JSON.parse result cast to Record<string, unknown> without Zod parse on same path",
+          "body": "Lines 39-45 in loadExtractionJson: identical pattern to atlas/import-extraction.ts \u2014 manual structural check after JSON.parse with no Zod parse. **Suggestion:** Use `z.record(z.string(), z.unknown()).parse(JSON.parse(raw))`, catch ZodError, and return `toolError('VALIDATION', ...)` as the function already does for other cases. This is a copy of the atlas loadExtractionJson \u2014 both should be fixed together.",
+          "confidence": 0.97
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/risklab_list_orphans.ts",
+          "line": 84,
+          "severity": "ERROR",
+          "category": "architecture",
+          "title": "document_filename missing from ExtractionResponseSchema \u2014 cast always produces null",
+          "body": "Lines 84-85: `toOrphan` accesses `document_filename` via `(ex as { document_filename?: string | null }).document_filename`. The ExtractionResponseSchema in AtlasClient.ts (lines 37-53) does not include a `document_filename` field. Since `atlasClient.listExtractions()` returns items typed as ExtractionResponseV2 (which lacks the field), and `.passthrough()` only preserves the runtime value but TypeScript does not surface it through the inferred type, this field will be `undefined` at runtime whenever the atlas API actually returns it \u2014 it is silently dropped during Zod parsing unless the field is declared. The OrphanItem.document_filename will always be null. **Suggestion:** Add `document_filename: z.string().nullable().optional()` to ExtractionResponseSchema in AtlasClient.ts so the field is preserved through Zod's passthrough AND typed correctly. Update toOrphan's parameter type to include the field explicitly.",
+          "confidence": 0.93
+        },
+        {
+          "file": "packages/rq-tools/src/clients/AtlasClient.ts",
+          "line": 134,
+          "severity": "WARNING",
+          "category": "style",
+          "title": "TS-2: getSchema return type is Record<string, unknown> without downstream narrowing",
+          "body": "Lines 134-145: `getSchema()` returns `Promise<AtlasResult<Record<string, unknown>>>`. The SchemaResponseSchema is `z.record(z.string(), z.unknown())` \u2014 it validates the shape but produces the same opaque type. Per TS-2, domain types must not be `Record<string, unknown>` without a Zod parse converting them to a narrower type immediately afterward. The schema shapes returned by atlas are unbounded JSON-Schema objects, so full narrowing is not practical \u2014 but this should be documented with a comment explaining why the opaque type is intentional, and callers (get_schema.ts:18-20) should follow suit. **Suggestion:** Add a JSDoc comment to `getSchema()` and `GetAtlasSchemaResult.schema` explaining that the type is intentionally opaque because atlas schema shapes are unbounded JSON-Schema documents. This acknowledges the TS-2 exception without silently leaving it undocumented.",
+          "confidence": 0.85
+        }
+      ]
+    },
+    "review-wip-reviewer-init": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_get_upload_instructions.ts",
+          "line": 42,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsGetUploadInstructionsHandler exceeds 50-line function limit (129 lines)",
+          "body": "Complexity gate fails: the function body is 129 lines against a 50-line max. The function is in a changed file. The bulk of the length is the inline string-array literals for examplePython, exampleCurlFallback, required, optional, beforeUploadChecklist, afterUploadOptions, and onError \u2014 these are all data blobs, not logic. Extract each blob as a module-level const (or a small factory function) to bring the handler body under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace_file.ts",
+          "line": 36,
+          "severity": "high",
+          "category": "complexity",
+          "title": "shareableAssetsReplaceFileHandler exceeds 50-line function limit (77 lines)",
+          "body": "Complexity gate fails: the function body is 77 lines against a 50-line max. The function is in a changed file. The inline blobs for examplePython, exampleCurlFallback, required, effect, and onError can each be extracted to module-level consts (parameterized where they embed endpoint/project_id). That alone would bring the handler under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/test/tools/risklab/shareable_assets_shared.test.ts",
+          "line": 25,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "renameUpstreamShareableAsset is only tested for existence, not behavior",
+          "body": "The third test case 'still exports renameUpstreamShareableAsset' only checks typeof === 'function'. The test was added as a refactor-safety sentinel, but it gives false confidence: a rename of a property in the return shape, a missing delete of share_token, or a logic error in the field mapping would all pass. Since this helper is the central output formatter used by shareable_assets_list, _update, and the forthcoming shareable_assets_upload handler, one behavioral test should be added: pass a record with {id, share_url, is_password_protected, share_token, ...extras} and assert {asset_id, url, has_password, ...extras} with share_token absent.",
+          "confidence": "high"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_upload.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "correctness",
+          "title": "dead-code gate fails: inline 'type' modifier in mixed import confuses checker",
+          "body": "The dead-code checker (check_unused_imports.py) parses 'import { ShareableAssetSchema, type ShareableAsset }' by splitting on comma then stripping 'as' aliases \u2014 it does NOT strip the 'type' keyword on individual specifiers, so it looks for the token 'type ShareableAsset' (with the prefix) as a bare identifier in the file body. That token never appears, so the checker reports it unused. The import IS genuinely used at line 56 (Promise<ToolResponse<ShareableAsset>>). Fix: split into two import statements \u2014 'import { ShareableAssetSchema } from \"./schemas\"' and 'import type { ShareableAsset } from \"./schemas\"' \u2014 which the checker handles correctly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "packages/rq-tools/src/tools/risklab/shareable_assets_replace.ts",
+          "line": 19,
+          "severity": "critical",
+          "category": "dead-code",
+          "title": "Unused import: type ShareableAsset causes dead-code gate failure",
+          "body": "The import 'type ShareableAsset' at line 19 is never referenced in the file. The dead-code gate fails with this violation. Fix: remove the unused import.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T17:06:10Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:26:51Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T17:42:20Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:09:44Z",
+      "scanned_files": 15,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:50:49Z",
+      "test_runner": "npm-test",
+      "fingerprint": "ea6400c1023b78b1ad6e497e2133fd72",
+      "failed_subprojects": 0,
+      "missing_tests": 3,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "packages/rq-cli/src/commands/atlas/import-extraction.ts",
+        "packages/rq-cli/src/commands/atlas/validate-extraction.ts",
+        "packages/rq-cli/src/commands/risklab/list-orphans.ts"
+      ],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 625472.0
+}
