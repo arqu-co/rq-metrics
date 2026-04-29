@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "204940ca04ad9eb9ee3634b908817c84c3261393",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-29T17:21:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:21:09Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dfc12f4d6770d70d43db88e6092a377b",
+      "test_failures": 1,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "============================================================\nPREFLIGHT: DirectBase\n============================================================\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2713 TestService connection verified\n  Connected to TestService\n...\n============================================================\nPREFLIGHT: DirectBase\n============================================================\n..\n============================================================\nPREFLIGHT: PartialImpl\n============================================================\n............................................................................................................................................................................................................................../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n./Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.................................................................  SL disclosures: 51\n.  SL disclosures: 51\n  SL disclosures: 51\n................................Line coverage (89.83%) is below the expected minimum coverage (95.00%).\nBranch coverage (78.98%) is below the expected minimum coverage (90.00%).\nSimpleCov failed with exit 2 due to a coverage related error\n\n\nFinished in 419.882244s, 5.4920 runs/s, 14.6875 assertions/s.\n2306 runs, 6167 assertions, 1 failures, 0 errors, 0 skips\nCoverage report generated for Minitest to /Users/clee/Documents/billing-redux/coverage.\nLine Coverage: 89.83% (3959 / 4407)\nBranch Coverage: 78.99% (981 / 1242)"
+        }
+      ],
+      "missing_tests_details": [
+        "app/controllers/admin/forms_library_controller.rb"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

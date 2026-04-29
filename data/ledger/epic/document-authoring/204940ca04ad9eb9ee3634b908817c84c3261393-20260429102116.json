@@ -1,0 +1,204 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "204940ca04ad9eb9ee3634b908817c84c3261393",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-29T17:21:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "lint",
+    "markdown",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-compliance",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:08:02Z",
+      "files_checked": 240,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "db/migrate/20260429000001_phase_7f_b_forms_documents_library.rb",
+          "function": "up",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:21:14Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 144,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:08:03Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:59:11Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:07:54Z",
+      "files_checked": 242,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:19:52Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:08:10Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/clee/Documents/billing-redux/db/migrate/20260429000001_phase_7f_b_forms_documents_library.rb:17:15: C: [Correctable] Layout/SpaceBeforeFirstArg: Put one space between the method name and the first argument.\n"
+        }
+      ]
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:21:14Z",
+      "duration_ms": 0
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:46:53Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-24T22:57:36Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-06T20:59:11Z",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:27:40Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-17T18:01:13Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-17T17:55:07Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:27:40Z",
+      "scanned_files": 0
+    },
+    "spec-compliance": {
+      "status": "unknown",
+      "findings": 0,
+      "findings_details": []
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T04:48:44Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:27:37Z",
+      "scanned_files": 93,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:21:09Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dfc12f4d6770d70d43db88e6092a377b",
+      "test_failures": 1,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "============================================================\nPREFLIGHT: DirectBase\n============================================================\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2717 TestService: Missing required environment variables: TEST_API_KEY, TEST_SECRET\n.\n============================================================\nPREFLIGHT: TestService\n============================================================\n\n\u2713 TestService connection verified\n  Connected to TestService\n...\n============================================================\nPREFLIGHT: DirectBase\n============================================================\n..\n============================================================\nPREFLIGHT: PartialImpl\n============================================================\n............................................................................................................................................................................................................................../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n./Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n.................................................................  SL disclosures: 51\n.  SL disclosures: 51\n  SL disclosures: 51\n................................Line coverage (89.83%) is below the expected minimum coverage (95.00%).\nBranch coverage (78.98%) is below the expected minimum coverage (90.00%).\nSimpleCov failed with exit 2 due to a coverage related error\n\n\nFinished in 419.882244s, 5.4920 runs/s, 14.6875 assertions/s.\n2306 runs, 6167 assertions, 1 failures, 0 errors, 0 skips\nCoverage report generated for Minitest to /Users/clee/Documents/billing-redux/coverage.\nLine Coverage: 89.83% (3959 / 4407)\nBranch Coverage: 78.99% (981 / 1242)"
+        }
+      ],
+      "missing_tests_details": [
+        "app/controllers/admin/forms_library_controller.rb"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 77000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1974123.0
+}
