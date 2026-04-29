@@ -1,0 +1,63 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7664-sandbox-safety",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:23:14.736Z",
+  "session_id": "6289ae76-a9c8-4961-a4da-a4b3d51bdf04",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 1593,
+    "output": 452127,
+    "cache_read": 150084036,
+    "cache_create": 3363863,
+    "est_cost_usd": 103.50759414
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback": {
+      "tokens": 136624678,
+      "cost_usd": 94.16993513999999
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#3": {
+      "tokens": 12940593,
+      "cost_usd": 6.861685
+    },
+    "review#2": {
+      "tokens": 4336348,
+      "cost_usd": 2.475974
+    }
+  }
+}
