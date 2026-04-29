@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7667-gate-tooling-drift",
+  "sha": "7980e74a9b114a6217bdaca2c472919eff36959c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T10:34:51Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T10:34:51Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_bin_format.sh:38:27: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:39:35: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:43:3: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:49:35: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:50:27: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:56:31: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:57:41: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:59:35: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_format.sh:64:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_lint_shfmt.sh:39:21: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_lint_shfmt.sh:48:17: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_lint_shfmt.sh:49:55: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_bin_lint_shfmt.sh:50:41: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/test_bin_format.sh.orig ./plugins/rq/scripts/test_bin_format.sh\n--- ./plugins/rq/scripts/test_bin_format.sh.orig\n+++ ./plugins/rq/scripts/test_bin_format.sh\n@@ -39,8 +39,8 @@\n \"$FORMAT\" --check >/dev/null 2>&1 && ok \"check mode exits 0 on empty tree\" || fail \"check mode failed on empty tree\"\n \n # Source bin/.shfmt-flags and verify array shape (Task 1.1 acceptance).\n-(source bin/.shfmt-flags && [ \"${#SHFMT_FLAGS[@]}\" -eq 3 ]) \\\n-  && ok \"shfmt-flags array has 3 elements\" || fail \"shfmt-flags array shape wrong\"\n+(source bin/.shfmt-flags && [ \"${#SHFMT_FLAGS[@]}\" -eq 3 ]) &&\n+  ok \"shfmt-flags array has 3 elements\" || fail \"shfmt-flags array shape wrong\"\n \n # Seed a properly-formatted file \u2192 both modes exit 0.\n printf '#!/usr/bin/env bash\\nfoo() {\\n  echo hi\\n}\\n' >clean.sh\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
