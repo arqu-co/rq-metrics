@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/cr-feedback-batch-done-status",
+  "sha": "152389b3502e1cb3535eed4b1eba33317cfdf6b2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T13:19:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/pair-build/SKILL.md",
+      "line": 364,
+      "rule": "FILE_SIZE",
+      "message": "File is 364 lines, exceeding the 300-line maximum. File was 355 lines before this task; writer added 9 net lines without condensing. The constraint 'No new files except the test script' means the fix must condense prose within the file itself \u2014 the 'Why per-round haiku is safe' rationale block (lines 244-244) is the most compressible addition."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:19:37Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
