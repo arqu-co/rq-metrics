@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/critic-concurrency-query-ratelimit-checks",
+  "sha": "3fda3198bc743da99a123d369088cafc55c2dae1",
+  "user": "Michael Cheung",
+  "user_email": "mcheung610@gmail.com",
+  "timestamp": "2026-04-29T19:52:40Z",
+  "phase": "ship",
+  "run_number": 6,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "plan",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:15:42Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T18:01:45Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:15:43Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:15:41Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:01:45Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:37Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:52:37Z",
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T18:10:20Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:39Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:15:48Z",
+      "scanned_files": 35
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:16:04Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "duration_seconds": 9418.0
+}
