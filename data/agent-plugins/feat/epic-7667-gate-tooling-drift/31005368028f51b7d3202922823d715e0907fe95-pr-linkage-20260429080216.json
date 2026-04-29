@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7667-gate-tooling-drift",
+  "sha": "31005368028f51b7d3202922823d715e0907fe95",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T12:02:16Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "pr-linkage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "pr-linkage"
+  ],
+  "gates": {
+    "pr-linkage": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": null
+}
