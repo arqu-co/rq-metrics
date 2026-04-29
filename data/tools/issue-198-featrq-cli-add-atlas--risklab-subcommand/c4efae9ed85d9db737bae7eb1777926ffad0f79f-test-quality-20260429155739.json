@@ -1,0 +1,394 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "c4efae9ed85d9db737bae7eb1777926ffad0f79f",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T22:57:39Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:57:39Z",
+      "scanned_files": 10,
+      "violations": 60,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 86,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 87,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 88,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 125,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 126,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 127,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 163,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 164,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 165,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 202,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 203,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 204,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "      const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 238,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 239,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 240,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 264,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 265,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 266,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 321,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 322,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 323,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 372,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 373,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 374,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 411,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 412,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 413,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 440,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 441,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 442,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 468,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 469,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/atlas.test.ts",
+          "line": 470,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const exitSpy = vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 92,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 93,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 94,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 147,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 148,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 149,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 192,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 193,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 194,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 231,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 232,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 233,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 261,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 262,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 263,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 307,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 308,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 309,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 348,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 349,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stderrSpy = vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 350,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 416,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 417,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 418,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 464,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    const stdoutSpy = vi.spyOn(process.stdout, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 465,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process.stderr, \"write\").mockImplementation(() => true);"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/risklab.test.ts",
+          "line": 466,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(process, \"exit\").mockImplementation((() => {}) as typeof process.exit);"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
