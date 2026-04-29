@@ -1,0 +1,187 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-164-clicking-a-branch-should-focus-the-terminal-2306",
+  "sha": "c8a35993f2c1e04d4393a061a8caafc29643b822",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T16:02:49Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-17788",
+    "review-wip-reviewer-4389",
+    "review-wip-reviewer-57423",
+    "review-wip-reviewer-602",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:05Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:02:47Z",
+      "coverage_tool": "js",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:06Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:04Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:13Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:12Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:17Z"
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:25:49Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:20:14Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:16Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T16:01:11Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-17788": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-4389": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-57423": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/App.tsx",
+          "line": 165,
+          "severity": "low",
+          "category": "resource-leak",
+          "title": "rAF handle not cancelled on unmount \u2014 focus fires on potentially disposed terminal",
+          "body": "requestAnimationFrame is scheduled without storing the handle. If the component unmounts in the ~16ms between the handleSelect call and rAF callback, the callback fires and calls terminal.focus() on a potentially disposed xterm Terminal. xterm focus() is a no-op when _helperContainer is null (post-dispose), so no crash; but the call is unexpected. Fix: store the rAF handle in a ref and cancel it in a useEffect cleanup, or accept the benign no-op as documented.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 83,
+          "severity": "medium",
+          "category": "test-correctness",
+          "title": "Positive focus test depends on jsdom rAF timing without fake timers",
+          "body": "The test wraps handleSelect in act() then awaits waitFor(() => expect(focus).toHaveBeenCalledTimes(1)). The production code schedules focus via requestAnimationFrame, not a Promise or React state update. act() does not flush rAF callbacks in React Testing Library / jsdom. waitFor retries on a polling interval and relies on jsdom processing the rAF callback between retries. This works today because jsdom implements rAF via setTimeout(0), so a waitFor retry will find the focus call. But it is fragile: if the jsdom rAF implementation changes, or if the environment processes rAF differently (e.g., under --pool=vmForks), the test can become a timing-dependent flake. Fix: use vi.useFakeTimers() so that rAF callbacks are flushed deterministically inside act(), or use vi.runAllTimers() after act() to drain the rAF queue before asserting. This makes the test immune to jsdom rAF scheduling behaviour.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-602": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:02:48Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:16Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:51:13Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:02:46Z",
+      "fingerprint": "1827cf6d03051f4c84e779c0afe2e4fc",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 95000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2554.0
+}
