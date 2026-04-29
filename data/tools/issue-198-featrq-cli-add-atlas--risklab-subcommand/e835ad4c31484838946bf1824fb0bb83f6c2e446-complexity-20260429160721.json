@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "e835ad4c31484838946bf1824fb0bb83f6c2e446",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T23:07:21Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:07:21Z",
+      "files_checked": 38,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "packages/rq-tools/src/tools/atlas/import_extraction.ts",
+          "function": "importExtractionHandler",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
