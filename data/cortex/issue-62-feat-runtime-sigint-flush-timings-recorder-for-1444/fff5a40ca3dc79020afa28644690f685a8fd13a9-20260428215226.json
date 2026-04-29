@@ -1,0 +1,347 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-62-feat-runtime-sigint-flush-timings-recorder-for-1444",
+  "sha": "fff5a40ca3dc79020afa28644690f685a8fd13a9",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T01:52:26Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-37161",
+    "review-wip-reviewer-82696",
+    "review-wip-reviewer-88432",
+    "review-wip-reviewer-88784",
+    "review-wip-reviewer-9999",
+    "review-wip-reviewer-round2",
+    "review-wip-reviewer-round4",
+    "review-wip-reviewer-round5",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:45:39Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 93000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:44:06Z",
+      "coverage_tool": "js",
+      "files_checked": 10,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:43:54Z",
+      "files_checked": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:14Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 395000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:22Z",
+      "duration_ms": 8000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:22Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:24Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T01:52:22Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:24Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-37161": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-82696": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "tests/integration/sigint-flush.test.ts",
+          "line": 100,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "waitForExit races: child may exit before the exit listener is attached",
+          "body": "child.kill('SIGINT') fires on line 56, then waitForExit attaches child.on('exit',...) on line 101. Node.js EventEmitter does not replay past events, so if the child exits in the window between kill() and the listener attachment, the promise never resolves and the test hangs for 15 seconds before timing out. Fix: check child.exitCode/child.signalCode before attaching the listener and resolve immediately if already exited.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-88432": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "lib/scheduler/scheduler.test.ts",
+          "line": 211,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "trackingRegistry logic duplicated verbatim from orchestrator-runner-inflight.test.ts",
+          "body": "The inline registry at scheduler.test.ts:211-224 is byte-for-byte identical to the `trackingRegistry()` helper in orchestrator-runner-inflight.test.ts:33-55. Both implement the same seenSizes tracking pattern (push incremented count on register, push decremented count on deregister). If the tracking logic changes \u2014 e.g., to handle concurrent registration, or to track a new event \u2014 it must be updated in two places. Fix: extract `trackingRegistry()` into `lib/runtime/inflight-tick-registry-test-helper.ts` (or `tests/helpers/tracking-registry-test-helper.ts`), export it, and import it from both test files. The function's return type `{ registry: InflightTickRegistry; seenSizes: number[] }` is stable and easy to share.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/scheduler.ts",
+          "line": 67,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "timingsLogPath construction duplicated between bin/agent-tick.ts and bin/scheduler.ts",
+          "body": "bin/agent-tick.ts defines a private `resolveTimingsLogPath(rootDir)` helper (line 21-23) that returns `resolve(rootDir, '.cortex', 'timings.jsonl')`. bin/scheduler.ts inlines the identical expression at line 67: `resolve(rootDir, '.cortex', 'timings.jsonl')`. The Round 2 work extracted `resolveDatabasePath` and `warnIfNoAuth` into bin/cli-helpers.ts for exactly this reason \u2014 this path resolution belongs there too. If the timings log location ever changes (e.g., moved from .cortex/ to .cortex/timings/), only one of the two bin scripts will be updated. Fix: move `resolveTimingsLogPath` into bin/cli-helpers.ts, export it, and import it from both bin/agent-tick.ts (replacing the private function) and bin/scheduler.ts (replacing the inline expression). Add a test case in bin/cli-helpers.test.ts.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-88784": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 12,
+      "findings_details": [
+        {
+          "file": "lib/runtime/sigint-flush-handler.ts",
+          "line": 34,
+          "severity": "high",
+          "category": "error-handling",
+          "title": "appendTimingsLogSync throws inside SIGINT handler \u2014 kill() never runs and process exits abnormally",
+          "body": "flushAllSync() on line 34 calls appendTimingsLogSync, which calls mkdirSync/appendFileSync. If either throws (disk full, ENOTDIR, permission denied), the exception propagates out of the synchronous SIGINT handler. The kill(process.pid, 'SIGINT') on line 36 never executes, so the process exits with an uncaught-exception path instead of SIGINT (exit code 1, not 130). The integration test would also fail because the child exits with code 1, not signal SIGINT/code 130. Fix: wrap flushAllSync() in a try/catch inside the handler; swallow or log the error, then always execute removeListener + kill regardless of flush success.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/sigint-flush-handler.ts",
+          "line": 35,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Re-entrant SIGINT: double Ctrl-C between removeListener and kill loses the flush",
+          "body": "The handler removes itself (line 35) and then calls kill (line 36). Between those two lines there is effectively no window in synchronous code, BUT if a second SIGINT arrives from the OS before kill() is processed, the default handler terminates immediately. More critically: if flushAllSync() takes a non-trivial amount of time (large JSON.stringify, slow sync write), a user double-tapping Ctrl-C in that window would fire the handler again before removeListener executes (because removeListener hasn't run yet). The handler IS still registered during the flush. A second SIGINT during flushAllSync() causes a second recursive flush attempt on partially-written state. Fix: move removeListener to be the FIRST operation in the handler, before flushAllSync(), so a second SIGINT hits Node's default termination instead of recursing.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/sigint-flush-handler.ts",
+          "line": 36,
+          "severity": "low",
+          "category": "portability",
+          "title": "process.kill(pid, 'SIGINT') does not work on Windows",
+          "body": "POSIX signals are not supported on Windows. process.kill() with a signal name throws or behaves differently on Windows. The comment in bin/scheduler.ts and the CLAUDE.md both target macOS/Linux (launchd), so Windows is likely out of scope, but there is no guard or documented exclusion. If cortex ever runs on Windows CI or a developer's Windows machine, this will throw a runtime error inside the SIGINT handler. Fix: document the POSIX-only assumption with a comment; optionally guard with process.platform !== 'win32' and fall back to process.exit(130).",
+          "confidence": "medium"
+        },
+        {
+          "file": "bin/scheduler.ts",
+          "line": 76,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "SIGTERM uninstalls sigintHandle BEFORE scheduler.stop() \u2014 a hung tick disables Ctrl-C permanently",
+          "body": "shutdown() calls sigintHandle.uninstall() on line 76, then awaits scheduler.stop() on line 77. If scheduler.stop() blocks indefinitely (because the inflight tick is hung on a slow LLM call), the developer has no way to interrupt: SIGTERM already fired (launchd) and SIGINT is now uninstalled. The only escape is SIGKILL. The launchd TimeoutStopInterval (default 5s on macOS) will eventually SIGKILL the process, but this silently drops the timing flush that SIGINT was added to provide. Fix: move sigintHandle.uninstall() to AFTER scheduler.stop() resolves, inside the shutdown function. This way SIGINT during a long SIGTERM shutdown still flushes + exits promptly.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/inflight-tick-registry.ts",
+          "line": 51,
+          "severity": "low",
+          "category": "correctness",
+          "title": "flushAllSync iterates entries.values() which is a snapshot \u2014 safe from mutation hazard",
+          "body": "The Map iterator in flushAllSync (line 51) produces values from the live Map. If SIGINT fires between register() and flushAllSync() on a concurrent path, the entry would or would not appear depending on timing. However, since flushAllSync is only called from the SIGINT handler (synchronous, single-threaded), there is no concurrent JS mutation possible during iteration. Node's event loop is suspended during a synchronous signal handler. This is NOT a bug \u2014 noting it as info for documentation clarity.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/inflight-tick-registry.ts",
+          "line": 79,
+          "severity": "low",
+          "category": "design",
+          "title": "buildAggregate is duplicated between inflight-tick-registry.ts and orchestrator-runner.ts",
+          "body": "buildAggregate exists in both inflight-tick-registry.ts (line 79) and orchestrator-runner.ts (line 178). The comment on line 74 acknowledges this is intentional to keep signal-path code independent. However, if the logic diverges over time, timings from killed vs completed ticks will be computed differently with no tests catching the drift. The comment explanation is reasonable justification, but the risk of silent divergence is real. This is a design trade-off, not a bug.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/orchestrator-runner.ts",
+          "line": 154,
+          "severity": "medium",
+          "category": "error-handling",
+          "title": "writeTimingsLog exception propagates out of executeTickAndLog after inflightHandle is deregistered \u2014 caller sees unexpected throw",
+          "body": "In executeTickAndLog (line 129), the finally block on line 155 deregisters the inflight handle. But writeTimingsLog (line 154) runs BEFORE the finally. If writeTimingsLog throws (e.g., disk full, ENOTDIR as tested in orchestrator-runner-inflight.test.ts line 111), the exception propagates out of executeTickAndLog and then out of runOrchestratorTick (line 109: 'if (caught !== null) throw caught.error'). Wait \u2014 actually the flow is: writeTimingsLog throws -> caught is NOT set (inner try already handled tick error) -> finally runs deregister -> exception propagates out of executeTickAndLog as an uncaught throw. Then at runOrchestratorTick line 109, caught is null so it does NOT rethrow caught.error... but the exception from executeTickAndLog itself propagates. The test at line 132 explicitly checks this DOES throw, so it's the documented contract. However: if the tick SUCCEEDS but writeTimingsLog throws, the run is already marked 'done' in the DB, but runOrchestratorTick throws to its caller. The scheduler's fire() swallows this as a tick failure (scheduler.ts line 120), so the DB shows success but the scheduler logs an error. This is a correctness inconsistency: the DB row says done but the error log says failed. Fix: wrap writeTimingsLog in a try/catch that logs but does not rethrow \u2014 a timing log write failure should not poison a successful tick.",
+          "confidence": "high"
+        },
+        {
+          "file": "tests/fixtures/sigint-flush-fixture.ts",
+          "line": 69,
+          "severity": "low",
+          "category": "reliability",
+          "title": "setInterval keepalive in fixture leaks an orphan tsx process if flush fails",
+          "body": "The fixture uses setInterval(() => {}, 1_000_000) on line 69 to keep the event loop alive. If the SIGINT flush handler fails for any reason (e.g., the kill() doesn't fire, or an exception in flushAllSync prevents re-raise), the fixture process hangs indefinitely. The integration test's 15s timeout (line 69 of sigint-flush.test.ts) will reject, but the tsx child process remains as an orphan \u2014 there is no cleanup code to kill it on timeout. The afterEach only rmSync the temp directory, not the child process. Fix: in the integration test, track the child reference and call child.kill() in afterEach as a safety net, or use an AbortController-based timeout that kills the child on test timeout.",
+          "confidence": "high"
+        },
+        {
+          "file": "tests/integration/sigint-flush.test.ts",
+          "line": 30,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Orphan child process not killed in afterEach \u2014 hung fixture leaks tsx subprocess",
+          "body": "afterEach (line 28) only cleans up the temp directory with rmSync. If the child process spawned at line 35 is still running when the test times out or throws (e.g., waitForReady rejects), the child is never killed. The tsx process hangs in the background consuming resources. Fix: store the child reference at describe scope, add afterEach cleanup: 'if (child && !child.killed) child.kill()'",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/sigint-flush-handler.test.ts",
+          "line": 10,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "activeHandle not set before installSigintFlushHandler \u2014 if the call throws, afterEach skips cleanup",
+          "body": "activeHandle is set to handle AFTER installSigintFlushHandler returns (line 42, 64). If installSigintFlushHandler throws (unlikely but possible), activeHandle remains null and the SIGINT listener is left installed on process for subsequent tests. This is low risk since the function is simple, but the pattern is fragile. Not an issue with the current implementation.",
+          "confidence": "low"
+        },
+        {
+          "file": "tests/fixtures/sigint-flush-fixture.ts",
+          "line": 23,
+          "severity": "medium",
+          "category": "complexity",
+          "title": "main() is 52 lines \u2014 exceeds 50-line function limit (gate FAIL)",
+          "body": "The complexity gate reports main() in sigint-flush-fixture.ts is 52 lines, violating the 50-line per-function rule. The function sets up the DB, builds the manifest, registers the registry, installs the handler, and runs the tick body inline. Fix: extract the tick body (the async closure passed to runOrchestratorTick) into a named function makeTick(ctx, rootDir, timingsPath) to bring main() under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "docs/plans/2026-04-28-issue-62-feat-runtime-sigint-flush-timings-recorder-for-1444.md",
+          "line": 3,
+          "severity": "low",
+          "category": "style",
+          "title": "Plan doc has 134 markdown violations \u2014 gate FAIL (MD013 line length, MD034 bare URLs, MD060)",
+          "body": "The markdown gate reports 134 new violations in the plan document introduced by this PR. The violations are structural: MD013 (line too long), MD034 (bare URLs), MD060 (fenced code block style). This file is the plan document, not source code, but the gate still fails on it. Fix: run markdownlint --fix on the plan doc, or configure the markdownlint config to exclude docs/plans/ if prose documents are not intended to comply with the same formatting rules as technical docs.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-round2": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "lib/runtime/inflight-tick-registry.ts",
+          "line": 50,
+          "severity": "high",
+          "category": "correctness",
+          "title": "flushAllSync aborts on first entry error, silently skipping remaining entries",
+          "body": "flushAllSync() iterates entries and calls flushOne() for each. If flushOne() throws (appendTimingsLogSync can throw on disk full, ENOTDIR, or permission error), the exception propagates immediately out of the for..of loop. The outer catch in sigint-flush-handler.ts catches it at the flushAllSync() boundary, but by then all entries after the failing one have been silently skipped. In a scheduler with two concurrent ticks, only the first entry (Map iteration order = insertion order) gets flushed; the second is lost. Fix: wrap flushOne() in a try/catch inside the loop so each entry is attempted independently regardless of whether earlier entries failed.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/scheduler-install",
+          "line": 71,
+          "severity": "medium",
+          "category": "logic",
+          "title": "SIGINT exit 130 causes launchd to restart the scheduler",
+          "body": "KeepAlive.SuccessfulExit=false means launchd restarts the job on any non-zero exit code. SIGINT produces exit 130 (non-zero). If a developer sends SIGINT to the launchd-managed scheduler process (e.g. via kill -INT), the scheduler flushes timings, exits 130, and launchd restarts it after 30s (ThrottleInterval). SIGTERM is the correct shutdown signal for the launchd-managed daemon (goes through graceful drain and exits 0 \u2014 no restart). The plist has no comment documenting this constraint. Fix: add a comment in the plist template block explaining that SIGTERM is the correct launchd shutdown signal and SIGINT is a developer-only escape hatch for interactive sessions that intentionally exits non-zero. Also document this in the CLAUDE.md scheduler section.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-round4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-round5": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T21:02:33Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:52:23Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:44:05Z",
+      "scanned_files": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:44:04Z",
+      "fingerprint": "d825b405c693c055aa54813d55c0dc95",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 10000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 17391.0
+}
