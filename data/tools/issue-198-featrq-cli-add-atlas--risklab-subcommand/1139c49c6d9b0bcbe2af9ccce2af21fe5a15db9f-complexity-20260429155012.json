@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "1139c49c6d9b0bcbe2af9ccce2af21fe5a15db9f",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T22:50:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:50:12Z",
+      "files_checked": 31,
+      "violations": 7,
+      "violations_details": [
+        {
+          "file": "packages/rq-cli/src/commands/atlas/import-extraction.ts",
+          "function": "execute",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/atlas/validate-extraction.ts",
+          "function": "registerAtlasValidateExtraction",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/import.ts",
+          "function": "execute",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "packages/rq-cli/src/commands/risklab/import.ts",
+          "function": "execute",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/atlas/import_extraction.ts",
+          "function": "importExtractionHandler",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/risklab_import.ts",
+          "function": "riskLabImportHandler",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "packages/rq-tools/src/tools/risklab/risklab_list_orphans.ts",
+          "function": "riskLabListOrphansHandler",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
