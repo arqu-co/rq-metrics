@@ -1,0 +1,378 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "dfe42642f9f97f7353a78066128a21ba6e68587f",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T01:57:40Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-wip-reviewer-43338",
+    "review-wip-reviewer-45447",
+    "review-wip-reviewer-97729",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:53:51Z",
+      "files_checked": 78,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T01:57:36Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:53:56Z",
+      "files_checked": 78,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:53:47Z",
+      "files_checked": 79,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:57:36Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:54:10Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 14000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:57:39Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T00:37:14Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T07:58:55Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T00:32:09Z",
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:57:38Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-43338": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "line": 29,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "RowList accepts parent props-object as a prop named 'props'",
+          "body": "RowList receives its parent's entire props bag as a prop named `props` (line 29-37). This creates a nested props-object anti-pattern: callers write `<RowList props={props} .../>` which is both misleading and violates the principle that every sub-component should declare its own contract. Any prop change in RiskLayersPaneBodyProps silently tunnels through without TypeScript seeing the dependency chain. The `hoveredConcernLevel`, `onConcernLevelHoverEnter`, and `onConcernLevelHoverLeave` fields are accessed via `props.hoveredConcernLevel` inside RowList but not destructured at the call site, making the data-flow hard to follow.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/use-georisk-widget-hooks.ts",
+          "line": 80,
+          "severity": "low",
+          "category": "react",
+          "title": "mapInteractionsRef in useEffect dependency array",
+          "body": "The `useConcernLevelMapRelay` effect lists `mapInteractionsRef` in its dependency array (line 80). A React ref object is a plain mutable object whose identity is stable for the lifetime of the component \u2014 it never changes, so including it as a dependency is misleading and adds unnecessary noise to the deps list. React docs explicitly state refs should not be in dependency arrays (they can change imperatively without triggering a re-render anyway). The effect already uses `mapInteractionsRef.current` inside, which is correct; the ref itself does not need to be a dep.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapCanvas.tsx",
+          "line": 104,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "MapCanvasOverlays and MapCanvasContent receive parent's props-object as a prop named 'props'",
+          "body": "Both MapCanvasOverlays (line 104) and MapCanvasContent (line 143-148) accept a field `props: MapCanvasProps` \u2014 the parent component's entire props bag forwarded under the name `props`. This is the same props-tunneling anti-pattern as RiskLayersPaneBody: calling code writes `<MapCanvasOverlays props={props} />` and inside the function, accesses `props.props.activeFeatureSetGroup`, creating doubly-nested access that is hard to read and follow. Any change to MapCanvasProps silently reaches every sub-component without TypeScript seeing a named boundary. Each sub-component should declare its own contract instead.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "line": 40,
+          "severity": "low",
+          "category": "dry",
+          "title": "UnifiedRiskLayerSelector and RiskLayerSelector share identical DOM structure",
+          "body": "Both UnifiedRiskLayerSelector (lines 40-73) and RiskLayerSelector (lines 81-113) render identical markup: `<label className=...><span>Risk Layer:</span><select ...><option value='none'>...</option>{...map}</select><span>{isLoading && <Spinner/>}</span></label>`. The only differences are the option-rendering logic (mapped from RiskLayerOption vs RiskLayerItem) and the data-event attribute. Two components with identical structural templates is a DRY violation \u2014 a single base component accepting a typed `options` array would eliminate the duplication and ensure future styling changes apply consistently.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.ts",
+          "line": 92,
+          "severity": "low",
+          "category": "react",
+          "title": "mapRef in useAutoFitOnOverlayChange dependency array",
+          "body": "The `useAutoFitOnOverlayChange` effect includes `mapRef` in its dependency array (line 92). A React ref object is a stable, mutable container whose identity never changes across renders \u2014 it should not appear in dependency arrays. The comment in `useMapPointerFeedback` (line 180) in the same file explicitly acknowledges ref identity is stable. Including `mapRef` here creates a misleading signal that the effect will re-run when the map changes (it won't \u2014 the ref identity doesn't change), and suppresses the linter's ability to detect actual missing deps.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-45447": {
+      "status": "complete",
+      "findings": 9,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPane.tsx",
+          "line": 83,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "useExpandedState: setExpanded captures onChange by stale closure",
+          "body": "useExpandedState creates a new setExpanded function on every render of RiskLayersPane because it is a plain function (not useCallback) that closes over onChange. When RiskLayersPane re-renders, any saved reference to setExpanded (e.g., the arrow passed to buildAriaProps or onCollapse) holds the setExpanded from the previous render, which still calls the previous render's onChange. In practice the arrows in buildAriaProps and onCollapse are recreated each render so this is not observable in the current usage \u2014 but it is a latent correctness problem if setExpanded is ever stored in a ref or passed to a child with React.memo. The fix is to use a useCallback-based setter or wrap onChange in a ref so the inner function is stable.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/use-georisk-widget-hooks.ts",
+          "line": 52,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "useConcernLevelMapRelay reads relay at effect start, misses populate-after-mount case",
+          "body": "The effect reads mapInteractionsRef.current at the top of the callback (line 53: const relay = mapInteractionsRef.current). If hoveredConcernLevel or segSnapshot change before the map has mounted and populated the ref, relay is null and the effect bails early via 'if (!relay) return'. This is not inherently wrong \u2014 the clear case is also fine since relay is null \u2014 but if the hover state is set before the map loads (e.g., the user hovers a concern segment during a slow map tile load), the relay effect silently does nothing and there is no re-trigger once the map becomes available. The concern-hover highlight will never appear until something else changes one of the effect deps. Consider a pattern where the map mounting also schedules a re-run, or accept this as a minor UX gap. The severity is medium because the window is narrow and the visual effect is non-critical.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/useLocationHover.ts",
+          "line": 195,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Async race: interleaved applyUnion calls can reconcile with stale targets",
+          "body": "applyUnion, applyDirectClusterHover, applyBarHoverOnResolvedClusters, and applyCountOnlyOnResolvedClusters are all async (fire-and-forget via void). If two calls race \u2014 e.g., a bar-hover-enter fires setHoverSource + setBarHoverState nearly simultaneously \u2014 the sequence is: (1) first call writes hoverSourcesRef, (2) second call writes hoverSourcesRef, (3) first call's resolveTargets returns, (4) first call's reconcile(refs, staleSets) runs with the union computed before step 2 ran. The result is that reconcile fires with the ids from the first call's snapshot, not the current state of hoverSourcesRef. In practice the second reconcile (step 4 equivalent for the second async chain) corrects it within the same rAF cycle, so the user sees at most a one-frame flicker. The risk is higher when MapLibre cluster resolution is slow (awaiting getClusterLeaves), because the window between hoverSourcesRef mutation and reconcile can be tens of ms. A clean fix is to capture a generation counter before the await and bail out of reconcile if the counter advanced \u2014 but given this is an existing pattern that this PR did not introduce, the risk is accepted. Flagging as medium because the new concern-hover and count-only-overlay paths added by this PR each introduce new callers of the fire-and-forget async chain, widening the race window.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "line": 130,
+          "severity": "low",
+          "category": "correctness",
+          "title": "expandSegmentationMapCluster: unhandled Promise rejection from getClusterExpansionZoom",
+          "body": "Line 130: source.getClusterExpansionZoom(clusterId).then(...) has no .catch() handler. If the cluster_id is invalid or the source is not yet ready (e.g., a rapid double-click during loading), the promise rejects and produces an unhandled promise rejection. In browsers this surfaces as a console error. The fix is to add .catch(() => {}) or convert to async/await with a try/catch. The risk is low because MapLibre cluster expand is stable in normal usage.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "line": 261,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "useFitBoundsKeyboardShortcut re-adds keydown listener on every FitBoundsControl render",
+          "body": "useFitBoundsKeyboardShortcut (line 261) takes handler as a dep. FitBoundsControl creates handleClick via useCallback with deps [mapRef, locations, obscuredLeftPx, obscuredRightPx, durationMs]. The locations array comes from resolveFitBoundsLocations which runs inside MapCanvasContent on every render, producing a new array reference whenever selectedPropertyIds or allLocations changes. This causes handleClick to be a new function reference, which causes useFitBoundsKeyboardShortcut to removeEventListener + addEventListener on every such change. While functionally correct (the handler is replaced cleanly), it creates unnecessary churn and can cause a brief gap where no keydown listener exists between remove and add. The fix is to wrap handler in a ref inside useFitBoundsKeyboardShortcut so the listener is installed once and always calls the latest handler, like the pointer feedback hooks do.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "line": 72,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "rows useMemo runs buildRows even when options is empty, then is discarded",
+          "body": "The rows useMemo (line 72) guards with 'if (options.length === 0) return []', which is correct. But it still runs every render when options has items but then the early return at line 93 ('if (options.length === 0) return { rows: [], isLoading: false }') is unreachable when rows is non-empty. The actual issue is a subtle ordering problem: the rows memo at line 72-91 correctly skips computation when options is empty. However the return at line 93 checks options.length AGAIN after the memo has already run. This means every render with a non-empty options array computes buildRows (including on schemesLoading=true + data=undefined, where all rows will be empty rollups). The redundant check is not a bug but the memo fires with every query result change including intermediate loading states. Each firing creates new RiskLayerRowData objects (new reference identity) even if the data has not changed, because properties and fsgQueryByName both change reference when queries resolve. This can cause unnecessary re-renders of all RiskLayerRow children. The fix is to memoize propertiesWithTiv separately so it does not change when only metric changes, and similarly ensure fsgQueryByName does not produce a new Map reference when query data is unchanged.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/use-georisk-widget-hooks.ts",
+          "line": 20,
+          "severity": "low",
+          "category": "correctness",
+          "title": "useFullscreenToggle Escape handler has no event.stopPropagation, can conflict with dialogs",
+          "body": "The keydown listener at line 20-25 does not call e.stopPropagation() or e.preventDefault(). If a dialog or drawer is open while the map is in fullscreen, pressing Escape will both close the dialog (Radix UI's default) AND collapse the fullscreen mode simultaneously. The user gets a double-dismiss. This is a UX bug that only manifests when a dialog opens on top of the fullscreen widget, but it is a real interaction conflict. The fix is to call e.stopPropagation() in the handler, or to check whether an Escape-handling element like [data-radix-focus-guard] is present in the document before handling. Note: this is pre-existing in the fullscreen implementation of SegmentationMap, so this PR doesn't introduce new behavior here.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "line": 82,
+          "severity": "low",
+          "category": "correctness",
+          "title": "schemesError cast to Error | null suppresses type safety",
+          "body": "Line 82: 'schemesError as Error | null' \u2014 useClassificationSchemes returns an error of unknown type (or untyped), and the cast forces it to Error | null. If the hook ever returns a non-Error thrown value (e.g., a string, a DOMException, a custom error object), the cast silently passes. The actual impact is that buildSingleRow receives a typed Error that is not actually an Error instance, and the field is only used to set row.error (displayed as 'Couldn't load'). No crash results. Low severity because the error value is only surfaced as a boolean (error != null) to show the error state. The fix is to ensure useClassificationSchemes types its error as Error | null, eliminating the cast.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.tsx",
+          "line": 128,
+          "severity": "low",
+          "category": "correctness",
+          "title": "cluster_id cast as number without runtime validation in expandSegmentationMapCluster",
+          "body": "Line 128: 'feature.properties.cluster_id as number' \u2014 MapLibre may serialize feature properties to JSON when reading from queryRenderedFeatures, which can return cluster_id as a string on some versions. The TS cast bypasses runtime type validation. If cluster_id is the string '123' rather than the number 123, getClusterExpansionZoom receives a string clusterId and may either accept it (implicit coercion) or reject with an unexpected error. The fix is to use Number(feature.properties.cluster_id) which handles both string and numeric forms. Low severity because MapLibre internally sets cluster_id as a numeric integer for GeoJSON sources.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-97729": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPane.tsx",
+          "line": 75,
+          "severity": "low",
+          "category": "correctness",
+          "title": "hasProject guard is always true \u2014 projectId is non-optional",
+          "body": "props.projectId is typed as 'number' (non-optional) in RiskLayersPaneProps, so 'props.projectId != null' is always true. The guard misleads future readers into thinking 'no project' is reachable at this callsite.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "line": 77,
+          "severity": "low",
+          "category": "style",
+          "title": "Loading tier doc-comment thresholds do not match the constants",
+          "body": "Comment says '5s' and '12s' but SLOW_LOAD_MS=4_000 (4s) and VERY_SLOW_LOAD_MS=10_000 (10s). The constants are authoritative; update the comment to say 'After 4s' and 'After 10s'.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "line": 139,
+          "severity": "medium",
+          "category": "style",
+          "title": "ErrorRow duplicates the keyboard-accessible div-button pattern from RiskLayerRow",
+          "body": "ErrorRow (lines 139-159) reimplements role='button', tabIndex=0, data-event='select-risk-layer', and onKeyDown Enter/Space handling \u2014 the same pattern already in RiskLayerRow. Extract a shared RowShell component that accepts onClick and className, used by both RiskLayerRow and ErrorRow.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/ConcernBar.tsx",
+          "line": 26,
+          "severity": "medium",
+          "category": "style",
+          "title": "SEGMENT_FILL and SEGMENT_ORDER duplicated in ConcernBar and ChartConcernBar",
+          "body": "ConcernBar.tsx lines 26-33 and ChartConcernBar.tsx lines 7-14 define identical SEGMENT_FILL (Record<..., string>) and SEGMENT_ORDER arrays. Move both to the shared georisk-segmentation lib (e.g. concern-mapping.ts or a new concern-colors.ts) and import from both components.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/hover-bar-overlay.ts",
+          "line": 83,
+          "severity": "low",
+          "category": "style",
+          "title": "applyCountOnlyOverlay hardcodes text_color white \u2014 may be invisible on light base map tiles",
+          "body": "applyCountOnlyOverlay always sets text_color: '#ffffff'. The bar-hover path calls contrastingTextColor(color) to pick a readable label color against the bar's classification color. Without a tint background, the white label floats over base-map tiles which may be light gray or white. Consider either adding a text-shadow/halo in the map style for this source, or using a dark (#000000) fallback, or always outputting both a dark and light color and letting the map style choose via an expression.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "line": 45,
+          "severity": "medium",
+          "category": "complexity",
+          "title": "LiveSegmentationMap 52 lines \u2014 gate violation",
+          "body": "Gate reports LiveSegmentationMap at 52 lines (max 50). The refactor already extracted useConcernHover and useFullscreenToggle. The remaining excess is JSX prop verbosity: RiskLayersPane and LiveSegmentationChart each get 9-10 props. Pass the selection and concernHover objects directly to sub-components rather than spreading every field, reducing the function's line count by ~5.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/useLocationHover.ts",
+          "line": 140,
+          "severity": "low",
+          "category": "complexity",
+          "title": "useLocationHover 51 lines \u2014 gate violation (1 over)",
+          "body": "Gate reports useLocationHover at 51 lines (max 50). The setCountOnlyOverlay callback added by this PR (lines 170-174) pushed it 1 line over. Compress setCountOnlyOverlay to a single-line arrow expression \u2014 the body is a single void delegate call \u2014 removing 2 blank lines and bringing the function to 49 lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:57:39Z",
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:57:38Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:21Z",
+      "scanned_files": 36,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:57:35Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d86c08bbf5598c8893a118d3df5ef300",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 5,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "frontend/src/components/analytics/concern-level-summary.ts",
+        "frontend/src/components/analytics/grs-outline-overlay.tsx",
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/components/dealDashboard/fit-bounds-padding.ts",
+        "frontend/src/components/dealDashboard/hover-engine-types.ts"
+      ],
+      "duration_ms": 205000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 177930.0
+}
