@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "506f16b09e1ffe90adb880bf9eb88fe9bf9c715d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T23:36:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:36:54Z",
+      "files_checked": 16,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/usePruneWorktrees.test.ts",
+          "lines": 358,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "server/__tests__/worktree-prune-batch-enumerate.test.ts",
+          "lines": 323,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "server/__tests__/worktree-prune-batch-runner.test.ts",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "506f16b09e1ffe90adb880bf9eb88fe9bf9c715d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T23:36:56Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:36:55Z",
+      "files_checked": 16,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/use-prune-worktrees-helpers.ts",
+          "function": "deriveDefaultSelections",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "server/app-routes-prune.ts",
+          "function": "parseSelection",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/hooks/usePruneWorktrees.ts",
+          "function": "usePruneWorktrees",
+          "lines": 129,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
