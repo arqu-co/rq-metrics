@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-170-feat-use-github-graphql-api-instead-of-rest-f-2305",
+  "sha": "20dba001fbd196db7f5cc2488dc1238a0c60daab",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T18:08:42Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 4
+  },
+  "critic_findings": [
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 117,
+      "rule": "MISSING_TEST",
+      "message": "Line 117 (null pullRequest node path inside fetchPREnrichmentGraphQL) is not covered. Add a test that stubs a response with pullRequest: null and asserts { ci: no_ci, reviewDetails: no_reviews }."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 136,
+      "rule": "MISSING_TEST",
+      "message": "Line 136 (classifyError Error-with-no-status branch) is not covered. Add a test that throws plain new Error('msg') with no .status property and asserts reviewError === 'msg'."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 137,
+      "rule": "MISSING_TEST",
+      "message": "Line 137 (classifyError 'unknown' fallback) is not covered. Add a test that throws a non-Error, non-object value (e.g., throw null) and asserts reviewError === 'unknown'."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 172,
+      "rule": "MISSING_TEST",
+      "message": "Line 172 (mapRollupState unknown-state fallback returning 'no_ci') is not covered. Add a test with a rollup state not in SUCCESS/FAILURE/ERROR/PENDING/EXPECTED (e.g., 'STALE') and assert ci.status === 'no_ci'."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-18683",
+    "review-wip-reviewer-20153",
+    "review-wip-reviewer-24548",
+    "review-wip-reviewer-32807",
+    "review-wip-reviewer-43533",
+    "review-wip-reviewer-99622",
+    "review-wip-reviewer-r2",
+    "review-wip-reviewer-r4",
+    "review-wip-reviewer-r7",
+    "review-wip-reviewer-r8",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T18:08:07Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 22000
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T18:08:11Z",
+      "files_checked": 14,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/github-pr-fetch-graphql.ts",
+          "function": "fetchPREnrichmentGraphQL",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:38Z",
+      "coverage_tool": "js",
+      "files_checked": 5,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:12Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:08Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:39Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:18Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:41Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:45:02Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T18:08:19Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:40Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T18:07:45Z",
+      "duration_ms": 130000
+    },
+    "review-wip-reviewer-18683": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-poller-repo.test.ts",
+          "line": 51,
+          "severity": "high",
+          "category": "correctness",
+          "title": "makeGitHubClient double-wraps GraphQL responses \u2014 mock shape is wrong",
+          "body": "The makeGitHubClient helper (line 51-59) wraps every requestImpl return value as { status: 200, data: result, headers: {} }. The GraphQL route handlers in this file return a full { status, headers, data: { data: { repository: ... } } } shaped object, which gets wrapped again. doGraphQL reads response.data as the GraphQLResponseEnvelope, so the envelope seen by fetchPREnrichmentGraphQL is { status: 200, headers: {...}, data: { data: { repository: ... } } } \u2014 not { data: { repository: ... } }. response.data?.data?.repository evaluates to undefined in all three tests that use makeGitHubClient with a GraphQL route (dedupePRs, author-agnostic, SHA-change). Those tests pass only because they do not assert on enrichment data (CI status, review state), giving false assurance that the enrichment path works. Fix: have the GraphQL handler return the raw GraphQLResponseEnvelope { data: { repository: ... } } without the status/headers wrapper, since makeGitHubClient provides those.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/github-pr-fetch-graphql.ts",
+          "line": 158,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "collectFailedCheckNames silently ignores failed StatusContext nodes",
+          "body": "The PR_ENRICHMENT_QUERY fetches both StatusContext (with state and context fields) and CheckRun nodes. The ContextNode union type includes StatusContext at line 94. However collectFailedCheckNames (lines 158-165) only appends names for __typename === 'CheckRun' nodes \u2014 it never inspects StatusContext nodes. A legacy status check that reports FAILURE or ERROR state will not appear in failedChecks. The rollup-level state will still be FAILURE/ERROR so ci.status will be correct, but failedChecks will be incomplete, causing the UI to show no failed check names for status-API failures. Fix: add a branch for StatusContext with state in FAILURE_ROLLUP_STATES, appending node.context as the name.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/github-pr-fetch-graphql.ts",
+          "line": 198,
+          "severity": "low",
+          "category": "dead-code",
+          "title": "isBot re-export is never imported from this module \u2014 dead public API",
+          "body": "Line 198 re-exports isBot from github-pr-transform.ts with the comment 'Re-exported for tests that want to assert isBot wiring directly.' No test file imports isBot from github-pr-fetch-graphql.ts \u2014 the isBot tests in github-pr-transform.test.ts import directly from github-pr-transform.ts (confirmed by grep). The re-export adds an unintended public surface to github-pr-fetch-graphql.ts, whose responsibility is PR enrichment, not bot detection. Fix: remove the export { isBot } line and its comment.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/github-client.ts",
+          "line": 112,
+          "severity": "low",
+          "category": "style",
+          "title": "request() and graphql() duplicate the rate-limit/budget/inflight preamble",
+          "body": "The 12-line preamble \u2014 circuit check, budget check, inflight-dedup lookup, promise registration, inflight cleanup \u2014 is structurally identical in request() (lines 112-127) and graphql() (lines 142-157). The only differences are the cache-key function (cacheKey vs graphqlCacheKey) and the dispatch function (doRequest vs doGraphQL). This violates DRY and means any change to the gating policy (e.g. adding a third gate) must be made in two places. Fix: extract a private executeWithGates<T>(key: string, dispatch: () => Promise<GitHubRequestResult<T>>, consumer?: BudgetConsumer) helper that owns the check-budget + check-circuit + inflight pattern, then have both public methods call it.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-20153": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/github-pr-fetch-graphql.ts",
+          "line": 187,
+          "severity": "high",
+          "category": "logic",
+          "title": "Team requestedReviewer login is undefined at runtime \u2014 null check insufficient",
+          "body": "The GraphQL query spreads only 'User' and 'Bot' inline fragments on requestedReviewer. When a Team is a requested reviewer, the response object has __typename='Team' but no login field (Teams have 'name', not 'login'). The filter at line 187 only removes null values, so Team objects pass through with login=undefined. This undefined value flows into buildReviewerMap and the requestedReviewers array, potentially causing string operations on undefined downstream. Fix: add a type check in the filter to only pass through objects where __typename is 'User' or 'Bot' (both have login), or add a 'Team' branch to the fragment with ... on Team { slug } and handle it in the mapping. Add a test case for Team requestedReviewer.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-24548": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-pr-fetch-graphql-helpers.ts",
+          "line": 11,
+          "severity": "medium",
+          "category": "dead-code",
+          "title": "Three exported interfaces are never imported by any consumer",
+          "body": "CapturedWarn (line 11), GraphQLResponse (line 29), and StubbedGraphQLClient (line 35) are all exported but the sole consumer (github-pr-fetch-graphql.test.ts) imports only the three functions by name and never references these interfaces by name. No other file imports the helpers module. These are dead exports that violate the no-dead-code rule.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-32807": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-pr-fetch-graphql.test.ts",
+          "line": 186,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "warn-once test never asserts that log.warn was called or that dedup skipped a second call",
+          "body": "The test named 'warns once per unknown requestedReviewer __typename and drops it from tracking' asserts only (a) requestedReviewers equals ['carol'] \u2014 which tests the filter path, not the warn path \u2014 and (b) typeof warnUnknownReviewerTypenames === 'function' \u2014 which tests nothing. The warn call itself (log.warn) is never spied on or asserted. The second invocation of warnUnknownReviewerTypenames at line 200-202 asserts nothing about the result. Deleting the warnedReviewerTypenames.add(tn) line in the source would not break this test. Fix: spy on log.warn (via vi.spyOn on the logger) before the call, then assert it was called exactly once with the correct event/typename, and that the second invocation does NOT call it again.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-43533": {
+      "status": "in_progress",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-client-graphql.test.ts",
+          "line": 114,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Plain allocator object fails structural check against RateBudgetAllocator class",
+          "body": "Lines 110-114 and 122-126 pass { checkBudget: vi.fn(), recordUsage: vi.fn() } as budgetAllocator. RateBudgetAllocator is a class with private fields (allocations, usage, totalBudget, windowStart, now). TypeScript structural typing requires those private fields to match \u2014 a plain object cannot satisfy a class type with privates. Fix: extract a minimal IBudgetAllocator interface with only the two public methods (checkBudget, recordUsage), use that interface as the parameter type on GitHubClientOptions.budgetAllocator instead of the concrete class.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/github-pr-fetch-graphql.test.ts",
+          "line": 152,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Missing required login field in test ReviewerNode stub",
+          "body": "At line 152, warnUnknownReviewerTypenames is called with [{ requestedReviewer: { __typename: 'Mannequin' } }]. The parameter type is PullRequestNode['reviewRequests']['nodes'] which resolves to Array<{ requestedReviewer: AuthorNode | null }>. AuthorNode is defined as { __typename: string; login: string } \u2014 login is required. The plain object is missing login, causing TS2741. Fix: add login: '' to the stub object to satisfy the type.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-99622": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-r2": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/github-pr-fetch-graphql.ts",
+          "line": 188,
+          "severity": "low",
+          "category": "observability",
+          "title": "Unknown requestedReviewer __typename silently dropped with no log warning",
+          "body": "The allowlist filter (User|Bot) silently discards any requestedReviewer node whose __typename is not User or Bot (e.g. Mannequin, EnterpriseUserAccount, or a future GitHub schema addition). Currently that matches REST behavior and is intentional for Team. However there is no log warning for unrecognized subtypes. If GitHub adds a new requestedReviewer subtype, reviewer-tracking degrades silently with no observable signal in logs. A one-time (per-session or per-typename) warn log when __typename is not in the known-good set plus not in the known-ignore set (Team) would allow operators to detect schema drift. Severity is low because the failure mode is silent omission of a reviewer, not data corruption or security impact.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r4": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-pr-fetch-graphql.test.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "Test file exceeds 300-line limit (358 lines)",
+          "body": "The file is 358 lines, 58 lines over the 300-line hard limit. The Round 3 additions (installCapturingLogger helper + 4 warn-capturing test cases = ~55 lines) pushed it over. The gate confirms this as a fail. The file must be split or trimmed, or an allow-list entry added with justification.",
+          "confidence": "confirmed"
+        },
+        {
+          "file": "server/__tests__/github-poller-repo.test.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "filesize",
+          "title": "Test file exceeds 300-line limit (308 lines)",
+          "body": "The file is 308 lines, 8 lines over the limit. This branch modified the file in commits 0500e00 and 21b957a. The gate confirms this as a fail. Must be split or trimmed, or an allow-list entry added with justification.",
+          "confidence": "confirmed"
+        }
+      ]
+    },
+    "review-wip-reviewer-r7": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/rate-budget-allocator.ts",
+          "line": 41,
+          "severity": "low",
+          "category": "style",
+          "title": "BudgetAllocatorLike placement inconsistent with OctokitLike pattern",
+          "body": "OctokitLike is defined co-located with its consumer in github-client.ts (line 64). BudgetAllocatorLike is defined co-located with its implementor in rate-budget-allocator.ts (line 41) and imported into github-client.ts. The two Like-suffix structural interfaces follow opposite placement conventions. There is no functional impact \u2014 TypeScript structural typing means test stubs satisfy BudgetAllocatorLike without importing it, and tsc passes. The inconsistency is navigational: a reader expecting the Like-pattern to live with its consumer will not find BudgetAllocatorLike in github-client.ts. The co-types argument (BudgetDecision, BudgetConsumer) favors the current placement, but the established project pattern favors github-client.ts. Fix: either document the placement rationale in a comment on BudgetAllocatorLike, or move it to github-client.ts alongside OctokitLike.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r8": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:05:35Z",
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:40Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:37Z",
+      "scanned_files": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:08:36Z",
+      "fingerprint": "fa34a7d172d58ebfd21a07acc4b69bc3",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 17000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 8619.0
+}
