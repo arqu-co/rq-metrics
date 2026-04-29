@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/postscanmail-preflight-endpoint",
+  "sha": "a09ea5ebf479b16fecbe2716e80b5541556806ae",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T00:07:30Z",
+  "phase": "coderabbit",
+  "run_number": 4,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T00:07:23Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
