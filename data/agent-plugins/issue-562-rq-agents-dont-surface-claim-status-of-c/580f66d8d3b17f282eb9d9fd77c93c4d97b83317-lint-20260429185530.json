@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-562-rq-agents-dont-surface-claim-status-of-c",
+  "sha": "580f66d8d3b17f282eb9d9fd77c93c4d97b83317",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T22:55:30Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:55:29Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_render_cross_ref_claims.sh:94:10: note: Modification of FAKE_STATE_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:95:10: note: Modification of FAKE_CLAIM_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:106:10: note: Modification of FAKE_STATE_arqu_co_issues_7668 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:107:10: note: Modification of FAKE_CLAIM_arqu_co_issues_7668 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:150:10: note: Modification of FAKE_STATE_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:150:10: note: FAKE_STATE_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:151:10: note: Modification of FAKE_CLAIM_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:151:10: note: FAKE_CLAIM_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:163:10: note: Modification of FAKE_STATE_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:163:10: note: FAKE_STATE_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:164:10: note: Modification of FAKE_CLAIM_arqu_co_agent_plugins_321 is local (to subshell caused by $(..) expansion). [SC2030]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:164:10: note: FAKE_CLAIM_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:175:10: note: FAKE_STATE_arqu_co_issues_7668 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:176:10: note: FAKE_CLAIM_arqu_co_issues_7668 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:177:10: note: FAKE_STATE_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n./plugins/rq/scripts/test_render_cross_ref_claims.sh:178:10: note: FAKE_CLAIM_arqu_co_agent_plugins_321 was modified in a subshell. That change might be lost. [SC2031]\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/render-cross-ref-claims.sh.orig ./plugins/rq/scripts/render-cross-ref-claims.sh\n--- ./plugins/rq/scripts/render-cross-ref-claims.sh.orig\n+++ ./plugins/rq/scripts/render-cross-ref-claims.sh\n@@ -34,7 +34,8 @@\n [ -z \"$body\" ] && exit 0\n \n # Extract unique refs in deterministic order from the body.\n-refs=$(CURRENT_REPO=\"$current_repo\" SELF_ISSUE=\"$self_issue\" BODY=\"$body\" python3 - <<'PYEOF'\n+refs=$(\n+  CURRENT_REPO=\"$current_repo\" SELF_ISSUE=\"$self_issue\" BODY=\"$body\" python3 - <<'PYEOF'\n import os\n import re\n \n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
