@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7665-pair-build-evolution",
+  "sha": "7cb2e0964921bd47c59c0a1b46d52d2baf0b3543",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T02:48:04Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/pair-build/SKILL.md",
+      "line": 364,
+      "rule": "FILE_SIZE",
+      "message": "File is 364 lines, exceeding the 300-line maximum. File was 355 lines before this task; writer added 9 net lines without condensing. The constraint 'No new files except the test script' means the fix must condense prose within the file itself \u2014 the 'Why per-round haiku is safe' rationale block (lines 244-244) is the most compressible addition."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T02:48:03Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
