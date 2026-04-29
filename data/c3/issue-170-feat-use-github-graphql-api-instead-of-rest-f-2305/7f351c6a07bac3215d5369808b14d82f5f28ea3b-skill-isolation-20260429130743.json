@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-170-feat-use-github-graphql-api-instead-of-rest-f-2305",
+  "sha": "7f351c6a07bac3215d5369808b14d82f5f28ea3b",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T17:07:43Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "findings",
+  "critic_findings_count": 4,
+  "critic_findings_by_rule": {
+    "MISSING_TEST": 4
+  },
+  "critic_findings": [
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 117,
+      "rule": "MISSING_TEST",
+      "message": "Line 117 (null pullRequest node path inside fetchPREnrichmentGraphQL) is not covered. Add a test that stubs a response with pullRequest: null and asserts { ci: no_ci, reviewDetails: no_reviews }."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 136,
+      "rule": "MISSING_TEST",
+      "message": "Line 136 (classifyError Error-with-no-status branch) is not covered. Add a test that throws plain new Error('msg') with no .status property and asserts reviewError === 'msg'."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 137,
+      "rule": "MISSING_TEST",
+      "message": "Line 137 (classifyError 'unknown' fallback) is not covered. Add a test that throws a non-Error, non-object value (e.g., throw null) and asserts reviewError === 'unknown'."
+    },
+    {
+      "file": "server/github-pr-fetch-graphql.ts",
+      "line": 172,
+      "rule": "MISSING_TEST",
+      "message": "Line 172 (mapRollupState unknown-state fallback returning 'no_ci') is not covered. Add a test with a rollup state not in SUCCESS/FAILURE/ERROR/PENDING/EXPECTED (e.g., 'STALE') and assert ci.status === 'no_ci'."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:07:42Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
