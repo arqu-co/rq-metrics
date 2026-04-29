@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "9807c80df836d5a0a1810df14c679daea885fe89",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-29T15:59:32Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:59:32Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/clee/Documents/billing-redux/db/migrate/20260429000001_phase_7f_b_forms_documents_library.rb:17:15: C: [Correctable] Layout/SpaceBeforeFirstArg: Put one space between the method name and the first argument.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

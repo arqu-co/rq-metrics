@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "9807c80df836d5a0a1810df14c679daea885fe89",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-29T16:07:52Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:07:52Z",
+      "scanned_files": 93,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
