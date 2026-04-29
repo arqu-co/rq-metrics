@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/audit-pr-merge-lambda",
+  "sha": "338c3939a64debf19bb1dadb0d1dfdcb0eba43ca",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T14:08:53Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:05:42Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
