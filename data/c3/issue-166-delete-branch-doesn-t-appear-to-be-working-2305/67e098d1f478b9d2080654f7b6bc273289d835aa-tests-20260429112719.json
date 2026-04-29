@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-166-delete-branch-doesn-t-appear-to-be-working-2305",
+  "sha": "67e098d1f478b9d2080654f7b6bc273289d835aa",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T15:27:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:27:19Z",
+      "fingerprint": "65a5376976aac8e2edaba16a65ddf28b",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nstdout | server/__tests__/app-routes-branches.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 custom filepath { path: '/custom/path/.env' }\n\n \u276f server/__tests__/app-routes-branches.test.ts (23 tests | 1 failed) 3559ms\n     \u00d7 returns a plan payload when findLatestPlanFile resolves a selection 4ms\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nstdout | server/__tests__/app.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 custom filepath { path: '/custom/path/.env' }\n\n \u276f server/__tests__/app.test.ts (25 tests | 1 failed) 1592ms\n     \u00d7 returns a cleanup results array for an unknown branch 284ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 2 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-branches.test.ts > GET /api/branches/:repo/:branch/plan > returns a plan payload when findLatestPlanFile resolves a selection\nError: socket hang up\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/2]\u23af\n\n FAIL  server/__tests__/app.test.ts > DELETE /api/branches/:repo/:branch > returns a cleanup results array for an unknown branch\nAssertionError: expected 500 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 500\n\n \u276f server/__tests__/app.test.ts:230:24\n    228|     const res = await request(app)\n    229|       .delete(\"/api/branches/nonexistent-repo/nowhere-branch\");\n    230|     expect(res.status).toBe(200);\n       |                        ^\n    231|     expect(res.body).toHaveProperty(\"results\");\n    232|     expect(Array.isArray(res.body.results)).toBe(true);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\n\n\n Test Files  2 failed | 210 passed (212)\n      Tests  2 failed | 2474 passed (2476)\n   Start at  11:27:03\n   Duration  16.15s (transform 5.76s, setup 0ms, import 23.51s, tests 98.75s, environment 46.65s)"
+        }
+      ],
+      "missing_tests_details": [
+        "server/app-routes-branches-delete.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
