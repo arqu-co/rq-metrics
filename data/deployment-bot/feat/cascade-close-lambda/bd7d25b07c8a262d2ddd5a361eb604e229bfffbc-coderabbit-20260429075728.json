@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/cascade-close-lambda",
+  "sha": "bd7d25b07c8a262d2ddd5a361eb604e229bfffbc",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T11:57:27Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T11:57:17Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
