@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7667-gate-tooling-drift",
+  "sha": "d46623b531f599114f7863151240847bb6412188",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T15:30:13Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:30:13Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
