@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1400-featapi-get-apilossrunsuploads-list-endp",
+  "sha": "4c63ff46f85efda1aac133599a37395b6016d8eb",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T20:11:55Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T20:11:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f721485b20c83ef7b2751b526ba72bfe",
+      "missing_tests": 3,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+        "backend/app/models/pydantic/loss_run/loss_run_upload_list_response.py",
+        "backend/app/models/pydantic/schedule_of_values_upload/schedule_of_values_upload_list_response.py"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
