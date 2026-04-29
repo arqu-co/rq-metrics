@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/cascade-close-lambda",
+  "sha": "34d720799de5f49ed190660451e0ae55fd1687ac",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:22:46Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:22:45Z",
+      "files_checked": 8,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "cascade_close.py",
+          "function": "_paginate_sub_issue_states",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "cascade_close.py",
+          "function": "handle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "function": "TestGetInstallationToken",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/test_github_webhooks.py",
+          "function": "TestRouteDispatch",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

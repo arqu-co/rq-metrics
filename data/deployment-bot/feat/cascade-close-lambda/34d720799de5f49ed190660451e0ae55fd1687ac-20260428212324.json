@@ -1,0 +1,191 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/cascade-close-lambda",
+  "sha": "34d720799de5f49ed190660451e0ae55fd1687ac",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:23:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:22:45Z",
+      "files_checked": 8,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "cascade_close.py",
+          "function": "_paginate_sub_issue_states",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "cascade_close.py",
+          "function": "handle",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "function": "TestGetInstallationToken",
+          "lines": 101,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/test_github_webhooks.py",
+          "function": "TestRouteDispatch",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:23:05Z",
+      "coverage_tool": "py",
+      "files_checked": 4,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 4000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:22:49Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:22:41Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:23:07Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:22:50Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 1000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:23:13Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T01:22:52Z",
+      "duration_ms": 2000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:23:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:23:20Z",
+      "duration_ms": 7000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:23:10Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:23:01Z",
+      "scanned_files": 4,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "tests/test_cascade_close.py",
+          "line": 17,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    resp = MagicMock()"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        resp = MagicMock()"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "line": 175,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        bad = MagicMock()"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:22:57Z",
+      "fingerprint": "bc7fd177deb728914bd296c1fd45bf3c",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 5000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 39.0
+}

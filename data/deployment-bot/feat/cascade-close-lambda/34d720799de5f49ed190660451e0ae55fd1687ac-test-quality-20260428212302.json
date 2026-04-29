@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/cascade-close-lambda",
+  "sha": "34d720799de5f49ed190660451e0ae55fd1687ac",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T01:23:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T01:23:01Z",
+      "scanned_files": 4,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "tests/test_cascade_close.py",
+          "line": 17,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    resp = MagicMock()"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        resp = MagicMock()"
+        },
+        {
+          "file": "tests/test_github_app_auth.py",
+          "line": 175,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        bad = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
