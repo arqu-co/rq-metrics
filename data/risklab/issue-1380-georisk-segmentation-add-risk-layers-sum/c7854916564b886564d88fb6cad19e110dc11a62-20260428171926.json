@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1380-georisk-segmentation-add-risk-layers-sum",
+  "sha": "c7854916564b886564d88fb6cad19e110dc11a62",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T00:19:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-wip-reviewer-97729",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:15:42Z",
+      "files_checked": 77,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T00:19:22Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:15:48Z",
+      "files_checked": 77,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:15:37Z",
+      "files_checked": 78,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:22Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:16:01Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 13000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:25Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T00:37:14Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-28T07:58:55Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-27T00:32:09Z",
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:25Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-97729": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPane.tsx",
+          "line": 75,
+          "severity": "low",
+          "category": "correctness",
+          "title": "hasProject guard is always true \u2014 projectId is non-optional",
+          "body": "props.projectId is typed as 'number' (non-optional) in RiskLayersPaneProps, so 'props.projectId != null' is always true. The guard misleads future readers into thinking 'no project' is reachable at this callsite.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "line": 77,
+          "severity": "low",
+          "category": "style",
+          "title": "Loading tier doc-comment thresholds do not match the constants",
+          "body": "Comment says '5s' and '12s' but SLOW_LOAD_MS=4_000 (4s) and VERY_SLOW_LOAD_MS=10_000 (10s). The constants are authoritative; update the comment to say 'After 4s' and 'After 10s'.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/RiskLayersPaneBody.tsx",
+          "line": 139,
+          "severity": "medium",
+          "category": "style",
+          "title": "ErrorRow duplicates the keyboard-accessible div-button pattern from RiskLayerRow",
+          "body": "ErrorRow (lines 139-159) reimplements role='button', tabIndex=0, data-event='select-risk-layer', and onKeyDown Enter/Space handling \u2014 the same pattern already in RiskLayerRow. Extract a shared RowShell component that accepts onClick and className, used by both RiskLayerRow and ErrorRow.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/ConcernBar.tsx",
+          "line": 26,
+          "severity": "medium",
+          "category": "style",
+          "title": "SEGMENT_FILL and SEGMENT_ORDER duplicated in ConcernBar and ChartConcernBar",
+          "body": "ConcernBar.tsx lines 26-33 and ChartConcernBar.tsx lines 7-14 define identical SEGMENT_FILL (Record<..., string>) and SEGMENT_ORDER arrays. Move both to the shared georisk-segmentation lib (e.g. concern-mapping.ts or a new concern-colors.ts) and import from both components.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/hover-bar-overlay.ts",
+          "line": 83,
+          "severity": "low",
+          "category": "style",
+          "title": "applyCountOnlyOverlay hardcodes text_color white \u2014 may be invisible on light base map tiles",
+          "body": "applyCountOnlyOverlay always sets text_color: '#ffffff'. The bar-hover path calls contrastingTextColor(color) to pick a readable label color against the bar's classification color. Without a tint background, the white label floats over base-map tiles which may be light gray or white. Consider either adding a text-shadow/halo in the map style for this source, or using a dark (#000000) fallback, or always outputting both a dark and light color and letting the map style choose via an expression.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "line": 45,
+          "severity": "medium",
+          "category": "complexity",
+          "title": "LiveSegmentationMap 52 lines \u2014 gate violation",
+          "body": "Gate reports LiveSegmentationMap at 52 lines (max 50). The refactor already extracted useConcernHover and useFullscreenToggle. The remaining excess is JSX prop verbosity: RiskLayersPane and LiveSegmentationChart each get 9-10 props. Pass the selection and concernHover objects directly to sub-components rather than spreading every field, reducing the function's line count by ~5.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/useLocationHover.ts",
+          "line": 140,
+          "severity": "low",
+          "category": "complexity",
+          "title": "useLocationHover 51 lines \u2014 gate violation (1 over)",
+          "body": "Gate reports useLocationHover at 51 lines (max 50). The setCountOnlyOverlay callback added by this PR (lines 170-174) pushed it 1 line over. Compress setCountOnlyOverlay to a single-line arrow expression \u2014 the body is a single void delegate call \u2014 removing 2 blank lines and bringing the function to 49 lines.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T00:19:26Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:25Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:19:21Z",
+      "scanned_files": 36,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T00:19:18Z",
+      "fingerprint": "ce0994960be3e3f66887adf4cfc35601",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 4,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "frontend/src/components/analytics/concern-level-summary.ts",
+        "frontend/src/components/analytics/grs-outline-overlay.tsx",
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/components/dealDashboard/fit-bounds-padding.ts"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 197000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 172037.0
+}
