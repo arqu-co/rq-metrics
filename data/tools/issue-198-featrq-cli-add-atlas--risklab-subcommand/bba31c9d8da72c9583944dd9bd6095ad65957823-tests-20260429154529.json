@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "bba31c9d8da72c9583944dd9bd6095ad65957823",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T22:45:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:45:29Z",
+      "test_runner": "npm-test",
+      "fingerprint": "500f940861cdb79032327698bb3442b3",
+      "missing_tests": 3,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "packages/rq-cli/src/commands/atlas/import-extraction.ts",
+        "packages/rq-cli/src/commands/atlas/validate-extraction.ts",
+        "packages/rq-cli/src/commands/risklab/list-orphans.ts"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
