@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-171-bug-merged-prs-render-as-closed-derivepullreq-2304",
+  "sha": "41844c68840a703cb85d061715242dbf347674a3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T15:50:38Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-15325",
+    "review-wip-reviewer-9861",
+    "review-wip-reviewer-safety",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:18:55Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:19:55Z",
+      "coverage_tool": "js",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:18:56Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:18:54Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:34Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:33Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:36Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:20:27Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:20:51Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-15325": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-9861": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-pr-transform.test.ts",
+          "line": 72,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "merged: false contradicted by merged_at: string has no test \u2014 silent priority inversion risk",
+          "body": "derivePullRequestState uses Boolean(merged_at) OR-ed with merged===true. When both fields are present and contradict \u2014 merged: false, merged_at: '2025-01-01T00:00:00Z' \u2014 merged_at wins and the function returns 'merged'. This is probably the right call (GitHub only sets merged_at on truly merged PRs), but the behavior is undocumented in tests. A future maintainer who sees the OR and thinks 'merged: false should take priority' would break list-endpoint callers silently. Test is missing: derivePullRequestState({ state: 'closed', merged: false, merged_at: '2025-01-01T00:00:00Z', draft: false }) should return 'merged' \u2014 documenting that merged_at takes precedence over an explicit merged: false.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-safety": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/__tests__/github-pr-transform.test.ts",
+          "line": 71,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Missing test for contradictory merged=false + merged_at set payload",
+          "body": "The new heuristic trusts merged_at over an explicit merged=false (line 54 of github-pr-transform.ts: Boolean(merged_at) short-circuits the merged===true check). This means a payload with {state:'closed', merged:false, merged_at:'2025-01-01T00:00:00Z'} returns 'merged', triggering git branch -D in branch-pruner.ts (line 100) \u2014 a force-delete that destroys unmerged local work if it were ever incorrectly triggered. The three new tests cover: merged_at set + merged absent (correct), merged_at null (correct), both absent (correct). None covers merged=false with merged_at set. This is the one combination where the function's precedence decision (merged_at wins) is load-bearing and undocumented by a test. Fix: add an it block \u2014 derivePullRequestState({state:'closed', merged:false, merged_at:'2025-01-01T00:00:00Z', draft:false}) should return 'merged' \u2014 to document that merged_at is authoritative even when merged is explicitly false. This pins the policy in tests and catches any future regression that flips the OR order.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:20:51Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:35Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:50:34Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:19:19Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1e5c4fbb6aa373999b24b382e84a8261",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1902.0
+}
