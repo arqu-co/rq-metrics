@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-551-close-the-coderabbit-vs-rq-review-gap--s",
+  "sha": "c5968b34d21983bb0d0446d9026de8d9d5918a01",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T18:04:37Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:22:47Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:03:45Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:20:53Z",
+      "files_checked": 8,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:03:47Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:03:42Z",
+      "files_checked": 11,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:04:25Z",
+      "duration_ms": 4000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T18:04:21Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/gate-pre-merge.sh:7:1: warning: SCRIPT_PATH appears unused. Verify use (or export if used externally). [SC2034]\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/gate-pre-merge.sh.orig ./plugins/rq/scripts/gate-pre-merge.sh\n--- ./plugins/rq/scripts/gate-pre-merge.sh.orig\n+++ ./plugins/rq/scripts/gate-pre-merge.sh\n@@ -54,7 +54,7 @@\n   while IFS= read -r f; do\n     [ -z \"$f\" ] && continue\n     [ ! -f \"$f\" ] && continue\n-    if ! TARGET=\"$f\" python3 - <<'PYEOF'\n+    if ! TARGET=\"$f\" python3 - <<'PYEOF'; then\n import ast\n import os\n import sys\n@@ -83,10 +83,9 @@\n     print(f\"pre-merge: {m} missing docstring\", file=sys.stderr)\n sys.exit(1 if missing else 0)\n PYEOF\n-    then\n       FAILED=1\n     fi\n-  done <<< \"$DIFF_FILES\"\n+  done <<<\"$DIFF_FILES\"\n fi\n \n # 5. Scope-drift advisory (informational, non-blocking).\ndiff ./plugins/rq/scripts/test_gate_pre_merge.sh.orig ./plugins/rq/scripts/test_gate_pre_merge.sh\n--- ./plugins/rq/scripts/test_gate_pre_merge.sh.orig\n+++ ./plugins/rq/scripts/test_gate_pre_merge.sh\n@@ -18,8 +18,8 @@\n   workdir=$(mktemp -d)\n   trap 'rm -rf \"$workdir\"' RETURN\n   mkdir -p \"$workdir/bin\" \"$workdir/.quality\"\n-  echo '{\"pr_number\": 552, \"pr_url\": \"https://github.com/x/y/pull/552\"}' > \"$workdir/.quality/pr.json\"\n-  echo '{\"repo\": \"arqu-co/agent-plugins\", \"issue\": 551}' > \"$workdir/.quality/branch-issue.json\"\n+  echo '{\"pr_number\": 552, \"pr_url\": \"https://github.com/x/y/pull/552\"}' >\"$workdir/.quality/pr.json\"\n+  echo '{\"repo\": \"arqu-co/agent-plugins\", \"issue\": 551}' >\"$workdir/.quality/branch-issue.json\"\n \n   TITLE_VAR=\"$title\" BODY_VAR=\"$body\" python3 - >\"$workdir/bin/gh-payload.json\" <<'PYEOF'\n import json\n"
+        }
+      ],
+      "duration_ms": 34000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:04:32Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:40:34Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:45:53Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:04:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T12:26:49Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:30:02Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:04:28Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:41:18Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:24:33Z",
+      "test_runner": "bin-test",
+      "fingerprint": "598426f6355bf25b5ff0ff1586f7f559",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 20263.0
+}
