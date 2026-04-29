@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "feat/audit-pr-merge-lambda",
+  "sha": "338c3939a64debf19bb1dadb0d1dfdcb0eba43ca",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T14:05:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:05:01Z",
+      "test_runner": "bin-test",
+      "fingerprint": "596bb551fe3d5e298f61cabb778019b3",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
