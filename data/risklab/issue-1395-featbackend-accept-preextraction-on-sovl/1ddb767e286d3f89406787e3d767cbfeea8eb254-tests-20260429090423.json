@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1395-featbackend-accept-preextraction-on-sovl",
+  "sha": "1ddb767e286d3f89406787e3d767cbfeea8eb254",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T16:04:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T16:04:23Z",
+      "fingerprint": "df6c7a59995c2027fc71748aa6a0353b",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 11,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "backend/alembic/versions/20260428_1514_add_atlas_extraction_id_and_doc_id_to_uploads.py",
+        "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+        "backend/app/models/pydantic/loss_run/loss_run_upload_response_model.py",
+        "backend/app/models/pydantic/schedule_of_values_upload/schedule_of_values_upload_base_response.py",
+        "frontend/src/components/analytics/ChartConcernBar.tsx",
+        "frontend/src/components/analytics/concern-level-summary.ts",
+        "frontend/src/components/analytics/grs-outline-overlay.tsx",
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/components/dealDashboard/fit-bounds-padding.ts",
+        "frontend/src/components/dealDashboard/hover-engine-types.ts",
+        "frontend/src/hooks/useDocumentEscape.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
