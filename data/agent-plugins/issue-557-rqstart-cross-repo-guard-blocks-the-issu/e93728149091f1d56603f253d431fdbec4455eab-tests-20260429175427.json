@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-557-rqstart-cross-repo-guard-blocks-the-issu",
+  "sha": "e93728149091f1d56603f253d431fdbec4455eab",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T21:54:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T21:47:49Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c0adfe88af5bfe59653728d51d67e28c",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
