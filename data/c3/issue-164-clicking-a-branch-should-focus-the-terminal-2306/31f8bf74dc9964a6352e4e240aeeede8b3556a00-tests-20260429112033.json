@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-164-clicking-a-branch-should-focus-the-terminal-2306",
+  "sha": "31f8bf74dc9964a6352e4e240aeeede8b3556a00",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T15:20:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:20:33Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6843118530721748e601ec18b9f30de2",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "To /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-Cepg97\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-NzaE7c\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nstdout | server/__tests__/worktree-server-routes-extra.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u25c8 encrypted .env [www.dotenvx.com]\n\n \u276f server/__tests__/worktree-server-routes-extra.test.ts (4 tests | 1 failed) 898ms\n     \u00d7 includes autoStartEligible and autoStartReason on each worktree entry 5ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/worktree-server-routes-extra.test.ts > GET /api/worktree-servers eligibility > includes autoStartEligible and autoStartReason on each worktree entry\nAssertionError: expected 405 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 405\n\n \u276f server/__tests__/worktree-server-routes-extra.test.ts:86:24\n     84|     const res = await request(app).get(\"/api/worktree-servers\");\n     85|\n     86|     expect(res.status).toBe(200);\n       |                        ^\n     87|     const bogus = res.body.worktrees.find(\n     88|       (w: { branch: string }) => w.branch === \"fake-broken-branch\",\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 211 passed (212)\n      Tests  1 failed | 2471 passed (2472)\n   Start at  11:20:15\n   Duration  17.81s (transform 5.47s, setup 0ms, import 23.89s, tests 111.06s, environment 52.84s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
