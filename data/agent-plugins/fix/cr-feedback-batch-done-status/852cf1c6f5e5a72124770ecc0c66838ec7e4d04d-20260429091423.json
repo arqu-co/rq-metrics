@@ -1,0 +1,170 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/cr-feedback-batch-done-status",
+  "sha": "852cf1c6f5e5a72124770ecc0c66838ec7e4d04d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T13:14:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/pair-build/SKILL.md",
+      "line": 364,
+      "rule": "FILE_SIZE",
+      "message": "File is 364 lines, exceeding the 300-line maximum. File was 355 lines before this task; writer added 9 net lines without condensing. The constraint 'No new files except the test script' means the fix must condense prose within the file itself \u2014 the 'Why per-round haiku is safe' rationale block (lines 244-244) is the most compressible addition."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T13:08:51Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 18000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:12:40Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T02:47:49Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:12:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:08:01Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:14:10Z",
+      "duration_ms": 319000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:08:33Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 32000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:14:17Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T09:51:47Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:26:15Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:14:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T12:34:06Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:34:08Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T13:14:13Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T02:05:03Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T02:05:02Z",
+      "fingerprint": "873ef7710142013621ef2a67d5eab803",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 40155.0
+}
