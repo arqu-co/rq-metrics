@@ -1,0 +1,143 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-180-session-names-collide-when-spinning-up-multip-1545",
+  "sha": "1f68dc8f99d8e3353ee7558ff5c48ed3eba53c8d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T19:52:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:51:59Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:28Z",
+      "coverage_tool": "js",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:00Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:51:58Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 126000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:52:28Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:06Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:30Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T19:49:52Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:52:32Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:30Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:27Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 21000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:27Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4e9848426ead00b223a0a9b4ba98039d",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 160.0
+}
