@@ -1,0 +1,38 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "deployment-bot",
+  "branch": "feat/cascade-close-lambda",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-28T23:37:02.418Z",
+  "session_id": "b1f8faa3-b47f-4cf5-9a66-69c7918d8ed0",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 24005,
+    "output": 216672,
+    "cache_read": 51949242,
+    "cache_create": 2468835,
+    "est_cost_usd": 45.775441449999995
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship": {
+      "tokens": 54658754,
+      "cost_usd": 45.775441449999995
+    }
+  }
+}
