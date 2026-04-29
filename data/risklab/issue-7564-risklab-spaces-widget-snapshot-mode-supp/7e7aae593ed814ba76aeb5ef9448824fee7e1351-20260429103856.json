@@ -1,0 +1,657 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7564-risklab-spaces-widget-snapshot-mode-supp",
+  "sha": "7e7aae593ed814ba76aeb5ef9448824fee7e1351",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T17:38:56Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "quality-path-discipline",
+    "review-wip-reviewer-42947",
+    "review-wip-reviewer-44315",
+    "review-wip-reviewer-65620",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:38:28Z",
+      "files_checked": 37,
+      "violations": 31,
+      "violations_details": [
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "function": "public_resolve_tile_shards",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "function": "public_resolve_tile_shards",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "_bake_grs_snapshot",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "build_snapshot",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "build_snapshot",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "SpaceSnapshotBuilder",
+          "lines": 239,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "_build_fetcher_map",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "function": "TestPublicResolveTileShards",
+          "lines": 163,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/fixtures/georisk.py",
+          "function": "build_grs_test_data",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_feature_set_groups_endpoint_returns_catalog_with_schemes",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "TestGeoRiskRiskDataIntegration",
+          "lines": 169,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/pydantic/georisk/test_resolve_tile_shards_public_request.py",
+          "function": "TestResolveTileShardsPublicRequest",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_publish_snapshot_with_georisk_widget_bakes_grs_data",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestPublishSnapshotCommits",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestPublishSnapshotCommits",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_bakes_grs_data_when_georisk_widget_present",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_grs_baking_filters_fsgs_without_classification_schemes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestBuildSnapshotGrsBaking",
+          "lines": 214,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestBuildSnapshot",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestFetchWidgetData",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useGrsTileShards.ts",
+          "function": "useGrsTileShards",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/hooks/useGrsTileShards.ts",
+          "function": "useGrsTileShards",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.ts",
+          "function": "useRiskLayerSelection",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useLocationClassifications.ts",
+          "function": "useLocationClassifications",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useSegmentationData.ts",
+          "function": "useSegmentationData",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "function": "LiveSegmentationMap",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "function": "useRiskLayersPaneData",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:38:32Z",
+      "files_checked": 37,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/app/models/pydantic/georisk/__init__.py",
+          "name": "(",
+          "line": 1
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:38:23Z",
+      "files_checked": 37,
+      "violations": 10,
+      "violations_details": [
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "lines": 378,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "lines": 354,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "lines": 783,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.test.tsx",
+          "lines": 448,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/SegmentationWidget.test.tsx",
+          "lines": 332,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.test.tsx",
+          "lines": 314,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useClassificationSchemes.test.tsx",
+          "lines": 373,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useGrsTileShards.test.ts",
+          "lines": 330,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useSegmentationData.test.tsx",
+          "lines": 392,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:38:53Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:38:49Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 17000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:38:56Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T20:56:11Z"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:38:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-42947": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "line": 336,
+          "severity": "medium",
+          "category": "security",
+          "title": "Public endpoint does not validate feature_set_group against baked snapshot FSGs",
+          "body": "The endpoint validates that requested locations are a subset of the baked SOV locations, but does not check that payload.feature_set_group is in snapshot_data['grs_feature_set_groups']. An attacker with a valid share token can request GRS tile data for any arbitrary FSG name (matching the ^[\\w\\-]+ pattern), obtaining data for FSGs not associated with the snapshot. The consistent defense is to extract the set of baked FSG names and reject requests for FSGs not in that set, returning 400 with 'Feature set group not available in this snapshot.'",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "line": 88,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Unsafe cast of snapshot GRS keys: missing keys throw at runtime when baking silently fails",
+          "body": "When _bake_grs_snapshot throws and is silently caught (line 83 of space_snapshot_builder.py), the snapshot is persisted without grs_feature_set_groups or grs_location_risk_data. The widget then receives spaceSnapshotData truthy but those keys are undefined, and casts them as typed arrays. Downstream calls to buildSchemesByFeatureSetGroup(snapshotData.grs_feature_set_groups) (useGeoriskSegmentationMapState.ts:61) and snapshotData.grs_feature_set_groups.map(...) (line 77) throw TypeError: Cannot iterate over undefined. Fix: add null-coalescing in the extraction block: grs_feature_set_groups: (spaceSnapshotData['grs_feature_set_groups'] as ... | undefined) ?? [], grs_location_risk_data: (spaceSnapshotData['grs_location_risk_data'] as ... | undefined) ?? {}. This makes the widget degrade gracefully instead of crashing.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-44315": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "line": 275,
+          "severity": "important",
+          "category": "style",
+          "title": "Handler missing response_model for OpenAPI schema consistency",
+          "body": "Every other endpoint in backend/app/api/public_endpoints.py declares response_model= (lines 62, 165, 201, 228) and the sibling authed endpoint in backend/app/api/grs/tile_shards.py uses response_model=ResolveTileShardsResponse. The new public_resolve_tile_shards returns a bare dict[str,Any] with return annotation Any. Consequences: OpenAPI spec loses the response shape, generated frontend types will see this endpoint as 'any', and bin/generate-api output will regress. Fix: introduce a response_model (a shared public-response pydantic in app/models/pydantic/georisk/ or reuse ResolveTileShardsResponse from the authed module) and let FastAPI handle serialization.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 9,
+          "severity": "important",
+          "category": "correctness",
+          "title": "Module docstring describes post-verification as 200 but implementation is 401",
+          "body": "The acceptance-criteria docstring at line 9 states: '(d) password-protected pre-verification: 401; post-verification: 200'. The actual test method test_401_password_protected_regardless_of_verification (line 213) correctly asserts 401 in both states per the v1 scope decision, and the handler intentionally always returns 401 for password-protected shares. The module docstring is stale \u2014 it describes behavior that the test suite does not verify and that is explicitly not implemented. A reader auditing tests will see the docstring claim and assume coverage that doesn't exist. Fix: update line 9 to 'password-protected: 401 regardless of verification state (v1 scope \u2014 see issue #7632)'.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "line": 327,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "snapshot_data=None branch is unreachable for well-formed shares but untested",
+          "body": "Lines 327-331 raise 400 when share.snapshot_data is None. This branch is guarded before the subset check and is the only way to reach a usable snapshot. The test suite never exercises it \u2014 there is no fixture with data_mode='snapshot' and snapshot_data=None. The branch exists and has specific user-facing messaging ('This share has no snapshot data.'), so it should have a test. Alternatively, consider whether this branch should be 404 (share is effectively empty from the viewer's POV) or 500 (shouldn't exist for a snapshot-mode share \u2014 data corruption). Either way, either test it or remove it with a comment explaining why it's unreachable.",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 202,
+          "severity": "minor",
+          "category": "correctness",
+          "title": "Expired-share branch of 404 not covered",
+          "body": "The handler docstring advertises '404: Share not found or expired' and get_public_share in SpaceShareService returns None for both 'no row' and 'row with expires_at <= now'. The test_404_on_invalid_token test exercises only the 'no row' path (line 202-211). The expired branch \u2014 a real, reachable production code path \u2014 is not tested. Add a companion fixture that creates a SpaceShare with expires_at set to a past datetime, then assert the same 404. Low-severity because the branch is covered by get_public_share's own tests, but this file claims public-endpoint integration coverage and should exercise both 404 sources for the endpoint's documented contract.",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "line": 369,
+          "severity": "minor",
+          "category": "style",
+          "title": "Bare except Exception risks swallowing HTTPException and too broad",
+          "body": "The except Exception clause at line 369 catches everything not matched by GeoRiskServiceError, including HTTPException. Any HTTPException raised from middleware or from await service.resolve_tile_shards (unlikely today but possible if future refactors add HTTP layer above the service) would be rewritten as a 502 'unexpectedly' response, masking the original status. The sibling authed endpoint has the same structure (backend/app/api/grs/tile_shards.py line 148-150), so this is consistent but equally suspect. Fix: either (a) re-raise HTTPException explicitly before the bare except, or (b) narrow the catch to concrete upstream exceptions (asyncio.TimeoutError, OSError, httpx.HTTPError, etc.). Also note that line 374's raise lacks 'from exc' (the variable is available only inside the GeoRiskServiceError clause). Consider 'from None' or binding the exception with 'except Exception as exc'.",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "line": 259,
+          "severity": "minor",
+          "category": "style",
+          "title": "_extract_snapshot_location_set assumes sov_property_locations is a dict",
+          "body": "Line 266: 'sov = snapshot_data.get(\"sov_property_locations\") or {}'. If sov_property_locations exists but is a non-dict (e.g., a list, a string \u2014 either as legacy data or from a future widget that reused the key with different shape), sov.get('properties') raises AttributeError, producing an unhandled 500 instead of a clean 400 or empty-set degradation. Similarly, float(p['latitude']) raises ValueError on non-numeric strings. Snapshot data is trusted (we bake it), but defensive handling here is cheap and prevents corruption bugs from escalating to 500s. Fix: add 'if not isinstance(sov, dict): return set()' and similarly type-guard the properties list. Or wrap the comprehension in a try/except and log + return empty set on malformed input.",
+          "confidence": "medium"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 174,
+          "severity": "minor",
+          "category": "style",
+          "title": "Assertions on the 200 path are under-specific",
+          "body": "test_200_valid_token_and_in_snapshot_locations only checks 'shards' in data, 'layer_name' in data, layer_name=='crime', and len(shards)==1. It does not assert expires_at is serialized (the handler emits it), nor the shard contents (shard_id='shard-001', url=the expected URL). A regression that swapped field names or dropped expires_at would pass this test. Fix: add assertions for data['expires_at'] == '2026-12-31T00:00:00Z', data['shards'][0]['shard_id'] == 'shard-001', data['shards'][0]['url'] == 'https://cdn.example.com/tiles/shard-001.pmtiles'. These are cheap and lock in the serialization contract.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 14,
+          "severity": "minor",
+          "category": "style",
+          "title": "Import order: 'import uuid' placed between stdlib from-imports and third-party block",
+          "body": "Line 13-17 has: 'from unittest.mock import ...', 'import uuid', blank line, 'import bcrypt'. PEP 8 / isort groups stdlib imports together regardless of 'import x' vs 'from x import' style. 'import uuid' is stdlib and should sit with the 'from unittest.mock import' block (sorted alphabetically), separated from bcrypt/pytest/pytest_asyncio/httpx/sqlalchemy by a blank line. ruff's isort rule (I001) will flag this if ruff check is run with that rule enabled. Fix: move 'import uuid' up next to unittest.mock (alphabetically: 'import uuid' after 'from unittest.mock import ...' is fine within the stdlib group if isort uses force-sort-within-sections=false; otherwise use the project's isort profile). Check by running 'cd backend && uv run ruff check tests/api/public/test_public_endpoints.py --select I'.",
+          "confidence": "low"
+        }
+      ]
+    },
+    "review-wip-reviewer-65620": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 387,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Docstring and inline comment claim Decimal->float regression guard, but the path they reference is a Float column (never Decimal)",
+          "body": "Lines 390-393 docstring: 'Defends against Decimal/datetime serialization regression on new GRS keys (risklab#1342).' and line 532-537 inline: 'Decimal values must have been coerced to float (regression guard)'.\n\nGeoRiskLocationRiskData.closest_risk_distance_miles is declared as mapped_column(Float) in backend/app/models/sqlalchemy/georisk_location_risk_data.py:33. The test inserts 1.25 (a Python float literal) and the ORM round-trips it as a float. _to_json_safe() in space_snapshot_builder.py:27 only coerces Decimal/datetime/date/uuid \u2014 since this field never carries Decimal at any stage (DB type is float), the isinstance(..., float) assertion trivially passes and proves nothing about regression protection.\n\nThis is not a bug in the PUBLISH code path \u2014 it is a bug in the TEST narrative. Future readers will interpret this test as a guard against something it does not guard against. If a regression were introduced that dropped the Decimal conversion in _to_json_safe, this specific test would still pass green.\n\nFix options (pick one):\n  A) Update docstring and the inline comment to describe what the test actually asserts: end-to-end baking of grs_feature_set_groups + grs_location_risk_data keys into snapshot_data, including the (trivial) float passthrough. Remove the 'regression from risklab#1342' language unless a sibling test actually plants a Decimal somewhere the serializer has to coerce.\n  B) Actually exercise the Decimal path: insert a Decimal into a field that survives Decimal -> JSON (e.g. if there's any GRS-adjacent field typed as Numeric, or if _to_json_safe is given data that mirrors what AnalyticsService returns for this widget). If no such path exists on the GRS snapshot keys, then remove the 'regression guard' framing entirely (option A).\n\nRecommendation: option A \u2014 don't invent a regression guard where the types preclude the regression. Keep the rest of the test (baking assertions) as-is.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 466,
+          "severity": "medium",
+          "category": "style",
+          "title": "Inline GRS SDK mock builder duplicates existing helper _build_mock_grs_client; extract or reuse",
+          "body": "Lines 466-490 build a mock GRS SDK client inline (~25 lines) with the exact shape of backend/tests/integration/test_georisk_risk_data_integration.py:56-95 _build_mock_grs_client: name, risk_type, tiles_available, classification_schemes, describe_feature_set_groups = AsyncMock(return_value=grs_response). This is not ad-hoc test-local setup \u2014 it is a faithful reimplementation of a helper that already exists one directory over.\n\nDrift risk is real and non-hypothetical: the GRS SDK boundary is the most likely surface to evolve (new FSG fields, new availability semantics, async/sync shape changes). The two tests are asserting against the same SDK contract and should share one mock builder so they fail together when the SDK contract moves. Today they will not.\n\nFix: promote _build_mock_grs_client to a shared helper. Two reasonable homes:\n  - backend/tests/services/space_test_helpers.py (same file as build_mock_space used by this test's siblings) \u2014 closest to the call site\n  - backend/tests/fixtures/georisk.py (new file) \u2014 better if future non-space GRS tests will want it too\n\nThen both test_georisk_risk_data_integration.py and test_space_service_snapshot.py import the helper. The new test becomes ~130 lines instead of 158 and loses the PropertyMock artifact (see separate finding).",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 489,
+          "severity": "low",
+          "category": "style",
+          "title": "Unnecessary PropertyMock on mock_grs_sdk.available \u2014 inconsistent with rest of suite",
+          "body": "Line 489: 'type(mock_grs_sdk).available = PropertyMock(return_value=True)'. mock_grs_sdk is already a MagicMock; attribute access on MagicMock just returns whatever you assigned. The existing pattern in backend/tests/integration/test_georisk_risk_data_integration.py:66 uses the simpler form 'mock_grs.available = True', which is equivalent for this use case (every MagicMock gets its own synthesized subclass, so the PropertyMock is not even required for property-descriptor semantics here).\n\nThere is no correctness bug (I verified: MagicMock creates a fresh subclass per instance so type()-level PropertyMock assignment does not bleed to other tests). The issue is purely:\n  1. It reads as if there is a property-descriptor subtlety at play, when there is not.\n  2. It diverges from the established pattern in sibling GRS tests.\n\nFix: replace with the simpler form.\n\n    mock_grs_sdk = MagicMock()\n    mock_grs_sdk.available = True\n    mock_grs_sdk.describe_feature_set_groups = AsyncMock(return_value=grs_response)\n\nAnd remove PropertyMock from the imports on line 8 (no other usage after this change). If you adopt the shared helper in the previous finding, this is resolved automatically.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 387,
+          "severity": "low",
+          "category": "complexity",
+          "title": "Test function is 158 lines \u2014 exceeds 50-line max_function_lines default by 3x; duplication with sibling is the root cause",
+          "body": "The new test spans lines 387-544, which measures as 158 lines (ast.end_lineno - lineno + 1). The default max_function_lines (rq.config.json thresholds, baked-in 50) is exceeded 3.16x. The sibling test_publish_snapshot_with_decimal_analytics_data_commits is itself 63 lines \u2014 also over, but closer.\n\nSome length is intrinsic to an integration-style test (DB fixture inserts + mock SDK boundary + full publish call + assertion surface). That does not justify 158 lines. The two primary inflators are:\n  - Lines 401-449 (48 lines): SOV upload/property/risk-data ORM setup \u2014 bootstrap-style, could live in a small helper build_grs_test_data(db_session, project, fsgs).\n  - Lines 466-490 (25 lines): inline GRS SDK mock \u2014 the subject of finding #2; extracting that helper alone removes ~20 lines from the test body.\n\nNot a blocker on its own, but combined with finding #2 the fix is low-effort and mechanical. Target: bring the test body under ~80 lines by extracting both helpers. The test narrative (given / when / then) becomes easier to follow too \u2014 right now the reader has to scroll past mock scaffolding to reach the assertions at line 510+.\n\nIf you're unwilling to extract helpers this round, add an entry to rq.config.json allow.complexity with a reason noting that the companion integration test intentionally mirrors test_georisk_risk_data_integration.py fixture shape. But that's a deferral, not a fix.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:38:55Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-23T18:39:20Z"
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:38:52Z",
+      "scanned_files": 15,
+      "violations": 19,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 66,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    shard = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 70,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 46,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 72,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 103,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 174,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 187,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 198,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 209,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 227,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 289,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 533,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        row = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 547,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 596,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 636,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 660,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 707,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 745,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        }
+      ],
+      "duration_ms": 3000
+    }
+  },
+  "duration_seconds": 514776.0
+}

@@ -1,0 +1,251 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7564-risklab-spaces-widget-snapshot-mode-supp",
+  "sha": "7e7aae593ed814ba76aeb5ef9448824fee7e1351",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T17:38:28Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:38:28Z",
+      "files_checked": 37,
+      "violations": 31,
+      "violations_details": [
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "function": "public_resolve_tile_shards",
+          "lines": 89,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/public_endpoints.py",
+          "function": "public_resolve_tile_shards",
+          "complexity": 17,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "_bake_grs_snapshot",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "build_snapshot",
+          "lines": 57,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "build_snapshot",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "SpaceSnapshotBuilder",
+          "lines": 239,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/space_snapshot_builder.py",
+          "function": "_build_fetcher_map",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "function": "TestPublicResolveTileShards",
+          "lines": 163,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/fixtures/georisk.py",
+          "function": "build_grs_test_data",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_feature_set_groups_endpoint_returns_catalog_with_schemes",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "TestGeoRiskRiskDataIntegration",
+          "lines": 169,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/models/pydantic/georisk/test_resolve_tile_shards_public_request.py",
+          "function": "TestResolveTileShardsPublicRequest",
+          "lines": 55,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_publish_snapshot_with_georisk_widget_bakes_grs_data",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestPublishSnapshotCommits",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestPublishSnapshotCommits",
+          "complexity": 15,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_bakes_grs_data_when_georisk_widget_present",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_grs_baking_filters_fsgs_without_classification_schemes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestBuildSnapshotGrsBaking",
+          "lines": 214,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestBuildSnapshot",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "TestFetchWidgetData",
+          "lines": 84,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useGrsTileShards.ts",
+          "function": "useGrsTileShards",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/hooks/useGrsTileShards.ts",
+          "function": "useGrsTileShards",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.ts",
+          "function": "useRiskLayerSelection",
+          "lines": 78,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useLocationClassifications.ts",
+          "function": "useLocationClassifications",
+          "lines": 83,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/hooks/useSegmentationData.ts",
+          "function": "useSegmentationData",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.tsx",
+          "function": "LiveSegmentationMap",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.ts",
+          "function": "useRiskLayersPaneData",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
