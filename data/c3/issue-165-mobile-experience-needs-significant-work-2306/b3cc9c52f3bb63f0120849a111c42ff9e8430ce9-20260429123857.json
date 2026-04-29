@@ -1,0 +1,314 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-165-mobile-experience-needs-significant-work-2306",
+  "sha": "b3cc9c52f3bb63f0120849a111c42ff9e8430ce9",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T16:38:57Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-18183",
+    "review-wip-reviewer-21605",
+    "review-wip-reviewer-84566",
+    "review-wip-reviewer-95308",
+    "review-wip-reviewer-97641",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T16:16:43Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:17Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:52Z",
+      "files_checked": 5,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:19Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:15Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:52Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:26Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:55Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:14:57Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T16:38:27Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:54Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-18183": {
+      "status": "complete",
+      "findings": 9,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalPanel.test.ts",
+          "line": 15,
+          "severity": "high",
+          "category": "test-design",
+          "title": "makeSessionsMock uses `as any` to suppress type errors on an incomplete mock",
+          "body": "makeSessionsMock() and makeSessionsWithInstance() both cast their return value `as any` to suppress TypeScript errors (lines 22 and 41). The sessions mock lacks several fields required by ReturnType<typeof useTerminalSessions> (e.g. knownActiveTerminals, attachExisting, needsAttention, switchTo). Tests that call useTerminalPanel with this mock exercise real code paths that read those fields (useAutoReattach reads knownActiveTerminals and attachExisting), but because the fields are silently undefined the effect is a silent no-op rather than a verified pass. The `as any` is hiding a contract violation. Fix: define a proper typed partial: `Partial<ReturnType<typeof useTerminalSessions>>` satisfied by the mock, and cast only at the hook call site as `sessions as ReturnType<typeof useTerminalSessions>`. Then add knownActiveTerminals and attachExisting fields so useAutoReattach can be exercised.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useTerminalPanel.test.ts",
+          "line": 191,
+          "severity": "medium",
+          "category": "test-design",
+          "title": "Debounce test asserts `<= 2` fits instead of exactly 1",
+          "body": "The refit-coalescing test at line 191 asserts `expect(fit.mock.calls.length).toBeLessThanOrEqual(2)`. The stated goal in the comment is '5 rapid ResizeObserver events \u2014 debounced into ONE fit call'. The assertion permits 2 calls, weakening the guarantee. If the debounce is broken (e.g. the clearTimeout is missing), all 5 triggers could fire individual timeouts and the test would still pass as long as two or fewer fired before the assertion. Fix: tighten the assertion to `expect(fit.mock.calls.length).toBe(1)` to match the stated intent. The test already uses fake timers and advances exactly 100 ms, so one call is the correct invariant.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.tsx",
+          "line": 49,
+          "severity": "medium",
+          "category": "style",
+          "title": "Long inline className string in SidebarPanel makes the mobile-visibility logic hard to audit",
+          "body": "Line 49 concatenates a 120+ character className string inline: `className={\\`min-h-0 md:min-w-[300px] md:w-[33%] w-full md:border-r border-paper-200 md:flex flex-col ${show ? 'flex' : 'hidden md:flex'}\\`}`. The mobile show/hide condition (`flex` vs `hidden md:flex`) is buried at the end of the string, making it hard to verify that mobile-only styles are correctly guarded. Fix: extract to a named variable `const visibilityClass = show ? 'flex' : 'hidden md:flex'` and use it in the className, keeping the static classes as a separate constant. This is a readability issue, not a correctness bug, but the buried condition makes future mobile-layout changes error-prone.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.tsx",
+          "line": 228,
+          "severity": "medium",
+          "category": "style",
+          "title": "Mixed inline style and Tailwind for the same layout concern (minWidth: 0)",
+          "body": "Line 220 uses `style={{ minWidth: 0 }}` on the outer flex row while the same file uses Tailwind's `min-w-0` on other elements (e.g. line 76 in TerminalPane). `min-w-0` and `style={{ minWidth: 0 }}` are semantically identical but the inconsistency is a DRY violation \u2014 a future Tailwind upgrade that renames `min-w-0` would miss this element. Fix: replace `style={{ minWidth: 0 }}` on line 220 with the `min-w-0` Tailwind class.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/TerminalPanel.tsx",
+          "line": 54,
+          "severity": "low",
+          "category": "architecture",
+          "title": "MobileKeyBar is rendered unconditionally for any running session \u2014 not just on mobile",
+          "body": "Line 54: `{running && <MobileKeyBar onKey={sendInput} />}`. MobileKeyBar hides itself via `md:hidden` on its root div (MobileKeyBar.tsx line 77), so on desktop it is invisible. However, the component is still mounted, still registers state (the `ctrl` boolean), and still renders 10 buttons into the DOM on every running session on desktop. The `md:hidden` guard exists on the component, but the caller never guards the mount. This adds unnecessary DOM nodes and React state on desktop. For pure-CSS `display:none` this is a minor concern, but it is inconsistent with the project rule 'Mobile-only UI must be `md:hidden` so desktop is byte-identical'. Byte-identical is violated here \u2014 the DOM differs. Fix: the `md:hidden` on the component root is the correct place (it keeps the calling site clean), but document the trade-off with a comment or remove the 'byte-identical' aspiration from the review checklist. Alternatively, if truly byte-identical DOM is required, hoist the guard: `{running && isMobile && <MobileKeyBar \u2026 />}` where `isMobile` is derived from a `useMediaQuery('(max-width: 767px)')` hook.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/MobileKeyBar.tsx",
+          "line": 63,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Ctrl+non-letter clears Ctrl state silently without emitting anything \u2014 no user feedback",
+          "body": "In the `press` callback (lines 57-64): when `ctrl` is true and the user taps a key that is NOT in CTRL_LETTER_BYTES (e.g. 'Up', 'Down', 'Esc'), the code falls through to `setCtrl(false)` at line 63 and then continues to emit the key's normal bytes. So Ctrl+Up sends the plain cursor-up sequence `\\x1b[A` \u2014 not wrong, but arguably unexpected. More importantly, the Ctrl button stays highlighted until the user taps another key (because line 63 only fires if ctrl is true at line 62, and setCtrl is async). Actually re-reading: lines 62-64: if(ctrl) setCtrl(false); then fall through to SIMPLE_BYTES or ARROW_BYTES. The state is queued but the current closure still holds ctrl=true. The emission path uses the already-captured `ctrl` variable (not re-read), so SIMPLE_BYTES/ARROW_BYTES branches run correctly. The ctrl indicator just resets after the render. This is functionally correct but the UX is surprising. This is a low-severity UX note, not a bug. Fix (optional): Add an `aria-live` announcement or a visual flash when Ctrl is silently consumed on a non-composable key, to signal to the user that the Ctrl press was discarded. Or document the intended UX in a code comment.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/TerminalPanel.test.tsx",
+          "line": 23,
+          "severity": "medium",
+          "category": "test-design",
+          "title": "makeSessionsMock casts `as any` \u2014 same contract-hiding problem as useTerminalPanel.test.ts",
+          "body": "makeSessionsMock at line 23 and makeRunningSessionsMock at line 35 both cast `as any`. This suppresses TypeScript errors for missing fields (needsAttention, switchTo, knownActiveTerminals, attachExisting). The test exercises TerminalPanel via real useTerminalPanel hook code, so the missing fields silently make useAutoReattach a no-op in all tests \u2014 the reattach path is never exercised. Fix: same as useTerminalPanel.test.ts \u2014 use a typed partial or add the missing fields with sensible stub values so TypeScript enforces the contract.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 113,
+          "severity": "low",
+          "category": "test-design",
+          "title": "Error banner test renders App without ToastProvider wrapper",
+          "body": "The test 'renders the connectivity banner when /api/branches fails' at line 113 calls `render(<App />)` directly without the ToastProvider wrapper used by all other tests in the same file (via the `renderApp` helper). If App or any child component calls `useToast()`, this will throw a context error in this test. The other tests in the same describe use `renderApp(App)` which wraps in ToastProvider. Fix: change `render(<App />)` on line 113 to `renderApp(App)`.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/index.css",
+          "line": 29,
+          "severity": "low",
+          "category": "style",
+          "title": "`overscroll-behavior: contain` set on html/body/root (line 23) then overridden to `none` on body (line 35)",
+          "body": "The `html, body, #root` rule at lines 17-24 sets `overscroll-behavior: contain`. Then the `body` rule at lines 28-37 sets `overscroll-behavior: none`. The second declaration wins (later specificity for `body`), making the `contain` on lines 17-24 a dead declaration. `none` is also more aggressive \u2014 it suppresses cross-axis overscroll on body but not on scroll-children. If `none` is the intended value for body, the `contain` in the combined selector is misleading dead code and should be removed or commented to show the override is intentional. Fix: remove `overscroll-behavior: contain` from the `html, body, #root` block (line 23), leaving only the `overscroll-behavior: none` on the `body` rule. Keep the comment explaining why body needs `none`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-21605": {
+      "status": "in_progress",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalPanel.ts",
+          "line": 172,
+          "severity": "high",
+          "category": "correctness",
+          "title": "sendInput dereferences instance.terminal without null guard",
+          "body": "sendInput guards against !instance (line 171) but does not guard against instance.terminal being undefined. The TerminalSession type has terminal as an optional field \u2014 it is absent during the window between launch() storing the instance and the WebSocket completing the xterm Terminal attachment. On a slow connection or rapid Ctrl-tap during connection, instance.terminal.input() throws TypeError: Cannot read properties of undefined (reading 'input'). The makeSessionsMock helper in TerminalPanel.test.tsx builds instances without terminal, confirming the field is optional. Fix: add `if (!instance?.terminal) return;` before the .input() call, or widen the guard on line 171 to `if (!instance || !instance.terminal) return;`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-84566": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-95308": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalPanel.test.ts",
+          "line": 67,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "as never suppresses a structural type mismatch on the mock instance",
+          "body": "The mock instance at line 67 is missing containerEl and terminal fields that the full TerminalInstance type requires. as never bypasses structural checking to silence the TS error. The test only reads running and duration so the missing fields do not cause a runtime failure today, but any future test in this describe block that triggers fitIfVisible (reads containerEl) or sendInput (reads terminal.input) with this sessions mock will throw at runtime. The fix is to use makeFakeInstance() (already defined at line 34) or supply the two missing fields inline so the mock is structurally complete without the as never escape hatch.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useTerminalPanel.ts",
+          "line": 101,
+          "severity": "high",
+          "category": "correctness",
+          "title": "useTerminalPanel.ts line coverage is 85.14% \u2014 below the 95% hard minimum",
+          "body": "Coverage report shows useTerminalPanel.ts at 85.14% statements and 87.65% lines. Uncovered lines include: 101 (the for-loop DOM child visibility toggle in useBranchVisibilitySwitch), 124 (sessions.attachExisting call in useAutoReattach), and 146-149 (handleLaunch callback body). Each represents a distinct runtime code path that no test currently exercises. The 95% per-file requirement is a hard minimum, not a target. These three paths need test coverage.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-97641": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/components/MobileKeyBar.test.tsx",
+          "line": 35,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "Ctrl-active + non-composable key path is not tested",
+          "body": "MobileKeyBar.press() has a branch at lines 66-68 of MobileKeyBar.tsx where, when Ctrl is latched and a non-composable key (Esc, Tab, Up, Down, Left, Right, Enter) is tapped, the latch resets AND the key's plain byte still fires. The test suite covers Ctrl+C (composable compose), Ctrl toggling off via double-tap, and composable auto-release, but never the case where Ctrl is active and a non-composable key is pressed. Example: tap Ctrl (active), tap Esc -> should emit \\x1b and reset Ctrl. Without this test, the cancellation+emission path at MobileKeyBar.tsx:66-76 has no direct coverage. Fix: add a test case like 'Ctrl active + Esc cancels latch and emits Esc byte'.",
+          "confidence": "high"
+        },
+        {
+          "file": ".quality/proof/tests.json",
+          "line": 1,
+          "severity": "medium",
+          "category": "test-failure",
+          "title": "Tests gate is failing at HEAD with a pre-existing flaky server test",
+          "body": "The gate-tests.sh proof shows status=fail at HEAD (dfd66b6). The failure is in server/__tests__/app-routes-branches-enrichment.test.ts (concurrent GETs for the same key, 405 vs 200) \u2014 NOT in any file changed by this PR. The 5 affected-scope client tests all passed. However, the gate is still red, which will block rq:ship. This flaky test needs to either be fixed or the failure root-caused and documented. The test-quality gate explicitly prohibits waving off failures as pre-existing: investigate the root cause.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T16:13:11Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:54Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:51Z",
+      "scanned_files": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T16:38:50Z",
+      "fingerprint": "3b8ce98e79aaa378246ac5d0e16940e5",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 23000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 5038.0
+}
