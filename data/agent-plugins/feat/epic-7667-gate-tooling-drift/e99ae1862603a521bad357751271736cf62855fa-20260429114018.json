@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7667-gate-tooling-drift",
+  "sha": "e99ae1862603a521bad357751271736cf62855fa",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T15:40:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:18:52Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:37:39Z",
+      "files_checked": 19,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:04Z",
+      "files_checked": 8,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 94000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:37:45Z",
+      "files_checked": 19,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "plugins/rq/scripts/test_parse_junit_failures.py",
+          "name": "Path",
+          "line": 8
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:37:36Z",
+      "files_checked": 30,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:06Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:38:17Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 32000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:13Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T11:31:55Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:45:53Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T12:26:49Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:30:02Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:09Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T14:41:18Z",
+      "scanned_files": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:38:30Z",
+      "fingerprint": "dacabec98427c5cdd283bdf1db5a345b",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 13000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 14898.0
+}
