@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-554-rqstart-support-worktree-forward-flow-vi",
+  "sha": "108a861c28e960744594510fdfc0734b640ad90a",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T22:24:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:24:33Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 155,
+          "snippet": "    local source_epic=\"$source_root/.quality/epic.json\""
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 159,
+          "snippet": "      cp \"$source_epic\" .quality/epic.json"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

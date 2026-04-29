@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-554-rqstart-support-worktree-forward-flow-vi",
+  "sha": "108a861c28e960744594510fdfc0734b640ad90a",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T22:24:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T22:24:29Z",
+      "fingerprint": "c0adfe88af5bfe59653728d51d67e28c",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_phase_signatures.py:8: in <module>\n    from phase_signatures import (\nphase_signatures.py:6: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n____________________ ERROR collecting test_token_pricing.py ____________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_token_pricing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.13/3.13.12_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_token_pricing.py:8: in <module>\n    from token_pricing import (\ntoken_pricing.py:16: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n________________ ERROR collecting test_validate_frontmatter.py _________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_validate_frontmatter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.13/3.13.12_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_validate_frontmatter.py:11: in <module>\n    from validate_frontmatter import (\nvalidate_frontmatter.py:16: in <module>\n    import frontmatter\nE   ModuleNotFoundError: No module named 'frontmatter'\n=============================== warnings summary ===============================\n../../../../../../../opt/homebrew/lib/python3.13/site-packages/_pytest/config/__init__.py:1428\n  /opt/homebrew/lib/python3.13/site-packages/_pytest/config/__init__.py:1428: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR test_gate_context.py\nERROR test_parse_cobertura.py\nERROR test_parse_jacoco.py\nERROR test_parse_junit_failures.py\nERROR test_parse_junit_xml.py\nERROR test_phase_assembly_by_branch.py\nERROR test_phase_signatures.py\nERROR test_token_pricing.py\nERROR test_validate_frontmatter.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 9 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 9 errors in 0.80s"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
