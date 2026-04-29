@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "issue-198-featrq-cli-add-atlas--risklab-subcommand",
+  "sha": "57f76138703b3499d5a304f6d2827a740994ed14",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T23:57:41Z",
+  "phase": "coderabbit",
+  "run_number": 3,
+  "gate_name": "coderabbit",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:57:34Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
