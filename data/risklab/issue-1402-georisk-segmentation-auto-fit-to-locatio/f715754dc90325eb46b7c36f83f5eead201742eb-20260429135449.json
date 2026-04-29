@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1402-georisk-segmentation-auto-fit-to-locatio",
+  "sha": "f715754dc90325eb46b7c36f83f5eead201742eb",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T20:54:49Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "complexity",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-24880",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T20:50:28Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.ts",
+          "function": "useAutoFitOnOverlayChange",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T20:54:43Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:50:29Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:50:26Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:44Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:50:52Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 23000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:47Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:20:04Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T20:50:53Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:46Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-24880": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "frontend/src/hooks/useSegmentationData.ts",
+          "line": 101,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "parseFloat diverges from parseMonetaryValue for comma-formatted string values",
+          "body": "useSegmentationData.ts:101 uses `parseFloat(property.value ?? \"0\") || 0` while risk-layers-pane-rollup.ts uses `parseMonetaryValue`. For a comma-formatted string like \"1,000,000\", parseFloat returns NaN (yielding 0 via ||), while parseMonetaryValue strips non-numeric chars first and returns 1000000. The two codepaths handling TIV from the same ScheduleOfValuesPropertyLocation properties now produce different numeric results for identically-formatted input, silently undercounting TIV in the segmentation widget. Also, `parseFloat(property.value ?? \"0\")` passes a number (snapshot mode) where parseFloat expects a string - this works at runtime via JS coercion (parseFloat(1000000) === 1000000) but the intent is inconsistent with the fix. Fix: replace with a shared helper (or directly use parseMonetaryValue after moving it to a shared location) so both callers normalize values identically.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/types/api.generated.ts",
+          "line": 8967,
+          "severity": "low",
+          "category": "correctness",
+          "title": "latitude and longitude share the same Decimal->string OpenAPI spec mismatch as value",
+          "body": "The OpenAPI spec (openapi.json and api.generated.ts:8967-8970) declares latitude and longitude as string|null (with a regex pattern). At runtime, Pydantic v2 serializes Decimal as float, so latitude and longitude arrive as numbers in JSON. All current callers defensively wrap with Number() or parseFloat(String(...)), so no crash occurs today. However: (1) there is no test verifying latitude/longitude numeric tolerance; (2) PropertyMapPopup.tsx:18 does `property.latitude == null` which correctly handles both null and undefined but would fail if latitude were 0 (falsy) - though this is unlikely for a real coordinate. The root cause is that Python Decimal -> float but OpenAPI says string; all three fields (value, latitude, longitude) have this mismatch. The correct fix is to update the OpenAPI spec/generated types to reflect the actual wire format (number), or add a custom Pydantic serializer to serialize as string. Fix: either change the Pydantic model to use `str` for these fields and stringify in the service layer, or update the OpenAPI schema to use `type: number` and re-run bin/generate-api to keep TypeScript types accurate.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.ts",
+          "line": 61,
+          "severity": "low",
+          "category": "correctness",
+          "title": "parseMonetaryValue silently mangles scientific-notation string values",
+          "body": "The string path of parseMonetaryValue (line 61) applies `raw.replace(/[^0-9.-]/g, \"\")` before calling Number(). A string like \"1.5e10\" becomes \"1.510\" (the 'e' is stripped), so Number(\"1.510\") = 1.51 instead of 15000000000. This is a pre-existing bug in the string regex that was not introduced by this commit's refactor but was not fixed either. In practice, property values are unlikely to arrive in scientific notation from the backend since Pydantic serializes Decimal as a regular float, but the string path could receive user-supplied data. Fix: change the string branch to `const parsed = Number(raw.replace(/[^0-9.,-]/g, \"\").replace(/,/g, \"\"))` and add test cases for \"1.5e10\" and \"$1,500.00\".",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.test.tsx",
+          "line": 227,
+          "severity": "info",
+          "category": "correctness",
+          "title": "Test correctly exercises number-typed runtime path despite TypeScript cast",
+          "body": "The new test creates `value: Number(p.value) as unknown as string`. The `as unknown as string` cast is TypeScript-only and has zero runtime effect - at runtime, value IS a number. The test therefore genuinely exercises the `typeof raw === \"number\"` branch in parseMonetaryValue. The cast is the idiomatic way to satisfy TypeScript strict mode while intentionally simulating a runtime type mismatch (the snapshot serialization shape). The test correctly asserts the same highConcernShare ratio as the string-typed equivalent test, proving the number path produces identical output. No issue with the test itself - this is confirming it works as intended.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.ts",
+          "line": 56,
+          "severity": "medium",
+          "category": "design",
+          "title": "parseMonetaryValue number branch unreachable by TypeScript at call site",
+          "body": "The widened signature (string | number | null | undefined) is correct as a runtime defence, but the sole call site is property.value typed string | null from the generated schema (api.generated.ts:8977). TypeScript will never route a number through this function, so the guard exists only at runtime. This means: (a) if the baking layer is ever fixed to emit strings, the dead numeric branch silently stays and accumulates drift; (b) a type-checker run cannot validate that the caller correctly handles the mismatch. The fix is to document the widening with a JSDoc comment that names the baking-layer divergence (Python Decimal -> float during JSON serialization for snapshot mode) so future engineers understand why a broader type than the schema demands is in play.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.test.ts",
+          "line": 24,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Numeric parseMonetaryValue path not covered in the unit test for toPropertiesWithTiv",
+          "body": "risk-layers-pane-rollup.test.ts contains a direct test of toPropertiesWithTiv (line 24) but its loc() helper is typed as (id: number, value: string), so no numeric input can be passed. The regression test for the number branch lives at the hook-integration level (useRiskLayersPaneData.test.tsx snapshot-mode describe block) via an as-unknown cast \u2014 that is an accurate simulation but it tests the whole hook stack, not just the parser. Edge cases for the numeric path (NaN, Infinity, negative numbers) are also unexercised. Fix: add a numeric case to the toPropertiesWithTiv unit test in risk-layers-pane-rollup.test.ts, using a cast-typed helper or a separate overload, covering at least: positive number (1000000), NaN (should return 0), Infinity (should return 0).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T20:54:48Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:46Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:41Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:54:40Z",
+      "test_runner": "bin-test",
+      "fingerprint": "25e6206e88d38731141302bd517bc55f",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 227000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2084.0
+}
