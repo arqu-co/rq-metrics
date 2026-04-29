@@ -1,0 +1,704 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1395-featbackend-accept-preextraction-on-sovl",
+  "sha": "e39bc9a127145928a7affd0490c5f8d312d7db0e",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T17:18:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "filesize",
+    "test-quality",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:13:53Z",
+      "files_checked": 107,
+      "violations": 16,
+      "violations_details": [
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "flatten_properties",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "ScheduleOfValuesUploadService",
+          "lines": 188,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_pre_extraction.py",
+          "function": "test_sov_re_import_creates_separate_upload_rows_same_atlas_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/middleware/error_handling_middleware.py",
+          "function": "ErrorHandlingMiddleware",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/loss_run_upload.py",
+          "function": "LossRunUpload",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/schedule_of_values_upload.py",
+          "function": "ScheduleOfValuesUpload",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 335,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_cache.py",
+          "function": "TestCacheDeletePattern",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "function": "TestExceptionLoggingShape",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "function": "TestErrorHandlingMiddleware",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:18:05Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:13:58Z",
+      "files_checked": 107,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:13:50Z",
+      "files_checked": 108,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "lines": 384,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "lines": 392,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "lines": 376,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:18:05Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:14:05Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:18:09Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:27:38Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T16:00:29Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:18:08Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T17:18:08Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:18:05Z",
+      "scanned_files": 47,
+      "violations": 62,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 32,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 41,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 63,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 65,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 68,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_document = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 80,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                svc_cls.return_value.validate_file = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 90,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "                        mock_task.delay = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 119,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 122,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 123,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_scalars = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 142,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 176,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_endpoints_unit.py",
+          "line": 193,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 13,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    request = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 16,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    request.state = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 23,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 29,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 38,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 63,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 67,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 78,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 82,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 101,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 122,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = RequestLoggingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 124,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 136,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = RequestLoggingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 146,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 152,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 172,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 189,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 213,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 237,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 255,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 262,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_app = MagicMock()"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 281,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 292,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 313,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 319,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 333,
+          "pattern": "@patch without wraps",
+          "code": "    @patch(f\"{MODULE}.report_exception\")"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "line": 339,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        middleware = ErrorHandlingMiddleware(app=MagicMock())"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 26,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    upload = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 53,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SOV_FLATTEN_PATCH, new_callable=AsyncMock)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 54,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SERVICE_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 55,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SESSION_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 65,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 70,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_service = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 85,
+          "pattern": "@patch without wraps",
+          "code": "@patch(LOSS_RUN_FLATTEN_PATCH, new_callable=AsyncMock)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 86,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SERVICE_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 87,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SESSION_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 102,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_service = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 128,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SERVICE_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 129,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SESSION_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 137,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 142,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_service = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 154,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SESSION_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 171,
+          "pattern": "@patch without wraps",
+          "code": "@patch(SESSION_PATCH)"
+        },
+        {
+          "file": "backend/tests/tasks/test_process_existing_atlas_extraction.py",
+          "line": 179,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_result = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:18:02Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2879e805f7fef0a06c5e47d8c4dff599",
+      "failed_subprojects": 0,
+      "missing_tests": 12,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "backend/alembic/versions/20260428_1514_add_atlas_extraction_id_and_doc_id_to_uploads.py",
+        "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+        "backend/app/models/pydantic/loss_run/loss_run_upload_response_model.py",
+        "backend/app/models/pydantic/pre_extraction_error_response.py",
+        "backend/app/models/pydantic/schedule_of_values_upload/schedule_of_values_upload_base_response.py",
+        "frontend/src/components/analytics/ChartConcernBar.tsx",
+        "frontend/src/components/analytics/concern-level-summary.ts",
+        "frontend/src/components/analytics/grs-outline-overlay.tsx",
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/components/dealDashboard/fit-bounds-padding.ts",
+        "frontend/src/components/dealDashboard/hover-engine-types.ts",
+        "frontend/src/hooks/useDocumentEscape.ts"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 237000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2922524.0
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1395-featbackend-accept-preextraction-on-sovl",
+  "sha": "e39bc9a127145928a7affd0490c5f8d312d7db0e",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-29T17:13:53Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T17:13:53Z",
+      "files_checked": 107,
+      "violations": 16,
+      "violations_details": [
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "flatten_properties",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "ScheduleOfValuesUploadService",
+          "lines": 188,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/sov/test_sov_pre_extraction.py",
+          "function": "test_sov_re_import_creates_separate_upload_rows_same_atlas_extraction",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "lines": 95,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/middleware/error_handling_middleware.py",
+          "function": "ErrorHandlingMiddleware",
+          "lines": 87,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/loss_run_upload.py",
+          "function": "LossRunUpload",
+          "lines": 68,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/models/sqlalchemy/schedule_of_values_upload.py",
+          "function": "ScheduleOfValuesUpload",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "AtlasExtractionService",
+          "lines": 335,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_cache.py",
+          "function": "TestCacheDeletePattern",
+          "lines": 58,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "function": "TestExceptionLoggingShape",
+          "lines": 110,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/middleware/test_error_handling_middleware.py",
+          "function": "TestErrorHandlingMiddleware",
+          "lines": 69,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
