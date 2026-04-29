@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7665-pair-build-evolution",
+  "sha": "191c7b25d995b4760b0b12ee14bbf2f7575c9fcd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T12:36:22Z",
+  "phase": "all",
+  "run_number": 7,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/pair-build/SKILL.md",
+      "line": 364,
+      "rule": "FILE_SIZE",
+      "message": "File is 364 lines, exceeding the 300-line maximum. File was 355 lines before this task; writer added 9 net lines without condensing. The constraint 'No new files except the test script' means the fix must condense prose within the file itself \u2014 the 'Why per-round haiku is safe' rationale block (lines 244-244) is the most compressible addition."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T12:19:25Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:12:40Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T02:47:49Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:12:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:12:38Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:13:15Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:13:14Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:13:22Z"
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T09:51:47Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:26:15Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:13:20Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T12:34:06Z",
+      "duration_ms": 471000
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T12:34:08Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T10:13:19Z",
+      "scanned_files": 45
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T02:05:03Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T02:05:02Z",
+      "test_runner": "bin-test",
+      "fingerprint": "873ef7710142013621ef2a67d5eab803",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 37746.0
+}
