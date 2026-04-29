@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-551-close-the-coderabbit-vs-rq-review-gap--s",
+  "sha": "953e0c10e51beece92a51c0e8fa928cde29f55aa",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T19:30:38Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T18:13:59Z",
+      "fingerprint": "7101caaadfd48df23cee59812d711c1b",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
