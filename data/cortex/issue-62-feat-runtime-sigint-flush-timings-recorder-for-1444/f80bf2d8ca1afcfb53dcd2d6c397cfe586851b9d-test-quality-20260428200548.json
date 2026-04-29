@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-62-feat-runtime-sigint-flush-timings-recorder-for-1444",
+  "sha": "f80bf2d8ca1afcfb53dcd2d6c397cfe586851b9d",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-29T00:05:48Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T00:05:48Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
