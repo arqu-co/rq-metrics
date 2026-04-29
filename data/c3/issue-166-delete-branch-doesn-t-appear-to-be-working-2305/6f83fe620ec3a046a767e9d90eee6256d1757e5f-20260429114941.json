@@ -1,0 +1,231 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-166-delete-branch-doesn-t-appear-to-be-working-2305",
+  "sha": "6f83fe620ec3a046a767e9d90eee6256d1757e5f",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T15:49:41Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-24876",
+    "review-wip-reviewer-40433",
+    "review-wip-reviewer-43976",
+    "review-wip-reviewer-69398",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:45:08Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 3000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:30:37Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:27:20Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:26:55Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:26:53Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:49:38Z",
+      "duration_ms": 270000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:27:01Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:49:40Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:21:36Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T15:27:02Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:49:40Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-24876": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "line": 29,
+          "severity": "medium",
+          "category": "style",
+          "title": "ResultClass type is unexported but classifyResults (which returns it) is exported",
+          "body": "classifyResults is exported at line 39 and its return type is ResultClass (line 29), but ResultClass itself is not exported. Any caller who imports classifyResults and wants to annotate a variable with the return type cannot do so by name \u2014 they must use ReturnType<typeof classifyResults> as a workaround. Since classifyResults is part of the module's public API, its return type should also be exported.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "line": 57,
+          "severity": "low",
+          "category": "style",
+          "title": "sendCleanupResponse double-guard obscures control flow \u2014 inverted guard fires before refusal check",
+          "body": "Lines 57-58 read: `if (verdict !== 'refused') invalidateBranchCache(); if (verdict === 'refused') { ... }`. The inverted guard on line 57 causes invalidateBranchCache() to execute before the refusal short-circuit on line 58. Because the two conditions are complementary, any reader must mentally invert the first guard to understand that the second guard is the true decision point. The idiomatic fix is to move the refusal early-return first, then call invalidateBranchCache() once unconditionally below it \u2014 eliminating the redundant inverted check entirely. Fix: move the `if (verdict === 'refused')` block to lines 56-59, then call `invalidateBranchCache()` on line 60 with no guard.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-delete.test.ts",
+          "line": 38,
+          "severity": "low",
+          "category": "style",
+          "title": "Test comment describes an impossible scenario \u2014 cleanupBranch never returns Refused + Could not in the same array",
+          "body": "The comment on line 38-39 reads: 'if a refusal slipped through with a downstream Could not message, the user should still see 422 not 500'. In branch-cleanup.ts line 79, cleanupBranch returns [refusal] immediately on refusal \u2014 it never accumulates downstream Could not messages after a refusal. The test is valid as a pure unit test of the classifier function (which is independent of cleanupBranch), but the comment misleads readers into thinking this is a defensive guard against a real runtime scenario. Fix: replace the comment with one that accurately describes why this case is tested \u2014 e.g. 'classifyResults is a pure function; test that refused dominates failed regardless of call origin'.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-40433": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "line": 114,
+          "severity": "high",
+          "category": "security",
+          "title": "Raw err.message reflected in 500 response body without sanitization",
+          "body": "The catch block constructs detail = err instanceof Error ? err.message : String(err) and embeds it directly in the HTTP response as results: [`Could not delete branch: ${detail}`]. This bypasses sanitizeGitError(), which strips embedded credentials (user:token@host patterns from git push --delete failures) before returning messages to the client. All internal cleanup errors in cleanupBranch.ts already go through sanitizeGitError(), but errors that escape cleanupBranch (e.g., from resolveRepoDir's getRepoRoots, or future changes that let a git error propagate) will be reflected unsanitized. The fix is to wrap detail with the imported sanitizeGitError: import sanitizeGitError from branch-cleanup.ts or inline the same redaction. Since sanitizeGitError is private to branch-cleanup.ts, either export it or duplicate the one-line redaction here.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-43976": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "line": 104,
+          "severity": "high",
+          "category": "correctness",
+          "title": "catch-block 500 shape differs from sendCleanupResponse 500 shape \u2014 client sees undefined results",
+          "body": "When cleanupBranch throws an exception (line 88), the catch block at line 104 returns { error: 'delete_failed', requestId } with no 'results' field. But the sendCleanupResponse path (verdict === 'failed', line 63) returns { results }. Any client code that reads res.body.results to display the failure breakdown gets undefined on the throw path. The app-routes-branches.test.ts test at line 266-279 (and app.test.ts line 227-235) exercises the classifyResults 500 path \u2014 they do NOT exercise the catch block, so this shape divergence is invisible to the current test suite. Fix: add a results field to the catch-block response, e.g. { error: 'delete_failed', requestId, results: [`Could not delete branch: ${err.message}`] }, and add a test that injects a throwing cleanupBranch stub.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "line": 66,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "sendCleanupResponse ok-path (200 + metaStore.delete) has no test coverage",
+          "body": "sendCleanupResponse has three verdict branches: refused (422), failed (500), ok (200). The refused and failed branches are exercised by the integration tests in app-routes-branches.test.ts. The ok branch \u2014 lines 66-67: metaStore.delete(key) followed by res.json({ results }) \u2014 has no test. This means the metaStore.delete call and the 200 response shape are unverified. Fix: add a test to the DELETE /api/branches describe block that injects a stub cleanupBranch returning ['Removed worktree', 'Deleted local branch'] (all-success results), asserts res.status === 200, res.body.results contains those strings, and that metaStore.delete was called for the correct key.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-69398": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:45:05Z",
+      "duration_ms": 251000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:49:39Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:40:54Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T15:45:05Z",
+      "fingerprint": "fb67798686e897d4045e08e12cee2d7a",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1684.0
+}
