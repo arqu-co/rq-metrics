@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-180-session-names-collide-when-spinning-up-multip-1545",
+  "sha": "29f226d80d0bf1036404fc8b3e1faa4935f958b4",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T20:01:17Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-180",
+    "review-wip-reviewer-28894",
+    "review-wip-reviewer-54635",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:51:59Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:28Z",
+      "files_checked": 1,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:00Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:51:58Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:01:14Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:06Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:01:16Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T19:49:52Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:01:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-180": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/lib/branch-name.test.ts",
+          "line": 46,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Regex in defaultRandomSuffix test hardcodes {4} instead of using RANDOM_SUFFIX_LEN",
+          "body": "Line 46 uses /^[0-9a-f]{4}$/ with a hardcoded 4, but RANDOM_SUFFIX_LEN is imported and checked on line 47. If RANDOM_SUFFIX_LEN changes to any even value other than 4 (e.g. 6 or 8), the regex silently passes while the length assertion on line 47 catches the mismatch \u2014 meaning the test gives a false impression that the regex is the authoritative check. The regex should mirror the constant: new RegExp('^[0-9a-f]{' + RANDOM_SUFFIX_LEN + '}$')",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/branch-name.ts",
+          "line": 32,
+          "severity": "low",
+          "category": "correctness",
+          "title": "RANDOM_SUFFIX_LEN / 2 byte allocation silently truncates if constant is ever set to an odd value",
+          "body": "Line 32: new Uint8Array(RANDOM_SUFFIX_LEN / 2). TypedArray constructors truncate fractional lengths via ToIndex (ECMAScript), so RANDOM_SUFFIX_LEN=5 would allocate 2 bytes and produce only 4 hex chars instead of 5, while the constant says 5. No current bug (value is 4), but the contract is fragile. A safer formulation is Math.ceil(RANDOM_SUFFIX_LEN / 2) bytes then slice(0, RANDOM_SUFFIX_LEN) on the hex string, or add a compile-time assertion that RANDOM_SUFFIX_LEN % 2 === 0.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-28894": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-54635": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/lib/branch-name.ts",
+          "line": 32,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "RANDOM_SUFFIX_LEN / 2 silently truncates if constant is set to an odd number",
+          "body": "Line 32: `new Uint8Array(RANDOM_SUFFIX_LEN / 2)`. TypedArray constructors in JavaScript silently floor non-integer sizes \u2014 if RANDOM_SUFFIX_LEN were ever changed to an odd value (e.g. 5), the array would be 2 bytes and produce only 4 hex chars, not 5. The constant name would then be a lie and the mismatch would be invisible at runtime. Fix: replace the division with an explicit byte count constant, or assert that RANDOM_SUFFIX_LEN is even, or document the invariant with a comment: `// 2 bytes \u2192 4 hex chars; RANDOM_SUFFIX_LEN must be even`.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/branch-name.test.ts",
+          "line": 108,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Trailing-dash-strip test does not actually trigger the code path it claims to test",
+          "body": "The test 'strips trailing dash before appending HHMM and random suffix' (line 108) uses slug = 'a'.repeat(46) + '-extra'. The computed base is 'issue-1-' (8 chars) + 46 a's + '-extra' (6 chars) = 60 chars. With suffix '-0905-abcd' (10 chars), baseMax = 50. Slicing base to 50 chars yields 'issue-1-' + 42 a's \u2014 no trailing dash, so `.replace(/-+$/, '')` is a no-op. The assertion `expect(result).not.toMatch(/--\\d{4}-[0-9a-f]{4}$/)` passes trivially and does not exercise the dash-stripping branch. Fix: use a slug whose truncation point lands on a dash, e.g. slug = 'a'.repeat(41) + '-b' so that base.slice(0, 50) ends with a '-', confirming the replace actually fires.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:53:45Z",
+      "duration_ms": 77000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:01:15Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:01:13Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 448000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:52:27Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4e9848426ead00b223a0a9b4ba98039d",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 21000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 684.0
+}
