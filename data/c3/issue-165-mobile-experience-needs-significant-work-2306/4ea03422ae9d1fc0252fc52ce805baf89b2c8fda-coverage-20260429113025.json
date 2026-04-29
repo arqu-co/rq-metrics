@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-165-mobile-experience-needs-significant-work-2306",
+  "sha": "4ea03422ae9d1fc0252fc52ce805baf89b2c8fda",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T15:30:25Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T15:30:25Z",
+      "files_checked": 5,
+      "coverage_tool": "js",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "client/src/hooks/useTerminalPanel.ts",
+          "coverage": 79.01,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
