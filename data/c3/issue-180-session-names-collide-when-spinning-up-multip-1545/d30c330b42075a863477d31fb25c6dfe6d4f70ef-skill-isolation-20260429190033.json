@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-180-session-names-collide-when-spinning-up-multip-1545",
+  "sha": "d30c330b42075a863477d31fb25c6dfe6d4f70ef",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T23:00:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:00:33Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
