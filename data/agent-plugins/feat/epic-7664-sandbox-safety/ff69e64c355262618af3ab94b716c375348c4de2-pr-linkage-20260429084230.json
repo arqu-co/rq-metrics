@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "feat/epic-7664-sandbox-safety",
+  "sha": "ff69e64c355262618af3ab94b716c375348c4de2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T12:42:30Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "pr-linkage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "pr-linkage"
+  ],
+  "gates": {
+    "pr-linkage": {
+      "status": "fail"
+    }
+  },
+  "duration_seconds": null
+}
