@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-554-rqstart-support-worktree-forward-flow-vi",
+  "sha": "121f903857222d345d05e578262a2610548386b1",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T23:19:53Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:19:53Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/rq-next.sh.orig ./plugins/rq/scripts/rq-next.sh\n--- ./plugins/rq/scripts/rq-next.sh.orig\n+++ ./plugins/rq/scripts/rq-next.sh\n@@ -238,9 +238,9 @@\n     # RQ_EXEC_BYPASS_TTY=1 is a TEST-ONLY escape hatch (see rq-start.sh for\n     # the full rationale). Production callers MUST NOT set it.\n     if [ ! -t 0 ] && [ \"${RQ_EXEC_BYPASS_TTY:-0}\" != 1 ]; then\n-      :   # not a TTY and no test bypass \u2014 silently skip\n+      : # not a TTY and no test bypass \u2014 silently skip\n     elif ! command -v claude >/dev/null 2>&1; then\n-      :   # claude not on PATH \u2014 silently skip\n+      : # claude not on PATH \u2014 silently skip\n     else\n       exec claude\n     fi\ndiff ./plugins/rq/scripts/rq-start.sh.orig ./plugins/rq/scripts/rq-start.sh\n--- ./plugins/rq/scripts/rq-start.sh.orig\n+++ ./plugins/rq/scripts/rq-start.sh\n@@ -223,9 +223,9 @@\n     # under non-interactive input (CI, piped invocations) and replace the\n     # shell with a hung/failing claude process.\n     if [ ! -t 0 ] && [ \"${RQ_EXEC_BYPASS_TTY:-0}\" != 1 ]; then\n-      :   # not a TTY and no test bypass \u2014 silently skip\n+      : # not a TTY and no test bypass \u2014 silently skip\n     elif ! command -v claude >/dev/null 2>&1; then\n-      :   # claude not on PATH \u2014 silently skip\n+      : # claude not on PATH \u2014 silently skip\n     else\n       exec claude\n     fi\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
