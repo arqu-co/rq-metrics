@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "sha": "9222aecf064b7a55e48ba0979138c5dd258fd961",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T19:40:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:40:15Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

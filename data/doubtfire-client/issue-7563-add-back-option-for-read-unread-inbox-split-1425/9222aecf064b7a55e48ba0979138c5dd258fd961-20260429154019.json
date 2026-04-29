@@ -1,0 +1,220 @@
+{
+  "schema_version": 2,
+  "repo": "doubtfire-client",
+  "branch": "issue-7563-add-back-option-for-read-unread-inbox-split-1425",
+  "sha": "9222aecf064b7a55e48ba0979138c5dd258fd961",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-29T19:40:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:38:37Z",
+      "files_checked": 30,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/composables/useEmailActions.ts",
+          "function": "useEmailActions",
+          "lines": 242,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/composables/useConversationLoader.ts",
+          "function": "useConversationLoader",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T19:40:15Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:38:40Z",
+      "files_checked": 30,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "src/stores/inbox.ts",
+          "name": "type WindowSyncEvent",
+          "line": 25
+        },
+        {
+          "type": "unused_import",
+          "file": "src/stores/sectioned-inbox-in-flight.ts",
+          "name": "type Ref",
+          "line": 1
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:38:33Z",
+      "files_checked": 30,
+      "violations": 5,
+      "violations_details": [
+        {
+          "file": "src/composables/useConversationLoader.test.ts",
+          "lines": 424,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/composables/useEmailActions.spec.ts",
+          "lines": 317,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "lines": 1636,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/stores/inbox.ts",
+          "lines": 1102,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/stores/sectioned-inbox.mutations.test.ts",
+          "lines": 444,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:40:15Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:39:27Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 47000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:40:17Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T19:39:27Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:40:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:40:18Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T19:40:16Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:40:14Z",
+      "scanned_files": 18,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 32,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})"
+        },
+        {
+          "file": "src/stores/inbox.test.ts",
+          "line": 33,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "const mockConsoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T19:40:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ee4fda708bc3a48062430a05659abbbe",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[430/516]\u23af\n\n\n  Snapshots  2 failed\n             9 obsolete\n             \u21b3 src/components/ui/badge/Badge.snapshot.test.ts\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > md-none 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-avatar 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for all size and prepend combinations > sm-icon 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > custom-class 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > long-text 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > prepend-with-truncation 1\n               \u00b7 Badge Snapshots > snapshot regression tests > matches snapshot for edge cases > truncated-text 1\n\n Test Files  83 failed | 316 passed (399)\n      Tests  516 failed | 5972 passed (6488)\n   Start at  15:39:29\n   Duration  42.93s (transform 15.24s, setup 2.41s, collect 188.12s, tests 47.38s, environment 210.56s, prepare 31.45s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 45000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 105.0
+}
