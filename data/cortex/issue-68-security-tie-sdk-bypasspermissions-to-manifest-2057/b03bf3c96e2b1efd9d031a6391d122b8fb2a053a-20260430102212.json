@@ -1,0 +1,186 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-68-security-tie-sdk-bypasspermissions-to-manifest-2057",
+  "sha": "b03bf3c96e2b1efd9d031a6391d122b8fb2a053a",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T14:22:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:21:53Z",
+      "files_checked": 17,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "lib/runtime/dream-tick.ts",
+          "function": "nextDailyState",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:22:07Z",
+      "files_checked": 7,
+      "coverage_tool": "js",
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "lib/runtime/dream-tick.ts",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "lib/runtime/mcp-agent-tick.ts",
+          "coverage": 0,
+          "min": 95
+        },
+        {
+          "file": "lib/runtime/runner-service.ts",
+          "coverage": 0,
+          "min": 95
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:21:55Z",
+      "files_checked": 17,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:21:51Z",
+      "files_checked": 17,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "lib/runtime/dream-tick.test.ts",
+          "lines": 591,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "lib/runtime/runner-service.test.ts",
+          "lines": 426,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 115000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:08Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:02Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:22:10Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:19:56Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T14:22:03Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:09Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:22:12Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:09Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:06Z",
+      "scanned_files": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:05Z",
+      "fingerprint": "10cc530d3cfc86f1eda62a24019ee926",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 2000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 136.0
+}
