@@ -1,0 +1,328 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7671-delete-file-persistence-from-sovloss-run",
+  "sha": "b8ae8c63bde2a149bba415e037f40b84a55dbfd5",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T20:57:12Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 5,
+  "missed_gates": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "lint",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T20:54:20Z",
+      "files_checked": 18,
+      "violations": 13,
+      "violations_details": [
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "lines": 160,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/attach_from_atlas.py",
+          "function": "attach_from_atlas",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 102,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 134,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 71,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "flatten_properties",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "lines": 126,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/atlas_schedule_of_values_extraction.py",
+          "function": "_extract_schedule_of_values_async",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/tasks/process_existing_atlas_extraction.py",
+          "function": "_process_existing_atlas_extraction_async",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/tasks/process_existing_atlas_extraction.py",
+          "function": "_process_existing_atlas_extraction_async",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/api/test_attach_from_atlas.py",
+          "function": "test_attach_creates_sov_upload_in_target_project",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:57:07Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 155000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T20:54:22Z",
+      "files_checked": 18,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "backend/app/tasks/__init__.py",
+          "name": "(",
+          "line": 6
+        },
+        {
+          "type": "unused_import",
+          "file": "backend/app/tasks/__init__.py",
+          "name": "(",
+          "line": 11
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T20:54:19Z",
+      "files_checked": 18,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "lines": 391,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "lines": 416,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/api/test_attach_from_atlas.py",
+          "lines": 344,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:57:08Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T20:54:32Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\udd0d Checking code for lint issues (backend + frontend)\n\ud83d\udd0d Checking backend formatting with ruff format --check...\nWould reformat: tests/api/test_attach_from_atlas.py\n1 file would be reformatted, 1789 files already formatted\n\ud83d\udd0d Checking backend with ruff...\nAll checks passed!\n\ud83d\udd0d Checking frontend with oxlint...\nFound 0 warnings and 0 errors.\nFinished in 233ms on 1700 files with 86 rules using 16 threads.\n\ud83d\udd0d Type checking backend with mypy...\nSuccess: no issues found in 932 source files\n\ud83d\udd0d Type checking frontend with tsc...\n\u274c Lint issues found. Run 'bin/format' to fix.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+import app.tasks  # noqa: F401 \u2014 load __init__.py so registrations fire\n\n"
+        }
+      ],
+      "duration_ms": 10000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:57:11Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:07:36Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T17:54:45Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_failed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:57:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:57:10Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:11:43Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:57:02Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T20:57:07Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5ef96ec6be1a5cba4e12ae20bbe1a05f",
+      "missing_tests": 2,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "backend/alembic/versions/20260430_2200_make_upload_file_path_nullable.py",
+        "backend/app/api/loss_run/loss_run_upload_endpoints.py"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3022066.0
+}
