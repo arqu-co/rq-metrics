@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-77-feat-branch-proxy-log-effective-autostartmain-2057",
+  "sha": "33c7d09e0cff09f2d2ad0d8c5ea85ee910043119",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T14:34:56Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:34:56Z",
+      "test_runner": "bin-test",
+      "fingerprint": "35d61cb49992eeb1fba986637ff336ba",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.\u001b[39m\n\n RUN  v2.1.9 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/cortex/.claude/worktrees/issue-77-feat-branch-proxy-log-effective-autostartmain-2057\n\nfilter:  .claude/agent-memory/rq-critic/index-test-history.txt\ninclude: **/*.{test,spec}.{ts,tsx}\nexclude:  **/node_modules/**, **/.next/**, e2e/**, **/playwright-report/**, .claude/**, tools/branch-proxy/**\n\nNo test files found, exiting with code 1"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
