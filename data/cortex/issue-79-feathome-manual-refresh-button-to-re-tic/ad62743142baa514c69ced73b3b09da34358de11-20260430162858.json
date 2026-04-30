@@ -1,0 +1,327 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-79-feathome-manual-refresh-button-to-re-tic",
+  "sha": "ad62743142baa514c69ced73b3b09da34358de11",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T20:28:58Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-50615",
+    "review-wip-reviewer-75003",
+    "review-wip-reviewer-main",
+    "review-wip-reviewer-r3",
+    "review-wip-reviewer-round2",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:15Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:25:01Z",
+      "coverage_tool": "js",
+      "files_checked": 14,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:46:05Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:46:03Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:02:26Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:28Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:02:28Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T20:24:54Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:02:27Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T20:27:30Z",
+      "duration_ms": 149000
+    },
+    "review-wip-reviewer-50615": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 35,
+          "severity": "high",
+          "category": "correctness",
+          "title": "consolidateUnresolvedSignals silently truncates sweep at 50 signals",
+          "body": "Line 35 calls listUnresolvedSignals(database) with no limit override, inheriting the default limit=50 from agent-signals-repo.ts:47. On any system with more than 50 unresolved signals the O(n^2) sweep silently misses signals 51+, leaving cross-source duplicates unmerged without any error or log. Fix: pass Infinity (or Number.MAX_SAFE_INTEGER) as the limit argument: listUnresolvedSignals(database, Number.MAX_SAFE_INTEGER). The same gap exists in reconcile-signal.ts line 56 but that is pre-PR code; the new consolidate-signals.ts must not inherit it.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 82,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Unguarded JSON.parse on sourcesJson can throw if the column is malformed",
+          "body": "Line 82: JSON.parse(signal.sourcesJson) has no try/catch. The schema defines sourcesJson as NOT NULL DEFAULT '[]' and the TypeScript type declares it string | null, but neither prevents a row with corrupted JSON (manual DB edits, migration bugs, truncated writes) from reaching this path. A parse failure throws synchronously inside mergeLoserIntoCanonical, which aborts the entire consolidation pass and leaves the database in a partially-merged state. Fix: wrap the parse in a try/catch that returns null on failure, or use a shared safe-parse helper. Also add a test: firstEvidenceFor returns null when sourcesJson is invalid JSON.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-75003": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "lib/db/agent-signals-repo.ts",
+          "line": 155,
+          "severity": "medium",
+          "category": "security",
+          "title": "stripRoleBoundaryTokens only sanitizes the loser body \u2014 existingBody is never cleaned",
+          "body": "mergeBody() sanitizes additionalBody (the loser's body) before embedding it, but existingBody (the winner's body, stored at insertSignal time) is passed through unchanged. An orchestrator that calls insertSignal with a role-boundary token in its body field would embed the unsanitized token in the canonical row before any merge occurs. The comment acknowledges this is 'the narrow data-layer half of the broader coordinated escape-and-delimit pass', but the asymmetry is not documented as a known gap. Fix: apply stripRoleBoundaryTokens to existingBody in mergeBody() as well, or add a doc comment explicitly noting that winner bodies are trusted (first-write path, not merge path) and explain why that's acceptable.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 98,
+          "severity": "low",
+          "category": "correctness",
+          "title": "firstEvidenceFor silently discards JSON parse errors with no log \u2014 systematic corruption is invisible",
+          "body": "The catch block at line 98 returns null without logging or incrementing any counter. If sourcesJson is systematically malformed (e.g. a migration bug wrote truncated JSON to every row), every call silently loses evidence metadata and the sweep continues without any signal to the operator. The fix chosen (return null on error) is semantically correct \u2014 the merge should still proceed \u2014 but the silent drop makes the corruption category invisible in logs. Fix: add a console.warn or logger.warn call inside the catch block before returning null, e.g. console.warn('consolidate-signals: could not parse sourcesJson for signal, treating as no-evidence', signal.id, err). This makes isolated corruption survivable and systematic corruption detectable.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/actions.ts",
+          "line": 32,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Four sibling server actions place revalidatePath outside finally \u2014 inconsistent with the round-1 fix pattern",
+          "body": "manualRefresh (fixed in round 1) now calls revalidatePath inside finally so cache revalidation runs even on error. The four sibling actions \u2014 deferSignal (line 32), deferAwaitingUserRun (line 50), actOnSignal (line 66), actOnAwaitingUserRun (line 88) \u2014 still call revalidatePath after the finally block. If the DB operation inside try throws, revalidatePath is skipped and the home stays stale. For these simpler actions a DB failure is rarer than a multi-orchestrator tick failure, but the pattern is now inconsistent in the same file. Fix: move revalidatePath(HOME_PATH) inside the finally block for all four sibling actions, mirroring the established pattern from the manualRefresh fix.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "app/actions.ts",
+          "line": 133,
+          "severity": "high",
+          "category": "correctness",
+          "title": "revalidatePath called outside try block \u2014 skipped on throw",
+          "body": "In executeManualRefresh(), revalidatePath(HOME_PATH) is called at line 133, after the try/finally block. If runManualRefresh() throws, the finally closes the DB (correct), the exception propagates, and revalidatePath is never called. This means the home page cache is NOT invalidated after a failed refresh. The caller (manualRefresh) re-throws to the browser, showing an error \u2014 but the stale cache remains. On the next page load (after user dismisses the error) the home shows pre-refresh data. Fix: move revalidatePath inside the try block, before or after runManualRefresh, so it always runs even if the refresh partially fails, OR call it in a finally clause so the cache is always busted after a manual refresh attempt.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/actions.ts",
+          "line": 112,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "manualRefreshInflight coalesces concurrent callers but drops errors for the first waiter",
+          "body": "When a second call hits manualRefresh() while inflight is non-null, it returns manualRefreshInflight directly (line 112). The .finally() on line 113-115 is attached to the Promise chain of the FIRST caller's result, and it clears the module-level variable on settlement. Because finally() on a rejected promise re-throws the rejection, the second awaiter also sees the rejection \u2014 this is correct. However, a third call that arrives after the first settles but while the second is still awaiting will get manualRefreshInflight=null and fire a NEW executeManualRefresh(). In practice, all three calls within the same Next.js process event loop tick are coalesced, but across async boundaries (e.g. two concurrent HTTP requests) this is a real window. The actual risk is low given Next.js request handling, but the comment at line 97-102 should document this gap explicitly. Not a crash, but the stated guarantee ('second concurrent call awaits the in-progress refresh') has an edge case when a third concurrent caller races.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 41,
+          "severity": "info",
+          "category": "correctness",
+          "title": "consumed set only prevents candidate re-use as loser; canonical can still be a previously-consumed loser",
+          "body": "The outer loop checks consumed.has(canonical.id) at line 41 \u2014 if a row was consumed (folded as a loser), it is skipped as a canonical in later outer iterations. This is correct. The inner loop checks consumed.has(candidate.id) at line 45 before merging. However, consumed.add() is only called for candidates (losers) \u2014 line 48. The canonical row itself is never added to consumed. This means: if A is canonical for B (B consumed), and then C appears as a later outer-loop canonical, C will not be skipped by the consumed check (C was never a loser). This is correct behavior. The concern mentioned in the review brief ('is there a path where a consumed canonical participates as the j-side?') is about whether a row that served as canonical for one pair can later appear as a j-side candidate for a different i-side canonical. The j-loop runs from i+1, so by induction the j-side is always a later row than i-side. A row that was consumed as a j-side loser cannot later appear as an i-side canonical (blocked by outer consumed check). A row that acted as an i-side canonical in an earlier iteration cannot appear as a j-side in a later i-iteration because j always starts at i+1 and iterates forward \u2014 a row at position k can only be j-side for outer iterations i < k, and once we reach outer i=k, j starts at k+1. So the pair traversal is geometrically correct. No double-fold is possible. This finding is informational: the logic is correct.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 62,
+          "severity": "medium",
+          "category": "security",
+          "title": "Loser body injected as labeled markdown block into canonical body \u2014 prompt-injection surface",
+          "body": "mergeLoserIntoCanonical calls appendSourceToSignal with additionalBody=loser.body (line 68). In agent-signals-repo.ts mergeBody(), this content is appended as '\u2014 from {agentId}:\\n{additionalBody}' (line 161). The result is stored in the signals body column and is later injected into the workbench snapshot system prompt (per the project memory: 'Workbench snapshot is a prompt-injection surface'). A compromised or buggy orchestrator could write a loser body containing markdown control sequences, fake role delimiters, or tool-use injection payloads. After consolidation, this content lands in the canonical body and therefore in the system prompt for the next workbench interaction. The fix is to escape or strip control characters from additionalBody before prepending. At minimum, strip leading/trailing whitespace and null bytes. A more robust fix is to wrap the block in an XML-delimited section with a fixed prefix so the model can be instructed to treat it as inert context.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 136,
+          "severity": "low",
+          "category": "correctness",
+          "title": "forceTickOnce / executeForcedPass shares inflightById with the polling loop \u2014 cross-process concurrent tick is documented but in-process concurrent tick is also possible",
+          "body": "The concern in the review brief is correct that two processes (launchd scheduler + Next.js manualRefresh) have separate inflightById maps. Within a single process, forceTickOnce uses this.inflightById at line 148 \u2014 so if the polling scheduler has fired a tick for orchestrator X and it is still running, forceTickOnce will skip that entry (fireUnique returns immediately if inflightById.has(id)). This is the documented 'coalesce' behavior and is correct. However: the scheduler built inside runManualRefresh (manual-refresh.ts line 57) is a fresh Scheduler instance with an empty inflightById. If the launchd scheduler process is concurrently ticking orchestrator X, the in-process Scheduler does not know about it. This is the acknowledged cross-process race in the code comment at actions.ts line 97-102. The consequence: orchestrator state cursor (e.g. signaled_external_ids set in orchestrator_state) may be read by two concurrent ticks and both advance past the same items. SQLite's WAL mode serializes writes but both reads happen before either write, so both ticks could signal the same item. The comment should note that the consequence is duplicate signals (which the reconciler/consolidator will later merge), not data corruption. This is acceptable given the architecture. No fix needed if the comment is updated; flagging for documentation completeness.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/refresh/manual-refresh.ts",
+          "line": 67,
+          "severity": "low",
+          "category": "correctness",
+          "title": "refreshedAt timestamp captured after forceTickOnce \u2014 clock skew between tick start and timestamp",
+          "body": "refreshedAt is computed at line 67, after forceTickOnce() and consolidation have both completed. For a refresh that takes 30 seconds, the persisted timestamp reflects when consolidation finished, not when the refresh was initiated. The UI label 'Refreshed Nm ago' will show a slightly shorter age than the actual start time. This is low-severity cosmetic behavior. If the intent is 'when did Alicia click the button', the timestamp should be captured before the tick, not after. Fix: move the timestamp capture to before the scheduler.forceTickOnce() call.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-round2": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "app/actions.ts",
+          "line": 143,
+          "severity": "medium",
+          "category": "error-handling",
+          "title": "revalidatePath in finally block masks original error from executeManualRefresh",
+          "body": "If runManualRefresh throws (e.g. SDK failure) and then revalidatePath also throws (e.g. Next.js cache layer is down), the original error from runManualRefresh is silently replaced by the revalidatePath error. The server action's caller (manualRefresh) receives the wrong exception with a misleading message that obscures the real failure. To fix: wrap revalidatePath in its own try/catch inside the finally block, log the cache-bust failure, and let it not suppress the original. Example: finally { database.$client.close(); try { revalidatePath(HOME_PATH); } catch (cacheError) { console.error('revalidatePath failed after tick error', cacheError); } }",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/agent-signals-repo.ts",
+          "line": 174,
+          "severity": "low",
+          "category": "security",
+          "title": "ROLE_BOUNDARY_PATTERNS misses Llama-2 [INST]/[/INST] and GPT-2 <|endoftext|> injection vectors",
+          "body": "The regex set covers ChatML (<|im_start|>/<|im_end|>), Llama-3/Phi (<|system|>/<|user|>/<|assistant|>), Mistral (<s>/<\\/s>), and null bytes. It does not cover Llama-2 instruction markers [INST] and [/INST], the GPT-2/GPT-J end-of-text token <|endoftext|>, or Alpaca-style ### prefix markers (### Instruction:, ### Response:, ### System:). The commit description acknowledges this is the narrow data-layer half of a coordinated pass and completeness is not the bar, but [INST]/[/INST] is widely deployed and a realistic injection vector from any Llama-2-derived orchestrator body. Additionally, the regex uses literal Unicode matching so a homoglyph substitution (e.g. \u02c2 instead of < in <|im_start|>) would bypass all patterns. Fix: add /\\[INST\\]/gi, /\\[\\/INST\\]/gi, /<\\|endoftext\\|>/gi, and /###\\s*(system|instruction|response|human|assistant)\\s*:/gi to ROLE_BOUNDARY_PATTERNS. Homoglyph bypass is a known class of attack against regex-based sanitizers; document the limitation explicitly in the function comment rather than claiming completeness.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/agent-signals-repo.ts",
+          "line": 187,
+          "severity": "low",
+          "category": "security",
+          "title": "Sentinel string [redacted-role-marker] can be written by orchestrators to confuse audit readers",
+          "body": "stripRoleBoundaryTokens replaces matched tokens with the literal string [redacted-role-marker]. An orchestrator that includes the text [redacted-role-marker] in its output body would cause the merged signal row to contain that string without having triggered any sanitization. An operator reading the canonical row body in a DB browser or audit log would see what looks like a sanitization event that never happened, obscuring whether the original data was actually clean or was manipulated. The risk is low (this confuses operators, it does not enable injection), but it is a real audit-trail integrity gap. Fix: use an empty string or a token that cannot be synthesized by an orchestrator, such as the Unicode replacement character U+FFFD, which is not valid in ASCII JSON and would stand out visually without being mimicable.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 98,
+          "severity": "low",
+          "category": "error-handling",
+          "title": "firstEvidenceFor silently swallows JSON parse errors with no logging",
+          "body": "The catch block at line 98 catches all errors from JSON.parse and returns null with no logging. The comment explains the intent (prevent one corrupt row from aborting the entire sweep), which is correct design. However, a corrupt sourcesJson could indicate manual DB tampering, a half-written migration, or a bug in an orchestrator that bypassed the repo helpers. Swallowing with no observable signal means these conditions are invisible in logs and metrics. Fix: add a console.error or logger.warn call inside the catch block before returning null. Something like: console.error('consolidateUnresolvedSignals: corrupt sourcesJson for signal', signal.id, error). This preserves the sweep-continues behavior while making the anomaly observable.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 41,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "SWEEP_FETCH_LIMIT 10_000 creates O(n^2) pair-walk with no degraded-mode guard",
+          "body": "consolidateUnresolvedSignals fetches up to 10,000 unresolved signals and then walks every pair: O(n^2) comparisons where n=10,000 means up to 50 million iterations, each calling similarity() on two titles. There is no guard that skips consolidation, logs a warning, or switches to a degraded mode when the signal count approaches the limit. In a backlog scenario (e.g. after a long scheduler outage), this runs synchronously inside the server action's executeManualRefresh, blocking the Node.js event loop until complete. Fix: add a guard constant (e.g. CONSOLIDATION_SKIP_ABOVE = 2_000) and, when signals.length exceeds it, log a warning and return { merges: 0 } rather than hanging the process. Alternatively, cap the inner loop per-canonical row rather than walking all remaining pairs, which reduces worst-case work at the cost of missing some merge opportunities per pass.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/refresh/manual-refresh.ts",
+          "line": 57,
+          "severity": "low",
+          "category": "correctness",
+          "title": "refreshedAt persisted before tick completes creates observable skew between tabs",
+          "body": "refreshedAt is captured at line 57 before forceTickOnce runs. setLastManualRefreshAt persists this pre-tick timestamp to the DB at line 73 after the tick completes. The intent is that the UI shows when Alicia clicked, not when the SDK settled \u2014 this is documented and intentional. However, the skew is observable in a two-tab scenario: Tab A initiates the refresh and shows 'Refreshed 0m ago' immediately when the server action resolves. Tab B, if it reads the home data from the DB directly (e.g. via a separate RSC fetch or revalidation triggered by another event), will see the refreshedAt timestamp that was written before the tick started \u2014 so it correctly shows the click time. The concern raised is whether T-60s is shown; in practice Tab B sees the same click time because refreshedAt is captured at click time, not at tick-start. The actual skew is between display ('Refreshed 0m ago' shown in Tab A the moment the action resolves) and the DB row (which was written T-tick-duration before the action resolved). This is the intended behavior per the comment. No bug here, but the comment does not explain that Tab B would show the same click time \u2014 worth clarifying in the comment to prevent future confusion.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:28:57Z",
+      "duration_ms": 87000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:02:27Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:29Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T20:25:00Z",
+      "fingerprint": "575efe543fab25adba4f5493608326d9",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 6000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 21042.0
+}
