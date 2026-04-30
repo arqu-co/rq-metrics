@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "960b08c0c1fee50afba7950192fd8897bb0d1b20",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T12:32:04Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-29T23:37:59Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ]
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T12:31:26Z",
+      "files_checked": 13,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/test_deploy_bot_rollback.py",
+          "function": "test_rollback_click_returns_prod_confirmation_card",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 357000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:53Z",
+      "files_checked": 7,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 6000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:33Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 7000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:25:29Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:55Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:35Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 2000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:32:02Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:19:22Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T12:31:37Z",
+      "duration_ms": 2000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:32:00Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T14:34:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:44:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:58Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:31:47Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T12:31:43Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dea011045d900655397d649fdef1da73",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "ERROR: not found: /Users/jerrod/Sites/deploy-bot/.claude/worktrees/humble-petting-thacker/tests/__pycache__/conftest.cpython-312-pytest-9.0.3.pyc\n(no match in any of [<Dir __pycache__>])\n\n\nno tests ran in 0.17s"
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 125259.0
+}
