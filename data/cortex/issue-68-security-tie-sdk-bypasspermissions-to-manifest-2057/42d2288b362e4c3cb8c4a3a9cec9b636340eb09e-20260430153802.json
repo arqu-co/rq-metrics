@@ -1,0 +1,213 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-68-security-tie-sdk-bypasspermissions-to-manifest-2057",
+  "sha": "42d2288b362e4c3cb8c4a3a9cec9b636340eb09e",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T19:38:02Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-43201",
+    "review-wip-reviewer-6169",
+    "review-wip-reviewer-68",
+    "review-wip-reviewer-76816",
+    "review-wip-reviewer-91979",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T19:37:56Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 41000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:33:09Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:33:18Z",
+      "coverage_tool": "js",
+      "files_checked": 7,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:21:55Z",
+      "files_checked": 17,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:33:07Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:37:12Z",
+      "duration_ms": 58000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:33:17Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:37:15Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:22:42Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T14:33:17Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:37:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T19:36:14Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-43201": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-6169": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/runtime/sdk-options.test.ts",
+          "line": 20,
+          "severity": "low",
+          "category": "style",
+          "title": "Test name leaks implementation technique via parenthetical '(Object.hasOwn)'",
+          "body": "Line 20: 'omits bypass flags when trusted is false (Object.hasOwn)' embeds the assertion technique in the test name rather than describing behavior. Test names should say what the system does, not how the test verifies it. The other four tests in this describe block follow the pure-behavior pattern ('includes bypass flags when trusted is true', 'omits abortController when no signal is supplied'). Fix: rename to 'omits bypass flags entirely when trusted is false' \u2014 the Object.hasOwn detail is already visible in the test body for anyone reading it.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-68": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-76816": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/runtime/orchestrator-runner.test.ts",
+          "line": 200,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Hardcoded trusted:false in tick body instead of manifest.trusted",
+          "body": "At line 200, the inline tick closure passes trusted: false as a literal rather than reading manifest.trusted. The manifest produced by buildTestOrchestratorManifest() happens to also have trusted=false (schema default), so the test passes today. However if the fixture were ever updated to include a trusted:true manifest (to test a new scenario), the tick body would silently continue using the wrong value. This is the identical pattern that was fixed in the deadline test in Round 1 (e8f51c). Fix: replace trusted: false with trusted: manifest.trusted at line 200.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-91979": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/runtime/orchestrator-runner-deadline.test.ts",
+          "line": 83,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Deadline test uses hardcoded trusted: false instead of manifest.trusted",
+          "body": "In runHangingTick (line 74-88), the inline sdkClient.run() call passes trusted: false unconditionally instead of manifest.trusted. The hanging-tick closure has access to manifest via its parameter, so this is a divergence from the pattern established in all other test fixtures (orchestrator-runner.test.ts:195-201 uses manifest.trusted, inflight-tick-registry.test.ts:159 uses the variable from scope). The consequence: if a future test calls runHangingTick with a trusted=true manifest, the assertion sdk.calls[0].trusted would get false and mislead the reviewer. More concretely, the plan (Task 3 acceptance criteria, line 358) states tests must verify trusted propagation by inspecting FakeAgentSdkClient.calls \u2014 this test does the opposite, hardcoding the field. The fix is to change trusted: false to trusted: manifest.trusted at line 83.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:53:25Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:37:14Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:06Z",
+      "scanned_files": 10,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:22:05Z",
+      "fingerprint": "10cc530d3cfc86f1eda62a24019ee926",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 18961.0
+}
