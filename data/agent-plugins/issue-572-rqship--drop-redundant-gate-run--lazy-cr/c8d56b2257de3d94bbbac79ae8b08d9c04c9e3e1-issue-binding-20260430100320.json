@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-572-rqship--drop-redundant-gate-run--lazy-cr",
+  "sha": "c8d56b2257de3d94bbbac79ae8b08d9c04c9e3e1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T14:03:20Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:03:18Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
