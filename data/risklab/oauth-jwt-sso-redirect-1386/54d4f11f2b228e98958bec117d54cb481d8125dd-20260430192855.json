@@ -1,0 +1,165 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "oauth-jwt-sso-redirect-1386",
+  "sha": "54d4f11f2b228e98958bec117d54cb481d8125dd",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T23:28:55Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "issue-binding",
+    "review",
+    "test-quality"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:26:15Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T23:28:42Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:26:19Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:26:12Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:28:44Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:26:29Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 10000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:28:50Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T21:50:20Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:28:48Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:28:52Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:28:47Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:28:40Z",
+      "scanned_files": 6,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.test.tsx",
+          "line": 42,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "  vi.spyOn(window.history, \"replaceState\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.test.tsx",
+          "line": 45,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "  vi.spyOn(window.history, \"replaceState\").mockImplementation(() => {});"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHooks.test.tsx",
+          "line": 38,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "  vi.spyOn(window.history, \"replaceState\").mockImplementation(() => {});"
+        }
+      ],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:28:35Z",
+      "test_runner": "bin-test",
+      "fingerprint": "e6f3c45ceb3aa2be22599751a46bf283",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 126000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 5912.0
+}
