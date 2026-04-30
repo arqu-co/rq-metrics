@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1411-fixuploads-sovloss-runs-services-write-t",
+  "sha": "f5525b0438008a1ada13d40151b1c312717d9aa1",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T17:54:34Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:54:34Z",
+      "files_checked": 7,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "backend/app/api/loss_run/loss_run_upload_endpoints.py",
+          "function": "upload_loss_run_with_pre_extraction",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/sov/schedule_of_values_endpoints.py",
+          "function": "upload_sov_file",
+          "lines": 120,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/schedule_of_values_upload_service.py",
+          "function": "flatten_properties",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_loss_run_upload_service.py",
+          "function": "test_create_upload_persists_loss_run_row",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
