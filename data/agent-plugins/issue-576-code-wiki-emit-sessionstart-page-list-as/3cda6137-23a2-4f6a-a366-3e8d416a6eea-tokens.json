@@ -1,0 +1,51 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-576-code-wiki-emit-sessionstart-page-list-as",
+  "sha": null,
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T15:27:31.058Z",
+  "session_id": "3cda6137-23a2-4f6a-a366-3e8d416a6eea",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 945,
+    "output": 227091,
+    "cache_read": 46609994,
+    "cache_create": 2151210,
+    "est_cost_usd": 38.07206867000001
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 3838207,
+      "cost_usd": 3.520349
+    },
+    "ship#1": {
+      "tokens": 1437170,
+      "cost_usd": 1.12140275
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 22854062,
+      "cost_usd": 17.89722262
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review": {
+      "tokens": 20859801,
+      "cost_usd": 15.533094299999998
+    }
+  }
+}
