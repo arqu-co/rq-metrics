@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-56-fix-home-chat-dock-fails-wcag-aa-color-contras-2056",
+  "sha": "bff790afa506ee21ddb257e2d68e59c987183f74",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T19:45:48Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-51201",
+    "review-wip-reviewer-57187",
+    "review-wip-reviewer-74521",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:25:06Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:25:15Z",
+      "coverage_tool": "js",
+      "files_checked": 2,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:43:34Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:43:31Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:44:09Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:25:14Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:44:11Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:42:27Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T19:25:15Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:44:11Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T19:45:22Z",
+      "duration_ms": 71000
+    },
+    "review-wip-reviewer-51201": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "lib/theme/contrast.ts",
+          "line": 14,
+          "severity": "low",
+          "category": "correctness",
+          "title": "channelLuminance uses WCAG 2.0 linearization threshold (0.03928) instead of the WCAG 2.1 value (0.04045)",
+          "body": "Line 14: `normalized <= 0.03928 ? normalized / 12.92 : ...`. WCAG 2.0 used 0.03928 (a rounded value); the IEC 61966-2-1 standard and WCAG 2.1 errata corrected this to 0.04045. For values between 0.03928 and 0.04045 the wrong branch is taken, producing a luminance error of ~0.1%. In practice this only affects a narrow band of dark near-black input colors and the contrast ratio error is negligible (<0.01 ratio units), so no real-world WCAG decision flips. But the helper is specifically named a WCAG helper and should use the correct constant. Fix: change `0.03928` to `0.04045`.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/theme/contrast.test.ts",
+          "line": 44,
+          "severity": "medium",
+          "category": "maintainability",
+          "title": "LIGHT_PALETTE and DARK_PALETTE hardcode the same hex values as globals.css \u2014 dual source of truth",
+          "body": "Lines 44-58 define LIGHT_PALETTE and DARK_PALETTE with hex values that must exactly match :root and .dark in app/globals.css. If a palette token changes (as --muted-foreground just did from #6f6a62 to #5f5b53), both globals.css and the test fixtures must be updated manually. If only one is updated the guard tests become a false negative: they pass but no longer represent the live tokens. The correct approach is to parse the CSS at test time (using a regex over the file contents) so the guard always tests the current deployed values. Fix: replace the inline palette constants with a function that reads and parses app/globals.css (the :root and .dark blocks) for the relevant token values, then asserts against those. Alternatively, export the token values from a shared TS constants file that both globals.css generation and the test import.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-57187": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "lib/theme/contrast.test.ts",
+          "line": 44,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Token-guard fixture hardcodes CSS values \u2014 silent drift if globals.css is updated without matching test update",
+          "body": "LIGHT_PALETTE and DARK_PALETTE in contrast.test.ts (lines 44-58) are literal hex strings that must match app/globals.css. The test cannot detect a palette change that introduces a new contrast violation unless the developer also remembers to update the fixture. For example, if --surface-elevated is shifted to a lighter value and the test is not updated, the guard passes against the old (darker) surface and a real violation slips through. Fix: parse the CSS token values from globals.css at runtime (using fs.readFileSync + a regex extractor) so the test always exercises the live palette. Alternatively, co-locate a snapshot assertion that detects when globals.css changes and explicitly fails until the fixture is updated.",
+          "confidence": "high"
+        },
+        {
+          "file": "e2e/home.spec.ts",
+          "line": 47,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Axe sweep anchors on empty-state copy that disappears when scheduler auth fails \u2014 test silently passes against incomplete DOM",
+          "body": "The axe sweep waits for 'Nothing needs you right now.' to be visible before scanning (line 47). Per the known scheduler auth failure mode (CORTEX_CLAUDE_HOME token expiry causes silent 401s that surface as AttentionItems), when auth is broken in CI the home shows attention items rather than the empty-state region. The 'Nothing needs you right now.' text never appears, so waitForText times out and the test fails \u2014 but for the wrong reason (a flaky auth dependency), not because of a contrast violation. Worse: if the test is retried (CI has retries: 2) and the page is in a half-rendered state where some elements are visible before the axe scan, the sweep can run against an incomplete DOM and produce inconsistent results. Fix: anchor on a stable structural selector that is always present \u2014 e.g., await expect(page.locator('[data-testid=\"chat-dock\"]')).toBeVisible(), or simply await page.waitForLoadState('networkidle') \u2014 rather than on conditional content-state text.",
+          "confidence": "medium"
+        },
+        {
+          "file": "e2e/home.spec.ts",
+          "line": 44,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Axe sweep runs only in light mode \u2014 dark mode contrast regressions are not caught end-to-end",
+          "body": "The new WCAG AA axe sweep (lines 44-53) navigates to / without forcing dark mode. Chromium's default (and CI headless) is light mode. Dark-mode contrast is verified only at unit-test level via the token-guard in contrast.test.ts, which uses computed hex values rather than the rendered DOM. If a future change introduces a dark-mode-specific element (e.g., a new opacity modifier applied only in .dark context via Tailwind's dark: variant), the unit guard would miss it but an axe scan would catch it. Fix: add a second axe test that pre-sets localStorage.theme = 'dark' and reloads before scanning, mirroring the existing theme-toggle test pattern (line 30-31 of home.spec.ts).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-74521": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/theme/contrast.test.ts",
+          "line": 58,
+          "severity": "low",
+          "category": "correctness",
+          "title": "readToken block regex is non-greedy and stops at first closing brace \u2014 breaks if CSS block contains nested braces",
+          "body": "The regex /\\s*\\{([\\s\\S]*?)\\}/ uses a lazy quantifier. This correctly captures the block for the current flat :root and .dark blocks. However: (1) If globals.css ever has a nested :root inside @media, the regex matches the INNER block (the first :root { it finds) rather than the top-level one \u2014 verified by debug run: nested :root inside @media yields the nested value. (2) If any token is declared twice in the same block, the regex captures both but the token sub-regex returns the FIRST match, while CSS cascade makes the LAST declaration effective. Neither condition exists in the current file, but they are real correctness gaps if globals.css is edited. The comment doc does not note these limitations.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:45:47Z",
+      "duration_ms": 25000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:44:10Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:43:48Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:43:47Z",
+      "test_runner": "bin-test",
+      "fingerprint": "4c304877a49ec630918167cf70ab1e4c",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 18200.0
+}
