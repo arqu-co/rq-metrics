@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-570-docsrq-document-rqbypass-in-readme--plug",
+  "sha": "243e7e0fb8426f074d6ff9fbc13bddbf5cc6142f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T13:09:47Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "markdown",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "markdown"
+  ],
+  "gates": {
+    "markdown": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T13:09:44Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
