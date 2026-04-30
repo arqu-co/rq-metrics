@@ -1,0 +1,42 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-541-rq--github-issue-management-enforce-real",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-29T20:47:45.180Z",
+  "session_id": "f1f9e539-e72f-46f8-9266-7f6dd66efbed",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 2243,
+    "output": 512119,
+    "cache_read": 408545838,
+    "cache_create": 6454393,
+    "est_cost_usd": 255.95971185
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 149849923,
+      "cost_usd": 96.3758586
+    },
+    "review": {
+      "tokens": 265664670,
+      "cost_usd": 159.58385325
+    }
+  }
+}
