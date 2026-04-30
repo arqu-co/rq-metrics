@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "session-20260429-2016-2c5e",
+  "sha": "3f422c9a1a87de00a0e5d813333e0d5e8e68a616",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T14:29:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "TEST_QUALITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "server/auto-update-snapshot.ts",
+      "line": 41,
+      "rule": "DEAD_CODE",
+      "message": "mkdirSync before atomicWriteFileSync is redundant: atomicWriteFileSync->writeAndRename already calls mkdirSync(dirname(path), {recursive:true}) at line 22 of atomic-write.ts. The guard can never do useful work."
+    },
+    {
+      "file": "server/__tests__/auto-update-snapshot.test.ts",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "The schemaVersion-mismatch test (line 46-59) uses writeFileSync to corrupt the file after writeSnapshot. It imports writeFileSync from the test's own import list, not from the module under test \u2014 acceptable \u2014 but the test name says 'returns null when schemaVersion mismatches' without clarifying which direction. A schemaVersion of 0 (or missing) is an equally important case. One additional short test for schemaVersion: undefined would make the mismatch contract complete."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:29:24Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
