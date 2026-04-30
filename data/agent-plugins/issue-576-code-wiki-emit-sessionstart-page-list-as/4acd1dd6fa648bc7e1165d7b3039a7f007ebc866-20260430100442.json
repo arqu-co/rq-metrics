@@ -1,0 +1,400 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-576-code-wiki-emit-sessionstart-page-list-as",
+  "sha": "4acd1dd6fa648bc7e1165d7b3039a7f007ebc866",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T17:04:42Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DESIGN_SPEC": 1,
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/code-wiki/scripts/session_start.py",
+      "line": 139,
+      "rule": "DESIGN_SPEC",
+      "message": "print() appends a trailing newline, so stdout is '{...}\\n' not '{...}'. The reference shape (rq session_start_emit.py:283) uses sys.stdout.write() which emits no trailing newline. The spec says 'single JSON document on stdout, no trailing newline-separated extras' \u2014 print violates this."
+    },
+    {
+      "file": "plugins/code-wiki/scripts/test_session_start.py",
+      "line": 22,
+      "rule": "NAMING",
+      "message": "import sys is placed inside the _run() helper function body rather than at module top-level. All imports must be at module scope per PEP 8; an in-function import is a code quality smell and will be flagged by ruff/isort."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-11038",
+    "review-wip-reviewer-41392",
+    "review-wip-reviewer-49596",
+    "review-wip-reviewer-60934",
+    "review-wip-reviewer-77726",
+    "review-wip-reviewer-84615",
+    "review-wip-reviewer-85302",
+    "review-wip-reviewer-96011",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T16:57:25Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 118000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:03:00Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:04:38Z",
+      "files_checked": 1,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 64000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:03:01Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:02:59Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 334000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:04:38Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:03:32Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 31000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:04:41Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T15:49:20Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T16:36:49Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:04:41Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T16:55:27Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-11038": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/code-wiki/scripts/session_start.py",
+          "line": 125,
+          "severity": "high",
+          "category": "correctness",
+          "title": "except ValueError does not guard against non-dict JSON root \u2014 payload.get() raises AttributeError",
+          "body": "json.load(stdin) can succeed and return a non-dict (list, integer, string, null) when stdin contains valid JSON that is not an object. The except ValueError: on line 126 only catches malformed JSON. If stdin is e.g. '[1,2,3]' or '42', payload is set to a list/int, and payload.get('cwd') on line 38 raises AttributeError uncaught by run(). Fix: after json.load succeeds, validate isinstance(payload, dict); fall back to {} if not. Also add a test covering this path (e.g. raw_stdin='[1,2,3]').",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 19,
+          "severity": "low",
+          "category": "correctness",
+          "title": "_run silently ignores cwd when raw_stdin is also supplied",
+          "body": "_run(cfg, cwd=..., raw_stdin=...) silently drops the cwd argument because the raw_stdin branch constructs buf from raw_stdin with no reference to cwd. A future test author who writes _doc(cfg, cwd='/foo', raw_stdin='...') will get a test that does not exercise the cwd path they intended. Fix: add an assertion (or raise ValueError) at the top of _run if both raw_stdin and cwd are non-None, to make the conflict explicit.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-41392": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/code-wiki/scripts/session_start.py",
+          "line": 122,
+          "severity": "low",
+          "category": "documentation",
+          "title": "run() docstring omits disabled early-exit path",
+          "body": "The docstring says 'emit a SessionStart JSON envelope to stdout' unconditionally, but when cfg.disabled is True the function returns 0 immediately and emits nothing. A caller reading only the docstring would not know the function can produce zero output. Fix: add 'Returns immediately with no output when cfg.disabled is set.' to the docstring.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-49596": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-60934": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-77726": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 18,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "Repeated json.loads parse pattern should be extracted to _doc() helper",
+          "body": "The two-liner '_, output = _run(...); doc = json.loads(output)' appears 9 times across the test file (lines 34-35, 55-56, 64-65, 72-73, 84-85, 121-122, 133-134, 146-147 and implicitly line 44 for the disabled path). A _doc(cfg, cwd=None) helper that returns the parsed dict directly would eliminate the repetition. Fix: add 'def _doc(cfg, cwd=None): _, out = _run(cfg, cwd); return json.loads(out)' above the tests and replace each occurrence.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 154,
+          "severity": "low",
+          "category": "dead-code",
+          "title": "test_disabled_emits_no_output duplicates test_disabled_prints_nothing",
+          "body": "test_disabled_emits_no_output (line 154) and test_disabled_prints_nothing (line 41) have identical setup (disabled Config, _run call) and identical assertion (output == ''). The new test adds no new scenario. Fix: remove test_disabled_emits_no_output (the new docstring 'no JSON, no whitespace' could be folded into the existing test's inline comment if the distinction matters).",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 54,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "test_repo_block_when_pages_exist dropped page-path assertion without replacement",
+          "body": "The old test asserted both 'pages exist for myrepo' AND 'repos/myrepo/overview.md' in the output, verifying that the page listing actually enumerates individual pages. The new version at line 56 only checks the header line. Neither test_system_message_carries_repo_block nor any other test verifies that the per-page path appears in systemMessage or additionalContext. If _repo_block() stops emitting page lines, no test catches it. Fix: add 'assert repos/myrepo/overview.md in doc[systemMessage]' to test_repo_block_when_pages_exist at line 56.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/session_start.py",
+          "line": 133,
+          "severity": "low",
+          "category": "style",
+          "title": "No comment explaining why repo_block appears in both systemMessage and additionalContext",
+          "body": "Lines 133-137 intentionally duplicate repo_block into both systemMessage (visible banner) and additionalContext (background session context). Without a comment, this reads as a bug \u2014 a future maintainer will deduplicate it, breaking the banner behavior. Fix: add a one-line comment above line 133: '# systemMessage surfaces the repo block as a visible banner; additionalContext carries instructions + repo block as background context'.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-84615": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "plugins/code-wiki/scripts/session_start.py",
+          "line": 126,
+          "severity": "low",
+          "category": "error-handling",
+          "title": "bare except Exception silently swallows non-JSON errors on stdin",
+          "body": "Lines 124-127: the bare 'except Exception: payload = {}' catches json.JSONDecodeError (expected) but also UnicodeDecodeError, IOError, and any other error from json.load(). A UnicodeDecodeError on stdin is not the same as 'no payload' \u2014 it signals Claude Code provided unexpected binary input. The fallback to empty payload and os.getcwd() produces valid output, so no user-visible breakage occurs, but the diagnostic signal is lost. The exception should either be narrowed to (ValueError, json.JSONDecodeError) \u2014 which covers all JSON parse errors \u2014 or at minimum emit a warning to stderr before falling back. No test covers the case where json.load raises a non-JSON-decode error.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 56,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "test_repo_block_when_pages_exist drops assertion that page filenames appear in output",
+          "body": "The old test asserted both 'pages exist for myrepo' AND 'repos/myrepo/overview.md' in output, verifying that the page-listing loop in _repo_block produces entries for each .md file. The refactored test (line 54-56) drops the 'repos/myrepo/overview.md' assertion and only checks the header line. test_system_message_carries_repo_block (line 139-151) also does not assert that individual page filenames appear. The body of _repo_block \u2014 specifically _list_pages() and the per-page loop with _annotate() \u2014 is no longer verified to appear in any envelope field. Fix: add assertion that 'repos/myrepo/overview.md' appears in doc['systemMessage'] or doc['hookSpecificOutput']['additionalContext'] in either test_repo_block_when_pages_exist or test_system_message_carries_repo_block.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/code-wiki/scripts/test_session_start.py",
+          "line": 18,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "no test covers the json.load exception path in run()",
+          "body": "The _run() helper always passes valid JSON to stdin (io.StringIO(json.dumps(payload))). No test exercises the except Exception branch at session_start.py:126 where json.load raises. This path falls back to payload={} and then cwd=os.getcwd(), ultimately emitting a valid JSON envelope with an empty systemMessage and instructions-only additionalContext. The behavior is safe but untested. Fix: add a test that passes an io.StringIO('not json') as stdin and asserts: (1) run() returns 0, (2) output is valid JSON, (3) systemMessage is empty string, (4) additionalContext contains the instructions block.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-85302": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "high",
+          "category": "correctness",
+          "title": "plugin.json references a CHANGELOG.md that does not exist",
+          "body": "The description field ends with 'Changelog: https://github.com/arqu-co/agent-plugins/blob/main/plugins/risklab/CHANGELOG.md' but no CHANGELOG.md file exists under plugins/risklab/. Both peer plugins (producer, rq) have a CHANGELOG.md at that path. The URL is a dead link that will 404 for any user who follows it. Fix: create plugins/risklab/CHANGELOG.md with an initial entry for v0.1.0, matching the format producer uses.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 22,
+          "severity": "medium",
+          "category": "style",
+          "title": "Bare issue reference risklab#1337 violates URL discipline rule",
+          "body": "Line 22 uses 'risklab#1337' as a parenthetical reference. This is not tappable on mobile and violates url-discipline.md which requires full https:// URLs in all user-facing output including skill markdown. The SKILL.md is rendered content, not a commit message body or PR description (the only exceptions). Fix: replace with the full URL https://github.com/arqu-co/risklab/issues/1337. The same issue applies at lines 98, 113, and 114 \u2014 all four bare refs must be expanded.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "low",
+          "category": "style",
+          "title": "plugin.json description references PR #454 as a bare ref",
+          "body": "The description field contains '(#454)' \u2014 a bare PR ref. The url-discipline rule permits bare #N refs only inside commit message bodies and PR descriptions where the git context makes them auto-linkable. A plugin.json description field is displayed in the marketplace UI and does not auto-link. Fix: expand to the full URL https://github.com/arqu-co/agent-plugins/pull/454, or drop the PR ref entirely (the version and date are sufficient changelog context in this field).",
+          "confidence": "high"
+        },
+        {
+          "file": ".gitignore",
+          "line": 31,
+          "severity": "low",
+          "category": "style",
+          "title": ".gitignore: .qa added without slash is scope drift and slightly redundant",
+          "body": "The PR adds '.qa' (no trailing slash) to .gitignore. The entry '.qa/' was already present at line 30, added in a prior commit specifically for the .qa symlink created by the rq-state-migrate hook. '.qa' (without slash) matches both a file and a directory, while '.qa/' matches only directories \u2014 so adding '.qa' is not strictly wrong, but it is a no-op for the existing directory case. More importantly, this change is unrelated to the risklab plugin and belongs in a standalone commit. If a plain file named .qa needs to be ignored, that should be explained; if not, this entry is unnecessary. Fix: remove the '.qa' line (without slash) and leave '.qa/' in place. If a non-directory .qa file genuinely exists and must be gitignored, move this change to a separate PR with a clear rationale.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-96011": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 47,
+          "severity": "high",
+          "category": "correctness",
+          "title": "get_project called with guessed id when user provides only a project name",
+          "body": "Step 1 of 'Resolving the project' says: 'If they gave a name, call get_project with the id you believe matches to confirm.' But get_project takes a numeric id, not a name (confirmed by the MCP tools table: 'Fetch a single project's detail by id'). If the user provided only a name (no id), the agent has no id to pass \u2014 it would have to guess. The correct flow for a name-only input is: call list_projects, find the matching name, extract the id, then use it. Calling get_project with a guessed id is both logically broken and could silently use the wrong project. Fix: split into two cases. (A) User gives name AND id: use get_project(given_id) to verify. (B) User gives name only: call list_projects, find the match by name, use that id directly \u2014 get_project is unnecessary.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/.claude-plugin/plugin.json",
+          "line": 4,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "CHANGELOG.md linked in plugin.json description does not exist",
+          "body": "plugin.json description field includes: 'Changelog: https://github.com/arqu-co/agent-plugins/blob/main/plugins/risklab/CHANGELOG.md'. This file does not exist in the repository. The URL will 404. Fix: either create plugins/risklab/CHANGELOG.md with an initial entry for v0.1.0, or remove the Changelog line from the description until the file exists.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 22,
+          "severity": "low",
+          "category": "style",
+          "title": "Bare cross-repo issue refs violate url-discipline rule",
+          "body": "Lines 22, 98, 113, and 114 use bare cross-repo refs: 'risklab#1337', 'arqu-co/risklab#1337', 'arqu-co/risklab#1335'. Per .claude/rules/url-discipline.md, bare #N refs are only acceptable inside commit message bodies and PR descriptions where the current owner/repo is clear from git context. SKILL.md is neither \u2014 it's a knowledge-surface markdown file rendered on GitHub and loaded into agent context. Cross-repo refs (different repo: arqu-co/risklab) never auto-link from this repo regardless of the exception. Fix: replace all four refs with full https:// URLs: https://github.com/arqu-co/risklab/issues/1337 and https://github.com/arqu-co/risklab/issues/1335.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 37,
+          "severity": "low",
+          "category": "correctness",
+          "title": "shareable_assets_list filters expired assets, making expired-asset renewal impossible via MCP",
+          "body": "Line 37 states shareable_assets_list 'filters out' revoked/expired rows. An admin who wants to renew an already-expired asset (extend its expires_at) cannot find its asset_id via this tool because the row is filtered. The only recovery is knowing the asset_id from a prior response. The skill should note this gap and tell the agent to keep track of asset_ids or to use the UI when an asset has already expired. Without this note, the agent may tell an admin to use shareable_assets_update on an expired asset, then fail to provide the id. Fix: add a note in the MCP tools table or the edit/revoke flow section: 'If an asset has already expired, it will not appear in shareable_assets_list; the admin must use the UI or know the asset_id from a prior session.'",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/risklab/skills/shareable-assets/SKILL.md",
+          "line": 90,
+          "severity": "low",
+          "category": "security",
+          "title": "Password rotation does not immediately invalidate outstanding HMAC verify tokens",
+          "body": "Line 90 describes the HMAC verify token as using 5-minute time buckets. If an admin rotates a password via PATCH, any verify tokens issued against the old password remain valid for up to 5 minutes. This is a real (if bounded) security window the skill doesn't disclose. An admin who rotates a password believing access is immediately cut off is mistaken \u2014 a recipient who obtained a verify token in the last 5 minutes can still access the content. Fix: add a note to the Security model section: 'Password rotation takes effect on the next verify-password exchange. Outstanding verify tokens remain valid until their 5-minute bucket expires; effective lock-out takes up to 5 minutes.'",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-22T22:36:17Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:04:41Z",
+      "scanned_files": 45,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T22:28:28Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:03:34Z",
+      "fingerprint": "ca0534641e7e44d032455f64da2c2951",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 2000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 671304.0
+}
