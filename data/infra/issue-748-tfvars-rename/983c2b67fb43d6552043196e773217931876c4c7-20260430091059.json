@@ -1,0 +1,209 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "issue-748-tfvars-rename",
+  "sha": "983c2b67fb43d6552043196e773217931876c4c7",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T13:10:59Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-43433",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:41:05Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T00:11:19Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:41:06Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:41:04Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T13:10:50Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:41:09Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T13:10:55Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T00:11:12Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T13:10:53Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T12:42:11Z"
+    },
+    "review-wip-reviewer-43433": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "devops/terraform/infra/new-stg.tfvars",
+          "line": 10,
+          "severity": "high",
+          "category": "correctness",
+          "title": "staging twingate_token_api_arn points to development secret path",
+          "body": "Line 10: twingate_token_api_arn = 'arn:aws:secretsmanager:us-west-2:479061657325:secret:development/arqu/twingate_token_api-0JPjt9'. The path segment 'development/arqu/' will cause staging Terraform runs to pull the dev Twingate token, not the staging one. Compare new-dev.tfvars line 10 (identical path) and new-prod.tfvars line 10 (also identical path). Fix: change the secret path to staging/arqu/twingate_token_api-<suffix> (verify correct ARN in Secrets Manager).",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/infra/new-prod.tfvars",
+          "line": 10,
+          "severity": "high",
+          "category": "correctness",
+          "title": "production twingate_token_api_arn points to development secret path",
+          "body": "Line 10: twingate_token_api_arn = 'arn:aws:secretsmanager:us-west-2:479061657325:secret:development/arqu/twingate_token_api-0JPjt9'. Production is using the dev environment Twingate token. Fix: change to production/arqu/twingate_token_api-<suffix> (verify correct ARN in Secrets Manager).",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/infra/README.md",
+          "line": 161,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "terraform apply example uses wrong plan path (missing new- prefix)",
+          "body": "Line 161: 'terraform apply tmp/${STAGE}.plan'. The plan is written to 'tmp/new-${STAGE}.plan' (see Makefile line 10 and the plan command on line 150). The apply example is missing the 'new-' prefix, so copying it literally will fail with 'no such file'. Fix: change to 'terraform apply tmp/new-${STAGE}.plan'.",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/infra/bin/import-amplify.sh",
+          "line": 6,
+          "severity": "medium",
+          "category": "style",
+          "title": "set -e only: missing set -u and set -o pipefail",
+          "body": "Line 6: 'set -e'. The CLAUDE.md bin/ script conventions require 'set -euo pipefail'. Missing -u means unset variable references silently expand to empty string (e.g. a typo in WORKSPACE, APP_ID, REGION). Missing -o pipefail means a failed aws command piped to echo on line 88 would be swallowed. Fix: change to 'set -euo pipefail'.",
+          "confidence": "high"
+        },
+        {
+          "file": "devops/terraform/infra/bin/import-amplify.sh",
+          "line": 112,
+          "severity": "low",
+          "category": "style",
+          "title": "Unquoted variable in terraform workspace select",
+          "body": "Line 112: 'terraform workspace select $WORKSPACE || terraform workspace new $WORKSPACE'. $WORKSPACE is validated to be one of two known values so word-splitting cannot cause harm here, but the CLAUDE.md convention for bin/ scripts is to quote all variable expansions. The Makefile (line 24) does the same unquoted \u2014 however this script added it independently. Fix: quote as '\"$WORKSPACE\"' in both positions on line 112.",
+          "confidence": "medium"
+        },
+        {
+          "file": ".github/workflows/terraform_plan_ci_dev_stg.yaml",
+          "line": 73,
+          "severity": "low",
+          "category": "style",
+          "title": "hashicorp/setup-terraform pinned to outdated v2",
+          "body": "Line 73 (and terraform_plan_ci_prod.yaml line 53): 'uses: hashicorp/setup-terraform@v2'. The current latest release is v3. CLAUDE.md requires bumping any outdated action version when touching the file. Fix: change to 'hashicorp/setup-terraform@v3' in both workflow files. Verify: gh api repos/hashicorp/setup-terraform/releases/latest --jq .tag_name",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/terraform_plan_ci_dev_stg.yaml",
+          "line": 101,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Inconsistent plan output filenames between dev/stg and prod workflows",
+          "body": "dev/stg workflow (line 101): plan saved to 'tmp/new-${{ matrix.environment }}' (no .plan extension). prod workflow (line 75): plan saved to 'tmp/new-${{ env.STAGE }}.plan' (has .plan extension). The show command on line 109 (dev/stg) and line 81 (prod) must match their respective plan paths and they do, so it works \u2014 but the inconsistency is a maintenance hazard. Fix: add the .plan extension to the dev/stg plan-out path for consistency: '-out tmp/new-${{ matrix.environment }}.plan' and update the show command on line 109 accordingly.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T00:11:30Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T13:10:52Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:11:17Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:11:16Z",
+      "fingerprint": "6319f04b61ab4a1c1d87ad674fa3232b",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 46783.0
+}
