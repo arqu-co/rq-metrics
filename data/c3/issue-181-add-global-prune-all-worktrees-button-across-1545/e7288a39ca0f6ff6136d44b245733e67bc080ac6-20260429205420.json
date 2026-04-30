@@ -1,0 +1,332 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "e7288a39ca0f6ff6136d44b245733e67bc080ac6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T00:54:20Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-181",
+    "review-wip-reviewer-25510",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:19:39Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:52:51Z",
+      "files_checked": 35,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T00:34:13Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:52:54Z",
+      "files_checked": 35,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:09Z",
+      "files_checked": 35,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 75000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:17Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:15Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:19Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T22:55:44Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T00:19:11Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:19Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-181": {
+      "status": "complete",
+      "findings": 10,
+      "findings_details": [
+        {
+          "file": "server/worktree-prune-batch.ts",
+          "line": 7,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "Re-exporting runner internals from the enumeration module blurs the boundary",
+          "body": "Lines 7-19 re-export every type and the store factory from worktree-prune-batch-runner.ts through worktree-prune-batch.ts. The module name 'worktree-prune-batch' implies it owns the enumeration concern; hosting runner types here makes the boundary ambiguous. app-prune-wiring.ts already imports directly from 'worktree-prune-batch.js' and receives createPruneOperationStore \u2014 that's fine \u2014 but any future reader opening worktree-prune-batch.ts finds store/runner API mixed with enumeration shapes and immediately loses the separation that justifies the two-file split. Fix: import createPruneOperationStore and runner types directly from worktree-prune-batch-runner.ts at each call site; remove the barrel re-exports from worktree-prune-batch.ts. The public surface shrinks to enumeration-only, which matches the filename.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/worktree-prune-batch.ts",
+          "line": 131,
+          "severity": "low",
+          "category": "correctness",
+          "title": "pickClassification treats uncommittedFiles === -1 (timeout) as dirty",
+          "body": "UNKNOWN_STATUS sets uncommittedFiles to -1 (line 90). pickClassification at line 131 checks `status.uncommittedFiles !== 0`, so -1 triggers the 'dirty' path. The constant's comment says -1 means 'unknown' (git status timed out), not that the branch is actually dirty. A worktree that timed out will be classified as dirty, defaultChecked=false, which prevents it from being pruned \u2014 that's actually a safe default, but the classification label shown in the UI will say 'dirty' when the real reason is 'unknown/timed out'. Fix: add an 'unknown' classification to PruneClassification, return it when uncommittedFiles === -1, and give it a distinct badge style. This makes the UI truthful (the row shows 'unknown' not 'dirty') while preserving the defaultChecked=false safety guarantee.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/worktree-prune-batch-runner.ts",
+          "line": 103,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "runBatch assumes selections and rows are parallel arrays \u2014 no invariant is enforced",
+          "body": "runBatch (line 94) iterates with `for (let i = 0; i < state.rows.length; i++)` and reads `input.selections[i]` at the same index (line 102). state.rows is built from input.selections in createPruneOperationStore.start (line 59), so they are always parallel at creation time. However, the invariant is implicit and fragile: nothing in the types or function signatures enforces the 1:1 relationship. If someone extends start() or adds a filtering step before runBatch, the index alignment silently breaks and skipIfInvalid receives the wrong selection for a given row. Fix: thread the selection directly into RowState (add a `selection` field), or change runBatch to iterate over a `{ row, sel }` pair array created once in start(). Either approach makes the dependency explicit and eliminates the implicit index alignment.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-prune.ts",
+          "line": 162,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Route-level repo validation duplicates runner's own validRepos guard",
+          "body": "handlePruneStart (line 145) calls deps.validRepos() and rejects unknown repos at line 162-167 before calling store.start(). The store's runBatch / skipIfInvalid (worktree-prune-batch-runner.ts line 114) also calls deps.validRepos() and skips rows with unknown repos. This is a DRY violation: both layers call getAllRepoRoots + getRepoName in separate await chains. More critically, a race between two async calls to getAllRepoRoots can in theory return different sets if a repo is added/removed mid-request, making the route's early rejection inconsistent with the runner. Fix: remove the route-level validRepos check. The store already enforces the constraint and sets row.status='skipped' with reason='unknown_repo', which the client can surface. The 422 'unknown_repo' response is therefore an optimization (fail fast before kicking off the operation) that duplicates state. If the fast-fail is desirable, pass the same resolved validRepos set from the route into start() rather than re-resolving it inside runBatch.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/usePruneWorktrees.ts",
+          "line": 129,
+          "severity": "medium",
+          "category": "style",
+          "title": "useBuildActions constructs a deps object inline \u2014 triggers unnecessary re-renders via identity instability",
+          "body": "useBuildActions (line 126) passes state.setters directly into useToggle, useToggleAllInRepo, useSetIncludeOpenPRs, etc. as `deps` objects. Each call like `useToggle({ setSelections: setters.setSelections, setOverrides: setters.setOverrides })` creates a fresh object literal on every render. useToggle's useCallback at line 41 of use-prune-worktrees-actions.ts lists `[deps]` as its dependency \u2014 since `deps` is a new object reference every render, the callback is re-created every render, defeating memoization. Fix: either destructure the individual setters in each useXxx deps object and list them explicitly in the dependency array (stable references), or define the deps object once via useMemo so it only changes when the setters change (they won't \u2014 useState setters are stable).",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/usePruneWorktrees.ts",
+          "line": 64,
+          "severity": "low",
+          "category": "style",
+          "title": "applyEnumerationResult shows error panel for any non-503 error including 410",
+          "body": "applyEnumerationResult (line 63) branches on status 503 (set 'scanning') and falls through to { kind: 'network' } for everything else. The 410 'operation_expired' status is only handled in pollOnce, but if the enumeration endpoint itself returned a 410 (shouldn't happen but is possible if the server is misconfigured), the UI would show 'network error' with a detail message. That's acceptable, but the 'error' panel renders 'Failed to load worktrees' even when hook.error?.kind is not 'network' (line 189 \u2014 selectInnerView passes any non-scanning error to ErrorPanel). ErrorPanel at line 166 then checks `hook.error?.kind === 'network'` for detail, so non-network errors show 'Failed to load worktrees' with no detail. This is fine for 'operation_expired' in the poll flow, but the absence of a guard means any future error kind will silently show the same generic message. Fix: add an exhaustive kind check in ErrorPanel or give selectInnerView a default message per error kind. Low severity \u2014 not a current bug.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesDialog.tsx",
+          "line": 44,
+          "severity": "low",
+          "category": "style",
+          "title": "summaryLine uses enumeration.groups.length for repo count instead of groups in selected set",
+          "body": "summaryLine (line 41) reports 'across N repos' where N is always enumeration.groups.length \u2014 the total number of repos in the enumeration. If the user has deselected all branches in a repo, that repo still shows up in the count. For example: 2 repos, user unselects all in repo B, selects 1 in repo A \u2192 summary reads '1 worktree across 2 repos'. Fix: count only repos that have at least one key in selections. This is cosmetic but misleading.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRow.tsx",
+          "line": 87,
+          "severity": "low",
+          "category": "style",
+          "title": "Unused rowKey assignment on line 87",
+          "body": "PruneWorktreesRow at line 87 assigns `const key = rowKey(row.repo, row.branch)`. This value is only used for the data-row-key attribute on the checkbox (line 98). The li element uses no key prop (it's assigned by the parent via a key= on the JSX element in PruneWorktreesRepoGroup). The variable name 'key' shadows React's reserved prop name (no functional impact since it's a local const, not a prop) which is potentially confusing. Fix: inline the call at the data-row-key attribute or rename the local variable to avoid the shadow (e.g. 'dataKey' or 'checkboxKey').",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.tsx",
+          "line": 213,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "DashboardHeader owns prune state \u2014 usePruneWorktrees fires on every app mount even before dialog opens",
+          "body": "DashboardHeader (line 212) calls usePruneWorktrees() unconditionally. usePruneWorktrees immediately fires a fetchJSON call to /api/worktrees/prunable (via useLoadEnumeration) on every page load, before the user has ever opened the prune dialog. This means the app always hits the enumeration endpoint at startup \u2014 including the git-status fan-out across all worktrees \u2014 adding unnecessary server load on every page load. The existing PruneWorktreesDialog wrapping pattern (PruneWorktreesDialog with open prop) was designed to lazy-initialize the hook only when open=true, but DashboardHeader bypasses this by calling usePruneWorktrees directly and only passing the hook into PruneWorktreesDialogInner. Fix: if the prune button needs a count badge (prunableCount), either expose a lightweight /api/worktrees/prunable/count endpoint, or keep the current approach but document that the eager load is intentional (so the count badge is immediately correct). If the latter, add a comment explaining the trade-off and note that the enumeration is cached server-side.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/prune-types.ts",
+          "line": 19,
+          "severity": "low",
+          "category": "architecture",
+          "title": "PrunableDetail.prState type diverges from server-side PullRequest['state']",
+          "body": "client/src/lib/prune-types.ts line 19 defines prState as 'open' | 'draft' | 'merged' | 'closed', explicitly typed. server/worktree-prune-batch.ts line 42 uses `prState?: PullRequest['state']`, delegating to the server's PullRequest type. If PullRequest['state'] ever gains a new variant (e.g. 'reopen'), the client type would silently fall out of sync. The file comment on line 1-3 says 'change here and in server too', but that's a manual process. Fix: either generate the client types from the server (preferred long-term) or use the comment as a link \u2014 add the literal union from PullRequest['state'] as a block comment showing the expected server value set so a future divergence is immediately visible in code review.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-25510": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "server/worktree-prune-batch-runner.ts",
+          "line": 66,
+          "severity": "high",
+          "category": "state-machine",
+          "title": "state.done set after completedAt: observable torn state during polling",
+          "body": "In `createPruneOperationStore.start()`, the `void runBatch(...).then(() => { state.done = true; state.completedAt = now(); })` chain sets `state.done = true` first, then `state.completedAt`. The `sweepStore` function prunes entries where `state.completedAt !== undefined && state.completedAt < cutoff`. Because `get()` calls `sweepStore` before returning, a concurrent poll can observe `done === true` while `completedAt` is still `undefined`, meaning the operation will never be swept even after the TTL has elapsed. Evidence: lines 66-70, sweep check at line 88. Impact: once an operation completes, completedAt is set on the following microtask tick (Promise.then chain), creating a window where get() returns the state with done=true but completedAt=undefined. If the only poll that observes this state doesn't come back later, the entry leaks forever. Fix: reverse the assignment order \u2014 set `state.completedAt = now()` before `state.done = true`, or set both atomically in a single object assign: `Object.assign(state, { completedAt: now(), done: true })`.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/worktree-prune-batch-runner.ts",
+          "line": 100,
+          "severity": "medium",
+          "category": "race-condition",
+          "title": "Two concurrent prune operations can run the same (repo, branch) simultaneously",
+          "body": "The in-memory Map keys on operationId (a UUID), not on (repo, branch). Two POST /api/worktrees/prune requests that include the same branch can therefore start two `runBatch` goroutines that each call `cleanupBranch` on the same worktree path concurrently. `cleanupBranch` calls `git worktree remove` and `git branch -D` without any cross-operation locking. Evidence: `start()` at line 57 always creates a new entry; `runBatch` at line 100 loops over `state.rows` with no exclusion check against other in-flight operations. Impact: Concurrent worktree removes targeting the same path can cause a 'not a working tree' error on the second, partial cleanup, or interleaved git invocations that produce inconsistent state. Fix: before calling `runOne`, check whether any other in-flight operation already has the same (repo, branch) in a `running` state, and skip/defer accordingly. A simple per-(repo,branch) lock set is sufficient.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/worktree-prune-batch-runner.ts",
+          "line": 145,
+          "severity": "medium",
+          "category": "error-handling",
+          "title": "cleanupBranch partial failure not detected: 'Could not stop terminals' and 'Could not stop preview' strings do not trigger failed status",
+          "body": "`runOne` at line 145 checks `results.find((r) => r.startsWith('Could not '))` to detect failure. But `cleanupBranch` emits 'Could not stop terminals: ...' and 'Could not stop preview: ...' strings even for non-fatal auxiliary failures that don't prevent the worktree from being removed. Conversely, if `resolveRepoDir` returns undefined, `runDestructiveSteps` emits 'Could not resolve repo directory \u2014 local branch and worktree not removed', which starts with 'Could not '. The problem is the opposite direction: a terminal-stop failure (non-critical) marks the row 'failed' and prevents a successful worktree removal from being reflected as 'done'. Evidence: branch-cleanup.ts line 139 emits 'Could not stop terminals:...'; runner.ts line 145 matches 'Could not '. Impact: The UI shows 'failed' for a row that was actually successfully pruned. The user may retry, running cleanup on a branch that no longer exists. Fix: Return a structured result from cleanupBranch (e.g. `{ critical: string[], info: string[] }`) or check specifically for the critical failure prefixes ('Could not remove worktree', 'Could not delete branch', 'Could not resolve repo directory') rather than the broad 'Could not ' prefix.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/worktree-prune-batch-runner.ts",
+          "line": 64,
+          "severity": "low",
+          "category": "state-machine",
+          "title": "Row can transition to 'running' twice if start() is called with duplicate (repo, branch) within one operation",
+          "body": "`runBatch` at line 100 iterates `state.rows` by index, matching each `RowState` to its corresponding PruneSelection. If the client sends the same (repo, branch) twice in the selections array, both rows get status 'running' and both invoke `runOne` (sequentially). The second invocation calls cleanupBranch on a branch that the first already removed, getting back 'Could not remove worktree' and 'Could not delete branch' lines, marking the second row 'failed'. Evidence: no deduplication of selections in `parseSelections` (app-routes-prune.ts:129) or in `runBatch`. Impact: misleading 'failed' row in the UI; harmless but confusing. Fix: deduplicate selections in `parseSelections` or add an early check in `runBatch`.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-prune.ts",
+          "line": 162,
+          "severity": "low",
+          "category": "input-validation",
+          "title": "validRepos check runs after parseSelections but validRepos() is async and called fresh per request",
+          "body": "`handlePruneStart` calls `deps.validRepos()` (line 162), which in production calls `getAllRepoRoots()` then `getRepoName()` for each root. This is an async filesystem scan on every POST. The runner's `runBatch` also calls `deps.validRepos()` at line 99 \u2014 a second scan. So a single POST /api/worktrees/prune triggers two full project-scanner enumerations. Evidence: app-prune-wiring.ts `buildValidRepos` wraps `getAllRepoRoots` in an async lambda (no caching). Impact: doubled I/O on every prune request; minor performance issue, not a security issue. Fix: cache the validRepos result for the lifetime of the operation (pass the set from the route handler into store.start), or memoize within a short TTL.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/usePruneWorktrees.ts",
+          "line": 41,
+          "severity": "medium",
+          "category": "resource-leak",
+          "title": "Poll timer leaks when fetch error occurs mid-poll: error branch returns without clearing the timer slot",
+          "body": "In `pollOnce` (line 40), when `!res.ok` the function calls `ctx.setError(...)` and returns. This correctly does not schedule another poll. However, the timer slot `ctx.timerRef.current` was already cleared (set to null by the previous setTimeout callback completing) ONLY if `setTimeout(() => pollOnce(...))` is the one that fired. The more specific problem: if a poll fires (timerRef.current is null when the callback starts executing because setTimeout already fired it), then a network error occurs, `setError` is called, and `cancelledRef.current` is false, a NEW timer is NOT scheduled \u2014 that part is correct. BUT: on unmount (`useUnmountCleanup`), if `cancelledRef.current` is set to true AFTER the poll callback already read it as false and is about to call `ctx.timerRef.current = setTimeout(...)`, the timer is scheduled AFTER the cleanup already ran. This is the classic React effect/async teardown race. Evidence: `pollOnce` line 50 schedules via `ctx.timerRef.current = setTimeout(...)` after the await; `useUnmountCleanup` line 108 clears `pollTimer.current` but cannot cancel an inflight fetch. Impact: after the dialog is closed (unmounted), a pending fetch can complete, see `cancelledRef.current === false` (because it was read before the cleanup set it to true), and schedule a timer that fires after unmount \u2014 calling setState on an unmounted component (React warning; in concurrent mode can cause state updates to silently resurrect component subtrees). Fix: Check `ctx.cancelledRef.current` again immediately before scheduling the next setTimeout, not just at the top of the callback.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/app-prune-wiring.ts",
+          "line": 82,
+          "severity": "low",
+          "category": "correctness",
+          "title": "resolveCockpitSelf strips trailing newline but not other whitespace; edge case on Windows",
+          "body": "`resolveCockpitSelf` calls `.trim()` on the output of `git rev-parse --show-toplevel`, which is correct on POSIX (newline-terminated). On Windows `execFileSync` with `encoding: 'utf8'` returns paths with `\\r\\n` \u2014 `.trim()` handles both. However, the path is used as an exact equality check `worktreePath === deps.cockpitSelfPath`. `worktreePath` comes from `LocalBranch.worktreePath` which is set by `local-branch-scanner.ts`. If the scanner normalizes paths (e.g., resolves symlinks or trailing slashes) differently from `git rev-parse --show-toplevel`, the equality check can silently fail, leaving the cockpit itself unprotected. This is an existing concern, not introduced by this PR, but the comment in app-prune-wiring.ts (line 44) acknowledges the empty-string sentinel as the fallback \u2014 which is safe but means the cockpit's own main-checkout worktree could potentially appear as prunable. Evidence: line 82-93 of app-prune-wiring.ts, line 187 of worktree-prune-batch.ts. Impact: low \u2014 protected-branch check still runs, and the main checkout branch (main/master/develop) is protected by name. Only a non-protected-named main checkout would be vulnerable. Fix: normalize both paths through `path.resolve()` before the equality comparison, or use `fs.realpathSync` to resolve symlinks consistently.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/hooks/use-prune-worktrees-actions.ts",
+          "line": 103,
+          "severity": "low",
+          "category": "correctness",
+          "title": "usePruneAction silently swallows empty selections: prune() is a no-op when enumeration is null",
+          "body": "`usePruneAction` at line 103 returns early with no error if `enumeration` is null. The button is only rendered when an enumeration exists (DialogBody checks `hook.enumeration`), so in normal use this is unreachable. But if the prune button is invoked programmatically or through a race where enumeration becomes null after the button was rendered, no error is surfaced \u2014 the user clicks Prune and nothing happens. Evidence: line 104. Impact: minor UX issue. Fix: add `setError({ kind: 'network', detail: 'No data loaded' })` when enumeration is null.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:19:36Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:18Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:02:07Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:54:17Z",
+      "scanned_files": 17,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:17:54Z",
+      "fingerprint": "290acddc1647bd63266134506929e436",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 17532.0
+}
