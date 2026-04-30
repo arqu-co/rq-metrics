@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-77-feat-branch-proxy-log-effective-autostartmain-2057",
+  "sha": "33c7d09e0cff09f2d2ad0d8c5ea85ee910043119",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T14:50:09Z",
+  "phase": "ship",
+  "run_number": 5,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:50:09Z",
+      "fingerprint": "35d61cb49992eeb1fba986637ff336ba",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "tools/branch-proxy/server/index.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
