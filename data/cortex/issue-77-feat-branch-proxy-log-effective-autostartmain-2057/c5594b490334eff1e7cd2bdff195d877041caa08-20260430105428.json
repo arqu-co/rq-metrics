@@ -1,0 +1,262 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-77-feat-branch-proxy-log-effective-autostartmain-2057",
+  "sha": "c5594b490334eff1e7cd2bdff195d877041caa08",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T14:54:28Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "coderabbit"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-critic",
+    "review-wip-reviewer-34601",
+    "review-wip-reviewer-97557",
+    "review-wip-reviewer-round2",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T14:35:00Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:56:01Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T14:34:57Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:32Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:29Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:24Z",
+      "duration_ms": 10000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:14Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 37000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:26Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T14:54:14Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:26Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T14:53:37Z",
+      "duration_ms": 0
+    },
+    "review-critic": {
+      "status": "unknown",
+      "gate_timestamp": "2026-04-29T00:00:00Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-34601": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 33,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "onListening: unhandled promise rejection from autostartMainServer",
+          "body": "autostartMainServer(...).then(...) has no .catch() or rejection handler. The autostart-main module documents that failures never throw, but that is a documentation promise, not a type-level guarantee. If the promise rejects for any reason not caught inside autostartMainServer (e.g., an uncaught throw in its internals or a future regression), the rejection silently becomes an unhandled promise rejection. Since Node.js 15+ this crashes the process. Fix: add .catch(err => log.error({ err }, \"autostart-main rejected\")) after .then(), or rewrite as void (async () => { try { ... } catch (err) { log.error(...) } })().",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 28,
+          "severity": "medium",
+          "category": "style",
+          "title": "onListening: .then() used where project convention requires async/await",
+          "body": "The TypeScript rules for this project (typescript.md) explicitly require async/await over callbacks and .then(). Lines 33-38 chain .then() on the autostartMainServer promise. onListening must return void synchronously (it is a net.Server listen callback), so the fix is to void an inner async IIFE: void (async () => { try { const result = await autostartMainServer(...); if (result.status === \"failed\") { ... } else if (result.status === \"started\") { ... } } catch (err) { log.error({ err }, \"autostart-main rejected\") } })(). This simultaneously addresses the unhandled-rejection finding above.",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 52,
+          "severity": "low",
+          "category": "correctness",
+          "title": "gracefulShutdown: server.close() can hang indefinitely if connections are still open",
+          "body": "server.close() stops accepting new connections but waits for existing keep-alive connections to close before calling the callback. If any WebSocket or HTTP keep-alive connection stays open, the callback (and therefore process.exit(0)) never fires. The 8-second manager.stopAll() timeout guards the manager phase, but there is no timeout guarding server.close(). The process can hang indefinitely after that race. The extraction from the nested closure to a named top-level function makes this visible as a reviewable surface. Fix: add a hard-exit fallback after server.close(), e.g. setTimeout(() => process.exit(0), 2_000) immediately after calling server.close(), so the process is guaranteed to exit within ~10 seconds total.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-97557": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 33,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "onListening: .then() with no .catch() risks unhandled promise rejection",
+          "body": "autostartMainServer(...).then(...) at line 33 has no rejection handler. If the promise rejects for any reason not internally caught inside autostartMainServer (future regression, unexpected throw), Node.js 15+ converts it to an UnhandledPromiseRejection and crashes the process. The autostartMainServer module documents that failures never throw, but that is a documentation promise not a type-level guarantee. Fix: either add .catch(err => log.error({ err }, 'autostart-main rejected')) after .then(), or rewrite as void (async () => { try { const result = await autostartMainServer(...); ... } catch (err) { log.error({ err }, 'autostart-main rejected'); } })(). The void IIFE form also satisfies the project typescript rule requiring async/await over .then().",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 33,
+          "severity": "medium",
+          "category": "style",
+          "title": "onListening: .then() violates project async/await convention",
+          "body": "The project TypeScript rules (typescript.md) explicitly require async/await over .then() chains. Lines 33-41 use .then() on the autostartMainServer promise. Because onListening must return void synchronously (it is the net.Server listen callback), the fix is to void an inner async IIFE rather than making the function async. This also resolves the unhandled-rejection finding simultaneously.",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 52,
+          "severity": "low",
+          "category": "correctness",
+          "title": "gracefulShutdown: server.close() can hang indefinitely if connections remain open",
+          "body": "server.close() stops accepting new connections but waits for existing keep-alive and WebSocket connections to drain before calling the callback. The 8-second Promise.race guards manager.stopAll(), but there is no timeout guarding the server.close() phase. If any client connection stays open (a WebSocket proxy connection is very likely given the attachWebSocketUpgrade call), server.close()'s callback never fires and process.exit(0) is never called \u2014 the process hangs indefinitely. Fix: add a hard-exit fallback immediately after calling server.close(), e.g.: setTimeout(() => { log.warn('server.close timed out \u2014 forcing exit'); process.exit(0); }, 2_000).unref(). The .unref() prevents the timer from keeping the event loop alive if shutdown completes normally.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-round2": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 91,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No guard against concurrent signal delivery entering gracefulShutdown twice",
+          "body": "process.on('SIGINT') and process.on('SIGTERM') each unconditionally call gracefulShutdown. If two signals arrive within the 8-second manager.stopAll() window (e.g. user double-Ctrl-Cs, or SIGINT then SIGTERM from a supervisor), two concurrent invocations of gracefulShutdown run simultaneously. The second server.close() call fires its callback immediately with ERR_SERVER_NOT_RUNNING, logs a spurious 'server close error', and calls process.exit(0) before the first invocation has finished draining manager.stopAll(). While the outcome (process exits) is correct, the spurious error log is misleading and the abrupt exit short-circuits any remaining cleanup in the first invocation. Fix: add a module-level 'let shuttingDown = false' flag; in each signal handler, check-and-set it before calling gracefulShutdown, and simply return if it is already true.",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 29,
+          "severity": "low",
+          "category": "correctness",
+          "title": "IIFE in onListening leaks async work with no handle \u2014 causes Vitest 'leaked async operations' warnings",
+          "body": "The void IIFE at line 29 fires autostartMainServer asynchronously and returns no handle. Any test that calls onListening() with config.autostartMain=true cannot await the async work and may see Vitest 'test leaked async operations' diagnostics if the autostart promise settles after the test ends. This is not a production bug \u2014 the void pattern is intentional per the design \u2014 but the test surface is entirely opaque. If tests for onListening exist or are added, they will need to mock autostartMainServer at the module boundary (acceptable as an external-boundary mock per testing rules) and use fake timers or promise-resolution hooks to drain the IIFE without introducing a real delay. Document this requirement in a comment above the IIFE, or consider returning a Promise<void> from onListening that callers can await in tests.",
+          "confidence": "medium"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 91,
+          "severity": "high",
+          "category": "correctness",
+          "title": "void gracefulShutdown() produces unhandledRejection if manager.stopAll() rejects",
+          "body": "The signal handlers at lines 91-96 call 'void gracefulShutdown(...)'. The void operator discards the returned promise but does NOT attach a rejection handler. Inside gracefulShutdown, Promise.race([manager.stopAll(), timeout]) can reject if manager.stopAll() throws. The finally block runs (setting up server.close + the unref'd timeout), but after finally the rejection propagates out of gracefulShutdown as a rejected promise. Because it is void-ed, Node.js has no .catch() handler attached and emits 'unhandledRejection', which in Node 18+ terminates the process with exit code 1 and a noisy stack trace rather than a clean shutdown. Fix: either (a) change the signal handler to void gracefulShutdown(...).catch((err) => { log.error({ err }, 'graceful shutdown failed \u2014 forcing exit'); process.exit(1); }), or (b) wrap the Promise.race call inside gracefulShutdown in its own try/catch that swallows the error after logging, ensuring gracefulShutdown itself never rejects.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:27Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:26Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:40Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:54:24Z",
+      "fingerprint": "35d61cb49992eeb1fba986637ff336ba",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 140067.0
+}
