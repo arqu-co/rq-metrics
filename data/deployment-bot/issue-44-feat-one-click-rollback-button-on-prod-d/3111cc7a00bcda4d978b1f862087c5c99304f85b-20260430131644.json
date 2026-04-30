@@ -1,0 +1,444 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "3111cc7a00bcda4d978b1f862087c5c99304f85b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T17:16:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-35134",
+    "review-wip-reviewer-38702",
+    "review-wip-reviewer-5260",
+    "review-wip-reviewer-5294",
+    "review-wip-reviewer-r3final",
+    "review-wip-reviewer-r4final",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T16:30:35Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ]
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:15:56Z",
+      "files_checked": 28,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:33Z",
+      "coverage_tool": "py",
+      "files_checked": 15,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 7000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:16:04Z",
+      "files_checked": 28,
+      "violations": 3,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "deploy_bot.py",
+          "name": "evaluate_risk_warnings  # noqa",
+          "line": 26
+        },
+        {
+          "type": "unused_import",
+          "file": "deploy_bot.py",
+          "name": "lookup_merge_pr  # noqa",
+          "line": 27
+        },
+        {
+          "type": "unused_import",
+          "file": "deploy_bot.py",
+          "name": "read_staging_sha  # noqa",
+          "line": 28
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:15:52Z",
+      "files_checked": 28,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:35Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:16:07Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "confirmation_flow.py\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+from prod_confirmation import evaluate_risk_warnings  # noqa: F401\n+from pr_lookup import lookup_merge_pr  # noqa: F401\n+from ssm_reader import read_staging_sha  # noqa: F401\n\n"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:41Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T13:01:30Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T12:36:58Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-29T14:34:00Z"
+    },
+    "review-wip-reviewer-35134": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "BotManager.py",
+          "line": 152,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_init_from_rollback_button accepts unvalidated SHA",
+          "body": "rollback_button.py._is_full_sha() guards rendering but BotManager._init_from_rollback_button (line 156) assigns d['sha'] to self.commit_hash with no hex/length check. A tampered button payload with sha='' or 40 non-hex chars bypasses the guard and reaches prod-confirmation logic. _init_from_redeploy_button has the same gap but rollback is the new surface. Fix: add an _is_full_sha check (or call __require_payload_keys on the already-validated shape) after the key check, and raise ValueError if the SHA is not 40 hex chars.",
+          "confidence": "high"
+        },
+        {
+          "file": "deploy_bot.py",
+          "line": 231,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "_handle_rollback_button parses body without error-path guard",
+          "body": "Lines 231-233: json.loads(response['body']) will raise JSONDecodeError if _handle_prod_confirmation returns a non-JSON error response (e.g. if _resolve_ref_or_error returns an ephemeral text error). This is only safe today because ref_kind is hardcoded to 'full_sha' in _init_from_rollback_button, but that invariant isn't enforced here. Fix: check response['statusCode'] == 200 before json.loads, and return response unchanged on error paths \u2014 the same way callers guard on failure returns.",
+          "confidence": "medium"
+        },
+        {
+          "file": "tests/test_deploy_bot_rollback.py",
+          "line": 5,
+          "severity": "low",
+          "category": "style",
+          "title": "Module-level os.environ.setdefault calls bypass monkeypatch isolation",
+          "body": "Lines 5-14 set env vars at module scope outside any fixture. conftest.py already sets them with setdefault so they are harmless today, but they leak permanently into the test session bypassing monkeypatch cleanup. test_rollback_integration.py (lines 31-49) has the same pattern. The established convention in this codebase is conftest.py setdefault at module scope which is acceptable for test infrastructure, but per-test-file copies are noise. Fix: remove the duplicate setdefault calls from both files and rely on conftest.py, or consolidate them into a session-scoped fixture.",
+          "confidence": "medium"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 143,
+          "severity": "low",
+          "category": "style",
+          "title": "_init_from_rollback_button duplicates field-assignment lines from _init_from_redeploy_button",
+          "body": "Both _init_from_redeploy_button (line 143) and _init_from_rollback_button (line 152) assign self.repository, self.stage, self.abbreviated_stage, self.commit_hash, self.trigged_by, self.trigged_by_id identically. Only the source dict key names differ. A private helper _assign_button_actor_fields(self, repo, stage, sha) would de-duplicate the 6 identical assignments, leaving each handler responsible only for extracting its payload keys. The __get_abreviate_stage and user-field assignments are literally copy-pasted.",
+          "confidence": "high"
+        },
+        {
+          "file": "card_summary.py",
+          "line": 1,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "card_summary.py conflates summary-block composition with URL/text validation utilities",
+          "body": "safe_text and safe_https_url are general-purpose Slack safety helpers used throughout the card-building pipeline (deploy_card._actions_context imports safe_https_url from card_summary). Naming the module after the summary section gives callers an incoherent import story: deploy_card imports safe_https_url from card_summary even though that function has nothing to do with the summary section. Fix: extract safe_text and safe_https_url into a slack_safety.py (or card_utils.py) module; card_summary imports from there; deploy_card imports from there directly. This gives each module one clear job and removes the awkward re-export noted in the current docstring.",
+          "confidence": "high"
+        },
+        {
+          "file": "rollback_button.py",
+          "line": 40,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Hardcoded 'production' string in button value instead of canonical stage from payload",
+          "body": "Line 40 writes {'stage': 'production', ...} literally rather than using the canonical stage already computed (stage_to_env(payload.get('stage', '')) passes the guard on line 28). If the guard logic ever changes (e.g. to support a second stage that maps to production) the button value will silently carry the wrong stage. Fix: assign canonical = stage_to_env(payload.get('stage', '')) before the guard, then use canonical in the json.dumps dict on line 40. The test test_normalizes_stage_alias should still pass because stage_to_env('prod') == 'production'.",
+          "confidence": "medium"
+        },
+        {
+          "file": "tests/test_rollback_integration.py",
+          "line": 50,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Module-level boto3 patch at import time doesn't pop sys.modules \u2014 silently no-ops if store/deploy_bot already loaded",
+          "body": "Lines 50-53 patch boto3.client/resource around import statements at module level. If store or deploy_bot is already in sys.modules (loaded by an earlier test file), Python returns the cached module and the patch context has no effect \u2014 the module-level DatabaseManager() and CardRegistry() were already constructed with real boto3. conftest.py's command_handler fixture correctly calls sys.modules.pop() before re-importing. Fix: mirror that pattern \u2014 pop store, deploy_bot, DatabaseManager, CardRegistry from sys.modules before the patched import block, or use a module-level autouse fixture instead of a bare with-block.",
+          "confidence": "high"
+        },
+        {
+          "file": "store.py",
+          "line": 189,
+          "severity": "low",
+          "category": "style",
+          "title": "'Not persisted' comment understates that pre_deploy_sha is load-bearing for card render",
+          "body": "Line 190 comment: 'Not persisted; deploy_card guards on stage/status/format.' The second clause is accurate but the framing ('hint') is misleading \u2014 pre_deploy_sha is the required input for the rollback button to render at all. A future maintainer reading 'not persisted' might incorrectly conclude the field is optional/decorative and remove it. Fix: update the comment to: '# Passed to build_blocks for rollback button render; not written to DynamoDB.' This communicates both the scope boundary and the purpose.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-38702": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "BotManager.py",
+          "line": 152,
+          "severity": "high",
+          "category": "security",
+          "title": "Rollback click path accepts any 40-char string as SHA \u2014 no hex validation",
+          "body": "_init_from_rollback_button sets self.commit_hash = d['sha'] directly (line 161) after only checking key presence. The is_commit() validator at line 6 checks only len == 40, not hex chars. A Slack user who can craft an interaction payload (or replay a modified button value) can pass a 40-char non-hex string as the SHA \u2014 e.g. 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'. rollback_button._is_full_sha() validates both length AND hex on the render side, but that validation is absent on the click side. The downstream GitHub workflow receives this malformed SHA unchecked.",
+          "confidence": "high"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 158,
+          "severity": "high",
+          "category": "security",
+          "title": "Rollback button value: stage is not validated against canonical whitelist",
+          "body": "_init_from_rollback_button sets self.stage = d['stage'] directly (line 158) with no call to __verify_stage() or any whitelist check against _ENVIRONMENTS. The slash-command path runs __verify_stage() (line 118) which whitelists against _ENVIRONMENTS and normalizes aliases. A forged rollback button value with stage='evil-stage' passes through unchanged. More concretely: a forged value with stage='development' and a known SHA would route through _handle_rollback_button -> _handle_prod_confirmation -> confirmation card with stage='development'. When the operator clicks Confirm, _init_from_confirm_button sets stage='development', and the GitHub workflow is dispatched with stage='development'. The attacker bypasses the prod-only UI affordance for any stage they choose.",
+          "confidence": "high"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 159,
+          "severity": "medium",
+          "category": "security",
+          "title": "Rollback button value: repo not validated against any allowlist",
+          "body": "_init_from_rollback_button sets self.repository = d['repo'] directly (line 159) with no validation. No whitelist check prevents a forged rollback button value from targeting an arbitrary repository (including repos the operator should not deploy, e.g. internal infra repos). The redeploy button path has the same gap (line 145), but the rollback button is the new surface introduced by this PR. On the confirm path, the SHA/stage/repo values flow directly into GitHubManager.trigg_action() and are dispatched to the GitHub workflow without further repo validation.",
+          "confidence": "high"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 6,
+          "severity": "high",
+          "category": "correctness",
+          "title": "is_commit() checks only length, not hex characters",
+          "body": "is_commit() at line 5-8 returns True for any 40-character string regardless of character set. This is used on the history command path (line 260) to distinguish a full SHA from a limit integer. A 40-char non-hex string (e.g. all spaces encoded, or control chars) would be treated as a commit hash and passed to DynamoDB. The rollback render path (_is_full_sha in rollback_button.py) already does the right thing: checks len == 40 AND all(c in hex_chars). is_commit() should be updated to match.",
+          "confidence": "high"
+        },
+        {
+          "file": "deploy_bot.py",
+          "line": 231,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "_handle_rollback_button crashes when _handle_prod_confirmation returns a non-JSON body",
+          "body": "_handle_rollback_button at line 231 does json.loads(response['body']) unconditionally. If _handle_prod_confirmation returns a non-200 response (e.g. _resolve_ref_or_error returns an error response whose body is a plain string, not JSON), json.loads raises json.JSONDecodeError, which propagates as an unhandled exception and becomes a 502 to the Slack user. The caller should guard: only mutate body if the status is 200 or the body is valid JSON.",
+          "confidence": "high"
+        },
+        {
+          "file": "tests/test_deploy_bot_rollback.py",
+          "line": 40,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Test stubs _authenticate with monkeypatch but also sets SLACK_SIGNING_SECRET='' at module level",
+          "body": "Line 13: os.environ.setdefault('SLACK_SIGNING_SECRET', ''). Line 40-41: _stub_confirmation_deps patches deploy_bot._authenticate to lambda e: None. The module-level empty secret means that if conftest's autouse _bypass_slack_auth_for_routing_tests fixture doesn't fire first (e.g. if this file is run standalone without conftest), the live _authenticate would be called with an empty secret. The correct pattern (used in test_rollback_integration.py) is to monkeypatch _authenticate explicitly. The module-level setdefault is redundant noise that creates a misleading impression the auth bypass is ambient.",
+          "confidence": "medium"
+        },
+        {
+          "file": "tests/test_BotManager_rollback.py",
+          "line": 198,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No test covers a forged stage value in the rollback button payload",
+          "body": "TestRollbackButtonFields tests stage='production' from the canonical value. There is no test verifying that a non-canonical stage value (e.g. 'evil', 'development') in the button payload is either rejected with ValueError or normalized through __verify_stage. Given the security finding in BotManager._init_from_rollback_button (stage not validated), a test probing this boundary is needed to drive out the fix and prevent regression.",
+          "confidence": "high"
+        },
+        {
+          "file": "tests/test_BotManager_rollback.py",
+          "line": 198,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No test covers an invalid (non-hex) SHA in the rollback button payload",
+          "body": "TestRollbackButtonMissingKeys tests missing keys but not malformed values. No test exercises what happens when sha is 40 chars but not hex (e.g. 'z'*40). Given the security finding (no hex validation on click path), a test that expects ValueError on a non-hex sha is needed both to document the requirement and to prevent regression after the fix.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-5260": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-5294": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "BotManager.py",
+          "line": 248,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "__verify_stage accepts stage values with %3A suffix, silently truncating injection",
+          "body": "__verify_stage splits command on '%3A' and inspects only the prefix. A forged rollback payload with stage='production%3Ainjection' passes the canonical=='production' check because prefix='production'. The injected suffix is discarded, so downstream self.stage is always the canonical 'production' \u2014 no harmful behavior results. However, the rollback path is supposed to only accept exactly the values the render side produces (always plain 'production'). Silently accepting malformed stage strings violates the input validation contract. Fix: in _init_from_rollback_button, validate d['stage'] against a strict allowlist (or check that canonical == d['stage'] after __verify_stage) before accepting it.",
+          "confidence": "high"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 143,
+          "severity": "high",
+          "category": "correctness",
+          "title": "_set_user_fields_from_interaction crashes with AttributeError when user field is a non-dict",
+          "body": "The guard 'user = self.body_object.get(\"user\", {}) or {}' uses a falsy-fallback pattern. When the Slack payload carries a non-empty non-dict value for 'user' (e.g., a string 'alice' or an integer), the 'or {}' branch is skipped (the truthy string is kept), and the subsequent user.get('username', '') call raises AttributeError because strings have no .get() method. This AttributeError is not caught by command_handler's except (IndexError, KeyError, ValueError) clause, so it propagates as an unhandled exception to the Lambda runtime, producing a 500 response instead of a graceful failure. The fix: replace 'or {}' with an explicit isinstance check: user = self.body_object.get('user') if isinstance(self.body_object.get('user'), dict) else {}",
+          "confidence": "high"
+        },
+        {
+          "file": "tests/test_BotManager_rollback_validation.py",
+          "line": 1,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No test for non-dict user field in rollback button payloads",
+          "body": "The AttributeError crash path in _set_user_fields_from_interaction (non-dict user value) has zero test coverage. test_BotManager_rollback_validation.py tests missing keys, bad stage, and bad SHA, but not a malformed user field. A test should verify that a Slack payload with a non-dict user field (e.g., string or integer) is handled gracefully rather than raising AttributeError.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3final": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "argocd_state.py",
+          "line": 32,
+          "severity": "medium",
+          "category": "design",
+          "title": "argocd_state._STAGE_LONG duplicates stage_canonicalization._ENVIRONMENTS",
+          "body": "argocd_state._STAGE_LONG and card_links._ENV_MAP are independent copies of the same alias->canonical map that lives in stage_canonicalization._ENVIRONMENTS. The stage_canonicalization module docstring says to keep them in sync, but three separate maps means any new alias (e.g. a new-prod variant) must be added in 3 places. Fix: have argocd_state.long_stage() and card_links.stage_to_env() import and delegate to stage_canonicalization instead of maintaining private maps. card_links._ENV_MAP does not include %2A which is correct \u2014 that filter should be kept. Both argocd_state and card_links have legitimately different fallback behavior (argocd_state raises on unknown; card_links returns the raw value when safe), so the map itself should be shared but each module keeps its own fallback logic.",
+          "confidence": "high"
+        },
+        {
+          "file": "card_summary.py",
+          "line": 53,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "card_summary._commit_line uses length-less hex check instead of is_full_sha",
+          "body": "Line 53: is_hex = sha and all(c in '0123456789abcdefABCDEF' for c in sha) does not enforce 40-char length. sha_utils.is_full_sha was introduced as the single source of truth for this check (it requires exactly 40 hex chars). A short or partial SHA would pass the current check and generate a broken commit URL. Fix: replace the local hex check with is_full_sha imported from sha_utils. This is the same divergence that was already fixed in BotManager and rollback_button but was missed in card_summary.",
+          "confidence": "high"
+        },
+        {
+          "file": "BotManager.py",
+          "line": 155,
+          "severity": "low",
+          "category": "style",
+          "title": "_init_from_rollback_button relies on __verify_stage side effect to set abbreviated_stage",
+          "body": "abbreviated_stage is set as a side-effect of __verify_stage (line 248) rather than explicitly. Every other button-init method (_init_from_redeploy_button line 141, _init_from_confirm_button line 186) explicitly calls self.__get_abreviate_stage after setting self.stage. The rollback path is functionally correct (test_abbreviated_stage confirms it), but a future refactor of __verify_stage that removes its side effect would silently break rollback without a visible assignment to catch the regression. Fix: add an explicit self.abbreviated_stage = self.__get_abreviate_stage(canonical) call in _init_from_rollback_button after setting self.stage, matching the redeploy/confirm pattern.",
+          "confidence": "high"
+        },
+        {
+          "file": "stage_canonicalization.py",
+          "line": 1,
+          "severity": "high",
+          "category": "correctness",
+          "title": "coverage and tests gates are stale \u2014 not run since stage_canonicalization extraction",
+          "body": "tests.json and coverage.json both have sha=47fc5a33207c235c2a7f3c46d4d98de488172ba5 while HEAD is c572211713bb2a0bc57ad20b7b8b96bad0243f77 (3 commits newer: the stage_canonicalization module extraction, round-2 security hardening, and test complexity split). These gates need to be re-run so the proof is current. The new stage_canonicalization.py and test_stage_canonicalization.py files are not reflected in coverage.json at all. Fix: run bin/test and bin/coverage and verify both still pass (no behavior was changed, only extracted, so they should).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r4final": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T01:44:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:37Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:16:26Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:16:21Z",
+      "fingerprint": "37555280aeb1bd0e203612f972d25ae0",
+      "test_runner": "bin-test",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "bot_button_parsers.py",
+        "confirmation_flow.py"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 14000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 142338.0
+}
