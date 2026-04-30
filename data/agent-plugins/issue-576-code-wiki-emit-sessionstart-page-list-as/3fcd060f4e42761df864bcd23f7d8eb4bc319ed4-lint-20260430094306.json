@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-576-code-wiki-emit-sessionstart-page-list-as",
+  "sha": "3fcd060f4e42761df864bcd23f7d8eb4bc319ed4",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T16:43:06Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DESIGN_SPEC": 1,
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/code-wiki/scripts/session_start.py",
+      "line": 139,
+      "rule": "DESIGN_SPEC",
+      "message": "print() appends a trailing newline, so stdout is '{...}\\n' not '{...}'. The reference shape (rq session_start_emit.py:283) uses sys.stdout.write() which emits no trailing newline. The spec says 'single JSON document on stdout, no trailing newline-separated extras' \u2014 print violates this."
+    },
+    {
+      "file": "plugins/code-wiki/scripts/test_session_start.py",
+      "line": 22,
+      "rule": "NAMING",
+      "message": "import sys is placed inside the _run() helper function body rather than at module top-level. All imports must be at module scope per PEP 8; an in-function import is a code quality smell and will be flagged by ruff/isort."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T16:43:06Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
