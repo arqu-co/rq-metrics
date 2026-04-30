@@ -1,0 +1,162 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "session-20260429-2016-2c5e",
+  "sha": "e217f072c9d686b11ff1ec09acaa1e4bdc6823de",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T04:35:37Z",
+  "phase": "--help",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "TEST_QUALITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "server/auto-update-snapshot.ts",
+      "line": 41,
+      "rule": "DEAD_CODE",
+      "message": "mkdirSync before atomicWriteFileSync is redundant: atomicWriteFileSync->writeAndRename already calls mkdirSync(dirname(path), {recursive:true}) at line 22 of atomic-write.ts. The guard can never do useful work."
+    },
+    {
+      "file": "server/__tests__/auto-update-snapshot.test.ts",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "The schemaVersion-mismatch test (line 46-59) uses writeFileSync to corrupt the file after writeSnapshot. It imports writeFileSync from the test's own import list, not from the module under test \u2014 acceptable \u2014 but the test name says 'returns null when schemaVersion mismatches' without clarifying which direction. A schemaVersion of 0 (or missing) is an equally important case. One additional short test for schemaVersion: undefined would make the mismatch contract complete."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:22:06Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:22:53Z",
+      "coverage_tool": "js",
+      "files_checked": 2,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:22:07Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:32:47Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 287000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:19Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:32:47Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:21Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:28:00Z",
+      "duration_ms": 0
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T04:34:01Z",
+      "duration_ms": 74000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:21Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T04:34:23Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:21Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:19Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:34:18Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dcb38a93a7b07aeaa992676c7d939342",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 17000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 737.0
+}
