@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix-atlas-v2-output-field-fallback",
+  "sha": "39cae22cb0ec6694f3b95470f23cebe87c76e107",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T22:34:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T22:34:16Z",
+      "files_checked": 5,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "backend/app/services/atlas_processor_utils.py",
+          "function": "normalize_atlas_result_data",
+          "lines": 62,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/atlas_processor_utils.py",
+          "function": "normalize_atlas_result_data",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "lines": 76,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "import_pre_extraction",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/app/services/insurance_quote_parser/atlas_extraction_service.py",
+          "function": "extract",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/services/test_atlas_extraction_service_models.py",
+          "function": "test_from_api_response_v2_output_envelope",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
