@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "session-20260429-2016-2c5e",
+  "sha": "4f7eb6c971022bf021450f1c19bca66289b2d19a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T04:20:39Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "TEST_QUALITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "server/auto-update-snapshot.ts",
+      "line": 41,
+      "rule": "DEAD_CODE",
+      "message": "mkdirSync before atomicWriteFileSync is redundant: atomicWriteFileSync->writeAndRename already calls mkdirSync(dirname(path), {recursive:true}) at line 22 of atomic-write.ts. The guard can never do useful work."
+    },
+    {
+      "file": "server/__tests__/auto-update-snapshot.test.ts",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "The schemaVersion-mismatch test (line 46-59) uses writeFileSync to corrupt the file after writeSnapshot. It imports writeFileSync from the test's own import list, not from the module under test \u2014 acceptable \u2014 but the test name says 'returns null when schemaVersion mismatches' without clarifying which direction. A schemaVersion of 0 (or missing) is an equally important case. One additional short test for schemaVersion: undefined would make the mismatch contract complete."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:59:48Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:03:37Z",
+      "coverage_tool": "js",
+      "files_checked": 1,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:59:49Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:59:47Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:20:36Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:59:55Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:20:38Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:17:46Z",
+      "duration_ms": 128000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T03:59:55Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:20:38Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T04:15:38Z",
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:20:37Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:20:36Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T04:20:35Z",
+      "fingerprint": "a1857fb737426adbbe389071da2954d1",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-iiiF7M\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-AfNFjV\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-3hCGAA\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/cortex-preview-routes.test.ts (15 tests | 1 failed) 49ms\n     \u00d7 returns 502 cortex_unreachable on network failure 8ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/cortex-preview-routes.test.ts > POST /api/preview/cortex/:branch/start \u2014 configured > returns 502 cortex_unreachable on network failure\nAssertionError: expected 405 to be 502 // Object.is equality\n\n- Expected\n+ Received\n\n- 502\n+ 405\n\n \u276f server/__tests__/cortex-preview-routes.test.ts:206:24\n    204|     const res = await request(app).post(\"/api/preview/cortex/any/start\u2026\n    205|\n    206|     expect(res.status).toBe(502);\n       |                        ^\n    207|     expect(res.body.error).toBe(\"cortex_unreachable\");\n    208|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 219 passed (220)\n      Tests  1 failed | 2609 passed (2610)\n   Start at  00:20:19\n   Duration  15.60s (transform 5.49s, setup 0ms, import 20.44s, tests 108.91s, environment 37.22s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 169000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1251.0
+}
