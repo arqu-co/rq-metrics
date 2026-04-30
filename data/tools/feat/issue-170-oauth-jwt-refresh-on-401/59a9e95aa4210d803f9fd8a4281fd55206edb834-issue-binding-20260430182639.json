@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "tools",
+  "branch": "feat/issue-170-oauth-jwt-refresh-on-401",
+  "sha": "59a9e95aa4210d803f9fd8a4281fd55206edb834",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T22:26:39Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:26:37Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
