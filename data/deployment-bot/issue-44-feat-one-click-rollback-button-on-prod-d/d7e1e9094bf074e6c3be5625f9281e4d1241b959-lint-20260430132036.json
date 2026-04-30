@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "d7e1e9094bf074e6c3be5625f9281e4d1241b959",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T17:20:36Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:20:35Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "tests/test_confirmation_flow.py:10:8: F401 [*] `pytest` imported but unused\ntests/test_confirmation_flow.py:151:5: F841 Local variable `failure` is assigned to but never used\nFound 2 errors.\n[*] 1 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).\n"
+        },
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "tests/test_confirmation_flow.py\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

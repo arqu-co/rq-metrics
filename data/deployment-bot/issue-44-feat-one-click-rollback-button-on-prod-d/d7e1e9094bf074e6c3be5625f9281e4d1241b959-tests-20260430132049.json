@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "d7e1e9094bf074e6c3be5625f9281e4d1241b959",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T17:20:49Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:20:48Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d6e8b79c81df1e0cab00dabb62a7933b",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

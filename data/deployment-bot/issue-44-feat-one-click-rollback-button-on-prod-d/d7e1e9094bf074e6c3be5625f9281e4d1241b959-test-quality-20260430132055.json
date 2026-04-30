@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "d7e1e9094bf074e6c3be5625f9281e4d1241b959",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T17:20:55Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T17:20:54Z",
+      "scanned_files": 15,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "tests/test_confirmation_flow.py",
+          "line": 63,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    slack = MagicMock()"
+        },
+        {
+          "file": "tests/test_confirmation_flow.py",
+          "line": 75,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    slack = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
