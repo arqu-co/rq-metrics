@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-479-rq-lifecycle-timing--phase-enum--elapsed",
+  "sha": "2f9dc76dd3d5586cbc9031cb8fe04dce6d486b94",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T12:33:07Z",
+  "phase": "coderabbit",
+  "run_number": 4,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T12:32:59Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
