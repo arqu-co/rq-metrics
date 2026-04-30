@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "c8e3327a0efd9d99cf68a292787c84f68824d2e3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T00:03:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:23Z",
+      "files_checked": 29,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "server/app-routes-prune.ts",
+          "function": "parseSelection",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:55Z",
+      "files_checked": 15,
+      "coverage_tool": "js",
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "client/src/components/PruneWorktreesDialog.tsx",
+          "coverage": 94.54,
+          "min": 95
+        },
+        {
+          "file": "server/app-prune-wiring.ts",
+          "coverage": 69.23,
+          "min": 95
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:26Z",
+      "files_checked": 29,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/components/PruneWorktreesDialog.tsx",
+          "name": "type UsePruneWorktrees",
+          "line": 2
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:21Z",
+      "files_checked": 29,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "server/__tests__/worktree-prune-batch-enumerate.test.ts",
+          "lines": 323,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "server/__tests__/worktree-prune-batch-runner.test.ts",
+          "lines": 304,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:03:55Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:32Z",
+      "failures": 3,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/PruneWorktreesRepoGroup.test.tsx(10,5): error TS2783: 'branch' is specified more than once, so this usage will be overwritten.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/PruneWorktreesRepoGroup.test.tsx(10,5): error TS2783: 'branch' is specified more than once, so this usage will be overwritten.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+    // eslint-disable-next-line react-hooks/exhaustive-deps\n\n"
+        }
+      ],
+      "duration_ms": 6000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:03:57Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T22:55:44Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T23:28:10Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:03:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:58Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:03:56Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T20:02:07Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:03:54Z",
+      "scanned_files": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:03:52Z",
+      "fingerprint": "7d6b469c4c502180fe32f11de5ab07ae",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/components/__test-fixtures__/prune-dialog-fixtures.ts"
+      ],
+      "duration_ms": 20000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 14511.0
+}
