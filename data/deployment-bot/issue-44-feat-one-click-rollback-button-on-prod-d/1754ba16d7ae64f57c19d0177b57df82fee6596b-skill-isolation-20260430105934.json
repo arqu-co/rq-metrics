@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "1754ba16d7ae64f57c19d0177b57df82fee6596b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T14:59:34Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:59:33Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
