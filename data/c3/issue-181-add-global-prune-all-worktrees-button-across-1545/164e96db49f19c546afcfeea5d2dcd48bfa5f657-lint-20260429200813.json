@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "164e96db49f19c546afcfeea5d2dcd48bfa5f657",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T00:08:13Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:08:12Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "lint-suppressions",
+          "output": "+    // eslint-disable-next-line react-hooks/exhaustive-deps\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
