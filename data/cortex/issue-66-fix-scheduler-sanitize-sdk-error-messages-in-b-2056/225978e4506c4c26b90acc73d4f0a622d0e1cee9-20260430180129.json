@@ -1,0 +1,175 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-66-fix-scheduler-sanitize-sdk-error-messages-in-b-2056",
+  "sha": "225978e4506c4c26b90acc73d4f0a622d0e1cee9",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T22:01:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-91094",
+    "review-wip-reviewer-r3",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T19:40:10Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:13Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:26Z",
+      "coverage_tool": "js",
+      "files_checked": 3,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:14Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:11Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:26Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:22Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:28Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T01:07:30Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T19:37:25Z"
+    },
+    "review-wip-reviewer-91094": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "lib/runtime/error-classifier.ts",
+          "line": 12,
+          "severity": "low",
+          "category": "documentation",
+          "title": "JSDoc misattributes awaiting_user to chat actions",
+          "body": "Line 12 says awaiting_user, user_acted, user_deferred are all written by 'chat actions'. In production source, chat-actions.ts only writes user_deferred (line 187) and user_acted (line 217). awaiting_user is written by orchestrators \u2014 runs-repo.test.ts line 222 names it 'orchestrator-spawned awaiting_user' and the value never appears in chat-actions.ts source. The comment groups all three under one writer which is wrong: awaiting_user belongs under orchestrators, not chat actions. Fix: split the list \u2014 'awaiting_user (orchestrators), user_acted + user_deferred (chat actions)'.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:37:50Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:27Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:25Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T22:01:24Z",
+      "fingerprint": "0e5911c8539fef69b37434b4dbda5eb6",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 2000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 75238.0
+}
