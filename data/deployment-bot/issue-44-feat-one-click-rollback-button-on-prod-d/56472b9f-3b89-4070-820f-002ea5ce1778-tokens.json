@@ -1,0 +1,51 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T10:45:30.393Z",
+  "session_id": "56472b9f-3b89-4070-820f-002ea5ce1778",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 2420,
+    "output": 429025,
+    "cache_read": 161930197,
+    "cache_create": 5186790,
+    "est_cost_usd": 110.349556
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 152829618,
+      "cost_usd": 97.608648
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#2": {
+      "tokens": 9324460,
+      "cost_usd": 9.666777
+    },
+    "review": {
+      "tokens": 5394354,
+      "cost_usd": 3.0741310000000004
+    }
+  }
+}
