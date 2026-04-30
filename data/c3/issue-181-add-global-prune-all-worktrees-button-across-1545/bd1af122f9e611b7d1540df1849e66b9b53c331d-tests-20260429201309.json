@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-181-add-global-prune-all-worktrees-button-across-1545",
+  "sha": "bd1af122f9e611b7d1540df1849e66b9b53c331d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T00:13:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:13:08Z",
+      "test_runner": "bin-test",
+      "fingerprint": "405b263c30394cf81127f627ffdfd3c9",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "- If the error occurred after the test had been completed, this was the last documented test before it was thrown.\n\n\u23af\u23af\u23af\u23af Unhandled Rejection \u23af\u23af\u23af\u23af\u23af\nTypeError: enumeration.groups is not iterable\n \u276f deriveDefaultSelections client/src/hooks/use-prune-worktrees-helpers.ts:60:35\n     58|   const next = new Set<string>();\n     59|   const ctx: DeriveContext = { includeOpenPRs, overrides, previous };\n     60|   for (const group of enumeration.groups) {\n       |                                   ^\n     61|     for (const row of group.worktrees) {\n     62|       const checked = shouldCheckRow(row, ctx);\n \u276f applyEnumerationResult client/src/hooks/usePruneWorktrees.ts:70:27\n \u276f client/src/hooks/usePruneWorktrees.ts:86:7\n\nThis error originated in \"client/src/App.test.tsx\" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.\nThe latest test that might've caused the error is \"renders the connectivity banner when /api/branches fails\". It might mean one of the following:\n- The error was thrown, while Vitest was running this test.\n- If the error occurred after the test had been completed, this was the last documented test before it was thrown.\n\n\u23af\u23af\u23af\u23af\u23af Uncaught Exception \u23af\u23af\u23af\u23af\u23af\nTypeError: Cannot read properties of undefined (reading 'prunableCount')\n \u276f App client/src/App.tsx:235:43\n    233|         githubStatus={githubStatus}\n    234|         onNewSession={handleNewSession}\n    235|         prunableCount={prune.enumeration?.summary.prunableCount ?? 0}\n       |                                           ^\n    236|         onPruneClick={() => setPruneOpen(true)}\n    237|       />\n \u276f Object.react_stack_bottom_frame ../../../node_modules/react-dom/cjs/react-dom-client.development.js:25904:20\n \u276f renderWithHooks ../../../node_modules/react-dom/cjs/react-dom-client.development.js:7662:22\n \u276f updateFunctionComponent ../../../node_modules/react-dom/cjs/react-dom-client.development.js:10166:19\n \u276f beginWork ../../../node_modules/react-dom/cjs/react-dom-client.development.js:11778:18\n \u276f runWithFiberInDEV ../../../node_modules/react-dom/cjs/react-dom-client.development.js:874:13\n \u276f performUnitOfWork ../../../node_modules/react-dom/cjs/react-dom-client.development.js:17641:22\n \u276f workLoopSync ../../../node_modules/react-dom/cjs/react-dom-client.development.js:17469:41\n \u276f renderRootSync ../../../node_modules/react-dom/cjs/react-dom-client.development.js:17450:11\n \u276f performWorkOnRoot ../../../node_modules/react-dom/cjs/react-dom-client.development.js:16583:35\n\nThis error originated in \"client/src/App.test.tsx\" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.\nThe latest test that might've caused the error is \"renders the connectivity banner when /api/branches fails\". It might mean one of the following:\n- The error was thrown, while Vitest was running this test.\n- If the error occurred after the test had been completed, this was the last documented test before it was thrown.\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n\n Test Files  1 failed | 230 passed (231)\n      Tests  2 failed | 2769 passed (2771)\n     Errors  6 errors\n   Start at  20:12:51\n   Duration  17.43s (transform 6.02s, setup 0ms, import 23.41s, tests 119.81s, environment 42.98s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
