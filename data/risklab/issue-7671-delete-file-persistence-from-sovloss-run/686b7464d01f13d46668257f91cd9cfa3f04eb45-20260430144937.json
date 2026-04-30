@@ -1,0 +1,207 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7671-delete-file-persistence-from-sovloss-run",
+  "sha": "686b7464d01f13d46668257f91cd9cfa3f04eb45",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T21:49:37Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "complexity",
+    "issue-binding",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T21:47:18Z",
+      "files_checked": 4,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "backend/app/services/atlas_processor_utils.py",
+          "function": "normalize_atlas_result_data",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/atlas_processor_utils.py",
+          "function": "normalize_atlas_result_data",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:49:32Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 125000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:47:18Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:47:17Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T21:49:33Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:47:27Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:49:36Z",
+      "duration_ms": 3000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:07:36Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T21:47:27Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:49:36Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T21:49:36Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:11:43Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:57:02Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T21:49:32Z",
+      "test_runner": "bin-test",
+      "fingerprint": "dffd46e220edcea8eb7ce09b05b12ea5",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "backend/app/services/atlas_schedule_of_values_processor.py"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3025211.0
+}

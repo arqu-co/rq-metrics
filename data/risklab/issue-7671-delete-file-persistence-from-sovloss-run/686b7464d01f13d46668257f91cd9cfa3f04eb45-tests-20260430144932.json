@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-7671-delete-file-persistence-from-sovloss-run",
+  "sha": "686b7464d01f13d46668257f91cd9cfa3f04eb45",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-04-30T21:49:32Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T21:49:32Z",
+      "fingerprint": "dffd46e220edcea8eb7ce09b05b12ea5",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "backend/app/services/atlas_schedule_of_values_processor.py"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
