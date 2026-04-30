@@ -1,0 +1,283 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "session-20260429-2016-2c5e",
+  "sha": "380135185a23e1d3754486e84306a80389110b5a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T14:20:29Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "DEAD_CODE": 1,
+    "TEST_QUALITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "server/auto-update-snapshot.ts",
+      "line": 41,
+      "rule": "DEAD_CODE",
+      "message": "mkdirSync before atomicWriteFileSync is redundant: atomicWriteFileSync->writeAndRename already calls mkdirSync(dirname(path), {recursive:true}) at line 22 of atomic-write.ts. The guard can never do useful work."
+    },
+    {
+      "file": "server/__tests__/auto-update-snapshot.test.ts",
+      "line": 46,
+      "rule": "TEST_QUALITY",
+      "message": "The schemaVersion-mismatch test (line 46-59) uses writeFileSync to corrupt the file after writeSnapshot. It imports writeFileSync from the test's own import list, not from the module under test \u2014 acceptable \u2014 but the test name says 'returns null when schemaVersion mismatches' without clarifying which direction. A schemaVersion of 0 (or missing) is an equally important case. One additional short test for schemaVersion: undefined would make the mismatch contract complete."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T05:22:06Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:19:57Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:22:53Z",
+      "coverage_tool": "js",
+      "files_checked": 2,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:19:58Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:19:55Z",
+      "files_checked": 15,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:26Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:06Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:28Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T05:20:29Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T05:13:57Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:27Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 12,
+      "findings_details": [
+        {
+          "file": "lib/auto-update-phases.sh",
+          "line": 105,
+          "severity": "high",
+          "category": "correctness",
+          "title": "pm2_start_c3 uses REPO_ROOT instead of MAIN_CHECKOUT",
+          "body": "pm2_start_c3 passes $REPO_ROOT/ecosystem.config.cjs to pm2 start. When bin/auto-update runs from a worktree (e.g. via launchd if symlinked), REPO_ROOT is the worktree path, not the main checkout. The comment on line 71 explicitly says 'All commands run against MAIN_CHECKOUT'. restart_old_c3 (line 78) has the same bug. Both should use $MAIN_CHECKOUT.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/auto-update-phases.sh",
+          "line": 78,
+          "severity": "high",
+          "category": "correctness",
+          "title": "restart_old_c3 and pm2_start_c3 use REPO_ROOT not MAIN_CHECKOUT for ecosystem config",
+          "body": "Lines 78 and 105: both pm2 invocations pass $REPO_ROOT/ecosystem.config.cjs. The function comment block on lines 71-72 explicitly states 'All commands run against MAIN_CHECKOUT (not $REPO_ROOT) so the script is safe when invoked from a worktree.' When launchd invokes bin/auto-update from the symlinked main checkout REPO_ROOT==MAIN_CHECKOUT, but when manually invoked from a worktree REPO_ROOT points to the worktree and ecosystem.config.cjs may not exist there. Fix: replace $REPO_ROOT with $MAIN_CHECKOUT in both pm2 start calls in restart_old_c3 and pm2_start_c3.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/auto-update-preflight.sh",
+          "line": 18,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "check_main_clean silently passes when git status fails",
+          "body": "dirty=\"$(git ... | grep -v '^??' || true)\". The '|| true' applies to the entire pipeline including git. If git status fails (bad cwd, corrupted repo), the error is swallowed, dirty is empty, and the check passes incorrectly \u2014 the update proceeds on a repo in an unknown state. Fix: capture git output to a temp file, check exit code explicitly before grepping, then clean up.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/auto-update",
+          "line": 57,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "jq hard dependency not verified in preflight",
+          "body": "write_marker (line 57) and call_drain_endpoint (lib/auto-update-phases.sh:31) both invoke jq. If jq is not installed, write_marker silently fails (abort calls it with || true), so failure markers are never written. The preflight phase checks for pm2 but never for jq. Fix: add a jq availability check in preflight alongside the pm2 check, or add a top-level dependency check block at the start of bin/auto-update.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/install-auto-update",
+          "line": 102,
+          "severity": "low",
+          "category": "style",
+          "title": "sed delimiter | can be broken by repo paths containing |",
+          "body": "render_plist uses sed -e 's|{{REPO_PATH}}|$repo_path|g'. If repo_path contains the | character the sed expression breaks and produces malformed XML. plutil -lint would catch the broken plist but with an opaque error. Fix: use a delimiter that cannot appear in a filesystem path, such as @ or #.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/auto-update-drain.ts",
+          "line": 21,
+          "severity": "low",
+          "category": "style",
+          "title": "s.branchKey as string is an unsafe cast; use a type predicate in the filter instead",
+          "body": "captureActiveSessions filters by typeof s.branchKey === 'string' then casts s.branchKey as string in .map(). TypeScript cannot narrow the type across the filter/map boundary without a type predicate. The cast is safe at runtime but hides type information. Fix: replace the inline filter+map with a filter using a type predicate: .filter((s): s is TerminalSession & { branchKey: string } => typeof s.branchKey === 'string' && s.branchKey.length > 0), then s.branchKey is narrowed to string in .map() without a cast.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/index.ts",
+          "line": 22,
+          "severity": "low",
+          "category": "style",
+          "title": "CACHED_C3_SHA IIFE compressed onto one line \u2014 extract to a named function",
+          "body": "The IIFE is 113 characters on one line combining variable declaration, try/catch, execFileSync call, and .trim(). This violates the readability expectation of the 50-line function rule (the logic is dense and inlined). Fix: extract to a named module-level function resolveC3Sha(): string { try { return execFileSync(...).trim(); } catch { return 'unknown'; } } then const CACHED_C3_SHA = resolveC3Sha();",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-auto-update.ts",
+          "line": 34,
+          "severity": "low",
+          "category": "style",
+          "title": "c3Sha: () => string in AutoUpdateRoutesDeps adds indirection without benefit",
+          "body": "CACHED_C3_SHA is a fixed string captured at boot. The interface wraps it as a function so the route handler calls c3Sha() to get the value. This adds indirection with no benefit \u2014 the value never changes after boot. A plain string field c3Sha: string is clearer and equally testable (pass 'abc1234' in tests). Fix: change the interface field to c3Sha: string, and the wiring in index.ts to c3Sha: CACHED_C3_SHA.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-auto-update.test.ts",
+          "line": 33,
+          "severity": "low",
+          "category": "style",
+          "title": "Hardcoded /tmp/wt as cwd in fake terminal manager \u2014 use homeDir for determinism",
+          "body": "makeFakeTerminalManager returns cwd: '/tmp/wt' (line 33). The replay test at line 205-220 uses homeDir as the cwd so existsSync(session.cwd) returns true. If tests ever use the fake manager's sessions for replay, they would fail because /tmp/wt likely does not exist. Fix: use homeDir as the cwd in makeFakeTerminalManager, or document that these two paths intentionally differ.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/auto-update-phases.sh",
+          "line": 157,
+          "severity": "low",
+          "category": "style",
+          "title": "parse_replay_result spawns N+2 jq processes \u2014 replace with single jq invocation",
+          "body": "The while loop at lines 157-163 calls jq twice per failed session (once for branchKey, once for reason), spawning N+2 total jq processes. A single jq invocation can produce all failure lines: while IFS='|' read -r branch_key reason; do log \"WARN: replay failed for branchKey=$branch_key reason=$reason\"; done < <(jq -r '.failed[]? | \"\\(.branchKey // \"(unknown)\")\" + \"|\" + ((.reason // \"(unknown)\")\") ' \"$body_file\" 2>/dev/null). This also removes the redundant inner condition check at line 165 (failed_count > 0 is already the outer guard).",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/auto-update-phases.sh",
+          "line": 165,
+          "severity": "low",
+          "category": "style",
+          "title": "Redundant failed_count > 0 check nested inside failed_count > 0 guard",
+          "body": "Line 165: 'if [ \"$replayed\" = \"0\" ] && [ \"$failed_count\" -gt 0 ]' is inside 'if [ \"$failed_count\" -gt 0 ]' (line 155). The [ \"$failed_count\" -gt 0 ] sub-condition is always true at that point. Fix: simplify to 'if [ \"$replayed\" = \"0\" ]'.",
+          "confidence": "high"
+        },
+        {
+          "file": "templates/auto-update.plist.tmpl",
+          "line": 27,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "PATH in plist may not include npm or node \u2014 hardcoded paths miss nvm/volta installs",
+          "body": "The plist sets PATH=/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin. Operators who install Node.js via nvm or volta have node/npm/pm2 at ~/.nvm/versions/node/<ver>/bin or ~/.volta/bin, which are not in this PATH. bin/auto-update calls pm2, npm, git, curl, jq \u2014 all would fail silently or with 'command not found' under launchd if the operator uses nvm/volta. Fix: bin/install-auto-update should resolve the actual paths to pm2, npm, and node at install time and embed them in the plist, or document this as a known limitation requiring nvm users to symlink binaries to /usr/local/bin.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T05:22:04Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:27Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:25Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:20:24Z",
+      "test_runner": "bin-test",
+      "fingerprint": "34cf1463dc42b542a571fbdb2cda168b",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 18000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 35855.0
+}
