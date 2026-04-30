@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "repo": "geo-risk-service",
+  "branch": "issue-227-add-label-fields-to-featuresetgroupinfo-",
+  "sha": "6d0e957fd5685abfd4e002f01843184d63cac4ab",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-30T23:12:50Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "lint",
+    "review"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:44Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 5000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:20Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:34Z",
+      "coverage_tool": "jacoco",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:20Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:19Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:35Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:12:31Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "ktlint",
+          "exit_code": 1,
+          "output": "/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/DescribeFeatureSetGroupsIntegrationTest.kt:31:1: Exceeded max line length (140) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/ResolveTileShardsIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/RetrieveRisksGeoJsonIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/IntegrationTestBase.kt:10:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/TestRunnerCredentials.kt:11:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service/service/lambda/src/testIntegration/kotlin/co/arqu/georiskservice/lambda/test/foundation/TestRunnerCredentials.kt:100:29: Redundant curly braces\n/Users/jon/Repos/geo-risk-service/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/Primitives.kt:10:1: Not a valid Kotlin file (expecting a top level declaration) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationBucket.kt:10:31: Not a valid Kotlin file (expecting a parameter declaration) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuilders.kt:14:46: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/main/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeDerivation.kt:36:41: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationBucketConcernLevelExhaustiveTest.kt:48:109: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationBucketConcernLevelTest.kt:14:46: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuildersTest.kt:264:43: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeBuildersWildfireHailTest.kt:75:1: Unexpected blank line(s) before \"}\"\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeConcernLevelCrimeHailTest.kt:17:60: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeConcernLevelFloodSurgeTest.kt:18:64: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeConcernLevelGeoTest.kt:36:64: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeConcernLevelWildfireProbabilityTest.kt:16:109: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeConcernLevelWildfireTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeDerivationTest.kt:239:28: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ClassificationSchemeTest.kt:24:28: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/shared/src/test/kotlin/co/arqu/georiskservice/shared/classification/ConcernLevelTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/GridGenerator.kt:144:1: Needless blank line(s)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/RetryPolicy.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/S3MarkerManager.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/common/src/main/kotlin/co/arqu/georiskservice/tilebuilder/common/TippecanoeConfig.kt:47:40: Not a valid Kotlin file (expecting a parameter declaration) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/common/src/test/kotlin/co/arqu/georiskservice/tilebuilder/common/RetryPolicyTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/FinalizeS3Operations.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/FinalizeTileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/main/kotlin/co/arqu/georiskservice/tilebuilder/lambda/TileBuilderHandler.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/test/kotlin/co/arqu/georiskservice/tilebuilder/lambda/InitializeTileBuilderHandlerTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/lambdas/src/testIntegration/kotlin/co/arqu/georiskservice/tilebuilder/integration/TileBuilderIntegrationTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/build.gradle.kts:31:18: Unnecessary space(s)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/FetchResolution.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:25: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:52: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:69: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:169:88: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:25: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:52: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ProcessPhase.kt:185:84: Parameter should be on a separate line (unless all parameters can fit a single line)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardFetcher.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfig.kt:70:94: Not a valid Kotlin file (expecting an argument) (cannot be auto-corrected)\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerMain.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerS3.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/main/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/TippecanoeRunner.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/test/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/ShardWorkerConfigTest.kt:287:1: Unexpected blank line(s) before \"}\"\n/Users/jon/Repos/geo-risk-service/service/tile-builder/shard-worker/src/test/kotlin/co/arqu/georiskservice/tilebuilder/shardworker/TippecanoeRunnerTest.kt:3:1: Imports must be ordered in lexicographic order without any empty lines in-between\n"
+        }
+      ],
+      "duration_ms": 11000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:37Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T23:12:31Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:37Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:12:39Z",
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:12:34Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:12:33Z",
+      "test_runner": "gradle",
+      "fingerprint": "a172b18dbd7c693f4de57491c1320b3c",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 2000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 25.0
+}
