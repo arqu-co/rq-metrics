@@ -1,0 +1,346 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-554-rqstart-support-worktree-forward-flow-vi",
+  "sha": "d334b6d9d63adb0482c9e47cab7f64260d11ee96",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-30T00:40:01Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-85873",
+    "review-wip-reviewer-88111",
+    "review-wip-reviewer-r2",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:39:55Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-29T23:18:30Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:39:56Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:29:24Z",
+      "files_checked": 16,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T00:39:58Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:30:07Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:29:24Z"
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T22:39:00Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T22:38:26Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:29:24Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-wip-reviewer-85873": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "plugins/rq/.claude-plugin/plugin.json",
+          "line": 3,
+          "severity": "critical",
+          "category": "architecture",
+          "title": "Manual version bump in feature PR violates CI-owns-versioning convention",
+          "body": "The plugin.json bumps version from 1.29.139 to 1.30.0 in commit 108a861c ('chore(rq): release v1.30.0') on this feature branch. Per repo conventions (.review/): 'Reject any diff that bumps a plugin version field (plugins/*/.claude-plugin/plugin.json) [...] CI owns plugin version bumps \u2014 .github/workflows/bump-plugin-version.yml runs on push to main when plugins/** changes and auto-bumps the affected plugin. Feature PRs that also bump the version conflict with CI bump and break the plugin cache (keyed by version). Treat any version: edit in a plugin manifest as a blocker unless the PR is explicitly a release PR authored by CI itself.' The commit author is Jonathan Farnworth (a human), not the CI bot. Branch is a feature branch (issue-554-*). This is a blocker.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 134,
+          "severity": "high",
+          "category": "architecture",
+          "title": "Sourcing rq-start.sh inside rq-next.sh::main redefines local usage() and main() functions with no return guard",
+          "body": "rq-next.sh line 134 uses 'source $SCRIPT_DIR/rq-start.sh' inside its own main() function to import write_binding, _rehydrate_quality_state, _check_issue_claim, and _post_issue_claim. The source has a BASH_SOURCE guard that prevents rq-start.sh::main from running, but it also redefines rq-next.sh's own 'usage' and 'main' functions. The code includes a comment warning about this (lines 129-133) and notes that all 'usage()' callsites fire BEFORE this source. However this creates a fragile dependency: any future caller who adds a usage() or main() call after the source site will silently get rq-start.sh's version, which has different semantics (references --force-claim differently). The four imported functions (write_binding, _rehydrate_quality_state, _check_issue_claim, _post_issue_claim) only exist in rq-start.sh and lib/start-helpers.sh \u2014 they are not exported to git-helpers.sh or a shared lib. The correct fix is to extract these four functions to lib/start-helpers.sh (where _check_issue_claim and _post_issue_claim already live) and add write_binding and _rehydrate_quality_state there too, then have both rq-start.sh and rq-next.sh source lib/start-helpers.sh. This avoids the function-namespace collision entirely.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/lib/start-helpers.sh",
+          "line": 1,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "lib/start-helpers.sh incomplete: write_binding and _rehydrate_quality_state still in rq-start.sh, forcing rq-next.sh to source the whole orchestrator",
+          "body": "lib/start-helpers.sh was introduced to extract claim helpers so rq-start.sh would stay under 300 lines. The file comment says 'functions are unchanged \u2014 they just live here'. But the worktree path in rq-next.sh also needs write_binding (rq-start.sh:121) and _rehydrate_quality_state (rq-start.sh:153), which were NOT moved to the lib. To import them, rq-next.sh::main sources the entire rq-start.sh script (line 134), which has the namespace-collision side effect documented in the warning comment at rq-next.sh:129-133. The correct completion of this refactor is to move write_binding and _rehydrate_quality_state into lib/start-helpers.sh (or a new lib/binding-helpers.sh), then have both rq-start.sh and rq-next.sh source that lib file at the top, eliminating the source-inside-main pattern entirely. This was likely deferred to keep the PR focused, but it leaves the codebase in a half-extracted state that makes the source-inside-main workaround load-bearing.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/git-helpers.sh",
+          "line": 116,
+          "severity": "low",
+          "category": "architecture",
+          "title": "_parse_flags is misplaced in git-helpers.sh \u2014 it has no git dependency",
+          "body": "_parse_flags (lines 116-131) is a generic argument parser for --force-claim, --worktree, and --exec flags. It contains zero git calls and has no dependency on any other git-helpers.sh function. It was added to git-helpers.sh because that is the shared module sourced by both rq-start.sh and rq-next.sh, but git-helpers.sh's purpose per its file header is 'lightweight git helpers'. A flag parser for rq-start/rq-next belongs in lib/start-helpers.sh or a dedicated lib/flags.sh alongside the other start infrastructure. This is a naming-convention and single-responsibility violation (one module per job). Low severity because it is functional, but it breaks the module boundary that git-helpers.sh is supposed to enforce.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 32,
+          "severity": "low",
+          "category": "style",
+          "title": "slugify() wrapper in rq-start.sh is a one-line pass-through to slugify_title with no added value",
+          "body": "Lines 32-34 define slugify() as a single-line delegate to slugify_title('$1') from git-helpers.sh. The wrapper adds no logic, no guard, and no name distinction. Both call sites (lines 56 and 88) should call slugify_title directly. The wrapper is dead weight \u2014 it adds an extra function definition and an extra stack frame per call, and its presence implies a distinction that does not exist. Fix: delete slugify(), replace the two call sites with slugify_title.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-bind.sh",
+          "line": 14,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "rq-bind.sh sources entire rq-start.sh to import write_binding and _rehydrate_quality_state",
+          "body": "rq-bind.sh line 14 sources rq-start.sh unconditionally at module scope. It only uses write_binding (rq-start.sh:121) and _rehydrate_quality_state (rq-start.sh:153) from that file \u2014 plus verify_issue (rq-start.sh:107) and slugify_title (git-helpers.sh). This pulls in all of rq-start.sh's local functions: usage, slugify, validate_slug, handle_new_issue, _parse_issue_ref, resolve_existing_issue, create_issue, verify_issue, _print_epic_menu, and main. The BASH_SOURCE guard prevents main() from running, but all other rq-start.sh functions occupy the namespace unnecessarily. This is the same extraction problem as rq-next.sh::main sourcing rq-start.sh \u2014 both callers need write_binding and _rehydrate_quality_state, which belong in lib/start-helpers.sh. If those two functions were moved there, rq-bind.sh could source lib/start-helpers.sh and git-helpers.sh only, with no dependency on the orchestrator.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_bind.sh",
+          "line": 37,
+          "severity": "low",
+          "category": "style",
+          "title": "gh stub has dead arm: 'remote show' handler never matches any gh call in rq-bind.sh",
+          "body": "The gh stub at line 37 handles case 'remote show' (matching 'gh remote show'), printing 'HEAD branch: main'. rq-bind.sh never calls 'gh remote show' \u2014 get_default_branch() in git-helpers.sh uses 'git remote show origin' (a git command, not gh). The stub arm is dead weight that creates a false impression the stub is more complete than it is. Fix: remove the 'remote show') case arm from the stub to keep it minimal and accurate.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-88111": {
+      "status": "complete",
+      "findings": 12,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 274,
+          "severity": "high",
+          "category": "security",
+          "title": "RQ_EXEC_BYPASS_TTY=1 bypass is undocumented and has no production guard",
+          "body": "The check at line 274-282 (mirrored in rq-next.sh line 223-231) silently no-ops when `RQ_EXEC_BYPASS_TTY != 1` and stdin is not a TTY. This is correct defensive behavior. However, `RQ_EXEC_BYPASS_TTY=1` is never documented in the skill SKILL.md files, not listed in any .env.example or env-var index, and the tests at test_rq_start_worktree.sh:119 and test_rq_next_worktree.sh:169 set it freely. In a CI/CD pipeline where this script is invoked with that env var set (e.g. inherited from a broader CI environment or a dot-env file that sets it), `exec claude` would be called in a non-interactive context, replacing the shell process and potentially hanging or erroring in unexpected ways. Fix: Add a comment block above the RQ_EXEC_BYPASS_TTY check in both rq-start.sh and rq-next.sh that explicitly documents this as a test-only bypass, and add `RQ_EXEC_BYPASS_TTY` to the skills/start/SKILL.md and skills/next/SKILL.md documentation so operators know it exists.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 134,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Sourcing rq-start.sh in rq-next.sh::main shadows local usage() and main() mid-execution",
+          "body": "At line 134, `source \"$SCRIPT_DIR/rq-start.sh\"` is called inside the `main()` body of rq-next.sh. rq-start.sh defines its own `usage()` and `main()` at module scope. After source, rq-next.sh's `usage` and `main` are both silently replaced by rq-start.sh's versions. The commit message (a06cabf1) acknowledges this with a warning comment at lines 129-133, but the problem is deeper than docs: if any code path after the `source` call in this `main()` function invokes `usage` due to an error, it will print rq-start.sh's usage string (which mentions `--force-claim` and `--new`, not rq-next arguments). Also, rq-start.sh sources `lib/start-helpers.sh` at the top level, which is fine, but it also sources `lib/epic-helpers.sh` and `lib/scaffold-helpers.sh`, potentially side-effecting function namespaces. The `if [[ \"${BASH_SOURCE[0]}\" == \"${0}\" ]]; then main \"$@\"; fi` guard only prevents rq-start's `main` from running on source \u2014 it does NOT prevent function redefinition. Fix: Move the functions needed from rq-start.sh (`write_binding`, `_rehydrate_quality_state`, `_check_issue_claim`, `_post_issue_claim`) into a shared library (e.g. `lib/start-helpers.sh` already exists for this purpose). Both rq-start.sh and rq-next.sh source the shared lib instead of rq-start sourcing rq-next. This eliminates the shadow entirely.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/create-issue-worktree.sh",
+          "line": 30,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "awk parsing of git worktree list --porcelain is fragile for branch names with spaces",
+          "body": "Lines 30-33: `git worktree list --porcelain | awk -v b=\"refs/heads/$BRANCH\" '/^worktree / { wt = $2 } /^branch / { if ($2 == b) { print wt; exit } }'`. The awk `$2` field split uses any whitespace as a delimiter. If `$BRANCH` contains spaces (unusual but not impossible for `git worktree add`), the branch field in porcelain output would appear as multiple awk tokens and `$2` would be only the first word, causing the match to fail and `WT_PATH` to be empty. Additionally, `$BRANCH` is interpolated into the awk `-v` assignment without quoting considerations \u2014 awk's `-v` is generally safe for variable assignment but if `$BRANCH` contained a backslash it could be misinterpreted. Fix: For the branch match, use a `printf '%s\\n'` + `grep -F` pipeline on the porcelain output, or use `git worktree list --porcelain | grep -A1 \"branch refs/heads/$BRANCH\" | grep '^worktree'`. Branch names with spaces are pathological but worth guarding.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 154,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "wt_path from create-issue-worktree.sh not validated before cd",
+          "body": "At line 154, `wt_path=$(\"$SCRIPT_DIR/create-issue-worktree.sh\" \"$branch\" \"$default_branch\")` captures stdout. If the worktree creation fails, `set -euo pipefail` would normally abort via `errexit`. However, if `create-issue-worktree.sh` exits 0 but prints extra noise on stdout (e.g. progress from `wt switch`), `wt_path` could contain multi-line output or trailing whitespace. `cd \"$wt_path\"` (line 155) with a multi-line or empty path would fail, but the error message would be cryptic. The same issue exists in rq-start.sh line 240-241. Fix: Add `wt_path=$(... | tr -d '\\n')` or validate that `wt_path` is a non-empty, existing directory before `cd`. A `[ -d \"$wt_path\" ] || { echo \"error: worktree path invalid: $wt_path\" >&2; exit 1; }` guard is cheap and makes failures obvious.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-bind.sh",
+          "line": 19,
+          "severity": "low",
+          "category": "correctness",
+          "title": "rq-bind regex ^issue-([0-9]+)- matches branches like issue-7777- with no slug, producing a branch-issue.json with a valid binding but no slug in the branch name check",
+          "body": "The regex `^issue-([0-9]+)-` (line 19) matches any branch starting with `issue-<N>-`, including `issue-7777-` (dash with no trailing slug). write_binding (line 28) would then write the binding with `branch=issue-7777-` and `state_key=issue-7777-`. This is technically correct per the contract (rq-start always appends a slug, so `issue-7777-` wouldn't normally exist) but the regex doesn't enforce the slug requirement. If a user manually creates such a branch, rq-bind would succeed silently. This is low severity because rq-start is the canonical creator and always appends a slug, but it's a gap in the invariant. Fix: Tighten the regex to `^issue-([0-9]+)-[a-z0-9]` to require at least one alphanumeric character after the dash.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 82,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Cross-repo check in _check_cross_repo uses suffix-match on issue number, can misfire for 2-digit prefix issues",
+          "body": "At line 83, `select(test(\"#\" + $num + \"$\"))` matches any sub_issue entry ending with `#<N>`. If `$num` is `8` and a sub-issue is `owner/repo#88`, the regex `#8$` would NOT match (because the string ends in `88` not `8`). That's correct. But if `$num` is `88` and a sub-issue is `owner/repo#888`, the regex `#88$` would NOT match `888` \u2014 also correct. So the `$` anchor makes this safe. However, the anchor is a raw `jq` regex string; special regex chars in `$num` (which is validated as `^[0-9]+$` at lines 101-103) cannot appear. This is actually correct. Low severity \u2014 the logic is sound but the use of regex matching instead of exact string matching (`== \"#\" + $num`) is harder to reason about. Fix: Replace `test(\"#\" + $num + \"$\")` with `endswith(\"#\" + $num)` which is unambiguous and exact for the suffix.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 99,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Fallback create_issue parse uses grep -oE pipeline on gh output, violating the banned head/tail truncation pattern",
+          "body": "Line 99: `num=$(gh issue create --title \"$title\" --body \"$body\" | grep -oE '[0-9]+$' | tail -1)`. This is a pipeline with `tail -1` on command output. The pre-tool-use hook bans `| head/tail` on command pipelines. While this is production script code (not a Claude tool call), it establishes a pattern that mirrors the banned practice and has a real correctness concern: if `gh issue create` outputs multiple lines ending in digits (e.g., a URL like `https://github.com/org/repo/issues/42`), `tail -1` takes the last match. In practice this is probably fine since the last line from `gh issue create` is the URL and the last digits would be the issue number, but it's fragile. Fix: Parse using `grep -oE 'issues/[0-9]+' | grep -oE '[0-9]+'` to be explicit about matching an issue URL, eliminating dependence on line order.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-start.sh",
+          "line": 191,
+          "severity": "low",
+          "category": "correctness",
+          "title": "is_linked_worktree check in the --worktree rejection guard is inverted relative to its name",
+          "body": "At lines 200-206, `if is_linked_worktree; then in_worktree=true`. Then at lines 232-236, when `WORKTREE_FLAG=1`, the code checks `if [ \"$in_worktree\" = true ]` and exits with 'must be invoked from the primary checkout, not a linked worktree'. This logic is correct \u2014 `is_linked_worktree` returns true when you ARE in a linked worktree, and that's exactly when `--worktree` should be rejected. However, the guard at lines 203-206 that sets `in_worktree=true` also calls `require_clean_tree` \u2014 this means if you are on a non-default branch in the PRIMARY repo, you skip the clean-tree check. The non-worktree path at line 203-206 only runs `require_clean_tree` for linked worktrees. For the primary checkout on a non-default branch, the error is correctly thrown at line 204 (`must start from $default_branch`) but the clean tree check is skipped. This is fine since the error exits before git ops, but `require_clean_tree` should arguably fire first for better UX. Low severity since the refusal still happens. Fix: Move `require_clean_tree` call before the `is_linked_worktree`/`cur != default_branch` check for a cleaner early-exit ordering.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/rq-next.sh",
+          "line": 186,
+          "severity": "low",
+          "category": "correctness",
+          "title": "repo_final resolved AFTER worktree path binds, reading from wrong cwd",
+          "body": "At line 186, `repo_final=$(gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null) || repo_final=\"<repo>\"`. In the `--worktree` path, `cd \"$wt_path\"` was called at line 155. The new worktree is a linked worktree of the same repo, so `gh repo view` should still return the correct repo. However, in the non-`--worktree` path, after `bash \"$SCRIPT_DIR/rq-start.sh\" \"${start_args[@]}\"` (line 181), the cwd hasn't changed, but rq-start.sh may have run `git checkout` which changes branch. `gh repo view` is branch-independent so this is fine. The real risk is if `wt_path` points to a different repo (impossible in current code since create-issue-worktree.sh always creates a worktree of the current repo). Low severity. Fix: Add a `[ -n \"$repo_final\" ]` guard and fall back to reading `.quality/branch-issue.json` if gh returns empty, to make the fallback chain explicit.",
+          "confidence": "low"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_bind.sh",
+          "line": 75,
+          "severity": "low",
+          "category": "correctness",
+          "title": "test_rq_bind.sh: refusal test uses `echo | grep` pipeline which triggers the banned head/tail/grep pipeline rule",
+          "body": "Lines 75 and 87: `echo \"$OUT\" | grep -q \"does not match issue-\"` and `echo \"$OUT\" | grep -q \"CLOSED\"`. These are `echo ... | grep` pipelines on a variable, which is flagged by the pre-tool-use hook as banned output truncation. In test code this is benign but it establishes a pattern. Fix: Use `[[ \"$OUT\" == *\"does not match issue-\"* ]]` and `[[ \"$OUT\" == *\"CLOSED\"* ]]` bash substring matching instead of the pipeline.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_start_worktree.sh",
+          "line": 72,
+          "severity": "low",
+          "category": "correctness",
+          "title": "test_rq_start_worktree.sh: refusal assertions use `echo | grep` pipelines",
+          "body": "Lines 72, 83: `echo \"$OUT\" | grep -q \"must start from main\"` and `echo \"$OUT\" | grep -q \"primary checkout\"`. Same pattern as in test_rq_bind.sh. Fix: Use bash substring matching `[[ \"$OUT\" == *\"...\"* ]]` instead.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_next_worktree.sh",
+          "line": 151,
+          "severity": "low",
+          "category": "correctness",
+          "title": "test_rq_next_worktree.sh: assertion uses `echo | grep` pipeline",
+          "body": "Line 151: `echo \"$ERR\" | grep -q \"^note:.*--exec\"`. Same banned pattern. Fix: Use `[[ \"$ERR\" == *'--exec'* ]]` or `printf '%s' \"$ERR\" | grep -q ...` style where the LHS is not a command pipeline.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-r2": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/test_rq_next.sh",
+          "line": 26,
+          "severity": "low",
+          "category": "style",
+          "title": "echo-pipe assertion idiom not fully converted in test_rq_next.sh",
+          "body": "Commit 121f9038 converted the echo-pipe idiom in test_rq_bind.sh, test_rq_next_worktree.sh, and test_rq_start_worktree.sh \u2014 but test_rq_next.sh still has 7 instances (lines 26, 48, 67, 86, 220, 227, 234) using 'if echo \"$VAR\" | grep ...' form. Lines 136/140 are inside a stub heredoc (separate context). Fix: replace each with [[ var == *pattern* ]] to match the other test files.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:40:00Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:29:26Z",
+      "scanned_files": 45
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-29T23:18:31Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:39:58Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c0adfe88af5bfe59653728d51d67e28c",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_phase_signatures.py:8: in <module>\n    from phase_signatures import (\nphase_signatures.py:6: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n____________________ ERROR collecting test_token_pricing.py ____________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_token_pricing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.13/3.13.12_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_token_pricing.py:8: in <module>\n    from token_pricing import (\ntoken_pricing.py:16: in <module>\n    import yaml\nE   ModuleNotFoundError: No module named 'yaml'\n________________ ERROR collecting test_validate_frontmatter.py _________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_validate_frontmatter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.13/3.13.12_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_validate_frontmatter.py:11: in <module>\n    from validate_frontmatter import (\nvalidate_frontmatter.py:16: in <module>\n    import frontmatter\nE   ModuleNotFoundError: No module named 'frontmatter'\n=============================== warnings summary ===============================\n../../../../../../../opt/homebrew/lib/python3.13/site-packages/_pytest/config/__init__.py:1428\n  /opt/homebrew/lib/python3.13/site-packages/_pytest/config/__init__.py:1428: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR test_gate_context.py\nERROR test_parse_cobertura.py\nERROR test_parse_jacoco.py\nERROR test_parse_junit_failures.py\nERROR test_parse_junit_xml.py\nERROR test_phase_assembly_by_branch.py\nERROR test_phase_signatures.py\nERROR test_token_pricing.py\nERROR test_validate_frontmatter.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 9 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 9 errors in 0.82s"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 7294.0
+}
