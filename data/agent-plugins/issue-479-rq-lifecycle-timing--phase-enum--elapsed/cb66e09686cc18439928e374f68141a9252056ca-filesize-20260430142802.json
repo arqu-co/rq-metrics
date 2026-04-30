@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-479-rq-lifecycle-timing--phase-enum--elapsed",
+  "sha": "cb66e09686cc18439928e374f68141a9252056ca",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T18:28:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T18:28:01Z",
+      "files_checked": 71,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/token_cache_writer.py",
+          "lines": 302,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "plugins/rq/scripts/token_report_data.py",
+          "lines": 303,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
