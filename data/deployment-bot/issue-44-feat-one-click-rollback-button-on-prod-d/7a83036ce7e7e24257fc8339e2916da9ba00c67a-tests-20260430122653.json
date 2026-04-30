@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "7a83036ce7e7e24257fc8339e2916da9ba00c67a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T16:26:52Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T16:26:51Z",
+      "fingerprint": "f266c251c5d63f7319ac3f0c18db9cb1",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "........................................................................ [ 14%]\n........................................................................ [ 28%]\n.................................F...................................... [ 42%]\n........................................................................ [ 56%]\n........................................................................ [ 70%]\n........................................................................ [ 84%]\n........................................................................ [ 98%]\n.......                                                                  [100%]\n=================================== FAILURES ===================================\n___________ test_summary_section_omits_commit_link_when_repo_is_none ___________\ntests/test_card_summary.py:161: in test_summary_section_omits_commit_link_when_repo_is_none\n    assert \"https://github.com/arqu-co/\" not in text\nE   AssertionError: assert 'https://git...com/arqu-co/' not in '*Repo:* `No...runs/42|#42>'\nE     \nE     'https://github.com/arqu-co/' is contained here:\nE       \u00b7 *Run:* <https://github.com/arqu-co/core-api/actions/runs/42|#42>\n=========================== short test summary info ============================\nFAILED tests/test_card_summary.py::test_summary_section_omits_commit_link_when_repo_is_none\n1 failed, 510 passed in 8.65s"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
