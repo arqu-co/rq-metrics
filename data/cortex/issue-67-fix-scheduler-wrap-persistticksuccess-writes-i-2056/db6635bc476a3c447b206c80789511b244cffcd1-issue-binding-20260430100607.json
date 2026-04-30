@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-67-fix-scheduler-wrap-persistticksuccess-writes-i-2056",
+  "sha": "db6635bc476a3c447b206c80789511b244cffcd1",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T14:06:07Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:06:06Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
