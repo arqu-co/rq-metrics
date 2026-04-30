@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "ebdf9f7f7bc6b91d3801c439916430379ca60812",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-30T02:31:51Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T02:31:51Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "/Users/clee/Documents/billing-redux/app/services/policy_engine/forms/form_metadata_extractor.rb:13:21: W: [Correctable] Layout/EndAlignment: `end` at 13, 20 is not aligned with `extractor = case` at 9, 8.\n/Users/clee/Documents/billing-redux/app/services/policy_engine/forms/regex_form_extractor.rb:14:53: C: [Correctable] Style/TrailingCommaInArrayLiteral: Avoid comma after the last item of an array.\n/Users/clee/Documents/billing-redux/db/migrate/20260429000001_phase_7f_b_forms_documents_library.rb:17:15: C: [Correctable] Layout/SpaceBeforeFirstArg: Put one space between the method name and the first argument.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
