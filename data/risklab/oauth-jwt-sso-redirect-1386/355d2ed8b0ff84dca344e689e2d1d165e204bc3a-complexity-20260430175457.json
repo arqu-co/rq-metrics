@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "oauth-jwt-sso-redirect-1386",
+  "sha": "355d2ed8b0ff84dca344e689e2d1d165e204bc3a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T21:54:57Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T21:54:56Z",
+      "files_checked": 3,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.ts",
+          "function": "useAuthTokenRefresh",
+          "lines": 179,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
