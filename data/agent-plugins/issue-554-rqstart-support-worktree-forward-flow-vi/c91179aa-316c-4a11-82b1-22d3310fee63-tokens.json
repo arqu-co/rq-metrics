@@ -1,0 +1,55 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-554-rqstart-support-worktree-forward-flow-vi",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-29T19:49:28.854Z",
+  "session_id": "c91179aa-316c-4a11-82b1-22d3310fee63",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 25396,
+    "output": 999122,
+    "cache_read": 290885939,
+    "cache_create": 8889423,
+    "est_cost_usd": 215.51451375
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 1076990,
+      "cost_usd": 1.5741922499999998
+    },
+    "writing-plans#2": {
+      "tokens": 138120124,
+      "cost_usd": 116.63543705
+    },
+    "review#1": {
+      "tokens": 104254460,
+      "cost_usd": 56.323606700000006
+    },
+    "ship": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#2": {
+      "tokens": 57348306,
+      "cost_usd": 40.98127775
+    }
+  }
+}
