@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-479-rq-lifecycle-timing--phase-enum--elapsed",
+  "sha": "c2d86f11369c181aea651dc068c2e978d2992dc3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T12:02:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T12:02:30Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
