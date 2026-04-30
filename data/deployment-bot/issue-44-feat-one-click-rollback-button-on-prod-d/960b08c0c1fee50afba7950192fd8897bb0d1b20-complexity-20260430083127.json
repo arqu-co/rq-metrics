@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "issue-44-feat-one-click-rollback-button-on-prod-d",
+  "sha": "960b08c0c1fee50afba7950192fd8897bb0d1b20",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T12:31:26Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T12:31:26Z",
+      "files_checked": 13,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/test_deploy_bot_rollback.py",
+          "function": "test_rollback_click_returns_prod_confirmation_card",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
