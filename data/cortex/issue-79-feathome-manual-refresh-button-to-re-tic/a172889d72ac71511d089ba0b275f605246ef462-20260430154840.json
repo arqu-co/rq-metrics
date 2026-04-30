@@ -1,0 +1,185 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-79-feathome-manual-refresh-button-to-re-tic",
+  "sha": "a172889d72ac71511d089ba0b275f605246ef462",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T19:48:40Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-50615",
+    "review-wip-reviewer-main",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:15Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:46:05Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:46:03Z",
+      "files_checked": 26,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:48:36Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:28Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:48:38Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:48:37Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-30T19:34:32Z"
+    },
+    "review-wip-reviewer-50615": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 35,
+          "severity": "high",
+          "category": "correctness",
+          "title": "consolidateUnresolvedSignals silently truncates sweep at 50 signals",
+          "body": "Line 35 calls listUnresolvedSignals(database) with no limit override, inheriting the default limit=50 from agent-signals-repo.ts:47. On any system with more than 50 unresolved signals the O(n^2) sweep silently misses signals 51+, leaving cross-source duplicates unmerged without any error or log. Fix: pass Infinity (or Number.MAX_SAFE_INTEGER) as the limit argument: listUnresolvedSignals(database, Number.MAX_SAFE_INTEGER). The same gap exists in reconcile-signal.ts line 56 but that is pre-PR code; the new consolidate-signals.ts must not inherit it.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 82,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Unguarded JSON.parse on sourcesJson can throw if the column is malformed",
+          "body": "Line 82: JSON.parse(signal.sourcesJson) has no try/catch. The schema defines sourcesJson as NOT NULL DEFAULT '[]' and the TypeScript type declares it string | null, but neither prevents a row with corrupted JSON (manual DB edits, migration bugs, truncated writes) from reaching this path. A parse failure throws synchronously inside mergeLoserIntoCanonical, which aborts the entire consolidation pass and leaves the database in a partially-merged state. Fix: wrap the parse in a try/catch that returns null on failure, or use a shared safe-parse helper. Also add a test: firstEvidenceFor returns null when sourcesJson is invalid JSON.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-main": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "app/actions.ts",
+          "line": 133,
+          "severity": "high",
+          "category": "correctness",
+          "title": "revalidatePath called outside try block \u2014 skipped on throw",
+          "body": "In executeManualRefresh(), revalidatePath(HOME_PATH) is called at line 133, after the try/finally block. If runManualRefresh() throws, the finally closes the DB (correct), the exception propagates, and revalidatePath is never called. This means the home page cache is NOT invalidated after a failed refresh. The caller (manualRefresh) re-throws to the browser, showing an error \u2014 but the stale cache remains. On the next page load (after user dismisses the error) the home shows pre-refresh data. Fix: move revalidatePath inside the try block, before or after runManualRefresh, so it always runs even if the refresh partially fails, OR call it in a finally clause so the cache is always busted after a manual refresh attempt.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/actions.ts",
+          "line": 112,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "manualRefreshInflight coalesces concurrent callers but drops errors for the first waiter",
+          "body": "When a second call hits manualRefresh() while inflight is non-null, it returns manualRefreshInflight directly (line 112). The .finally() on line 113-115 is attached to the Promise chain of the FIRST caller's result, and it clears the module-level variable on settlement. Because finally() on a rejected promise re-throws the rejection, the second awaiter also sees the rejection \u2014 this is correct. However, a third call that arrives after the first settles but while the second is still awaiting will get manualRefreshInflight=null and fire a NEW executeManualRefresh(). In practice, all three calls within the same Next.js process event loop tick are coalesced, but across async boundaries (e.g. two concurrent HTTP requests) this is a real window. The actual risk is low given Next.js request handling, but the comment at line 97-102 should document this gap explicitly. Not a crash, but the stated guarantee ('second concurrent call awaits the in-progress refresh') has an edge case when a third concurrent caller races.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 41,
+          "severity": "info",
+          "category": "correctness",
+          "title": "consumed set only prevents candidate re-use as loser; canonical can still be a previously-consumed loser",
+          "body": "The outer loop checks consumed.has(canonical.id) at line 41 \u2014 if a row was consumed (folded as a loser), it is skipped as a canonical in later outer iterations. This is correct. The inner loop checks consumed.has(candidate.id) at line 45 before merging. However, consumed.add() is only called for candidates (losers) \u2014 line 48. The canonical row itself is never added to consumed. This means: if A is canonical for B (B consumed), and then C appears as a later outer-loop canonical, C will not be skipped by the consumed check (C was never a loser). This is correct behavior. The concern mentioned in the review brief ('is there a path where a consumed canonical participates as the j-side?') is about whether a row that served as canonical for one pair can later appear as a j-side candidate for a different i-side canonical. The j-loop runs from i+1, so by induction the j-side is always a later row than i-side. A row that was consumed as a j-side loser cannot later appear as an i-side canonical (blocked by outer consumed check). A row that acted as an i-side canonical in an earlier iteration cannot appear as a j-side in a later i-iteration because j always starts at i+1 and iterates forward \u2014 a row at position k can only be j-side for outer iterations i < k, and once we reach outer i=k, j starts at k+1. So the pair traversal is geometrically correct. No double-fold is possible. This finding is informational: the logic is correct.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/db/consolidate-signals.ts",
+          "line": 62,
+          "severity": "medium",
+          "category": "security",
+          "title": "Loser body injected as labeled markdown block into canonical body \u2014 prompt-injection surface",
+          "body": "mergeLoserIntoCanonical calls appendSourceToSignal with additionalBody=loser.body (line 68). In agent-signals-repo.ts mergeBody(), this content is appended as '\u2014 from {agentId}:\\n{additionalBody}' (line 161). The result is stored in the signals body column and is later injected into the workbench snapshot system prompt (per the project memory: 'Workbench snapshot is a prompt-injection surface'). A compromised or buggy orchestrator could write a loser body containing markdown control sequences, fake role delimiters, or tool-use injection payloads. After consolidation, this content lands in the canonical body and therefore in the system prompt for the next workbench interaction. The fix is to escape or strip control characters from additionalBody before prepending. At minimum, strip leading/trailing whitespace and null bytes. A more robust fix is to wrap the block in an XML-delimited section with a fixed prefix so the model can be instructed to treat it as inert context.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 136,
+          "severity": "low",
+          "category": "correctness",
+          "title": "forceTickOnce / executeForcedPass shares inflightById with the polling loop \u2014 cross-process concurrent tick is documented but in-process concurrent tick is also possible",
+          "body": "The concern in the review brief is correct that two processes (launchd scheduler + Next.js manualRefresh) have separate inflightById maps. Within a single process, forceTickOnce uses this.inflightById at line 148 \u2014 so if the polling scheduler has fired a tick for orchestrator X and it is still running, forceTickOnce will skip that entry (fireUnique returns immediately if inflightById.has(id)). This is the documented 'coalesce' behavior and is correct. However: the scheduler built inside runManualRefresh (manual-refresh.ts line 57) is a fresh Scheduler instance with an empty inflightById. If the launchd scheduler process is concurrently ticking orchestrator X, the in-process Scheduler does not know about it. This is the acknowledged cross-process race in the code comment at actions.ts line 97-102. The consequence: orchestrator state cursor (e.g. signaled_external_ids set in orchestrator_state) may be read by two concurrent ticks and both advance past the same items. SQLite's WAL mode serializes writes but both reads happen before either write, so both ticks could signal the same item. The comment should note that the consequence is duplicate signals (which the reconciler/consolidator will later merge), not data corruption. This is acceptable given the architecture. No fix needed if the comment is updated; flagging for documentation completeness.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/refresh/manual-refresh.ts",
+          "line": 67,
+          "severity": "low",
+          "category": "correctness",
+          "title": "refreshedAt timestamp captured after forceTickOnce \u2014 clock skew between tick start and timestamp",
+          "body": "refreshedAt is computed at line 67, after forceTickOnce() and consolidation have both completed. For a refresh that takes 30 seconds, the persisted timestamp reflects when consolidation finished, not when the refresh was initiated. The UI label 'Refreshed Nm ago' will show a slightly shorter age than the actual start time. This is low-severity cosmetic behavior. If the intent is 'when did Alicia click the button', the timestamp should be captured before the tick, not after. Fix: move the timestamp capture to before the scheduler.forceTickOnce() call.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T19:48:37Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T14:38:29Z",
+      "scanned_files": 13,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "duration_seconds": 18623.0
+}
