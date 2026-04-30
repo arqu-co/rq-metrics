@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "epic/document-authoring",
+  "sha": "ecbcca9f22ba3c719cf8e7e04be02f7a8eac4aff",
+  "user": "unknown",
+  "user_email": null,
+  "timestamp": "2026-04-30T19:28:51Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T19:28:50Z",
+      "fingerprint": "b36949ba68388b592f33747a594206e7",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "................................................................................................F\n\nFailure:\nBigqueryPollerJobTest#test_INVOICEABLE_DEALS_QUERY_constant_is_defined [test/jobs/bigquery_poller_job_test.rb:218]:\nExpected false to be truthy.\n\nbin/rails test test/jobs/bigquery_poller_job_test.rb:215\n\n.........................................[seed:state_tax_rules] 51 state rules ensured\n........................................-- execute(\"INSERT INTO program_form_assignments\\n  (id, form_template_id, program_id, sort_order, attached_at, created_at, updated_at)\\nSELECT gen_random_uuid(), ft.id, p.id,\\n       COALESCE(ft.sort_order, 0), ft.created_at, NOW(), NOW()\\n  FROM form_templates ft\\n  JOIN programs p ON p.slug = ft.program\\n WHERE ft.program IS NOT NULL\\nON CONFLICT (form_template_id, program_id) DO NOTHING;\\n\")\n   -> 0.0014s\n-- execute(\"UPDATE document_templates SET is_default = true WHERE program_id IS NULL;\\n\")\n   -> 0.0005s\n-- execute(\"INSERT INTO program_document_selections\\n  (id, program_id, document_type, document_template_id, selected_at, created_at, updated_at)\\nSELECT gen_random_uuid(), dt.program_id, dt.document_type, dt.id,\\n       dt.created_at, NOW(), NOW()\\n  FROM document_templates dt\\n WHERE dt.program_id IS NOT NULL\\nON CONFLICT (program_id, document_type) DO NOTHING;\\n\")\n   -> 0.0005s\n.-- execute(\"INSERT INTO program_form_assignments\\n  (id, form_template_id, program_id, sort_order, attached_at, created_at, updated_at)\\nSELECT gen_random_uuid(), ft.id, p.id,\\n       COALESCE(ft.sort_order, 0), ft.created_at, NOW(), NOW()\\n  FROM form_templates ft\\n  JOIN programs p ON p.slug = ft.program\\n WHERE ft.program IS NOT NULL\\nON CONFLICT (form_template_id, program_id) DO NOTHING;\\n\")\n   -> 0.0011s\n-- execute(\"UPDATE document_templates SET is_default = true WHERE program_id IS NULL;\\n\")\n   -> 0.0005s\n-- execute(\"INSERT INTO program_document_selections\\n  (id, program_id, document_type, document_template_id, selected_at, created_at, updated_at)\\nSELECT gen_random_uuid(), dt.program_id, dt.document_type, dt.id,\\n       dt.created_at, NOW(), NOW()\\n  FROM document_templates dt\\n WHERE dt.program_id IS NOT NULL\\nON CONFLICT (program_id, document_type) DO NOTHING;\\n\")\n   -> 0.0005s\n.-- execute(\"INSERT INTO program_form_assignments\\n  (id, form_template_id, program_id, sort_order, attached_at, created_at, updated_at)\\nSELECT gen_random_uuid(), ft.id, p.id,\\n       COALESCE(ft.sort_order, 0), ft.created_at, NOW(), NOW()\\n  FROM form_templates ft\\n  JOIN programs p ON p.slug = ft.program\\n WHERE ft.program IS NOT NULL\\nON CONFLICT (form_template_id, program_id) DO NOTHING;\\n\")\n   -> 0.0009s\n-- execute(\"UPDATE document_templates SET is_default = true WHERE program_id IS NULL;\\n\")\n   -> 0.0006s\n-- execute(\"INSERT INTO program_document_selections\\n  (id, program_id, document_type, document_template_id, selected_at, created_at, updated_at)\\nSELECT gen_random_uuid(), dt.program_id, dt.document_type, dt.id,\\n       dt.created_at, NOW(), NOW()\\n  FROM document_templates dt\\n WHERE dt.program_id IS NOT NULL\\nON CONFLICT (program_id, document_type) DO NOTHING;\\n\")\n   -> 0.0006s\n.-- execute(\"INSERT INTO program_form_assignments\\n  (id, form_template_id, program_id, sort_order, attached_at, created_at, updated_at)\\nSELECT gen_random_uuid(), ft.id, p.id,\\n       COALESCE(ft.sort_order, 0), ft.created_at, NOW(), NOW()\\n  FROM form_templates ft\\n  JOIN programs p ON p.slug = ft.program\\n WHERE ft.program IS NOT NULL\\nON CONFLICT (form_template_id, program_id) DO NOTHING;\\n\")\n   -> 0.0052s\n-- execute(\"UPDATE document_templates SET is_default = true WHERE program_id IS NULL;\\n\")\n   -> 0.0011s\n-- execute(\"INSERT INTO program_document_selections\\n  (id, program_id, document_type, document_template_id, selected_at, created_at, updated_at)\\nSELECT gen_random_uuid(), dt.program_id, dt.document_type, dt.id,\\n       dt.created_at, NOW(), NOW()\\n  FROM document_templates dt\\n WHERE dt.program_id IS NOT NULL\\nON CONFLICT (program_id, document_type) DO NOTHING;\\n\")\n   -> 0.0135s\n................................................................................................................................................................................................................................................/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n./Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n..../Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n./Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n/Users/clee/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/gems/marcel-1.1.0/lib/marcel/magic.rb:120: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)\n................................................................................Line coverage (89.11%) is below the expected minimum coverage (95.00%).\nBranch coverage (77.20%) is below the expected minimum coverage (90.00%).\nSimpleCov failed with exit 2 due to a coverage related error\n\n\nFinished in 963.999327s, 2.4585 runs/s, 6.5602 assertions/s.\n2370 runs, 6324 assertions, 1 failures, 0 errors, 0 skips\nCoverage report generated for Minitest to /Users/clee/Documents/billing-redux/coverage.\nLine Coverage: 89.11% (4076 / 4574)\nBranch Coverage: 77.21% (1006 / 1303)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
