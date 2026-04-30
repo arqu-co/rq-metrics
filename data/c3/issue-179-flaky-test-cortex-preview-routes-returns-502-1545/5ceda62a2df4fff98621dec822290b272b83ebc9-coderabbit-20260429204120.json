@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-179-flaky-test-cortex-preview-routes-returns-502-1545",
+  "sha": "5ceda62a2df4fff98621dec822290b272b83ebc9",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-04-30T00:41:20Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T00:41:15Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
