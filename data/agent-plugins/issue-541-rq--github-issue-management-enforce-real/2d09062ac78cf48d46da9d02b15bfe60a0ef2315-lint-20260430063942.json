@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-541-rq--github-issue-management-enforce-real",
+  "sha": "2d09062ac78cf48d46da9d02b15bfe60a0ef2315",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-04-30T10:39:41Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T10:39:41Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "@@ -176,7 +176,7 @@\n   body_with_footnote=$(printf '%s\\n\\n## Original line\\n\\n```\\n%s\\n```\\n' \\\n     \"$current_body\" \"$original\")\n   body_tmp=$(mktemp)\n-  printf '%s' \"$body_with_footnote\" > \"$body_tmp\"\n+  printf '%s' \"$body_with_footnote\" >\"$body_tmp\"\n   gh issue edit \"$child_num\" --repo \"$CURRENT_REPO\" --body-file \"$body_tmp\" \\\n     >/dev/null 2>&1 || echo \"warning: could not append original-line footnote to $child_url_only\" >&2\n   rm -f \"$body_tmp\"\n@@ -189,14 +189,15 @@\n       echo \"warning: could not close $child_url_only\" >&2\n   fi\n \n-  printf '%s\\n' \"${CURRENT_REPO}#${child_num}\" >> \"$CREATED_REFS\"\n+  printf '%s\\n' \"${CURRENT_REPO}#${child_num}\" >>\"$CREATED_REFS\"\n   echo \"  + ${state}: ${child_url_only}\"\n-done < \"$PLAN_TSV\"\n+done <\"$PLAN_TSV\"\n \n # Rewrite the EPIC body \u2014 replace any matched freehand checkbox lines\n # with sub-issue refs. Lines that already point at a ref are left alone.\n # Pass BODY_FILE explicitly so we don't conflict pipe-stdin with heredoc-stdin.\n-NEW_BODY=$(python3 - \"$ITEMS_JSON\" \"$CREATED_REFS\" \"$BODY_FILE\" <<'PYEOF'\n+NEW_BODY=$(\n+  python3 - \"$ITEMS_JSON\" \"$CREATED_REFS\" \"$BODY_FILE\" <<'PYEOF'\n import json, re, sys\n \n with open(sys.argv[1]) as f:\n@@ -249,7 +250,7 @@\n NEW_BODY_FILE=$(mktemp)\n _TMPFILES_TRAP=\"$ITEMS_JSON $EXISTING_TITLES_JSON $PLAN_TSV $CREATED_REFS $NEW_BODY_FILE\"\n trap 'rm -f $_TMPFILES_TRAP' EXIT\n-printf '%s' \"$NEW_BODY\" > \"$NEW_BODY_FILE\"\n+printf '%s' \"$NEW_BODY\" >\"$NEW_BODY_FILE\"\n gh issue edit \"$EPIC_NUM\" --repo \"$EPIC_OWNER_REPO\" --body-file \"$NEW_BODY_FILE\" \\\n   >/dev/null 2>&1 ||\n   echo \"warning: could not rewrite EPIC body for $EPIC_REF \u2014 sub-issues exist but body still references freehand checklist\" >&2\ndiff ./plugins/rq/scripts/lint-plan-sub-issues.sh.orig ./plugins/rq/scripts/lint-plan-sub-issues.sh\n--- ./plugins/rq/scripts/lint-plan-sub-issues.sh.orig\n+++ ./plugins/rq/scripts/lint-plan-sub-issues.sh\n@@ -48,7 +48,8 @@\n NUM=\"${EPIC_REF##*#}\"\n \n # Count plan tasks: top-level \"## Tasks\" section, every \"- [ ]\" / \"- [x]\" line.\n-TASK_COUNT=$(python3 - \"$PLAN_FILE\" <<'PYEOF'\n+TASK_COUNT=$(\n+  python3 - \"$PLAN_FILE\" <<'PYEOF'\n import re, sys\n \n text = open(sys.argv[1]).read()\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
