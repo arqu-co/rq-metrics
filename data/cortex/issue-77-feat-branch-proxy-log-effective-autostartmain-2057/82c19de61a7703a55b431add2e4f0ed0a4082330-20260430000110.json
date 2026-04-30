@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-77-feat-branch-proxy-log-effective-autostartmain-2057",
+  "sha": "82c19de61a7703a55b431add2e4f0ed0a4082330",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-04-30T04:01:10Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "review-critic",
+    "review-wip-reviewer-34601",
+    "review-wip-reviewer-97557",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T03:56:01Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:32Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:29Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:01:07Z",
+      "duration_ms": 306000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:40Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:01:09Z",
+      "duration_ms": 2000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:01:09Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-critic": {
+      "status": "unknown",
+      "gate_timestamp": "2026-04-29T00:00:00Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-34601": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 33,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "onListening: unhandled promise rejection from autostartMainServer",
+          "body": "autostartMainServer(...).then(...) has no .catch() or rejection handler. The autostart-main module documents that failures never throw, but that is a documentation promise, not a type-level guarantee. If the promise rejects for any reason not caught inside autostartMainServer (e.g., an uncaught throw in its internals or a future regression), the rejection silently becomes an unhandled promise rejection. Since Node.js 15+ this crashes the process. Fix: add .catch(err => log.error({ err }, \"autostart-main rejected\")) after .then(), or rewrite as void (async () => { try { ... } catch (err) { log.error(...) } })().",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 28,
+          "severity": "medium",
+          "category": "style",
+          "title": "onListening: .then() used where project convention requires async/await",
+          "body": "The TypeScript rules for this project (typescript.md) explicitly require async/await over callbacks and .then(). Lines 33-38 chain .then() on the autostartMainServer promise. onListening must return void synchronously (it is a net.Server listen callback), so the fix is to void an inner async IIFE: void (async () => { try { const result = await autostartMainServer(...); if (result.status === \"failed\") { ... } else if (result.status === \"started\") { ... } } catch (err) { log.error({ err }, \"autostart-main rejected\") } })(). This simultaneously addresses the unhandled-rejection finding above.",
+          "confidence": "high"
+        },
+        {
+          "file": "tools/branch-proxy/server/index.ts",
+          "line": 52,
+          "severity": "low",
+          "category": "correctness",
+          "title": "gracefulShutdown: server.close() can hang indefinitely if connections are still open",
+          "body": "server.close() stops accepting new connections but waits for existing keep-alive connections to close before calling the callback. If any WebSocket or HTTP keep-alive connection stays open, the callback (and therefore process.exit(0)) never fires. The 8-second manager.stopAll() timeout guards the manager phase, but there is no timeout guarding server.close(). The process can hang indefinitely after that race. The extraction from the nested closure to a named top-level function makes this visible as a reviewable surface. Fix: add a hard-exit fallback after server.close(), e.g. setTimeout(() => process.exit(0), 2_000) immediately after calling server.close(), so the process is guaranteed to exit within ~10 seconds total.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-97557": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T04:01:09Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T01:06:40Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "duration_seconds": 100869.0
+}
