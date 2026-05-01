@@ -1,0 +1,157 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": "53826c0dd2d51e4a418febb991d60eed7a3e81a2",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:35:43Z",
+  "phase": "ship",
+  "run_number": 6,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-round4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T05:29:27Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 212000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:04Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:29:28Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:32:01Z",
+      "duration_ms": 153000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T05:34:33Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-round4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:34:33Z",
+      "duration_ms": 152000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:54Z",
+      "scanned_files": 45,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T05:35:42Z",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "____________________ ERROR collecting test_parse_jacoco.py _____________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_parse_jacoco.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_parse_jacoco.py:10: in <module>\n    from parse_jacoco import _extract_line_pct, _safe_parse, main, parse_jacoco\nparse_jacoco.py:11: in <module>\n    from defusedxml.ElementTree import fromstring as _xml_fromstring\nE   ModuleNotFoundError: No module named 'defusedxml'\n________________ ERROR collecting test_parse_junit_failures.py _________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_parse_junit_failures.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_parse_junit_failures.py:11: in <module>\n    from parse_junit_failures import (\nparse_junit_failures.py:14: in <module>\n    from defusedxml import ElementTree as ET\nE   ModuleNotFoundError: No module named 'defusedxml'\n___________________ ERROR collecting test_parse_junit_xml.py ___________________\nImportError while importing test module '/Users/jon/Repos/agent-plugins/plugins/rq/scripts/test_parse_junit_xml.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest_parse_junit_xml.py:10: in <module>\n    from parse_junit_xml import (\nparse_junit_xml.py:11: in <module>\n    from defusedxml.ElementTree import fromstring as _xml_fromstring\nE   ModuleNotFoundError: No module named 'defusedxml'\n=============================== warnings summary ===============================\n../../../../../Library/Python/3.14/lib/python/site-packages/_pytest/config/__init__.py:1434\n  /Users/jon/Library/Python/3.14/lib/python/site-packages/_pytest/config/__init__.py:1434: PytestConfigWarning: Unknown config option: collect_ignore_glob\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR test_parse_cobertura.py\nERROR test_parse_jacoco.py\nERROR test_parse_junit_failures.py\nERROR test_parse_junit_xml.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 4 errors in 0.77s"
+        }
+      ],
+      "duration_ms": 69000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 639.0
+}
