@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "e0957ae9dd414f0bcfd02d78c6fd21de95ecc827",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T20:37:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 2,
+  "missed_gates": [
+    "review",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:19:26Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:20:01Z",
+      "files_checked": 2,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:19:27Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:19:25Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:55Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:19:36Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:57Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:11:36Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:19:36Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:29.782736Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T20:37:58Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:57Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:37:55Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T20:37:54Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c1ab776e42c30b8f6647cf7dca01b1f5",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-kD5VPQ\n * [new branch]      feature/x -> feature/x\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-hELJ6b\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-Y7uIA6\n * [new branch]      feature/x -> feature/x\nstdout | server/__tests__/app.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 custom filepath { path: '/custom/path/.env' }\n\n \u276f server/__tests__/app.test.ts (25 tests | 1 failed) 2388ms\n     \u00d7 returns cached PR data 4ms\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app.test.ts > GET /api/prs > returns cached PR data\nAssertionError: expected {} to have property \"prs\"\n \u276f server/__tests__/app.test.ts:47:22\n     45|     const res = await request(app).get(\"/api/prs\");\n     46|     expect(res.status).toBe(200);\n     47|     expect(res.body).toHaveProperty(\"prs\");\n       |                      ^\n     48|     expect(Array.isArray(res.body.prs)).toBe(true);\n     49|     expect(res.body).toHaveProperty(\"lastPollAt\");\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 270 passed (271)\n      Tests  1 failed | 3141 passed (3142)\n   Start at  16:37:31\n   Duration  23.19s (transform 8.47s, setup 0ms, import 36.58s, tests 115.96s, environment 88.25s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1582.0
+}
