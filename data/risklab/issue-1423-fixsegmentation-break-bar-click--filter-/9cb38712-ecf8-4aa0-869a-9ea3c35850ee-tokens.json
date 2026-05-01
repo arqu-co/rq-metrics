@@ -1,0 +1,35 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "issue-1423-fixsegmentation-break-bar-click--filter-",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-22T04:04:49.771Z",
+  "session_id": "9cb38712-ecf8-4aa0-869a-9ea3c35850ee",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 14501,
+    "output": 1070224,
+    "cache_read": 112098282,
+    "cache_create": 10248585,
+    "est_cost_usd": 110.66525859000001
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 123431592,
+      "cost_usd": 110.66525859000001
+    }
+  }
+}
