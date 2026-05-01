@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-195-track-b-wave-1-branch-home-terminal-togg-2219-8990",
+  "sha": "52331829d06681afef8eb2c16c17157c4ea1ee48",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T13:10:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:10:02Z",
+      "coverage_tool": "js",
+      "files_checked": 17,
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "coverage": 65.95,
+          "min": 95
+        },
+        {
+          "file": "client/src/components/HomeTerminalToggle.tsx",
+          "coverage": 85.71,
+          "min": 95
+        },
+        {
+          "file": "client/src/hooks/useViewKeyboardShortcuts.ts",
+          "coverage": 93.75,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
