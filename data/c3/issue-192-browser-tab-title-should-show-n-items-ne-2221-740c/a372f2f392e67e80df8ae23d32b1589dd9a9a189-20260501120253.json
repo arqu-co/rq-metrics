@@ -1,0 +1,341 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-192-browser-tab-title-should-show-n-items-ne-2221-740c",
+  "sha": "a372f2f392e67e80df8ae23d32b1589dd9a9a189",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T16:02:52Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-29437",
+    "review-wip-reviewer-44093",
+    "review-wip-reviewer-44371",
+    "review-wip-reviewer-44738",
+    "review-wip-reviewer-47648",
+    "review-wip-reviewer-4766",
+    "review-wip-reviewer-47866",
+    "review-wip-reviewer-60537",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:20:47Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:25:40Z",
+      "files_checked": 4,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:20:48Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:39Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 196000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:49Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:48Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:51Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T03:14:50Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T16:02:48Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:51Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-29437": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTabTitle.test.ts",
+          "line": 47,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "StrictMode test uses separate renderHook calls instead of StrictMode wrapper",
+          "body": "The test named 're-applies count after StrictMode cleanup cycle' (line 47-56) simulates the StrictMode cycle by calling renderHook twice sequentially rather than rendering inside React.StrictMode. This tests the end-state of sequential mount/unmount/mount but does not exercise the actual StrictMode double-invocation path (which fires synchronously within the same React reconciliation). For a hook as simple as useTabTitle this may be acceptable since the imperitive DOM write has no async component, but the test name overstates what is being verified. The test would pass even if the cleanup function had a bug that only manifested during StrictMode's synchronous teardown+reattach.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.tsx",
+          "line": 248,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Tab title count uses needsInputState.count but sidebar uses combined needsAttention \u2014 visible divergence",
+          "body": "useTabTitle(needsInputState.count) at line 248 counts only branches where needsInput is true (needs-input WebSocket events). The sidebar calls needsAttention (line 247, the combined check) which also includes sessions.needsAttention \u2014 branches with live terminal sessions that need attention for reasons beyond needs_input. If any branch triggers sessions.needsAttention without triggering needsInput, the sidebar shows it as needing attention but the tab title count is lower than the number of highlighted sidebar rows. The user sees 1 item highlighted in the sidebar and 'C3' in the tab title, which is contradictory.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/tab-title.ts",
+          "line": 7,
+          "severity": "low",
+          "category": "correctness",
+          "title": "buildTabTitle renders fractional counts without integer guard",
+          "body": "The function signature accepts count: number. If called with a fractional value like 1.5, the guard (!Number.isFinite(count) || count <= 0) passes and the output is '1.5 items need attention \u2014 C3'. In practice count comes from [...map.values()].filter(Boolean).length which is always a non-negative integer, so this is a latent defect not currently reachable. However the interface does not enforce integer-only input and there is no test for fractional inputs. If a future caller passes a float (e.g. from averaging or rounding), the output is grammatically broken. Consider adding Math.floor/Math.round or constraining the type.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-44093": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/App.tsx",
+          "line": 248,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No App-level test asserts the tab title set by the new useTabTitle wiring",
+          "body": "Line 248 calls useTabTitle(branches.filter(...needsAttention...).length). The existing App.test.tsx renders the full app (with branches=[] and terminals=undefined from the catch-all fetch stub) and implicitly exercises this line, but no test asserts document.title. The new behavior is therefore untested at the integration layer: a regression that broke useTabTitle's effect or buildTabTitle's string format would not be caught by App.test.tsx. Fix: add one test in App.test.tsx that asserts document.title === 'C3' after initial render with zero branches, confirming the wiring reaches the DOM. This is low rather than high because useTabTitle.test.ts and tab-title.test.ts provide direct unit coverage of the hook and pure function; the gap is only at the App integration boundary.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/tab-title.test.ts",
+          "line": 1,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "No test for -0 input to buildTabTitle",
+          "body": "The test suite covers 0, -1, NaN, Infinity, and 1.5 as defensive numeric edge cases. It does not cover -0. Number.isInteger(-0) returns true and -0 <= 0 is true, so the guard correctly returns 'C3' \u2014 the behavior is correct. However the test suite's stated purpose is exhaustive numeric edge-case coverage and -0 is a distinct IEEE 754 value that is easy to accidentally produce (e.g. via negation of 0 or certain arithmetic). The absence of a test for it leaves an unverified assumption. Fix: add expect(buildTabTitle({ count: -0 })).toBe('C3') to the edge-case group.",
+          "confidence": "high"
+        },
+        {
+          "file": "docs/test-plans/issue-192-browser-tab-title-should-show-n-items-ne-2221-740c.md",
+          "line": 13,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Items 7 and 8 assert immediate title at first paint \u2014 implementation always shows 'C3' briefly first",
+          "body": "Items 7 and 8 say the title 'settles to' the count 'within ~1 second of first paint', but the wording implies no transient 'C3' title: 'Within ~1 second of first paint the title settles to 2 items need attention \u2014 C3'. useNeedsInputState initialises with an empty Map (count=0), so useTabTitle(0) sets document.title='C3' synchronously on first render. The /api/terminals fetch is async \u2014 count only increases after the fetch resolves. There will always be a brief 'C3' flash. The current wording could mislead a QA reviewer into marking the item failed if they see 'C3' for a fraction of a second. Fix: rewrite items 7 and 8 to explicitly acknowledge the brief 'C3' is expected: 'A brief C3 title is expected before the initial /api/terminals fetch resolves; within ~1 second the title settles to N items need attention \u2014 C3'. This matches the wording already used in item 13 of the test plan.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-44371": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "client/src/lib/tab-title.test.ts",
+          "line": 29,
+          "severity": "low",
+          "category": "test-coverage",
+          "title": "NEGATIVE_INFINITY not tested \u2014 symmetry gap with POSITIVE_INFINITY test",
+          "body": "tab-title.test.ts tests POSITIVE_INFINITY (line 29) and fractional/NaN inputs, but not NEGATIVE_INFINITY. Number.isInteger(Number.NEGATIVE_INFINITY) is false so the guard handles it correctly, but the test suite only proves the positive side. Adding one test mirrors the POSITIVE_INFINITY test and removes the asymmetry.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-44738": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "docs/test-plans/issue-192-browser-tab-title-should-show-n-items-ne-2221-740c.md",
+          "line": 13,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Test plan items 7 and 8 assert no title flicker, but implementation always shows C3 briefly on load",
+          "body": "Items 7 and 8 both assert the title shows the correct count \"from first paint\" with no flicker through \"C3\". This is factually incorrect. useNeedsInputState initialises with an empty Map (count=0), so useTabTitle(0) sets document.title to \"C3\" synchronously on first render. The /api/terminals fetch is async \u2014 count only increments after the fetch resolves (typically within ~1 second). There will always be a brief \"C3\" title before the count title appears.\n\nThe test plan checks as written will pass regardless of implementation quality, because the human reviewer cannot observe sub-100ms title changes without devtools open.\n\nFix: rewrite items 7 and 8 to describe observable reality \u2014 the title updates within ~1 second of first paint, not at first paint itself. The wording in items 2 and 4 (\"within ~1 second\") is the correct pattern to follow.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-47648": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "client/src/lib/tab-title.ts",
+          "line": 9,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "buildTabTitle does not guard against NaN or non-finite count",
+          "body": "count is typed as number, which includes NaN and Infinity. NaN <= 0 is false, so NaN bypasses the guard on line 9 and reaches the noun branch, producing the string 'NaN items need attention \u2014 C3'. Infinity likewise produces 'Infinity items need attention \u2014 C3'. The caller is useNeedsInputState.count which derives from filter(Boolean).length \u2014 always a non-negative integer in practice \u2014 but the pure function buildTabTitle makes no contract restriction and its tests do not cover NaN or Infinity. Fix: add Number.isFinite(count) check alongside the <= 0 guard (e.g. if (!Number.isFinite(count) || count <= 0) return 'C3'), and add test cases for NaN and Infinity in tab-title.test.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useTabTitle.ts",
+          "line": 11,
+          "severity": "low",
+          "category": "correctness",
+          "title": "useTabTitle cleanup unconditionally resets title \u2014 single-consumer assumption not documented in code",
+          "body": "The cleanup function on line 11-13 writes document.title = 'C3' unconditionally. If two components ever called useTabTitle simultaneously, the first to unmount would reset the title to 'C3' while the second is still mounted with a live count. Today only App.tsx calls this hook (verified by reading the diff), so there is no bug. However, the assumption is documented only in the review prompt, not in the source file. A future caller would not know they are violating a contract. Fix: add a JSDoc comment to useTabTitle stating the single-consumer assumption explicitly, e.g. '* NOTE: Must only be called from one mounted component at a time. The cleanup unconditionally restores the title to C3; concurrent callers would fight on unmount.'",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useTabTitle.test.ts",
+          "line": 12,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "useTabTitle.test.ts has no StrictMode double-effect test",
+          "body": "useNeedsInputState.test.ts includes an explicit 'StrictMode safety' test for mount->unmount->remount (line 228). useTabTitle.test.ts covers unmount and remount as separate tests but not the sequential mount->cleanup->remount cycle that React StrictMode triggers in development. In that cycle, the cleanup fires ('C3') before the second mount's effect re-applies the count. The hook recovers correctly because the second mount re-runs buildTabTitle, but no test asserts the post-StrictMode title is correct rather than stuck at 'C3'. Fix: add a test that simulates the StrictMode double-invoke pattern: first unmount while count > 0 (verifies cleanup resets to C3), then immediately remount with the same count (verifies the count title is re-applied). This mirrors the existing remount test at line 39 but explicitly names it as StrictMode coverage.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-4766": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTabTitle.test.ts",
+          "line": 2,
+          "severity": "nit",
+          "category": "style",
+          "title": "Block-comment form of @vitest-environment directive is non-standard",
+          "body": "Line 2 uses /** @vitest-environment jsdom */ (JSDoc block comment) while every other test file in the diff uses the single-line form // @vitest-environment jsdom. Both are accepted by Vitest's parser, but the block-comment form is unconventional and inconsistent with the project pattern. Fix: change to // @vitest-environment jsdom to match the established style.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-47866": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-60537": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 41,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "mountedRef never reset to true \u2014 silently drops initial seed in React StrictMode",
+          "body": "mountedRef is initialized to true (line 41) but the useEffect cleanup sets it to false (line 69) and never resets it. In React 18 StrictMode (dev), effects run twice: mount -> cleanup -> remount. After the first cleanup, mountedRef.current is false. The second mount's refresh() call completes the fetch, hits the guard at line 50 (if result.ok && mountedRef.current), and silently skips setMap. The initial seed from GET /api/terminals is dropped on the second StrictMode mount \u2014 the hook appears correctly seeded in prod but shows count=0 on first render in dev. Fix: add mountedRef.current = true; at the top of the useEffect body (line 59), before void refresh(), so each mount cycle rearms the guard. This pattern is established in react/issues \u2014 the ref should track the current mount's lifecycle, not the component instance lifecycle.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsInputState.ts",
+          "line": 85,
+          "severity": "nit",
+          "category": "performance",
+          "title": "count derivation not memoized \u2014 spread+filter on every render",
+          "body": "count: [...map.values()].filter(Boolean).length runs inline on every render (line 85). It allocates an array and iterates all entries even when the consumer only needs count and nothing else changed. For the typical map size (<100 branches) this is negligible, but it is unnecessarily eager. Wrapping in useMemo with [map] as the dependency would make the cost proportional to map changes rather than parent re-renders: const count = useMemo(() => [...map.values()].filter(Boolean).length, [map]). This is a nit \u2014 the current code is not wrong, just slightly wasteful.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTabTitle.test.ts",
+          "line": 47,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "StrictMode test is mechanically identical to the prior remount test and does not exercise actual StrictMode double-invoke",
+          "body": "The test 're-applies count after StrictMode cleanup cycle' (line 47) performs mount \u2192 unmount \u2192 new renderHook, which is identical in structure to the test at line 39 ('re-applies the new count on remount after unmount'). The only difference is the count value stays the same (4\u21924) instead of changing (2\u21927). The comment explains React StrictMode fires effect \u2192 cleanup \u2192 effect within one mount cycle, but the test never uses a StrictMode wrapper, so that path is never executed. vitest+jsdom does not double-invoke effects. The test adds no coverage that line 39 does not already provide and its comment misleads future readers about what is actually verified.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T15:59:23Z",
+      "duration_ms": 124000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:02:50Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:29:58Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:57:19Z",
+      "fingerprint": "f34a33c2495a25b75fad16b511ebc13d",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 46081.0
+}
