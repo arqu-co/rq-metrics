@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": "53826c0dd2d51e4a418febb991d60eed7a3e81a2",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:37:10Z",
+  "phase": "ship",
+  "run_number": 7,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T05:37:10Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "plan_claim_classify.py                                                      72      1    99%   111\npr_resolver.py                                                              73      8    89%   44-47, 49, 105-106, 120\nrecover_wip_findings.py                                                     46      1    98%   46\nrender_changelog.py                                                         66     66     0%   15-120\nrender_exceptions.py                                                        83     83     0%   8-140\nrender_pr_failures.py                                                       77      2    97%   96-97\nrender_pr_summary.py                                                       142      4    97%   48, 118, 126, 191\nreport_tokens.py                                                           167      2    99%   68-69\nresolve_plugin_record.py                                                    19      4    79%   30-33\nscan_disguised_mocks.py                                                     40      9    78%   74, 76, 79, 105-111\nsession_start_emit.py                                                      169      8    95%   75-79, 91, 208, 294\ntest__rq_next_filter.py                                                    101      2    98%   71-72\ntest_cache.py                                                              109      2    98%   17, 19\ntest_collect_metrics_cli.py                                                 48      1    98%   25\ntest_commands_config.py                                                     58      1    98%   21\ntest_do_link_pr_closes.py                                                   62      1    98%   77\ntest_do_update_v2.py                                                        99      2    98%   22, 24\ntest_effort_tiers.py                                                       119      1    99%   225\ntest_gh_cascade_close.py                                                   148      1    99%   37\ntest_hook_perf_summary_py.py                                               153      3    98%   280-282\ntest_issue_sync_helpers.py                                                  67      4    94%   173, 180-181, 246\ntest_issue_sync_post_spec.py                                               137      2    99%   140-141\ntest_load_config.py                                                        132      1    99%   69\ntest_parse_test_failures.py                                                 88      2    98%   252-254\ntest_pr_resolver.py                                                         91      2    98%   119-120\ntest_render_skills_by_cost.py                                               53      1    98%   21\ntest_run_gates_cache.py                                                     61      2    97%   17, 19\ntest_session_start_emit_subprocess.py                                      177      6    97%   96-97, 126-127, 140-141\ntest_token_cache_writer_concurrency.py                                      48      4    92%   52-53, 59-60\ntest_token_cache_writer_extra.py                                            72      1    99%   88\ntest_token_report_issue_slicer2.py                                          58      1    98%   31\ntest_token_report_issue_slicer.py                                           76      1    99%   31\ntest_token_report_render.py                                                105      1    99%   135\ntest_using_rq_table_consistency.py                                          28      2    93%   23, 38\ntest_validate_rq_config.py                                                 124      1    99%   179\ntoken_cache_writer.py                                                      135      6    96%   91-96\ntoken_report_data.py                                                       171      2    99%   92-93\ntoken_report_render.py                                                     194      4    98%   172, 208, 224, 247\ntoken_report_render_skill.py                                                38      2    95%   36, 39\ntranscript_index.py                                                         62      1    98%   57\nvalidate_frontmatter.py                                                     50      1    98%   77\nvalidate_proof.py                                                           59     18    69%   17-20, 65-79\n------------------------------------------------------------------------------------------------------\nTOTAL                                                                    20622    685    97%\n\n192 files skipped due to complete coverage.\nCoverage JSON written to file coverage.json\n=========================== short test summary info ============================\nFAILED test_validate_frontmatter.py::test_subprocess_end_to_end - assert 1 == 0\n1 failed, 2222 passed, 40 warnings in 73.35s (0:01:13)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
