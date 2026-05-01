@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "",
+  "sha": "d677e1d239a858a4dc29ad960f680f6921d45181",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T18:03:00Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:02:59Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
