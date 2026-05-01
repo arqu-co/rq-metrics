@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "issue-390-bug-get-apiv2extractionsid-returns-empty",
+  "sha": "87e122aeecfc3d607eab4e6beb7ed8715d6785e2",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T16:06:58Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:06:58Z",
+      "scanned_files": 2,
+      "violations": 10,
+      "violations_details": [
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 16,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 29,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 44,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 69,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 83,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 98,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 112,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 129,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 145,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        },
+        {
+          "file": "tests/unit/emails/test_extraction.py",
+          "line": 182,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_client = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
