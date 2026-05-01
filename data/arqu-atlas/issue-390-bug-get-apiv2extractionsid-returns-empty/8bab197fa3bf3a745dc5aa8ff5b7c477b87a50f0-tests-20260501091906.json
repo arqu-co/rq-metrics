@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "issue-390-bug-get-apiv2extractionsid-returns-empty",
+  "sha": "8bab197fa3bf3a745dc5aa8ff5b7c477b87a50f0",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T16:19:05Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T16:19:05Z",
+      "test_runner": "bin-test",
+      "fingerprint": "7145b59c71f067a7fef40fe69ba223c1",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
