@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-590-rq-tests-clobber-host-repos-quality-with",
+  "sha": "5d0291644c158c34adefd30038cc0bf7b7a321a1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T18:49:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "pr-linkage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "pr-linkage"
+  ],
+  "gates": {
+    "pr-linkage": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": null
+}
