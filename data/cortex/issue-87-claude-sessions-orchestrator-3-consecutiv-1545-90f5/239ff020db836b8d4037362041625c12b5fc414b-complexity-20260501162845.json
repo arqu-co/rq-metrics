@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-87-claude-sessions-orchestrator-3-consecutiv-1545-90f5",
+  "sha": "239ff020db836b8d4037362041625c12b5fc414b",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-05-01T20:28:45Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T20:28:44Z",
+      "files_checked": 21,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "lib/scheduler-health/run-health.ts",
+          "function": "summarize",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "lib/scheduler-health/run-health.ts",
+          "function": "categorizeBlockedReason",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
