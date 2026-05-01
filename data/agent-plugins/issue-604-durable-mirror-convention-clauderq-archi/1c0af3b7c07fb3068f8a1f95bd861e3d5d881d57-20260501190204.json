@@ -1,0 +1,152 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-604-durable-mirror-convention-clauderq-archi",
+  "sha": "1c0af3b7c07fb3068f8a1f95bd861e3d5d881d57",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T23:02:03Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:02Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T18:48:49Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:04Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:00:59Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 483000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:47Z",
+      "duration_ms": 5000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:01:42Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/mirror.sh.orig ./plugins/rq/scripts/mirror.sh\n--- ./plugins/rq/scripts/mirror.sh.orig\n+++ ./plugins/rq/scripts/mirror.sh\n@@ -84,7 +84,13 @@\n   usage\n fi\n case \"$1\" in\n-  write) shift; cmd_write \"$@\" ;;\n-  append) shift; cmd_append \"$@\" ;;\n+  write)\n+    shift\n+    cmd_write \"$@\"\n+    ;;\n+  append)\n+    shift\n+    cmd_append \"$@\"\n+    ;;\n   *) usage ;;\n esac\n"
+        }
+      ],
+      "duration_ms": 38000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:58Z",
+      "duration_ms": 4000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:52:56Z",
+      "duration_ms": 36000
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:52:20Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:00:54.194274Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:54Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:01:51Z",
+      "scanned_files": 45,
+      "duration_ms": 4000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:46:46Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:46:44Z",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 15314.0
+}

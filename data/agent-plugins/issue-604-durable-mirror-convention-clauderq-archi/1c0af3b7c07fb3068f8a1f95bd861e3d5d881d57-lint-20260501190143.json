@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-604-durable-mirror-convention-clauderq-archi",
+  "sha": "1c0af3b7c07fb3068f8a1f95bd861e3d5d881d57",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T23:01:42Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:01:42Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/mirror.sh.orig ./plugins/rq/scripts/mirror.sh\n--- ./plugins/rq/scripts/mirror.sh.orig\n+++ ./plugins/rq/scripts/mirror.sh\n@@ -84,7 +84,13 @@\n   usage\n fi\n case \"$1\" in\n-  write) shift; cmd_write \"$@\" ;;\n-  append) shift; cmd_append \"$@\" ;;\n+  write)\n+    shift\n+    cmd_write \"$@\"\n+    ;;\n+  append)\n+    shift\n+    cmd_append \"$@\"\n+    ;;\n   *) usage ;;\n esac\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
