@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-217-bug-new-session-button-does-nothing-when-1545-285b",
+  "sha": "d2f68cbafa2b4219a6a9212cf2a3d31aaaa0d03a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T20:13:35Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T20:13:34Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/BranchHome.test.tsx(256,12): error TS2532: Object is possibly 'undefined'.\nclient/src/components/BranchHome.test.tsx(256,33): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\ntmp/utp-backup.ts(2,34): error TS2307: Cannot find module './useBranches' or its corresponding type declarations.\ntmp/utp-backup.ts(3,42): error TS2307: Cannot find module './useTerminalSessions' or its corresponding type declarations.\ntmp/utp-backup.ts(4,34): error TS2307: Cannot find module '../lib/issue-prompt' or its corresponding type declarations.\ntmp/utp-backup.ts(5,38): error TS2307: Cannot find module '../lib/branch-name' or its corresponding type declarations.\ntmp/utp-backup.ts(6,30): error TS2307: Cannot find module '../lib/xterm-fit' or its corresponding type declarations.\ntmp/utp-backup.ts(7,38): error TS2307: Cannot find module '../lib/get-or-create-container' or its corresponding type declarations.\ntmp/utp-backup.ts(8,32): error TS2307: Cannot find module './useRepos' or its corresponding type declarations.\ntmp/utp-backup.ts(9,33): error TS2307: Cannot find module './useIssues' or its corresponding type declarations.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/BranchHome.test.tsx(256,12): error TS2532: Object is possibly 'undefined'.\nclient/src/components/BranchHome.test.tsx(256,33): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\ntmp/utp-backup.ts(2,34): error TS2307: Cannot find module './useBranches' or its corresponding type declarations.\ntmp/utp-backup.ts(3,42): error TS2307: Cannot find module './useTerminalSessions' or its corresponding type declarations.\ntmp/utp-backup.ts(4,34): error TS2307: Cannot find module '../lib/issue-prompt' or its corresponding type declarations.\ntmp/utp-backup.ts(5,38): error TS2307: Cannot find module '../lib/branch-name' or its corresponding type declarations.\ntmp/utp-backup.ts(6,30): error TS2307: Cannot find module '../lib/xterm-fit' or its corresponding type declarations.\ntmp/utp-backup.ts(7,38): error TS2307: Cannot find module '../lib/get-or-create-container' or its corresponding type declarations.\ntmp/utp-backup.ts(8,32): error TS2307: Cannot find module './useRepos' or its corresponding type declarations.\ntmp/utp-backup.ts(9,33): error TS2307: Cannot find module './useIssues' or its corresponding type declarations.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
