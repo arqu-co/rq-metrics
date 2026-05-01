@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/store-auth-diagnostics",
+  "sha": "f1f6e0d5fe5d38be03bf194a56168b9a9945755b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T18:59:25Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T18:59:24Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "store.py:34:27: F401 [*] `store_auth.secret_fingerprint` imported but unused\nFound 1 error.\n[*] 1 fixable with the `--fix` option.\n"
+        },
+        {
+          "check": "lint-suppressions",
+          "output": "+)  # noqa: F401\n\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
