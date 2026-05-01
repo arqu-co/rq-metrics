@@ -1,0 +1,357 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1386-oauth-jwt-migration-sso-redirect-on-auth",
+  "sha": "f16b5ab422d2cac74f8a97702186c58b91aaba8b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T01:07:37Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-10123",
+    "review-wip-reviewer-10157",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:05:12Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T01:07:27Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:05:15Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:05:08Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:07:29Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:05:24Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:07:35Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T21:50:20Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:07:33Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T00:53:23Z"
+    },
+    "review-wip-reviewer-10123": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 26,
+          "severity": "high",
+          "category": "security",
+          "title": "buildSsoLoginUrl passes window.location.href unvalidated \u2014 open redirect risk",
+          "body": "buildSsoLoginUrl(currentHref) encodes `currentHref` as a `returnTo` query parameter with no validation of the value. The caller at line 216 always passes `window.location.href`, which is safe today. However, the function's public signature accepts ANY string, so any future caller (or a crafted call) could supply an attacker-controlled URL such as `https://evil.example/steal`. The SSO service at auth.arqu.co must perform its own origin check on returnTo, but defensive depth requires the client to also enforce same-origin. Fix: inside buildSsoLoginUrl, parse currentHref with `new URL(currentHref)` and assert that the origin matches `window.location.origin` before encoding. Reject (or sanitize to '/') any value whose origin differs. Add a test: buildSsoLoginUrl('https://evil.example/steal') should strip the foreign origin and produce a safe fallback.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 205,
+          "severity": "medium",
+          "category": "security",
+          "title": "handleRefreshFailed clears sessionStorage but leaves localStorage intact before SSO redirect",
+          "body": "In `useAuthRefreshEvents` (handleRefreshFailed, line 205-216), the code calls `sessionStorage.clear()` but does NOT call `localStorage.clear()` or selectively clear auth-related localStorage keys. The `risklab_explicit_logout` flag in localStorage is therefore NOT set, which means if the SSO redirect fails and the user ends up back on the app, the next call to `runPostAuthRedirects` will NOT skip SSO auto-login (since explicitLogout is falsy), potentially causing a redirect loop. Additionally, any other localStorage-persisted user state (e.g., cached user preferences tied to identity) survives the forced session termination. Compare with `logoutUser` (line 68) which explicitly sets `risklab_explicit_logout`. Fix: set `localStorage.setItem('risklab_explicit_logout', 'true')` in handleRefreshFailed before redirecting. Add a test asserting the flag is set after auth-refresh-failed triggers the redirect.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 205,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "handleRefreshFailed is async but its caller in addEventListener does not await it \u2014 unmount race",
+          "body": "The `handleRefreshFailed` function (line 205) is `async`. It is registered as: `window.addEventListener('auth-refresh-failed', handleRefreshFailed)`. DOM event listeners do not await async functions \u2014 the promise is fire-and-forget. If the component unmounts (cleanup runs at line 222) between the event dispatch and the completion of the await chain inside handleRefreshFailed (specifically: `await apiEndpoints.auth.logout()` followed by `window.location.href = buildSsoLoginUrl(...)`), the following happen: (a) setUser(null) and setIsAuthenticated(false) run on an unmounted component (React will warn), (b) the redirect still fires because it uses `window.location.href` (a global), which is correct but happens without the auth state being settled. The deeper issue is that a component can be unmounted mid-flight, then state setters are called on stale closures. Fix: introduce an `aborted` ref (similar to `initializationRef`) that the cleanup sets to `true`, and gate the `setUser`/`setIsAuthenticated` calls on `!aborted.current`. The `window.location.href` redirect should still fire even after unmount.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/core/test_deps_oauth_cutover.py",
+          "line": 47,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Opaque-token test only covers httpx.HTTPStatusError \u2014 JWT InvalidTokenError from validate_opaque_token path is untested",
+          "body": "test_opaque_token_rejected_after_cutover_returns_401 patches `validate_opaque_token` to raise `httpx.HTTPStatusError(status=401)`. This verifies the httpx error path in `get_core_api_user` (line 72-80 of core_api_deps.py). However, the `validate_opaque_token` function can also raise `ValueError` (missing fields, line 84-87 of opaque_validator.py). There is no test covering the case where `validate_opaque_token` raises `ValueError` \u2014 the test suite therefore does not assert that a malformed-but-opaque-looking token correctly returns 401 vs 422 or 500. The production code handles `ValueError` at line 81 of core_api_deps.py (returns 401) \u2014 good \u2014 but it is untested for the opaque path. Fix: add a second test case: `mock_opaque.side_effect = ValueError('missing user id')` and assert the response is still 401 with WWW-Authenticate: Bearer.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/core/test_deps_oauth_cutover.py",
+          "line": 40,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Cutover tests do not verify is_jwt routing boundary \u2014 a token with exactly 2 dots bypasses opaque path silently",
+          "body": "The `is_jwt` function in opaque_validator.py classifies a token as a JWT iff `token.count('.') == 2`. test_jwt_path_does_not_call_whoami uses the literal string 'Bearer header.payload.sig' (3 segments). test_opaque_token_rejected_after_cutover_returns_401 uses 'Bearer opaque-token-no-dots' (0 dots). Neither test covers the ambiguous boundary: a token with exactly 2 dots that is NOT a valid JWT (e.g., a malformed opaque token that happens to contain 2 dots). Such a token goes to `core_api_jwt_validator.validate_token_no_domain_check` which raises `InvalidTokenError`, which is caught at line 88 of core_api_deps.py and returns 401 \u2014 correct, but untested and surprising. Fix: add a test: token='a.b.c' (2 dots, not a real JWT) should raise InvalidTokenError from the JWT path and surface as 401. This pins the is_jwt routing semantics and protects against future changes to the boundary condition.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.test.tsx",
+          "line": 64,
+          "severity": "low",
+          "category": "correctness",
+          "title": "vi.doMock + vi.resetModules in buildSsoLoginUrl test can leak module state into subsequent tests",
+          "body": "The 'strips trailing slashes' test (line 63-71) calls `vi.resetModules()` then `vi.doMock(...)` then dynamic `await import('./useAuthTokenRefreshHelpers')`. It calls `vi.doUnmock('@/lib/config')` at the end, but does NOT restore the module registry (no second `vi.resetModules()` after the test). If subsequent tests in the same file import useAuthTokenRefreshHelpers transitively (they do \u2014 they import it at the top of the file), those imports are resolved from the top-level static import, not the dynamic one \u2014 so no leak occurs in practice. However, if test ordering changes or another test uses dynamic import, the leftover doMock registration may apply. The safer pattern is to call `vi.resetModules()` again in the `afterEach` of this describe block, or use `vi.mock` with a factory for deterministic teardown. Fix: add a `afterEach(() => vi.resetModules())` inside the `describe('buildSsoLoginUrl')` block, or add a second `vi.resetModules()` at the end of the trailing-slash test after `vi.doUnmock`.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/tests/contexts/auth-test-utilities.tsx",
+          "line": 85,
+          "severity": "low",
+          "category": "correctness",
+          "title": "resetBrowserState does not clear sessionStorage \u2014 test isolation gap",
+          "body": "The `resetBrowserState` function (line 85) clears localStorage and resets cookie/location, but does NOT call `sessionStorage.clear()`. The `handleRefreshFailed` handler in useAuthTokenRefreshHelpers.ts (line 215) calls `sessionStorage.clear()`. If tests that exercise the auth-refresh-failed flow run before other tests that set sessionStorage values, those tests will see clean sessionStorage \u2014 but the reverse is not guaranteed. The other test files (useAuthTokenRefreshHelpers.test.tsx, useAuthTokenRefreshHooks.test.tsx) call `sessionStorage.clear()` in their own beforeEach. The AuthProviderOauthAndEvents.test.tsx relies solely on `resetBrowserState` and therefore has the gap. Fix: add `sessionStorage.clear()` to `resetBrowserState` in auth-test-utilities.tsx.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-10157": {
+      "status": "complete",
+      "findings": 15,
+      "findings_details": [
+        {
+          "file": "backend/tests/core/test_deps_oauth_cutover.py",
+          "line": 47,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "Missing test for opaque token path that succeeds (pre-cutover passthrough)",
+          "body": "test_opaque_token_rejected_after_cutover_returns_401 covers the failure path of validate_opaque_token. But there is no test for the case where an opaque token successfully validates (i.e., validate_opaque_token returns an ArquUser). The cutover comment says 'opaque tokens surface a clean 401' but the production code still calls validate_opaque_token for non-JWT tokens and returns the user if it succeeds. The test suite does not pin that success path, so a future refactor that accidentally drops it would pass CI. Add a test: patch validate_opaque_token to return mock_arqu_user and assert user == mock_arqu_user.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/core/test_deps_oauth_cutover.py",
+          "line": 57,
+          "severity": "medium",
+          "category": "test-coverage",
+          "title": "No test for missing/malformed Authorization header paths",
+          "body": "get_core_api_user raises 401 for (a) missing Authorization header and (b) header not matching 'Bearer <token>' format. Neither path is covered in this test class. These are critical guard conditions in the auth flow. Add at minimum: await get_core_api_user(authorization=None) \u2192 401 'Missing Authorization header', and await get_core_api_user(authorization='NotBearer token') \u2192 401.",
+          "confidence": "high"
+        },
+        {
+          "file": "backend/tests/core/test_deps_oauth_cutover.py",
+          "line": 33,
+          "severity": "low",
+          "category": "style",
+          "title": "patch target for mock_validator patches the module-level object, not the function",
+          "body": "The patch 'app.core.core_api_deps.core_api_jwt_validator' patches the entire validator object. This works, but note that mock_validator.validate_token_no_domain_check.assert_called_once() will always pass even if the production code calls a different method \u2014 it only asserts the method was called, not what it returned a value through. This is fine for the current test but can mask subtle bugs if the method name drifts. Consider patching 'app.core.core_api_deps.core_api_jwt_validator.validate_token_no_domain_check' directly with patch.object for tighter assertions.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 205,
+          "severity": "high",
+          "category": "correctness",
+          "title": "handleRefreshFailed does not clear localStorage before redirecting to SSO",
+          "body": "logoutUser (line 68) always calls localStorage.setItem('risklab_explicit_logout', 'true') before redirecting. handleRefreshFailed (lines 205-217) also calls logout and redirects, but does NOT set the explicit_logout flag in localStorage. On the next page load (the SSO login page redirects back), runPostAuthRedirects reads the flag to decide whether to auto-login. Without the flag, the initialization code may attempt SSO auto-login again in an infinite redirect loop if the SSO token is still present in cookies. The flag should be set (or at minimum reviewed for necessity) in the refresh-failed handler before redirect.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 139,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "runPostAuthRedirects skips SSO auto-login only when explicitLogout flag exists, but handleRefreshFailed doesn't set it",
+          "body": "This is the upstream cause of the finding above. runPostAuthRedirects (line 139) checks for the 'risklab_explicit_logout' flag to avoid auto-login loops. handleRefreshFailed triggers a redirect to SSO login, and the user will return to the app. At that point, the explicit_logout flag is absent because handleRefreshFailed never sets it. The initialization will then call handleSsoAutoLogin which checks for arqu_token/token cookies. If those cookies are present (valid SSO session), this is fine \u2014 the user gets auto-logged in again, which is the desired behavior. If those cookies are absent, the flow falls through gracefully. BUT: if the arqu_token cookie exists from before the session expired, the app will silently try to exchange it, potentially in a loop. Clarify the intent: if SSO redirect-back should skip SSO auto-login, set the flag; if SSO auto-login on redirect-back is desired (re-authenticate silently), document that explicitly.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 183,
+          "severity": "low",
+          "category": "style",
+          "title": "isAuthCallbackPage is an inline closure defined inside useEffect \u2014 extract or inline the condition",
+          "body": "Lines 203-205: const isAuthCallbackPage = () => window.location.pathname === '/auth/callback'; is defined as a named function inside the useEffect callback body. It is called exactly once (line 206). This adds naming overhead with no readability benefit; either inline the predicate or lift it out of the hook if reused. Compare with runPostAuthRedirects (line 137) which computes the same '/auth/callback' check with a direct variable. Extract a module-level constant or inline the check.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 16,
+          "severity": "low",
+          "category": "style",
+          "title": "DEFAULT_ARQU_AUTH_URL duplicates a fallback that should live in config",
+          "body": "Line 16 defines DEFAULT_ARQU_AUTH_URL = 'https://auth.arqu.co' as a module-level constant. The config module already provides arquAuthUrl which is expected to hold this value. Having the fallback in two places (config module default + this constant) splits the source of truth. If the auth domain changes, it must be updated in both places. The fallback should exist only in the config layer; this file should rely on arquAuthUrl being non-null when properly configured.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.ts",
+          "line": 92,
+          "severity": "low",
+          "category": "style",
+          "title": "checkCurrentAuthStatus calls logout API on any /me failure when authenticated, even transient network errors",
+          "body": "Lines 90-95: when /me throws (any error \u2014 network timeout, 5xx, etc.) and isAuthenticated is true, the code calls apiEndpoints.auth.logout(). This means a momentary network hiccup when the user is logged in will trigger a server-side logout, invalidating the session entirely. The logout should only be called on clear auth failures (401/403) not on transient errors. Consider checking the error type or HTTP status before calling logout.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.ts",
+          "line": 20,
+          "severity": "low",
+          "category": "style",
+          "title": "login is not wrapped in useCallback",
+          "body": "Lines 20-21: login is assigned as an arrow function directly on every render, while logout (line 23) uses useCallback. This inconsistency means any consumer memoized with React.memo or using login in a useEffect dependency array will see a new reference on every render, defeating memoization. Wrap login in useCallback([]) similarly to logout.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefresh.ts",
+          "line": 38,
+          "severity": "low",
+          "category": "style",
+          "title": "checkIsAuthenticated closes over stale isAuthenticated \u2014 should use a ref or remove entirely",
+          "body": "Lines 38-38: checkIsAuthenticated returns () => isAuthenticated, which closes over the isAuthenticated state value at render time. If a caller stores a reference to checkIsAuthenticated and calls it after a re-render, they may get a stale value. The AuthProvider already exposes isAuthenticated as a boolean prop; this function adds no value and could mislead callers into thinking it queries live state. Either replace it with direct exposure of isAuthenticated, or implement it via a ref to always return the current value.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHelpers.test.tsx",
+          "line": 63,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "buildSsoLoginUrl trailing-slash test uses vi.doMock + vi.resetModules \u2014 fragile dynamic import pattern",
+          "body": "Lines 63-71: the test for trailing slash stripping uses vi.doMock + dynamic import to inject a mock arquAuthUrl. This is an unusual and fragile pattern in a vitest suite: vi.resetModules() resets ALL modules, and vi.doMock is order-sensitive. If other tests in this file or its sibling files share module state, this can cause hard-to-debug failures. Consider extracting buildSsoLoginUrl to accept the base URL as a parameter (or accepting the config object), which would make the function directly testable without module mocking.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAuthTokenRefreshHooks.test.tsx",
+          "line": 78,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "useAuthInitialization tests use bare Promise.resolve / setTimeout(r,0) instead of waitFor",
+          "body": "Lines 58-60 and 78-80: tests advance async state by awaiting a bare Promise.resolve() or setTimeout(r, 0) inside act(). This is a timing-dependent pattern that can produce false passes if the async chain takes more than one microtask tick. The correct pattern in @testing-library is waitFor(() => expect(...)) which retries until the assertion passes. The test at line 66-85 already uses waitFor in the useAuthTokenRefresh.test.tsx file \u2014 apply the same pattern here for consistency and reliability.",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/tests/contexts/AuthProviderOauthAndEvents.test.tsx",
+          "line": 95,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "clearError test assertion only checks replaceState was called, not what URL was used",
+          "body": "Lines 86-105 ('cleans error parameters from URL'): the test asserts window.history.replaceState was called but does NOT assert the URL no longer contains ?error=email_already_exists. An implementation that calls replaceState with the same URL (a bug) would still pass this test. Add: expect(window.history.replaceState).toHaveBeenCalledWith(expect.anything(), expect.anything(), expect.not.stringContaining('error=')).",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/tests/contexts/auth-test-utilities.tsx",
+          "line": 95,
+          "severity": "low",
+          "category": "style",
+          "title": "resetBrowserState does not clear sessionStorage",
+          "body": "resetBrowserState (lines 85-96) clears localStorage and cookies but does not call sessionStorage.clear(). logoutUser and handleRefreshFailed both call sessionStorage.clear(), and some tests set sessionStorage items (e.g. useAuthTokenRefreshHelpers.test.tsx line 129). If resetBrowserState is used as the beforeEach, sessionStorage bleeds between tests. Add sessionStorage.clear() to resetBrowserState for full isolation.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/contexts/auth/useAmplitudeIdentify.test.tsx",
+          "line": 39,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Amplitude mock uses duplicated boilerplate \u2014 extract to a helper",
+          "body": "Lines 35-46 and 54-65 define an identical Amplitude mock object inline twice. The only difference between the two tests is which method they spy on (setUserId vs reset). Extract a createAmplitudeMock(overrides?) helper to remove duplication and make the mock's shape the single source of truth.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T00:03:30Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:07:32Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:58:29Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:07:25Z",
+      "fingerprint": "82f0fdbf9da05073e8d97ff67b12342d",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 121000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 11835.0
+}
