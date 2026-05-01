@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "fix/issue-dev-twingate-resurrection",
+  "sha": "03d8632b43ab85f8d8bcdfd8156c24dc3823f8d3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T15:36:13Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:36:12Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
