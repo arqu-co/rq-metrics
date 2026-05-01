@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "issue-390-bug-get-apiv2extractionsid-returns-empty",
+  "sha": "a5ba6e0dcdfaf22bcb0a37446343ef9f26273c98",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T16:27:46Z",
+  "phase": "coderabbit",
+  "run_number": 3,
+  "gate_name": "coderabbit",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:27:39Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
