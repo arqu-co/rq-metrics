@@ -1,0 +1,154 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": "53826c0dd2d51e4a418febb991d60eed7a3e81a2",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:29:33Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-round4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T05:29:27Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:04Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:51Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 47000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:29:28Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T05:29:24Z",
+      "duration_ms": 209000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-round4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T05:29:32Z",
+      "duration_ms": 4000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:54Z",
+      "scanned_files": 45,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T05:29:25Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 1000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 269.0
+}
