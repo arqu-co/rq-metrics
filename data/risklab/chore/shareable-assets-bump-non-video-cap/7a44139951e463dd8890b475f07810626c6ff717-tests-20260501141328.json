@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "chore/shareable-assets-bump-non-video-cap",
+  "sha": "7a44139951e463dd8890b475f07810626c6ff717",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T21:13:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T21:13:28Z",
+      "fingerprint": "2e70269b3176bd91144d8968dace0e6b",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 3,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "backend/app/services/shareable_asset_service.py",
+        "backend/app/services/shareable_asset_update.py",
+        "frontend/src/pages/shareableAssets/ShareableAssetUploadForm.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
