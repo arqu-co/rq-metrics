@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-184-surface-claude-needs-attention-prompts-p-2222-227e",
+  "sha": "a54aafed693aa8ec138e6170fb62d6e595eee748",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T12:42:52Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T12:42:52Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6824a8910a36bd0b21f7cf4bc63bf0d0",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n RUN  v4.1.4 /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/c3/.claude/worktrees/issue-184-surface-claude-needs-attention-prompts-p-2222-227e\n      Coverage enabled with v8\n\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-0xr0ns\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-R0nPdj\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-vby8YF\n * [new branch]      feature/x -> feature/x\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-tVUfA4\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-86NfHm\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/app-routes-prune.test.ts (18 tests | 1 failed) 78ms\n     \u00d7 threads the resolved validRepos set through to store.start so the runner doesn't re-resolve 12ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-prune.test.ts > POST /api/worktrees/prune > threads the resolved validRepos set through to store.start so the runner doesn't re-resolve\nError: socket hang up\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 242 passed (243)\n      Tests  1 failed | 2897 passed (2898)\n   Start at  08:42:34\n   Duration  17.46s (transform 8.66s, setup 0ms, import 26.44s, tests 107.76s, environment 47.94s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
