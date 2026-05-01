@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-201-perf-reduce-claude-code-token-consumptio-2219-371a",
+  "sha": "5a42935ff84edb4150c4391d17fd7a5fc1e75d06",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T12:44:59Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-32475",
+    "review-wip-reviewer-51824",
+    "review-wip-reviewer-69954",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:38:41Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T02:39:15Z",
+      "coverage_tool": "js",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:38:42Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T03:11:53Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:44:55Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:44:53Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:44:57Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:47:09Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T12:44:54Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:44:56Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-32475": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "CLAUDE.md",
+          "line": 182,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "/think hard is not a Claude Code slash command",
+          "body": "CLAUDE.md line 182 instructs operators: '- `/think hard` \u2014 enable extended thinking for the current turn.' The slash-command form /think hard does not exist in Claude Code. The Claude Code changelog documents the natural-language approach ('think', 'think harder', 'ultrathink' in the prompt text) but there is no /think slash command. An operator following this instruction will type /think hard expecting it to behave like /effort high and get an error or no effect. Fix: replace with the correct natural-language instruction, e.g. 'include \"think hard\" or \"think\" in your prompt \u2014 enables extended thinking for that turn.'",
+          "confidence": "high"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 183,
+          "severity": "high",
+          "category": "correctness",
+          "title": "claude --plugin <plugin-id> flag does not exist",
+          "body": "CLAUDE.md line 183 instructs: '- `claude --plugin <plugin-id>` \u2014 start a fresh session with one of the disabled plugins loaded.' The claude CLI has no --plugin flag. The help output shows --plugin-dir <path> (loads plugins from a directory) but no --plugin flag that accepts a plugin ID. An operator following this instruction will get 'unknown option --plugin' and have no way to load the disabled plugin. The correct opt-out mechanism for a project-disabled plugin is: either (a) pass --settings with a JSON override enabling the plugin for the session, e.g. claude --settings '{\"enabledPlugins\":{\"<plugin-id>\":true}}', or (b) edit .claude/settings.json to remove the false entry for that plugin. Fix: replace the incorrect CLI flag with the correct --settings syntax, or instruct the operator to temporarily edit settings.json.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-51824": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "docs/plans/2026-05-01-issue-201-perf-reduce-claude-code-token-consumptio-2219-371a.md",
+          "line": 55,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Plan doc still documents stale opt-out commands corrected by Round 1 fix",
+          "body": "Line 55 lists `/think hard` and `claude --plugin <name>` as the opt-out commands. Both were corrected in CLAUDE.md at commit 7b018ba: `/think hard` -> natural-language `think hard`/`ultrathink`; `claude --plugin <id>` -> `claude --settings '{\"enabledPlugins\":{...}}'`. The same stale forms also appear at line 206 (acceptance criteria), lines 251-253 (the verbatim content block), and line 279 (commit message template). A reader following the plan doc gets the wrong commands even though CLAUDE.md is now correct.",
+          "confidence": "high"
+        },
+        {
+          "file": "docs/plans/2026-05-01-issue-201-perf-reduce-claude-code-token-consumptio-2219-371a.md",
+          "line": 38,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Plan references unverifiable URL code.claude.com/docs/en/settings.md",
+          "body": "Line 38 cites `https://code.claude.com/docs/en/settings.md` as the source for Claude Code settings precedence behavior. That domain/path does not match the published Claude Code documentation location (`https://docs.anthropic.com/en/docs/claude-code/settings`). The URL appears to be fabricated or hallucinated. The behavioral claim it supports (project-level settings.json overrides user-global) is correct, but the citation is wrong. Fix: either use the real URL or drop the `Per https://...` attribution and state the behavior as established fact.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-69954": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T12:44:58Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:44:56Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:39:14Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:39:14Z",
+      "test_runner": "bin-test",
+      "fingerprint": "35807960b1fa2f5916d4094d526ee786",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 36377.0
+}
