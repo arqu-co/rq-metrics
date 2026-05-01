@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "deployment-bot",
+  "branch": "fix/empty-ref-resolution-off-hot-path",
+  "sha": "e604a8b6e6ad96262dcfa5717f12de4cfb6e73a8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T17:42:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T17:42:23Z",
+      "test_runner": "bin-test",
+      "fingerprint": "8bc53bbe75270e4ffbb79020136a3043",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
