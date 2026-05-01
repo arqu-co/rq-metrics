@@ -1,0 +1,314 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "fix/auto-update-router-scope-202",
+  "sha": "54bfbf6fd91f3a9195e0fe6cf4fff78b40df78ea",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T01:31:22Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-26921",
+    "review-wip-reviewer-36582",
+    "review-wip-reviewer-56490",
+    "review-wip-reviewer-58749",
+    "review-wip-reviewer-74965",
+    "review-wip-reviewer-85964",
+    "review-wip-reviewer-86602",
+    "review-wip-reviewer-round4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:10:22Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:03:01Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T23:08:25Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:27:08Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:08:02Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:31:19Z",
+      "duration_ms": 251000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:03:09Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:31:21Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-04-30T23:03:10Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:31:21Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-26921": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/admin-auth.ts",
+          "line": 40,
+          "severity": "low",
+          "category": "style",
+          "title": "PREFIX constant re-allocated on every request",
+          "body": "const PREFIX declared inside the returned closure at line 40 allocates a new string on every request. It is a fixed literal and should be a module-level constant.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-auto-update.test.ts",
+          "line": 103,
+          "severity": "low",
+          "category": "style",
+          "title": "readSnapshot imported dynamically when static import already exists for same module",
+          "body": "auto-update-snapshot.js is already statically imported at line 6 for writeSnapshot. Lines 103 and 169 re-import the same module dynamically to get readSnapshot. readSnapshot should be added to the static import at line 6, removing both dynamic imports.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-36582": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 151,
+          "severity": "medium",
+          "category": "resource-cleanup",
+          "title": "chmodSync(0o500) before try-block leaves directory unrestored if chmod itself throws",
+          "body": "Line 151: chmodSync(c3Dir, 0o500) is called BEFORE the try block on line 152. If chmodSync throws (e.g., the directory was deleted between writeSnapshot and the chmod call, or a signal interrupts it), the finally block on line 162 is never entered, so chmodSync(c3Dir, 0o700) never runs. The afterEach rmSync(homeDir, {recursive:true, force:true}) will then silently fail to clean up a temp directory containing a 0o500 subdirectory \u2014 leaking the temp dir. On Linux, the force:true flag does not bypass DAC permission bits when the calling process is non-root, so the entry remains. Fix: move chmodSync(c3Dir, 0o500) to the first line inside the try block so the finally always mirrors it.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/admin-auth.ts",
+          "line": 36,
+          "severity": "low",
+          "category": "security",
+          "title": "req.originalUrl in security logs exposes query-string tokens if client sends credentials via URL",
+          "body": "Lines 36, 43, 51, 60: all log.warn calls use req.originalUrl, which includes the full query string (e.g., /api/admin/auto-update/status?token=secret). The middleware only accepts tokens via Authorization header and correctly rejects query-string tokens, but a misconfigured client that sends ?token=xxx would have that token value written to the log on rejection. The fix is to log req.path (path without query string) instead of req.originalUrl for the security-sensitive rejection messages, or strip the query string: req.originalUrl.split('?')[0]. The originalUrl is valuable for debugging which exact URL was hit, so the full URL could be logged at a lower level elsewhere, but the rejection log line should not expose query params.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-56490": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 74,
+          "severity": "low",
+          "category": "style",
+          "title": "still-gates tests inline app setup that makeApp already provides",
+          "body": "Lines 74-95 construct express()+json+createAutoUpdateRoutes inline instead of calling makeApp(makeDeps(homeDir)). The makeApp helper was extracted specifically to eliminate this duplication. The two ungated-route tests above (lines 42-67) have a valid reason to bypass makeApp (they must register /api/health after the auto-update router), but the still-gates tests have no such need. Three lines of inline boilerplate per test could be replaced with makeApp(makeDeps(homeDir)).",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 8,
+          "severity": "low",
+          "category": "style",
+          "title": "File-size justification comment cites 291 lines but app-routes-auto-update.test.ts is 224 lines",
+          "body": "The file header comment says 'the latter is already at 291 lines and adding these tests would push it past the 300-line file-size gate'. wc -l shows app-routes-auto-update.test.ts is 224 lines \u2014 76 lines below the gate. The extraction of shared helpers to auto-update-test-helpers.ts (round-1 fix) reduced the line count after the comment was written. The comment now gives a false justification for the split. Fix: update the comment to reflect the real reason (separation of concerns \u2014 the router-scope regression and 500-fallback tests are conceptually distinct from the happy-path admin-route tests) and drop the stale line-count claim.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-58749": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-74965": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-85964": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 25,
+          "severity": "medium",
+          "category": "DRY",
+          "title": "makeFakeTerminalManager duplicated from app-routes-auto-update.test.ts",
+          "body": "The function is defined identically in both test files (lines 24-60 in the original, lines 25-55 in the new file). The new copy also has a subtly different destroy() \u2014 it omits the emitter.emit('exit') call present in the original. Extract makeFakeTerminalManager into a shared test helper, e.g. server/__tests__/helpers/fake-terminal-manager.ts, and import it in both test files.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 78,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "Regression tests verify only that non-gated routes pass; never verify that auto-update routes still require auth",
+          "body": "The two scope-regression tests confirm that /api/health is not blocked. They do not verify that /api/admin/auto-update/* still returns 403 when the bearer token is missing or wrong. A refactoring that accidentally removed router.use('/api/admin/auto-update', requireBearerToken(...)) entirely would pass both regression tests, because they only probe a non-admin endpoint. Add a test: when TOKEN_ENV is set but the bearer header is absent, a POST to /api/admin/auto-update/snapshot-and-drain must return 403, confirming the gate was not removed by the scope fix.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-auto-update.ts",
+          "line": 45,
+          "severity": "low",
+          "category": "correctness",
+          "title": "router.use path-scoped middleware strips prefix from req.path, causing truncated paths in auth-rejection log lines",
+          "body": "Express router.use('/api/admin/auto-update', fn) strips the matched prefix before passing the request to fn, so inside requireBearerToken, req.path is '/snapshot-and-drain' rather than '/api/admin/auto-update/snapshot-and-drain'. The auth middleware logs req.path on rejection (admin-auth.ts lines 34, 42, 51, 59), so operators will see bare suffixes in rejection logs rather than the full path. The fix is to use router.use('/api/admin/auto-update/:rest(*)', ...) or, more simply, register the auth middleware directly on each route handler rather than as a prefix-scoped use(). Alternatively, document the truncation in a comment so it is not mistaken for a bug later.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-86602": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 143,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Replay fallback test relies on readSnapshot's missing runtime validation",
+          "body": "The test writes a snapshot JSON without a 'sessions' field and expects a 500. This works because readSnapshot casts the partial object as AutoUpdateSnapshot (type assertion, no runtime check) and replayAll then throws TypeError when iterating undefined. If readSnapshot is later hardened to validate that sessions is an array, it returns null \u2192 handleReplay returns 404 not 500 \u2192 this test breaks without any regression in the production code. The test is coupling to an internal fragility rather than a defined contract.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-auto-update-router-scope.test.ts",
+          "line": 61,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No test asserts that gated endpoints still reject unauthenticated requests after path scoping",
+          "body": "The two regression tests verify that /api/health is NOT blocked by the bearer middleware. But there is no test in this file verifying that the three auto-update endpoints ARE still blocked when the token is absent or wrong. The path-scoped middleware could silently be changed to a non-matching prefix (e.g. a typo) and the regression suite would still pass green. The fix to issue #202 needs a positive guard: at least one test that POSTs to /api/admin/auto-update/snapshot-and-drain without a bearer token and expects 403, confirming the gate is still in effect.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/index.ts",
+          "line": 119,
+          "severity": "low",
+          "category": "correctness",
+          "title": "homeDir falls back to empty string when HOME is unset, creating relative snapshot paths",
+          "body": "index.ts passes homeDir: process.env.HOME ?? '' to createAutoUpdateRoutes. If HOME is unset (container images, restricted environments), homeDir is ''. snapshotPath('') returns '.c3/auto-update-snapshot.json' (relative), and writeSnapshot calls mkdirSync(join('', '.c3'), ...) which creates .c3/ relative to the process cwd. This silently changes where snapshots are written and read, making auto-update non-functional in a way that produces no startup error. Fix: fail fast at startup if HOME is unset, or document the constraint in config.ts and validate there.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-round4": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/admin-auth.ts",
+          "line": 62,
+          "severity": "high",
+          "category": "correctness",
+          "title": "timingSafeEqual panics when token or provided contains multi-byte Unicode (string.length vs Buffer.byteLength mismatch)",
+          "body": "The length guard at line 62 compares string .length values (UTF-16 code units) before calling timingSafeEqual on UTF-8 Buffers. A Unicode token like 'caf\u00e9' has string.length=4 but Buffer.byteLength=5. An attacker who sends a 4-character string matching the string .length but not the byte length bypasses the guard and triggers 'Input buffers must have the same byte length' \u2014 an unhandled synchronous throw inside the middleware. Express catches this as a 500, not a 403, leaking stack info and making the endpoint distinguishable from a normal rejection. Fix: replace 'provided.length !== token.length' with 'Buffer.byteLength(provided) !== Buffer.byteLength(token)'. Also add a test: set a 2-byte Unicode env-var token (e.g. 'cX' where X is a 2-byte char), send a 2-char ASCII bearer matching string.length \u2014 should get 403 invalid_token, not 500.",
+          "confidence": "confirmed"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-04-30T23:10:19Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:31:21Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:31:19Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T23:10:19Z",
+      "fingerprint": "303c0fb14d9b4faaa4109b77d412b089",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 8900.0
+}
