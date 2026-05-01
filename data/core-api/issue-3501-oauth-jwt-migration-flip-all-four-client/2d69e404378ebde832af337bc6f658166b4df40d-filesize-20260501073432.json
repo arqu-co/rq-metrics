@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3501-oauth-jwt-migration-flip-all-four-client",
+  "sha": "2d69e404378ebde832af337bc6f658166b4df40d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T11:34:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T11:34:31Z",
+      "files_checked": 12,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/user/oauth/OAuth2ClientInitializerTest.kt",
+          "lines": 471,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "src/main/kotlin/co/arqu/user/UserController.kt",
+          "lines": 494,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

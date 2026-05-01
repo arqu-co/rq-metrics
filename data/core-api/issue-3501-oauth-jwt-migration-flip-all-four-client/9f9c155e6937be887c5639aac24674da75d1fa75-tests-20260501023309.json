@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3501-oauth-jwt-migration-flip-all-four-client",
+  "sha": "9f9c155e6937be887c5639aac24674da75d1fa75",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T06:33:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T06:33:08Z",
+      "test_runner": "bin-test",
+      "fingerprint": "69063a6dbbac6f49ec96300e1be14903",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 4,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "src/main/kotlin/co/arqu/user/BearerTokenAuthenticationProvider.kt",
+        "src/main/kotlin/co/arqu/user/LegacyOAuthTokenController.kt",
+        "src/main/kotlin/co/arqu/user/UserController.kt",
+        "src/main/kotlin/co/arqu/user/oauth/OAuth2Client.kt"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
