@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "chore/issue-756-declarative-tfc-workspace-vars",
+  "sha": "f73d24e0b42afa0ed2b905be8b88c1565beafac6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T15:28:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T15:28:30Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
