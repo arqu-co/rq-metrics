@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-218-bug-sidebar-selection-flickers-back-and-1548-f61f",
+  "sha": "e8d22af9a03aa99dce00ce01765e2ec5739e0e0e",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T19:53:42Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T19:53:42Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6cfc88886b5bf4a9db59d44bb480f1d7",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-RZW9I9\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nstdout | server/__tests__/app-routes-branches.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 suppress logs { quiet: true }\n\n \u276f server/__tests__/app-routes-branches.test.ts (19 tests | 1 failed) 7440ms\n     \u00d7 fetches fresh data when cache entry is expired 17ms\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-branches.test.ts > GET /api/branches/:repo/:branch/github > fetches fresh data when cache entry is expired\nAssertionError: expected 404 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 404\n\n \u276f server/__tests__/app-routes-branches.test.ts:238:24\n    236|     }));\n    237|     const res = await request(makeApp()).get(\"/api/branches/repo-x/old\u2026\n    238|     expect(res.status).toBe(200);\n       |                        ^\n    239|     // Fresh fetch returns empty commits, not the stale cached ones\n    240|     expect(res.body.commits).toEqual([]);\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 269 passed (270)\n      Tests  1 failed | 3131 passed (3132)\n   Start at  15:53:19\n   Duration  22.94s (transform 11.06s, setup 0ms, import 35.32s, tests 136.31s, environment 73.53s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
