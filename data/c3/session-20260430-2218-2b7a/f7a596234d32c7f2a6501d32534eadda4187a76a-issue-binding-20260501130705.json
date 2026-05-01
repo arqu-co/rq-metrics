@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "session-20260430-2218-2b7a",
+  "sha": "f7a596234d32c7f2a6501d32534eadda4187a76a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T17:07:05Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T17:07:04Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
