@@ -1,0 +1,373 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-184-surface-claude-needs-attention-prompts-p-2222-227e",
+  "sha": "56558ab56e4f6f9228525224f4cb3a648212c0ba",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T18:32:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-wip-reviewer-184",
+    "review-wip-reviewer-36047",
+    "review-wip-reviewer-56429",
+    "review-wip-reviewer-57446",
+    "review-wip-reviewer-58555",
+    "review-wip-reviewer-r4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:13:30Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T18:31:52Z",
+      "files_checked": 36,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/App.tsx",
+          "function": "App",
+          "lines": 53,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:29Z",
+      "files_checked": 18,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:31:55Z",
+      "files_checked": 36,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:31:48Z",
+      "files_checked": 37,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:30Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:05Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 10000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:32Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T14:12:42Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T18:32:05Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:32Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-184": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "client/src/components/AppHeader.tsx",
+          "line": 34,
+          "severity": "medium",
+          "category": "style",
+          "title": "New Session button missing type=\"button\" \u2014 may submit a form",
+          "body": "The + New Session button at line 34 has no type attribute. Inside an HTML form the default button type is submit, which causes unintended form submission. The NeedsAttentionIndicator button at its line 27 (same file) correctly uses type=\"button\"; parity is missing here.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/NeedsAttentionPopover.tsx",
+          "line": 48,
+          "severity": "low",
+          "category": "style",
+          "title": "Popover container missing border \u2014 inconsistent with TagPopover",
+          "body": "The popover div uses bg-paper-50 shadow-lg rounded-md but has no border. TagPopover (the project's reference popover) uses border border-paper-200 on its container. Without a border, on light-background renders the popover edge bleeds into the page background. Fix: add border border-paper-200 to the className string at line 48.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/NeedsAttentionPopover.tsx",
+          "line": 44,
+          "severity": "medium",
+          "category": "style",
+          "title": "role=\"dialog\" wrong for a navigation popover \u2014 screen readers announce it as a modal dialog",
+          "body": "The container has role=\"dialog\" but this popover is not a dialog \u2014 it is a transient action list that navigates to a branch on click. Screen readers (NVDA, VoiceOver) trap keyboard focus and announce modal semantics for role=\"dialog\", confusing users who expect a menu or listbox. The correct role is role=\"menu\" (with each PopoverRow button using role=\"menuitem\") or no explicit role since the parent button's aria-expanded already signals the collapsed/expanded state. Fix: change role to role=\"menu\" and add role=\"menuitem\" to the PopoverRow button at line 65.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useLastPromptState.ts",
+          "line": 104,
+          "severity": "low",
+          "category": "style",
+          "title": "useVisibilityRefresh dep array includes mountedRef \u2014 diverges from mirror hook and is misleading",
+          "body": "useVisibilityRefresh's useEffect dependency array at line 104 is [refresh, mountedRef]. A ref object's identity is stable across renders so including it in deps is harmless but misleading \u2014 React lint rules (exhaustive-deps) treat ref objects as stable and would not require them. The mirror hook useNeedsInputState has [refresh] only in its equivalent useEffect at line 72. Fix: remove mountedRef from the deps array so the two mirror hooks are identical in structure: [refresh].",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-36047": {
+      "status": "complete",
+      "findings": 9,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useLastPromptState.ts",
+          "line": 99,
+          "severity": "high",
+          "category": "correctness",
+          "title": "mountedRef.current set to false in cleanup but never reset to true on re-mount",
+          "body": "useLastPromptState initializes mountedRef with useRef(true) (line 45). The cleanup in useVisibilityRefresh (line 99) sets mountedRef.current = false. On unmount + remount, the ref object is reused (refs survive across mounts for the component's lifetime in React), so the re-mount starts with mountedRef.current = false. The guard on line 54 (`if (result.ok && mountedRef.current)`) will then permanently skip every setMap call for the re-mounted instance. The same bug exists in useNeedsInputState (line 67 sets false; no reset to true on re-mount). Fix: set mountedRef.current = true at the top of the useEffect in useVisibilityRefresh (before the void refresh() call), so each mount resets the guard. Apply the same fix to useNeedsInputState.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useAttentionTabSignal.ts",
+          "line": 17,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Favicon baseline captured only when #favicon element exists at mount \u2014 if absent, restore is skipped on unmount leaving attention favicon in place",
+          "body": "baselineFaviconRef.current is only set when getFaviconLink() returns a non-null element (line 17). If #favicon is absent at mount time (late DOM, non-standard HTML), baselineFaviconRef.current stays null. The cleanup (lines 22-25) skips restoring the favicon because `baselineFaviconRef.current !== null` is false. The second effect (line 34) also skips, because link is null. If an in-flight reaction inserts #favicon while the hook is mounted with count > 0, the ATTENTION_FAVICON is already set via the second effect; the cleanup cannot undo it because the baseline was never captured. Fix: in the cleanup, if the link element exists but baselineFaviconRef.current is null, restore to DEFAULT_FAVICON as a safe fallback. Separately: the test suite already inserts #favicon in beforeEach, so this path is untested.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useAttentionTabSignal.ts",
+          "line": 14,
+          "severity": "low",
+          "category": "correctness",
+          "title": "Baseline-capture effect and count-update effect race: if count>0 before first effect runs, baseline is poisoned (theoretical)",
+          "body": "React fires effects in registration order after the same commit. The first effect (baseline capture) always runs before the second (count update). This means on the very first render, the baseline is captured before document.title is modified. No real bug in production. However, React StrictMode double-invokes effects in development: first effect runs (captures baseline as 'C3'), second effect runs (sets title to '(N) C3'), then cleanup of first effect fires (restores title to 'C3'), then first effect runs again (captures 'C3' as baseline \u2014 correct). The ??= guard means the second invocation of the first effect is a no-op (already captured). So StrictMode is safe too. This is purely theoretical with current React semantics; no fix required but worth documenting.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCIPolling.ts",
+          "line": 213,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "parseMessage casts to ServerMessage without validating required fields \u2014 malformed messages silently pollute state",
+          "body": "parseMessage only checks `typeof parsed.type === 'string'` before casting to ServerMessage (line 213). A malformed WebSocket message with type='ci_update' but missing repo/branch would pass through. In applyCIUpdate, `${msg.repo}/${msg.branch}` becomes 'undefined/undefined' \u2014 a bogus key inserted into the overrides Map. For needs_input, a missing branchKey inserts 'undefined' into the map. These bogus keys persist until the next full branches refresh. The XSS surface is minimal because React escapes string rendering, but state corruption (spurious 'undefined' keys affecting attention list calculations) is real. Fix: add per-type field presence checks in parseMessage or guard at call sites in applyMessage.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCIPolling.ts",
+          "line": 130,
+          "severity": "low",
+          "category": "correctness",
+          "title": "WS effect dep array [toast] \u2014 reconnects if useToast() returns a new object identity on every render",
+          "body": "The WebSocket effect (line 98) lists [toast] as its only dependency (line 130). The callbacks are correctly pinned via refs. If useToast() returns a new toast object on every render (not memoized), the effect tears down and reconnects the WebSocket on every parent re-render. This would cause rapid WS disconnection/reconnection. This is a latent risk depending on useToast implementation. If useToast is stable (useMemo / module singleton), no issue. Recommend verifying useToast() returns a stable reference, or pinning toast in a ref the same way callbacks are pinned.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/NeedsAttentionPopover.tsx",
+          "line": 46,
+          "severity": "medium",
+          "category": "security",
+          "title": "Popover uses role=dialog without aria-modal \u2014 screen readers not confined to popover content",
+          "body": "The popover div uses role='dialog' (line 46) but omits aria-modal='true'. Without aria-modal, screen reader virtual cursor navigation is not confined to the dialog \u2014 ARIA spec requires aria-modal='true' on the dialog element to signal that background content is inert. Keyboard Tab navigation is also unrestricted: users can Tab past the last button in the popover without it closing. The Escape handler (line 30) is correct. Fix: add aria-modal='true' to the dialog div. Consider also adding a focus trap (intercept Tab/Shift-Tab while open).",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useNeedsAttentionList.ts",
+          "line": 45,
+          "severity": "low",
+          "category": "correctness",
+          "title": "compareItems uses localeCompare on ISO 8601 timestamp strings \u2014 locale-sensitive collation for ASCII-only strings",
+          "body": "compareItems sorts by lastPrompt.timestamp using bT.localeCompare(aT) (line 45). ISO 8601 timestamps are pure ASCII and lexicographically ordered; localeCompare with locale collation tables adds unnecessary overhead and could theoretically produce unexpected results under unusual locale settings. Fix: replace with direct string comparison: `bT > aT ? 1 : bT < aT ? -1 : 0` for locale-independent, deterministic ordering.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useLastPromptState.ts",
+          "line": 104,
+          "severity": "low",
+          "category": "correctness",
+          "title": "useVisibilityRefresh includes mountedRef in dep array \u2014 misleading; refs are stable",
+          "body": "The useEffect dep array in useVisibilityRefresh is [refresh, mountedRef] (line 104). Ref objects returned by useRef have stable identity; including them in deps is misleading because the effect will never re-run due to mountedRef changing. The equivalent useNeedsInputState (line 72) correctly uses only [refresh] in its effect deps. Fix: remove mountedRef from the dep array. Pass it as a function argument or capture it at effect body scope rather than listing it as a reactive dep.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/terminal-last-prompt-bridge.ts",
+          "line": 35,
+          "severity": "low",
+          "category": "correctness",
+          "title": "try/catch in last_prompt event listener swallows broadcaster exceptions \u2014 single missed broadcast with no re-throw",
+          "body": "The try/catch in wireTerminalLastPromptBridge (lines 30-39) catches any exception thrown by broadcaster.broadcastLastPromptUpdate and logs it, then returns normally. The comment (lines 17-23) correctly explains the rationale: letting the exception propagate through EventEmitter would surface as an unhandled rejection in the SessionStateDetector async path. However, swallowing the exception means the client receives no last_prompt update for that event. Depending on the broadcast failure mode (e.g., JSON.stringify failure on a badly-formed LastPrompt), this could silently drop all future updates for a branch. The catch is the right tradeoff, but consider adding a metric/counter for monitoring. No functional fix required given the design intent.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-56429": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-57446": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "server/terminal-manager.ts",
+          "line": 75,
+          "severity": "medium",
+          "category": "style",
+          "title": "TerminalManager.create() is 118 lines \u2014 exceeds 50-line limit by more than double",
+          "body": "create() runs from line 75 to 192 (118 lines). The 50-line function limit is a hard project rule (code-quality.md). The PR added the last_prompt fan-out block (lines 171-188) to this already-oversized method. Splitting the PTY-construction setup (lines 95-122), the terminateHook closure (lines 138-156), and the listener-wiring block (lines 161-192) into named helpers would bring each under 50 lines.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/NeedsAttentionIndicator.tsx",
+          "line": 27,
+          "severity": "low",
+          "category": "style",
+          "title": "Trigger button missing aria-haspopup=\"menu\" and aria-controls",
+          "body": "The button that opens NeedsAttentionPopover (role=\"menu\") carries aria-expanded but not aria-haspopup=\"menu\" or aria-controls. Per ARIA 1.2 authoring practices, a button that opens a menu widget should declare aria-haspopup=\"menu\" so screen readers announce it as a menu button (not a toggle button), and aria-controls should point to the popover's id so the relationship is machine-readable. Fix: add aria-haspopup=\"menu\" to the button and add a stable id to the popover div (e.g. id=\"needs-attention-menu\"), then aria-controls=\"needs-attention-menu\" on the button.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useLastPromptState.ts",
+          "line": 86,
+          "severity": "medium",
+          "category": "architect",
+          "title": "useVisibilityRefresh duplicated verbatim in two sibling hook files \u2014 violates DRY",
+          "body": "The refactor commit (e12c22c) extracted useVisibilityRefresh as a named function inside useLastPromptState.ts (lines 86-110) and useNeedsInputState.ts (lines 76-96). The two implementations are byte-for-byte identical. This is not extraction \u2014 it is duplication. Any future fix (e.g. adding pagehide, changing the visibilityState check) must be applied twice. Fix: move useVisibilityRefresh into a new shared file (e.g. client/src/hooks/useVisibilityRefresh.ts) and import it in both hooks. The function is unexported today so it is safe to relocate.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useCIPolling.ts",
+          "line": 229,
+          "severity": "low",
+          "category": "correctness",
+          "title": "ci_update validation incomplete: ciStatus and failedChecks not type-checked",
+          "body": "hasRequiredFields validates repo and branch for ci_update frames but does not validate ciStatus or failedChecks. A malformed frame missing these fields passes validation, gets cast to CIUpdateMessage, and is stored in the overrides Map as {ciStatus: undefined, failedChecks: undefined}. applyOverrides then spreads these undefined values onto branch.pr, replacing the PR's ciStatus with undefined. This is inconsistent with the round-1 intent of this validation (prevent undefined from entering state for needs_input/last_prompt). The consequence is a silent UI regression for any branch whose CI status was overridden by the malformed frame, showing undefined where pending/success/failure/no_ci was expected. Fix: add typeof msg.ciStatus === 'string' && Array.isArray(msg.failedChecks) to the ci_update case in hasRequiredFields.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-58555": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/terminal-needs-input-bridge.ts",
+          "line": 37,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Non-Error catch branch untested in both bridge adapters",
+          "body": "wireTerminalNeedsInputBridge (line 37) and wireTerminalLastPromptBridge (line 37 in terminal-last-prompt-bridge.ts) both have 'err instanceof Error ? err.message : String(err)' inside the catch block. Every exception test throws 'new Error(...)' \u2014 so only the instanceof-Error branch is exercised. The String(err) fallback (for non-Error throws like plain strings or numbers) is never reached in tests, causing ~50% branch coverage on both files. Fix: add one test case per bridge that throws a non-Error value (e.g., a string literal) and verify the event still does not propagate.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/NeedsAttentionIndicator.tsx",
+          "line": 29,
+          "severity": "low",
+          "category": "correctness",
+          "title": "aria-label uses plural grammar when count=1",
+          "body": "Line 29: aria-label=`${items.length} sessions waiting on you` produces '1 sessions waiting on you' when count is 1. Screen readers will announce grammatically incorrect text. Fix: use '1 session' vs 'N sessions' depending on count. Also update the test at NeedsAttentionIndicator.test.tsx:119 to assert '1 session waiting on you'.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T14:08:23Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:31Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:28Z",
+      "scanned_files": 18,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:32:26Z",
+      "fingerprint": "b5bae5b902595584ceec371c7065185a",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 21000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 15849.0
+}
