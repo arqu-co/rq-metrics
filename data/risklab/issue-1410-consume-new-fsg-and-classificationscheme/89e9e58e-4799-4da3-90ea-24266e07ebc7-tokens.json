@@ -1,0 +1,107 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "risklab",
+  "branch": "issue-1410-consume-new-fsg-and-classificationscheme",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T03:53:10.437Z",
+  "session_id": "89e9e58e-4799-4da3-90ea-24266e07ebc7",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 7394,
+    "output": 696964,
+    "cache_read": 273108074,
+    "cache_create": 4227525,
+    "est_cost_usd": 154.9347275
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#5": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#6": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pair-build#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "review#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "ship#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#7": {
+      "tokens": 879907,
+      "cost_usd": 0.9403677500000001
+    },
+    "writing-plans#8": {
+      "tokens": 183964343,
+      "cost_usd": 103.60252175
+    },
+    "pr-feedback": {
+      "tokens": 28154413,
+      "cost_usd": 15.1109505
+    },
+    "review#3": {
+      "tokens": 65041294,
+      "cost_usd": 35.2808875
+    }
+  }
+}
