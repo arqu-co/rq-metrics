@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "fix/jwt-issuer-api-domain",
+  "sha": "8165ad79fcc1f9f2b16eb446cc3b8ce05dd7ac17",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T21:42:14Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T21:42:14Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ceafce3b75d90f6ba26acf8358537721",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "backend/app/settings_validators.py"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
