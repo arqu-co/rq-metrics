@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "fix/auto-update-router-scope-202",
+  "sha": "02c0f518367a5619ea49a1b78b4ddeb2297884fe",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T01:04:19Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T01:04:19Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
