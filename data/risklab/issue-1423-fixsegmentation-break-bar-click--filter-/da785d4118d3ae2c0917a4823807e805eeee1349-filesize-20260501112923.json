@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1423-fixsegmentation-break-bar-click--filter-",
+  "sha": "da785d4118d3ae2c0917a4823807e805eeee1349",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T18:29:23Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T18:29:23Z",
+      "files_checked": 3,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.autofit.test.tsx",
+          "lines": 323,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/segmentation-map-effects.ts",
+          "lines": 315,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
