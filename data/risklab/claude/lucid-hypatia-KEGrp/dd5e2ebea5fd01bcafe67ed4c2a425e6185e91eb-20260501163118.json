@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-KEGrp",
+  "sha": "dd5e2ebea5fd01bcafe67ed4c2a425e6185e91eb",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T23:31:18Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "issue-binding"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:28:18Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:14Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:28:18Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:28:16Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:31:14Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:28:31Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 13000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:17Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:51:18Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T23:28:32Z",
+      "duration_ms": 1000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:28:15.806964Z",
+      "message": ".quality is accessible"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:16Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:11:43Z"
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:13Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 161000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:31:13Z",
+      "fingerprint": "625a8e685958b5bfce857c99fdf4f07b",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3117712.0
+}
