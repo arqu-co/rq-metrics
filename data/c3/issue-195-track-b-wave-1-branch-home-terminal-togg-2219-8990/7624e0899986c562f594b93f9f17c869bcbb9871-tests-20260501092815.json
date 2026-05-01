@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-195-track-b-wave-1-branch-home-terminal-togg-2219-8990",
+  "sha": "7624e0899986c562f594b93f9f17c869bcbb9871",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T13:28:15Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:28:15Z",
+      "fingerprint": "ac197d3f0b38c0b3d3efd81967c395a6",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/components/DetailPane.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

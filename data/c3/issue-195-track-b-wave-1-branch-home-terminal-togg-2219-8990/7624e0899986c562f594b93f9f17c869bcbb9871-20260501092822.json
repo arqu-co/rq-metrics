@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-195-track-b-wave-1-branch-home-terminal-togg-2219-8990",
+  "sha": "7624e0899986c562f594b93f9f17c869bcbb9871",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T13:28:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T12:51:29Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:27:44Z",
+      "files_checked": 34,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:28:18Z",
+      "coverage_tool": "js",
+      "files_checked": 18,
+      "below_threshold": 2,
+      "below_threshold_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "coverage": 65.95,
+          "min": 95
+        },
+        {
+          "file": "client/src/components/DetailPane.tsx",
+          "coverage": 50,
+          "min": 95
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:27:46Z",
+      "files_checked": 34,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:27:42Z",
+      "files_checked": 34,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 241000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:28:18Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:27:54Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:28:20Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T12:50:31Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T13:23:41Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:28:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:28:21Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:28:19Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T13:28:16Z",
+      "scanned_files": 16,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:28:15Z",
+      "fingerprint": "ac197d3f0b38c0b3d3efd81967c395a6",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "client/src/components/DetailPane.tsx"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 21000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2270.0
+}
