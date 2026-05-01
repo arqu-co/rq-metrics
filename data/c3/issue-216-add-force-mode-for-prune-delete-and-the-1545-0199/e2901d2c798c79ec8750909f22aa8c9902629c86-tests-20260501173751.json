@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "e2901d2c798c79ec8750909f22aa8c9902629c86",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T21:37:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T21:37:51Z",
+      "fingerprint": "adb1ce62aaa0da433f55bcfa87dd592b",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "    \u001b[36m</header>\u001b[39m\n    \u001b[36m<div\u001b[39m\n      \u001b[33mclass\u001b[39m=\u001b[32m\"fixed inset-0 z-50 flex items-center justify-center bg-black/40\"\u001b[39m\n      \u001b[33mdata-testid\u001b[39m=\u001b[32m\"prune-overlay\"\u001b[39m\n    \u001b[36m>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"bg-white rounded-lg shadow-xl p-5 w-[40rem] max-w-[92vw] max-h-[85vh] overflow-y-auto\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<header\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"mb-3\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<h2\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"text-sm font-semibold text-paper-800\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mPrune worktrees\u001b[0m\n          \u001b[36m</h2>\u001b[39m\n          \u001b[36m<p\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"text-xs text-paper-500 mt-0.5\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mSelect worktrees to remove. Protected branches and worktrees with active sessions are skipped.\u001b[0m\n          \u001b[36m</p>\u001b[39m\n        \u001b[36m</header>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-sm text-paper-600\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mLoading worktrees\u2026\u001b[0m\n        \u001b[36m</p>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n \u276f Object.getElementError ../../../node_modules/@testing-library/dom/dist/config.js:37:19\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n \u276f client/src/components/DashboardHeader.test.tsx:102:28\n    100|     fireEvent.click(screen.getByRole(\"button\", { name: /prune worktree\u2026\n    101|     await waitFor(() => expect(screen.getByTestId(\"prune-overlay\")).to\u2026\n    102|     fireEvent.click(screen.getByRole(\"button\", { name: /^cancel$/i }));\n       |                            ^\n    103|     await waitFor(() => expect(screen.queryByTestId(\"prune-overlay\")).\u2026\n    104|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\n\n\n Test Files  2 failed | 274 passed (276)\n      Tests  2 failed | 3170 passed (3172)\n   Start at  17:37:17\n   Duration  33.84s (transform 5.91s, setup 0ms, import 24.79s, tests 123.79s, environment 53.53s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
