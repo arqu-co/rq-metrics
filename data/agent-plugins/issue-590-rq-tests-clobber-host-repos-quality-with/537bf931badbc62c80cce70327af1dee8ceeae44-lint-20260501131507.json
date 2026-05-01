@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-590-rq-tests-clobber-host-repos-quality-with",
+  "sha": "537bf931badbc62c80cce70327af1dee8ceeae44",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T17:15:07Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T17:15:06Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/test_rq_state_migrate_quality.sh.orig ./plugins/rq/scripts/test_rq_state_migrate_quality.sh\n--- ./plugins/rq/scripts/test_rq_state_migrate_quality.sh.orig\n+++ ./plugins/rq/scripts/test_rq_state_migrate_quality.sh\n@@ -261,8 +261,8 @@\n     rm -rf \"$REAL_STATE_ROOT\"\n     _state_root_base=\"$REAL_HOME/.claude/state\"\n     _p=\"$(dirname \"$REAL_STATE_ROOT\")\"\n-    while [ \"$_p\" != \"$_state_root_base\" ] && [ \"$_p\" != \"/\" ] \\\n-      && [ -d \"$_p\" ] && [ -z \"$(ls -A \"$_p\" 2>/dev/null)\" ]; do\n+    while [ \"$_p\" != \"$_state_root_base\" ] && [ \"$_p\" != \"/\" ] &&\n+      [ -d \"$_p\" ] && [ -z \"$(ls -A \"$_p\" 2>/dev/null)\" ]; do\n       rmdir \"$_p\" 2>/dev/null || break\n       _p=\"$(dirname \"$_p\")\"\n     done\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
