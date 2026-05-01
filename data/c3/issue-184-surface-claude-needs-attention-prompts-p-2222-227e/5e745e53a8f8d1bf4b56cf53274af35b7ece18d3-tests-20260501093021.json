@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-184-surface-claude-needs-attention-prompts-p-2222-227e",
+  "sha": "5e745e53a8f8d1bf4b56cf53274af35b7ece18d3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T13:30:21Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T13:30:21Z",
+      "test_runner": "bin-test",
+      "fingerprint": "7b623815f5941b48ab14f7a117414a76",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-d9t7HP\n * [new branch]      feature/x -> feature/x\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-Z18U2z\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (checking out 'feature/x')\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-ItrFjh\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/app-routes-auto-update-router-scope.test.ts (6 tests | 1 failed) 39ms\n     \u00d7 still gates /api/admin/auto-update/* when env unset 7ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-auto-update-router-scope.test.ts > auto-update admin routes \u2014 router scope (regression #202) > still gates /api/admin/auto-update/* when env unset\nAssertionError: expected 426 to be 403 // Object.is equality\n\n- Expected\n+ Received\n\n- 403\n+ 426\n\n \u276f server/__tests__/app-routes-auto-update-router-scope.test.ts:83:24\n     81|     const res = await request(makeApp(makeDeps(homeDir)))\n     82|       .post(\"/api/admin/auto-update/snapshot-and-drain\");\n     83|     expect(res.status).toBe(403);\n       |                        ^\n     84|     expect(res.body.error).toBe(\"auto_update_disabled\");\n     85|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 245 passed (246)\n      Tests  1 failed | 2923 passed (2924)\n   Start at  09:30:02\n   Duration  18.89s (transform 7.12s, setup 0ms, import 27.38s, tests 116.32s, environment 57.28s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
