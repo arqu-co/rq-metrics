@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-590-rq-tests-clobber-host-repos-quality-with",
+  "sha": "ae0afd7dccf40d8458774f8f5264127e4bf22b13",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T16:22:50Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:22:49Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/test_gate_prerun_check.sh.orig ./plugins/rq/scripts/test_gate_prerun_check.sh\n--- ./plugins/rq/scripts/test_gate_prerun_check.sh.orig\n+++ ./plugins/rq/scripts/test_gate_prerun_check.sh\n@@ -81,10 +81,10 @@\n \n STATUS=0\n OUTPUT=$(cd \"$REPO4\" && bash \"$GATE\" 2>&1) || STATUS=$?\n-if [ \"$STATUS\" -ne 0 ] \\\n-  && echo \"$OUTPUT\" | grep -q \"dangling symlink\" \\\n-  && echo \"$OUTPUT\" | grep -q \"nonexistent-target\" \\\n-  && echo \"$OUTPUT\" | grep -q \"590\"; then\n+if [ \"$STATUS\" -ne 0 ] &&\n+  echo \"$OUTPUT\" | grep -q \"dangling symlink\" &&\n+  echo \"$OUTPUT\" | grep -q \"nonexistent-target\" &&\n+  echo \"$OUTPUT\" | grep -q \"590\"; then\n   ok \"dangling symlink \u2192 exit 1 with target, recovery, and issue citation\"\n else\n   fail \"dangling symlink: expected exit 1 with diagnostic, got status=$STATUS output=$OUTPUT\"\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
