@@ -1,0 +1,285 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-204-fix-home-silent-fallback-in-createautoup-2221-d7ea",
+  "sha": "1fc0059b97074ba2f37141b3961a461e295d23d6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T02:57:21Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-204",
+    "review-wip-reviewer-2365",
+    "review-wip-reviewer-4561",
+    "review-wip-reviewer-7535",
+    "review-wip-reviewer-r3",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:27:58Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:28:29Z",
+      "coverage_tool": "js",
+      "files_checked": 2,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:27:58Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:27:56Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:51:47Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:28:07Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:51:49Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T02:28:07Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:51:49Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T02:56:27Z",
+      "duration_ms": 278000
+    },
+    "review-wip-reviewer-204": {
+      "status": "complete",
+      "findings": 8,
+      "findings_details": [
+        {
+          "file": "server/auto-update-snapshot.ts",
+          "line": 36,
+          "severity": "high",
+          "category": "correctness",
+          "title": "snapshotPath() default parameter still reads process.env.HOME ?? \"\" \u2014 the exact bug being fixed",
+          "body": "The fix adds config.homeDir and resolveHomeDir() in config.ts, and server/index.ts correctly passes homeDir: config.homeDir to createAutoUpdateRoutes. However, snapshotPath() at line 36 retains its default parameter `homeDir: string = process.env.HOME ?? \"\"`. Any call site that invokes snapshotPath() without an argument (e.g. in a future test or caller) silently gets the buggy behavior. The fix is incomplete because the default parameter on the exported function is the root of the original issue and is still present. Evidence: server/auto-update-snapshot.ts:36 `export function snapshotPath(homeDir: string = process.env.HOME ?? \"\"): string`. Same issue exists in server/auto-update-marker.ts:27 for markerPath(). Impact: The fix works for the production call path (createAutoUpdateRoutes gets config.homeDir), but any future call to snapshotPath() or markerPath() without an argument falls back to the old bug. The grepped callers in auto-update-snapshot.ts itself (lines 45, 49, 68) all pass homeDir explicitly, so no call site currently uses the default \u2014 but the dangerous default remains as a trap. Fix: Remove the default parameter value from snapshotPath() and markerPath(), making homeDir required. All existing callers already pass an explicit argument.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/auto-update-marker.ts",
+          "line": 27,
+          "severity": "high",
+          "category": "correctness",
+          "title": "markerPath() default parameter still reads process.env.HOME ?? \"\" \u2014 same incomplete fix as snapshotPath",
+          "body": "markerPath() at line 27 has `homeDir: string = process.env.HOME ?? \"\"` as its default. The fix in config.ts/index.ts correctly routes homeDir through config.homeDir at all production call sites (createAutoUpdateRoutes receives homeDir and passes it explicitly to writeFailureMarker, readFailureMarker, deleteFailureMarker via deps.homeDir). However, the dangerous default remains. Any future direct call to markerPath() without an argument silently falls back to the original buggy behavior. Fix: remove the default value, making homeDir required. All current callers already pass an explicit homeDir argument.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 251,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "loadEnv tests only assert no-throw \u2014 they do not assert that dotenv actually loaded the variable",
+          "body": "The three loadEnv branch tests (lines 250-279) call loadEnv() and assert it does not throw. They do NOT assert that the environment variable written to the .env file (TEST_ONLY=1 or CONFIG_TEST_ANCESTOR=yes) is actually present in process.env after the call. This means the test verifies the code runs without crashing, but does NOT verify that dotenv correctly parsed and loaded the file \u2014 the tested behaviour (variable is available in process) is not actually asserted. Example: if loadEnv() swallowed the dotenv import error entirely, all three tests would still pass. Fix: after calling loadEnv(), assert that `process.env.TEST_ONLY === '1'` (early-return branch) and `process.env.CONFIG_TEST_ANCESTOR === 'yes'` (walk-up branch). The fallback branch test (no .env anywhere) is harder to assert positively, but could assert that no exception is thrown AND that process.env was not corrupted. Each test should also delete the env vars in afterEach to prevent cross-test pollution.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/config.ts",
+          "line": 45,
+          "severity": "low",
+          "category": "style",
+          "title": "homeProvider DI parameter is valid but its necessity vs os.homedir spying is not explained",
+          "body": "The `homeProvider` parameter on `resolveHomeDir` is used exclusively to inject test-controlled values so the throw branch can be exercised. `os.homedir` is a third-party SDK (stdlib) boundary, so spying on it via `vi.spyOn(os, 'homedir').mockReturnValue('')` would be an acceptable boundary mock per the project's testing rules. However the DI parameter is also a clean pattern \u2014 it avoids importing the `os` module inside tests, is explicit, and does not require any mock infrastructure. The concern is whether the parameter signals that real callers might ever pass a custom provider, which they should not (the default is always the right choice). The parameter name `homeProvider` is clear enough, but the JSDoc comment at line 40-44 does not mention the parameter's role. This is a comment-quality finding, not a design defect. Fix: add a one-line note to the JSDoc explaining that the parameter exists only for test injection of the throw branch.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/config.ts",
+          "line": 47,
+          "severity": "low",
+          "category": "edge_case",
+          "title": "resolveHomeDir() accepts '/' and other root-of-filesystem paths without warning",
+          "body": "os.homedir() can return '/' in minimal containers running as root (e.g. scratch-based Docker images). The validation only rejects empty strings. A homeDir of '/' passes, and subsequent mkdirSync(join('/', '.c3'), ...) creates /.c3 \u2014 which a non-root process cannot write to, producing a silent-until-write-time failure that defeats the fail-fast goal. The fix at module-load time should ideally also reject '/' or emit a warning. Impact: containerized deploys running as root will see an EACCES at the first snapshot write rather than at boot \u2014 marginally better than the pre-fix relative-path bug but still late detection. Fix: add `|| home === '/'` to the rejection condition, or log a warning when home is a filesystem root.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 73,
+          "severity": "low",
+          "category": "test_robustness",
+          "title": "homeDir absoluteness check hardcodes POSIX '/' prefix \u2014 fails on Windows",
+          "body": "The test at line 73 asserts `config.homeDir.startsWith('/')`. On Windows, os.homedir() returns 'C:\\Users\\...' which does not start with '/'. This test would fail in any Windows CI or future Windows support. Given this project appears POSIX-only, this is a low-severity documentation gap rather than a functional bug. Fix: either document that this test is POSIX-only, or use `path.isAbsolute(config.homeDir)` which is cross-platform.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 81,
+          "severity": "low",
+          "category": "test_robustness",
+          "title": "claude.home default-path test skips when CLAUDE_HOME is set \u2014 may never exercise the branch in CI",
+          "body": "The test at line 80-83 guards with `if (process.env.CLAUDE_HOME) return;`. If CI sets CLAUDE_HOME (e.g. in a container that has it defined), this test silently passes without exercising the `${HOME_DIR}/.claude` default-path branch. The entire test is effectively a no-op whenever CLAUDE_HOME is in the environment. The issue #204 fix specifically changed this line (`${process.env.HOME}` \u2192 `${HOME_DIR}`), so the changed code path goes untested whenever CLAUDE_HOME is set. Fix: add a separate test that constructs a fresh homeDir string and asserts the expected path directly without depending on the ambient environment.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 232,
+          "severity": "info",
+          "category": "correctness",
+          "title": "null-cast test lacks explanatory comment \u2014 runtime guard is correct",
+          "body": "The test exercises the runtime null-guard correctly: resolveHomeDir(() => null as unknown as string) passes null at runtime, and !null is truthy so the throw fires. The test is valid and the guard works. However the test name 'throws when the provider returns null-ish (cast through)' and the as unknown as string bypass are unexplained \u2014 a reader might assume the function is supposed to accept null from typed callers, or wonder why the cast is needed. Fix: add a one-line comment explaining that this exercises the JS runtime null-defence for the case where a homeProvider implemented outside TypeScript (e.g. a JS wrapper around os.homedir) returns null despite the string type annotation.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-2365": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/__tests__/config.test.ts",
+          "line": 80,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "claude.home CLAUDE_HOME-set branch is untested: test is a tautology",
+          "body": "The test at line 80 reads process.env.CLAUDE_HOME at test-run time and computes the same expression config.ts used at module-load time. Since the config singleton is frozen at import, the assertion is always trivially true regardless of whether the CLAUDE_HOME-set branch actually executes correctly. No test validates that when CLAUDE_HOME=/custom/path is set before the module loads, config.claude.home equals that path. The CLAUDE_HOME-unset branch (default fallback to homeDir/.claude) is implicitly verified by the homeDir tests, but the CLAUDE_HOME-set branch has zero coverage.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/auto-update-marker.ts",
+          "line": 55,
+          "severity": "low",
+          "category": "correctness",
+          "title": "readFailureMarker casts to full type after only validating schemaVersion \u2014 required fields unvalidated",
+          "body": "After confirming schemaVersion === 1 (line 51-54), the code does 'return parsed as AutoUpdateLastFailure' (line 55) without verifying that 'at', 'step', and 'reason' are present and correctly typed. A corrupt or partial file with only {schemaVersion: 1} will be returned as a valid AutoUpdateLastFailure with undefined fields. Callers that access marker.at or marker.reason without null-checking will silently get undefined. The same pattern exists in readSnapshot (auto-update-snapshot.ts:57) for capturedAt, c3Sha, and sessions. Fix: validate required fields before casting, or return null on validation failure.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-4561": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/config.ts",
+          "line": 49,
+          "severity": "low",
+          "category": "style",
+          "title": "Redundant home.length === 0 check \u2014 dead branch",
+          "body": "resolveHomeDir() guards with `if (!home || home.length === 0)`. In JavaScript an empty string is falsy, so `!home` is already true when home === ''. The `home.length === 0` clause can never be reached independently. Dead code in a new function introduced by this PR. Fix: simplify to `if (!home)`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-7535": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/index.ts",
+          "line": 1,
+          "severity": "medium",
+          "category": "file-size",
+          "title": "index.ts is 318 lines, exceeding the 300-line limit",
+          "body": "The file is 318 lines. The 300-line max applies to every file touched by a PR. This PR modified line 119 (homeDir: config.homeDir), making the file fully in scope. The fix is a refactor: extract the boot-sequence startup functions (migrateWorktreesToSymlinks, prewarmBranchCache, startGitHubPolling, bootPreviews, getSelfVitePort, shutdown, boot) into a separate boot.ts module. index.ts would then import and call boot(). This is independent of the HOME fix and is a non-trivial refactor \u2014 the user must decide whether to include it in this PR or defer.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:57:21Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:51:48Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:51:47Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:57:20Z",
+      "test_runner": "bin-test",
+      "fingerprint": "5b96649c59dde6e57e3eeb00cb42371f",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 53000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1765.0
+}
