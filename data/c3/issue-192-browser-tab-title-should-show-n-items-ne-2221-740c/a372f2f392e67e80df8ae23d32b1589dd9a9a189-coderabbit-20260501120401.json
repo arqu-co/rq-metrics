@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-192-browser-tab-title-should-show-n-items-ne-2221-740c",
+  "sha": "a372f2f392e67e80df8ae23d32b1589dd9a9a189",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T16:04:01Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": "coderabbit",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:03:53Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
