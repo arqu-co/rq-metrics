@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-60-bug-orphaned-child-processes-accumulate-f-2224-3a45",
+  "sha": "6f7e297d40c2442e3e8ffd06c26dac569554704a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T15:30:18Z",
+  "phase": "ship",
+  "run_number": 4,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:30:18Z",
+      "test_runner": "bin-test",
+      "fingerprint": "098c0fd189270798838ad9e586f6a1d5",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
