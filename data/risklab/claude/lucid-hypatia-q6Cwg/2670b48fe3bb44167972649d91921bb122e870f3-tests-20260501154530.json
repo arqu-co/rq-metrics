@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-q6Cwg",
+  "sha": "2670b48fe3bb44167972649d91921bb122e870f3",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T22:45:30Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:45:30Z",
+      "test_runner": "bin-test",
+      "fingerprint": "af1f7b23b459197dd509c084feec444d",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 1,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\u001b[0;34mRunning all tests\u001b[0m\n\u001b[0;34m--- Backend ---\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[0;34mStarting infrastructure services...\u001b[0m\n\u001b[1;33m  db: starting existing container...\u001b[0m\nrisklab-db\n\u001b[1;33m  redis: starting existing container...\u001b[0m\nrisklab-redis\n\u001b[1;33mSetting up test databases...\u001b[0m\nSetting up 17 worker databases via template\nFailed to setup worker databases: alembic upgrade head failed:\nINFO  [alembic.env] Migration target database: marketplace_test\nINFO  [alembic.env] DATABASE_NAME override: (none)\nINFO  [alembic.env] ENVIRONMENT: test\nINFO  [alembic.env] Application name: risklab-migrate-test\nINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.\nINFO  [alembic.runtime.migration] Will assume transactional DDL.\nINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.\nINFO  [alembic.runtime.migration] Will assume transactional DDL.\nINFO  [alembic.env] Pre-flight: 58 tables in database, alembic at ('dropfilepath01',), code head {'at01las01upl'}\nERROR [alembic.util.messaging] Can't locate revision identified by 'dropfilepath01'\n\n\u001b[0;31mWorker database setup failed\u001b[0m"
+        }
+      ],
+      "missing_tests_details": [
+        "backend/app/api/chat/chat_context_builder.py"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
