@@ -1,0 +1,47 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-590-rq-tests-clobber-host-repos-quality-with",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T11:30:07.703Z",
+  "session_id": "647a89be-2637-4c58-ad38-54ec261b6429",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 74043,
+    "output": 699847,
+    "cache_read": 210425741,
+    "cache_create": 8737635,
+    "est_cost_usd": 160.32388901000002
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 26141205,
+      "cost_usd": 22.22191225
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 163813844,
+      "cost_usd": 106.48780400999999
+    },
+    "review": {
+      "tokens": 8164209,
+      "cost_usd": 4.65494625
+    },
+    "unknown": {
+      "tokens": 21818008,
+      "cost_usd": 26.9592265
+    }
+  }
+}
