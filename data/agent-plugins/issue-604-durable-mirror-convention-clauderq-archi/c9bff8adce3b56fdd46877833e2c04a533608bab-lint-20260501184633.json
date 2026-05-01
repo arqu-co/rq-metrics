@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-604-durable-mirror-convention-clauderq-archi",
+  "sha": "c9bff8adce3b56fdd46877833e2c04a533608bab",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T22:46:33Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:46:32Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "./plugins/rq/scripts/test_mirror_paths.sh:29:26: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_mirror_paths.sh:34:30: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_mirror_paths.sh:38:30: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_mirror_paths.sh:42:45: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_mirror_paths.sh:46:61: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n./plugins/rq/scripts/test_mirror_paths.sh:50:45: note: Note that A && B || C is not if-then-else. C may run when A is true. [SC2015]\n--- shfmt drift ---\ndiff ./plugins/rq/scripts/test_mirror_paths.sh.orig ./plugins/rq/scripts/test_mirror_paths.sh\n--- ./plugins/rq/scripts/test_mirror_paths.sh.orig\n+++ ./plugins/rq/scripts/test_mirror_paths.sh\n@@ -7,8 +7,14 @@\n \n PASS=0\n FAIL=0\n-ok() { echo \"ok: $1\"; PASS=$((PASS + 1)); }\n-fail() { echo \"FAIL: $1\"; FAIL=$((FAIL + 1)); }\n+ok() {\n+  echo \"ok: $1\"\n+  PASS=$((PASS + 1))\n+}\n+fail() {\n+  echo \"FAIL: $1\"\n+  FAIL=$((FAIL + 1))\n+}\n \n TMP=$(mktemp -d)\n trap 'rm -rf \"$TMP\"' EXIT\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

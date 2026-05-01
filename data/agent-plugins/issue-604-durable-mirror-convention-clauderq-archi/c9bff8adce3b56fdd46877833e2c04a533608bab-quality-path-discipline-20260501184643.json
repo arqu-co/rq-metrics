@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-604-durable-mirror-convention-clauderq-archi",
+  "sha": "c9bff8adce3b56fdd46877833e2c04a533608bab",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T22:46:42Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:46:41Z",
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "plugins/rq/scripts/lib/mirror-paths.sh",
+          "line": 18,
+          "snippet": "  binding=\"$root/.quality/branch-issue.json\""
+        },
+        {
+          "file": "plugins/rq/scripts/lib/mirror-paths.sh",
+          "line": 38,
+          "snippet": "  stripped=\"${sub#.quality/}\""
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
