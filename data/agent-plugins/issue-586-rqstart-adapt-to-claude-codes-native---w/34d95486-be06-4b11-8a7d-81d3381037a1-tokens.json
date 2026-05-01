@@ -1,0 +1,51 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-30T21:15:23.809Z",
+  "session_id": "34d95486-be06-4b11-8a7d-81d3381037a1",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 19788,
+    "output": 1365192,
+    "cache_read": 391540343,
+    "cache_create": 13754169,
+    "est_cost_usd": 228.79497421
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "brainstorm#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 1022192,
+      "cost_usd": 1.28299075
+    },
+    "brainstorm#2": {
+      "tokens": 50765514,
+      "cost_usd": 40.978150150000005
+    },
+    "brainstorm#3": {
+      "tokens": 305945788,
+      "cost_usd": 159.85691931
+    },
+    "review": {
+      "tokens": 48945998,
+      "cost_usd": 26.676914
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-30T22:06:51.012Z",
+  "session_id": "3e3037bd-61cf-45c6-8b4b-6ccb869e9f4d",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-opus-4-7"
+  ],
+  "session_total": {
+    "input": 65,
+    "output": 11854,
+    "cache_read": 3090249,
+    "cache_create": 111021,
+    "est_cost_usd": 2.53568075
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 3213189,
+      "cost_usd": 2.53568075
+    }
+  }
+}
