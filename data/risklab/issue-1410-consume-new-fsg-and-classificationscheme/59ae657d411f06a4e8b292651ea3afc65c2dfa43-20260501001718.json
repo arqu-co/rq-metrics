@@ -1,0 +1,732 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1410-consume-new-fsg-and-classificationscheme",
+  "sha": "59ae657d411f06a4e8b292651ea3afc65c2dfa43",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T07:17:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 6,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "filesize",
+    "review",
+    "test-quality",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-wip-reviewer-24880",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:13:42Z",
+      "files_checked": 34,
+      "violations": 12,
+      "violations_details": [
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "function": "_fan_out_query_risks",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "function": "query_all_location_risks",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.ts",
+          "function": "useRiskLayerSelection",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "function": "test_label_field_in_response",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/fixtures/georisk.py",
+          "function": "build_grs_test_data",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_feature_set_groups_endpoint_returns_catalog_with_schemes",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "function": "test_fetches_from_grs_when_cache_empty",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_publish_snapshot_with_georisk_widget_bakes_grs_data",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_bakes_grs_data_when_georisk_widget_present",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_grs_baking_filters_fsgs_without_classification_schemes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:17:14Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:13:44Z",
+      "files_checked": 34,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T06:48:40Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:13:39Z",
+      "files_checked": 34,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "lines": 372,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "lines": 326,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "lines": 821,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.test.tsx",
+          "lines": 454,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.test.tsx",
+          "lines": 333,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useClassificationSchemes.test.tsx",
+          "lines": 444,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useSegmentationData.test.tsx",
+          "lines": 394,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "lines": 375,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.test.tsx",
+          "lines": 338,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:17:14Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:13:54Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 10000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:17:17Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T06:30:40Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T07:13:54Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T06:48:39Z",
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:17:16Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-24880": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "frontend/src/hooks/useSegmentationData.ts",
+          "line": 101,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "parseFloat diverges from parseMonetaryValue for comma-formatted string values",
+          "body": "useSegmentationData.ts:101 uses `parseFloat(property.value ?? \"0\") || 0` while risk-layers-pane-rollup.ts uses `parseMonetaryValue`. For a comma-formatted string like \"1,000,000\", parseFloat returns NaN (yielding 0 via ||), while parseMonetaryValue strips non-numeric chars first and returns 1000000. The two codepaths handling TIV from the same ScheduleOfValuesPropertyLocation properties now produce different numeric results for identically-formatted input, silently undercounting TIV in the segmentation widget. Also, `parseFloat(property.value ?? \"0\")` passes a number (snapshot mode) where parseFloat expects a string - this works at runtime via JS coercion (parseFloat(1000000) === 1000000) but the intent is inconsistent with the fix. Fix: replace with a shared helper (or directly use parseMonetaryValue after moving it to a shared location) so both callers normalize values identically.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/types/api.generated.ts",
+          "line": 8967,
+          "severity": "low",
+          "category": "correctness",
+          "title": "latitude and longitude share the same Decimal->string OpenAPI spec mismatch as value",
+          "body": "The OpenAPI spec (openapi.json and api.generated.ts:8967-8970) declares latitude and longitude as string|null (with a regex pattern). At runtime, Pydantic v2 serializes Decimal as float, so latitude and longitude arrive as numbers in JSON. All current callers defensively wrap with Number() or parseFloat(String(...)), so no crash occurs today. However: (1) there is no test verifying latitude/longitude numeric tolerance; (2) PropertyMapPopup.tsx:18 does `property.latitude == null` which correctly handles both null and undefined but would fail if latitude were 0 (falsy) - though this is unlikely for a real coordinate. The root cause is that Python Decimal -> float but OpenAPI says string; all three fields (value, latitude, longitude) have this mismatch. The correct fix is to update the OpenAPI spec/generated types to reflect the actual wire format (number), or add a custom Pydantic serializer to serialize as string. Fix: either change the Pydantic model to use `str` for these fields and stringify in the service layer, or update the OpenAPI schema to use `type: number` and re-run bin/generate-api to keep TypeScript types accurate.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.ts",
+          "line": 61,
+          "severity": "low",
+          "category": "correctness",
+          "title": "parseMonetaryValue silently mangles scientific-notation string values",
+          "body": "The string path of parseMonetaryValue (line 61) applies `raw.replace(/[^0-9.-]/g, \"\")` before calling Number(). A string like \"1.5e10\" becomes \"1.510\" (the 'e' is stripped), so Number(\"1.510\") = 1.51 instead of 15000000000. This is a pre-existing bug in the string regex that was not introduced by this commit's refactor but was not fixed either. In practice, property values are unlikely to arrive in scientific notation from the backend since Pydantic serializes Decimal as a regular float, but the string path could receive user-supplied data. Fix: change the string branch to `const parsed = Number(raw.replace(/[^0-9.,-]/g, \"\").replace(/,/g, \"\"))` and add test cases for \"1.5e10\" and \"$1,500.00\".",
+          "confidence": "medium"
+        },
+        {
+          "file": "frontend/src/components/analytics/useRiskLayersPaneData.test.tsx",
+          "line": 227,
+          "severity": "info",
+          "category": "correctness",
+          "title": "Test correctly exercises number-typed runtime path despite TypeScript cast",
+          "body": "The new test creates `value: Number(p.value) as unknown as string`. The `as unknown as string` cast is TypeScript-only and has zero runtime effect - at runtime, value IS a number. The test therefore genuinely exercises the `typeof raw === \"number\"` branch in parseMonetaryValue. The cast is the idiomatic way to satisfy TypeScript strict mode while intentionally simulating a runtime type mismatch (the snapshot serialization shape). The test correctly asserts the same highConcernShare ratio as the string-typed equivalent test, proving the number path produces identical output. No issue with the test itself - this is confirming it works as intended.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.ts",
+          "line": 56,
+          "severity": "medium",
+          "category": "design",
+          "title": "parseMonetaryValue number branch unreachable by TypeScript at call site",
+          "body": "The widened signature (string | number | null | undefined) is correct as a runtime defence, but the sole call site is property.value typed string | null from the generated schema (api.generated.ts:8977). TypeScript will never route a number through this function, so the guard exists only at runtime. This means: (a) if the baking layer is ever fixed to emit strings, the dead numeric branch silently stays and accumulates drift; (b) a type-checker run cannot validate that the caller correctly handles the mismatch. The fix is to document the widening with a JSDoc comment that names the baking-layer divergence (Python Decimal -> float during JSON serialization for snapshot mode) so future engineers understand why a broader type than the schema demands is in play.",
+          "confidence": "high"
+        },
+        {
+          "file": "frontend/src/components/analytics/risk-layers-pane-rollup.test.ts",
+          "line": 24,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Numeric parseMonetaryValue path not covered in the unit test for toPropertiesWithTiv",
+          "body": "risk-layers-pane-rollup.test.ts contains a direct test of toPropertiesWithTiv (line 24) but its loc() helper is typed as (id: number, value: string), so no numeric input can be passed. The regression test for the number branch lives at the hook-integration level (useRiskLayersPaneData.test.tsx snapshot-mode describe block) via an as-unknown cast \u2014 that is an accurate simulation but it tests the whole hook stack, not just the parser. Edge cases for the numeric path (NaN, Infinity, negative numbers) are also unexercised. Fix: add a numeric case to the toPropertiesWithTiv unit test in risk-layers-pane-rollup.test.ts, using a cast-typed helper or a separate overload, covering at least: positive number (1000000), NaN (should return 0), Infinity (should return 0).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:17:18Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T07:17:16Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:17:13Z",
+      "scanned_files": 19,
+      "violations": 57,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 23,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 32,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 42,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 76,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 109,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 120,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 143,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 156,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 170,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 186,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 205,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 227,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 242,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 66,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    shard = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 70,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 37,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 53,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 123,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 162,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 167,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        feature = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 170,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        seg_attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 173,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fsg_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 179,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        risk_type_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 183,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 201,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 241,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 272,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 46,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 72,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 103,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 174,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 187,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 198,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 209,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 227,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 289,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 535,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        row = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 549,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 598,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 642,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 674,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 698,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 745,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 783,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 23,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 33,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 52,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        feature = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 55,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        seg_attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 58,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fsg_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 64,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        risk_type_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 68,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 77,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 205,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:17:11Z",
+      "fingerprint": "abf2443f047203d964e768f54f1994d9",
+      "test_runner": "bin-test",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "frontend/src/components/dealDashboard/MapToolbar.tsx",
+        "frontend/src/hooks/useGrsRiskLayers.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 197000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2798.0
+}

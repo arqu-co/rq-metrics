@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1410-consume-new-fsg-and-classificationscheme",
+  "sha": "59ae657d411f06a4e8b292651ea3afc65c2dfa43",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T07:13:39Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:13:39Z",
+      "files_checked": 34,
+      "violations": 9,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "lines": 372,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "lines": 326,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "lines": 821,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/GeoriskSegmentationMapWidget.test.tsx",
+          "lines": 454,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/dealDashboard/SegmentationMapHelpers.test.tsx",
+          "lines": 333,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useClassificationSchemes.test.tsx",
+          "lines": 444,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/hooks/useSegmentationData.test.tsx",
+          "lines": 394,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "lines": 375,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.test.tsx",
+          "lines": 338,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
