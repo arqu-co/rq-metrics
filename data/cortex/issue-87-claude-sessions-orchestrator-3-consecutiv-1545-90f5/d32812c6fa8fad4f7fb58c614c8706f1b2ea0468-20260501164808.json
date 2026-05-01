@@ -1,0 +1,230 @@
+{
+  "schema_version": 2,
+  "repo": "cortex",
+  "branch": "issue-87-claude-sessions-orchestrator-3-consecutiv-1545-90f5",
+  "sha": "d32812c6fa8fad4f7fb58c614c8706f1b2ea0468",
+  "user": "Alicia Drinkwater",
+  "user_email": "adrinkwater@arqu.co",
+  "timestamp": "2026-05-01T20:48:08Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:45:12Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 24000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:35:32Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 9000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:21:06Z",
+      "coverage_tool": "js",
+      "files_checked": 13,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:35:38Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 6000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:35:23Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:46Z",
+      "duration_ms": 14000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:35:58Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 20000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:48Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:21:01Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:46.344555Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:48Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T20:44:08Z",
+      "duration_ms": 482000
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "lib/runtime/tick-execution.ts",
+          "line": 35,
+          "severity": "high",
+          "category": "correctness",
+          "title": "no-progress signal absent from Promise.race \u2014 only fires if tick iterates the SDK generator",
+          "body": "runTickWithDeadline races tickPromise against deadlinePromise(runtime.deadlineSignal) only. noProgressSignal is injected into DeadlineAgentSdkClient and thus into the SDK call's abort chain, but there is no deadlinePromise(runtime.noProgressSignal) in the race. If a tick body awaits anything other than iterating the sdkClient generator when the no-progress timer fires (e.g. a slow DB write, a fetch, or just `await doSomethingElse()` before the SDK call), the race will not observe the abort \u2014 it will sit waiting until the full 5-minute deadlineSignal fires. The fix is to add deadlinePromise(runtime.noProgressSignal, runtime.noProgressMs) as a third arm of the race, mirroring how the full deadline is handled.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 171,
+          "severity": "high",
+          "category": "error-handling",
+          "title": "authStatusProvider() throw propagates uncaught and aborts the entire scheduling pass",
+          "body": "skipPassForAuth() calls provider() with no try/catch. If provider() throws (e.g. loadAuthStatus throws because JSON.parse fails on a malformed credentials file, or resolveCredentialsHome throws due to an unexpected env state), the exception propagates up through executePass/executeForcedPass \u2192 tickOnce/forceTickOnce, where it is NOT caught. tickOnce/forceTickOnce re-await pass directly and do not wrap in try/catch. The activePasses Set is cleaned up in finally, but the exception bubbles to the setInterval callback (line 104 in start()), which is wrapped in void \u2014 so it becomes an unhandledRejection. Under --unhandled-rejections=throw (Node default since 15) this kills the process. The fix: wrap the provider() call in try/catch inside skipPassForAuth and return true (skip the pass) on any thrown value, logging the error.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/timed-agent-sdk-client.ts",
+          "line": 69,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "onFirstMessage clears no-progress timer before the awaiting generator consumer sees the abort \u2014 benign but order-dependent",
+          "body": "When the SDK yields its first message, notifyFirstMessageOnce() fires clearNoProgress() synchronously on line 69 inside timedStream's for-await loop. This happens BEFORE the message is yielded to the tick body (line 88). In a concurrent scenario: (A) no-progress timer fires at t=59999ms, noProgressController.abort() is scheduled. (B) At t=60000ms the first message arrives in the same event loop tick, clearNoProgress() runs and calls clearTimeout(noProgressTimer). However, once AbortController.abort() has been called, clearTimeout on the underlying setTimeout does not un-abort the signal \u2014 the signal is already aborted. The real race is: if noProgressController.abort() executes BEFORE clearTimeout runs (i.e. the setTimeout callback fires in the same turn as the for-await), the signal will be aborted and the SDK stream will throw on the NEXT iteration even though a message just arrived. The fix would be to check signal.aborted before starting the for-await and skip the abort propagation if we already have a message \u2014 but the current architecture where clearNoProgress clears the timer handles the common case. The narrow race where abort() races clearTimeout() in the same microtask batch is real but only matters if the no-progress deadline fires within the same event-loop iteration as the first message. Document this constraint explicitly, or use a boolean guard in noProgressController.abort() callback to suppress the abort when a message has arrived.",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/scheduler-health/run-health.ts",
+          "line": 150,
+          "severity": "low",
+          "category": "type-safety",
+          "title": "renderFailureTail receives failureReasonCounts as Readonly<Record<string,number>> but passes it to formatReasonHistogram typed as Readonly<Record<string,number>> \u2014 no cast needed, but categories.length > 1 check misses the single-category case in histogram",
+          "body": "renderFailureTail in build-attention-item.ts line 150: when categories.length === 1 the code falls through to the lastError branch (line 154). This means a single-category histogram (e.g. all 3 failures are 'tick deadline') will render as the lastError string, not as '3x tick deadline'. The PR description says 'one distinct reason \u2192 keep the legacy lastError rendering' so this is intentional, but the intent conflicts with the histogram data being available in failureReasonCounts. If consecutiveFailures >= threshold and all failures are one category, the body shows lastError (raw blocked_reason) instead of the histogram label. Since lastError can be 'tick deadline exceeded' and the histogram category is 'tick deadline', these differ slightly. Not a bug by PR intent, but worth confirming: is the intent to show the histogram only when there are MULTIPLE categories, or to ALWAYS show the histogram when it is non-empty?",
+          "confidence": "medium"
+        },
+        {
+          "file": "lib/runtime/tick-deadline.ts",
+          "line": 133,
+          "severity": "low",
+          "category": "correctness",
+          "title": "runtime.cancel() always clears both timers but noProgressTimer may already have been cleared by onFirstMessage \u2014 double clearTimeout is safe but undocumented",
+          "body": "createTickRuntime returns cancel() which calls clearTimeout(deadlineTimer) and clearTimeout(noProgressTimer). When onFirstMessage fires (first SDK message), clearNoProgress() also calls clearTimeout(noProgressTimer). Calling clearTimeout on an already-cleared timer id is a no-op in Node, so there is no functional bug. However, cancel() could document this: 'safe to call even if noProgress was already cleared by onFirstMessage'. Low severity because it is genuinely harmless, but the missing comment means a future reader might introduce a guard that adds a boolean flag and accidentally create a real race.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/runtime/deadline-agent-sdk-client.ts",
+          "line": 42,
+          "severity": "low",
+          "category": "correctness",
+          "title": "mergeSignals calls AbortSignal.any([...sources]) without checking if any source is already aborted",
+          "body": "When DeadlineAgentSdkClient.run() is called AFTER one of the deadline signals has already fired (e.g. a tick calls sdkClient.run() for a second time after the no-progress deadline already aborted), AbortSignal.any will receive an already-aborted signal and will immediately return an aborted merged signal. This is correct behavior \u2014 the inner run() will receive an already-aborted signal and should short-circuit. No functional bug, but worth documenting: callers should not expect a live signal when the runtime deadline is already past.",
+          "confidence": "high"
+        },
+        {
+          "file": "lib/scheduler/scheduler.ts",
+          "line": 173,
+          "severity": "low",
+          "category": "observability",
+          "title": "auth-skipped pass logs at info level \u2014 should be warn to surface in production log aggregation",
+          "body": "Line 173: this.logger.info(`scheduler: skipping ${passKind} pass \u2014 auth status: ${status.kind}`). A skipped pass means every orchestrator that was due will miss a tick. This is more impactful than a routine info message. Logging at warn (or error for expired/missing) ensures the skip is visible in production log aggregation tools that filter info. The logger interface already has an error() method. Consider: 'ok'/'expiring_soon' \u2192 skip never happens so not relevant; 'expired'/'missing'/'malformed' \u2192 logger.error.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:32Z",
+      "duration_ms": 24000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:44:48Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:36:06Z",
+      "scanned_files": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 8000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:21:04Z",
+      "test_runner": "bin-test",
+      "fingerprint": "3f7df0a3d150f25c8bb0c8235befb0d2",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1451.0
+}
