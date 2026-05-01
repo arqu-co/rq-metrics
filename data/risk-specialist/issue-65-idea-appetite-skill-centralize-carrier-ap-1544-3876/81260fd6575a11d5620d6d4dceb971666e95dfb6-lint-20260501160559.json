@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-65-idea-appetite-skill-centralize-carrier-ap-1544-3876",
+  "sha": "81260fd6575a11d5620d6d4dceb971666e95dfb6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T20:05:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T20:05:58Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "none",
+          "output": "\"FATAL: No linters, formatters, or typecheckers detected. Set up bin/lint, bin/format, bin/typecheck or install detectable tooling.\""
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
