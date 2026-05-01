@@ -1,0 +1,197 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "7cddd9492dc646b598a8725fa5a2b1b4e7066741",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T22:10:41Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "coverage",
+    "filesize",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:10:07Z",
+      "files_checked": 32,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "client/src/components/PruneRetryActions.tsx",
+          "function": "collectFailedSelections",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRepoGroup.tsx",
+          "function": "PruneWorktreesRepoGroup",
+          "lines": 56,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:10:38Z",
+      "files_checked": 17,
+      "coverage_tool": "js",
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "client/src/components/BranchCard.tsx",
+          "coverage": 69.23,
+          "min": 95
+        },
+        {
+          "file": "client/src/components/ConfirmDeleteDialog.tsx",
+          "coverage": 93.33,
+          "min": 95
+        },
+        {
+          "file": "server/app-routes-branches-delete.ts",
+          "coverage": 90,
+          "min": 95
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:09Z",
+      "files_checked": 32,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:10:05Z",
+      "files_checked": 32,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/components/__tests__/PruneWorktreesDialog.test.tsx",
+          "lines": 333,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:39Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:17Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:41Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:00:27Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:50:44Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:02.655013Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:40Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:51:10Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:40Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:10:37Z",
+      "scanned_files": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:10:36Z",
+      "fingerprint": "2e8eb85ff7074e311fdbd21d7c08ad86",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/PruneRetryActions.tsx"
+      ],
+      "duration_ms": 19000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 4797.0
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "7cddd9492dc646b598a8725fa5a2b1b4e7066741",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T22:10:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T22:10:36Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2e8eb85ff7074e311fdbd21d7c08ad86",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "client/src/components/PruneRetryActions.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
