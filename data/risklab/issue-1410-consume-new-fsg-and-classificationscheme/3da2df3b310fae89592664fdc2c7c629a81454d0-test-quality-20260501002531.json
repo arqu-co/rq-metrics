@@ -1,0 +1,376 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1410-consume-new-fsg-and-classificationscheme",
+  "sha": "3da2df3b310fae89592664fdc2c7c629a81454d0",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T07:25:31Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:25:31Z",
+      "scanned_files": 21,
+      "violations": 57,
+      "violations_details": [
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 23,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    user = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 32,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 42,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 76,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 97,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 109,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 120,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 143,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 156,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 170,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 186,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 205,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 227,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "line": 242,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 66,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    shard = MagicMock()"
+        },
+        {
+          "file": "backend/tests/api/public/test_public_endpoints.py",
+          "line": 70,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 27,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 37,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 53,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 123,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 162,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 167,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        feature = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 170,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        seg_attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 173,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fsg_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 179,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        risk_type_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 183,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 201,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 241,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "line": 272,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 46,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 72,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 103,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 174,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 187,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 198,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 209,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 227,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 289,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 535,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        row = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 549,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 598,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 642,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 674,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 698,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 745,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "line": 783,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        project = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 23,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    fsg = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 33,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 47,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 52,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        feature = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 55,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        seg_attr = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 58,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        fsg_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 64,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        risk_type_risks = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 68,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    response = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 77,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "    mock_grs = MagicMock()"
+        },
+        {
+          "file": "backend/tests/tasks/test_georisk_risk_query.py",
+          "line": 205,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_grs = MagicMock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

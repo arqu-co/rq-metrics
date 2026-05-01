@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "issue-1410-consume-new-fsg-and-classificationscheme",
+  "sha": "3da2df3b310fae89592664fdc2c7c629a81454d0",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T07:22:04Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T07:22:04Z",
+      "files_checked": 36,
+      "violations": 12,
+      "violations_details": [
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "function": "_fan_out_query_risks",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/services/georisk_service.py",
+          "function": "query_all_location_risks",
+          "lines": 52,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/api/grs/test_feature_set_groups.py",
+          "function": "test_label_field_in_response",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/fixtures/georisk.py",
+          "function": "build_grs_test_data",
+          "lines": 65,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "lines": 66,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_query_risks_and_retrieve_risk_data",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/integration/test_georisk_risk_data_integration.py",
+          "function": "test_feature_set_groups_endpoint_returns_catalog_with_schemes",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_georisk_service.py",
+          "function": "test_fetches_from_grs_when_cache_empty",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_publish_snapshot_with_georisk_widget_bakes_grs_data",
+          "complexity": 19,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_bakes_grs_data_when_georisk_widget_present",
+          "complexity": 12,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/services/test_space_service_snapshot.py",
+          "function": "test_grs_baking_filters_fsgs_without_classification_schemes",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/components/analytics/useGeoriskSegmentationMapState.ts",
+          "function": "useRiskLayerSelection",
+          "lines": 82,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
