@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "issue-390-bug-get-apiv2extractionsid-returns-empty",
+  "sha": "e914b2f026a191d498e941ea127038cfd56f0a40",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T16:13:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:13:09Z",
+      "files_checked": 5,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "src/arqu_atlas/workbench/api/routes/documents.py",
+          "function": "upload_document",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "src/arqu_atlas/workbench/api/routes/documents.py",
+          "function": "import_extraction",
+          "lines": 91,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "tests/unit/workbench/api/routes/test_extractions_import.py",
+          "function": "test_import_creates_external_completed_extraction",
+          "complexity": 20,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
