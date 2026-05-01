@@ -1,0 +1,292 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-q6Cwg",
+  "sha": "8f9db844d3945e39de75e11f06238db64289cac8",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T23:06:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 4,
+  "missed_gates": [
+    "complexity",
+    "issue-binding",
+    "test-quality",
+    "tests"
+  ],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "spec-posted",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-28T16:20:42Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:04:08Z",
+      "files_checked": 7,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "backend/app/api/authentication/email.py",
+          "function": "request_email_login",
+          "lines": 93,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/api/authentication/email.py",
+          "function": "resend_verification_email",
+          "lines": 63,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/app/middleware/authorization_middleware.py",
+          "function": "require_tool_access",
+          "lines": 72,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "backend/tests/core/test_observability_pii.py",
+          "function": "test_request_id_present_on_records_in_request_context",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/core/test_observability_pii.py",
+          "function": "test_auth_flow_does_not_log_customer_email",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "backend/tests/core/test_observability_pii.py",
+          "function": "test_authorized_endpoint_does_not_log_customer_email",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:06:27Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:04:09Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:26Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:04:07Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:06:27Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:04:20Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 11000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:06:30Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T15:51:18Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T23:04:20Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:04:06.923986Z",
+      "message": ".quality is accessible"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-26T21:29:25Z",
+      "flows_failed": 0,
+      "flows_passed": 0,
+      "flows_tested": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:06:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-04-16T19:00:00Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-16T19:05:15Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:06:29Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "spec-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-04-30T17:11:43Z"
+    },
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:06:26Z",
+      "scanned_files": 2,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 51,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 85,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 117,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 118,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 151,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_db = Mock()"
+        }
+      ],
+      "duration_ms": 126000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:06:26Z",
+      "fingerprint": "bf00f888c543f86b3d9e0fc2e5595771",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "backend/app/api/chat/chat_context_builder.py"
+      ],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3116225.0
+}

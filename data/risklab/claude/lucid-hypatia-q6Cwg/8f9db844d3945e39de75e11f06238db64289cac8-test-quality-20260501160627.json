@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-q6Cwg",
+  "sha": "8f9db844d3945e39de75e11f06238db64289cac8",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T23:06:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:06:26Z",
+      "scanned_files": 2,
+      "violations": 8,
+      "violations_details": [
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 50,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 51,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 85,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 86,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 117,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 118,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        mock_db = Mock()"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 151,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "        request = Mock(spec=Request)"
+        },
+        {
+          "file": "backend/tests/test_authorization_middleware_logging.py",
+          "line": 161,
+          "pattern": "Mock/MagicMock assignment",
+          "code": "            mock_db = Mock()"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

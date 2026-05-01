@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "claude/lucid-hypatia-q6Cwg",
+  "sha": "8f9db844d3945e39de75e11f06238db64289cac8",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T23:06:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T23:06:27Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
