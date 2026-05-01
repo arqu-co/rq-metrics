@@ -1,0 +1,328 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-7674-fixe2e-elevationservicee2etest-irvine-ca",
+  "sha": "affd01490e23525ae9e74912395b69b6a25a408e",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:12:05Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "qa",
+    "quality-path-discipline",
+    "review-wip-reviewer-14316",
+    "review-wip-reviewer-14442",
+    "review-wip-reviewer-40546",
+    "review-wip-reviewer-98854",
+    "review-wip-reviewer-9999",
+    "review-wip-reviewer-r3",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T05:11:52Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T04:34:30Z",
+      "files_checked": 0,
+      "coverage_tool": "jacoco",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:11:53Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T07:12:13Z",
+      "overall_grade": "",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:11:51Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:11:59Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:11:57Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:12:04Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T04:34:17Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T04:34:21Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-25T07:12:13Z",
+      "flows_passed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_failed": 0,
+      "recordings": 0,
+      "issues": 0,
+      "recordings_details": [],
+      "issues_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:12:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-14316": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 53,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "UNSUCCESSFUL_5XX_REGEX hard-codes cross-module string contract with no compile-time link",
+          "body": "The regex literal on line 53 encodes the exact error-message format emitted by JsonGetExecutor.issueRequest in a different module. If that message format is ever refactored, the test silently stops skipping transient 5xx errors and instead rethrows them as hard test failures, breaking the CI lane. Fix: extract the format string (or a constant for it) from JsonGetExecutor into a shared location (e.g. a companion-object constant on JsonGetExecutor or a dedicated error-format object), and reference it here. If cross-module extraction is too invasive, at minimum add a TODO with the full qualified class name and a note about the coupling so tools like ArchUnit or a future refactor can catch the breakage.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 235,
+          "severity": "low",
+          "category": "style",
+          "title": "isTransientUsgsServerError name implies USGS-specific detection but matches any RuntimeException with that message",
+          "body": "The function name promises it identifies USGS server errors specifically, but the predicate matches any RuntimeException anywhere in the cause chain whose message matches UNSUCCESSFUL_5XX_REGEX. A non-USGS RuntimeException with a coincidentally matching message would be classified as a USGS transient skip. Fix: either rename to isTransientServerError (dropping the Usgs qualifier) to accurately reflect the implementation scope, or tighten the check by also verifying the exception originates from the expected package/class if that information is accessible.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-14442": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 226,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "isTransientNetworkError allowlist misses OkHttp HTTP/2 IOException subclasses",
+          "body": "OkHttp 4.6.0 throws two IOException subclasses that are genuine transient network failures but are NOT covered by the current allowlist:\n- okhttp3.internal.http2.ConnectionShutdownException extends java.io.IOException (thrown when an HTTP/2 connection is shut down mid-request)\n- okhttp3.internal.http2.StreamResetException extends java.io.IOException (thrown when an HTTP/2 stream is reset by the peer)\nBoth extend IOException directly \u2014 NOT InterruptedIOException, SocketException, UnknownHostException, EOFException, or SSLException. A HEAD request to epqs.nationalmap.gov or elevation.nationalmap.gov via HTTP/2 can produce either of these. When they occur, the test will FAIL rather than SKIP, which defeats the intent of the round-1 fix.\nFix: add both to the when-block in isTransientNetworkError, or add a broader guard: catch any IOException subclass that is NOT one of the known non-transient subtypes (e.g. jackson JsonProcessingException). The simpler, lower-risk fix is the explicit allowlist addition: is ConnectionShutdownException, is StreamResetException -> true",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-40546": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 82,
+          "severity": "medium",
+          "category": "resource-leak",
+          "title": "isReachable: HttpURLConnection not disconnected on exception path",
+          "body": "The connection is opened at line 82, but disconnect() is only called on the success path (line 88). If connection.connect() at line 86 throws, or if connection.responseCode at line 87 throws (e.g. after a partial connect), the catch block at line 91 runs but disconnect() is never called. This leaks the underlying socket. Fix: wrap the body in a try/finally block so disconnect() is always called regardless of exception.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 195,
+          "severity": "low",
+          "category": "correctness",
+          "title": "isTransientUsgsFailure: cause-chain walk unbounded \u2014 infinite loop on circular cause chain",
+          "body": "The while loop at line 195 follows cause.cause indefinitely. A Throwable with a circular cause chain (a.cause = b, b.cause = a) causes an infinite loop. The JVM does not prevent circular causes. Standard practice is to cap the depth (e.g. 20 hops) or track visited throwables with an identity set. Fix: add a visited identity set (or a hard cap like `var depth = 0; while (cause != null && depth++ < 20)`) to prevent the infinite loop.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 137,
+          "severity": "high",
+          "category": "correctness",
+          "title": "isTransientUsgsFailure: silently skips on JSON deserialization errors (JsonProcessingException is IOException)",
+          "body": "JsonGetExecutor.execute() calls mapper.readValue() which throws JsonProcessingException (a subclass of IOException) on malformed JSON. isTransientUsgsFailure() walks the cause chain checking for IOException, so a malformed-JSON response from USGS will be caught at line 137 and converted to a test SKIP instead of a FAIL. A JSON parse failure is not a transient network error \u2014 it signals a breaking change in the USGS API contract. Fix: tighten the catch to only network-layer IOException subclasses (e.g. SocketTimeoutException, ConnectException, EOFException, SSLException, InterruptedIOException) rather than all IOException, or add a negative check that excludes JsonProcessingException specifically.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 25,
+          "severity": "low",
+          "category": "dead-code",
+          "title": "HAWAII_FAIRMONT_ORCHID_COORD is dead code \u2014 only referenced in commented-out LocationCase",
+          "body": "HAWAII_FAIRMONT_ORCHID_COORD is defined at line 25 but its only use is in the LocationCase block commented out at lines 109-115. The constant is never referenced by live code. Fix: either remove the constant and the commented-out block, or add a TODO comment explaining when it will be re-enabled and what it depends on.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-98854": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 59,
+          "severity": "low",
+          "category": "style",
+          "title": "KDoc [okhttp3.internal.*] links are unresolvable \u2014 use backtick code font instead",
+          "body": "Lines 59-60: the KDoc on isTransientUsgsFailure uses KDoc link syntax [okhttp3.internal.http2.ConnectionShutdownException] and [okhttp3.internal.http2.StreamResetException]. These classes are intentionally not imported (they are unstable internal OkHttp API) so the links will never resolve \u2014 Kotlin/Dokka will silently render them as broken references. Since the purpose is to name historical examples in explanatory prose, not to create navigable API links, replace [ ] with backtick code spans: `okhttp3.internal.http2.ConnectionShutdownException` and `okhttp3.internal.http2.StreamResetException`.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 140,
+          "severity": "medium",
+          "category": "style",
+          "title": "abort<Nothing> called fully-qualified while assumeTrue is imported as a member",
+          "body": "abort<Nothing>(msg) at line 140 uses a fully-qualified call (org.junit.jupiter.api.Assumptions.abort<Nothing>(msg)) while the file imports org.junit.jupiter.api.Assumptions.assumeTrue as a member import (line 6). Mixed import style: every other JUnit symbol in this file uses a member import. The fix is to add 'import org.junit.jupiter.api.Assumptions.abort' and use 'abort<Nothing>(msg)' at the call site.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 194,
+          "severity": "high",
+          "category": "correctness",
+          "title": "isTransientUsgsFailure does not catch USGS HTTP 5xx \u2014 those will FAIL rather than SKIP",
+          "body": "JsonGetExecutor.issueRequest (JsonGetExecutor.kt:91-93) throws a plain RuntimeException with no IOException in its cause chain when the USGS HTTP response is non-2xx (e.g. a 503 during a test run). isTransientUsgsFailure walks the cause chain for IOException, but plain RuntimeException(message) has cause=null \u2014 so the walk returns false and the test FAILs instead of SKIPs. The exact observed failure mode (Irvine CA flake on PR#3543) was likely a network timeout (OkHttp IOException) rather than a 5xx, but a USGS 5xx response would still surface as a hard FAIL under the current code. Fix: in isTransientUsgsFailure, also check whether the exception message matches a known-HTTP-error pattern emitted by issueRequest, OR (cleaner) have issueRequest wrap the non-2xx RuntimeException with a domain-typed exception (e.g. UsgsHttpException) and check for that in isTransientUsgsFailure. Alternatively: check message.contains(\"Request unsuccessful with code\") as a fallback in the existing helper.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 37,
+          "severity": "low",
+          "category": "architecture",
+          "title": "USGS base URL constants duplicate private constants in production clients",
+          "body": "USGS_3DEP_BASE_URL (line 37) and USGS_EPQS_BASE_URL (line 34) duplicate the private BASE_URL constants in ElevationSourceMetadataClient.kt:44 and ElevationClient.kt:27 respectively. Both production constants are private, so the test cannot import them without changing production visibility. The plan explicitly says 'no production code touched', which makes the duplication unavoidable right now. However it is a maintenance trap: if the USGS endpoint moves, the pre-flight silently diverges from the actual service call. Fix (non-breaking): promote the production BASE_URL constants to internal (not public) and import them in the test \u2014 this is a one-line visibility change per file with no prod blast radius. If the plan constraint is hard, document the coupling risk in a comment on each constant.",
+          "confidence": "high"
+        },
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 42,
+          "severity": "low",
+          "category": "style",
+          "title": "Variable name depOk is ambiguous \u2014 could mean 'dependency ok' rather than '3DEP ok'",
+          "body": "Line 42: 'val depOk = isReachable(USGS_3DEP_BASE_URL, \"3DEP ImageServer\")'. The prefix 'dep' reads as 'dependency' before readers see the RHS. The plan also used 'depOk' so this is spec-compliant, but 'threeDEPOk' or 'dep3Ok' would be clearer. This is minor but the two-char abbreviation ('dep') conflicts with the label string '3DEP'.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "src/e2eTest/kotlin/co/arqu/core/service/elevation/ElevationServiceE2ETest.kt",
+          "line": 225,
+          "severity": "low",
+          "category": "documentation",
+          "title": "isTransientNetworkError KDoc does not acknowledge non-network IOException subclasses",
+          "body": "The exclusion model (t is IOException && t !is JsonProcessingException) is intentionally broad. The KDoc states 'OkHttp throws a wide range of IOException subclasses for network failures' but does not note that any non-network, non-Jackson IOException subclass (e.g. FileNotFoundException, ZipException) reachable on this path would also be classified as transient. For the current https:// USGS code path through OkHttp this cannot happen in practice \u2014 OkHttp does not throw FileNotFoundException for https connections and Spring context is fully loaded before getElevation() is called. The KDoc should acknowledge the assumption that limits apply.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T04:34:31Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:12:02Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:11:59Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T04:33:06Z",
+      "test_runner": "bin-test",
+      "fingerprint": "067a8fc5d3cae9cd54920ed78ad4beff",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3189591.0
+}
