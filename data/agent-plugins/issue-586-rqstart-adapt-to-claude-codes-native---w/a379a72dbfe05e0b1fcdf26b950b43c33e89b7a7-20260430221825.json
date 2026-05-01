@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": "a379a72dbfe05e0b1fcdf26b950b43c33e89b7a7",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:18:25Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "quality-path-discipline",
+    "review-wip-reviewer-13183",
+    "review-wip-reviewer-15546",
+    "skill-isolation",
+    "test-quality"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:17:32Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:17:33Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:17:32Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:18:21Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:18:20Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 47000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:18:24Z",
+      "duration_ms": 1000
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:18:23Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-wip-reviewer-13183": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/skills/bind/SKILL.md",
+          "line": 26,
+          "severity": "medium",
+          "category": "documentation",
+          "title": "Binding schema documentation omits slug field added in 82ba1f91",
+          "body": "Line 26 documents the binding as {repo, issue, branch, state_key} but commit 82ba1f91 added a slug field to the schema. Any user or agent reading this SKILL.md to understand the binding format will produce code that omits slug \u2014 breaking the idempotent-rerun backward-compat path, which relies on slug being present in new bindings. Same issue in plugins/rq/skills/start/SKILL.md line 29. Fix: update both to {repo, issue, branch, state_key, slug}.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/skills/start/SKILL.md",
+          "line": 29,
+          "severity": "medium",
+          "category": "documentation",
+          "title": "Binding schema documentation omits slug field added in 82ba1f91",
+          "body": "Line 29 documents the binding as {repo, issue, branch, state_key} but commit 82ba1f91 added slug to the schema. An agent reading this SKILL.md to understand the binding format will produce code that omits slug. Fix: update to {repo, issue, branch, state_key, slug}.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-15546": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/start-helpers.sh",
+          "line": 118,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "_check_idempotent_rerun: get_owner_repo() may return spurious owner/repo for file:// remotes causing plan-path divergence from original run",
+          "body": "get_owner_repo() extracts the last two path components of the remote URL. For a file:// remote like file:///tmp/bare-repo.git it returns 'tmp/bare-repo' which passes the ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ regex, so plan_repo='tmp/bare-repo' and _rehydrate_quality_state looks for the plan in ~/.claude/plans/bare-repo/. But the original /rq:start run called 'gh repo view' (rq-start.sh line 128) which fails for no-GH repos, so original plan_repo=basename(repo_root). If repo_root basename != 'bare-repo', the idempotent rerun cannot find the plan file and rescaffolds it. Impact: narrow but real \u2014 affects CI test repos and local bare repos whose file:// path basename differs from the checkout basename. Fix: store plan_repo in branch-issue.json alongside slug so the idempotent path is fully deterministic. Alternatively, validate that get_owner_repo() result does not start with a known filesystem path component (tmp, var, home) before accepting it.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_rq_start.sh",
+          "line": 91,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "test_rq_start.sh: REPO_WITH_MAIN uses 'git init -q' without -b main, causing --new argument-validation tests to fail on systems where git default is 'master'",
+          "body": "Line 91-96 creates REPO_WITH_MAIN with 'git init -q' (no -b flag). On git >= 2.28 with init.defaultBranch=master (the git-distributed default), the repo lands on 'master'. rq-start.sh checks 'cur != default_branch' before processing --new arguments, so the script exits 1 with 'must start from main (currently on master)' before reaching handle_new_issue(). Three tests that assert usage/validation behavior (exit 2, slug error) instead see exit 1. Fix: change line 93 to 'git init -q -b main' to match what the tests expect. Same fix pattern already used at line 73 ('git init -q -b main PRIMARY').",
+          "confidence": "high"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:18:23Z",
+      "scanned_files": 45,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T04:58:09Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    }
+  },
+  "duration_seconds": 1215.0
+}
