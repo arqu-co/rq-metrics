@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-586-rqstart-adapt-to-claude-codes-native---w",
+  "sha": "53826c0dd2d51e4a418febb991d60eed7a3e81a2",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-01T05:41:42Z",
+  "phase": "ship",
+  "run_number": 9,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-round4",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T05:29:27Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:04Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:03Z",
+      "files_checked": 23,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:51Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:29:28Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:32:01Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:55Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T05:34:33Z",
+      "duration_ms": 0
+    },
+    "review-wip-reviewer-round4": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:34:33Z",
+      "duration_ms": 152000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:54Z",
+      "scanned_files": 45
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:25:52Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T05:41:41Z",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 428000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 998.0
+}
