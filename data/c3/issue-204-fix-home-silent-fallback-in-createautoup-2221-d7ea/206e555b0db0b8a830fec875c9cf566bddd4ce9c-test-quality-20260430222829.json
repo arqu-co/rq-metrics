@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-204-fix-home-silent-fallback-in-createautoup-2221-d7ea",
+  "sha": "206e555b0db0b8a830fec875c9cf566bddd4ce9c",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-01T02:28:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T02:28:28Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
