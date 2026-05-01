@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "issue-390-bug-get-apiv2extractionsid-returns-empty",
+  "sha": "39ff97287e3c67b6b8cdae972b202df957a1219d",
+  "user": "Jonathan Thom",
+  "user_email": "jthom@arqu.co",
+  "timestamp": "2026-05-01T16:22:29Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-01T16:22:29Z",
+      "files_checked": 6,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "tests/unit/workbench/api/extractions/test_get_v2.py",
+          "function": "test_get_v2_returns_populated_sov_for_external_import",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
