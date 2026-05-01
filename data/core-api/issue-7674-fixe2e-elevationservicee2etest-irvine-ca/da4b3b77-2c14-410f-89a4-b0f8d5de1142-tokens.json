@@ -1,0 +1,43 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "core-api",
+  "branch": "issue-7674-fixe2e-elevationservicee2etest-irvine-ca",
+  "sha": null,
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-04-30T23:56:13.096Z",
+  "session_id": "da4b3b77-2c14-410f-89a4-b0f8d5de1142",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 8110,
+    "output": 431431,
+    "cache_read": 93753059,
+    "cache_create": 2209816,
+    "est_cost_usd": 64.92416566
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 9762187,
+      "cost_usd": 8.6406925
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 1629075,
+      "cost_usd": 2.33384575
+    },
+    "writing-plans#2": {
+      "tokens": 85011154,
+      "cost_usd": 53.949627410000005
+    }
+  }
+}
