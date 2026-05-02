@@ -1,0 +1,219 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-224-pruning-worktrees-still-doesn-t-work-3rd-1912-18be",
+  "sha": "e09e41ae02d62d7791c9ba54983947a2eeae1fb4",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T23:47:14Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-44409",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T23:46:46Z",
+      "files_checked": 5,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "client/src/components/PruneWorktreesRow.tsx",
+          "function": "StatusCell",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 18000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-02T23:47:13Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:36Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:34Z",
+      "files_checked": 5,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:46Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:45Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:49Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-02T23:30:36Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:33.240079Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:48Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-02T23:46:00Z",
+      "duration_ms": 131000
+    },
+    "review-wip-reviewer-44409": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 31,
+          "severity": "high",
+          "category": "correctness",
+          "title": "vi imported after vi.mock() calls \u2014 wrong ordering",
+          "body": "Lines 20-29 call vi.mock() and vi.mock() before vi is imported on line 31. While vitest hoists vi.mock() calls, the named import of `vi` on line 31 placed after the mock calls is misleading and breaks linting/type-check ordering expectations. The standard pattern is to import vi at the top alongside other vitest imports (line 11 already imports describe/it/expect from vitest but omits vi). The mock calls at lines 20-29 should move below the imports, or `vi` should be added to the line-11 import. As written any linter or reader sees `vi` used before it is imported.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 12,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No afterEach/afterAll cleanup \u2014 temp directories leak",
+          "body": "setupRepo() creates a temp directory via mkdtempSync() on every test invocation (line 34), but there is no afterEach or afterAll that removes them. The branch-cleanup-error-messages.test.ts file in contrast has a proper afterEach that drains a tempDirs array. The 5 tests in prune-e2e.test.ts leave orphaned directories under the OS temp dir on every test run. Fix: add an afterEach (or afterAll) that collects and rmSync({recursive:true,force:true}) every dir created by setupRepo().",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 38,
+          "severity": "low",
+          "category": "style",
+          "title": "execSync (shell form) used where execFileSync is the project pattern",
+          "body": "The sibling test file branch-cleanup-error-messages.test.ts uses execFileSync throughout to avoid shell injection risk and stay consistent with branch-cleanup.ts. prune-e2e.test.ts uses execSync (shell form) for all git calls. The arguments are static strings so injection is not a live risk here, but inconsistency with the established pattern makes the test code harder to maintain and slightly more fragile if branch names are ever interpolated. Fix: replace execSync git invocations with execFileSync using an argv array, matching the style in branch-cleanup-error-messages.test.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRow.tsx",
+          "line": 119,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "results list hidden on 'done' rows \u2014 diagnostic output silently discarded",
+          "body": "showResults on line 119 gates display with `rowState.status === 'failed'`. The server (worktree-prune-batch-runner.ts:281) sets row.results on BOTH done and failed rows \u2014 results contains items like 'Stopped 2 terminals', 'Stopped preview server', 'Removed worktree', 'Deleted local branch'. For failed rows the git output is shown; for done rows it is silently discarded. This means if a partial failure occurs (e.g., 'Could not stop terminals' appears in results but no critical-failure prefix fires, so status=done), the operator never sees it. The fix: show results on done rows too, or at minimum show results on done rows when they contain any 'Could not ...' line.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 48,
+          "severity": "low",
+          "category": "style",
+          "title": "addWorktree uses shell-form execSync with interpolated branch name",
+          "body": "Line 48: `execSync(\\`git worktree add -b \\\"${branch}\\\" \\\"${worktreePath}\\\"\\`...)`. Unlike the static git calls, this one interpolates `branch` and `worktreePath` into a shell string. In tests branch names are caller-controlled so injection is not a live risk, but this is still the wrong pattern. execFileSync with an argv array eliminates the quoting complexity and the double-escaping that is already visible in this line.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:46:28Z",
+      "duration_ms": 28000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:48Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:43:46Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T23:47:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "786afa88d633ce5a0f7b7418fbc8800e",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-4W4b8S\n * [new branch]      feature/x -> feature/x\nPreparing worktree (new branch 'feat/dirty')\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/admin-auth.test.ts (10 tests | 1 failed) 184ms\n       \u00d7 returns 403 when Authorization header is malformed (no Bearer prefix) 35ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/admin-auth.test.ts > requireBearerToken > env var set \u2014 feature enabled > returns 403 when Authorization header is malformed (no Bearer prefix)\nAssertionError: expected 200 to be 403 // Object.is equality\n\n- Expected\n+ Received\n\n- 403\n+ 200\n\n \u276f server/__tests__/admin-auth.test.ts:69:26\n     67|         .get(\"/protected\")\n     68|         .set(\"Authorization\", SECRET);\n     69|       expect(res.status).toBe(403);\n       |                          ^\n     70|       expect(res.body.error).toBe(\"missing_bearer_token\");\n     71|     });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 289 passed (290)\n      Tests  1 failed | 3353 passed (3354)\n   Start at  19:46:48\n   Duration  24.32s (transform 8.06s, setup 0ms, import 36.78s, tests 125.69s, environment 90.75s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 26000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 997.0
+}
