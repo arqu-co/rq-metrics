@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "c5eef00fa158f188eb8d518e8b74ea646ac29378",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T00:51:07Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "complexity",
+    "lint",
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T00:50:30Z",
+      "files_checked": 46,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "server/branch-cleanup-fs-fallback.ts",
+          "function": "runFilesystemFallback",
+          "lines": 54,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRepoGroup.tsx",
+          "function": "PruneWorktreesRepoGroup",
+          "lines": 51,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "server/app-routes-fs-fallback.ts",
+          "function": "parseSelections",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/ConfirmDeleteDialog.tsx",
+          "function": "deriveFlags",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-02T00:51:04Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:50:33Z",
+      "files_checked": 46,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:50:27Z",
+      "files_checked": 46,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:51:04Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T00:50:41Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "client/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(117,17): error TS2352: Conversion of type 'undefined' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(117,40): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(118,18): error TS2352: Conversion of type 'undefined' to type 'RequestInit' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(118,41): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(137,17): error TS2352: Conversion of type 'undefined' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(137,40): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(138,18): error TS2352: Conversion of type 'undefined' to type 'RequestInit' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(138,41): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "client/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(117,17): error TS2352: Conversion of type 'undefined' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(117,40): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(118,18): error TS2352: Conversion of type 'undefined' to type 'RequestInit' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(118,41): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(137,17): error TS2352: Conversion of type 'undefined' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(137,40): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(138,18): error TS2352: Conversion of type 'undefined' to type 'RequestInit' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.\nclient/src/components/__tests__/FilesystemFallbackConfirm.test.tsx(138,41): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:51:06Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:37:44Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-02T00:17:27Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:50:24.360063Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:51:06Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:51:10Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:51:05Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:51:03Z",
+      "scanned_files": 20,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T00:51:02Z",
+      "test_runner": "bin-test",
+      "fingerprint": "b4c8b06fd2fd732da03d8699cad9f32a",
+      "missing_tests": 4,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [
+        "client/src/components/PruneWorktreesDialogBody.tsx",
+        "client/src/components/confirm-delete-dialog-parts.tsx",
+        "client/src/components/filesystem-fallback-api.ts",
+        "client/src/components/prune-fs-fallback-state.ts"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "     \u00d7 pipes request to the mapped dev-server port and relays the response 15ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 2 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/worktree-proxy.test.ts > createWorktreeProxyMiddleware \u2014 proxying requests > pipes request to the mapped dev-server port and relays the response\nAssertionError: expected 404 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 404\n\n \u276f server/__tests__/worktree-proxy.test.ts:120:29\n    118|       .set(\"Host\", \"feat-foo.c3.arqu.dev\");\n    119|\n    120|     expect(response.status).toBe(200);\n       |                             ^\n    121|     expect(response.text).toBe(\"hit /some/path\");\n    122|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/2]\u23af\n\n FAIL  server/__tests__/worktree-server-routes.test.ts > POST /api/worktree-servers/stop-all > stops all servers\nAssertionError: expected 404 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 404\n\n \u276f server/__tests__/worktree-server-routes.test.ts:144:24\n    142|       .send();\n    143|\n    144|     expect(res.status).toBe(200);\n       |                        ^\n    145|     expect(res.body.stopped).toBe(true);\n    146|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\n\n\n Test Files  2 failed | 281 passed (283)\n      Tests  2 failed | 3251 passed (3253)\n   Start at  20:50:43\n   Duration  18.94s (transform 6.84s, setup 0ms, import 28.66s, tests 101.76s, environment 65.18s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 21000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 14396.0
+}

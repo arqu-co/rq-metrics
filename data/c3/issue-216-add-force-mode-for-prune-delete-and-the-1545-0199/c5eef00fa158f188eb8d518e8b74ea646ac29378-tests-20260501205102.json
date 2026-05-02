@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-216-add-force-mode-for-prune-delete-and-the-1545-0199",
+  "sha": "c5eef00fa158f188eb8d518e8b74ea646ac29378",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T00:51:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T00:51:02Z",
+      "fingerprint": "b4c8b06fd2fd732da03d8699cad9f32a",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 4,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "     \u00d7 pipes request to the mapped dev-server port and relays the response 15ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 2 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/worktree-proxy.test.ts > createWorktreeProxyMiddleware \u2014 proxying requests > pipes request to the mapped dev-server port and relays the response\nAssertionError: expected 404 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 404\n\n \u276f server/__tests__/worktree-proxy.test.ts:120:29\n    118|       .set(\"Host\", \"feat-foo.c3.arqu.dev\");\n    119|\n    120|     expect(response.status).toBe(200);\n       |                             ^\n    121|     expect(response.text).toBe(\"hit /some/path\");\n    122|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/2]\u23af\n\n FAIL  server/__tests__/worktree-server-routes.test.ts > POST /api/worktree-servers/stop-all > stops all servers\nAssertionError: expected 404 to be 200 // Object.is equality\n\n- Expected\n+ Received\n\n- 200\n+ 404\n\n \u276f server/__tests__/worktree-server-routes.test.ts:144:24\n    142|       .send();\n    143|\n    144|     expect(res.status).toBe(200);\n       |                        ^\n    145|     expect(res.body.stopped).toBe(true);\n    146|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\n\n\n Test Files  2 failed | 281 passed (283)\n      Tests  2 failed | 3251 passed (3253)\n   Start at  20:50:43\n   Duration  18.94s (transform 6.84s, setup 0ms, import 28.66s, tests 101.76s, environment 65.18s)"
+        }
+      ],
+      "missing_tests_details": [
+        "client/src/components/PruneWorktreesDialogBody.tsx",
+        "client/src/components/confirm-delete-dialog-parts.tsx",
+        "client/src/components/filesystem-fallback-api.ts",
+        "client/src/components/prune-fs-fallback-state.ts"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
