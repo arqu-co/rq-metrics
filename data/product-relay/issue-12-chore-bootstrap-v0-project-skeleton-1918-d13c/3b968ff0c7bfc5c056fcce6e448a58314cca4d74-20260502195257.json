@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "repo": "product-relay",
+  "branch": "issue-12-chore-bootstrap-v0-project-skeleton-1918-d13c",
+  "sha": "3b968ff0c7bfc5c056fcce6e448a58314cca4d74",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T23:52:57Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "HEADER": 1
+  },
+  "critic_findings": [
+    {
+      "file": "bin/scheduler",
+      "line": 3,
+      "rule": "HEADER",
+      "message": "Missing required third header line: cd \"$(dirname \"$0\")/..\" \u2014 line 3 is 'echo \"scheduler not yet implemented\" >&2' instead"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "prerun-check",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:48:11Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:48:13Z",
+      "files_checked": 12,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:46Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 248000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:53Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:50Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 4000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:55Z",
+      "duration_ms": 1000
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:44.630880Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:54Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:48:38Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 25000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:52:53Z",
+      "test_runner": "bin-test",
+      "fingerprint": "9ea90bc17ba7b80be714aff7b626bc5a",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 284.0
+}
