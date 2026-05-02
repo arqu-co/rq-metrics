@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-66-idea-travel-skill-auto-triage-inbox-fire-1544-243a",
+  "sha": "d8ce4afbc656b17842ba1ceeccedb51ce6b59f8e",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T20:43:15Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "quality-path-discipline",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "COMPLEXITY": 1
+  },
+  "critic_findings": [
+    {
+      "file": "risk-specialist/scripts/travel-config.sh",
+      "line": 109,
+      "rule": "COMPLEXITY",
+      "message": "coerce() has cyclomatic complexity 10 (max 8). Decision points: 3 if-guards at top, 2 except ValueError branches, if not math.isfinite, ternary on line 130, if+and on line 131. Extract list-coercion into a separate helper coerce_list_value(raw, effective_key) to bring coerce() down to complexity 7."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "quality-path-discipline"
+  ],
+  "gates": {
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T20:43:15Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
