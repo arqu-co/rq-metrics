@@ -1,0 +1,100 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "agent-plugins",
+  "branch": "issue-621-rq-markdown-gate-md013-conflict",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-01T11:30:07.703Z",
+  "session_id": "647a89be-2637-4c58-ad38-54ec261b6429",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "<synthetic>",
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 89059,
+    "output": 1390428,
+    "cache_read": 712620807,
+    "cache_create": 25995575,
+    "est_cost_usd": 526.26448779
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 26141205,
+      "cost_usd": 22.22191225
+    },
+    "brainstorm#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#1": {
+      "tokens": 163813844,
+      "cost_usd": 106.48780400999999
+    },
+    "review#1": {
+      "tokens": 18095571,
+      "cost_usd": 9.884704000000001
+    },
+    "pr-feedback#1": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "pr-feedback#2": {
+      "tokens": 49054216,
+      "cost_usd": 39.09227185
+    },
+    "brainstorm#2": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#2": {
+      "tokens": 218059691,
+      "cost_usd": 127.95241568
+    },
+    "review#2": {
+      "tokens": 46096699,
+      "cost_usd": 28.855604749999998
+    },
+    "brainstorm#3": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#3": {
+      "tokens": 19570044,
+      "cost_usd": 10.3840845
+    },
+    "brainstorm#4": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#4": {
+      "tokens": 100539525,
+      "cost_usd": 95.4595755
+    },
+    "writing-plans#5": {
+      "tokens": 1315819,
+      "cost_usd": 1.9425535
+    },
+    "brainstorm#5": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans#6": {
+      "tokens": 46967447,
+      "cost_usd": 35.01603825
+    },
+    "review#3": {
+      "tokens": 28623800,
+      "cost_usd": 22.008297
+    },
+    "unknown": {
+      "tokens": 21818008,
+      "cost_usd": 26.9592265
+    }
+  }
+}
