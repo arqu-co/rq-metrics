@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/test-coverage-backfill-issue-98",
+  "sha": "5e2a13e243bf40f8349c450e0bcb17a6fb823f7c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T13:02:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T13:02:05Z",
+      "scanned_files": 62,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 38,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do"
+        },
+        {
+          "file": "test/services/policy_engine/document_engine/wrappers/base_wrapper_test.rb",
+          "line": 91,
+          "pattern": ".stub() on own method",
+          "code": "          form.template_file.stub(:download, ->(*) { raise Errno::ENOENT, \"blob gone\" }) do"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
