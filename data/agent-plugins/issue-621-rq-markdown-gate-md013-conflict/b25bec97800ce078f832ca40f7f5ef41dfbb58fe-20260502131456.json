@@ -1,0 +1,264 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "issue-621-rq-markdown-gate-md013-conflict",
+  "sha": "b25bec97800ce078f832ca40f7f5ef41dfbb58fe",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T17:14:56Z",
+  "phase": "coderabbit",
+  "run_number": 4,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-24320",
+    "review-wip-reviewer-29521",
+    "review-wip-reviewer-54596",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:12:35Z",
+      "findings": 0,
+      "findings_details": [],
+      "duration_ms": 55000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:09:51Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T18:48:49Z",
+      "coverage_tool": "py",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:09:53Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:09:50Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:10:32Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:10:29Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 36000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:11:40Z",
+      "duration_ms": 63000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:23:41Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T22:52:20Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:09:47.480679Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:10:37Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-02T15:19:58Z"
+    },
+    "review-wip-reviewer-24320": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/mirror.sh",
+          "line": 5,
+          "severity": "medium",
+          "category": "style",
+          "title": "mirror.sh uses set -uo pipefail instead of set -euo pipefail",
+          "body": "mirror.sh line 5 uses 'set -uo pipefail' but this script has no aggregation/orchestration pattern \u2014 it is a simple write/append utility with two commands that should fail fast. Repo convention (CLAUDE.md): 'New scripts should choose flags by behavior: aggregation/orchestration \u2192 -uo; fail-fast scripts \u2192 -euo.' Impact: a failed cp or mv in cmd_write silently continues instead of propagating the error, masking mirror corruption. Fix: change 'set -uo pipefail' to 'set -euo pipefail' on line 5.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_fresh_worktree_resume.sh",
+          "line": 43,
+          "severity": "medium",
+          "category": "style",
+          "title": "_count_entries helper interpolates path into python3 -c string literal",
+          "body": "Line 43: _count_entries() uses python3 -c \"...open('$1')...\" \u2014 the path is interpolated directly into the Python string literal. Every other python3 -c invocation in this file and its siblings passes data via environment variables (e.g., AT_LOCAL=\"$LOCAL\" python3 -c \"...os.environ['AT_LOCAL']...\"). A path with a single-quote in it (unlikely but possible from mktemp on some platforms) silently corrupts the call. More importantly it is inconsistent with the established repo pattern. Fix: rewrite _count_entries to pass the path via an env var: COUNT_PATH=\"$1\" python3 -c \"import json,os,sys; print(len(json.load(open(os.environ['COUNT_PATH']))['entries']))\" 2>/dev/null || echo 0",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-29521": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/lib/mirror-paths.sh",
+          "line": 40,
+          "severity": "medium",
+          "category": "security",
+          "title": "Path traversal guard does not handle NUL-byte-embedded subpaths",
+          "body": "The case pattern '*..* | /*)' correctly blocks '../etc/passwd' and 'foo/../../bar' (both contain '..'). However, a subpath with an embedded NUL byte \u2014 e.g. 'safe\\x00/../etc/passwd' \u2014 would be silently truncated by the shell at the NUL, stripping the traversal suffix before the case guard sees it. The resulting stripped path 'safe' passes the guard and _rq_mirror_path would resolve to a seemingly-safe mirror path. In practice callers are trusted (audit-trail.sh, not user input), so exploitability is low. But the guard claims to be comprehensive and is not. Fix: add an explicit NUL check using 'printf' | 'od' or validate that the input contains only printable ASCII before the case guard.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/mirror.sh",
+          "line": 33,
+          "severity": "low",
+          "category": "correctness",
+          "title": "case containment check treats glob metacharacters in git root as patterns",
+          "body": "In _validate_local_path, the case statement 'case \"$p\" in \"$root/.quality/\"*)' uses double-quoted variable expansion in a case pattern. In bash, case patterns are glob-matched even when double-quoted, so if $root contains '[', '*', or '?' (e.g. /Users/O[Bri]en/repo), the containment check becomes a glob rather than a literal prefix test. git rev-parse --show-toplevel is the source of $root, which is trusted and unlikely to contain glob chars in practice, but it is technically possible. Fix: use a string prefix comparison instead \u2014 e.g. check if ${p#\"$root/.quality/\"} != $p using parameter expansion, or use [[ $p == \"$root/.quality/\"* ]] which also performs glob matching but is documented as such, or use a case fallthrough with a literal prefix strip and length check.",
+          "confidence": "low"
+        },
+        {
+          "file": "plugins/rq/scripts/mirror.sh",
+          "line": 72,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "cmd_append idempotency check is defeated by trailing whitespace or CRLF line endings",
+          "body": "cmd_append compares 'tail -1 $local_path' against 'tail -1 $mirror' for idempotency. If the source file has trailing whitespace on its last line (e.g. '{\"a\":1}  ') and the mirror has the canonical form ('{\"a\":1}'), the comparison fails and a duplicate line is appended on every invocation. Similarly, if either file has CRLF line endings, tail -1 returns a line ending in \\r that will never match the other side. Both are realistic: editors and some JSON writers produce trailing whitespace; Windows-side tools produce CRLF. The JSONL audit stream then silently accumulates duplicate entries that inflate entry counts and confuse report generation. Fix: strip trailing whitespace and \\r from both sides before comparison \u2014 e.g. last_src=$(tail -1 \"$local_path\" | tr -d '\\r' | sed 's/[[:space:]]*$//') \u2014 and apply the same strip before writing.",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/mirror.sh",
+          "line": 76,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No lockfile: concurrent cmd_append from sibling worktrees can corrupt the mirror JSONL",
+          "body": "cmd_append performs a TOCTOU read-then-append: it reads tail -1 of the mirror, decides whether to append, then appends with >>. Two sibling worktrees (same issue, different branches) calling cmd_append simultaneously can both read the same last line, both decide the new line is not yet present, and both append \u2014 producing a duplicate. The plan for #604 mentioned a per-issue advisory lockfile; the implementation omits it. cmd_write uses cp+mv (atomic rename, no window) so it is unaffected. cmd_append is the only vulnerable path. Fix: acquire a per-mirror advisory lock (flock or mkdir-based, matching the pattern already used in audit-trail.sh) around the tail-check + append sequence in cmd_append.",
+          "confidence": "high"
+        },
+        {
+          "file": "plugins/rq/scripts/test_fresh_worktree_resume.sh",
+          "line": 42,
+          "severity": "medium",
+          "category": "security",
+          "title": "Shell interpolation of file path into python3 -c string is a code injection vector",
+          "body": "_count_entries() interpolates the $1 argument directly into a python3 -c string: python3 -c \"import json,sys; print(len(json.load(open('$1'))['entries']))\". If $1 contains a single quote, closing brace, or shell metacharacter (e.g. a path like /tmp/foo'bar or $(cmd)), the single-quoted Python string is broken. In these tests $1 is always a controlled path built from $MIRROR or $LOCAL so real exploitation is absent. But the pattern is unsafe by construction: it conflates the path (data) with the Python source (code). Fix: pass the path via an environment variable and reference os.environ inside the -c string, exactly as the rest of audit-trail.sh does throughout (e.g. AT_F='$1' python3 -c 'import json,os; print(len(json.load(open(os.environ[\"AT_F\"]))[\"entries\"]))' ).",
+          "confidence": "medium"
+        },
+        {
+          "file": "plugins/rq/scripts/test_mirror.sh",
+          "line": 74,
+          "severity": "low",
+          "category": "correctness",
+          "title": "wc -l pipeline with tr -d in test violates rule-1 and produces unreliable counts",
+          "body": "Line 74: LINES=$(wc -l <\"$MIRROR_AUDIT\" | tr -d ' '). The 'tr -d' in a pipeline is banned by rule-1 (output truncation ban on pipelines). The same pattern repeats at line 78. Beyond the rule violation, wc -l on a file without a trailing newline undercounts by 1 \u2014 a JSONL file with N records where the last line has no trailing newline reports N-1. The append path writes 'printf \"%s\\n\" \"$last_src\"' which does add a newline, so in practice the count is correct here, but the robustness assumption is fragile. Fix: replace with a python3 line-count that uses env-var path passing (consistent with the rest of the codebase), or at minimum redirect wc output to a tmp file and Read it rather than piping through tr.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-54596": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "plugins/rq/scripts/mirror.sh",
+          "line": 54,
+          "severity": "low",
+          "category": "documentation",
+          "title": "_with_mirror_lock comment omits timeout-concurrent-append risk",
+          "body": "The comment on lines 53-55 says 'on unlock failure (rmdir refused) the next caller blocks once and proceeds' but does not mention that when the 200ms acquire timeout fires (waited >= 20), _append_unlocked is called WITHOUT holding the lock. Two sibling callers that both exhaust the timeout will run _append_unlocked concurrently, which can produce a duplicate line. The comment should document this residual race explicitly so future readers understand the full risk surface.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:18:27Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T17:10:35Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:46:46Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T18:46:44Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 80751.0
+}
