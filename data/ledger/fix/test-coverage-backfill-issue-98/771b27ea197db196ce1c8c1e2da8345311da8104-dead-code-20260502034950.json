@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/test-coverage-backfill-issue-98",
+  "sha": "771b27ea197db196ce1c8c1e2da8345311da8104",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T07:49:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T07:49:49Z",
+      "files_checked": 0,
+      "violations": 5,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/invoice_engine/atlas_extraction_promoter_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 123,
+          "message": "Useless assignment to variable - `inv`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/invoice_engine/atlas_extraction_promoter_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 134,
+          "message": "Useless assignment to variable - `inv`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/invoice_engine/atlas_extraction_promoter_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 146,
+          "message": "Useless assignment to variable - `inv`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/invoice_engine/atlas_extraction_promoter_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 183,
+          "message": "Useless assignment to variable - `parent`."
+        },
+        {
+          "type": "rubocop_dead_code",
+          "file": "test/services/invoice_engine/atlas_extraction_promoter_test.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 201,
+          "message": "Useless assignment to variable - `parent`."
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
