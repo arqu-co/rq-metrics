@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-66-idea-travel-skill-auto-triage-inbox-fire-1544-243a",
+  "sha": "97769aafa88d9ff8f5453024ca7bb1aadd46c086",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T01:24:02Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T01:24:02Z",
+      "files_checked": 31,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "risk-specialist/scripts/helpers/test_travel_detect_calendar.py",
+          "lines": 307,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
