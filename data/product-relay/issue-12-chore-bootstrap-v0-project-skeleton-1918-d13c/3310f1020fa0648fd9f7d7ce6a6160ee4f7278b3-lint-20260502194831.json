@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "repo": "product-relay",
+  "branch": "issue-12-chore-bootstrap-v0-project-skeleton-1918-d13c",
+  "sha": "3310f1020fa0648fd9f7d7ce6a6160ee4f7278b3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T23:48:31Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "HEADER": 1
+  },
+  "critic_findings": [
+    {
+      "file": "bin/scheduler",
+      "line": 3,
+      "rule": "HEADER",
+      "message": "Missing required third header line: cd \"$(dirname \"$0\")/..\" \u2014 line 3 is 'echo \"scheduler not yet implemented\" >&2' instead"
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T23:48:30Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-format",
+          "exit_code": 1,
+          "output": "\n> relay@0.1.0 format /Users/aliciadrinkwater/Desktop/01-arqu/03-prototypes/product-relay/.claude/worktrees/issue-12-chore-bootstrap-v0-project-skeleton-1918-d13c\n> prettier --check .\n\nChecking formatting...\n[warn] next-env.d.ts\n[warn] tsconfig.json\n[warn] Code style issues found in 2 files. Run Prettier with --write to fix.\n\u2009ELIFECYCLE\u2009 Command failed with exit code 1.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
