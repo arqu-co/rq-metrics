@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-66-idea-travel-skill-auto-triage-inbox-fire-1544-243a",
+  "sha": "20da5602867efedfd5a6b0568116106643ce77dd",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T20:30:26Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T20:30:26Z",
+      "fingerprint": "aa6a25272c7bae6f76fc8e61c5c53fe1",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "  PASS: welcome-back exits 1 with empty history\n  PASS: stderr mentions no closed sessions\n\nwelcome-back (missing history file):\n  PASS: welcome-back exits 1 with missing history file\n\nwelcome-back (closed session \u2014 markdown output):\n  PASS: welcome-back exits 0 with closed session\n  PASS: output contains welcome-back header\n  PASS: output contains session id\n  PASS: output contains Out for\n  PASS: output contains handled section\n\nwelcome-back (briefings section):\n  PASS: output contains briefings section\n  PASS: output contains Quiet day\n  PASS: output contains One deal advanced\n\nwelcome-back (with tasks \u2014 sections populated):\n  PASS: output shows drafts section\n  PASS: output shows Alpha Corp in drafts\n  PASS: output shows flagged section\n  PASS: output shows CRITICAL task\n  PASS: output shows anomalies section\n  PASS: output shows Gamma Inc\n\nwelcome-back (explicit session id \u2014 happy path):\n  PASS: explicit id returns correct session\n  PASS: explicit id does not show other session\n\nwelcome-back (unknown session id \u2014 exits 1):\n  PASS: unknown session id exits 1\n  PASS: stderr mentions unknown session id\n\nstop (emits welcome-back after close):\n  PASS: stop output contains session ended\n  PASS: stop output contains Welcome back\n\nwelcome-back (no argv \u2014 most recent session):\n  PASS: no-argv welcome-back shows latest session\n\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  Passed: 24  Failed: 0\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  ALL SUITES COMPLETE\n  FAILED: test_travel_ops_corrupt_json test_travel_ops_session\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\nTests FAILED: 1 suite(s) with errors"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
