@@ -1,0 +1,323 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-217-bug-new-session-button-does-nothing-when-1545-285b",
+  "sha": "60b2da8012540140d7c0a728dea17623441fb6cb",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T00:29:28Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-17241",
+    "review-wip-reviewer-49571",
+    "review-wip-reviewer-51954",
+    "review-wip-reviewer-55757",
+    "review-wip-reviewer-82057",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T23:59:30Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:38:32Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:40:44Z",
+      "files_checked": 6,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:38:33Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:38:30Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:25Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:38:42Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:27Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-01T20:40:22Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:04.469401Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:26Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-01T20:38:00Z"
+    },
+    "review-wip-reviewer-17241": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 119,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Integration test does not catch the issue #217 regression",
+          "body": "The test 'renders the new-session wizard over BranchHome when a branch is selected and New Session is clicked (issue #217)' (line 119) asserts only that a 'Cancel new session' button appears after clicking New Session. Under the OLD broken code (handleNewSession set selectedBranch=null + freshSession=true), useBranchRouteSync's URL-to-selection effect would run after the next render and restore selectedBranch from the URL, causing BranchHome to re-mount with freshSession=true and the WizardOverlay (with 'Cancel new session') appearing. waitFor polls until stable state, so it sees the FINAL state where URL sync has restored the branch. The test passes under broken code. To actually catch the regression, the test must assert that setSelectedBranch was NOT called with null during handleNewSession, or use the unit test at line 207 which directly tests handleNewSession does not call setSelectedBranch. The unit test at line 207-223 IS a proper regression catch. The integration test at line 119 provides no additional protection and gives false confidence.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-49571": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 146,
+          "severity": "critical",
+          "category": "correctness",
+          "title": "WizardOverlay: useTerminalPanel called with no mounted container \u2014 every launch silently returns null",
+          "body": "WizardOverlay calls useTerminalPanel(null, sessions) at line 146 but never mounts the returned containersRef in its JSX. handleLaunchSession in useTerminalPanel.ts:133 guards with if (!containersRef.current) return null, so every wizard launch returns null, onSessionLaunched is never called, and the overlay is never dismissed after a successful launch. Tests pass only because vi.mock('../hooks/useTerminalPanel') replaces the real hook with a stub returning a hardcoded BranchGroup \u2014 the real code path is never exercised. Fix: pass BranchHome's containersRef down to WizardOverlay and into useTerminalPanel as the third externalContainersRef argument, so the wizard launches sessions into the same container already owned by BranchHome.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.test.tsx",
+          "line": 57,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "vi.mock('../hooks/useTerminalPanel') mocks an internal hook \u2014 banned by anti-mock rules",
+          "body": "BranchHome.test.tsx:57-61 uses vi.mock('../hooks/useTerminalPanel', ...) to replace the real hook with a stub. This is a full module mock on internal code, which the project rules explicitly ban: the test for the WizardOverlay launch behavior (lines 240-257) never calls the real useTerminalPanel at all, so if useTerminalPanel.ts is deleted or broken, those tests still pass. The mock is load-bearing for finding 1: it is the reason the launch-silently-returns-null bug is invisible in the test suite. Fix: remove the vi.mock call; instead, pass BranchHome a sessions stub whose launch() returns a resolved BranchGroup (the real useTerminalPanel calls sessions.launch internally), and mount a real container div so containersRef.current is set. If the hook is genuinely hard to test without mocking, that is a design problem to fix alongside finding 1.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 147,
+          "severity": "medium",
+          "category": "dry",
+          "title": "handleLaunch in WizardOverlay duplicates handleWizardLaunch in TerminalPanel verbatim",
+          "body": "BranchHome.tsx:147-151 and TerminalPanel.tsx:31-39 implement the same three-step pattern: await handleLaunchSession(cfg), check cfg.signal.aborted, call onSessionLaunched if resolved. Any future change to the abort-check logic or error handling must be made in both places. Fix: extract a makeWizardLaunchHandler(handleLaunchSession, onSessionLaunched) helper in useTerminalPanel.ts or a new lib/wizard-launch.ts, return it from useTerminalPanel alongside the existing exports, and use it in both TerminalPanel and WizardOverlay.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 147,
+          "severity": "medium",
+          "category": "style",
+          "title": "Structural type expression Parameters<Parameters<typeof NewSessionWizard>[0]['onLaunch']>[0] should be a named exported type",
+          "body": "The inline type at line 147 is three levels of utility-type nesting. It is hard to read and creates silent coupling: if NewSessionWizard's onLaunch signature changes, the expression silently re-derives a different type without a named alias to point reviewers at the change. Fix: export WizardLaunchConfig (or similar) from NewSessionWizard.tsx and import it in BranchHome.tsx, removing the structural derivation. The BranchHome.test.tsx already hand-rolls a WizardLaunchArg type (lines 21-26) for the same reason \u2014 that duplicate is also a symptom.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/DetailPane.test.tsx",
+          "line": 9,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "DetailPane.test.tsx mocks BranchHome and TerminalPanel \u2014 internal component mocks",
+          "body": "Lines 9-16 mock both BranchHome and TerminalPanel, which are internal components of this codebase. The tests verify routing logic (which child is rendered) but not the actual behavior of those children. This is acceptable for pure routing tests IF what is being tested is only the branch condition in DetailPane \u2014 but the test at line 56-63 describes the 'mobile scratch toggle' contract and its comment refers to dead code reasoning, suggesting the test has drifted from real behavior. The onCancelFreshSession prop is verified to exist in baseProps but is never tested to actually be threaded through to BranchHome. Fix: at minimum add a test that verifies onCancelFreshSession is forwarded to BranchHome by checking the stub receives it (use the stub's rendered output or a spy rather than a full mock).",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 136,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "cancelFreshSession is exported from useAppHandlers but has no test verifying it calls setFreshSession(false)",
+          "body": "App.test.tsx tests handleNewSession (lines 136-152) and verifies setFreshSession is called with true. The cancelFreshSession callback (App.tsx:156) is the complementary path \u2014 it calls setFreshSession(false). No test covers this. Since the cancel path is exercised in BranchHome.test.tsx only through a mocked hook, the real unit-level contract is unverified. Fix: add a test case in the 'App' describe block that calls result.current.cancelFreshSession() and expects setFreshSession to have been called with false.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 153,
+          "severity": "low",
+          "category": "style",
+          "title": "WizardOverlay z-20 conflicts with mobile scratch pad z-20 \u2014 both can be visible simultaneously",
+          "body": "WizardOverlay uses z-20 (line 153). The mobile scratch pad in App.tsx:88 also uses z-20 inside the same layout subtree. Both can be mounted simultaneously: mobileScratchOpen && selectedBranch triggers the scratch pad, while freshSession && selectedBranch triggers the wizard. Since they are in different stacking contexts (scratch pad is in App's relative div; wizard is in BranchHome's relative div), DOM order determines which paints on top \u2014 the wizard loses because BranchHome is rendered before ScratchPads in App's JSX. Fix: raise WizardOverlay to z-30, or gate the scratch pad's display on !freshSession, or (ideally) dismiss mobileScratchOpen in handleNewSession.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-51954": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 146,
+          "severity": "critical",
+          "category": "correctness",
+          "title": "WizardOverlay: handleLaunchSession always returns null because containersRef is never attached to DOM",
+          "body": "WizardOverlay calls `useTerminalPanel(null, sessions)` without passing an `externalContainersRef`. useTerminalPanel creates a `localContainersRef = useRef<HTMLDivElement>(null)` internally, but WizardOverlay's JSX never renders a `ref={containersRef}` div, so `containersRef.current` is permanently null. handleLaunchSession (useTerminalPanel.ts:133) guards with `if (!containersRef.current) return null`, so every launch attempt silently returns null. `onSessionLaunched` is never called. The overlay cannot launch any session in production. The test misses this because useTerminalPanel is fully mocked in BranchHome.test.tsx. Fix: pass the existing `containersRef` from the parent BranchHome component into WizardOverlay (and thread it to useTerminalPanel as externalContainersRef), OR give WizardOverlay its own hidden div and attach containersRef to it.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.test.tsx",
+          "line": 57,
+          "severity": "high",
+          "category": "test-quality",
+          "title": "useTerminalPanel fully mocked \u2014 real handleLaunchSession never runs, null-containersRef bug is invisible",
+          "body": "vi.mock('../hooks/useTerminalPanel', ...) replaces the entire module with a stub that returns `{ handleLaunchSession: async () => ({...}) }`. This means the test at line 240-248 that asserts onSessionLaunched is called passes even though the real handleLaunchSession always returns null (due to the containersRef bug). The litmus test: delete useTerminalPanel.ts \u2014 all BranchHome tests still pass. The mock is testing the mock, not real behavior. Fix: remove the useTerminalPanel mock; instead spy (without mockImplementation) on sessions.launch and let the real handleLaunchSession run. The WizardOverlay needs the containersRef fix first (finding 1), then this test can exercise the real code path.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.test.tsx",
+          "line": 22,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "WizardLaunchArg stub uses {slug, defaultBranch} shape that does not match real RepoEntry interface",
+          "body": "The local WizardLaunchArg type at line 22-25 defines `repo: { slug: string; defaultBranch: string }`. The real RepoEntry from useRepos.ts has `{ path: string; name: string; githubSlug: string | null; hasCommits: boolean }`. The test fires onLaunch with a repo object that has `slug` (not `name`/`path`), which is incompatible with what handleLaunchSession reads (`cfg.repo.name`, `cfg.repo.path`). Since useTerminalPanel is mocked, this never triggers a type error, but it means the test data would produce incorrect behavior if real code ran. When finding 1 and 2 are fixed and the mock is removed, this stub must also be corrected to use a real RepoEntry shape. Fix: replace WizardLaunchArg with the real LaunchCallback parameter type from NewSessionWizard.tsx (import and reuse), and use a fixture matching RepoEntry.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "line": 147,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Cancel unmounts WizardOverlay mid-launch without aborting in-flight launch; resolved branch still propagates",
+          "body": "NewSessionWizard.useLaunchController fires `abortRef.current?.abort()` on unmount (NewSessionWizard.tsx:32). However, that abort only fires the AbortController that was passed as `cfg.signal` into `onLaunch`. WizardOverlay.handleLaunch at BranchHome.tsx:147-151 checks `cfg.signal.aborted` AFTER `await handleLaunchSession(cfg)` resolves. If the user clicks Cancel while a launch is in-flight (freshSession -> false unmounts WizardOverlay, which unmounts NewSessionWizard, which fires the abort), the sequence is: (1) abort fires, (2) handleLaunchSession resolves anyway (it ignores signal), (3) handleLaunch's `if (cfg.signal.aborted) return` guard correctly suppresses onSessionLaunched. So the guard works for the abort-fires-before-resolve path. BUT if the launch resolves before abort fires (race), the guard does not catch it. Additionally, cancelling does not abort `sessions.launch` itself \u2014 the PTY process is started, then the session just gets orphaned (no branch selected to display it). This is a logic gap, not a guaranteed bug, but the cancel button silently starts a real session in the race. Fix: thread the AbortSignal into sessions.launch options so the server can cancel the spawn; or document the known gap with a TODO.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 136,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "handleNewSession test only checks setSelectedBranch is not called \u2014 does not verify the URL-sync fight is gone",
+          "body": "The test at line 136-152 checks that setSelectedBranch is not called and that setFreshSession(true) is called. This is a good regression guard for the old bug. But it tests handleNewSession in isolation via renderHook, not inside the full App component where useBranchRouteSync's URL->selection effect runs. The original bug was that useBranchRouteSync immediately re-selected the branch from the URL, overwriting the null selectedBranch. The fix (not nulling selectedBranch) means this URL fight no longer happens, but the test doesn't exercise or verify this: it never mounts useBranchRouteSync, never sets up a URL with a branch, and never checks that freshSession stays true after the effect runs. The test proves the handler's local behavior but not the integrated behavior. Consider adding an integration-level test that mounts App with a branch URL and verifies the wizard overlay appears after clicking New Session. Fix: add an integration test at the App level that confirms freshSession=true survives alongside a non-null selectedBranch.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-55757": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-82057": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "client/src/hooks/useTerminalPanel.ts",
+          "line": 89,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Competing useBranchVisibilitySwitch effects hide existing session container",
+          "body": "When freshSession=true and a branch is selected, WizardOverlay mounts and calls useTerminalPanel(null, sessions, containersRef). This causes useBranchVisibilitySwitch to run with branchKey=null, which sets every child of containersRef to display:none (line 98: el.dataset.branchKey === null is always false). Meanwhile TerminalPanel's own useTerminalPanel(selectedBranch, ...) also runs useBranchVisibilitySwitch with the real branchKey, setting the correct container to display:flex. The two effects run in rendering order and fight each other: the final display value depends on which effect's cleanup/setup cycle runs last. In React StrictMode (dev) both effects run twice, making the outcome non-deterministic. The existing session terminal may be hidden while the wizard is open, and the final state after wizard dismiss depends on effect ordering. Fix: WizardOverlay should not call useTerminalPanel at all for visibility switching \u2014 extract only handleLaunchSession into a dedicated hook, or pass null for selectedBranch and guard useBranchVisibilitySwitch to skip when selectedBranch is null.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/App.test.tsx",
+          "line": 136,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "No end-to-end test for the primary bug fix: wizard appears over BranchHome",
+          "body": "The tests for issue #217 all test useAppHandlers in isolation: they verify that setFreshSession(true) is called and that setSelectedBranch is NOT called. But there is no test that renders the full App (or at least DetailPane+BranchHome), selects a branch, clicks New Session, and asserts that the wizard overlay appears on screen. The isolation tests prove the state machine is correct but do not prove that BranchHome renders WizardOverlay when freshSession=true with a selected branch selected. BranchHome.test.tsx covers this at the BranchHome level (line 226-230), but that is mocked away in App.test.tsx. A regression could reintroduce the original bug (DetailPane not passing freshSession to BranchHome, or BranchHome not rendering the overlay) without any App-level test failing. Fix: add an App.test.tsx integration test that sets up a branch in the branches list, renders App, simulates a branch selection from the sidebar, then simulates clicking the '+ New Session' button, and asserts the wizard overlay or wizard stub is present in the DOM.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-01T20:39:56Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:26Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:24Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T00:29:23Z",
+      "fingerprint": "1326cac18adb0ab6eb2b2a44a6a1021f",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 13887.0
+}
