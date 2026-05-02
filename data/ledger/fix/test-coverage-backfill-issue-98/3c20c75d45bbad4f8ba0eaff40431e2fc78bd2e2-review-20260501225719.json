@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "fix/test-coverage-backfill-issue-98",
+  "sha": "3c20c75d45bbad4f8ba0eaff40431e2fc78bd2e2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T02:57:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T02:57:17Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
