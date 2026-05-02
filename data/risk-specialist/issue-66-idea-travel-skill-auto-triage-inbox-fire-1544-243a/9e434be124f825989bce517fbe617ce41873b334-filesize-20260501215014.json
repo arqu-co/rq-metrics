@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-66-idea-travel-skill-auto-triage-inbox-fire-1544-243a",
+  "sha": "9e434be124f825989bce517fbe617ce41873b334",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-02T01:50:13Z",
+  "phase": "review",
+  "run_number": 3,
+  "gate_name": "filesize",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T01:50:13Z",
+      "files_checked": 32,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "risk-specialist/scripts/helpers/test_travel_brief.py",
+          "lines": 388,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "risk-specialist/scripts/helpers/test_travel_welcome_back.py",
+          "lines": 312,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "risk-specialist/scripts/test_travel_config_set.sh",
+          "lines": 317,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
