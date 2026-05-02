@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "spaces-published-dark-light-theme",
+  "sha": "a15eed8a46c8b184c46260261247c30545620015",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-02T06:23:54Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T06:23:53Z",
+      "scanned_files": 5,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 43,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(useSharedSpaceModule, \"useSharedSpace\").mockImplementation((...args: unknown[]) =>"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 47,
+          "pattern": "spyOn().mockReturnValue()",
+          "code": "    vi.spyOn(useSharedSpaceModule, \"useVerifySpacePassword\").mockReturnValue({"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 52,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(SpaceRendererModule, \"default\").mockImplementation("
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 61,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(PasswordGateModule, \"default\").mockImplementation("
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 123,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(SpaceRendererModule, \"default\").mockImplementation(spaceRendererSpy);"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.test.tsx",
+          "line": 146,
+          "pattern": "spyOn().mockImplementation()",
+          "code": "    vi.spyOn(SpaceRendererModule, \"default\").mockImplementation(spaceRendererSpy);"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

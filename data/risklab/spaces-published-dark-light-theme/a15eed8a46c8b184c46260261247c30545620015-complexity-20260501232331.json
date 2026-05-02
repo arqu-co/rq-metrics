@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "risklab",
+  "branch": "spaces-published-dark-light-theme",
+  "sha": "a15eed8a46c8b184c46260261247c30545620015",
+  "user": "Jonathan Farnworth",
+  "user_email": "129013907+jonfarn-arqu@users.noreply.github.com",
+  "timestamp": "2026-05-02T06:23:31Z",
+  "phase": "review",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T06:23:31Z",
+      "files_checked": 10,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "complexity": 14,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "frontend/src/pages/SharedSpaceViewer.tsx",
+          "function": "SharedSpaceViewer",
+          "lines": 61,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "frontend/src/components/spaces/viewer/SpaceRenderer.tsx",
+          "function": "SpaceRenderer",
+          "lines": 60,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
