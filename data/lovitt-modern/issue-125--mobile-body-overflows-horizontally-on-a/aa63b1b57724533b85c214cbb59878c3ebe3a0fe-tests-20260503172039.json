@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-125--mobile-body-overflows-horizontally-on-a",
+  "sha": "aa63b1b57724533b85c214cbb59878c3ebe3a0fe",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T21:20:39Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:20:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "1dd30f07c1bde7506c636f4cbeba4f30",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "       Expected response to be a redirect to <http://www.example.com/phoenix/pages/144> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/144\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:127:in 'block (3 levels) in <top (required)>'\n\n  3) Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/145> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/145\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:157:in 'block (3 levels) in <top (required)>'\n\n  4) Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/146> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/146\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:185:in 'block (3 levels) in <top (required)>'\n\n  5) Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/147> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/147\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:208:in 'block (3 levels) in <top (required)>'\n\n  6) Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n     Failure/Error:\n       expect do\n         delete \"/phoenix/pages/#{page.id}\"\n       end.to change(Page, :count).by(-1)\n\n       expected `Page.count` to have changed by -1, but was changed by 0\n     # ./spec/requests/phoenix/pages_spec.rb:220:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 29.68 seconds (files took 1.65 seconds to load)\n749 examples, 6 failures\n\nFailed examples:\n\nrspec ./spec/requests/phoenix/pages_spec.rb:84 # Phoenix::Pages POST /phoenix/pages creates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:120 # Phoenix::Pages PATCH /phoenix/pages/:id updates a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:132 # Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:169 # Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\nrspec ./spec/requests/phoenix/pages_spec.rb:190 # Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\nrspec ./spec/requests/phoenix/pages_spec.rb:215 # Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 77.37% (1942 / 2510)\nBranch Coverage: 57.33% (356 / 621)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
