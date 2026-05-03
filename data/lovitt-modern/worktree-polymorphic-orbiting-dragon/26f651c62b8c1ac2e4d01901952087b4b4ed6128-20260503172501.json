@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "26f651c62b8c1ac2e4d01901952087b4b4ed6128",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T21:25:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:22:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T21:24:48Z",
+      "files_checked": 0,
+      "coverage_tool": "simplecov",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:22:59Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:22:55Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:24:50Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:23:06Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/schema.rb:329:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:344:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"concurrency_key\", \"priority\", \"job_id\"], name: \"index_solid_queue_blocked_executions_for_release\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:345:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"expires_at\", \"concurrency_key\"], name: \"index_solid_queue_blocked_executions_for_maintenance\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:354:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"process_id\", \"job_id\"], name: \"index_solid_queue_claimed_executions_on_process_id_and_job_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:378:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"finished_at\"], name: \"index_solid_queue_jobs_for_filtering\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:379:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"finished_at\"], name: \"index_solid_queue_jobs_for_alerting\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:398:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"name\", \"supervisor_id\"], name: \"index_solid_queue_processes_on_name_and_supervisor_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:408:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"priority\", \"job_id\"], name: \"index_solid_queue_poll_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:409:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"priority\", \"job_id\"], name: \"index_solid_queue_poll_by_queue\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:418:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"task_key\", \"run_at\"], name: \"index_solid_queue_recurring_executions_on_task_key_and_run_at\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:444:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"priority\", \"job_id\"], name: \"index_solid_queue_dispatch_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:454:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"key\", \"value\"], name: \"index_solid_queue_semaphores_on_key_and_value\"\n            ^^^^^^^^^^^^^^^^\n\n235 files inspected, 63 offenses detected, 61 offenses autocorrectable\n\u274c RuboCop linting failed (0.92s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:24:57Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T21:23:08Z",
+      "duration_ms": 2000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:22:54.367257Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:24:55Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:24:58Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:24:53Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:07:34Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:24:46Z",
+      "fingerprint": "246a117a6ecea356d89479bbd1a9715b",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "        Expected response to be a redirect to <http://www.example.com/phoenix/pages/256> but was a redirect to <http://www.example.com/session/new>.\n        Expected \"http://www.example.com/phoenix/pages/256\" to be === \"http://www.example.com/session/new\".\n      # ./spec/requests/phoenix/pages_spec.rb:185:in 'block (3 levels) in <top (required)>'\n\n  19) Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\n      Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n        Expected response to be a redirect to <http://www.example.com/phoenix/pages/257> but was a redirect to <http://www.example.com/session/new>.\n        Expected \"http://www.example.com/phoenix/pages/257\" to be === \"http://www.example.com/session/new\".\n      # ./spec/requests/phoenix/pages_spec.rb:208:in 'block (3 levels) in <top (required)>'\n\n  20) Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n      Failure/Error:\n        expect do\n          delete \"/phoenix/pages/#{page.id}\"\n        end.to change(Page, :count).by(-1)\n\n        expected `Page.count` to have changed by -1, but was changed by 0\n      # ./spec/requests/phoenix/pages_spec.rb:220:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 32.41 seconds (files took 1.45 seconds to load)\n749 examples, 20 failures\n\nFailed examples:\n\nrspec ./spec/controllers/express_checkout_controller_spec.rb:57 # ExpressCheckoutController#paypal_return when token is present processes the order\nrspec ./spec/controllers/express_checkout_controller_spec.rb:67 # ExpressCheckoutController#paypal_return when token is not present redirects to show\nrspec ./spec/controllers/phoenix/categories_controller_spec.rb:53 # Phoenix::CategoriesController GET #edit returns http success\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:19 # Phoenix::PhotosController GET #index assigns @photos\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:86 # Phoenix::PhotosController PATCH #update with invalid attributes updates the photo caption\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:103 # Phoenix::PhotosController POST #create with valid attributes creates a new photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:109 # Phoenix::PhotosController POST #create with valid attributes redirects to the product page if the photo is associated with a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:135 # Phoenix::PhotosController POST #create when the display object is not a product redirects to the phoenix admin show for the display object\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:143 # Phoenix::PhotosController DELETE #destroy destroys the photo\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:119 # Phoenix::ProductVariantsController DELETE #destroy when there are no order items attached deletes the product variant from the database\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:136 # Phoenix::ProductVariantsController DELETE #destroy when there are order items attached disables the product variant\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:141 # Phoenix::ProductVariantsController DELETE #destroy when there are order items attached redirects to the product page\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:147 # Phoenix::ProductVariantsController DELETE #destroy when there are order items attached sets a flash notice\nrspec ./spec/controllers/phoenix/products_controller_spec.rb:25 # Phoenix::ProductsController GET #show assigns @product\nrspec ./spec/requests/phoenix/pages_spec.rb:84 # Phoenix::Pages POST /phoenix/pages creates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:120 # Phoenix::Pages PATCH /phoenix/pages/:id updates a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:132 # Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:169 # Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\nrspec ./spec/requests/phoenix/pages_spec.rb:190 # Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\nrspec ./spec/requests/phoenix/pages_spec.rb:215 # Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 77.25% (1929 / 2497)\nBranch Coverage: 57.03% (349 / 612)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 98000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1044.0
+}
