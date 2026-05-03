@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-55-article-createupdate-returns-500--undefi",
+  "sha": "ed3ed825135af7ec5875207b4e9600bc07c3a0ff",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T08:49:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T08:49:20Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 7,
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "app/controllers/articles_controller.rb",
+          "coverage": 75.0,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/articles_controller.rb",
+          "coverage": 75.0,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "coverage": 82.05,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

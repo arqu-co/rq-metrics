@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-55-article-createupdate-returns-500--undefi",
+  "sha": "ed3ed825135af7ec5875207b4e9600bc07c3a0ff",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T08:49:13Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T08:49:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "fe058f8f93a030c3de2665961991e026",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 4,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "app/controllers/articles_controller.rb",
+        "app/controllers/phoenix/tourdates_controller.rb",
+        "spec/controllers/articles_controller_spec.rb",
+        "spec/controllers/phoenix/tourdates_controller_spec.rb"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
