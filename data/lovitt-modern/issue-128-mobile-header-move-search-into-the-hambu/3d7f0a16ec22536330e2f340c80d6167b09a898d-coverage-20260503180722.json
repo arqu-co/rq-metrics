@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-128-mobile-header-move-search-into-the-hambu",
+  "sha": "3d7f0a16ec22536330e2f340c80d6167b09a898d",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:07:22Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T22:07:21Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
