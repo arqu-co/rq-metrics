@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "worktree-wise-percolating-rabin",
+  "sha": "9549a16a7e82031cdad76c409719b64f32878ff7",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T19:48:08Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-02T19:48:07Z",
+      "scanned_files": 10,
+      "violations": 6,
+      "violations_details": [
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 302,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val dataServiceMock = Mockito.mock(DataService::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 345,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 461,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 551,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 669,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        },
+        {
+          "file": "src/integrationTest/kotlin/co/arqu/core/controller/BillingInvoiceControllerIntegrationTest.kt",
+          "line": 767,
+          "pattern": "Mockito.mock() on internal class",
+          "code": "        val call = Mockito.mock(Call::class.java)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

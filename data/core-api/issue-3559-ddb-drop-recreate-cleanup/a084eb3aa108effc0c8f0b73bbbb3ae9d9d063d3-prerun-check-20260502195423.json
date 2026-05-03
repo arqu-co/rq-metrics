@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3559-ddb-drop-recreate-cleanup",
+  "sha": "a084eb3aa108effc0c8f0b73bbbb3ae9d9d063d3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T23:54:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:54:22.806832Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
