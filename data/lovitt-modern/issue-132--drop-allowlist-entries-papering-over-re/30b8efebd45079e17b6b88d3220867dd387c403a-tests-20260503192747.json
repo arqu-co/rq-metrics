@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "30b8efebd45079e17b6b88d3220867dd387c403a",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:27:47Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:27:46Z",
+      "test_runner": "bin-test",
+      "fingerprint": "9be7ac474424ba08548698975170bbeb",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "       +  cc_issuer: \"jcb\",\n       +  completed_at: \"2024-11-11 12:10:15.000000000 +0000\",\n       +  created_at: \"2026-05-03 23:27:35.000000000 +0000\",\n       +  credit_quantity: 0,\n       +  customer_ip: \"39.250.23.4\",\n       +  email: \"ina@hyatt.test\",\n       +  error_message: \"Sed atque praesentium fugiat.\",\n       +  order_items_count: 0,\n       +  ot_credit_card_total: 0,\n       +  ot_grand_total: 27,\n       +  ot_line_item_total: 95,\n       +  ot_money_order_total: 96,\n       +  ot_paypal_total: 67,\n       +  ot_shipping_total: 3,\n       +  payer_id: \"7931965909\",\n       +  payment_notes: \"Inventore blanditiis enim. Impedit minus iste. Ist...\",\n       +  payment_type: \"ducimus\",\n       +  phone_number: \"670 912 5943\",\n       +  ship_to_address: \"367 Swift Lake\",\n       +  ship_to_address2: \"Apt. 622\",\n       +  ship_to_billing_address: true,\n       +  ship_to_city: \"Port Brettfort\",\n       +  ship_to_country: \"US\",\n       +  ship_to_name: \"Mismatch\",\n       +  ship_to_state: \"New Mexico\",\n       +  ship_to_zip: \"14976\",\n       +  shipping_notes: \"Porro nihil accusamus. Qui asperiores corporis. Ve...\",\n       +  shipping_price: 3.0,\n       +  shipping_service: \"et\",\n       +  status: \"open\",\n       +  token: \"bevoorawgk\",\n       +  total_cost: 23.33,\n       +  tracking_number: \"4859643323\",\n       +  tracking_service: \"eaque\",\n       +  transaction_id: \"3054993633\",\n       +  updated_at: \"2026-05-03 23:27:35.000000000 +0000\",\n       +  user_id: 5143>]\n     # ./spec/models/order_spec.rb:100:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 33.67 seconds (files took 1.58 seconds to load)\n832 examples, 1 failure\n\nFailed examples:\n\nrspec ./spec/models/order_spec.rb:94 # Order.search returns matching orders when the term matches a search column\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 81.79% (2034 / 2487)\nBranch Coverage: 64.7% (405 / 626)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
