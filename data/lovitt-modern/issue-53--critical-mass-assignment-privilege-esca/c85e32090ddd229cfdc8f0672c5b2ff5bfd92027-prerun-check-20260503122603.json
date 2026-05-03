@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-53--critical-mass-assignment-privilege-esca",
+  "sha": "c85e32090ddd229cfdc8f0672c5b2ff5bfd92027",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:26:03Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:26:02.785702Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
