@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-64-admin-toggleable-promo-banner-on-news-pa",
+  "sha": "c102d4586e9b9f87a43b7d1dc357261f57eceb08",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T20:34:25Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:34:24Z",
+      "test_runner": "bin-test",
+      "fingerprint": "daa766f68988885e668a68afd5ca309d",
+      "test_failures": 1,
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n  12) PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\n      Failure/Error: find_or_create_by(slug: NEWS_SLUG)\n\n      ActiveRecord::StatementInvalid:\n        Mysql2::Error: Table 'lovitt_test.promo_banners' doesn't exist\n      # ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n      # ./spec/models/promo_banner_spec.rb:20:in 'block (3 levels) in <top (required)>'\n      # ------------------\n      # --- Caused by: ---\n      # Mysql2::Error:\n      #   Table 'lovitt_test.promo_banners' doesn't exist\n      #   ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n\n  13) PromoBanner.for_news defaults to disabled with no message\n      Failure/Error: find_or_create_by(slug: NEWS_SLUG)\n\n      ActiveRecord::StatementInvalid:\n        Mysql2::Error: Table 'lovitt_test.promo_banners' doesn't exist\n      # ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n      # ./spec/models/promo_banner_spec.rb:27:in 'block (3 levels) in <top (required)>'\n      # ------------------\n      # --- Caused by: ---\n      # Mysql2::Error:\n      #   Table 'lovitt_test.promo_banners' doesn't exist\n      #   ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n\nFinished in 1 minute 28.49 seconds (files took 3.1 seconds to load)\n744 examples, 13 failures\n\nFailed examples:\n\nrspec ./spec/models/product_variant_spec.rb:339 # ProductVariant#name_for_select returns the product name\nrspec ./spec/models/product_variant_spec.rb:347 # ProductVariant#permalink returns the product name\nrspec ./spec/models/products_category_spec.rb:7 # ProductsCategory associations is expected to belong to product required: true\nrspec ./spec/models/products_category_spec.rb:8 # ProductsCategory associations is expected to belong to category required: true\nrspec ./spec/models/products_category_spec.rb:14 # ProductsCategory validations is expected to validate that :product_id is case-sensitively unique within the scope of :category_id\nrspec ./spec/models/products_category_spec.rb:15 # ProductsCategory validations is expected to validate that :product_id cannot be empty/falsy\nrspec ./spec/models/products_category_spec.rb:16 # ProductsCategory validations is expected to validate that :category_id cannot be empty/falsy\nrspec ./spec/models/products_category_spec.rb:25 # ProductsCategory acts_as_list should update position when a record is destroyed\nrspec ./spec/models/products_category_spec.rb:31 # ProductsCategory acts_as_list should update position when a record is moved up\nrspec ./spec/models/promo_banner_spec.rb:7 # PromoBanner validations requires a slug\nrspec ./spec/models/promo_banner_spec.rb:11 # PromoBanner validations enforces slug uniqueness\nrspec ./spec/models/promo_banner_spec.rb:19 # PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\nrspec ./spec/models/promo_banner_spec.rb:26 # PromoBanner.for_news defaults to disabled with no message\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 77.24% (1934 / 2504)\nBranch Coverage: 57.39% (361 / 629)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "missing_tests_details": [
+        "app/helpers/phoenix_helper.rb",
+        "db/migrate/20260503180000_create_promo_banners.rb"
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
