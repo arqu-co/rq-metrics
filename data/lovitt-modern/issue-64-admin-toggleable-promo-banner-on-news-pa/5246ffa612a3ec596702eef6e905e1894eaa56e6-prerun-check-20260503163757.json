@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-64-admin-toggleable-promo-banner-on-news-pa",
+  "sha": "5246ffa612a3ec596702eef6e905e1894eaa56e6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T20:37:56Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:37:56.483293Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
