@@ -1,0 +1,224 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "worktree-inherited-bouncing-finch",
+  "sha": "1b8f1de0fa0ce413c17be17a3fd5219efc2ff8d0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T01:10:44Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-wip-reviewer-12345",
+    "review-wip-reviewer-68416",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:35:51Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:35:53Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:35:50Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:44:22Z",
+      "duration_ms": 503000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:35:58Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:44:27Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T00:45:26Z",
+      "duration_ms": 59000
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:44:20.499484Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:44:25Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-12345": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 42,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/upload-artifact@v4 is outdated \u2014 latest is v7",
+          "body": "Both jobs pin actions/upload-artifact@v4 (lines 42 and 73). The latest stable release is v7.0.1. Per project rules, any dependency touched in a file must be bumped to current latest stable in the same change. Fix: change @v4 to @v7 on both upload-artifact steps.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 26,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/setup-java@v4 is outdated \u2014 latest is v5",
+          "body": "Both jobs pin actions/setup-java@v4 (lines 26 and 57). The latest stable release is v5.2.0. Per project rules, pin to current latest stable in the same change. Fix: change @v4 to @v5 on both setup-java steps.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 31,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "gradle/actions/setup-gradle@v4 is outdated \u2014 latest is v6",
+          "body": "Both jobs pin gradle/actions/setup-gradle@v4 (lines 31 and 61). The latest stable release is v6.1.0. Fix: change @v4 to @v6 on both setup-gradle steps.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-68416": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 27,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/setup-java pinned at v4; latest is v5",
+          "body": "Both the ktlint and compile-sources jobs use 'actions/setup-java@v4'. The latest stable release is v5.2.0. Per project rules, pinned action versions must track latest stable. v4 is outdated.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 31,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "gradle/actions/setup-gradle pinned at v4; latest is v6",
+          "body": "Both jobs use 'gradle/actions/setup-gradle@v4'. The latest stable release is v6.1.0. Per project rules, pinned action versions must track latest stable. v4 is two major versions behind.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 41,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/upload-artifact pinned at v4; latest is v7",
+          "body": "Both the ktlint and compile-sources jobs use 'actions/upload-artifact@v4'. The latest stable release is v7.0.1. Per project rules, pinned action versions must track latest stable. v4 is three major versions behind.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 4,
+          "severity": "low",
+          "category": "security",
+          "title": "Fork PRs receive empty PERSONAL_ACCESS_TOKEN secrets \u2014 silent auth failure",
+          "body": "The workflow triggers on 'pull_request' (not 'pull_request_target'). For PRs from forks, GHA does not inject repository secrets \u2014 PERSONAL_ACCESS_TOKEN and PERSONAL_ACCESS_TOKEN_USER will be empty strings. The bin/env CI fast-path (CI=true + non-empty GITHUB_TOKEN/GITHUB_USER) will not trigger because secrets are empty on fork PRs. The runner will fall through to 'gh auth status' which will also fail. This is the correct security behavior (fork PRs should not access private packages), but it means fork PR builds will fail with an unhelpful auth error rather than a clear message. This is not a security regression \u2014 it is an operational clarity gap. No secret exfiltration is possible: pull_request forks run with read-only GITHUB_TOKEN and no repo secrets, so a malicious fork PR cannot exfiltrate PERSONAL_ACCESS_TOKEN.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/env",
+          "line": 293,
+          "severity": "low",
+          "category": "security",
+          "title": "CI=true fast-path can be triggered outside GHA by any shell with CI exported",
+          "body": "The guard 'if [ \"${CI:-}\" = \"true\" ]' trusts any environment where CI=true is set. This includes CircleCI, Travis CI, Jenkins, GitLab CI, and any developer shell that has run 'export CI=true' in their session. On those non-GHA systems, if GITHUB_TOKEN and GITHUB_USER are already in the environment from a prior session or shell profile, the fast-path will bypass validate_token_scopes() and validate_github_user(). The practical consequence is that a developer who has set CI=true locally (for some other reason) and has a stale or misconfigured GITHUB_TOKEN will get a confusing Gradle auth failure later instead of a clear 'token missing read:packages scope' error at env setup time. This is a developer-experience correctness issue, not a security regression: it cannot grant access that the token does not already have. Mitigation: tighten the guard to also check GITHUB_ACTIONS=true (set exclusively by GHA) rather than CI=true alone.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 9,
+          "severity": "info",
+          "category": "correctness",
+          "title": "cancel-in-progress Gradle daemon state is safe but cache writes may be lost",
+          "body": "The concurrency block cancels in-progress runs for PRs. Gradle daemons on Blacksmith ephemeral runners are destroyed with the VM when the run is cancelled, so no daemon leak. The remote S3 build cache has GRADLE_S3_BUILD_CACHE_ENABLED=false in this workflow, so partial cache writes are not a concern here. Cancel-in-progress is safe as implemented.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:44:24Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:35:59Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:45:42Z",
+      "fingerprint": "5c737772e1061d85bb569cc63fa308fb",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 16000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 592.0
+}
