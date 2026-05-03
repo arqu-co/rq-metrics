@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-125--mobile-body-overflows-horizontally-on-a",
+  "sha": "aa63b1b57724533b85c214cbb59878c3ebe3a0fe",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T21:24:17Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:24:16Z",
+      "fingerprint": "1dd30f07c1bde7506c636f4cbeba4f30",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "      Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n        Expected response to be a redirect to <http://www.example.com/phoenix/pages/241> but was a redirect to <http://www.example.com/session/new>.\n        Expected \"http://www.example.com/phoenix/pages/241\" to be === \"http://www.example.com/session/new\".\n      # ./spec/requests/phoenix/pages_spec.rb:185:in 'block (3 levels) in <top (required)>'\n\n  17) Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\n      Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n        Expected response to be a redirect to <http://www.example.com/phoenix/pages/242> but was a redirect to <http://www.example.com/session/new>.\n        Expected \"http://www.example.com/phoenix/pages/242\" to be === \"http://www.example.com/session/new\".\n      # ./spec/requests/phoenix/pages_spec.rb:208:in 'block (3 levels) in <top (required)>'\n\n  18) Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n      Failure/Error:\n        expect do\n          delete \"/phoenix/pages/#{page.id}\"\n        end.to change(Page, :count).by(-1)\n\n        expected `Page.count` to have changed by -1, but was changed by 0\n      # ./spec/requests/phoenix/pages_spec.rb:220:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 39.22 seconds (files took 1.5 seconds to load)\n749 examples, 18 failures\n\nFailed examples:\n\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:135 # Phoenix::PhotosController POST #create when the display object is not a product redirects to the phoenix admin show for the display object\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:54 # Phoenix::ProductVariantsController POST #create with valid attributes saves the new product variant in the database\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:68 # Phoenix::ProductVariantsController POST #create with invalid attributes does not save the new product variant in the database\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:107 # Phoenix::ProductVariantsController PATCH #update with invalid attributes re-renders the edit template\nrspec ./spec/models/artist_spec.rb:21 # Artist methods #categories returns an array of unique categories\nrspec ./spec/models/artist_spec.rb:33 # Artist methods #set_sort_name sets the sort_name attribute to the name without special characters and 'the'\nrspec ./spec/models/artist_spec.rb:45 # Artist methods #before_validate sets the shortname attribute to the name without special characters\nrspec ./spec/models/cart_item_spec.rb:11 # CartItem#paypal_description returns the correct description\nrspec ./spec/models/cart_item_spec.rb:65 # CartItem#available_stock? when product_variant is not in stock returns false\nrspec ./spec/models/product_variant_spec.rb:32 # ProductVariant scopes .low_stock returns only product variants with low stock\nrspec ./spec/models/product_variant_spec.rb:318 # ProductVariant#name when the product variant has a product returns the product name\nrspec ./spec/models/products_category_spec.rb:14 # ProductsCategory validations is expected to validate that :product_id is case-sensitively unique within the scope of :category_id\nrspec ./spec/requests/phoenix/pages_spec.rb:84 # Phoenix::Pages POST /phoenix/pages creates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:120 # Phoenix::Pages PATCH /phoenix/pages/:id updates a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:132 # Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:169 # Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\nrspec ./spec/requests/phoenix/pages_spec.rb:190 # Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\nrspec ./spec/requests/phoenix/pages_spec.rb:215 # Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 77.25% (1939 / 2510)\nBranch Coverage: 57.17% (355 / 621)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
