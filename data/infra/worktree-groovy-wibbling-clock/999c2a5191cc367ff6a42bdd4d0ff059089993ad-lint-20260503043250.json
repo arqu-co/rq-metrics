@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "worktree-groovy-wibbling-clock",
+  "sha": "999c2a5191cc367ff6a42bdd4d0ff059089993ad",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T08:32:50Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:32:50Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
