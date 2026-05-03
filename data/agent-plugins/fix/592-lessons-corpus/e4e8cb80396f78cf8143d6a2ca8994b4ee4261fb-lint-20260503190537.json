@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/592-lessons-corpus",
+  "sha": "e4e8cb80396f78cf8143d6a2ca8994b4ee4261fb",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:05:37Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:05:36Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "-  FAIL_COUNT=$(( FAIL_COUNT + 1 ))\n+  FAIL_COUNT=$((FAIL_COUNT + 1))\n }\n \n # \u2500\u2500\u2500 Fixture helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n@@ -23,7 +23,7 @@\n _make_lesson() {\n   # Usage: _make_lesson <dir> <filename> <component> <domain> <stack> <body>\n   local dir=\"$1\" filename=\"$2\" component=\"$3\" domain=\"$4\" stack=\"$5\" body=\"$6\"\n-  cat > \"$dir/$filename\" <<EOF\n+  cat >\"$dir/$filename\" <<EOF\n ---\n title: Lesson ${filename}\n component: ${component}\n@@ -93,7 +93,7 @@\n   diff_file=\"$(mktemp -t rq-test-diff.XXXXXX)\"\n   # shellcheck disable=SC2064\n   trap \"rm -f '$diff_file'; rm -rf '$tmpdir'\" RETURN\n-  printf 'plugins/rq/scripts/gate-lint.sh\\n' > \"$diff_file\"\n+  printf 'plugins/rq/scripts/gate-lint.sh\\n' >\"$diff_file\"\n \n   local output exit_code\n   output=\"$(RQ_LESSONS_DIR=\"$lessons_dir\" RQ_DIFF_FILE=\"$diff_file\" bash \"$RETRIEVE_SCRIPT\" 2>/dev/null)\"\n@@ -164,7 +164,7 @@\n   diff_file=\"$(mktemp -t rq-test-diff.XXXXXX)\"\n   # shellcheck disable=SC2064\n   trap \"rm -f '$diff_file'; rm -rf '$tmpdir'\" RETURN\n-  printf 'some/scripts/gate-check.sh\\n' > \"$diff_file\"\n+  printf 'some/scripts/gate-check.sh\\n' >\"$diff_file\"\n \n   local output exit_code\n   output=\"$(RQ_LESSONS_DIR=\"$lessons_dir\" RQ_DIFF_FILE=\"$diff_file\" bash \"$RETRIEVE_SCRIPT\" 2>/dev/null)\"\n@@ -209,7 +209,7 @@\n   # shellcheck disable=SC2064\n   trap \"rm -f '$diff_file'; rm -rf '$tmpdir'\" RETURN\n   # Empty diff file\n-  printf '' > \"$diff_file\"\n+  printf '' >\"$diff_file\"\n \n   local output exit_code\n   output=\"$(RQ_LESSONS_DIR=\"$lessons_dir\" RQ_DIFF_FILE=\"$diff_file\" bash \"$RETRIEVE_SCRIPT\" 2>/dev/null)\"\n@@ -242,7 +242,7 @@\n   diff_file=\"$(mktemp -t rq-test-diff.XXXXXX)\"\n   # shellcheck disable=SC2064\n   trap \"rm -f '$diff_file'; rm -rf '$tmpdir'\" RETURN\n-  printf 'plugins/rq/scripts/gate-lint.sh\\n' > \"$diff_file\"\n+  printf 'plugins/rq/scripts/gate-lint.sh\\n' >\"$diff_file\"\n \n   local output exit_code\n   output=\"$(RQ_LESSONS_DIR=\"$lessons_dir\" RQ_DIFF_FILE=\"$diff_file\" bash \"$RETRIEVE_SCRIPT\" 2>/dev/null)\"\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
