@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-64-admin-toggleable-promo-banner-on-news-pa",
+  "sha": "c102d4586e9b9f87a43b7d1dc357261f57eceb08",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T20:31:50Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:31:49Z",
+      "test_runner": "bin-test",
+      "fingerprint": "daa766f68988885e668a68afd5ca309d",
+      "failed_subprojects": 0,
+      "missing_tests": 2,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "app/helpers/phoenix_helper.rb",
+        "db/migrate/20260503180000_create_promo_banners.rb"
+      ],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "rspec ./spec/controllers/phoenix/musicians_controller_spec.rb:86 # Phoenix::MusiciansController PATCH #update with valid params updates the musician\nrspec ./spec/controllers/phoenix/musicians_controller_spec.rb:92 # Phoenix::MusiciansController PATCH #update with valid params redirects to the musician\nrspec ./spec/controllers/phoenix/musicians_controller_spec.rb:99 # Phoenix::MusiciansController PATCH #update with invalid params returns unprocessable_entity status\nrspec ./spec/controllers/phoenix/musicians_controller_spec.rb:109 # Phoenix::MusiciansController DELETE #destroy destroys the musician\nrspec ./spec/controllers/phoenix/musicians_controller_spec.rb:115 # Phoenix::MusiciansController DELETE #destroy redirects to the musicians list\nrspec ./spec/controllers/phoenix/order_notes_controller_spec.rb:17 # Phoenix::OrderNotesController POST #create with valid attributes creates a new order note\nrspec ./spec/controllers/phoenix/order_notes_controller_spec.rb:23 # Phoenix::OrderNotesController POST #create with valid attributes redirects to the created order note\nrspec ./spec/controllers/phoenix/order_notes_controller_spec.rb:36 # Phoenix::OrderNotesController PATCH #update with valid attributes updates the order note\nrspec ./spec/controllers/phoenix/order_notes_controller_spec.rb:42 # Phoenix::OrderNotesController PATCH #update with valid attributes redirects to the updated order note\nrspec ./spec/controllers/phoenix/order_notes_controller_spec.rb:52 # Phoenix::OrderNotesController DELETE #destroy destroys the order note\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:19 # Phoenix::ProductVariantsController GET #show renders the show template\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:45 # Phoenix::ProductVariantsController GET #edit renders the edit template\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:15 # Phoenix::PromoBannersController GET #index lists banners\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:23 # Phoenix::PromoBannersController GET #edit loads the requested banner\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:30 # Phoenix::PromoBannersController PATCH #update updates enabled and message\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:38 # Phoenix::PromoBannersController PATCH #update ignores unpermitted slug changes\nrspec ./spec/controllers/users_controller_spec.rb:181 # UsersController PATCH #update with invalid params renders the edit template\nrspec './spec/factories_spec.rb[9:2]' # The order_item factory can create\nrspec './spec/factories_spec.rb[13:2]' # The category factory can create\nrspec './spec/factories_spec.rb[14:2]' # The cart_item factory can create\nrspec ./spec/helpers/application_helper_spec.rb:21 # ApplicationHelper#meta_title when @product is not nil when @product.artist is nil returns the product name\nrspec ./spec/helpers/application_helper_spec.rb:34 # ApplicationHelper#meta_title when @product is not nil when @product.artist is not nil returns the product name and artist name\nrspec ./spec/helpers/application_helper_spec.rb:57 # ApplicationHelper#meta_description when @product is not nil when @product.artist is nil returns the product description\nrspec ./spec/models/artist_spec.rb:21 # Artist methods #categories returns an array of unique categories\nrspec ./spec/models/artist_spec.rb:33 # Artist methods #set_sort_name sets the sort_name attribute to the name without special characters and 'the'\nrspec ./spec/models/artist_spec.rb:45 # Artist methods #before_validate sets the shortname attribute to the name without special characters\nrspec ./spec/models/cart_item_spec.rb:62 # CartItem#available_stock? when product_variant is not in stock returns false\nrspec ./spec/models/cart_item_spec.rb:70 # CartItem#available_stock? when quantity is greater than product_variant quantity returns false\nrspec ./spec/models/cart_item_spec.rb:79 # CartItem#available_stock? when product_variant has a per_order_maximum and quantity exceeds the maximum returns false\nrspec ./spec/models/cart_item_spec.rb:90 # CartItem#validate when product_variant is not present adds an error to the base\nrspec ./spec/models/cart_item_spec.rb:100 # CartItem#validate when product_variant is present when quantity exceeds the per_order_maximum adds an error to the base\nrspec ./spec/models/cart_item_spec.rb:110 # CartItem#validate when product_variant is present when product_variant is not in stock adds an error to the base\nrspec ./spec/models/cart_item_spec.rb:119 # CartItem#validate when product_variant is present when product_variant is in stock and quantity is less than or equal to product_variant quantity does not add an error to the base\nrspec ./spec/models/cart_spec.rb:46 # Cart#remove decrements the quantity of an existing line item in the cart\nrspec ./spec/models/cart_spec.rb:56 # Cart#remove removes a line item from the cart if its quantity is reduced to zero\nrspec ./spec/models/category_spec.rb:30 # Category methods #select_title returns the category title\nrspec ./spec/models/category_spec.rb:38 # Category methods .select_list returns all categories sorted by select_title\nrspec ./spec/models/product_variant_spec.rb:129 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is not tracking stock returns an empty string\nrspec ./spec/models/product_variant_spec.rb:176 # ProductVariant#is_digital? when the product variant is not digital only returns false\nrspec ./spec/models/product_variant_spec.rb:347 # ProductVariant#permalink returns the product name\nrspec ./spec/models/products_category_spec.rb:25 # ProductsCategory acts_as_list should update position when a record is destroyed\nrspec ./spec/models/promo_banner_spec.rb:7 # PromoBanner validations requires a slug\nrspec ./spec/models/promo_banner_spec.rb:11 # PromoBanner validations enforces slug uniqueness\nrspec ./spec/models/promo_banner_spec.rb:19 # PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\nrspec ./spec/models/promo_banner_spec.rb:26 # PromoBanner.for_news defaults to disabled with no message\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 75.48% (1890 / 2504)\nBranch Coverage: 53.42% (336 / 629)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
