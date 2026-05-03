@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3612-cache-localstack-setup",
+  "sha": "84f97189c49d7373d74351da8f97b455fb204c31",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:45:16Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-wip-reviewer-12345",
+    "review-wip-reviewer-68416",
+    "review-wip-reviewer-7431",
+    "review-wip-reviewer-99631",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:10:00Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ]
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:44:55Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T22:09:43Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:44:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:44:54Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:45:05Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:45:02Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 5000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:45:11Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T22:09:32Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:44:51.294920Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:45:09Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-12345": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 42,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/upload-artifact@v4 is outdated \u2014 latest is v7",
+          "body": "Both jobs pin actions/upload-artifact@v4 (lines 42 and 73). The latest stable release is v7.0.1. Per project rules, any dependency touched in a file must be bumped to current latest stable in the same change. Fix: change @v4 to @v7 on both upload-artifact steps.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 26,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/setup-java@v4 is outdated \u2014 latest is v5",
+          "body": "Both jobs pin actions/setup-java@v4 (lines 26 and 57). The latest stable release is v5.2.0. Per project rules, pin to current latest stable in the same change. Fix: change @v4 to @v5 on both setup-java steps.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 31,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "gradle/actions/setup-gradle@v4 is outdated \u2014 latest is v6",
+          "body": "Both jobs pin gradle/actions/setup-gradle@v4 (lines 31 and 61). The latest stable release is v6.1.0. Fix: change @v4 to @v6 on both setup-gradle steps.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-68416": {
+      "status": "complete",
+      "findings": 6,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 27,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/setup-java pinned at v4; latest is v5",
+          "body": "Both the ktlint and compile-sources jobs use 'actions/setup-java@v4'. The latest stable release is v5.2.0. Per project rules, pinned action versions must track latest stable. v4 is outdated.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 31,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "gradle/actions/setup-gradle pinned at v4; latest is v6",
+          "body": "Both jobs use 'gradle/actions/setup-gradle@v4'. The latest stable release is v6.1.0. Per project rules, pinned action versions must track latest stable. v4 is two major versions behind.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 41,
+          "severity": "medium",
+          "category": "dependency",
+          "title": "actions/upload-artifact pinned at v4; latest is v7",
+          "body": "Both the ktlint and compile-sources jobs use 'actions/upload-artifact@v4'. The latest stable release is v7.0.1. Per project rules, pinned action versions must track latest stable. v4 is three major versions behind.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 4,
+          "severity": "low",
+          "category": "security",
+          "title": "Fork PRs receive empty PERSONAL_ACCESS_TOKEN secrets \u2014 silent auth failure",
+          "body": "The workflow triggers on 'pull_request' (not 'pull_request_target'). For PRs from forks, GHA does not inject repository secrets \u2014 PERSONAL_ACCESS_TOKEN and PERSONAL_ACCESS_TOKEN_USER will be empty strings. The bin/env CI fast-path (CI=true + non-empty GITHUB_TOKEN/GITHUB_USER) will not trigger because secrets are empty on fork PRs. The runner will fall through to 'gh auth status' which will also fail. This is the correct security behavior (fork PRs should not access private packages), but it means fork PR builds will fail with an unhelpful auth error rather than a clear message. This is not a security regression \u2014 it is an operational clarity gap. No secret exfiltration is possible: pull_request forks run with read-only GITHUB_TOKEN and no repo secrets, so a malicious fork PR cannot exfiltrate PERSONAL_ACCESS_TOKEN.",
+          "confidence": "high"
+        },
+        {
+          "file": "bin/env",
+          "line": 293,
+          "severity": "low",
+          "category": "security",
+          "title": "CI=true fast-path can be triggered outside GHA by any shell with CI exported",
+          "body": "The guard 'if [ \"${CI:-}\" = \"true\" ]' trusts any environment where CI=true is set. This includes CircleCI, Travis CI, Jenkins, GitLab CI, and any developer shell that has run 'export CI=true' in their session. On those non-GHA systems, if GITHUB_TOKEN and GITHUB_USER are already in the environment from a prior session or shell profile, the fast-path will bypass validate_token_scopes() and validate_github_user(). The practical consequence is that a developer who has set CI=true locally (for some other reason) and has a stale or misconfigured GITHUB_TOKEN will get a confusing Gradle auth failure later instead of a clear 'token missing read:packages scope' error at env setup time. This is a developer-experience correctness issue, not a security regression: it cannot grant access that the token does not already have. Mitigation: tighten the guard to also check GITHUB_ACTIONS=true (set exclusively by GHA) rather than CI=true alone.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 9,
+          "severity": "info",
+          "category": "correctness",
+          "title": "cancel-in-progress Gradle daemon state is safe but cache writes may be lost",
+          "body": "The concurrency block cancels in-progress runs for PRs. Gradle daemons on Blacksmith ephemeral runners are destroyed with the VM when the run is cancelled, so no daemon leak. The remote S3 build cache has GRADLE_S3_BUILD_CACHE_ENABLED=false in this workflow, so partial cache writes are not a concern here. Cancel-in-progress is safe as implemented.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-7431": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 93,
+          "severity": "critical",
+          "category": "correctness",
+          "title": "Missing checks: write permission \u2014 dorny/test-reporter will fail with 403",
+          "body": "dorny/test-reporter@v3 calls the GitHub Checks API to create a Check Run. The action's own README example shows the required permissions are 'contents: read', 'actions: read', and 'checks: write'. The unit-tests job declares only 'contents: read' and 'id-token: write'. Without 'checks: write' the action will receive a 403 Forbidden when it attempts to POST /repos/{owner}/{repo}/check-runs, causing the step to fail. Fix: add 'checks: write' (and optionally 'actions: read') to the job-level permissions block at line 93.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 119,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "if: always() on test-reporter should be if: ${{ !cancelled() }}",
+          "body": "dorny/test-reporter's own README uses 'if: ${{ !cancelled() }}' not 'if: always()'. With 'if: always()', the step runs even when the job was cancelled before tests started (e.g., via the concurrency cancel-in-progress rule). In that case there are no XML files; the step wastes runner time and creates an empty Check Run, which can give a misleading 'unit-tests passed (0 tests)' result in the GitHub UI for a cancelled run. Using '!cancelled()' skips the step on cancellation while still running after test failures \u2014 which is the desired behavior. Fix: change line 119 from 'if: always()' to 'if: ${{ !cancelled() }}'.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-99631": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 95,
+          "severity": "high",
+          "category": "correctness",
+          "title": "unit-tests job missing checks: write permission required by dorny/test-reporter",
+          "body": "dorny/test-reporter@v3 creates a GitHub Check Run to surface test results. Creating a Check Run requires the checks: write permission. The unit-tests job declares only contents: read and id-token: write. Without checks: write, the action will fail with a 403 when it attempts to POST /repos/{owner}/{repo}/check-runs. The ktlint and compile-sources jobs don't use dorny/test-reporter so they don't need it, but unit-tests does. Fix: add 'checks: write' under the job's permissions block.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 17,
+          "severity": "medium",
+          "category": "design",
+          "title": "3 jobs share 4 identical setup steps \u2014 DRY threshold crossed, composite action warranted",
+          "body": "All three jobs (ktlint, compile-sources, unit-tests) repeat the same 4-step setup block verbatim: actions/checkout@v6, useblacksmith/setup-java@v5.0.1, aws-actions/configure-aws-credentials@v6, useblacksmith/setup-gradle/setup-gradle@v7. The GITHUB_USER/GITHUB_TOKEN env block is also repeated in every run step. With 3 jobs all sharing these steps, any future change (e.g., bumping setup-java, rotating the role ARN, changing the Java version) requires updating 3 identical copies. The standard GHA solution is a composite action at .github/actions/gradle-setup/action.yml \u2014 it would replace those 4 steps with a single 'uses: ./.github/actions/gradle-setup' call in each job. This is not a blocking bug today but is exactly the structural debt that bites when a 4th job lands (integration-tests, e2e-tests) and the copies are already out of sync.",
+          "confidence": "high"
+        },
+        {
+          "file": ".github/workflows/build.yml",
+          "line": 92,
+          "severity": "low",
+          "category": "style",
+          "title": "unit-tests job does not declare needs: compile-sources \u2014 diverges from CircleCI dependency model without explanation",
+          "body": "In .circleci/config.yml the unit-tests job requires compile-sources and attaches the compiled workspace. In GHA all three jobs run in parallel with no dependency edges. This is architecturally different: the remote Gradle build cache makes it work in practice (unit-tests will pull compiled classes from S3 cache rather than recompiling). But the dependency model change is implicit \u2014 a reader unfamiliar with the cache strategy will assume unit-tests can pass without compile-sources having run first, and may be confused when a compile failure lets unit-tests start but then fail on cache miss. A comment on the job (or a 'needs: compile-sources' with a note about cache) would make the intent explicit.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:45:13Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:45:08Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:09:40Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:09:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6607968289df86c2531142b4f85d834c",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2141.0
+}
