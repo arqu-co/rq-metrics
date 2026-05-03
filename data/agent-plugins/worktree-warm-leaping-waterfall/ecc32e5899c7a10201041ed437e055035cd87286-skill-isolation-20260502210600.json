@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "worktree-warm-leaping-waterfall",
+  "sha": "ecc32e5899c7a10201041ed437e055035cd87286",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T01:06:00Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:05:59Z",
+      "scanned_files": 45,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
