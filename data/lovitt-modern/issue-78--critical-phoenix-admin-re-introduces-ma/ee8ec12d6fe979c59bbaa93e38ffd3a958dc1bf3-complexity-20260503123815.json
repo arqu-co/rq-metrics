@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-78--critical-phoenix-admin-re-introduces-ma",
+  "sha": "ee8ec12d6fe979c59bbaa93e38ffd3a958dc1bf3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:38:15Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:38:14Z",
+      "files_checked": 11,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "app/controllers/phoenix/orders_controller.rb",
+          "function": "index",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "function": "index",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/controllers/phoenix/users_controller.rb",
+          "function": "index",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
