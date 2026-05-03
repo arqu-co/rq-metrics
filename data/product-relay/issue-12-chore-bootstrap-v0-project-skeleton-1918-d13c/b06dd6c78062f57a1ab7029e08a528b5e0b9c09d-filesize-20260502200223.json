@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "product-relay",
+  "branch": "issue-12-chore-bootstrap-v0-project-skeleton-1918-d13c",
+  "sha": "b06dd6c78062f57a1ab7029e08a528b5e0b9c09d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T00:02:23Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "filesize",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "HEADER": 1
+  },
+  "critic_findings": [
+    {
+      "file": "bin/scheduler",
+      "line": 3,
+      "rule": "HEADER",
+      "message": "Missing required third header line: cd \"$(dirname \"$0\")/..\" \u2014 line 3 is 'echo \"scheduler not yet implemented\" >&2' instead"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "filesize"
+  ],
+  "gates": {
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:02:23Z",
+      "files_checked": 13,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
