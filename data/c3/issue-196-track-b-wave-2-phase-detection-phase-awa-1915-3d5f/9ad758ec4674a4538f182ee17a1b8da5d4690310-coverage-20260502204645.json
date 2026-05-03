@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "9ad758ec4674a4538f182ee17a1b8da5d4690310",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T00:46:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T00:46:44Z",
+      "files_checked": 29,
+      "coverage_tool": "js",
+      "below_threshold": 3,
+      "below_threshold_details": [
+        {
+          "file": "client/src/components/BranchHome.tsx",
+          "coverage": 88.88,
+          "min": 95
+        },
+        {
+          "file": "client/src/components/HomeSectionContent.tsx",
+          "coverage": 86.36,
+          "min": 95
+        },
+        {
+          "file": "server/audit-watcher.ts",
+          "coverage": 90.62,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
