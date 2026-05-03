@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-69--password-reset-rotates-the-password-and",
+  "sha": "c555fec60c2ad4ccb20e24e9331be98a8ca8c040",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:04:03Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "design-audit",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "qa",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-19431",
+    "review-wip-reviewer-28054",
+    "review-wip-reviewer-66084",
+    "review-wip-reviewer-84332",
+    "review-wip-reviewer-87117",
+    "review-wip-reviewer-r3",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T15:54:24Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:02:54Z",
+      "files_checked": 8,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "app/models/user.rb",
+          "function": "create_password",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T15:54:17Z",
+      "files_checked": 2,
+      "coverage_tool": "simplecov",
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "app/controllers/phoenix/users_controller.rb",
+          "coverage": 56.0,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:02:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "design-audit": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:37Z",
+      "message": "Design audit not yet performed \u2014 run /rq:design-audit for UI audit",
+      "overall_grade": "",
+      "screenshots": 0,
+      "screenshots_details": [],
+      "categories": {}
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:02:50Z",
+      "files_checked": 8,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "db/schema.rb",
+          "lines": 390,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 506000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:53Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:05Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:04:00Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:54:10Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T12:29:49Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:02:46.083599Z",
+      "message": ".quality is accessible"
+    },
+    "qa": {
+      "status": "pass",
+      "gate_timestamp": "2026-03-30T13:16:36Z",
+      "flows_failed": 0,
+      "message": "QA testing not yet performed \u2014 run /rq:qa for browser testing",
+      "flows_tested": 0,
+      "flows_passed": 0,
+      "issues": 0,
+      "recordings": 0,
+      "issues_details": [],
+      "recordings_details": []
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:58Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-03T13:47:48Z"
+    },
+    "review-wip-reviewer-19431": {
+      "status": "complete",
+      "findings": 4,
+      "findings_details": [
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "line": 80,
+          "severity": "high",
+          "category": "correctness",
+          "title": "destroy redirects to public tourdates route instead of phoenix admin",
+          "body": "Phoenix::TourdatesController#destroy calls redirect_to(tourdates_url) at line 80. tourdates_url resolves to the public /tourdates route (TourdatesController), not the Phoenix admin index. The branch fixes create/update to use [:phoenix, @tourdate] but missed the same shape in destroy. The correct call is phoenix_tourdates_url, consistent with Phoenix::ArticlesController#destroy which uses phoenix_articles_url.",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/phoenix/tourdates_controller_spec.rb",
+          "line": 7,
+          "severity": "low",
+          "category": "style",
+          "title": "let(:freeze_time) is shadowed by a local variable inside the around block and is never used",
+          "body": "Line 7 declares let(:freeze_time) { Time.now }. Line 14 inside the around block reassigns freeze_time as a local variable (freeze_time = Time.now), which shadows the let completely. The let is never referenced \u2014 only the local variable is passed to Timecop.freeze. The let(:freeze_time) declaration is dead and should be removed to avoid misleading readers who expect let-defined state to be the source of truth.",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/phoenix/tourdates_controller_spec.rb",
+          "line": 167,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "update failure test asserts @tourdate.artist_id equals itself \u2014 always true, proves nothing",
+          "body": "Line 167: expect(@tourdate.artist_id).to eq(@tourdate.artist_id). This comparison evaluates both sides from the same object \u2014 it is always true regardless of whether the update actually failed or changed the attribute. This test cannot catch a regression where the controller silently accepts an invalid artist_id and commits the change. Fix: capture the original artist_id before the request and assert against that: original_id = @tourdate.artist_id; ... ; @tourdate.reload; expect(@tourdate.artist_id).to eq(original_id)",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/articles_controller_spec.rb",
+          "line": 9,
+          "severity": "low",
+          "category": "style",
+          "title": "GET #index test combines two distinct assertions in one it block",
+          "body": "The it \"assigns @articles and @products\" block at line 9 makes two distinct assertions: expect(assigns(:articles)) and expect(assigns(:products)). These test two independent controller responsibilities. A failure provides ambiguous signal \u2014 it is unclear which assignment failed. Per project conventions (all other specs in this file use one assertion per it), split into two separate examples: it \"assigns @articles\" and it \"assigns @products\".",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-28054": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "line": 55,
+          "severity": "info",
+          "category": "security",
+          "title": "Mass-assignment via params[:tourdate] in create and update \u2014 no permit list",
+          "body": "TourdatesController#create (line 55) passes params[:tourdate] directly to Tourdate.new without calling .permit(). Same pattern in #update (line 68). Any parameter key the attacker submits is accepted, including internal fields like id or timestamps. Tracked in https://github.com/jerrod/lovitt-modern/issues/53 and explicitly noted as out of scope for this PR. Flagging at info level per review instructions.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "line": 80,
+          "severity": "info",
+          "category": "correctness",
+          "title": "destroy redirects to public tourdates_url instead of phoenix_tourdates_url",
+          "body": "TourdatesController#destroy (line 80) calls redirect_to(tourdates_url) which routes to the public-facing tourdates page, not the Phoenix admin index. After deleting a tourdate the admin is silently redirected out of the admin panel. This PR fixed create/update redirects but left destroy unaddressed. Tracked in https://github.com/jerrod/lovitt-modern/issues/67. The test at spec line 190 asserts redirect_to(tourdates_url) \u2014 it passes but asserts the wrong URL. Fix: redirect_to phoenix_tourdates_url and update the test assertion.",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/phoenix/tourdates_controller_spec.rb",
+          "line": 190,
+          "severity": "info",
+          "category": "test-quality",
+          "title": "Destroy spec asserts the wrong redirect URL (public tourdates_url)",
+          "body": "Line 190 asserts redirect_to(tourdates_url), which matches the current broken production behaviour (admin is bounced to the public page). The test is testing the bug, not the desired behaviour. When issue #67 is fixed, this test must be updated to expect phoenix_tourdates_url. Flagging now so the test is not treated as a green confirmation of correct behaviour.",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/articles_controller_spec.rb",
+          "line": 23,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Test seeds Lovitt Records artist to mask a model-layer nil crash, not to test a feature",
+          "body": "Article#artists (app/models/article.rb:41) does Artist.where(name: 'Lovitt Records').first as a fallback when no artist matches the article content. If that artist row does not exist in the database, the method returns [nil] rather than an empty array, and the view iterates over it and crashes. The spec at line 23 seeds create(:artist, name: 'Lovitt Records') to prevent the crash, but the underlying bug \u2014 the model returns nil inside the links array \u2014 is unfixed. The correct fix is in the model: change line 41 to 'links << Artist.where(name: \"Lovitt Records\").first' followed by a compact call (links.compact.uniq.reverse), or guard with '&.' so a missing Lovitt Records row yields an empty array rather than [nil]. Until the model is fixed, any environment missing that artist seed (production data loss, fresh staging DB, future test that forgets the seed) will 500 the public show page.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/controllers/articles_controller.rb",
+          "line": 13,
+          "severity": "low",
+          "category": "correctness",
+          "title": "render ... and return false idiom \u2014 should be render ... and return (omit false)",
+          "body": "Line 13 uses 'render status: 404, file: \"...\" and return false unless @article'. The boolean false as the return value of the action method is non-idiomatic; the conventional form is 'render(...) and return'. Functionally equivalent here because Rails ignores the controller action's return value, but 'return false' is a Rails 2-era pattern that pre-dates ActionController::Metal and reads as if it signals something (it does not). Consistent with ProductsController#show:18 which has the same idiom \u2014 both should be updated to 'and return'. Low severity because no bug today, but it misleads readers about intent.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-66084": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-84332": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "line": 55,
+          "severity": "high",
+          "category": "security",
+          "title": "Mass assignment via unfiltered params[:tourdate] in create and update",
+          "body": "create (line 55) uses Tourdate.new(params[:tourdate]) and update (line 68) uses @tourdate.update(params[:tourdate]) \u2014 both pass the raw ActionController::Parameters hash directly without calling .require/.permit. Rails 4+ strong-parameter protection is bypassed because the hash is not an ActionController::Parameters object with permit called on it; the call succeeds but it accepts every attribute the user submits, including created_at, updated_at, and artist_id. An admin-only controller is lower risk than a public one, but this is still a violation of the strong-parameters contract and Rails will issue a ForbiddenAttributesError in some Rails versions. Fix: add a private tourdate_params method with params.require(:tourdate).permit(:artist_id, :venue, :venue_address, :venue_city, :venue_state, :venue_zip, :venue_url, :ticket_url, :perform_at, :information) and use it in both create and update.",
+          "confidence": "high"
+        },
+        {
+          "file": "app/views/articles/show.html.haml",
+          "line": 28,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Dead fallback in sidebar \u2014 Article#artists now always returns Array, so the || guard never fires",
+          "body": "Line 28: artists = @article.artists || [Artist.find_by_name('Lovitt Records')] \u2014 Article#artists always returns an Array (even an empty one after the .compact fix), so the || branch is unreachable. The intent was: if no artists matched, fall back to Lovitt Records. That logic now lives inside Article#artists (line 41 of the model: links << Artist.where(name: 'Lovitt Records').first if links.empty?). But after .compact was added, when no Lovitt Records row exists in the DB, artists returns [] (empty array, truthy), the fallback never fires, and the sidebar renders nothing. This is a silent regression for any deployment where the Lovitt Records artist record doesn't exist. Additionally, @article.artists is called twice in this view (lines 19 and 28), executing the query+loops twice per page load. Fix: Call @article.artists once (assign to a local variable before line 19 or memoize in the model), and remove the dead || fallback on line 28 since the model now owns that logic.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-87117": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "app/controllers/phoenix/tourdates_controller.rb",
+          "line": 55,
+          "severity": "high",
+          "category": "security",
+          "title": "Missing strong parameters in create and update \u2014 raw params[:tourdate] passed to mass-assignment",
+          "body": "Both create (line 55) and update (line 68) pass params[:tourdate] directly to Tourdate.new/update without a permit call. This allows any attribute on the Tourdate model to be mass-assigned, including ones that should be protected. Compare articles_controller.rb which correctly calls article_params. Fix: add a private tourdate_params method mirroring the pattern in phoenix/articles_controller.rb and call it in both actions.",
+          "confidence": "high"
+        },
+        {
+          "file": "spec/controllers/phoenix/tourdates_controller_spec.rb",
+          "line": 152,
+          "severity": "high",
+          "category": "correctness",
+          "title": "strftime format string missing percent signs \u2014 assertion is always tautologically true",
+          "body": "Line 152: expect(@tourdate.perform_at.strftime(\"m/d/Y\")).to eq(1.month.from_now.strftime(\"m/d/Y\")). Ruby strftime requires percent prefixes (%m, %d, %Y). Without them, every letter is a literal character, so both sides always return the string \"m/d/Y\" regardless of date values. The test passes even if perform_at is completely wrong. Fix: change to strftime(\"%Y-%m-%d\") on both sides, or use .to_date directly: expect(@tourdate.perform_at.to_date).to eq(1.month.from_now.to_date).",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-r3": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T13:48:40Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:56Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:51Z",
+      "scanned_files": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:49Z",
+      "fingerprint": "8826946d57045df2f86603a5000e8b48",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 3,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "            # ./spec/models/product_variant_spec.rb:163:in 'block (3 levels) in <top (required)>'\n            # ./spec/models/product_variant_spec.rb:167:in 'block (4 levels) in <top (required)>'\n            # ------------------\n            # --- Caused by: ---\n            # Mysql2::Error:\n            #   Deadlock found when trying to get lock; try restarting transaction\n            #   ./spec/models/product_variant_spec.rb:163:in 'block (3 levels) in <top (required)>'\n\n      21.2) Failure/Error: DatabaseCleaner.clean\n\n            ActiveRecord::StatementInvalid:\n              Mysql2::Error: SAVEPOINT active_record_1 does not exist\n            # ./spec/rails_helper.rb:115:in 'block (2 levels) in <top (required)>'\n            # ------------------\n            # --- Caused by: ---\n            # Mysql2::Error:\n            #   SAVEPOINT active_record_1 does not exist\n            #   ./spec/rails_helper.rb:115:in 'block (2 levels) in <top (required)>'\n\nFinished in 30.67 seconds (files took 1.62 seconds to load)\n719 examples, 21 failures\n\nFailed examples:\n\nrspec ./spec/controllers/artists_controller_spec.rb:32 # ArtistsController GET #show when artist exists assigns @products\nrspec ./spec/controllers/artists_controller_spec.rb:36 # ArtistsController GET #show when artist exists renders the show template\nrspec ./spec/controllers/artists_controller_spec.rb:42 # ArtistsController GET #show when artist does not exist renders the 404 page\nrspec ./spec/controllers/artists_controller_spec.rb:56 # ArtistsController GET #category when artist and category exist assigns @artist\nrspec ./spec/controllers/artists_controller_spec.rb:60 # ArtistsController GET #category when artist and category exist assigns @category\nrspec ./spec/controllers/artists_controller_spec.rb:64 # ArtistsController GET #category when artist and category exist assigns @products\nrspec ./spec/controllers/artists_controller_spec.rb:69 # ArtistsController GET #category when artist and category exist renders the category template\nrspec ./spec/controllers/artists_controller_spec.rb:89 # ArtistsController GET #product when artist and product exist assigns @artist\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:109 # Phoenix::PhotosController POST #create with valid attributes redirects to the product page if the photo is associated with a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:124 # Phoenix::PhotosController POST #create with valid attributes redirects to the product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:143 # Phoenix::PhotosController DELETE #destroy destroys the photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:154 # Phoenix::PhotosController DELETE #destroy redirects to the display page if the photo has a display\nrspec ./spec/controllers/users_controller_spec.rb:155 # UsersController PATCH #update with valid params redirects to the account page\nrspec ./spec/models/cart_item_spec.rb:36 # CartItem#digital? when product_variant is digital_only returns true\nrspec ./spec/models/cart_item_spec.rb:100 # CartItem#validate when product_variant is present when quantity exceeds the per_order_maximum adds an error to the base\nrspec ./spec/models/order_spec.rb:52 # Order#has_downloads? returns true when any product variant has digital assets\nrspec ./spec/models/product_variant_spec.rb:80 # ProductVariant#description when the product has an artist returns a string with the SKU, artist name, product name, variant format, color, and size\nrspec ./spec/models/product_variant_spec.rb:101 # ProductVariant#weight_in_lbs returns the weight in pounds\nrspec ./spec/models/product_variant_spec.rb:144 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is available stock returns true\nrspec ./spec/models/product_variant_spec.rb:154 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is no available stock returns false\nrspec ./spec/models/product_variant_spec.rb:166 # ProductVariant#is_digital? when the product variant is digital only returns true\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 76.5% (1859 / 2430)\nBranch Coverage: 56.76% (357 / 629)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "missing_tests_details": [
+        "config/routes.rb",
+        "db/migrate/20260503160000_add_password_reset_token_to_users.rb",
+        "db/schema.rb"
+      ],
+      "duration_ms": 44000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 2947644.0
+}

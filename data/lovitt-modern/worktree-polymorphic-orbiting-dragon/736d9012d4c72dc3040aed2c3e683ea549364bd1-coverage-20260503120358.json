@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "736d9012d4c72dc3040aed2c3e683ea549364bd1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:03:58Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:56Z",
+      "files_checked": 10,
+      "coverage_tool": "simplecov",
+      "below_threshold": 5,
+      "below_threshold_details": [
+        {
+          "file": "app/models/cart.rb",
+          "coverage": 83.93,
+          "min": 95
+        },
+        {
+          "file": "app/models/cart_item.rb",
+          "coverage": 92.59,
+          "min": 95
+        },
+        {
+          "file": "app/models/order.rb",
+          "coverage": 77.78,
+          "min": 95
+        },
+        {
+          "file": "app/models/order_item.rb",
+          "coverage": 84.0,
+          "min": 95
+        },
+        {
+          "file": "app/models/product_variant.rb",
+          "coverage": 86.21,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

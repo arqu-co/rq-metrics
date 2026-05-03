@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-69--password-reset-rotates-the-password-and",
+  "sha": "c555fec60c2ad4ccb20e24e9331be98a8ca8c040",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:03:49Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:49Z",
+      "fingerprint": "8826946d57045df2f86603a5000e8b48",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 3,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "            # ./spec/models/product_variant_spec.rb:163:in 'block (3 levels) in <top (required)>'\n            # ./spec/models/product_variant_spec.rb:167:in 'block (4 levels) in <top (required)>'\n            # ------------------\n            # --- Caused by: ---\n            # Mysql2::Error:\n            #   Deadlock found when trying to get lock; try restarting transaction\n            #   ./spec/models/product_variant_spec.rb:163:in 'block (3 levels) in <top (required)>'\n\n      21.2) Failure/Error: DatabaseCleaner.clean\n\n            ActiveRecord::StatementInvalid:\n              Mysql2::Error: SAVEPOINT active_record_1 does not exist\n            # ./spec/rails_helper.rb:115:in 'block (2 levels) in <top (required)>'\n            # ------------------\n            # --- Caused by: ---\n            # Mysql2::Error:\n            #   SAVEPOINT active_record_1 does not exist\n            #   ./spec/rails_helper.rb:115:in 'block (2 levels) in <top (required)>'\n\nFinished in 30.67 seconds (files took 1.62 seconds to load)\n719 examples, 21 failures\n\nFailed examples:\n\nrspec ./spec/controllers/artists_controller_spec.rb:32 # ArtistsController GET #show when artist exists assigns @products\nrspec ./spec/controllers/artists_controller_spec.rb:36 # ArtistsController GET #show when artist exists renders the show template\nrspec ./spec/controllers/artists_controller_spec.rb:42 # ArtistsController GET #show when artist does not exist renders the 404 page\nrspec ./spec/controllers/artists_controller_spec.rb:56 # ArtistsController GET #category when artist and category exist assigns @artist\nrspec ./spec/controllers/artists_controller_spec.rb:60 # ArtistsController GET #category when artist and category exist assigns @category\nrspec ./spec/controllers/artists_controller_spec.rb:64 # ArtistsController GET #category when artist and category exist assigns @products\nrspec ./spec/controllers/artists_controller_spec.rb:69 # ArtistsController GET #category when artist and category exist renders the category template\nrspec ./spec/controllers/artists_controller_spec.rb:89 # ArtistsController GET #product when artist and product exist assigns @artist\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:109 # Phoenix::PhotosController POST #create with valid attributes redirects to the product page if the photo is associated with a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:124 # Phoenix::PhotosController POST #create with valid attributes redirects to the product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:143 # Phoenix::PhotosController DELETE #destroy destroys the photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:154 # Phoenix::PhotosController DELETE #destroy redirects to the display page if the photo has a display\nrspec ./spec/controllers/users_controller_spec.rb:155 # UsersController PATCH #update with valid params redirects to the account page\nrspec ./spec/models/cart_item_spec.rb:36 # CartItem#digital? when product_variant is digital_only returns true\nrspec ./spec/models/cart_item_spec.rb:100 # CartItem#validate when product_variant is present when quantity exceeds the per_order_maximum adds an error to the base\nrspec ./spec/models/order_spec.rb:52 # Order#has_downloads? returns true when any product variant has digital assets\nrspec ./spec/models/product_variant_spec.rb:80 # ProductVariant#description when the product has an artist returns a string with the SKU, artist name, product name, variant format, color, and size\nrspec ./spec/models/product_variant_spec.rb:101 # ProductVariant#weight_in_lbs returns the weight in pounds\nrspec ./spec/models/product_variant_spec.rb:144 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is available stock returns true\nrspec ./spec/models/product_variant_spec.rb:154 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is no available stock returns false\nrspec ./spec/models/product_variant_spec.rb:166 # ProductVariant#is_digital? when the product variant is digital only returns true\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 76.5% (1859 / 2430)\nBranch Coverage: 56.76% (357 / 629)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "missing_tests_details": [
+        "config/routes.rb",
+        "db/migrate/20260503160000_add_password_reset_token_to_users.rb",
+        "db/schema.rb"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
