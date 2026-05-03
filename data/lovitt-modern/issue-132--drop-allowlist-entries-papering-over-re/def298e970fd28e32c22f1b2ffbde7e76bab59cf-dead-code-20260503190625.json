@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "def298e970fd28e32c22f1b2ffbde7e76bab59cf",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:06:25Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:06:24Z",
+      "files_checked": 0,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "rubocop_dead_code",
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "cop": "Lint/UselessAssignment",
+          "line": 28,
+          "message": "Useless assignment to variable - `obj`."
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
