@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "39b1ec3f2366eb8030e4b0ecb732bec3bfc8e295",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T01:34:59Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:19Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T01:34:55Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 1000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:22Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:16Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:55Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:31Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:57Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:38:37Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T01:34:31Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:12.681721Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T01:34:58Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:56Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:34:54Z",
+      "scanned_files": 28,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T01:34:52Z",
+      "fingerprint": "40d6d811ce95502c0af585134f087c38",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "+ </comment>\",\n  ]\n\n\nNumber of calls: 1\n\n \u276f client/src/components/__tests__/CommentsList.test.tsx:99:24\n     97|     render(<CommentsList branch={makeBranch()} onDispatchAction={onDis\u2026\n     98|     fireEvent.click(screen.getByText(\"Address with agent\"));\n     99|     expect(onDispatch).toHaveBeenCalledWith(\n       |                        ^\n    100|       `Address this PR comment from alice: First comment`,\n    101|     );\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/4]\u23af\n\n FAIL  client/src/components/__tests__/CommentsList.test.tsx > CommentsList \u2014 dispatch actions > \"Reply\" click shows textarea and submit calls onDispatchAction with feedback\nAssertionError: expected \"vi.fn()\" to be called with arguments: [ Array(1) ]\n\nReceived:\n\n  1st vi.fn() call:\n\n  [\n-   \"Reply to this PR comment from alice: First comment. Operator note: please fix the typo\",\n+   \"Reply to this PR comment from alice:\n+ <comment>\n+ First comment\n+ </comment>\n+ Operator note: please fix the typo\",\n  ]\n\n\nNumber of calls: 1\n\n \u276f client/src/components/__tests__/CommentsList.test.tsx:112:24\n    110|     fireEvent.change(textarea, { target: { value: \"please fix the typo\u2026\n    111|     fireEvent.click(screen.getByText(\"Send\"));\n    112|     expect(onDispatch).toHaveBeenCalledWith(\n       |                        ^\n    113|       `Reply to this PR comment from alice: First comment. Operator no\u2026\n    114|     );\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/4]\u23af\n\n\n Test Files  2 failed | 312 passed (314)\n      Tests  4 failed | 3587 passed (3591)\n   Start at  21:34:32\n   Duration  19.72s (transform 6.08s, setup 0ms, import 28.74s, tests 106.13s, environment 67.19s)"
+        }
+      ],
+      "duration_ms": 21000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 6981.0
+}

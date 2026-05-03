@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "39b1ec3f2366eb8030e4b0ecb732bec3bfc8e295",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T01:34:52Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T01:34:52Z",
+      "fingerprint": "40d6d811ce95502c0af585134f087c38",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "+ </comment>\",\n  ]\n\n\nNumber of calls: 1\n\n \u276f client/src/components/__tests__/CommentsList.test.tsx:99:24\n     97|     render(<CommentsList branch={makeBranch()} onDispatchAction={onDis\u2026\n     98|     fireEvent.click(screen.getByText(\"Address with agent\"));\n     99|     expect(onDispatch).toHaveBeenCalledWith(\n       |                        ^\n    100|       `Address this PR comment from alice: First comment`,\n    101|     );\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/4]\u23af\n\n FAIL  client/src/components/__tests__/CommentsList.test.tsx > CommentsList \u2014 dispatch actions > \"Reply\" click shows textarea and submit calls onDispatchAction with feedback\nAssertionError: expected \"vi.fn()\" to be called with arguments: [ Array(1) ]\n\nReceived:\n\n  1st vi.fn() call:\n\n  [\n-   \"Reply to this PR comment from alice: First comment. Operator note: please fix the typo\",\n+   \"Reply to this PR comment from alice:\n+ <comment>\n+ First comment\n+ </comment>\n+ Operator note: please fix the typo\",\n  ]\n\n\nNumber of calls: 1\n\n \u276f client/src/components/__tests__/CommentsList.test.tsx:112:24\n    110|     fireEvent.change(textarea, { target: { value: \"please fix the typo\u2026\n    111|     fireEvent.click(screen.getByText(\"Send\"));\n    112|     expect(onDispatch).toHaveBeenCalledWith(\n       |                        ^\n    113|       `Reply to this PR comment from alice: First comment. Operator no\u2026\n    114|     );\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/4]\u23af\n\n\n Test Files  2 failed | 312 passed (314)\n      Tests  4 failed | 3587 passed (3591)\n   Start at  21:34:32\n   Duration  19.72s (transform 6.08s, setup 0ms, import 28.74s, tests 106.13s, environment 67.19s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
