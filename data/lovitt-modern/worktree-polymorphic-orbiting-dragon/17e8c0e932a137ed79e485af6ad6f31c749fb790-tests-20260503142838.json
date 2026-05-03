@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "17e8c0e932a137ed79e485af6ad6f31c749fb790",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T18:28:37Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T18:28:37Z",
+      "fingerprint": "26da7c7af42c267a9c6fd680758d6625",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "rspec ./spec/controllers/phoenix/users_controller_spec.rb:25 # Phoenix::UsersController GET #show assigns the requested user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:31 # Phoenix::UsersController GET #show renders the show template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:39 # Phoenix::UsersController GET #new assigns a new user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:44 # Phoenix::UsersController GET #new renders the new template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:73 # Phoenix::UsersController POST #create with invalid attributes does not create a new user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:79 # Phoenix::UsersController POST #create with invalid attributes re-renders the new template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:87 # Phoenix::UsersController GET #edit assigns the requested user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:93 # Phoenix::UsersController GET #edit renders the edit template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:117 # Phoenix::UsersController PATCH #update with invalid attributes does not update the user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:124 # Phoenix::UsersController PATCH #update with invalid attributes re-renders the edit template\nrspec ./spec/controllers/products_controller_spec.rb:7 # ProductsController GET #recent returns http success\nrspec ./spec/controllers/products_controller_spec.rb:16 # ProductsController GET #show returns http success\nrspec ./spec/controllers/search_controller_spec.rb:7 # SearchController GET #show returns http success\nrspec ./spec/controllers/search_controller_spec.rb:14 # SearchController GET #show with query returns http success and assigns variables\nrspec ./spec/controllers/sessions_controller_spec.rb:7 # SessionsController GET #new returns http success\nrspec ./spec/controllers/sessions_controller_spec.rb:33 # SessionsController POST #create with invalid credentials renders the new template\nrspec ./spec/controllers/sessions_controller_spec.rb:38 # SessionsController POST #create with invalid credentials does not set the user_id in the session\nrspec ./spec/controllers/tourdates_controller_spec.rb:14 # TourdatesController GET #index assigns @touring_artists\nrspec ./spec/controllers/tourdates_controller_spec.rb:23 # TourdatesController GET #index renders the index template\nrspec ./spec/controllers/users_controller_spec.rb:18 # UsersController GET #show returns http success\nrspec ./spec/controllers/users_controller_spec.rb:23 # UsersController GET #show assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:28 # UsersController GET #show renders the show template\nrspec ./spec/controllers/users_controller_spec.rb:35 # UsersController GET #order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:40 # UsersController GET #order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:45 # UsersController GET #order renders the order template\nrspec ./spec/controllers/users_controller_spec.rb:52 # UsersController GET #orders returns http success\nrspec ./spec/controllers/users_controller_spec.rb:57 # UsersController GET #orders assigns @orders\nrspec ./spec/controllers/users_controller_spec.rb:62 # UsersController GET #orders renders the orders template\nrspec ./spec/controllers/users_controller_spec.rb:69 # UsersController GET #view_order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:74 # UsersController GET #view_order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:79 # UsersController GET #view_order renders the view_order template\nrspec ./spec/controllers/users_controller_spec.rb:86 # UsersController GET #new returns http success\nrspec ./spec/controllers/users_controller_spec.rb:91 # UsersController GET #new assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:96 # UsersController GET #new renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:125 # UsersController POST #create with invalid params does not create a new user\nrspec ./spec/controllers/users_controller_spec.rb:131 # UsersController POST #create with invalid params renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:139 # UsersController GET #edit returns http success\nrspec ./spec/controllers/users_controller_spec.rb:144 # UsersController GET #edit assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:149 # UsersController GET #edit renders the edit template\nrspec ./spec/controllers/users_controller_spec.rb:175 # UsersController PATCH #update with invalid params does not update the user\nrspec ./spec/controllers/users_controller_spec.rb:181 # UsersController PATCH #update with invalid params renders the edit template\nrspec ./spec/requests/phoenix/pages_spec.rb:20 # Phoenix::Pages GET /phoenix/pages lists all pages\nrspec ./spec/requests/phoenix/pages_spec.rb:33 # Phoenix::Pages GET /phoenix/pages/:id shows a page\nrspec ./spec/requests/phoenix/pages_spec.rb:44 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the edit form for a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:53 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the structured content form for a contact_faq page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 76.76% (1903 / 2479)\nBranch Coverage: 56.94% (357 / 627)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
