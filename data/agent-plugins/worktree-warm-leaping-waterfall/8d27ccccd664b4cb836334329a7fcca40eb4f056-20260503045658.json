@@ -1,0 +1,169 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "worktree-warm-leaping-waterfall",
+  "sha": "8d27ccccd664b4cb836334329a7fcca40eb4f056",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T08:56:57Z",
+  "phase": "coderabbit",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T08:56:48Z",
+      "findings": 1,
+      "findings_details": [
+        {
+          "severity": "error",
+          "file": "",
+          "line": 0,
+          "message": "stopping cli"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:55:56Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T01:05:54Z",
+      "files_checked": 0,
+      "coverage_tool": "py",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:55:57Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:55:54Z",
+      "files_checked": 4,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T08:56:35Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:56:32Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 35000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:56:41Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:09:59Z"
+    },
+    "plan": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:03:52Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:55:52.090862Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:56:39Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-03T01:30:40Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T01:30:53Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T08:56:38Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:28:40Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T00:28:39Z",
+      "fingerprint": "c245f2dcc7bb584a9a87f93087fca879",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 31609.0
+}
