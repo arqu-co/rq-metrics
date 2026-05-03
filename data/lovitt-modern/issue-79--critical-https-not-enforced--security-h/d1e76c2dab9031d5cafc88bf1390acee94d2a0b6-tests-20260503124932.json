@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-79--critical-https-not-enforced--security-h",
+  "sha": "d1e76c2dab9031d5cafc88bf1390acee94d2a0b6",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:49:31Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:49:31Z",
+      "fingerprint": "77c97362f928d331a24c4e02626d48f5",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "config/environments/production.rb",
+        "config/initializers/content_security_policy.rb"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
