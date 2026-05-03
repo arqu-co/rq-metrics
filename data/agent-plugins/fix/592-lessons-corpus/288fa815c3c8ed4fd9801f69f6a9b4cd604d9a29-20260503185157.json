@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/592-lessons-corpus",
+  "sha": "288fa815c3c8ed4fd9801f69f6a9b4cd604d9a29",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:51:57Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 1,
+  "missed_gates": [
+    "tests"
+  ],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "prerun-check",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:50:54Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:50:57Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:50:51Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:47Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:33Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 36000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:52Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:20:53Z"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:50:46.708052Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:51Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:49Z",
+      "scanned_files": 45,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:45Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:51:43Z",
+      "test_runner": "bin-test",
+      "fingerprint": "bba9eda2bf01271fc1e0c3c565385e25",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "plugins/rq/scripts/lessons_frontmatter.py"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 10000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 1859.0
+}
