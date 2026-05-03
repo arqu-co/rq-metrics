@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "4c72d61da532828a9046249da9032d8aa36f356f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:21:49Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:21:49Z",
+      "files_checked": 8,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "function": "stub_controller_name",
+          "lines": 259,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "function": "stub_controller_name",
+          "complexity": 32,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
