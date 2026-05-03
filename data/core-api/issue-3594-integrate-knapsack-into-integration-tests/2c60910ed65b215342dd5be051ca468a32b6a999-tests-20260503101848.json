@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3594-integrate-knapsack-into-integration-tests",
+  "sha": "2c60910ed65b215342dd5be051ca468a32b6a999",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T14:18:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T14:18:47Z",
+      "fingerprint": "30a395a03aa77f16efa2b82212a88681",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

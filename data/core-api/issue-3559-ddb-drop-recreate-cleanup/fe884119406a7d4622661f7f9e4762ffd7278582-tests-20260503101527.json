@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3559-ddb-drop-recreate-cleanup",
+  "sha": "fe884119406a7d4622661f7f9e4762ffd7278582",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T14:15:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T14:15:27Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ede6c88e59d0b49f86ff2dd72f372a1b",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
