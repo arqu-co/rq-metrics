@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-120--public-site-header-is-not-responsive-on",
+  "sha": "02ed86ee63742252ef97f0a503c83f3ff491a45e",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T20:57:18Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:57:17Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ef1c5da14f9faed6265e5df237158381",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "  27) PromoBanner.for_news defaults to disabled with no message\n      Failure/Error: find_or_create_by(slug: NEWS_SLUG)\n\n      ActiveRecord::StatementInvalid:\n        Mysql2::Error: Table 'lovitt_test.promo_banners' doesn't exist\n      # ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n      # ./spec/models/promo_banner_spec.rb:27:in 'block (3 levels) in <top (required)>'\n      # ------------------\n      # --- Caused by: ---\n      # Mysql2::Error:\n      #   Table 'lovitt_test.promo_banners' doesn't exist\n      #   ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n\nFinished in 1 minute 25.43 seconds (files took 2.96 seconds to load)\n744 examples, 27 failures\n\nFailed examples:\n\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:72 # Phoenix::PhotosController PATCH #update with valid attributes redirects to the product page if the photo has a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:78 # Phoenix::PhotosController PATCH #update with valid attributes redirects to the display page if the photo has a display\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:86 # Phoenix::PhotosController PATCH #update with invalid attributes updates the photo caption\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:93 # Phoenix::PhotosController PATCH #update with invalid attributes redirects after update\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:103 # Phoenix::PhotosController POST #create with valid attributes creates a new photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:109 # Phoenix::PhotosController POST #create with valid attributes redirects to the product page if the photo is associated with a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:116 # Phoenix::PhotosController POST #create with valid attributes creates a new photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:124 # Phoenix::PhotosController POST #create with valid attributes redirects to the product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:135 # Phoenix::PhotosController POST #create when the display object is not a product redirects to the phoenix admin show for the display object\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:143 # Phoenix::PhotosController DELETE #destroy destroys the photo\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:149 # Phoenix::PhotosController DELETE #destroy redirects to the product page if the photo has a product\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:154 # Phoenix::PhotosController DELETE #destroy redirects to the display page if the photo has a display\nrspec ./spec/controllers/phoenix/photos_controller_spec.rb:159 # Phoenix::PhotosController DELETE #destroy redirects to photos index when photo has no product or display\nrspec ./spec/controllers/phoenix/product_variants_controller_spec.rb:13 # Phoenix::ProductVariantsController GET #show assigns the requested product variant to @product_variant\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:15 # Phoenix::PromoBannersController GET #index lists banners\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:23 # Phoenix::PromoBannersController GET #edit loads the requested banner\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:30 # Phoenix::PromoBannersController PATCH #update updates enabled and message\nrspec ./spec/controllers/phoenix/promo_banners_controller_spec.rb:38 # Phoenix::PromoBannersController PATCH #update ignores unpermitted slug changes\nrspec ./spec/models/product_variant_spec.rb:63 # ProductVariant#add_to_cart returns a string with the variant format, color, and size\nrspec ./spec/models/product_variant_spec.rb:92 # ProductVariant#description when the product does not have an artist returns a string with the SKU, product name, variant format, color, and size\nrspec ./spec/models/product_variant_spec.rb:114 # ProductVariant#total_available_stock when the product variant is digital only returns an empty string\nrspec ./spec/models/product_variant_spec.rb:328 # ProductVariant#name when the product variant does not have a product returns nil\nrspec ./spec/models/product_variant_spec.rb:345 # ProductVariant#permalink returns the product name\nrspec ./spec/models/promo_banner_spec.rb:7 # PromoBanner validations requires a slug\nrspec ./spec/models/promo_banner_spec.rb:11 # PromoBanner validations enforces slug uniqueness\nrspec ./spec/models/promo_banner_spec.rb:19 # PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\nrspec ./spec/models/promo_banner_spec.rb:26 # PromoBanner.for_news defaults to disabled with no message\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 76.43% (1916 / 2507)\nBranch Coverage: 55.64% (350 / 629)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
