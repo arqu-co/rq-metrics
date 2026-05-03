@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-78--critical-phoenix-admin-re-introduces-ma",
+  "sha": "f4e578d43b805ddf5a4df79335e3e9ca651df854",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:43:54Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:43:52Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 11,
+      "below_threshold": 7,
+      "below_threshold_details": [
+        {
+          "file": "app/controllers/phoenix/artists_controller.rb",
+          "coverage": 89.36,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/categories_controller.rb",
+          "coverage": 78.26,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/order_notes_controller.rb",
+          "coverage": 91.67,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/orders_controller.rb",
+          "coverage": 45.16,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/photos_controller.rb",
+          "coverage": 82.46,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/products_controller.rb",
+          "coverage": 60.29,
+          "min": 95
+        },
+        {
+          "file": "app/controllers/phoenix/users_controller.rb",
+          "coverage": 61.18,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
