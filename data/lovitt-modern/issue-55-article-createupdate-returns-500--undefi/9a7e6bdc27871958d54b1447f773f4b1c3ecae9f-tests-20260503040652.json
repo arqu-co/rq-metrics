@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-55-article-createupdate-returns-500--undefi",
+  "sha": "9a7e6bdc27871958d54b1447f773f4b1c3ecae9f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T08:06:52Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T08:06:51Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c353fc2eec6a4df5141f4d5650d80368",
+      "failed_subprojects": 0,
+      "missing_tests": 3,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "app/controllers/musicians_controller.rb",
+        "app/controllers/phoenix/articles_controller.rb",
+        "spec/controllers/phoenix/articles_controller_spec.rb"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
