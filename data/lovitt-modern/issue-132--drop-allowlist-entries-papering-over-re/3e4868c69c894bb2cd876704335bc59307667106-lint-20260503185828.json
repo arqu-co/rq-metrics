@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "3e4868c69c894bb2cd876704335bc59307667106",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:58:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:58:27Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "spec/helpers/phoenix_helper_spec.rb:168:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"green\"])\n                                                         ^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:173:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"blue\"])\n                                                         ^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:178:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"orange\"])\n                                                         ^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:184:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"purple\"])\n                                                         ^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:189:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"aqua\"])\n                                                         ^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:195:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"blue\"])\n                                                         ^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:200:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"red\"])\n                                                         ^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:206:58: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n      expect(helper.product_status_class(product)).to eq([\"dot\", \"purple\"])\n                                                         ^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:231:9: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n        [\"hidden\", \"bg-dark\"],\n        ^^^^^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:232:9: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n        [\"spam\", \"bg-danger\"],\n        ^^^^^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:233:9: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n        [\"moderate\", \"bg-warning\"],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nspec/helpers/phoenix_helper_spec.rb:234:9: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n        [\"visible\", \"bg-success\"]\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n200 files inspected, 14 offenses detected, 14 offenses autocorrectable\n\u274c RuboCop linting failed (1.36s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,220 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "3e4868c69c894bb2cd876704335bc59307667106",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:00:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:00:26Z",
+      "scanned_files": 1,
+      "violations": 31,
+      "violations_details": [
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 28,
+          "pattern": "allow().to receive() on internal",
+          "code": "    let(:object) { instance_double(\"ActiveModel::Errors\").tap { |o| allow(o).to receive(:errors).and_return(o) } }"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 28,
+          "pattern": "double() for code under test",
+          "code": "    let(:object) { instance_double(\"ActiveModel::Errors\").tap { |o| allow(o).to receive(:errors).and_return(o) } }"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 31,
+          "pattern": "double() for code under test",
+          "code": "      obj = double(errors: {name: []})"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 36,
+          "pattern": "double() for code under test",
+          "code": "      obj = double(errors: {name: [\"is too short\"]})"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 43,
+          "pattern": "double() for code under test",
+          "code": "      obj = double(errors: {name: []})"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 48,
+          "pattern": "double() for code under test",
+          "code": "      obj = double(errors: {name: [\"is too short\", \"is required\"]})"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 91,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"articles\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 91,
+          "pattern": "double() for code under test",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"articles\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 99,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"totally_unknown\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 99,
+          "pattern": "double() for code under test",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"totally_unknown\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 106,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"articles\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 106,
+          "pattern": "double() for code under test",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"articles\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 121,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"products\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 121,
+          "pattern": "double() for code under test",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"products\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 128,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"products\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 128,
+          "pattern": "double() for code under test",
+          "code": "      allow(helper).to receive(:controller).and_return(double(controller_name: \"products\"))"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 160,
+          "pattern": "double() for code under test",
+          "code": "      double(\"Product\","
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 172,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:digital?).and_return(true)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 177,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:in_stock?).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 182,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:in_stock?).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 183,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:digital?).and_return(true)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 188,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:track_stock?).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 193,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:track_stock?).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 194,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:digital?).and_return(true)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 199,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:status).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 204,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:status).and_return(false)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 205,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(product).to receive(:digital?).and_return(true)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 212,
+          "pattern": "double() for code under test",
+          "code": "      double(\"Product\","
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 236,
+          "pattern": "double() for code under test",
+          "code": "        comment = double(\"Comment\", spam_status: status, score: 7)"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 282,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:params).and_return(controller: \"phoenix/articles\")"
+        },
+        {
+          "file": "spec/helpers/phoenix_helper_spec.rb",
+          "line": 287,
+          "pattern": "allow().to receive() on internal",
+          "code": "      allow(helper).to receive(:params).and_return(controller: \"articles\")"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
