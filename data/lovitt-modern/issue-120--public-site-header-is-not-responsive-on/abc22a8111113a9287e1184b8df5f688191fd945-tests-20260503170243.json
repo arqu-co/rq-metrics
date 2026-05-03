@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-120--public-site-header-is-not-responsive-on",
+  "sha": "abc22a8111113a9287e1184b8df5f688191fd945",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T21:02:43Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T21:02:42Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2a6f929567a4be8c67dcda6d5de2696d",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "      #   ./spec/models/promo_banner_spec.rb:12:in 'block (3 levels) in <top (required)>'\n\n  11) PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\n      Failure/Error: find_or_create_by(slug: NEWS_SLUG)\n\n      ActiveRecord::StatementInvalid:\n        Mysql2::Error: Table 'lovitt_test.promo_banners' doesn't exist\n      # ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n      # ./spec/models/promo_banner_spec.rb:20:in 'block (3 levels) in <top (required)>'\n      # ------------------\n      # --- Caused by: ---\n      # Mysql2::Error:\n      #   Table 'lovitt_test.promo_banners' doesn't exist\n      #   ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n\n  12) PromoBanner.for_news defaults to disabled with no message\n      Failure/Error: find_or_create_by(slug: NEWS_SLUG)\n\n      ActiveRecord::StatementInvalid:\n        Mysql2::Error: Table 'lovitt_test.promo_banners' doesn't exist\n      # ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n      # ./spec/models/promo_banner_spec.rb:27:in 'block (3 levels) in <top (required)>'\n      # ------------------\n      # --- Caused by: ---\n      # Mysql2::Error:\n      #   Table 'lovitt_test.promo_banners' doesn't exist\n      #   ./app/models/promo_banner.rb:10:in 'PromoBanner.for_news'\n\nFinished in 1 minute 28.19 seconds (files took 2.77 seconds to load)\n744 examples, 12 failures\n\nFailed examples:\n\nrspec ./spec/controllers/artists_controller_spec.rb:133 # ArtistsController GET #category_product when artist, category, and product exist renders the product template\nrspec ./spec/controllers/phoenix/categories_controller_spec.rb:60 # Phoenix::CategoriesController PATCH #update updates the category\nrspec ./spec/models/product_spec.rb:72 # Product#order_ids returns the order IDs for orders that contain this product\nrspec ./spec/models/product_spec.rb:82 # Product#select_name returns the permalink\nrspec ./spec/models/product_variant_spec.rb:20 # ProductVariant scopes .available returns only available product variants\nrspec ./spec/models/product_variant_spec.rb:32 # ProductVariant scopes .low_stock returns only product variants with low stock\nrspec ./spec/models/product_variant_spec.rb:55 # ProductVariant#also_bought returns an array of products that were also bought with this product variant\nrspec ./spec/models/product_variant_spec.rb:63 # ProductVariant#add_to_cart returns a string with the variant format, color, and size\nrspec ./spec/models/promo_banner_spec.rb:7 # PromoBanner validations requires a slug\nrspec ./spec/models/promo_banner_spec.rb:11 # PromoBanner validations enforces slug uniqueness\nrspec ./spec/models/promo_banner_spec.rb:19 # PromoBanner.for_news creates a row on first call and returns the same row on subsequent calls\nrspec ./spec/models/promo_banner_spec.rb:26 # PromoBanner.for_news defaults to disabled with no message\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 77.21% (1935 / 2506)\nBranch Coverage: 57.42% (360 / 627)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
