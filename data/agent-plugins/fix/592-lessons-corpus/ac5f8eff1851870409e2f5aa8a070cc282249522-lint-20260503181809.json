@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/592-lessons-corpus",
+  "sha": "ac5f8eff1851870409e2f5aa8a070cc282249522",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:18:09Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:18:08Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

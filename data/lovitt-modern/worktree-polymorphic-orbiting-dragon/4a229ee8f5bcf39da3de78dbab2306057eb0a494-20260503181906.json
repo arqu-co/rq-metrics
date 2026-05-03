@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "4a229ee8f5bcf39da3de78dbab2306057eb0a494",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T22:19:06Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:17:06Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:18:54Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 2,
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "(none matched in coverage data)",
+          "coverage": 0,
+          "min": 95,
+          "vacuous": true
+        }
+      ],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:17:10Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:17:03Z",
+      "files_checked": 2,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:18:56Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:17:18Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/schema.rb:329:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:344:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"concurrency_key\", \"priority\", \"job_id\"], name: \"index_solid_queue_blocked_executions_for_release\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:345:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"expires_at\", \"concurrency_key\"], name: \"index_solid_queue_blocked_executions_for_maintenance\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:354:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"process_id\", \"job_id\"], name: \"index_solid_queue_claimed_executions_on_process_id_and_job_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:378:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"finished_at\"], name: \"index_solid_queue_jobs_for_filtering\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:379:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"finished_at\"], name: \"index_solid_queue_jobs_for_alerting\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:398:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"name\", \"supervisor_id\"], name: \"index_solid_queue_processes_on_name_and_supervisor_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:408:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"priority\", \"job_id\"], name: \"index_solid_queue_poll_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:409:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"priority\", \"job_id\"], name: \"index_solid_queue_poll_by_queue\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:418:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"task_key\", \"run_at\"], name: \"index_solid_queue_recurring_executions_on_task_key_and_run_at\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:444:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"priority\", \"job_id\"], name: \"index_solid_queue_dispatch_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:454:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"key\", \"value\"], name: \"index_solid_queue_semaphores_on_key_and_value\"\n            ^^^^^^^^^^^^^^^^\n\n235 files inspected, 63 offenses detected, 61 offenses autocorrectable\n\u274c RuboCop linting failed (0.89s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:19:02Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T21:23:08Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:17:01.692510Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:19:00Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:19:03Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:18:59Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:07:34Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T22:18:52Z",
+      "test_runner": "bin-test",
+      "fingerprint": "2d168f197bcf0d0476296729a82461ab",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "config/initializers/aws_sdk.rb",
+        "config/initializers/paypal_gateway.rb"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "       Expected response to be a redirect to <http://www.example.com/phoenix/pages/771> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/771\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:127:in 'block (3 levels) in <top (required)>'\n\n  3) Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/772> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/772\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:157:in 'block (3 levels) in <top (required)>'\n\n  4) Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/773> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/773\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:185:in 'block (3 levels) in <top (required)>'\n\n  5) Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\n     Failure/Error: expect(response).to redirect_to(phoenix_page_path(page))\n\n       Expected response to be a redirect to <http://www.example.com/phoenix/pages/774> but was a redirect to <http://www.example.com/session/new>.\n       Expected \"http://www.example.com/phoenix/pages/774\" to be === \"http://www.example.com/session/new\".\n     # ./spec/requests/phoenix/pages_spec.rb:208:in 'block (3 levels) in <top (required)>'\n\n  6) Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n     Failure/Error:\n       expect do\n         delete \"/phoenix/pages/#{page.id}\"\n       end.to change(Page, :count).by(-1)\n\n       expected `Page.count` to have changed by -1, but was changed by 0\n     # ./spec/requests/phoenix/pages_spec.rb:220:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 26.51 seconds (files took 1.82 seconds to load)\n749 examples, 6 failures\n\nFailed examples:\n\nrspec ./spec/requests/phoenix/pages_spec.rb:84 # Phoenix::Pages POST /phoenix/pages creates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:120 # Phoenix::Pages PATCH /phoenix/pages/:id updates a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:132 # Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:169 # Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\nrspec ./spec/requests/phoenix/pages_spec.rb:190 # Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\nrspec ./spec/requests/phoenix/pages_spec.rb:215 # Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 77.69% (1940 / 2497)\nBranch Coverage: 58.01% (355 / 612)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 94000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 4289.0
+}
