@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "0e7a2cad63c0d03ef4862ac147dd37835346719d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T00:27:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T00:27:48Z",
+      "files_checked": 51,
+      "violations": 2,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/components/BranchHome.tsx",
+          "name": "BranchOverview",
+          "line": 9
+        },
+        {
+          "type": "unused_import",
+          "file": "client/src/hooks/useBranchFiles.test.ts",
+          "name": "beforeEach",
+          "line": 4
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

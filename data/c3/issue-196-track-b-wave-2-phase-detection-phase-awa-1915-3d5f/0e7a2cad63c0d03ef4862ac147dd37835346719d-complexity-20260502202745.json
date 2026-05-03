@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "0e7a2cad63c0d03ef4862ac147dd37835346719d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T00:27:45Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T00:27:45Z",
+      "files_checked": 51,
+      "violations": 4,
+      "violations_details": [
+        {
+          "file": "client/src/components/BranchOverview.tsx",
+          "function": "BranchOverviewBody",
+          "complexity": 10,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/HomeSectionContent.tsx",
+          "function": "renderSection",
+          "complexity": 9,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/CommentRow.tsx",
+          "function": "CommentRow",
+          "complexity": 11,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "client/src/components/CommentRow.tsx",
+          "function": "CommentRow",
+          "lines": 97,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

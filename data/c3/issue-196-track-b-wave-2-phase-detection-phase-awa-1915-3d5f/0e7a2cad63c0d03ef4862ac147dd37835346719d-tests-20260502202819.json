@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "0e7a2cad63c0d03ef4862ac147dd37835346719d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-03T00:28:19Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T00:28:18Z",
+      "fingerprint": "714f480d0a9b0b979fc3a63e133de1f5",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 2,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [
+        "client/src/components/ActionFreeformInput.tsx",
+        "client/src/components/CommentRow.tsx"
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
