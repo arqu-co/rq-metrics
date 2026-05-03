@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-67-phoenix-admin-redirects-land-on-public-r",
+  "sha": "b2fd00079f27bf77e959eac8617a494420671312",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T15:47:16Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": "coverage",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coverage"
+  ],
+  "gates": {
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T15:47:15Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 2,
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "app/controllers/phoenix/photos_controller.rb",
+          "coverage": 81.13,
+          "min": 95
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
