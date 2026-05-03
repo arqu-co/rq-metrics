@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "de53ccf0a7a9419fef281c871b8f679aab2ecd6c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T18:07:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:05:36Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T18:07:23Z",
+      "files_checked": 10,
+      "coverage_tool": "simplecov",
+      "below_threshold": 7,
+      "below_threshold_details": [
+        {
+          "file": "app/models/cart.rb",
+          "coverage": 44.64,
+          "min": 95
+        },
+        {
+          "file": "app/models/cart_item.rb",
+          "coverage": 55.56,
+          "min": 95
+        },
+        {
+          "file": "app/models/order.rb",
+          "coverage": 48.48,
+          "min": 95
+        },
+        {
+          "file": "app/models/order_item.rb",
+          "coverage": 64.0,
+          "min": 95
+        },
+        {
+          "file": "app/models/product.rb",
+          "coverage": 76.92,
+          "min": 95
+        },
+        {
+          "file": "app/models/product_variant.rb",
+          "coverage": 84.48,
+          "min": 95
+        },
+        {
+          "file": "app/models/user.rb",
+          "coverage": 94.74,
+          "min": 95
+        }
+      ],
+      "duration_ms": 9000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:05:39Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:05:32Z",
+      "files_checked": 10,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:07:26Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T18:05:47Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/schema.rb:320:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:335:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"concurrency_key\", \"priority\", \"job_id\"], name: \"index_solid_queue_blocked_executions_for_release\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:336:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"expires_at\", \"concurrency_key\"], name: \"index_solid_queue_blocked_executions_for_maintenance\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:345:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"process_id\", \"job_id\"], name: \"index_solid_queue_claimed_executions_on_process_id_and_job_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:369:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"finished_at\"], name: \"index_solid_queue_jobs_for_filtering\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:370:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"finished_at\"], name: \"index_solid_queue_jobs_for_alerting\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:389:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"name\", \"supervisor_id\"], name: \"index_solid_queue_processes_on_name_and_supervisor_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:399:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"priority\", \"job_id\"], name: \"index_solid_queue_poll_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:400:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"priority\", \"job_id\"], name: \"index_solid_queue_poll_by_queue\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:409:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"task_key\", \"run_at\"], name: \"index_solid_queue_recurring_executions_on_task_key_and_run_at\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:435:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"priority\", \"job_id\"], name: \"index_solid_queue_dispatch_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:445:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"key\", \"value\"], name: \"index_solid_queue_semaphores_on_key_and_value\"\n            ^^^^^^^^^^^^^^^^\n\n227 files inspected, 63 offenses detected, 61 offenses autocorrectable\n\u274c RuboCop linting failed (0.88s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:07:32Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T18:05:49Z",
+      "duration_ms": 2000
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:05:27.966171Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:07:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T18:07:33Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:07:29Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T18:07:14Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T18:07:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "29e32b37034e23e886bd8900cbbea6d8",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "db/migrate/20260503160500_db_hardening_indexes_and_counter_caches.rb"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "rspec ./spec/models/cart_spec.rb:25 # Cart#add adds a new line item to the cart\nrspec ./spec/models/cart_spec.rb:34 # Cart#add increments the quantity of an existing line item in the cart\nrspec ./spec/models/cart_spec.rb:46 # Cart#remove decrements the quantity of an existing line item in the cart\nrspec ./spec/models/cart_spec.rb:56 # Cart#remove removes a line item from the cart if its quantity is reduced to zero\nrspec ./spec/models/cart_spec.rb:66 # Cart#remove returns false if the line item does not exist in the cart\nrspec ./spec/models/cart_spec.rb:74 # Cart.cleanup_stale destroys carts that have no line items and no session\nrspec ./spec/models/cart_spec.rb:86 # Cart.cleanup_stale does not destroy carts that have line items or a session\nrspec ./spec/models/category_spec.rb:38 # Category methods .select_list returns all categories sorted by select_title\nrspec ./spec/models/order_spec.rb:16 # Order#process when payment_type is paypal calls process_paypal and returns true if it succeeds\nrspec ./spec/models/order_spec.rb:23 # Order#process when payment_type is paypal calls fail! and returns false if it fails\nrspec ./spec/models/order_spec.rb:30 # Order#process when payment_type is moneyorder calls process_money_order and returns true if it succeeds\nrspec ./spec/models/order_spec.rb:37 # Order#process when payment_type is not recognized calls fail! and returns false\nrspec ./spec/models/order_spec.rb:52 # Order#has_downloads? returns true when any product variant has digital assets\nrspec ./spec/models/order_spec.rb:59 # Order#has_downloads? returns false when no product variant has digital assets\nrspec ./spec/models/product_spec.rb:58 # Product#also_bought returns products that were also bought with this product\nrspec ./spec/models/product_spec.rb:72 # Product#order_ids returns the order IDs for orders that contain this product\nrspec ./spec/models/product_variant_spec.rb:55 # ProductVariant#also_bought returns an array of products that were also bought with this product variant\nrspec ./spec/models/product_variant_spec.rb:144 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is available stock returns true\nrspec ./spec/models/product_variant_spec.rb:154 # ProductVariant#total_available_stock when the product variant is not digital only when the product variant is tracking stock when there is no available stock returns false\nrspec ./spec/models/product_variant_spec.rb:220 # ProductVariant#in_stock? when the product variant is not digital only when the product variant is tracking stock when there is available stock returns true\nrspec ./spec/models/product_variant_spec.rb:231 # ProductVariant#in_stock? when the product variant is not digital only when the product variant is tracking stock when there is no available stock returns false\nrspec ./spec/models/product_variant_spec.rb:277 # ProductVariant#update_stock when the product variant is not digital only when the product variant is tracking stock when there is available stock updates the stock\nrspec ./spec/models/product_variant_spec.rb:288 # ProductVariant#update_stock when the product variant is not digital only when the product variant is tracking stock when there is no available stock does not update the stock\nrspec ./spec/models/product_variant_spec.rb:310 # ProductVariant#has_digital_assets? when the product variant does not have a digital asset returns false\nrspec ./spec/models/product_variant_spec.rb:339 # ProductVariant#name_for_select returns the product name\nrspec ./spec/models/products_category_spec.rb:31 # ProductsCategory acts_as_list should update position when a record is moved up\nrspec ./spec/models/shipping_spec.rb:15 # Shipping#cart_id when line_items is not empty returns the cart_id of the first line item\nrspec ./spec/models/shipping_spec.rb:34 # Shipping#order_id when line_items is not empty returns the order_id of the first line item\nrspec ./spec/models/shipping_spec.rb:52 # Shipping#calculate_round_weight returns the smallest integer greater than or equal to the given weight divided by the number of shipping containers\nrspec ./spec/models/shipping_spec.rb:68 # Shipping#parcel_height when variant_format is small returns 2\nrspec ./spec/models/shipping_spec.rb:78 # Shipping#parcel_height when product_format is large returns 4\nrspec ./spec/models/shipping_spec.rb:90 # Shipping#parcel_length when at least one product_variant is a large vinyl or book returns 12\nrspec ./spec/models/shipping_spec.rb:100 # Shipping#parcel_length when no product_variant is a large vinyl or book returns 12\nrspec ./spec/models/shipping_spec.rb:111 # Shipping#parcel_width returns the same value as parcel_length\nrspec ./spec/requests/phoenix/pages_spec.rb:20 # Phoenix::Pages GET /phoenix/pages lists all pages\nrspec ./spec/requests/phoenix/pages_spec.rb:33 # Phoenix::Pages GET /phoenix/pages/:id shows a page\nrspec ./spec/requests/phoenix/pages_spec.rb:44 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the edit form for a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:53 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the structured content form for a contact_faq page\nrspec ./spec/requests/phoenix/pages_spec.rb:66 # Phoenix::Pages POST /phoenix/pages creates a default page with body\nrspec ./spec/requests/phoenix/pages_spec.rb:84 # Phoenix::Pages POST /phoenix/pages creates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:120 # Phoenix::Pages PATCH /phoenix/pages/:id updates a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:132 # Phoenix::Pages PATCH /phoenix/pages/:id updates a contact_faq page with structured content\nrspec ./spec/requests/phoenix/pages_spec.rb:169 # Phoenix::Pages PATCH /phoenix/pages/:id handles empty faqs gracefully\nrspec ./spec/requests/phoenix/pages_spec.rb:190 # Phoenix::Pages PATCH /phoenix/pages/:id preserves FAQ positions after reordering\nrspec ./spec/requests/phoenix/pages_spec.rb:215 # Phoenix::Pages DELETE /phoenix/pages/:id deletes a page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 61.44% (1523 / 2479)\nBranch Coverage: 37.48% (235 / 627)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 83000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 121.0
+}
