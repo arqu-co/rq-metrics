@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-132--drop-allowlist-entries-papering-over-re",
+  "sha": "4c72d61da532828a9046249da9032d8aa36f356f",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T23:23:37Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T23:23:36Z",
+      "fingerprint": "f91b6a0dd07de988b9e74d6f94f1cc00",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "       +  cc_issuer: \"laser\",\n       +  completed_at: \"2024-12-15 15:45:19.000000000 +0000\",\n       +  created_at: \"2026-05-03 23:23:26.000000000 +0000\",\n       +  credit_quantity: 0,\n       +  customer_ip: \"72.255.240.57\",\n       +  email: \"son@hudson.example\",\n       +  error_message: \"Fugit occaecati praesentium sequi.\",\n       +  order_items_count: 0,\n       +  ot_credit_card_total: 58,\n       +  ot_grand_total: 47,\n       +  ot_line_item_total: 93,\n       +  ot_money_order_total: 4,\n       +  ot_paypal_total: 6,\n       +  ot_shipping_total: 3,\n       +  payer_id: \"1138296770\",\n       +  payment_notes: \"Aliquid veritatis ex. Harum at eum. Autem error mo...\",\n       +  payment_type: \"magnam\",\n       +  phone_number: \"666-048-5537\",\n       +  ship_to_address: \"61309 Tamesha Dam\",\n       +  ship_to_address2: \"Apt. 513\",\n       +  ship_to_billing_address: true,\n       +  ship_to_city: \"East Elmo\",\n       +  ship_to_country: \"US\",\n       +  ship_to_name: \"Mismatch\",\n       +  ship_to_state: \"Nevada\",\n       +  ship_to_zip: \"09970\",\n       +  shipping_notes: \"Ipsa perferendis et. Qui veniam accusamus. Odit do...\",\n       +  shipping_price: 3.0,\n       +  shipping_service: \"ipsam\",\n       +  status: \"open\",\n       +  token: \"zybfybdqma\",\n       +  total_cost: 14.91,\n       +  tracking_number: \"4452222233\",\n       +  tracking_service: \"eius\",\n       +  transaction_id: \"3992554590\",\n       +  updated_at: \"2026-05-03 23:23:26.000000000 +0000\",\n       +  user_id: 4569>]\n     # ./spec/models/order_spec.rb:98:in 'block (3 levels) in <top (required)>'\n\nFinished in 1 minute 31.58 seconds (files took 1.36 seconds to load)\n832 examples, 1 failure\n\nFailed examples:\n\nrspec ./spec/models/order_spec.rb:94 # Order.search returns matching orders when the term matches a search column\n\nCoverage report generated for RSpec to /Users/jerrod/Projects/lovitt-modern/coverage.\nLine Coverage: 81.79% (2034 / 2487)\nBranch Coverage: 64.7% (405 / 626)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
