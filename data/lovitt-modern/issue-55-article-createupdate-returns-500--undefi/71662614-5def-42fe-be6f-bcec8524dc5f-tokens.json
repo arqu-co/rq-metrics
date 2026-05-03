@@ -1,0 +1,47 @@
+{
+  "event_type": "token_usage",
+  "schema_version": 1,
+  "repo": "lovitt-modern",
+  "branch": "issue-55-article-createupdate-returns-500--undefi",
+  "sha": null,
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-02T19:21:07.824Z",
+  "session_id": "71662614-5def-42fe-be6f-bcec8524dc5f",
+  "pr_number": null,
+  "pr_url": null,
+  "models_seen": [
+    "claude-haiku-4-5-20251001",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6"
+  ],
+  "session_total": {
+    "input": 31199,
+    "output": 937483,
+    "cache_read": 628952302,
+    "cache_create": 12489602,
+    "est_cost_usd": 408.56658502000005
+  },
+  "phases": {
+    "pre-rq": {
+      "tokens": 215388413,
+      "cost_usd": 137.72121925
+    },
+    "brainstorm": {
+      "tokens": 0,
+      "cost_usd": null
+    },
+    "writing-plans": {
+      "tokens": 419650516,
+      "cost_usd": 268.88361905
+    },
+    "review": {
+      "tokens": 1915720,
+      "cost_usd": 1.242708
+    },
+    "unknown": {
+      "tokens": 5455937,
+      "cost_usd": 0.71903872
+    }
+  }
+}

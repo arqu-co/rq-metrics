@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3593-knapsack-pro-gradle-junit-client",
+  "sha": "2ac14167f49d7d15a95ad1e75f9b2440c167eec8",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T13:42:05Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T13:42:04Z",
+      "test_runner": "bin-test",
+      "fingerprint": "ebadf058fce594c7c895658b7c165b92",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests_details": [
+        "scripts/knapsack/mock-server.py"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
