@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-125--mobile-body-overflows-horizontally-on-a",
+  "sha": "2e62f3b8f152228bef3ed2f0331dbf2e1522f0c0",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T21:43:42Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T21:43:42Z",
+      "fingerprint": "07eb887108ba0c308d7a183c62f2888f",
+      "test_runner": "bin-test",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
