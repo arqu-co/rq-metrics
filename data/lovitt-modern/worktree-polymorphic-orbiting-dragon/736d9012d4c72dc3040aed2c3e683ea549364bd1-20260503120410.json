@@ -1,0 +1,224 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "736d9012d4c72dc3040aed2c3e683ea549364bd1",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T16:04:10Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:00Z",
+      "files_checked": 10,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "app/models/order.rb",
+          "function": "shipping",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/models/order.rb",
+          "function": "shipping",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "app/models/user.rb",
+          "function": "create_password",
+          "lines": 74,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 4000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:56Z",
+      "files_checked": 10,
+      "coverage_tool": "simplecov",
+      "below_threshold": 5,
+      "below_threshold_details": [
+        {
+          "file": "app/models/cart.rb",
+          "coverage": 83.93,
+          "min": 95
+        },
+        {
+          "file": "app/models/cart_item.rb",
+          "coverage": 92.59,
+          "min": 95
+        },
+        {
+          "file": "app/models/order.rb",
+          "coverage": 77.78,
+          "min": 95
+        },
+        {
+          "file": "app/models/order_item.rb",
+          "coverage": 84.0,
+          "min": 95
+        },
+        {
+          "file": "app/models/product_variant.rb",
+          "coverage": 86.21,
+          "min": 95
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:03Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:02:56Z",
+      "files_checked": 10,
+      "violations": 2,
+      "violations_details": [
+        {
+          "file": "app/models/order.rb",
+          "lines": 364,
+          "max": 300,
+          "status": "fail"
+        },
+        {
+          "file": "db/schema.rb",
+          "lines": 394,
+          "max": 300,
+          "status": "fail"
+        }
+      ],
+      "duration_ms": 482000
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:03:59Z",
+      "duration_ms": 3000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:11Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/migrate/20260128185838_add_page_type_and_content_to_pages.rb:1:1: C: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nclass AddPageTypeAndContentToPages < ActiveRecord::Migration[8.1]\n^\ndb/migrate/20260128190117_change_body_nullable_on_pages.rb:1:1: C: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\nclass ChangeBodyNullableOnPages < ActiveRecord::Migration[8.1]\n^\ndb/migrate/20260128200003_create_artist_memberships.rb:13:36: C: [Correctable] Style/SymbolArray: Use %i or %I for an array of symbols.\n    add_index :artist_memberships, [:artist_id, :musician_id], unique: true\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:1:1: C: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.\n# This file is auto-generated from the current state of the database. Instead\n^\ndb/schema.rb:13:43: C: [Correctable] Style/NumericLiterals: Use underscores(_) as thousands separator and separate every 3 digits with them.\nActiveRecord::Schema[8.1].define(version: 2026_05_03_160000) do\n                                          ^^^^^^^^^^^^^^^^^\ndb/schema.rb:21:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"record_type\", \"record_id\", \"name\"], name: \"index_action_text_rich_texts_uniqueness\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:31:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"record_type\", \"record_id\", \"name\", \"blob_id\"], name: \"index_active_storage_attachments_uniqueness\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:49:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"blob_id\", \"variation_digest\"], name: \"index_active_storage_variant_records_uniqueness\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:72:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"artist_id\", \"musician_id\"], name: \"index_artist_memberships_on_artist_id_and_musician_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:246:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"display_id\", \"display_type\"], name: \"display_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:296:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"product_id\", \"category_id\"], name: \"product_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:320:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n223 files inspected, 40 offenses detected, 38 offenses autocorrectable\n\u274c RuboCop linting failed (0.89s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:04:05Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T15:54:14Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:02:51.762249Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:04:03Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:04:07Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:04:01Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T15:54:54Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 40000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T16:03:48Z",
+      "test_runner": "bin-test",
+      "fingerprint": "127c9f4d4465182324c9612a60bb6316",
+      "missing_tests": 2,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "db/migrate/20260503160000_db_hardening_indexes_and_counter_caches.rb",
+        "db/schema.rb"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "rspec ./spec/controllers/sessions_controller_spec.rb:33 # SessionsController POST #create with invalid credentials renders the new template\nrspec ./spec/controllers/sessions_controller_spec.rb:38 # SessionsController POST #create with invalid credentials does not set the user_id in the session\nrspec ./spec/controllers/tourdates_controller_spec.rb:14 # TourdatesController GET #index assigns @touring_artists\nrspec ./spec/controllers/tourdates_controller_spec.rb:23 # TourdatesController GET #index renders the index template\nrspec ./spec/controllers/users_controller_spec.rb:18 # UsersController GET #show returns http success\nrspec ./spec/controllers/users_controller_spec.rb:23 # UsersController GET #show assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:28 # UsersController GET #show renders the show template\nrspec ./spec/controllers/users_controller_spec.rb:35 # UsersController GET #order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:40 # UsersController GET #order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:45 # UsersController GET #order renders the order template\nrspec ./spec/controllers/users_controller_spec.rb:52 # UsersController GET #orders returns http success\nrspec ./spec/controllers/users_controller_spec.rb:57 # UsersController GET #orders assigns @orders\nrspec ./spec/controllers/users_controller_spec.rb:62 # UsersController GET #orders renders the orders template\nrspec ./spec/controllers/users_controller_spec.rb:69 # UsersController GET #view_order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:74 # UsersController GET #view_order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:79 # UsersController GET #view_order renders the view_order template\nrspec ./spec/controllers/users_controller_spec.rb:86 # UsersController GET #new returns http success\nrspec ./spec/controllers/users_controller_spec.rb:91 # UsersController GET #new assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:96 # UsersController GET #new renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:117 # UsersController POST #create with invalid params does not create a new user\nrspec ./spec/controllers/users_controller_spec.rb:123 # UsersController POST #create with invalid params renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:131 # UsersController GET #edit returns http success\nrspec ./spec/controllers/users_controller_spec.rb:136 # UsersController GET #edit assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:141 # UsersController GET #edit renders the edit template\nrspec ./spec/controllers/users_controller_spec.rb:167 # UsersController PATCH #update with invalid params does not update the user\nrspec ./spec/controllers/users_controller_spec.rb:173 # UsersController PATCH #update with invalid params renders the edit template\nrspec ./spec/models/cart_item_spec.rb:44 # CartItem#digital? when product_variant is not digital_only returns false\nrspec ./spec/models/cart_item_spec.rb:54 # CartItem#available_stock? when product_variant is in stock and quantity is less than or equal to product_variant quantity returns true\nrspec ./spec/models/cart_item_spec.rb:70 # CartItem#available_stock? when quantity is greater than product_variant quantity returns false\nrspec ./spec/models/cart_item_spec.rb:90 # CartItem#validate when product_variant is not present adds an error to the base\nrspec ./spec/models/cart_item_spec.rb:100 # CartItem#validate when product_variant is present when quantity exceeds the per_order_maximum adds an error to the base\nrspec ./spec/models/cart_item_spec.rb:119 # CartItem#validate when product_variant is present when product_variant is in stock and quantity is less than or equal to product_variant quantity does not add an error to the base\nrspec ./spec/models/cart_spec.rb:7 # Cart#quantity returns the total quantity of all line items in the cart\nrspec ./spec/models/product_variant_spec.rb:166 # ProductVariant#is_digital? when the product variant is digital only returns true\nrspec ./spec/models/product_variant_spec.rb:205 # ProductVariant#in_stock? when the product variant is not digital only when the product variant is not tracking stock returns true\nrspec ./spec/models/product_variant_spec.rb:262 # ProductVariant#update_stock when the product variant is not digital only when the product variant is not tracking stock does not update the stock\nrspec ./spec/models/product_variant_spec.rb:277 # ProductVariant#update_stock when the product variant is not digital only when the product variant is tracking stock when there is available stock updates the stock\nrspec ./spec/models/product_variant_spec.rb:300 # ProductVariant#has_digital_assets? when the product variant has a digital asset returns true\nrspec ./spec/models/product_variant_spec.rb:310 # ProductVariant#has_digital_assets? when the product variant does not have a digital asset returns false\nrspec ./spec/models/product_variant_spec.rb:330 # ProductVariant#name when the product variant does not have a product returns nil\nrspec ./spec/models/product_variant_spec.rb:339 # ProductVariant#name_for_select returns the product name\nrspec ./spec/requests/phoenix/pages_spec.rb:20 # Phoenix::Pages GET /phoenix/pages lists all pages\nrspec ./spec/requests/phoenix/pages_spec.rb:33 # Phoenix::Pages GET /phoenix/pages/:id shows a page\nrspec ./spec/requests/phoenix/pages_spec.rb:44 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the edit form for a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:53 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the structured content form for a contact_faq page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 74.34% (1785 / 2401)\nBranch Coverage: 53.96% (334 / 619)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "duration_ms": 37000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 593.0
+}
