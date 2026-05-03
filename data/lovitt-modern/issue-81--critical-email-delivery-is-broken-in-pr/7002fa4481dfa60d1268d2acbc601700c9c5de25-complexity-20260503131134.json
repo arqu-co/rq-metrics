@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-81--critical-email-delivery-is-broken-in-pr",
+  "sha": "7002fa4481dfa60d1268d2acbc601700c9c5de25",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T17:11:34Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T17:11:34Z",
+      "files_checked": 8,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "app/models/order.rb",
+          "function": "shipping",
+          "lines": 92,
+          "max": 50,
+          "type": "function_length"
+        },
+        {
+          "file": "app/models/order.rb",
+          "function": "shipping",
+          "complexity": 13,
+          "max": 8,
+          "type": "cyclomatic_complexity"
+        },
+        {
+          "file": "db/migrate/20260503170000_install_solid_queue.rb",
+          "function": "change",
+          "lines": 130,
+          "max": 50,
+          "type": "function_length"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

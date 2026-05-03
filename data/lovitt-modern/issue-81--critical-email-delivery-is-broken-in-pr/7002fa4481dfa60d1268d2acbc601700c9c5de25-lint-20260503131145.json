@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-81--critical-email-delivery-is-broken-in-pr",
+  "sha": "7002fa4481dfa60d1268d2acbc601700c9c5de25",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T17:11:44Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T17:11:44Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "\ud83d\ude80 Running linting checks...\n\n\ud83d\udd0d HAML template linting...\nRunning: bundle exec haml-lint --fail-level error app/views/\n\n117 files inspected, 56 lints detected\n\u2705 HAML template linting passed (0.78s)\n\n\ud83d\udd0d ERB template formatting check...\n\u2705 ERB template formatting check passed (0.36s)\n\n\ud83d\udd0d RuboCop linting...\nRunning: bundle exec rubocop --parallel\nInspecting 190 files\n............................................................................CC................................................................................................................\n\nOffenses:\n\nconfig/environments/production.rb:96:16: C: [Correctable] Style/FetchEnvVar: Use ENV.fetch(\"SMTP_USERNAME\", nil) instead of ENV[\"SMTP_USERNAME\"].\n    user_name: ENV[\"SMTP_USERNAME\"],\n               ^^^^^^^^^^^^^^^^^^^^\nconfig/environments/production.rb:97:15: C: [Correctable] Style/FetchEnvVar: Use ENV.fetch(\"SMTP_PASSWORD\", nil) instead of ENV[\"SMTP_PASSWORD\"].\n    password: ENV[\"SMTP_PASSWORD\"],\n              ^^^^^^^^^^^^^^^^^^^^\nconfig/environments/staging.rb:102:16: C: [Correctable] Style/FetchEnvVar: Use ENV.fetch(\"SMTP_USERNAME\", nil) instead of ENV[\"SMTP_USERNAME\"].\n    user_name: ENV[\"SMTP_USERNAME\"],\n               ^^^^^^^^^^^^^^^^^^^^\nconfig/environments/staging.rb:103:15: C: [Correctable] Style/FetchEnvVar: Use ENV.fetch(\"SMTP_PASSWORD\", nil) instead of ENV[\"SMTP_PASSWORD\"].\n    password: ENV[\"SMTP_PASSWORD\"],\n              ^^^^^^^^^^^^^^^^^^^^\n\n190 files inspected, 4 offenses detected, 4 offenses autocorrectable\n\u274c RuboCop linting failed (1.23s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-81--critical-email-delivery-is-broken-in-pr",
+  "sha": "7002fa4481dfa60d1268d2acbc601700c9c5de25",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T17:13:26Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "skill-isolation",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "skill-isolation"
+  ],
+  "gates": {
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T17:13:25Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

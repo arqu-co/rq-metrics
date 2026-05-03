@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "issue-81--critical-email-delivery-is-broken-in-pr",
+  "sha": "7002fa4481dfa60d1268d2acbc601700c9c5de25",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T17:11:27Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T17:11:26.931123Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
