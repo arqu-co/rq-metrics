@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "413c98d69808cac4657bae608cec06289b6bac9b",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-03T20:32:29Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:30:30Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T20:32:17Z",
+      "files_checked": 0,
+      "coverage_tool": "simplecov",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:30:32Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:30:28Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:32:18Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:30:39Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/schema.rb:320:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:335:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"concurrency_key\", \"priority\", \"job_id\"], name: \"index_solid_queue_blocked_executions_for_release\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:336:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"expires_at\", \"concurrency_key\"], name: \"index_solid_queue_blocked_executions_for_maintenance\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:345:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"process_id\", \"job_id\"], name: \"index_solid_queue_claimed_executions_on_process_id_and_job_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:369:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"finished_at\"], name: \"index_solid_queue_jobs_for_filtering\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:370:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"finished_at\"], name: \"index_solid_queue_jobs_for_alerting\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:389:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"name\", \"supervisor_id\"], name: \"index_solid_queue_processes_on_name_and_supervisor_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:399:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"priority\", \"job_id\"], name: \"index_solid_queue_poll_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:400:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"priority\", \"job_id\"], name: \"index_solid_queue_poll_by_queue\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:409:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"task_key\", \"run_at\"], name: \"index_solid_queue_recurring_executions_on_task_key_and_run_at\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:435:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"priority\", \"job_id\"], name: \"index_solid_queue_dispatch_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:445:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"key\", \"value\"], name: \"index_solid_queue_semaphores_on_key_and_value\"\n            ^^^^^^^^^^^^^^^^\n\n228 files inspected, 63 offenses detected, 61 offenses autocorrectable\n\u274c RuboCop linting failed (0.91s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:32:24Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T18:05:49Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:30:27.472098Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:32:22Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:32:26Z",
+      "duration_ms": 2000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:32:21Z",
+      "scanned_files": 0,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T20:32:15Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-03T20:32:13Z",
+      "test_runner": "bin-test",
+      "fingerprint": "d0f7a9f4a300b0c3804ff08075026f01",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "rspec ./spec/controllers/phoenix/users_controller_spec.rb:25 # Phoenix::UsersController GET #show assigns the requested user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:31 # Phoenix::UsersController GET #show renders the show template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:39 # Phoenix::UsersController GET #new assigns a new user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:44 # Phoenix::UsersController GET #new renders the new template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:73 # Phoenix::UsersController POST #create with invalid attributes does not create a new user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:79 # Phoenix::UsersController POST #create with invalid attributes re-renders the new template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:87 # Phoenix::UsersController GET #edit assigns the requested user to @user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:93 # Phoenix::UsersController GET #edit renders the edit template\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:117 # Phoenix::UsersController PATCH #update with invalid attributes does not update the user\nrspec ./spec/controllers/phoenix/users_controller_spec.rb:124 # Phoenix::UsersController PATCH #update with invalid attributes re-renders the edit template\nrspec ./spec/controllers/products_controller_spec.rb:7 # ProductsController GET #recent returns http success\nrspec ./spec/controllers/products_controller_spec.rb:16 # ProductsController GET #show returns http success\nrspec ./spec/controllers/search_controller_spec.rb:7 # SearchController GET #show returns http success\nrspec ./spec/controllers/search_controller_spec.rb:14 # SearchController GET #show with query returns http success and assigns variables\nrspec ./spec/controllers/sessions_controller_spec.rb:7 # SessionsController GET #new returns http success\nrspec ./spec/controllers/sessions_controller_spec.rb:33 # SessionsController POST #create with invalid credentials renders the new template\nrspec ./spec/controllers/sessions_controller_spec.rb:38 # SessionsController POST #create with invalid credentials does not set the user_id in the session\nrspec ./spec/controllers/tourdates_controller_spec.rb:14 # TourdatesController GET #index assigns @touring_artists\nrspec ./spec/controllers/tourdates_controller_spec.rb:23 # TourdatesController GET #index renders the index template\nrspec ./spec/controllers/users_controller_spec.rb:18 # UsersController GET #show returns http success\nrspec ./spec/controllers/users_controller_spec.rb:23 # UsersController GET #show assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:28 # UsersController GET #show renders the show template\nrspec ./spec/controllers/users_controller_spec.rb:35 # UsersController GET #order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:40 # UsersController GET #order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:45 # UsersController GET #order renders the order template\nrspec ./spec/controllers/users_controller_spec.rb:52 # UsersController GET #orders returns http success\nrspec ./spec/controllers/users_controller_spec.rb:57 # UsersController GET #orders assigns @orders\nrspec ./spec/controllers/users_controller_spec.rb:62 # UsersController GET #orders renders the orders template\nrspec ./spec/controllers/users_controller_spec.rb:69 # UsersController GET #view_order returns http success\nrspec ./spec/controllers/users_controller_spec.rb:74 # UsersController GET #view_order assigns @order\nrspec ./spec/controllers/users_controller_spec.rb:79 # UsersController GET #view_order renders the view_order template\nrspec ./spec/controllers/users_controller_spec.rb:86 # UsersController GET #new returns http success\nrspec ./spec/controllers/users_controller_spec.rb:91 # UsersController GET #new assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:96 # UsersController GET #new renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:125 # UsersController POST #create with invalid params does not create a new user\nrspec ./spec/controllers/users_controller_spec.rb:131 # UsersController POST #create with invalid params renders the new template\nrspec ./spec/controllers/users_controller_spec.rb:139 # UsersController GET #edit returns http success\nrspec ./spec/controllers/users_controller_spec.rb:144 # UsersController GET #edit assigns @user\nrspec ./spec/controllers/users_controller_spec.rb:149 # UsersController GET #edit renders the edit template\nrspec ./spec/controllers/users_controller_spec.rb:175 # UsersController PATCH #update with invalid params does not update the user\nrspec ./spec/controllers/users_controller_spec.rb:181 # UsersController PATCH #update with invalid params renders the edit template\nrspec ./spec/requests/phoenix/pages_spec.rb:20 # Phoenix::Pages GET /phoenix/pages lists all pages\nrspec ./spec/requests/phoenix/pages_spec.rb:33 # Phoenix::Pages GET /phoenix/pages/:id shows a page\nrspec ./spec/requests/phoenix/pages_spec.rb:44 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the edit form for a default page\nrspec ./spec/requests/phoenix/pages_spec.rb:53 # Phoenix::Pages GET /phoenix/pages/:id/edit shows the structured content form for a contact_faq page\n\nCoverage report generated for RSpec to /Users/jerrod/Sites/lovitt-modern/.claude/worktrees/polymorphic-orbiting-dragon/coverage.\nLine Coverage: 76.79% (1909 / 2486)\nBranch Coverage: 56.78% (356 / 627)\nStopped processing SimpleCov as a previous error not related to SimpleCov has been detected"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 94000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 8797.0
+}
