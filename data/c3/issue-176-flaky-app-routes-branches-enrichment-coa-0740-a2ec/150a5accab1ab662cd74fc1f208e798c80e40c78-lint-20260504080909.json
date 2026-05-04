@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-176-flaky-app-routes-branches-enrichment-coa-0740-a2ec",
+  "sha": "150a5accab1ab662cd74fc1f208e798c80e40c78",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T12:09:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T12:09:09Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "server/__tests__/app-routes-branches-enrichment.test.ts(104,80): error TS2345: Argument of type '(value: void | PromiseLike<void>) => void' is not assignable to parameter of type '(err?: Error | undefined) => void'.\n  Types of parameters 'value' and 'err' are incompatible.\n    Type 'Error | undefined' is not assignable to type 'void | PromiseLike<void>'.\n      Type 'Error' is not assignable to type 'void | PromiseLike<void>'.\nserver/__tests__/app-routes-branches-enrichment.test.ts(104,80): error TS2345: Argument of type '(value: void | PromiseLike<void>) => void' is not assignable to parameter of type '(err?: Error | undefined) => void'.\n  Types of parameters 'value' and 'err' are incompatible.\n    Type 'Error | undefined' is not assignable to type 'void | PromiseLike<void>'.\n      Type 'Error' is not assignable to type 'void | PromiseLike<void>'.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "server/__tests__/app-routes-branches-enrichment.test.ts(104,80): error TS2345: Argument of type '(value: void | PromiseLike<void>) => void' is not assignable to parameter of type '(err?: Error | undefined) => void'.\n  Types of parameters 'value' and 'err' are incompatible.\n    Type 'Error | undefined' is not assignable to type 'void | PromiseLike<void>'.\n      Type 'Error' is not assignable to type 'void | PromiseLike<void>'.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
