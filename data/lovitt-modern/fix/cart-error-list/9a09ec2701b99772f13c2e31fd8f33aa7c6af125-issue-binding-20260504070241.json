@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "fix/cart-error-list",
+  "sha": "9a09ec2701b99772f13c2e31fd8f33aa7c6af125",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T11:02:41Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T11:02:40Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
