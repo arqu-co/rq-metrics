@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-200-end-session-button-should-run-wrap-up-be-1131-e86e",
+  "sha": "2cc96edb4286ad07d1d032ded87bd5cf8e470153",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:58:08Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T15:58:08Z",
+      "fingerprint": "8b5ce902eb26c90f99872f3bb4fd0adb",
+      "test_runner": "bin-test",
+      "missing_tests": 1,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [
+        "client/src/hooks/terminal-ws-handlers.ts"
+      ],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "        \u001b[36m</button>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"flex-1 min-h-0 relative\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<div\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"absolute inset-0 flex flex-col min-h-0\"\u001b[39m\n          \u001b[33mid\u001b[39m=\u001b[32m\"branch-home-panel-home\"\u001b[39m\n          \u001b[33mrole\u001b[39m=\u001b[32m\"tabpanel\"\u001b[39m\n          \u001b[33mstyle\u001b[39m=\u001b[32m\"display: flex;\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<div\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"branch-overview-stub\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mfeat/foo\u001b[0m\n          \u001b[36m</div>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n        \u001b[36m<div\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"absolute inset-0 flex flex-col min-h-0\"\u001b[39m\n          \u001b[33mid\u001b[39m=\u001b[32m\"branch-home-panel-terminal\"\u001b[39m\n          \u001b[33mrole\u001b[39m=\u001b[32m\"tabpanel\"\u001b[39m\n          \u001b[33mstyle\u001b[39m=\u001b[32m\"display: none;\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<div\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"terminal-panel-stub\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n \u276f Object.getElementError ../../../node_modules/@testing-library/dom/dist/config.js:37:19\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n \u276f client/src/components/BranchHome.test.tsx:202:28\n    200|     } as never;\n    201|     render(<BranchHome {...baseProps} sessions={sessions} />);\n    202|     fireEvent.click(screen.getByRole(\"button\", { name: /^stop$/i }));\n       |                            ^\n    203|     expect(stop).toHaveBeenCalledWith(\"arqu-co/c3/feat/foo\");\n    204|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\n\n\n Test Files  2 failed | 288 passed (290)\n      Tests  2 failed | 3347 passed (3349)\n   Start at  11:57:49\n   Duration  18.80s (transform 6.80s, setup 0ms, import 28.11s, tests 99.69s, environment 65.07s)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

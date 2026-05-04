@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-200-end-session-button-should-run-wrap-up-be-1131-e86e",
+  "sha": "2cc96edb4286ad07d1d032ded87bd5cf8e470153",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:57:48Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T15:57:48Z",
+      "failures": 2,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 2,
+          "output": "tmp/tsh-main.ts(4,34): error TS2307: Cannot find module './useBranches' or its corresponding type declarations.\ntmp/tsh-main.ts(5,39): error TS2307: Cannot find module './useTerminalSessions' or its corresponding type declarations.\ntmp/tsh-main.ts(6,33): error TS2307: Cannot find module '../types/session' or its corresponding type declarations.\ntmp/tsh-main.ts(313,35): error TS2307: Cannot find module './launch-request.js' or its corresponding type declarations.\ntmp/tsh-main.ts(314,52): error TS2307: Cannot find module './launch-request.js' or its corresponding type declarations.\n"
+        },
+        {
+          "check": "typecheck",
+          "exit_code": 2,
+          "output": "tmp/tsh-main.ts(4,34): error TS2307: Cannot find module './useBranches' or its corresponding type declarations.\ntmp/tsh-main.ts(5,39): error TS2307: Cannot find module './useTerminalSessions' or its corresponding type declarations.\ntmp/tsh-main.ts(6,33): error TS2307: Cannot find module '../types/session' or its corresponding type declarations.\ntmp/tsh-main.ts(313,35): error TS2307: Cannot find module './launch-request.js' or its corresponding type declarations.\ntmp/tsh-main.ts(314,52): error TS2307: Cannot find module './launch-request.js' or its corresponding type declarations.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
