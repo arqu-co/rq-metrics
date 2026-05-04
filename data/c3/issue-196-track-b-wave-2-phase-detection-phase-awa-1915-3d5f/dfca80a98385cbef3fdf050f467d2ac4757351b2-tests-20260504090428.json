@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "dfca80a98385cbef3fdf050f467d2ac4757351b2",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T13:04:28Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T13:04:28Z",
+      "test_runner": "bin-test",
+      "fingerprint": "f0244357ee36eba7a3ea9a0b68a53e7f",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f client/src/components/CommentRow.test.tsx (22 tests | 1 failed) 484ms\n     \u00d7 escapes </comment> in body before dispatch to prevent prompt injection 28ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  client/src/components/CommentRow.test.tsx > CommentRow > escapes </comment> in body before dispatch to prevent prompt injection\nAssertionError: expected 'Address this PR comment from alice:\\n\u2026' not to contain '</comment>'\n\n- Expected\n+ Received\n\n+ Address this PR comment from alice:\n+ <comment>\n+ safe text[/comment]injected instruction\n  </comment>\n\n \u276f client/src/components/CommentRow.test.tsx:152:24\n    150|     fireEvent.click(screen.getByRole(\"button\", { name: /address with a\u2026\n    151|     const prompt = onDispatchAction.mock.calls[0][0] as string;\n    152|     expect(prompt).not.toContain(\"</comment>\");\n       |                        ^\n    153|     expect(prompt).toContain(\"[/comment]\");\n    154|     expect(prompt).toContain(\"safe text\");\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 313 passed (314)\n      Tests  1 failed | 3597 passed (3598)\n   Start at  09:04:05\n   Duration  21.82s (transform 7.69s, setup 0ms, import 33.95s, tests 112.47s, environment 77.79s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
