@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/592-lessons-corpus",
+  "sha": "a0221c8e12dd92a73bac49e95238e3936622fe68",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T00:06:58Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "complexity",
+  "critic_verdict": "findings",
+  "critic_findings_count": 5,
+  "critic_findings_by_rule": {
+    "MISSING_IMPLEMENTATION": 5
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 1 missing 'Load lessons corpus' sub-section \u2014 no $LESSONS preamble added"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 2.5 trust-diff guard missing comment confirming .review/lessons/ is covered by ^.review/ regex"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 balanced-tier dispatch prompts missing $LESSONS insertions \u2014 0 found, spec requires >=2"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 thorough-tier dispatch prompts missing $LESSONS insertions \u2014 0 found, spec requires >=4"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 missing $LESSONS re-derivation preamble before first Agent() dispatch \u2014 required by skill-isolation rule"
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:06:57Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
