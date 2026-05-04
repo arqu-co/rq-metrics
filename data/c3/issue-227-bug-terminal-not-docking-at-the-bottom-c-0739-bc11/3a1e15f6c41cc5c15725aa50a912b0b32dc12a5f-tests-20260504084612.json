@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-227-bug-terminal-not-docking-at-the-bottom-c-0739-bc11",
+  "sha": "3a1e15f6c41cc5c15725aa50a912b0b32dc12a5f",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T12:46:12Z",
+  "phase": "ship",
+  "run_number": 2,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T12:46:12Z",
+      "test_runner": "bin-test",
+      "fingerprint": "54ea8c57c63a036226df37fd98665b26",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-DBq1wG\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-shXzr4\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-hVD2n4\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nstdout | server/__tests__/preview-api-router.test.ts\n\u25c7 injected env (9) from ../../../.env // tip: \u2318 enable debugging { debug: true }\n\n \u276f server/__tests__/preview-api-router.test.ts (17 tests | 1 failed) 111ms\n     \u00d7 forwards a POST body that express.json() already parsed 9ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/preview-api-router.test.ts > createWorktreeProxyMiddleware \u2014 preview /api/* forwarding > forwards a POST body that express.json() already parsed\nError: socket hang up\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 288 passed (289)\n      Tests  1 failed | 3344 passed (3345)\n   Start at  08:45:50\n   Duration  21.09s (transform 8.14s, setup 0ms, import 33.31s, tests 109.52s, environment 76.75s)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
