@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "baf1c5c3925f3a8a4619debb278f5e00d56124c2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T01:43:07Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T01:43:07Z",
+      "test_runner": "bin-test",
+      "fingerprint": "663f91df8e7ee54bd5196a5f7036d4d8",
+      "failed_subprojects": 0,
+      "missing_tests": 1,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [
+        "db/migrate/20260504013704_seed_lovitt_archive_category.rb"
+      ],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
