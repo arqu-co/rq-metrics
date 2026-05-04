@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3595-per-fork-isolation",
+  "sha": "426c30810ef67742df3e148a0b2595c089a2e717",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T12:08:51Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "lint",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "lint"
+  ],
+  "gates": {
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T12:08:51Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "Calculating task graph as configuration cache cannot be reused because system property 'idea.io.use.nio2' has changed.\n> Task :loadKtlintReporters UP-TO-DATE\n> Task :runKtlintCheckOverSharedTestResourcesSourceSet NO-SOURCE\n> Task :runKtlintCheckOverTestSourceSet NO-SOURCE\n> Task :ktlintSharedTestResourcesSourceSetCheck SKIPPED\n> Task :ktlintTestSourceSetCheck SKIPPED\n> Task :runKtlintCheckOverE2eTestSourceSet UP-TO-DATE\n> Task :runKtlintCheckOverUnitTestSourceSet UP-TO-DATE\n> Task :runKtlintCheckOverKotlinScripts UP-TO-DATE\n> Task :ktlintE2eTestSourceSetCheck UP-TO-DATE\n> Task :ktlintUnitTestSourceSetCheck UP-TO-DATE\n> Task :ktlintKotlinScriptCheck UP-TO-DATE\n> Task :runKtlintCheckOverMainSourceSet UP-TO-DATE\n> Task :ktlintMainSourceSetCheck UP-TO-DATE\n> Task :runKtlintCheckOverIntegrationTestSourceSet\n\n> Task :ktlintIntegrationTestSourceSetCheck FAILED\n/Users/jerrod/Sites/core-api/.claude/worktrees/inherited-bouncing-finch/src/integrationTest/kotlin/co/arqu/config/TestSlotInitializer.kt:73:39 Redundant curly braces\nKotlin build report is written to file:///Users/jerrod/Sites/core-api/.claude/worktrees/inherited-bouncing-finch/build/reports/kotlin-build/core-build-2026-05-04-08-08-50-0.txt\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':ktlintIntegrationTestSourceSetCheck'.\n> A failure occurred while executing org.jlleitschuh.gradle.ktlint.worker.ConsoleReportWorkAction\n   > KtLint found code style violations. Please see the following reports:\n     - /Users/jerrod/Sites/core-api/.claude/worktrees/inherited-bouncing-finch/build/reports/ktlint/ktlintIntegrationTestSourceSetCheck/ktlintIntegrationTestSourceSetCheck.txt\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n> Get more help at https://help.gradle.org.\n\nBUILD FAILED in 3s\n11 actionable tasks: 2 executed, 9 up-to-date\nConfiguration cache entry stored.\n"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

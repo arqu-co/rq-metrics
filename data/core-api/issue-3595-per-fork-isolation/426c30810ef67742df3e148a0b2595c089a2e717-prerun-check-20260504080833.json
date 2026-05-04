@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3595-per-fork-isolation",
+  "sha": "426c30810ef67742df3e148a0b2595c089a2e717",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T12:08:33Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:08:32.676373Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
