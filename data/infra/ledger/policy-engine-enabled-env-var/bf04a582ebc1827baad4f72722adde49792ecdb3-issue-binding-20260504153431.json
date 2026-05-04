@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "infra",
+  "branch": "ledger/policy-engine-enabled-env-var",
+  "sha": "bf04a582ebc1827baad4f72722adde49792ecdb3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T19:34:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T19:34:30Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
