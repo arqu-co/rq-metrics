@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "core-api",
+  "branch": "issue-3617-daemon-reuse",
+  "sha": "cb18ed081f4d5a86b4a23fc39158e312117361f2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T01:08:54Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "review",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "review"
+  ],
+  "gates": {
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T01:08:53Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
