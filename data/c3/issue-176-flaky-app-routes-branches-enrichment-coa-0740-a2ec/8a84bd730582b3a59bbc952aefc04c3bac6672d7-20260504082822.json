@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-176-flaky-app-routes-branches-enrichment-coa-0740-a2ec",
+  "sha": "8a84bd730582b3a59bbc952aefc04c3bac6672d7",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T12:28:22Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-23715",
+    "review-wip-reviewer-84818",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:09:00Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T12:09:30Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:09:01Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:08:59Z",
+      "files_checked": 1,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:18Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:26:41Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 0
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:20Z",
+      "duration_ms": 1000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T12:09:09Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:27:57.758290Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:20Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-04T12:27:38Z",
+      "duration_ms": 57000
+    },
+    "review-wip-reviewer-23715": {
+      "status": "complete",
+      "findings": 7,
+      "findings_details": [
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 32,
+          "severity": "medium",
+          "category": "resource-leak",
+          "title": "mkdtempSync temp directories never cleaned up",
+          "body": "makeApp() calls mkdtempSync on every invocation but no afterEach removes the created directories. With multiple describe blocks and multiple it() calls each, every test run leaks temp directories. Fix: capture the dir in makeApp, return it alongside the app, and add afterEach cleanup; or use a single shared makeApp per describe block with its own afterEach(rmSync).",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 58,
+          "severity": "low",
+          "category": "style",
+          "title": "getCache().clear() is redundant after setClientForTesting(null)",
+          "body": "setClientForTesting() already calls cache.clear() internally (github-poller.ts:100). Every beforeEach that calls setClientForTesting(null) followed by getCache().clear() clears the cache twice. The redundant call adds noise and could mislead future readers. Affects lines 58-59, 174-176, and 217-219. Fix: remove the standalone getCache().clear() calls from all three blocks.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 103,
+          "severity": "low",
+          "category": "style",
+          "title": "Coalescing beforeEach uses single-line multi-statement style inconsistent with all other blocks",
+          "body": "Line 103 packs three statements on one line with semicolons. Every other describe block in this file uses a multi-line beforeEach body. Fix: expand to the multi-line style used elsewhere for consistency.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 104,
+          "severity": "low",
+          "category": "style",
+          "title": "srv! non-null assertion is redundant inside if (srv) guard",
+          "body": "afterEach uses `if (srv) { ... srv!.close(...) }`. The if guard already narrows srv to non-null within the block; the ! assertion is misleading. Fix: change srv!.close(() => r()) to srv.close(() => r()) inside the guard.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 129,
+          "severity": "medium",
+          "category": "dry",
+          "title": "mock.calls cast pattern duplicated verbatim three times",
+          "body": "The pattern `requestSpy.mock.calls as unknown as [string, Record<string, unknown>][]` followed by .find or .filter on the route string appears at lines 129-130, 190-191, and 208-209. Fix: extract a helper function that encapsulates the cast and commit-call filter, reducing three identical cast sites to a single reusable call.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 40,
+          "severity": "low",
+          "category": "style",
+          "title": "seedPR carries fields irrelevant to any assertion",
+          "body": "The PullRequest literal in seedPR() sets isDraft, ciStatus, reviewState, hasMergeConflict, needsAttention, failedChecks, reviewers, requestedReviewers, ciCommitSha, ciIsStale, approvalIsStale - none are asserted on by any test. They obscure the four fields that matter: repo, branch, state, headSha. Fix: identify which fields the PullRequest type requires vs optional, and supply only those needed for the type constraint; move optional noise fields to a typed defaults object.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branches-enrichment.test.ts",
+          "line": 31,
+          "severity": "low",
+          "category": "style",
+          "title": "makeApp and seedPR lack explicit return type annotations",
+          "body": "makeApp() at line 31 and seedPR() at line 40 have no explicit return type annotations. Project uses TypeScript strict mode and the convention is explicit return-type annotation. Fix: add `: express.Express` to makeApp and `: void` to seedPR.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-84818": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-9999": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:21Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:19Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:28:18Z",
+      "scanned_files": 1,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T12:28:17Z",
+      "fingerprint": "3ed3ca37ee90098e5d1cf0538a096676",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "To /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-7FYVoH\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-qg64d9\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-tQWrCU\n * [new branch]      feature/x -> feature/x\nPreparing worktree (checking out 'feature/x')\nTo /var/folders/_w/kzb8b5x94fsd12x4mlh4bbrw0000gn/T/c3-remote-aZme1G\n * [new branch]      feature/x -> feature/x\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/app-routes-auto-update.test.ts (13 tests | 1 failed) 91ms\n     \u00d7 GET status returns 403 auto_update_disabled when env unset 7ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-auto-update.test.ts > auto-update admin routes \u2014 auth gate > GET status returns 403 auto_update_disabled when env unset\nError: socket hang up\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 288 passed (289)\n      Tests  1 failed | 3344 passed (3345)\n   Start at  08:27:58\n   Duration  18.71s (transform 6.30s, setup 0ms, import 28.15s, tests 100.52s, environment 64.01s)"
+        }
+      ],
+      "duration_ms": 39000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 1162.0
+}
