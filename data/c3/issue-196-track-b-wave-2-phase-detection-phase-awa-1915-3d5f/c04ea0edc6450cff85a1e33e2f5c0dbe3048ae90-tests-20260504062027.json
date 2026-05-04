@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "c04ea0edc6450cff85a1e33e2f5c0dbe3048ae90",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T10:20:27Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T10:20:27Z",
+      "fingerprint": "3c5d7861c3fdac9cd877bd972e02efac",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "            \u001b[0mfiles\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-plan\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mplan\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-pr-description\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mpr-description\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-test-plan\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mtest-plan\u001b[0m\n          \u001b[36m</button>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"flex-1 min-h-0 overflow-y-auto\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-[13px] text-stone-400 px-10 py-4\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mNo pull request on this branch.\u001b[0m\n        \u001b[36m</p>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n \u276f Object.getElementError ../../../node_modules/@testing-library/dom/dist/config.js:37:19\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n \u276f client/src/components/HomeSectionContent.test.tsx:113:19\n    111|   it(\"renders empty string in MarkdownRenderer when pr has no body\", (\u2026\n    112|     render(<HomeSectionContent {...baseProps} activeSection=\"pr-descri\u2026\n    113|     expect(screen.getByTestId(\"markdown-renderer\").textContent).toBe(\"\u2026\n       |                   ^\n    114|   });\n    115|\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 313 passed (314)\n      Tests  1 failed | 3590 passed (3591)\n   Start at  06:20:05\n   Duration  21.25s (transform 6.84s, setup 0ms, import 31.61s, tests 110.62s, environment 77.37s)"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "c04ea0edc6450cff85a1e33e2f5c0dbe3048ae90",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T10:20:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:40:19Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:19:51Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T10:20:27Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 23000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:19:55Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 4000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:19:49Z",
+      "files_checked": 57,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:20:28Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:20:04Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:20:30Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:38:37Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T01:34:31Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:19:45.054964Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:20:30Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-03T16:46:09Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:36:06Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:20:29Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T16:46:32Z",
+      "scanned_files": 28,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T10:20:27Z",
+      "test_runner": "bin-test",
+      "fingerprint": "3c5d7861c3fdac9cd877bd972e02efac",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "            \u001b[0mfiles\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-plan\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mplan\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-pr-description\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mpr-description\u001b[0m\n          \u001b[36m</button>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"switch-to-test-plan\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mtest-plan\u001b[0m\n          \u001b[36m</button>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"flex-1 min-h-0 overflow-y-auto\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-[13px] text-stone-400 px-10 py-4\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mNo pull request on this branch.\u001b[0m\n        \u001b[36m</p>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n \u276f Object.getElementError ../../../node_modules/@testing-library/dom/dist/config.js:37:19\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n \u276f ../../../node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n \u276f client/src/components/HomeSectionContent.test.tsx:113:19\n    111|   it(\"renders empty string in MarkdownRenderer when pr has no body\", (\u2026\n    112|     render(<HomeSectionContent {...baseProps} activeSection=\"pr-descri\u2026\n    113|     expect(screen.getByTestId(\"markdown-renderer\").textContent).toBe(\"\u2026\n       |                   ^\n    114|   });\n    115|\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 313 passed (314)\n      Tests  1 failed | 3590 passed (3591)\n   Start at  06:20:05\n   Duration  21.25s (transform 6.84s, setup 0ms, import 31.61s, tests 110.62s, environment 77.37s)"
+        }
+      ],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 124913.0
+}
