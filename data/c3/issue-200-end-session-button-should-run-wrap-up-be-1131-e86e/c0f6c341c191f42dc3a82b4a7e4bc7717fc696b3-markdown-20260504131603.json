@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-200-end-session-button-should-run-wrap-up-be-1131-e86e",
+  "sha": "c0f6c341c191f42dc3a82b4a7e4bc7717fc696b3",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T17:16:03Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "markdown",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchHome.test.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 329 lines, exceeds the 300-line maximum. Split pre-existing wizard/session tests into a separate describe block file (e.g. BranchHome.wizard.test.tsx or BranchHome.session.test.tsx)."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "markdown"
+  ],
+  "gates": {
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:16:03Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
