@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-227-bug-terminal-not-docking-at-the-bottom-c-0739-bc11",
+  "sha": "697cdb0602e0180b4f4cb616462dbc4a05c0212d",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T11:42:19Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:42:18.843266Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-224-pruning-worktrees-still-doesn-t-work-3rd-1912-18be",
+  "sha": "73f2500b01ba3cdc0bdbbd5ef1baf9545e77d31a",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T11:42:38Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:42:38Z",
+      "test_runner": "bin-test",
+      "fingerprint": "55fc5b309205fdced724202c99244ac2",
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
