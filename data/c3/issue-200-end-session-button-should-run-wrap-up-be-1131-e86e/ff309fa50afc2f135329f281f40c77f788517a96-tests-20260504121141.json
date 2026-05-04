@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-200-end-session-button-should-run-wrap-up-be-1131-e86e",
+  "sha": "ff309fa50afc2f135329f281f40c77f788517a96",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T16:11:41Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchHome.test.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 329 lines, exceeds the 300-line maximum. Split pre-existing wizard/session tests into a separate describe block file (e.g. BranchHome.wizard.test.tsx or BranchHome.session.test.tsx)."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T16:11:41Z",
+      "fingerprint": "56aaa23fec67e923bfb8a6319684900b",
+      "test_runner": "bin-test",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

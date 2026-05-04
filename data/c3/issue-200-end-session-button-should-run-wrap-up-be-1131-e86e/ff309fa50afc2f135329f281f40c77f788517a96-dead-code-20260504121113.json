@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-200-end-session-button-should-run-wrap-up-be-1131-e86e",
+  "sha": "ff309fa50afc2f135329f281f40c77f788517a96",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T16:11:13Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "dead-code",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchHome.test.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "File is 329 lines, exceeds the 300-line maximum. Split pre-existing wizard/session tests into a separate describe block file (e.g. BranchHome.wizard.test.tsx or BranchHome.session.test.tsx)."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "dead-code"
+  ],
+  "gates": {
+    "dead-code": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T16:11:13Z",
+      "files_checked": 9,
+      "violations": 1,
+      "violations_details": [
+        {
+          "type": "unused_import",
+          "file": "client/src/hooks/terminal-session-helpers.ts",
+          "name": "type WireContext",
+          "line": 6
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
