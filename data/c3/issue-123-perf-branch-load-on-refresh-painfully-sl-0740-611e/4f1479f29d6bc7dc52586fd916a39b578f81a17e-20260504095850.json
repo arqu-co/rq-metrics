@@ -1,0 +1,144 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-123-perf-branch-load-on-refresh-painfully-sl-0740-611e",
+  "sha": "4f1479f29d6bc7dc52586fd916a39b578f81a17e",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T13:58:50Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchCard.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "308 lines \u2014 exceeds 300-line maximum. Extract sub-components (e.g. StatusMenu + its helpers, or TagRow) into a dedicated BranchCardMenus.tsx."
+    },
+    {
+      "file": "server/app-prune-wiring.ts",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No test file found for server/app-prune-wiring.ts. auto-prune-wiring.test.ts covers a different module. Add server/__tests__/app-prune-wiring.test.ts covering wirePruneRoutes, reclassifyLive, resolveCockpitSelf, and buildValidRepos."
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "prerun-check",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:16Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:17Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:14Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:47Z",
+      "duration_ms": 1000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:25Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 8000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:49Z",
+      "duration_ms": 1000
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:13.576729Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:49Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:48Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:46Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 21000
+    },
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T13:58:46Z",
+      "fingerprint": "8f156a63839bddfd45cfade3884925ae",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "     49|     };\n     50|\n     51|     expect(compareBranches(worktree, regular)).toBeGreaterThan(0);\n       |                                                ^\n     52|     expect(compareBranches(regular, worktree)).toBeLessThan(0);\n     53|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/5]\u23af\n\n FAIL  server/__tests__/branch-sort.test.ts > compareBranches > sorts by lastCommitDate descending when worktree status is the same\nAssertionError: expected -259200000 to be greater than 0\n \u276f server/__tests__/branch-sort.test.ts:78:43\n     76|\n     77|     // newer should come first (positive result = a > b means a comes \u2026\n     78|     expect(compareBranches(newer, older)).toBeGreaterThan(0);\n       |                                           ^\n     79|     expect(compareBranches(older, newer)).toBeLessThan(0);\n     80|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/5]\u23af\n\n FAIL  server/__tests__/branch-sort.test.ts > compareBranches > handles undefined lastCommitDate as zero milliseconds\nAssertionError: expected -1746360000000 to be greater than 0\n \u276f server/__tests__/branch-sort.test.ts:103:52\n    101|     };\n    102|\n    103|     expect(compareBranches(withDate, withoutDate)).toBeGreaterThan(0);\n       |                                                    ^\n    104|     expect(compareBranches(withoutDate, withDate)).toBeLessThan(0);\n    105|   });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/5]\u23af\n\n FAIL  server/__tests__/branch-sort.test.ts > compareBranches > applies the full sort hierarchy: current > worktree > date\nAssertionError: expected -1 to be greater than 0\n \u276f server/__tests__/branch-sort.test.ts:165:71\n    163|\n    164|     // currentWorktree should come first (highest priority for current)\n    165|     expect(compareBranches(currentWorktree, notCurrentWorktreeNewer)).\u2026\n       |                                                                       ^\n    166|     // notCurrentWorktreeNewer should beat notCurrentRegularOlder (wor\u2026\n    167|     expect(compareBranches(notCurrentWorktreeNewer, notCurrentRegularO\u2026\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[5/5]\u23af\n\n\n Test Files  1 failed | 291 passed (292)\n      Tests  5 failed | 3349 passed (3354)\n   Start at  09:58:26\n   Duration  19.38s (transform 7.41s, setup 0ms, import 29.83s, tests 103.09s, environment 66.60s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 0
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 35.0
+}
