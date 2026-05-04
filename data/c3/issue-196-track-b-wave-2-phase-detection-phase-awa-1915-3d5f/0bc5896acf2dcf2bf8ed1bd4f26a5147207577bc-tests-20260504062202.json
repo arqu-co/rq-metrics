@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "0bc5896acf2dcf2bf8ed1bd4f26a5147207577bc",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T10:22:02Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T10:22:02Z",
+      "fingerprint": "4df68caaee64d849445d51a48f17ea52",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "  github-poller.ts |   94.87 |    91.17 |      84 |   97.05 | 217-222           \n  ...b-pr-cache.ts |   98.03 |      100 |     100 |   97.56 | 39                \n  ...ch-graphql.ts |     100 |       98 |     100 |     100 | 154               \n  ...b-pr-fetch.ts |   96.55 |       92 |     100 |     100 | 119,151           \n  ...-transform.ts |   98.18 |    95.41 |     100 |   98.73 | 222               \n  ...te-limiter.ts |     100 |    89.79 |     100 |     100 | 80,172,174        \n  ...-allowlist.ts |     100 |    97.05 |     100 |     100 | 108               \n  ...-extractor.ts |   98.36 |    88.88 |     100 |     100 | 27,35,81-82,107   \n  ...ch-scanner.ts |   94.73 |    83.33 |     100 |   96.84 | 181-183           \n  ...d-terminal.ts |     100 |    88.88 |     100 |     100 | 89,132,211-221    \n  orphan-guard.ts  |   95.45 |      100 |   85.71 |   95.23 | 50                \n  orphan-sweep.ts  |   90.27 |    86.66 |   83.33 |   94.73 | 48-49,156         \n  phase-deriver.ts |   94.73 |    91.66 |     100 |   95.74 | 74,126            \n  plan-finder.ts   |   98.63 |    90.62 |     100 |   98.36 | 79                \n  pr-disk-cache.ts |   94.73 |    92.85 |     100 |     100 | 55                \n  preview-boot.ts  |    93.1 |    85.18 |   76.47 |   94.54 | 33,39-48          \n  ...ct-scanner.ts |   97.36 |    92.85 |   85.71 |   96.96 | 80                \n  ...-allocator.ts |     100 |     87.5 |     100 |     100 | 99-106            \n  ...ion-loader.ts |   96.58 |    88.23 |     100 |   98.01 | 45-46             \n  ...h-resolver.ts |   97.82 |      100 |     100 |    97.5 | 83                \n  ...e-detector.ts |   93.89 |    86.41 |     100 |     100 | ...30,140-186,201 \n  ...terminator.ts |   97.72 |    97.95 |     100 |   98.61 | 137               \n  ...on-watcher.ts |      92 |      100 |      80 |     100 |                   \n  shutdown.ts      |     100 |    85.71 |     100 |     100 | 29                \n  ...al-manager.ts |     100 |       92 |     100 |     100 | 156-179           \n  terminal-ws.ts   |   97.84 |    97.14 |   95.23 |     100 | 98                \n  ...lan-parser.ts |   98.14 |    95.83 |     100 |     100 | 32                \n  ...lan-writer.ts |     100 |      100 |      90 |     100 |                   \n  ...ot-manager.ts |   97.53 |    96.29 |   95.23 |     100 | 178               \n  wip-squash.ts    |     100 |    83.33 |     100 |     100 | 42,150            \n  ...ev-command.ts |   96.94 |    94.73 |   96.55 |   99.06 | 160               \n  worktree-log.ts  |   96.15 |      100 |     100 |     100 |                   \n  ...ee-manager.ts |   96.42 |      100 |     100 |   96.05 | 59,68,91          \n  ...e-pid-file.ts |    92.7 |    88.67 |   94.73 |   97.46 | 210,273           \n  ...rocess-cwd.ts |   91.66 |      100 |     100 |      90 | 35                \n  ...tree-proxy.ts |   96.96 |     90.9 |     100 |     100 | 8,110-131,193     \n  ...tch-runner.ts |     100 |    97.36 |     100 |     100 | 291               \n  ...rune-batch.ts |   98.86 |    98.07 |     100 |     100 | 174               \n  ...eady-probe.ts |   95.55 |    94.73 |   91.66 |     100 | 30                \n  ...er-manager.ts |   94.33 |    87.71 |     100 |   94.62 | 169-173,236       \n  ...ver-routes.ts |    97.4 |    84.37 |     100 |   97.26 | 88-89             \n  ...rade-proxy.ts |   96.07 |    85.29 |     100 |   97.67 | 64                \n-------------------|---------|----------|---------|---------|-------------------\n\n=============================== Coverage summary ===============================\nStatements   : 95.94% ( 8536/8897 )\nBranches     : 90.45% ( 4437/4905 )\nFunctions    : 95.82% ( 2133/2226 )\nLines        : 97.55% ( 7419/7605 )\n================================================================================"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
