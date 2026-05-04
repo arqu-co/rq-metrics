@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "repo": "agent-plugins",
+  "branch": "fix/592-lessons-corpus",
+  "sha": "163a12ba33bae1d8b63f133417815272d9ee7278",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T00:35:24Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 5,
+  "critic_findings_by_rule": {
+    "MISSING_IMPLEMENTATION": 5
+  },
+  "critic_findings": [
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 1 missing 'Load lessons corpus' sub-section \u2014 no $LESSONS preamble added"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 2.5 trust-diff guard missing comment confirming .review/lessons/ is covered by ^.review/ regex"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 balanced-tier dispatch prompts missing $LESSONS insertions \u2014 0 found, spec requires >=2"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 thorough-tier dispatch prompts missing $LESSONS insertions \u2014 0 found, spec requires >=4"
+    },
+    {
+      "file": "plugins/rq/skills/review/SKILL.md",
+      "line": 0,
+      "rule": "MISSING_IMPLEMENTATION",
+      "message": "Step 3 missing $LESSONS re-derivation preamble before first Agent() dispatch \u2014 required by skill-isolation rule"
+    }
+  ],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "prerun-check",
+    "quality-path-discipline",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:34:14Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:34:19Z",
+      "files_checked": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 5000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:34:09Z",
+      "files_checked": 14,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:35:13Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T00:35:01Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "-    || _fail \"no-git-ops: HEAD unchanged\" \"HEAD changed: $head_before \u2192 $head_after\"\n-\n-  [ -f \"$captured_path\" ] \\\n-    && _pass \"no-git-ops: file exists\" \\\n-    || _fail \"no-git-ops: file exists\" \"captured file not found\"\n+  [ \"$head_before\" = \"$head_after\" ] &&\n+    _pass \"no-git-ops: HEAD unchanged\" ||\n+    _fail \"no-git-ops: HEAD unchanged\" \"HEAD changed: $head_before \u2192 $head_after\"\n+\n+  [ -f \"$captured_path\" ] &&\n+    _pass \"no-git-ops: file exists\" ||\n+    _fail \"no-git-ops: file exists\" \"captured file not found\"\n \n   local gs_file staged_count\n   gs_file=\"$(mktemp)\"\n@@ -217,14 +217,14 @@\n   trap \"rm -f '$gs_file'\" RETURN\n   git -C \"$repo\" status --porcelain 2>/dev/null >\"$gs_file\"\n \n-  grep -q \"^??\" \"$gs_file\" \\\n-    && _pass \"no-git-ops: new file is untracked\" \\\n-    || _fail \"no-git-ops: file untracked\" \"expected ?? in git status\"\n+  grep -q \"^??\" \"$gs_file\" &&\n+    _pass \"no-git-ops: new file is untracked\" ||\n+    _fail \"no-git-ops: file untracked\" \"expected ?? in git status\"\n \n   staged_count=\"$(grep -cE '^[AMDR]' \"$gs_file\" || true)\"\n-  [ \"$staged_count\" -eq 0 ] \\\n-    && _pass \"no-git-ops: no staged changes\" \\\n-    || _fail \"no-git-ops: no staged\" \"found $staged_count staged changes\"\n+  [ \"$staged_count\" -eq 0 ] &&\n+    _pass \"no-git-ops: no staged changes\" ||\n+    _fail \"no-git-ops: no staged\" \"found $staged_count staged changes\"\n }\n \n # \u2500\u2500\u2500 Runner \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ndiff ./plugins/rq/scripts/test_lessons_capture_lib.sh.orig ./plugins/rq/scripts/test_lessons_capture_lib.sh\n--- ./plugins/rq/scripts/test_lessons_capture_lib.sh.orig\n+++ ./plugins/rq/scripts/test_lessons_capture_lib.sh\n@@ -77,8 +77,8 @@\n   # Usage: _run_capture <lessons-dir> <diff-file> <input-string>\n   # Prints stdout (the saved file path). Stderr is suppressed.\n   local lessons_dir=\"$1\" diff_file=\"$2\" input=\"$3\"\n-  printf '%s' \"$input\" \\\n-    | RQ_LESSONS_DIR=\"$lessons_dir\" \\\n+  printf '%s' \"$input\" |\n+    RQ_LESSONS_DIR=\"$lessons_dir\" \\\n       RQ_DIFF_FILE=\"$diff_file\" \\\n       bash \"$CAPTURE_SCRIPT\" 2>/dev/null\n }\n"
+        }
+      ],
+      "duration_ms": 42000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:35:19Z",
+      "duration_ms": 2000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:08:54Z"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:33:59.608788Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:35:17Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:35:16Z",
+      "scanned_files": 45,
+      "duration_ms": 3000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-03T22:51:45Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T00:35:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "a7314200de6d351024f547f9ea94266c",
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "duration_ms": 10000
+    },
+    "work-structure-sync": {
+      "status": "pass"
+    }
+  },
+  "duration_seconds": 6214.0
+}
