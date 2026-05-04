@@ -1,0 +1,266 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-224-pruning-worktrees-still-doesn-t-work-3rd-1912-18be",
+  "sha": "d381c5ce4346d0f8dee6acab86bad5dfcdd3c6b6",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:32:58Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-architect",
+    "review-correctness",
+    "review-coverage",
+    "review-wip-reviewer-44409",
+    "review-wip-reviewer-9155",
+    "review-wip-reviewer-test",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:53:54Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:09:03Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:36:19Z",
+      "files_checked": 5,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:01:40Z",
+      "files_checked": 8,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:09:02Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:32:55Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:34:02Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:32:57Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T13:34:02Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:32:55.019782Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:32:57Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-architect": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-correctness": {
+      "status": "complete",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-04T13:45:00Z"
+    },
+    "review-wip-reviewer-44409": {
+      "status": "complete",
+      "findings": 5,
+      "findings_details": [
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 31,
+          "severity": "high",
+          "category": "correctness",
+          "title": "vi imported after vi.mock() calls \u2014 wrong ordering",
+          "body": "Lines 20-29 call vi.mock() and vi.mock() before vi is imported on line 31. While vitest hoists vi.mock() calls, the named import of `vi` on line 31 placed after the mock calls is misleading and breaks linting/type-check ordering expectations. The standard pattern is to import vi at the top alongside other vitest imports (line 11 already imports describe/it/expect from vitest but omits vi). The mock calls at lines 20-29 should move below the imports, or `vi` should be added to the line-11 import. As written any linter or reader sees `vi` used before it is imported.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 12,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "No afterEach/afterAll cleanup \u2014 temp directories leak",
+          "body": "setupRepo() creates a temp directory via mkdtempSync() on every test invocation (line 34), but there is no afterEach or afterAll that removes them. The branch-cleanup-error-messages.test.ts file in contrast has a proper afterEach that drains a tempDirs array. The 5 tests in prune-e2e.test.ts leave orphaned directories under the OS temp dir on every test run. Fix: add an afterEach (or afterAll) that collects and rmSync({recursive:true,force:true}) every dir created by setupRepo().",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 38,
+          "severity": "low",
+          "category": "style",
+          "title": "execSync (shell form) used where execFileSync is the project pattern",
+          "body": "The sibling test file branch-cleanup-error-messages.test.ts uses execFileSync throughout to avoid shell injection risk and stay consistent with branch-cleanup.ts. prune-e2e.test.ts uses execSync (shell form) for all git calls. The arguments are static strings so injection is not a live risk here, but inconsistency with the established pattern makes the test code harder to maintain and slightly more fragile if branch names are ever interpolated. Fix: replace execSync git invocations with execFileSync using an argv array, matching the style in branch-cleanup-error-messages.test.ts.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRow.tsx",
+          "line": 119,
+          "severity": "medium",
+          "category": "architecture",
+          "title": "results list hidden on 'done' rows \u2014 diagnostic output silently discarded",
+          "body": "showResults on line 119 gates display with `rowState.status === 'failed'`. The server (worktree-prune-batch-runner.ts:281) sets row.results on BOTH done and failed rows \u2014 results contains items like 'Stopped 2 terminals', 'Stopped preview server', 'Removed worktree', 'Deleted local branch'. For failed rows the git output is shown; for done rows it is silently discarded. This means if a partial failure occurs (e.g., 'Could not stop terminals' appears in results but no critical-failure prefix fires, so status=done), the operator never sees it. The fix: show results on done rows too, or at minimum show results on done rows when they contain any 'Could not ...' line.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 48,
+          "severity": "low",
+          "category": "style",
+          "title": "addWorktree uses shell-form execSync with interpolated branch name",
+          "body": "Line 48: `execSync(\\`git worktree add -b \\\"${branch}\\\" \\\"${worktreePath}\\\"\\`...)`. Unlike the static git calls, this one interpolates `branch` and `worktreePath` into a shell string. In tests branch names are caller-controlled so injection is not a live risk, but this is still the wrong pattern. execFileSync with an argv array eliminates the quoting complexity and the double-escaping that is already visible in this line.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9155": {
+      "status": "complete",
+      "findings": 1,
+      "findings_details": [
+        {
+          "file": "server/branch-cleanup.ts",
+          "line": 168,
+          "severity": "low",
+          "category": "style",
+          "title": "removeWorktree opts typed as `object` requires unsafe cast",
+          "body": "The `opts` parameter is typed as `object` and then cast with `as Parameters<typeof execFileSync>[2]` at the call site (line 183). TypeScript cannot verify that the actual value satisfies the execFileSync signature. The same pattern appears in `deleteLocalBranch` (line 210). Both callers pass the result of `gitExecOpts()` which returns a correctly-shaped object \u2014 so there is no runtime bug. But the weak type erases the compiler's ability to catch drift if `gitExecOpts` ever changes shape. Fix: change the parameter type to `Parameters<typeof execFileSync>[2]` and remove the cast.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-test": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "server/__tests__/worktree-prune-batch-runner.test.ts",
+          "line": 409,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "Missing test: onBatchComplete throwing does not break batch completion",
+          "body": "The code wraps `deps.onBatchComplete?.()` in a try/catch (worktree-prune-batch-runner.ts:170-173) with the stated guarantee that a throwing callback cannot prevent `done=true` and `completedAt` from being set. There is no test that verifies this guarantee. The existing test at line 456 verifies that onBatchComplete is called when cleanupBranch throws, but there is no test where onBatchComplete itself throws and the test confirms state.done and state.completedAt are still set afterward. Fix: add a test that supplies an onBatchComplete that throws, awaits completion, and asserts state.done===true and typeof state.completedAt==='number'.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/PruneWorktreesRow.test.tsx",
+          "line": 1,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "FailureActions component (Retry with Force, Delete directory anyway) not tested in unit test file",
+          "body": "PruneWorktreesRow.test.tsx exercises the branch name, badges, checkbox state, status icons, and results display, but never renders the Retry with Force button or the Delete directory anyway link added in this PR (lines 83-103 of PruneWorktreesRow.tsx). These are tested at integration level in PruneWorktreesDialog.test.tsx, but the project testing rule requires direct per-file coverage \u2014 'tested indirectly through the caller does NOT count.' Fix: add two tests: (1) renders 'Retry with Force' button when batchDone=true + status=failed + onRetryWithForce provided, and fires it on click; (2) renders 'Delete directory anyway?' link when batchDone=true + status=failed + fsFallbackEligible=true + onOpenFsFallback provided, and fires it on click.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/prune-e2e.test.ts",
+          "line": 146,
+          "severity": "low",
+          "category": "test-quality",
+          "title": "Weak assertion in 'returns a clear failure' test \u2014 passes regardless of the fix",
+          "body": "The test at line 146 creates a branch with no worktree and asserts only that 'Deleted local branch' is in results and the branch is gone from git. The comment acknowledges that either an idempotent skip OR a 'Could not remove worktree' result is acceptable. This means the test would pass even before the existsSync fix \u2014 it doesn't actually guard the regression it claims to guard. The ghost-dir regression test in branch-cleanup-error-messages.test.ts does guard this correctly. The prune-e2e test should either tighten its assertion to match the actual ghost-dir scenario (directory exists but not registered) or rename/recompose it to avoid implying it guards the #224 regression when it doesn't.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:46:28Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:32:57Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:01:50Z",
+      "scanned_files": 4,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:34:23Z",
+      "test_runner": "bin-test",
+      "fingerprint": "9a5aeb55ede5bbcb81dbea69c0f2a96b",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": []
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 143189.0
+}
