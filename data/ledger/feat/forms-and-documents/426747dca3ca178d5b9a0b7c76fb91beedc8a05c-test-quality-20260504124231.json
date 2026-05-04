@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/forms-and-documents",
+  "sha": "426747dca3ca178d5b9a0b7c76fb91beedc8a05c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T16:42:31Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T16:42:30Z",
+      "scanned_files": 41,
+      "violations": 1,
+      "violations_details": [
+        {
+          "file": "test/controllers/health_controller_test.rb",
+          "line": 19,
+          "pattern": ".stub() on own method",
+          "code": "    ActiveRecord::Base.connection.stub(:execute, ->(_) { raise ActiveRecord::ConnectionNotEstablished }) do"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

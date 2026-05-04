@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/forms-and-documents",
+  "sha": "426747dca3ca178d5b9a0b7c76fb91beedc8a05c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T16:42:36Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "issue-binding",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "issue-binding"
+  ],
+  "gates": {
+    "issue-binding": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T16:42:34Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

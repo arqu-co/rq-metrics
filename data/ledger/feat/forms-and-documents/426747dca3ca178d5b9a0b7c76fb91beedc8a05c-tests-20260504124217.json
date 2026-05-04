@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "ledger",
+  "branch": "feat/forms-and-documents",
+  "sha": "426747dca3ca178d5b9a0b7c76fb91beedc8a05c",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T16:42:17Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T16:42:16Z",
+      "test_runner": "bin-test",
+      "fingerprint": "866064a5ed1f3ba234858d6939e21bff",
+      "missing_tests": 0,
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests_details": [],
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "\n    app/controllers/admin/jobs_controller.rb:39:in 'Admin::JobsController#fetch_recent_jobs'\n    app/controllers/admin/jobs_controller.rb:12:in 'Admin::JobsController#index'\n    test/controllers/admin/jobs_controller_test.rb:8:in 'block in <class:JobsControllerTest>'\n\nbin/rails test test/controllers/admin/jobs_controller_test.rb:6\n\n................................................................F\n\nFailure:\nAuthenticationIntegrationTest#test_health_check_works_without_authentication [test/integration/authentication_integration_test.rb:20]:\nExpected response to be a <2XX: success>, but was a <503: Service Unavailable>\nResponse body: {\"database\":\"ok\",\"queue\":\"warning\",\"timestamp\":\"2026-05-04T16:42:10Z\",\"status\":\"error\"}\n\nbin/rails test test/integration/authentication_integration_test.rb:18\n\n..........................................................................\n============================================================\nPREFLIGHT: InsCipher\n============================================================\n\n\u2717 InsCipher: Missing required environment variables: INSCIPHER_API_KEY, INSCIPHER_API_URL\n..\n============================================================\nPREFLIGHT: InsCipher\n============================================================\n\n\u2717 InsCipher: Missing required environment variables: INSCIPHER_API_KEY\n.\n============================================================\nPREFLIGHT: InsCipher\n============================================================\n\n\u2717 InsCipher: Missing required environment variables: INSCIPHER_API_URL\n...\n============================================================\nPREFLIGHT: InsCipher\n============================================================\n\n\u2717 InsCipher: Missing required environment variables: INSCIPHER_API_KEY, INSCIPHER_API_URL\n....................................................................................................................................................................................................................................................................................Line coverage (92.86%) is below the expected minimum coverage (95.00%).\nBranch coverage (78.07%) is below the expected minimum coverage (90.00%).\nSimpleCov failed with exit 2 due to a coverage related error\n\n\nFinished in 28.167436s, 65.7142 runs/s, 173.6047 assertions/s.\n1851 runs, 4890 assertions, 2 failures, 1 errors, 0 skips\nCoverage report generated for Minitest to /Users/jerrod/Sites/ledger/coverage.\nLine Coverage: 92.87% (3438 / 3702)\nBranch Coverage: 78.08% (837 / 1072)"
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}

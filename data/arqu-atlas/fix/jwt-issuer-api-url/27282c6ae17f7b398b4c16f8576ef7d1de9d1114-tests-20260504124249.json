@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "arqu-atlas",
+  "branch": "fix/jwt-issuer-api-url",
+  "sha": "27282c6ae17f7b398b4c16f8576ef7d1de9d1114",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T16:42:48Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T16:42:47Z",
+      "fingerprint": "d0dc4b80224691eafa642d72d752a12c",
+      "test_runner": "bin-test",
+      "test_failures": 1,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": ">>> Running Python tests...\n/opt/homebrew/Cellar/pyenv/2.6.13/libexec/pyenv-exec: /opt/homebrew/bin/pytest: /opt/homebrew/opt/python@3.11/bin/python3.11: bad interpreter: No such file or directory"
+        }
+      ],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
