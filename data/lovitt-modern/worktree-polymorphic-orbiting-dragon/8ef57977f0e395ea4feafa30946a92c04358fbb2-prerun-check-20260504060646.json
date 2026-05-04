@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "8ef57977f0e395ea4feafa30946a92c04358fbb2",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T10:06:45Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:06:45.403968Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
