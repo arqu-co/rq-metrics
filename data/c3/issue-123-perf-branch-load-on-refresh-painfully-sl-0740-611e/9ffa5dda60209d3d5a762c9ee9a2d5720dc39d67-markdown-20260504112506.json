@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-123-perf-branch-load-on-refresh-painfully-sl-0740-611e",
+  "sha": "9ffa5dda60209d3d5a762c9ee9a2d5720dc39d67",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:25:06Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "markdown",
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchCard.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "308 lines \u2014 exceeds 300-line maximum. Extract sub-components (e.g. StatusMenu + its helpers, or TagRow) into a dedicated BranchCardMenus.tsx."
+    },
+    {
+      "file": "server/app-prune-wiring.ts",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No test file found for server/app-prune-wiring.ts. auto-prune-wiring.test.ts covers a different module. Add server/__tests__/app-prune-wiring.test.ts covering wirePruneRoutes, reclassifyLive, resolveCockpitSelf, and buildValidRepos."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "markdown"
+  ],
+  "gates": {
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:25:06Z",
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
