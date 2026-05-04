@@ -1,0 +1,404 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "dd3296911d8c618add61965a6a0b19bfee409980",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:05:01Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-46562",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T10:49:19Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:01:00Z",
+      "files_checked": 58,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T15:01:46Z",
+      "files_checked": 0,
+      "coverage_tool": "none",
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 34000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:01:03Z",
+      "files_checked": 58,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:00:58Z",
+      "files_checked": 58,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:57Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:01:12Z",
+      "failures": 0,
+      "failures_details": [],
+      "duration_ms": 9000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:59Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-02T23:38:37Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-03T01:34:31Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:34.028831Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:59Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-03T16:46:09Z"
+    },
+    "review-wip-reviewer-46562": {
+      "status": "complete",
+      "findings": 12,
+      "findings_details": [
+        {
+          "file": "client/src/components/CommentRow.tsx",
+          "line": 99,
+          "severity": "high",
+          "category": "security",
+          "title": "Unsanitized GitHub comment body injected into agent dispatch prompt",
+          "body": "handleAddress() and handleReplySubmit() both embed comment.body verbatim inside the XML-like <comment>...</comment> tags in the prompt passed to onDispatchAction. A GitHub reviewer can craft a comment body containing </comment> to break out of the tag, followed by arbitrary instructions to the Claude agent (e.g. 'Delete all files in the worktree'). This is prompt injection: untrusted user-controlled GitHub content is concatenated directly into an agent instruction string without any sanitization or escaping. Fix: strip or escape </comment> from comment.body before interpolation, or use a structural separator the agent is instructed to treat as untrusted content. At minimum: const safeBody = comment.body.replace(/<\\/comment>/gi, '[/comment]'); and use safeBody in both prompt strings.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/CommentRow.tsx",
+          "line": 99,
+          "severity": "medium",
+          "category": "security",
+          "title": "comment.author injected unescaped into agent dispatch prompt",
+          "body": "Both handleAddress() and handleReplySubmit() embed comment.author verbatim in the prompt: 'Address this PR comment from ${comment.author}'. A GitHub username containing newlines or prompt-injection payloads (GitHub API does not strip newlines from display names in all contexts) is inserted without sanitization. Fix: strip newlines from comment.author before use in the prompt, or constrain it to the known-safe GitHub username character set [A-Za-z0-9-].",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/audit-watcher.ts",
+          "line": 65,
+          "severity": "high",
+          "category": "correctness",
+          "title": "AuditEntry parsed from JSONL with no field validation",
+          "body": "readLastEntry() does JSON.parse(lastLine) as AuditEntry with no runtime validation of the parsed object's fields. If the JSONL file contains a malformed entry (missing skill, event, or timestamp fields), the cast silently produces an object with undefined fields. This is then emitted via 'phase-signal' and passed to derivePhase / SKILL_PHASE_MAP lookups. SKILL_PHASE_MAP[undefined] returns undefined, which fromAuditLog returns as null (safe), but latestAuditEntry() does entry.timestamp > latest.timestamp where undefined > 'string' is false \u2014 so comparison is silently wrong. More critically, if a future consumer reads entry.event without checking, it will fail. Fix: add a type guard: function isAuditEntry(obj: unknown): obj is AuditEntry { return typeof obj === 'object' && obj !== null && typeof (obj as AuditEntry).skill === 'string' && typeof (obj as AuditEntry).timestamp === 'string'; } and only emit if the guard passes.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/audit-watcher.ts",
+          "line": 52,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Single debounce timer loses filename context when multiple files change rapidly",
+          "body": "scheduleRead() stores one debounceTimer and one filePath. If two different audit files change within DEBOUNCE_MS=300ms (e.g. two concurrent rq skill runs writing to different JSONL files in .quality/audit/), the second change clears the first timer and overwrites filePath. When the timer fires, it reads the second file only \u2014 the first file's change is silently dropped. Fix: debounce per-file by keying the timer map on filePath: private debounceTimers = new Map<string, ReturnType<typeof setTimeout>>(). Each file gets its own timer.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/app-routes-branches-files.ts",
+          "line": 38,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "repo and branch params not validated \u2014 empty strings silently pass through",
+          "body": "handleListFiles() and handleGetFile() extract repo from req.params.repo and branch via resolveBranchParam() without checking if they are empty strings or contain only whitespace. An empty repo string causes getAllRepoRoots() + getGitRepo() to be iterated with no match, returning null from resolveWorktreePath \u2014 which returns a 200 with {files:[]} rather than a 400. While not a crash, empty/whitespace branch strings could produce unexpected git commands (git diff ...HEAD with an empty base ref). Fix: add early validation: if (!repo || !repo.trim() || !branch || !branch.trim()) { res.status(400).json({ error: 'repo and branch are required' }); return; }",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/app-routes-branches-files.ts",
+          "line": 82,
+          "severity": "medium",
+          "category": "security",
+          "title": "Path traversal guard admits the worktree root itself as a valid file path",
+          "body": "The guard on line 82 is: !resolvedPath.startsWith(worktreeResolved + '/') && resolvedPath !== worktreeResolved. When resolvedPath === worktreeResolved (i.e. path='.' or path=''), the second clause passes it through as valid. A directory path then hits readFile() which throws ENOTDIR/EISDIR, caught and returned as 404 \u2014 not a security hole per se, but the guard's intent was to restrict to files under the worktree, not the root itself. More importantly: worktreeResolved may not end with '/' on all platforms, so the prefix check is correct, but the comment says 'only .md files supported' yet the .md suffix check (line 87) is the actual gate. The root-exact-match exception in the traversal guard is unnecessary and confusing \u2014 remove it. Fix: simplify to if (!resolvedPath.startsWith(worktreeResolved + path.sep)) to make the intent clear and remove the root-exact-match exception.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/phase-watcher-wiring.ts",
+          "line": 38,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Race condition: concurrent phase derivations for the same branch can interleave",
+          "body": "startPhaseWatchers() fires void deriveAndPersistPhase(...) on every 'phase-signal' event with no debouncing or mutual exclusion. If two audit file changes arrive within the debounce window, two concurrent calls to getSignals(worktreePath) and branchMetaStore.setPhase(branchKey, result) run in parallel. Because getSignals is async and setPhase is synchronous, whichever resolves last wins \u2014 but if getSignals for the first event reads stale data and the second event's getSignals resolves first with fresh data, the first (stale) result overwrites it. This is a TOCTOU race on the meta store. Fix: track an in-flight promise per branchKey and skip (or coalesce) new events while one is running. A simple Map<string, Promise<void>> pendingDerivations guard would suffice.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/app-routes-terminals.ts",
+          "line": 239,
+          "severity": "medium",
+          "category": "security",
+          "title": "Terminal input endpoint accepts unbounded text length",
+          "body": "The POST /api/terminals/:id/input handler validates that text is a string but places no upper bound on its length. An attacker (or misbehaving client) can POST a multi-megabyte string that gets written directly to the PTY via term.pty.write(text + '\\r'). This could exhaust PTY buffer memory or cause the child process to hang processing a massive input line. Fix: add a length check: const MAX_INPUT_BYTES = 65536; if (text.length > MAX_INPUT_BYTES) { res.status(400).json({ error: 'input too large' }); return; }",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/hooks/useBranchFiles.ts",
+          "line": 29,
+          "severity": "high",
+          "category": "correctness",
+          "title": "Branch name with slashes breaks URL construction despite encodeURIComponent",
+          "body": "The URL is built as: /api/branches/${encodeURIComponent(repo!)}/${encodeURIComponent(branch!)}/files. encodeURIComponent encodes '/' as '%2F', but the Express route uses a wildcard pattern ({*branch}) that matches path segments including raw slashes. So a branch named 'feat/my-feature' gets encoded as 'feat%2Fmy-feature' in the client URL, but the server route pattern expects 'feat/my-feature' (raw slashes). The server's resolveBranchParam joins array segments with '/' \u2014 meaning it only works correctly when slashes are NOT encoded. Sending '%2F' will cause the wildcard to match a single segment 'feat%2Fmy-feature' and resolveBranchParam will return that literal string including the percent-encoding, which will not match any real branch name. Fix: do NOT encode the branch segment; instead encode only the individual parts separated by '/': branch.split('/').map(encodeURIComponent).join('/') \u2014 or leave branch unencoded (it is already URL-safe for the wildcard route).",
+          "confidence": "high"
+        },
+        {
+          "file": "server/phase-deriver.ts",
+          "line": 66,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Draft PRs incorrectly derive phase 'ship' when CI is passing and no unaddressed comments",
+          "body": "fromGitHubState() checks: if (prState === 'open' || prState === 'draft') { const needsReview = ciStatus === 'failure' || hasUnaddressedComments; if (needsReview) return 'review'; return 'ship'; }. A branch in 'draft' state with passing CI and no comments returns phase='ship' with confidence='strong'. This is wrong: draft PRs are explicitly not ready to ship \u2014 they are still in build/review. The prState='draft' case should map to 'build' or 'review', not 'ship'. The GitHubPhaseSignals type also has prState: 'draft' separately from 'open', so the distinction is intentional. Fix: split the condition: if (prState === 'draft') return { phase: 'build', lastSkill: null, confidence: 'strong' }; and keep the open-PR logic separate.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/action-catalog.ts",
+          "line": 111,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Client-side getActionsForPhase never evaluates gate rules \u2014 all gated actions are always demoted",
+          "body": "The client-side getActionsForPhase() puts every action with a gateRule into gated[] unconditionally (line 111: if (action.gateRule) gated.push(action)). It does not evaluate the gate rule against any state. This means the server-side behavior (where evaluateGate() promotes gated actions to workflow/targeted when the rule passes) is never replicated on the client. If the client catalog is the authoritative source for UI rendering, gated actions like 'Fix CI' (gateRule: ciStatus === 'failure') will always be shown as locked/demoted even when CI is actually failing. The comment says 'UI rendering layer demotes actions when confidence is heuristic' \u2014 but the spec says gated actions are PROMOTED when their gate evaluates true. Fix: the client getActionsForPhase() needs a state parameter like the server version, or the gated[] result needs to be post-processed by the caller with gate evaluation. If the intent is purely server-driven, the client catalog should not export getActionsForPhase() at all \u2014 it should use the server response.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/CommentRow.tsx",
+          "line": 17,
+          "severity": "low",
+          "category": "correctness",
+          "title": "formatRelativeTime shows negative or misleading time for future/invalid timestamps",
+          "body": "formatRelativeTime() computes diff = Date.now() - new Date(isoString).getTime(). If isoString is in the future or invalid, diff is negative. Math.floor(negative / 60000) produces a negative minutes value, resulting in '-5m ago' or NaN-based outputs. Invalid ISO strings produce NaN from new Date(), making Math.floor(NaN / 60000) = NaN which prints 'NaNm ago'. Fix: guard with isNaN check and clamp to 0: const diff = Math.max(0, Date.now() - new Date(isoString).getTime()); if (isNaN(diff)) return 'unknown'.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 13,
+      "findings_details": [
+        {
+          "file": "server/phase-deriver.ts",
+          "line": 60,
+          "severity": "high",
+          "category": "correctness",
+          "title": "GitHub state overrides audit log \u2014 merged/closed PR silences more-recent audit activity",
+          "body": "fromGitHubState runs first in derivePhase and returns a result for any open/draft PR, short-circuiting the audit log entirely. A branch that ran rq:pair-build after the PR was opened will show phase=ship (from GitHub) instead of phase=build (from audit). The spec says GitHub overrides *stale* audit logs, but the current code overrides *all* audit logs. Fix: compare audit log timestamp vs PR state recency; only skip audit if there is no recent audit entry (e.g. last audit entry is older than N minutes or audit is empty).",
+          "confidence": "high"
+        },
+        {
+          "file": "server/phase-deriver.ts",
+          "line": 66,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Open PR with passing CI and no comments always returns phase=ship, ignoring whether work is truly done",
+          "body": "fromGitHubState returns phase=ship for any open/draft PR where ciStatus != failure and hasUnaddressedComments is false. A PR in draft state with zero CI, no reviews, and no comments maps to ship. This makes the phase signal meaningless for new PRs that are far from ready to ship. Fix: draft PRs should map to build or review, not ship.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/action-catalog.ts",
+          "line": 48,
+          "severity": "medium",
+          "category": "design",
+          "title": "evaluateGate uses string-matching on gate rules instead of a typed predicate",
+          "body": "evaluateGate() switch-cases on raw string literals like \"ciStatus === 'failure'\". The gate rules in action-catalog-data.ts are plain strings copied verbatim from action-catalog.ts. Any typo in a gate rule string silently falls through to the default: return false branch, making the action permanently gated. Fix: model gate rules as typed predicates or an enum rather than raw strings that must be manually kept in sync.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/action-catalog.ts",
+          "line": 106,
+          "severity": "high",
+          "category": "design",
+          "title": "Client-side getActionsForPhase ignores ActionQueryState \u2014 all gated actions always go to gated list",
+          "body": "The server-side getActionsForPhase evaluates gate rules against ActionQueryState (ciStatus, hasApprovals, prState) and promotes matching gated actions into workflow/targeted. The client-side version (line 111) puts every action with a gateRule directly into gated unconditionally. This means gated actions are NEVER promoted on the client, so the UI always shows them as gated even when the gate condition is satisfied. Fix: pass ActionQueryState into the client getActionsForPhase and implement the same evaluateGate logic, or fetch the evaluated list from the server.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/lib/action-catalog.ts",
+          "line": 1,
+          "severity": "high",
+          "category": "dry",
+          "title": "Full action catalog data duplicated between server and client",
+          "body": "action-catalog-data.ts (server) and client/src/lib/action-catalog.ts contain identical action arrays (BRAINSTORM, BUILD, TEST, SHIP, REVIEW, MERGE). Any change to a prompt, label, or icon must be made in two places. The comment on line 1 acknowledges this (\"Mirrors server/action-catalog.ts\") but does not resolve it. Fix: expose the catalog via the /api/branches/.../phase endpoint or a dedicated /api/action-catalog endpoint, and remove the client-side data duplication.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/audit-watcher.ts",
+          "line": 59,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "readLastEntry parses the last line of any file in the audit dir, including non-JSONL files",
+          "body": "The fs.watch callback fires for any filename change in the audit directory. readLastEntry is called unconditionally and will attempt JSON.parse on whatever the last line of any changed file is. If a non-JSONL file (e.g. a lock file or temp file) appears in .quality/audit/, the parse will throw and be swallowed silently. This is low risk given the directory is controlled, but the function should validate the filename extension before reading. Fix: add a guard in scheduleRead \u2014 only proceed if filename ends with .jsonl.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/audit-watcher.ts",
+          "line": 30,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "fs.watch fires \"rename\" events that provide a null filename on Linux",
+          "body": "The callback already guards  but only calls scheduleRead with the filename appended to auditDir. On Linux, fs.watch for a directory fires with event type \"rename\" and filename=null when files are created/deleted. The null guard is correct, but the \"change\" event (which provides the filename) may not always fire when JSONL lines are appended. This means phase updates may be missed on Linux servers. Fix: use fs.watch with the persistent option and handle both \"rename\" (re-scan dir) and \"change\" (read file).",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/branch-state-signals.ts",
+          "line": 36,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "computeAheadBehind hardcodes origin/main \u2014 breaks on repos using master or custom default branches",
+          "body": "rev-list --count HEAD ^origin/main and the merge-base command in computeMergeConflict both hardcode origin/main. If the repo uses master or a configured default branch, these commands will fail with a non-zero exit, causing the catch in computeBranchStateSignals to return ZERO_SIGNALS silently. This means aheadOfMain will always be 0 and fromGitState will never fire. Fix: resolve the default branch ref dynamically (e.g. git remote show origin | parse HEAD branch, or use a config value from server/config.ts).",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/hooks/useBranchFiles.ts",
+          "line": 29,
+          "severity": "medium",
+          "category": "correctness",
+          "title": "Branch segment not encoded correctly for multi-segment branch names in URL construction",
+          "body": "Line 29 uses encodeURIComponent(branch!) to encode the branch name in the URL. If the branch name is \"feat/my-feature\", encodeURIComponent produces \"feat%2Fmy-feature\", which the Express wildcard route {*branch} may not match correctly since Express expects the slash to be literal. Fix: do not encode the slash \u2014 use branch!.split(\"/\").map(encodeURIComponent).join(\"/\") to encode each segment separately.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/components/HomeSectionContent.tsx",
+          "line": 94,
+          "severity": "low",
+          "category": "style",
+          "title": "Inline arrow functions in SECTION_COMPONENTS create new component instances on every render",
+          "body": "Lines 94-95: plan and test-plan entries in SECTION_COMPONENTS use inline arrow functions (({ branch }) => <PlanSection branch={branch} />). These are not stable references \u2014 React will treat them as new component types on each render, causing PlanSection and TestPlanSection to unmount and remount instead of re-render. Fix: define named wrapper components (already done for OverviewSection, PrDescriptionSection etc.) and use those.",
+          "confidence": "high"
+        },
+        {
+          "file": "client/src/components/ActionLane.tsx",
+          "line": 49,
+          "severity": "low",
+          "category": "style",
+          "title": "onClick ternary could use early return pattern for clarity",
+          "body": "onClick={() => isFreeform(action) ? setShowInput(true) : onDispatch(action.prompt)} is a side-effect ternary where both branches return void. While not a bug, the ternary expression form is less readable than an if/else for side effects. Minor style point; fix only if agreeable.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/phase-deriver.ts",
+          "line": 107,
+          "severity": "low",
+          "category": "design",
+          "title": "NLP_KEYWORDS includes rq: skill names that duplicate the SKILL_PHASE_MAP lookup",
+          "body": "NLP_KEYWORDS (lines 108-116) includes entries like {keyword: \"rq:ship\", phase: \"ship\"} and {keyword: \"rq:pair-build\", phase: \"build\"}. These are identical to the SKILL_PHASE_MAP entries. If the last assistant message mentions a skill name, fromNlp will fire \u2014 but only if fromAuditLog returned null (i.e., no audit entry). The redundancy means SKILL_PHASE_MAP and NLP_KEYWORDS can diverge silently. Fix: derive NLP_KEYWORDS from SKILL_PHASE_MAP at module load time, or remove the duplicate rq: entries from NLP_KEYWORDS.",
+          "confidence": "medium"
+        },
+        {
+          "file": "client/src/hooks/useBranchPhase.ts",
+          "line": 6,
+          "severity": "low",
+          "category": "design",
+          "title": "useBranchPhase imports BranchPhase and PhaseConfidence from useBranches instead of a shared types module",
+          "body": "BranchPhase and PhaseConfidence are defined in server/types.ts, re-exported from client/src/lib/action-catalog.ts, and also declared inline in useBranches.ts. useBranchPhase imports them from useBranches. This creates a dependency on a data-fetching hook purely for types. Fix: centralise BranchPhase/PhaseConfidence/PhaseResult in a client-side types file (e.g. client/src/types/phase.ts) and import from there.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T15:05:00Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:58Z",
+      "scanned_files": 0,
+      "duration_ms": 1000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:57Z",
+      "scanned_files": 29,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:04:55Z",
+      "test_runner": "bin-test",
+      "fingerprint": "6632f140f658db34bd1b1799e8089eb5",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 189000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 141983.0
+}
