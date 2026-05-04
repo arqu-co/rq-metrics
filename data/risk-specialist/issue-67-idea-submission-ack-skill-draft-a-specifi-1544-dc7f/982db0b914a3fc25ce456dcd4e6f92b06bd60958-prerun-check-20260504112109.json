@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "repo": "risk-specialist",
+  "branch": "issue-67-idea-submission-ack-skill-draft-a-specifi-1544-dc7f",
+  "sha": "982db0b914a3fc25ce456dcd4e6f92b06bd60958",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:21:09Z",
+  "phase": "all",
+  "run_number": 1,
+  "gate_name": "prerun-check",
+  "critic_verdict": "findings",
+  "critic_findings_count": 1,
+  "critic_findings_by_rule": {
+    "NAMING": 1
+  },
+  "critic_findings": [
+    {
+      "file": "risk-specialist/scripts/helpers/test_travel_detect_calendar.py",
+      "line": 14,
+      "rule": "NAMING",
+      "message": "Module-level constant 'KW' is an abbreviation, not a full word. Rename to KEYWORDS (no-acronyms rule requires full descriptive names for constants)."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "prerun-check"
+  ],
+  "gates": {
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:21:09.777772Z",
+      "message": ".quality is accessible"
+    }
+  },
+  "duration_seconds": null
+}
