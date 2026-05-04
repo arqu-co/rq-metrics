@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "e73a54aa4d5f8315a02c95895ed2ae9af1f09101",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:32:11Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "tests",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "tests"
+  ],
+  "gates": {
+    "tests": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T15:32:11Z",
+      "test_runner": "bin-test",
+      "fingerprint": "31b25e83420adfd89c21b1778154e2c4",
+      "failed_subprojects": 0,
+      "test_failures": 1,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [
+        {
+          "test": "(unparsed output)",
+          "message": "warning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nwarning: You appear to have cloned an empty repository.\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nPreparing worktree (new branch 'feat/dirty')\nPreparing worktree (new branch 'feat/dirty')\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n \u276f server/__tests__/app-routes-issues.test.ts (22 tests | 1 failed) 60ms\n     \u00d7 returns empty fromRepo for malformed repo param 5ms\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\nNot implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af Failed Tests 1 \u23af\u23af\u23af\u23af\u23af\u23af\u23af\n\n FAIL  server/__tests__/app-routes-issues.test.ts > GET /api/issues > returns empty fromRepo for malformed repo param\nAssertionError: expected undefined to deeply equal []\n\n- Expected:\n[]\n\n+ Received:\nundefined\n\n \u276f server/__tests__/app-routes-issues.test.ts:167:31\n    165|     const app = mkApp({ issuesRepoSlug: null, fetchIssues: async () =>\u2026\n    166|     const res = await request(app).get(\"/api/issues?repo=notvalid&sour\u2026\n    167|     expect(res.body.fromRepo).toEqual([]);\n       |                               ^\n    168|   });\n    169|\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\n\n\n Test Files  1 failed | 314 passed (315)\n      Tests  1 failed | 3637 passed (3638)\n   Start at  11:31:49\n   Duration  21.79s (transform 6.92s, setup 0ms, import 30.83s, tests 119.99s, environment 77.28s)"
+        }
+      ],
+      "missing_tests_details": [],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
