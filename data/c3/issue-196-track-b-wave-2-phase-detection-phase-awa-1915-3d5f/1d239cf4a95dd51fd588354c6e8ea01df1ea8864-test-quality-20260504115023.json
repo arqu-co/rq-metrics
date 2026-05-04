@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-196-track-b-wave-2-phase-detection-phase-awa-1915-3d5f",
+  "sha": "1d239cf4a95dd51fd588354c6e8ea01df1ea8864",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T15:50:23Z",
+  "phase": "ship",
+  "run_number": 1,
+  "gate_name": "test-quality",
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "test-quality"
+  ],
+  "gates": {
+    "test-quality": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T15:50:23Z",
+      "scanned_files": 32,
+      "violations": 3,
+      "violations_details": [
+        {
+          "file": "client/src/hooks/useTerminalDispatch.test.ts",
+          "line": 25,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const fetchSpy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "client/src/hooks/useTerminalDispatch.test.ts",
+          "line": 51,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const fetchSpy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        },
+        {
+          "file": "client/src/hooks/useTerminalDispatch.test.ts",
+          "line": 68,
+          "pattern": "spyOn().mockResolvedValue()",
+          "code": "    const fetchSpy = vi.spyOn(globalThis, \"fetch\").mockResolvedValue("
+        }
+      ],
+      "duration_ms": 0
+    }
+  },
+  "duration_seconds": null
+}
