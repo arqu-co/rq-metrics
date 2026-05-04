@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-227-bug-terminal-not-docking-at-the-bottom-c-0739-bc11",
+  "sha": "3a1e15f6c41cc5c15725aa50a912b0b32dc12a5f",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T12:47:43Z",
+  "phase": "ship",
+  "run_number": 3,
+  "gate_name": null,
+  "critic_verdict": "unknown",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:48:59Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T12:46:12Z",
+      "coverage_tool": "none",
+      "files_checked": 0,
+      "below_threshold": 0,
+      "below_threshold_details": [],
+      "duration_ms": 23000
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:01Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:48:57Z",
+      "files_checked": 3,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:20Z"
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:19Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:23Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T12:45:49Z",
+      "duration_ms": 0
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:48:56.889773Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:22Z",
+      "violations": 0,
+      "violations_details": []
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-04T11:50:08Z"
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:46:13Z",
+      "duration_ms": 1000
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:49:22Z",
+      "scanned_files": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T11:43:03Z",
+      "scanned_files": 0,
+      "violations": 0,
+      "violations_details": []
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T12:47:43Z",
+      "fingerprint": "54ea8c57c63a036226df37fd98665b26",
+      "test_runner": "bin-test",
+      "missing_tests": 0,
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests_details": [],
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "duration_ms": 90000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 3880.0
+}
