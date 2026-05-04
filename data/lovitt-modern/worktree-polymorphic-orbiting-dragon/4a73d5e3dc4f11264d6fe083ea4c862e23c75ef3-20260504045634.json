@@ -1,0 +1,167 @@
+{
+  "schema_version": 2,
+  "repo": "lovitt-modern",
+  "branch": "worktree-polymorphic-orbiting-dragon",
+  "sha": "4a73d5e3dc4f11264d6fe083ea4c862e23c75ef3",
+  "user": "Jerrod Blavos",
+  "user_email": "jblavos@arqu.co",
+  "timestamp": "2026-05-04T08:56:34Z",
+  "phase": "build",
+  "run_number": 1,
+  "gate_name": null,
+  "critic_verdict": "approved",
+  "critic_findings_count": 0,
+  "critic_findings_by_rule": {},
+  "critic_findings": [],
+  "gates_first_pass": false,
+  "gate_failures_after_critic": 3,
+  "missed_gates": [
+    "coverage",
+    "lint",
+    "review"
+  ],
+  "gates_run": [
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan-posted",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:54:39Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "coverage": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T08:40:29Z",
+      "coverage_tool": "simplecov",
+      "files_checked": 7,
+      "below_threshold": 1,
+      "below_threshold_details": [
+        {
+          "file": "app/controllers/products_controller.rb",
+          "coverage": 60.29,
+          "min": 95
+        }
+      ]
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:54:42Z",
+      "files_checked": 0,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 3000
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:54:36Z",
+      "files_checked": 7,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:27Z",
+      "duration_ms": 2000
+    },
+    "lint": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T08:54:49Z",
+      "failures": 1,
+      "failures_details": [
+        {
+          "check": "bin-lint",
+          "exit_code": 1,
+          "output": "db/schema.rb:329:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"shippable_type\", \"shippable_id\"], name: \"index_shipping_logs_on_shippable_type_and_shippable_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:344:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"concurrency_key\", \"priority\", \"job_id\"], name: \"index_solid_queue_blocked_executions_for_release\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:345:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"expires_at\", \"concurrency_key\"], name: \"index_solid_queue_blocked_executions_for_maintenance\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:354:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"process_id\", \"job_id\"], name: \"index_solid_queue_claimed_executions_on_process_id_and_job_id\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:378:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"finished_at\"], name: \"index_solid_queue_jobs_for_filtering\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:379:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"finished_at\"], name: \"index_solid_queue_jobs_for_alerting\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:398:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"name\", \"supervisor_id\"], name: \"index_solid_queue_processes_on_name_and_supervisor_id\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:408:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"priority\", \"job_id\"], name: \"index_solid_queue_poll_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:409:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"queue_name\", \"priority\", \"job_id\"], name: \"index_solid_queue_poll_by_queue\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:418:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"task_key\", \"run_at\"], name: \"index_solid_queue_recurring_executions_on_task_key_and_run_at\", unique: true\n            ^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:444:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"scheduled_at\", \"priority\", \"job_id\"], name: \"index_solid_queue_dispatch_all\"\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndb/schema.rb:454:13: C: [Correctable] Style/WordArray: Use %w or %W for an array of words.\n    t.index [\"key\", \"value\"], name: \"index_solid_queue_semaphores_on_key_and_value\"\n            ^^^^^^^^^^^^^^^^\n\n241 files inspected, 63 offenses detected, 61 offenses autocorrectable\n\u274c RuboCop linting failed (0.79s)\nCommand failed: bundle exec rubocop --parallel\n\n\ud83d\udd0d Checking database schema...\n\u2705 Database schema is up to date\n\n==================================================\n\ud83d\udca5 Some linting checks failed. Please review the output above.\n\n\ud83d\udca1 To run specific checks:\n   \u2022 bundle exec haml-lint app/views/     # Lint HAML templates\n   \u2022 bundle exec rubocop                  # Ruby style linting\n"
+        }
+      ],
+      "duration_ms": 7000
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:32Z",
+      "duration_ms": 1000
+    },
+    "plan-posted": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T01:34:37Z"
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T01:29:01Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:54:31.867314Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:31Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "review": {
+      "status": "fail",
+      "gate_timestamp": "2026-05-04T01:30:53Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:29Z",
+      "scanned_files": 0,
+      "duration_ms": 2000
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:25Z",
+      "scanned_files": 3,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 2000
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T08:56:23Z",
+      "test_runner": "bin-test",
+      "fingerprint": "0b8176b6fcdab8ba67ec6f5eefc36615",
+      "test_failures": 0,
+      "failed_subprojects": 0,
+      "missing_tests": 0,
+      "test_failures_details": [],
+      "failed_subprojects_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 94000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 26851.0
+}
