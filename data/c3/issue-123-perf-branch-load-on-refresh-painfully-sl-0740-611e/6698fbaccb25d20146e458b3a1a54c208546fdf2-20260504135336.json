@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "repo": "c3",
+  "branch": "issue-123-perf-branch-load-on-refresh-painfully-sl-0740-611e",
+  "sha": "6698fbaccb25d20146e458b3a1a54c208546fdf2",
+  "user": "unknown",
+  "user_email": "arsilhavy@gmail.com",
+  "timestamp": "2026-05-04T17:53:36Z",
+  "phase": "all",
+  "run_number": 2,
+  "gate_name": null,
+  "critic_verdict": "findings",
+  "critic_findings_count": 2,
+  "critic_findings_by_rule": {
+    "FILE_SIZE": 1,
+    "MISSING_TEST": 1
+  },
+  "critic_findings": [
+    {
+      "file": "client/src/components/BranchCard.tsx",
+      "line": 1,
+      "rule": "FILE_SIZE",
+      "message": "308 lines \u2014 exceeds 300-line maximum. Extract sub-components (e.g. StatusMenu + its helpers, or TagRow) into a dedicated BranchCardMenus.tsx."
+    },
+    {
+      "file": "server/app-prune-wiring.ts",
+      "line": 1,
+      "rule": "MISSING_TEST",
+      "message": "No test file found for server/app-prune-wiring.ts. auto-prune-wiring.test.ts covers a different module. Add server/__tests__/app-prune-wiring.test.ts covering wirePruneRoutes, reclassifyLive, resolveCockpitSelf, and buildValidRepos."
+    }
+  ],
+  "gates_first_pass": true,
+  "gate_failures_after_critic": 0,
+  "missed_gates": [],
+  "gates_run": [
+    "coderabbit",
+    "complexity",
+    "coverage",
+    "dead-code",
+    "filesize",
+    "gate-cache-stats",
+    "issue-binding",
+    "lint",
+    "markdown",
+    "plan",
+    "pr-linkage",
+    "prerun-check",
+    "quality-path-discipline",
+    "review-coverage",
+    "review-wip-reviewer-1234",
+    "review-wip-reviewer-82825",
+    "review-wip-reviewer-9999",
+    "review",
+    "skill-isolation",
+    "test-quality",
+    "tests",
+    "work-structure-sync"
+  ],
+  "gates": {
+    "coderabbit": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T15:45:29Z",
+      "findings": 0,
+      "findings_details": []
+    },
+    "complexity": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:16Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "coverage": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:09:57Z",
+      "files_checked": 3,
+      "coverage_tool": "js",
+      "below_threshold": 0,
+      "below_threshold_details": []
+    },
+    "dead-code": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:17Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "filesize": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:14Z",
+      "files_checked": 9,
+      "violations": 0,
+      "violations_details": []
+    },
+    "gate-cache-stats": {
+      "status": "unknown"
+    },
+    "issue-binding": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:39Z",
+      "duration_ms": 0
+    },
+    "lint": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T13:58:25Z",
+      "failures": 0,
+      "failures_details": []
+    },
+    "markdown": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:41Z",
+      "duration_ms": 2000
+    },
+    "plan": {
+      "status": "skip",
+      "gate_timestamp": "2026-05-04T14:25:10Z"
+    },
+    "pr-linkage": {
+      "status": "skip"
+    },
+    "prerun-check": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:38.450693Z",
+      "message": ".quality is accessible"
+    },
+    "quality-path-discipline": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:41Z",
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "review-coverage": {
+      "status": "complete",
+      "gate_timestamp": "2026-05-04T17:51:42Z",
+      "duration_ms": 1000
+    },
+    "review-wip-reviewer-1234": {
+      "status": "in_progress",
+      "findings": 0,
+      "findings_details": []
+    },
+    "review-wip-reviewer-82825": {
+      "status": "complete",
+      "findings": 3,
+      "findings_details": [
+        {
+          "file": "server/__tests__/local-branch-scanner.test.ts",
+          "line": 28,
+          "severity": "medium",
+          "category": "test-quality",
+          "title": "scanAllBranches beforeEach commits without local git user config",
+          "body": "Lines 26-31: the beforeEach sets up a git repo and calls `git commit --allow-empty` without first calling `git config user.email` / `git config user.name`. The tests in the `aheadOfMain and hasRemote` describe block (line 237) and the project-scanner tests correctly set local config before committing. The CI workflow sets a global config, so tests pass there \u2014 but any dev running tests in a fresh git environment without global config gets a commit failure that breaks the entire describe block. Fix: add `execSync(\"git config user.email t@t\", { cwd: repoDir, stdio: \"pipe\" })` and the matching `user.name` line immediately after `git init` in the `scanAllBranches` beforeEach.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/project-scanner.ts",
+          "line": 23,
+          "severity": "low",
+          "category": "correctness",
+          "title": "decodeProjDir greedy walk treats existsSync(\"/\") as a valid commit point",
+          "body": "When a Claude project dir entry encodes a name that begins with a component that doesn't exist on disk, the greedy walk never commits `path` away from `\"\"`. The `final` path is then `\"\" + \"/\" + <full-segment>`, which if not found falls back correctly to the naive expansion. However, if any root-level path component happens to exist on disk (e.g. `/tmp`, `/Users`, `/var`), the greedy walk prematurely commits to that prefix. The algorithm is documented as \"greedy miss degrades gracefully\" and callers filter with `existsSync + git rev-parse`, so this is not a correctness bug in practice \u2014 but a comment in the fallback path (`// greedy walk may produce an incorrect path; resolveGitRoot discards it`) would make the degradation contract explicit and prevent future callers from trusting the return value blindly.",
+          "confidence": "medium"
+        },
+        {
+          "file": "server/local-branch-scanner.ts",
+          "line": 68,
+          "severity": "low",
+          "category": "design",
+          "title": "isBranchCacheWarm() returns false for committed empty scans, causing redundant scanAllBranches call per request",
+          "body": "For repos that only have a default branch (main/master), `commitScanResult` stores `{branches:[], warnings:[]}` in `cachedScan`. Within TTL, `readCachedIfFresh()` will return the committed `[]` immediately (no git I/O). However, `isBranchCacheWarm()` returns false because `branches.length === 0`, so `handleListBranches` calls `scanAllBranches` on every request \u2014 each of which hits `readCachedIfFresh` and returns immediately. The overhead is minimal (two function calls + a cache lookup), but the intent documented at line 108 (`\"Warm-but-empty is a valid signal and stays fast\"`) is not reflected in `isBranchCacheWarm`'s contract: the function returns false for a case the comment calls \"warm\". The contract inconsistency between `isBranchCacheWarm` and `readCachedIfFresh` for the committed-empty case is not a bug, but the doc comment on `isBranchCacheWarm` should acknowledge that a committed empty result is intentionally reported as not-warm to trigger the inline scanAllBranches path, which then short-circuits via readCachedIfFresh.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review-wip-reviewer-9999": {
+      "status": "complete",
+      "findings": 2,
+      "findings_details": [
+        {
+          "file": "server/project-scanner.ts",
+          "line": 59,
+          "severity": "low",
+          "category": "design",
+          "title": "setProjectsDirForTesting exported from production module",
+          "body": "setProjectsDirForTesting() is exported from a production module. Any code that imports project-scanner.ts in production can call it and silently redirect all repo-root discovery to an arbitrary directory. There is no guard preventing production invocation. Fix: move test-only exports to a separate test-helpers.ts (or a /testing sub-path) that is excluded from production bundles, or add a guard that throws when NODE_ENV !== 'test'.",
+          "confidence": "high"
+        },
+        {
+          "file": "server/__tests__/app-routes-branch-delete.test.ts",
+          "line": 16,
+          "severity": "low",
+          "category": "resource-leak",
+          "title": "warmCacheWithRealRepo leaks temp directories \u2014 no cleanup",
+          "body": "warmCacheWithRealRepo() creates a mkdtempSync directory and returns the path, but both call sites (lines 112 and 132) ignore the return value and never clean up. Each test run leaves a populated git repo in the OS temp directory. Fix: add afterEach cleanup in each test that calls warmCacheWithRealRepo, or make the function accept a cleanup registry. The simplest fix: capture the return value in each it() block and call rm(repoDir, { recursive: true, force: true }) in a finally or afterEach.",
+          "confidence": "high"
+        }
+      ]
+    },
+    "review": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T14:28:20Z"
+    },
+    "skill-isolation": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:41Z",
+      "scanned_files": 0,
+      "duration_ms": 0
+    },
+    "test-quality": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:51:39Z",
+      "scanned_files": 6,
+      "violations": 0,
+      "violations_details": [],
+      "duration_ms": 0
+    },
+    "tests": {
+      "status": "pass",
+      "gate_timestamp": "2026-05-04T17:53:36Z",
+      "test_runner": "bin-test",
+      "fingerprint": "c8b041c49de638539f63bce7c97bc2a2",
+      "failed_subprojects": 0,
+      "test_failures": 0,
+      "missing_tests": 0,
+      "failed_subprojects_details": [],
+      "test_failures_details": [],
+      "missing_tests_details": [],
+      "duration_ms": 114000
+    },
+    "work-structure-sync": {
+      "status": "skip"
+    }
+  },
+  "duration_seconds": 14122.0
+}
